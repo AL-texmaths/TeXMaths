@@ -7,6 +7,8 @@ FLASH_DICT = CONFIG["parameters"]["index documents"][DOC_TYPE]
 
 FLASH_DIR = LATEX_DIR / FLASH_DICT['folder name']
 PREVIEW_DIR = FLASH_DIR / "previews"
+if not PREVIEW_DIR.exists():
+    PREVIEW_DIR.mkdir(parents=True, exist_ok=True)
 PATTERN = get_pattern(DOC_TYPE, 'pdf')
 
 FLASH_PATHES = []

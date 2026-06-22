@@ -90,12 +90,20 @@ def update_doc_dict(doc_dict, logger=print):
     lines = iter(ex_enonce.splitlines())
     line = next(lines)
     while not line.startswith(f'\\startdatakeys'):
-        line = next(lines)
+        try:
+            line = next(lines)
+        except StopIteration:
+            logger(f'Error: Could not find \\startdatakeys in {tex_relpath}')
+            break
     datakeys = ''
     cycle_value = CYCLE_VALUE_DEFAUT
     bo_value = BO_VALUE_DEFAULT
     while not line.startswith(f'\\enddatakeys'):
-        line = next(lines)
+        try:
+            line = next(lines)
+        except StopIteration:
+            logger(f'Error: Could not find \\enddatakeys in {tex_relpath}')
+            break
         # ignorer les lignes commentées commençant par '%' (après espaces éventuels)
         if line.lstrip().startswith('%'):
             continue
@@ -121,12 +129,11 @@ def update_doc_dict(doc_dict, logger=print):
         try:
             line = next(lines)
         except StopIteration:
-            logger(tex_relpath)
+            logger(f'Error: Could not find \\begin{{document}} in {tex_relpath}')
             break
         
 
 def get_doc_dict(tex_relpath, str_id, doc_type, logger=print):
-    print(tex_relpath)
     pdf_path = tex_relpath.with_suffix('.pdf').resolve()
     ex_dict = {
         "type": doc_type,

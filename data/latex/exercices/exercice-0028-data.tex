@@ -1,61 +1,59 @@
 \documentclass[exercice]{thedocument}%
 \usepackage{tabularray}%
-    \startdatakeys
+\startdatakeys
     \source{}
     \cycle{}
     \competencesDuSocle{}
     \connaissancesRequises{}
     \competencesTravaillees{}
 \enddatakeys
-% Ne rien écrire ici
 \begin{document}%
 \def\scale{0.4}
 \par\noindent
 Construire le symétrique de chaque figure par la symétrie axiale d'axe
 la droite rouge.\par\noindent\vspace{10pt}\par\noindent
 \begin{tblr}{colspec={Q[c,m]Q[c,m]Q[c,m]}}
-    a&b&c
-% \bfseries a)
-% \begin{tikzpicture}[scale=\scale]
-%     \coordinate(d0)at(0,-6);
-%     \coordinate(d1)at(0,6);
-%     \coordinate(S0)at(0,-4);
-%     \path(S0)--+(-4,8)coordinate(S1);
-%     \path(S1)--+(-2,-1)coordinate(S2);
-%     \path(S2)--+(4,-8)coordinate(S3);
-%     \filldraw[fill=green!50!white, line width=1.5pt](S0)--(S1)--(S2)--(S3)--cycle;
-%     \draw(-6,-6)grid(6,6);
-%     \draw[red, line width=2pt](d0)--(d1);
-% \end{tikzpicture}
-% &
-% \bfseries a)
-% \begin{tikzpicture}[scale=\scale]
-%     \coordinate(d0)at(-6,0);
-%     \coordinate(d1)at(6,0);
-%     \coordinate(S0)at(-4,-2);
-%     \path(S0)--+(4,-1)coordinate(S1);
-%     \path(S1)--+(2,2)coordinate(S2);
-%     \path(S2)--+(3,0)coordinate(S3);
-%     \path(S3)--+(0,-3)coordinate(S4);
-%     \path(S4)--+(-9,-1)coordinate(S5);
-%     \filldraw[fill=green!50!white, line width=1.5pt](S0)--(S1)--(S2)--(S3)--(S4)--(S5)--cycle;
-%     \draw(-6,-6)grid(6,6);
-%     \draw[red, line width=2pt](d0)--(d1);
-% \end{tikzpicture}
-% &
-% \bfseries c)
-% \begin{tikzpicture}[scale=\scale]
-%     \coordinate(d0)at(-6,0);
-%     \coordinate(d1)at(6,0);
-%     \coordinate(S0)at(0,-1);
-%     \path(S0)--+(4,2)coordinate(S1);
-%     \path(S1)--+(-2,0)coordinate(S2);
-%     \path(S2)--+(-2,5)coordinate(S3);
-%     \path(S3)--+(-2,-5)coordinate(S4);
-%     \path(S4)--+(-2,0)coordinate(S5);
-%     \filldraw[fill=green!50!white, line width=1.5pt](S0)--(S1)--(S2)--(S3)--(S4)--(S5)--cycle;
-%     \draw(-6,-6)grid(6,6);
-%     \draw[red, line width=2pt](d0)--(d1);
-% \end{tikzpicture}
-\end{tblr}
+    \bfseries a)
+    \begin{tikzpicture}[scale=\scale]
+        \coordinate(d0)at(0,-6);
+        \coordinate(d1)at(0,6);
+        \coordinate(S0)at(0,-4);
+        \path(S0)--+(-4,8)coordinate(S1);
+        \path(S1)--+(-2,-1)coordinate(S2);
+        \path(S2)--+(4,-8)coordinate(S3);
+        \filldraw[fill=green!50!white, line width=1.5pt](S0)--(S1)--(S2)--(S3)--cycle;
+        \draw(-6,-6)grid(6,6);
+        \draw[red, line width=2pt](d0)--(d1);
+    \end{tikzpicture}
+    &
+    \bfseries a)
+    \begin{tikzpicture}[scale=\scale]
+        \coordinate(d0)at(-6,0);
+        \coordinate(d1)at(6,0);
+        \coordinate(S0)at(-4,-2);
+        \path(S0)--+(4,-1)coordinate(S1);
+        \path(S1)--+(2,2)coordinate(S2);
+        \path(S2)--+(3,0)coordinate(S3);
+        \path(S3)--+(0,-3)coordinate(S4);
+        \path(S4)--+(-9,-1)coordinate(S5);
+        \filldraw[fill=green!50!white, line width=1.5pt](S0)--(S1)--(S2)--(S3)--(S4)--(S5)--cycle;
+        \draw(-6,-6)grid(6,6);
+        \draw[red, line width=2pt](d0)--(d1);
+    \end{tikzpicture}
+    &
+    \bfseries c)
+    \begin{tikzpicture}[scale=\scale]
+        \coordinate(d0)at(-6,0);
+        \coordinate(d1)at(6,0);
+        \coordinate(S0)at(0,-1);
+        \path(S0)--+(4,2)coordinate(S1);
+        \path(S1)--+(-2,0)coordinate(S2);
+        \path(S2)--+(-2,5)coordinate(S3);
+        \path(S3)--+(-2,-5)coordinate(S4);
+        \path(S4)--+(-2,0)coordinate(S5);
+        \filldraw[fill=green!50!white, line width=1.5pt](S0)--(S1)--(S2)--(S3)--(S4)--(S5)--cycle;
+        \draw(-6,-6)grid(6,6);
+        \draw[red, line width=2pt](d0)--(d1);
+    \end{tikzpicture}
+    \end{tblr}
 \end{document}

@@ -30,6 +30,13 @@
                 "name pattern": "-(\\d{4})\\.([A-Za-z\\.]+)$"
             }
         },
+        "ignored extensions": [
+            ".aux",
+            ".log",
+            ".fls",
+            ".fdb_latexmk",
+            ".synctex.gz"
+        ],
         "string check order": [
             "\\documentclass",
             "\\startdatakeys",

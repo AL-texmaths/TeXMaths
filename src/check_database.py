@@ -5,6 +5,7 @@ Analyse la base de données et affiche les erreurs.
 """
 DOC_TYPES = CONFIG['parameters']['index documents']
 STRING_CHECK_ORDER = CONFIG['parameters']['string check order']
+IGNORED_EXT = CONFIG['parameters']['ignored extensions']
 
 def show_warnings_latex(log_path, logger=print):
     """
@@ -41,6 +42,8 @@ def check_name(doc_type, doc_type_dict, logger=print):
     pattern = doc_type + doc_type_dict["name pattern"]
     for file_path in dir_path.glob('*'):
         if file_path.is_file():
+            if file_path.suffix in IGNORED_EXT:
+                continue
             matches = re.findall(pattern, str(file_path))
             if not matches:
                 if file_path.suffix == '.tex':
@@ -56,7 +59,7 @@ def show_non_matches(unlink=False, logger=print):
     path_to_unlink = []
     path_to_unlink_tex = []
 
-    show_uncorrect = True
+    show_uncorrect = False
     for doc_type, doc_type_dict in DOC_TYPES.items():
         for file_path in check_name(doc_type, doc_type_dict, logger=logger):
             if show_uncorrect:
