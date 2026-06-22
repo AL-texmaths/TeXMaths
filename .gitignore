@@ -10,7 +10,6 @@ data/latex/**/*.fdb_latexmk
 data/latex/**/*.fls
 
 data/graphics
-data/katex
 
 data/tmp
 src/__pycache__
