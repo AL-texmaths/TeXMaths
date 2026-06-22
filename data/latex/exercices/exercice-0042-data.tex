@@ -1,0 +1,286 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!scale=0.25;%
+\!figOrder=ADEBFGCHI;%
+\noindent
+Entoure la figure correspondante quand la figure bleue est
+symétrique de la figure verte par rapport à la droite rouge.\par
+\def\firstof#1#2#3#4#5#6#7#8#9{#1}%
+\def\secondof#1#2#3#4#5#6#7#8#9{#2}%
+\def\thirdof#1#2#3#4#5#6#7#8#9{#3}%
+\def\fourthof#1#2#3#4#5#6#7#8#9{#4}%
+\def\fifthof#1#2#3#4#5#6#7#8#9{#5}%
+\def\sixthof#1#2#3#4#5#6#7#8#9{#6}%
+\def\sevenof#1#2#3#4#5#6#7#8#9{#7}%
+\def\eightof#1#2#3#4#5#6#7#8#9{#8}%
+\def\ninethof#1#2#3#4#5#6#7#8#9{#9}%
+\def\figureA{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(A0)at(-1,-1);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,3)coordinate(A2);
+        \path(A2)--+(-1,0)coordinate(A3);
+        \path(A3)--+(0,-4)coordinate(A4);
+        \path(A4)--+(2,0)coordinate(A5);
+        \coordinate(A)at(4,0);
+        \tkzDefPointsBy[translation=from O to A](A0,A1,A2,A3,A4,A5){B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-4,-3)grid(5,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](0,-3)--(0,4);
+    \end{tikzpicture}
+}%
+\def\figureD{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(0,1);
+        \coordinate(A0)at(-3,0);
+        \coordinate(d0)at(-3,-3);
+        \coordinate(d1)at(4,4);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,3)coordinate(A2);
+        \path(A2)--+(-1,0)coordinate(A3);
+        \path(A3)--+(0,-4)coordinate(A4);
+        \path(A4)--+(2,0)coordinate(A5);
+        \tkzDefPointsBy[reflection=over O--O'](A0,A1,A2,A3,A4,A5){B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-6,-3)grid(6,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\figureG{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(0,1);
+        \coordinate(A0)at(0,0);
+        \coordinate(O1)at(4,2);
+        \coordinate(d0)at(-4,4);
+        \coordinate(d1)at(3,-3);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,-1)coordinate(A2);
+        \path(A2)--+(-3,0)coordinate(A3);
+        \path(A3)--+(0,-1)coordinate(A4);
+        \path(A4)--+(4,0)coordinate(A5);
+        \tkzDefPointsBy[translation=from O to O1](A0,A1,A2,A3,A4,A5)
+            {B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-7,-3)grid(5,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\figureB{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(A0)at(-1,-1);
+        \coordinate(d0)at(0,-3);
+        \coordinate(d1)at(0,4);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,3)coordinate(A2);
+        \path(A2)--+(-1,0)coordinate(A3);
+        \path(A3)--+(0,-4)coordinate(A4);
+        \path(A4)--+(2,0)coordinate(A5);
+        \coordinate(A)at(4,0);
+        \tkzDefPointsBy[reflection=over d0--d1](A0,A1,A2,A3,A4,A5){B0,B1,B2,B3',B4',B5}
+        \path(B3')--+(1,0)coordinate(B3);
+        \path(B4')--+(1,0)coordinate(B4);
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-4,-3)grid(5,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\figureE{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(A0)at(-1,1);
+        \coordinate(d0)at(-3,-3);
+        \coordinate(d1)at(4,4);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,3)coordinate(A2);
+        \path(A2)--+(-1,0)coordinate(A3);
+        \path(A3)--+(0,-4)coordinate(A4);
+        \path(A4)--+(2,0)coordinate(A5);
+        \tkzDefPointsBy[reflection=over d0--d1](A0,A1,A2,A3,A4,A5){B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-6,-3)grid(6,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\figureH{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(0,1);
+        \coordinate(A0)at(0,0);
+        \coordinate(O1)at(4,2);
+        \coordinate(O2)at(2,1);
+        \coordinate(O3)at(2,2);
+        \coordinate(d0)at(-4,4);
+        \coordinate(d1)at(3,-3);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,-1)coordinate(A2);
+        \path(A2)--+(-3,0)coordinate(A3);
+        \path(A3)--+(0,-1)coordinate(A4);
+        \path(A4)--+(4,0)coordinate(A5);
+        \tkzDefPointsBy[translation=from O to O1](A0,A1,A2,A3,A4,A5)
+            {B0',B1',B2',B3',B4',B5'}
+        \tkzDefPointsBy[reflection=over O2--O3](B0',B1',B2',B3',B4',B5')
+        {B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-7,-3)grid(5,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\figureC{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(A0)at(-1,-1);
+        \coordinate(d0)at(0,-3);
+        \coordinate(d1)at(0,4);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,3)coordinate(A2);
+        \path(A2)--+(-1,0)coordinate(A3);
+        \path(A3)--+(0,-4)coordinate(A4);
+        \path(A4)--+(2,0)coordinate(A5);
+        \coordinate(A)at(4,0);
+        \tkzDefPointsBy[reflection=over d0--d1](A0,A1,A2,A3,A4,A5){B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-4,-3)grid(5,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\figureF{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(0,1);
+        \coordinate(A0)at(-3,-1);
+        \coordinate(O1)at(4,0);
+        \coordinate(d0)at(-3,-3);
+        \coordinate(d1)at(4,4);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,3)coordinate(A2);
+        \path(A2)--+(-1,0)coordinate(A3);
+        \path(A3)--+(0,-4)coordinate(A4);
+        \path(A4)--+(2,0)coordinate(A5);
+        \tkzDefPointsBy[reflection=over O--O'](A0,A1,A2,A3,A4,A5)%
+            {B0',B1',B2',B3',B4',B5'}
+        \tkzDefPointsBy[rotation=center O1 angle 180](B0',B1',B2',B3',B4',B5')%
+            {B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-6,-3)grid(6,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\figureI{%
+    \begin{tikzpicture}[baseline=(O.base),scale=\scale]
+        \coordinate(O)at(0,0);
+        \coordinate(A0)at(0,0);
+        \coordinate(d0)at(-4,4);
+        \coordinate(d1)at(3,-3);
+        \path(A0)--+(-1,0)coordinate(A1);
+        \path(A1)--+(0,-1)coordinate(A2);
+        \path(A2)--+(-3,0)coordinate(A3);
+        \path(A3)--+(0,-1)coordinate(A4);
+        \path(A4)--+(4,0)coordinate(A5);
+        \tkzDefPointsBy[reflection=over d0--d1](A0,A1,A2,A3,A4,A5)
+            {B0,B1,B2,B3,B4,B5}
+        \filldraw[fill=Rainbow1-vert](A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \filldraw[fill=Rainbow1-bleu](B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[gray](-7,-3)grid(5,4);
+        \draw(A0)\foreach\num in{1,2,...,5}%
+            {--(A\num)}--cycle;
+        \draw(B0)\foreach\num in{1,2,...,5}%
+            {--(B\num)}--cycle;
+        \draw[red](d0)--(d1);
+    \end{tikzpicture}
+}%
+\def\scale{\<scale;}\def\fig{figure}%
+\begingroup\footnotesize
+\edef\figOrder{\<figOrder;}%
+\vskip10pt\noindent
+\begin{tblr}{colspec=*{3}{Q[c,m]}}
+    \csname figure\expandafter\firstof\figOrder\endcsname
+    &
+    \csname figure\expandafter\secondof\figOrder\endcsname
+    &
+    \csname figure\expandafter\thirdof\figOrder\endcsname
+    \\
+    \csname figure\expandafter\fourthof\figOrder\endcsname
+    &
+    \csname figure\expandafter\fifthof\figOrder\endcsname
+    &
+    \csname figure\expandafter\sixthof\figOrder\endcsname
+    \\
+    \csname figure\expandafter\sevenof\figOrder\endcsname
+    &
+    \csname figure\expandafter\eightof\figOrder\endcsname
+    &
+    \csname figure\expandafter\ninethof\figOrder\endcsname
+\end{tblr}\par
+\endgroup
+\end{document}

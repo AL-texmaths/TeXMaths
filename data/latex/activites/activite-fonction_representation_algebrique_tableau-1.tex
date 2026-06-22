@@ -1,0 +1,44 @@
+\documentclass[activite]{thedocument}
+\usepackage{tabularray}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    On s'interesse à la représentation d'une fonction $f$. Il y a plusieurs possibilités,
+    chacune ayant leurs avantages ou inconvénients.
+    \begin{enumerate}
+        \item\begin{enumerate}
+            \item Représentation sous forme de {\bfseries tableau}~:\par\medskip\noindent
+            \begin{tblr}{column{1}={font=\bfseries,bg=orange!15},hlines, vlines, column{2-6}={wd=30pt}}
+                Antécédent $x$&-2&-1&0&1&2\\
+                Image $f(x)$&-8&-5&-2&1&4
+            \end{tblr}
+            \item Quels sont les avantages/inconvénients de cette représentation~?
+            \dotedline
+            \dotedline
+        \end{enumerate}
+        \item\begin{enumerate}
+            \item Représentation sous forme d'{\bfseries expression littérale}~:
+            \fbox{$f(x)=3x-2$}
+            \item Quels sont les avantages/inconvénients de cette représentation~?
+            \dotedline
+            \dotedline
+        \end{enumerate}
+        \item \begin{enumerate}
+            \item Représentation sous forme de {\bfseries graphique}.\par\noindent
+            \noindent
+            \begin{tikzpicture}[scale=0.9]
+                \simpleFunc xmin=-3,xmax=2,ymin=-3,ymax=4,gridstep=0.5,func=f=3*x-2;
+            \end{tikzpicture}
+            \item Quels sont les avantages/inconvénients de cette représentation~?
+            \dotedline
+            \dotedline
+        \end{enumerate}
+    \end{enumerate}
+    
+\end{document}

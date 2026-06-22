@@ -1,0 +1,525 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-cycle4-BO_2020}[19/06/2022]
+
+\makeatletter
+\def\nbtoalph#1{\@alph{#1}}
+\def\nbtoAlph#1{\@Alph{#1}}
+
+\def\write@oe{oe}
+\def\write@protect{}
+\def\write@mapstochar{}
+\def\write@rightarrow{ fleche }
+\def\fourthcycle@activate@writing{%
+    \let\oe\write@oe
+    \let\protect\write@protect
+    \let\mapstochar\write@mapstochar
+    \let\rightarrow\write@rightarrow
+}
+
+\def\deftoks#1{\expandafter\newtoks\csname#1\endcsname}
+\def\settoks#1#2{\csname#1\endcsname={#2}}
+\def\thetoks#1{\the\csname#1\endcsname}
+\def\step#1{#1=\expandafter{\expandafter!\the#1}}
+\def\steptoks#1{\expandafter\step\csname#1\endcsname}
+
+\def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
+\def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
+\def\edefunivar#1[#2]{\expandafter\edef\csname\string#1[#2]\endcsname}
+
+\newunivar\fourthcycle@theme
+\newunivar\fourthcycle@attendu
+\newunivar\fourthcycle@cns
+\newunivar\fourthcycle@cmp
+\newunivar\fourthcycle@total
+
+\newcounter{fourthcycle@theme}
+\newcounter{fourthcycle@attendu}
+\newcounter{fourthcycle@cns}
+\newcounter{fourthcycle@cmp}
+\newcounter{fourthcycle@subcns}
+\newcounter{fourthcycle@subcmp}
+
+\counterwithin{fourthcycle@attendu}{fourthcycle@theme}
+\counterwithin{fourthcycle@cns}{fourthcycle@attendu}
+\counterwithin{fourthcycle@cmp}{fourthcycle@attendu}
+\counterwithin{fourthcycle@subcns}{fourthcycle@cns}
+\counterwithin{fourthcycle@subcmp}{fourthcycle@cmp}
+
+\def\endthemes{\edefunivar\fourthcycle@total[themes]{\arabic{fourthcycle@theme}}}
+\def\endattendus{\edefunivar\fourthcycle@total[\Alph{fourthcycle@theme}]{\arabic{fourthcycle@attendu}}}
+\def\endcns{\edefunivar\fourthcycle@total[\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}CNS]{\arabic{fourthcycle@cns}}}
+\def\endcmp{\edefunivar\fourthcycle@total[\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}CMP]{\arabic{fourthcycle@cmp}}}
+\def\endsubcns{\edefunivar\fourthcycle@total
+    [\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}CNS\alph{fourthcycle@cns}]{\arabic{fourthcycle@subcns}}}
+\def\endsubcmp{\edefunivar\fourthcycle@total
+    [\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}CMP\alph{fourthcycle@cmp}]{\arabic{fourthcycle@subcmp}}}
+
+\def\subcnstotal{\fourthcycle@total[\nbtoAlph\themefor\attendufor CNS\nbtoalph\cnsfor]}
+\def\subcmptotal{\fourthcycle@total[\nbtoAlph\themefor\attendufor CMP\nbtoalph\cmpfor]}
+
+\def\newtheme#1{\stepcounter{fourthcycle@theme}\defunivar\fourthcycle@theme[\Alph{fourthcycle@theme}]{#1}}
+\def\newattendu#1{\stepcounter{fourthcycle@attendu}\defunivar\fourthcycle@attendu
+    [\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}]{#1}}
+\def\new@cns#1{
+    \stepcounter{fourthcycle@cns}
+    \deftoks{CNS\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}*occ}
+    \settoks{CNS\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}*occ}{}
+    \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}*}
+    \defunivar\fourthcycle@cns[\tmpkey]{#1}%
+    \begingroup\fourthcycle@activate@writing\global\addtofull@cns@fourthcycle{\tmpkey}{#1}\endgroup
+    }
+\def\new@cmp#1{
+    \stepcounter{fourthcycle@cmp}
+    \deftoks{CMP\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}*occ}
+    \settoks{CMP\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}*occ}{}
+    \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}*}
+    \defunivar\fourthcycle@cmp[\tmpkey]{#1}%
+    \begingroup\fourthcycle@activate@writing\global\addtofull@cmp@fourthcycle{\tmpkey}{#1}\endgroup
+    }
+\def\newsubcns#1{
+    \stepcounter{fourthcycle@subcns}
+    \deftoks{CNS\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}\arabic{fourthcycle@subcns}occ}
+    \settoks{CNS\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}\arabic{fourthcycle@subcns}occ}{}
+    \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}\arabic{fourthcycle@subcns}}
+    \defunivar\fourthcycle@cns[\tmpkey]{#1}%
+    \begingroup\fourthcycle@activate@writing\global\addtofull@cns@fourthcycle{\tmpkey}{#1}\endgroup
+    }
+\def\newsubcmp#1{
+    \stepcounter{fourthcycle@subcmp}
+    \deftoks{CMP\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}\arabic{fourthcycle@subcmp}occ}
+    \settoks{CMP\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}\arabic{fourthcycle@subcmp}occ}{}
+    \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}\arabic{fourthcycle@subcmp}}
+    \defunivar\fourthcycle@cmp[\tmpkey]{#1}%
+    \begingroup\fourthcycle@activate@writing\global\addtofull@cmp@fourthcycle{\tmpkey}{#1}\endgroup
+    }
+
+\def\addtofull@cns@fourthcycle#1#2{%
+    \ifx\full@cns@fourthcycle\undefined\edef\full@cns@fourthcycle{"#1":"#2"}\else
+        \edef\full@cns@fourthcycle{\full@cns@fourthcycle,"#1":"#2"}
+    \fi
+    }
+\def\addtofull@cmp@fourthcycle#1#2{%
+    \ifx\full@cmp@fourthcycle\undefined\edef\full@cmp@fourthcycle{"#1":"#2"}\else
+        \edef\full@cmp@fourthcycle{\full@cmp@fourthcycle,"#1":"#2"}
+    \fi
+    }
+
+\def\new@cns@write#1{\new@cns{#1}\addtofull@cns@fourthcycle{#1}}
+\def\new@cmp@write#1{\new@cmp{#1}\addtofull@cmp@fourthcycle{#1}}
+\let\newcns\new@cns
+\let\newcmp\new@cmp
+
+\global\def\usecns[#1]{\steptoks{CNS#1occ}\fourthcycle@cns[#1]}
+\global\def\usecmp[#1]{\steptoks{CMP#1occ}\fourthcycle@cmp[#1]}
+
+\newcounter{fourthcycle@occ}
+
+\def\gobone#1{}
+
+\def\catalogue@loop#1{%
+    \ifnum#1=0
+    \else
+    \edef\tempa{\expandafter\gobone#1}%
+    \stepcounter{fourthcycle@occ}\catalogue@loop\tempa\fi
+}
+\def\@countfourthcycle@occ#1{\setcounter{fourthcycle@occ}{0}\catalogue@loop#1\thefourthcycle@occ}
+\def\countocc#1{\begingroup\edef\temp{\thetoks{#1fourthcycle@occ}}\@countfourthcycle@occ\temp\endgroup}
+\makeatother
+% ========================================
+% DEFINITION DES CONNAISSANCES/COMPETENCES
+% ========================================
+\newtheme{Nombres et calculs}
+\newattendu{Utiliser les nombres pour comparer, calculer et résoudre des
+    problèmes}
+\newcns{Nombres décimaux (positifs et négatifs), notion d'opposé}
+    \newsubcns{Nombres entiers relatifs}
+    \newsubcns{Nombres décimaux relatifs}
+    \newsubcns{Notion d'opposé}
+    \endsubcns
+
+\newcns{Fractions, nombres rationnels (positifs ou négatifs), notion d'inverse}
+    \newsubcns{Fraction quotient}
+    \newsubcns{Fraction rapport}
+    \newsubcns{Nombre rationnel (positif ou négatif)}
+    \newsubcns{Notion d'inverse}
+    \endsubcns
+    
+\newcns{Les carrés parfaits de 1 à 144}\endsubcns
+    
+\newcns{Définition de la racine carrée}\endsubcns
+    
+\newcns{Les préfixes de nano à giga}\endsubcns
+    
+\newcns{Égalité de fractions (démonstration possible à partir de la définition
+    du quotient)}\endsubcns
+    
+\newcns{Ordre sur les nombres rationnels en écriture décimale ou fractionnaire}
+    \newsubcns{Ordre sur les nombres rationnels en écriture décimale}
+    \newsubcns{Ordre sur les nombres rationnels en écriture fractionnaire}
+    \endsubcns
+    
+\newcns{Somme, différence, produit, quotient de nombres décimaux, de deux
+    nombres rationnels}
+    \newsubcns{Somme, différence, produit et quotient de nombres décimaux positifs}
+    \newsubcns{Priorités opératoires}
+    \newsubcns{Somme de nombres décimaux relatifs}
+    \newsubcns{Différence de nombres décimaux relatifs}
+    \newsubcns{Produit et quotient de nombres décimaux relatifs}
+    \newsubcns{Somme et différence de nombres rationnels positifs}
+    \newsubcns{Somme et différence de nombres rationnels relatifs}
+    \newsubcns{Produit et quotient de nombres rationnels positifs}
+    \newsubcns{Produit et quotient de nombres rationnels relatifs}
+    \endsubcns
+    
+\newcns{Puissance d'un nombre (exposants entiers, positifs ou négatifs)}\endsubcns
+    
+\newcns{Notation scientifique}
+
+
+\endsubcns
+\endcns
+\newcmp{Utiliser diverses représentations d'un même nombre (écriture décimale
+    ou fractionnaire, notation scientifique, repérage sur une droite graduée)}
+    \newsubcmp{Utiliser l'écriture décimale d'un nombre}
+    \newsubcmp{Utiliser l'écriture fractionnaire d'un nombre}
+    \newsubcmp{Utiliser l'écriture scientifique d'un nombre}
+    \newsubcmp{Utiliser la droite graduée pour représenter un nombre}
+    \endsubcmp
+    
+\newcmp{Passer d'une représentation d'un nombre à une autre}\endsubcmp
+    
+\newcmp{Comparer, ranger, encadrer des nombres rationnels en écriture décimale,
+    fractionnaire ou scientifique}
+    \newsubcmp{Comparer, ranger, encadrer des nombres en écriture décimale}
+    \newsubcmp{Comparer, ranger, encadrer des nombres en écriture
+        fractionnaire}
+    \newsubcmp{Comparer, ranger, encadrer des nombres en écriture scientifique}
+    \endsubcmp
+    
+\newcmp{Repérer ou placer un nombre rationnel sur une droite graduée}
+    \newsubcmp{Repérer ou placer un nombre entier relatif sur une droite
+        graduée}
+    \newsubcmp{Repérer ou placer un nombre rationnel en écriture fractionnaire
+        sur une droite graduée}
+    \endsubcmp
+    
+\newcmp{Associer à des objets des ordres de grandeur (par exemple taille d'un
+    atome, d'une bactérie, d'une alvéole pulmonaire, longueur de l'intestin,
+    capacité de stockage d'un disque dur, vitesses du son et de la lumière,
+    population française et mondiale, distance Terre-Lune, distance du Soleil
+    à l'étoile la plus proche, etc.)}\endsubcmp
+    
+\newcmp{Calculer avec des nombres relatifs, des fractions, des nombres
+    décimaux}
+    \newsubcmp{Calculer avec des nombres décimaux positifs}
+    \newsubcmp{Calculer avec des nombres décimaux relatifs}
+    \newsubcmp{Calculer avec des nombres entiers relatifs}
+    \newsubcmp{Calculer avec des nombres rationnels positifs en écriture
+        fractionnaire}
+    \newsubcmp{Calculer avec des nombres rationnels relatifs en écriture
+        fractionnaire}
+    \newsubcmp{Écrire un enchaînement d'opérations sous la forme d'une
+    expression numérique}
+    \endsubcmp
+    
+\newcmp{Vérifier la vraisemblance d'un résultat, notamment en estimant
+    son ordre de grandeur}\endsubcmp
+       
+\newcmp{Effectuer des calculs numériques simples impliquant des
+    puissances, notamment en utilisant la notation scientifique}
+    \newsubcmp{Effectuer des calculs simple impliquant des puissances}
+    \newsubcmp{Effectuer des calculs simple impliquant des nombres en écriture
+        scientifique}
+    \endsubcmp
+    
+\newcmp{Utiliser la racine carrée pour résoudre des problèmes,
+    notamment géométriques}\endsubcmp
+    
+\newcmp{Effectuer des calculs et des comparaisons pour traiter des
+    problèmes}
+    \newsubcmp{Effectuer des calculs pour traiter des problèmes}
+    \newsubcmp{Effectuer des comparaisons pour traiter des problèmes}
+    \endsubcmp
+\endcmp
+
+\newattendu{Comprendre et uiliser les notions de divisibilité et de nombres
+    premiers}
+    \newcns{Multiples et diviseurs}\endsubcns
+    \newcns{Critères de divisibilité par 2, 3, 5, 9, 10}\endsubcns
+    \newcns{Division euclidienne (quotient, reste)}\endsubcns
+    \newcns{Définition d'un nombre premier ; liste des nombres premiers
+        inférieurs ou égaux à 30}\endsubcns
+    \newcns{Fractions irréductibles}\endsubcns
+\endcns
+    \newcmp{Déterminer si un entier est ou n'est pas multiple ou diviseur
+        d'un autre entier}\endsubcmp
+    \newcmp{Déterminer les nombres premiers inférieurs ou égaux à 100}
+        \endsubcmp
+    \newcmp{Utiliser les critères de divisibilité par 2, 3, 5, 9, 10}\endsubcmp
+    \newcmp{Déterminer les diviseurs d'un nombre (à la main, à l'aide d'un
+        tableur, d'une calculatrice)}\endsubcmp
+    \newcmp{Décomposer un nombre entier en un produit de facteurs premiers
+        (à la main, à l'aide d'un tableur, d'une calculatrice ou d'un
+        logiciel)}
+    \newsubcmp{Décomposer un nombre entier en un produit de facteurs premier à
+        la main}
+    \newsubcmp{Décomposer un nombre entier en un produit de facteurs premier à
+    la calculatrice}
+    \endsubcmp
+    \newcmp{Simplifier une fraction pour la rendre irréductible}\endsubcmp
+    \newcmp{Modéliser et résoudre des problèmes mettant en jeu la
+        divisibilité (engrenages, conjonction de phénomènes, etc.)}\endsubcmp
+\endcmp
+
+\newattendu{Utiliser le calcul littéral}
+    \newcns{Notions d'inconnue, d'équation, d'indéterminée, d'identité}
+
+        \newsubcns{Expression littérale et variable}
+        \newsubcns{Évaluer une expression littérale}
+        \newsubcns{Tester une expression littérale}
+        \newsubcns{Notion d'inconnue}
+        \newsubcns{Notion d'équation}
+        \endsubcns
+    \newcns{Propriétés de distributivité (simple et double)}
+    \newsubcns{Propriété de distributivité simple}
+    \newsubcns{Propriété de distributivité double}
+    \endsubcns
+    \newcns{Annulation d'un produit (démonstration possible par
+        conjonction de cas)}\endsubcns
+    \newcns{Factorisation de $a^2-b^2$}\endsubcns
+\endcns
+    \newcmp{Développer, factoriser, réduire des expressions algébriques
+        dans des cas très simples}
+    \newsubcmp{Développer des expressions algébriques}
+    \newsubcmp{Factoriser des expressions algébriques}
+    \newsubcmp{Réduire des expressions algébriques}
+    \endsubcmp
+    \newcmp{Utiliser le calcul littéral pour traduire une propriété
+        générale, pour démontrer un résultat général, pour valider ou
+        réfuter une conjecture, pour modéliser une situation}
+    \newsubcmp{Utiliser le calcul littéral pour traduire une propriété générale.}
+    \newsubcmp{Utiliser le calcul littéral pour démontrer un résultat général.}
+    \newsubcmp{Utiliser le calcul littéral pour valider ou réfuter une conjecture.}
+    \newsubcmp{Utiliser le calcul littéral pour modéliser une situation.}
+    \endsubcmp
+    \newcmp{Mettre un problème en équation en vue de sa résolution}\endsubcmp
+    \newcmp{Résoudre algébriquement des équations du premier degré ou s'y
+        ramenant (équations produits), en particulier des équations du type
+        $x^2=a$}
+    \newsubcmp{Résoudre algébriquement des équations du premier degré}
+    \newsubcmp{Résoudre algébriquement des équations produit}
+    \endsubcmp
+\endcmp
+\endattendus
+
+\newtheme{Organisation et gestion de données, fonctions}
+
+\newattendu{Interpréter, représenter et traiter des données}
+    \newcns{Effectifs, fréquences}\endsubcns
+    \newcns{Indicateurs de position : moyenne, médiane}\endsubcns
+    \newcns{Indicateur de dispersion : étendue}\endsubcns
+\endcns
+    \newcmp{Recueillir des données, les organiser}\endsubcmp
+    \newcmp{Lire et interpréter des données sous forme de données brutes,
+        de tableau, de diagramme (bâtons, circulaire ou histogramme)}\endsubcmp
+    \newcmp{Utiliser un tableur-grapheur pour représenter des données
+        sous la forme d'un tableau ou d'un diagramme}\endsubcmp
+    \newcmp{Calculer des effectifs, des fréquences}\endsubcmp
+    \newcmp{Calculer et interpréter des indicateurs de position ou de
+        dispersion d'une série statistique}\endsubcmp
+\endcmp
+
+\newattendu{Comprendre et utiliser des notions élémentaires de probabilités}
+    \newcns{Vocabulaire des probabilités}\endsubcns
+    \newcns{Notion de probabilité ; la probabilité d'un événement est
+        comprise entre 0~et~1}\endsubcns
+    \newcns{Probabilité d'événements certains, impossibles, contraires}
+        \endsubcns
+\endcns
+    \newcmp{Aborder les questions relatives au hasard à partir de problèmes
+        simples}\endsubcmp
+    \newcmp{Calculer des probabilités dans des cas très simples (par
+        exemple évaluation des chances de gain dans un jeu)}\endsubcmp
+    \newcmp{Exprimer des probabilités sous diverses formes (décimale,
+        fractionnaire, pourcentage)}\endsubcmp
+    \newcmp{Faire le lien entre fréquence et probabilité}\endsubcmp
+\endcmp
+
+\newattendu{Résoudre des problèmes de proportionnalité}
+    \newcns{Coefficient de proportionnalité}\endsubcns
+    \newcns{Taux d'évolution, coefficient multiplicateur}\endsubcns
+    \newcns{Notion de ratio}\endsubcns
+\endcns
+    \newcmp{Reconnaître une situation de proportionnalité ou de non-%
+        proportionnalité}\endsubcmp
+    \newcmp{Calculer une quatrième proportionnelle}\endsubcmp
+    \newcmp{Partager une quantité en deux ou trois parts selon un ratio
+    donné}\endsubcmp
+    \newcmp{Utiliser une formule liant deux grandeurs dans une situation
+        de proportionnalité}\endsubcmp
+    \newcmp{Résoudre des problèmes utilisant la proportionnalité
+        (pourcentages, échelles, agrandissement, réduction)}\endsubcmp
+\endcmp
+
+\newattendu{Comprendre et utiliser la notion de fonction}
+    \newcns{variable, fonction, antécédent, image}\endsubcns
+    \newcns{Différent modes de représentation d'une fonction}\endsubcns
+    \newcns{Notations $f(x)$ et $x\mapsto f(x)$}\endsubcns
+    \newcns{Fonction linéaire, affine}\endsubcns
+\endcns
+    \newcmp{Passer d'un mode de représentation à un autre}\endsubcmp
+    \newcmp{Déterminer à partir d'un mode de représentation, l'image ou
+    un antécédent d'un nombre par une fonction}\endsubcmp
+    \newcmp{Représentation graphiquement une fonction linéaire, ou affine}
+        \endsubcmp
+    \newcmp{Modéliser un phénomène continu par une fonction}\endsubcmp
+    \newcmp{Modéliser une situation de proportionnalité à l'aide d'une
+        fonction linéaire}\endsubcmp
+    \newcmp{Résoudre des problèmes modélisés par des fonctions}\endsubcmp
+\endcmp
+\endattendus
+
+\newtheme{Grandeurs et mesures}
+\newattendu{Calculer avec des grandeurs mesurables ; exprimer les résultats
+    dans les unités adaptées}
+    \newcns{Notion de grandeur produit, grandeur quotient}
+        \newsubcns{Notion de grandeur produit}
+        \newsubcns{Notion de grandeur quotient}
+    \endsubcns
+    \newcns{Aire du parallélogramme}\endsubcns
+    \newcns{Volume d'un prisme, d'une pyramide, d'un cylindre, d'un cône,
+        d'une boule}
+        \newsubcns{Volume d'un prisme}
+        \newsubcns{Volume d'une pyramide}
+        \newsubcns{Volume d'un cylindre}
+        \newsubcns{Volume d'un cône}
+        \newsubcns{Volume d'une boule}
+        \endsubcns
+    \newcns{Correspondance entre unités de volume et de contenance}\endsubcns
+\endcns
+    \newcmp{Mener des calculs impliquant des grandeurs mesurables,
+        notamment des grandeurs composées, exprimer les résultats dans
+        des unités adaptées}\endsubcmp
+    \newcmp{Vérifier la cohérence des résultats d'un point de vue des
+        unités}\endsubcmp
+    \newcmp{Effectuer des conversions d'unités}\endsubcmp
+\endcmp
+
+\newattendu{Comprendre l'effet de quelques transformations sur les figures
+    géométriques}
+    \newcns{Effet d'un déplacement, d'un agrandissement, ou d'une réduction
+    sur les longueurs, les angles, les aires et les volumes}
+        \newsubcns{Effet d'une symétrie axiale et centrale sur les longueurs,
+            les angles, les aires et les volumes}
+        \newsubcns{Effet d'une translation sur les longueurs, les angles, les
+            aires et les volumes}
+            \newsubcns{Effet d'une rotation sur les longueurs, les angles, les
+            aires et les volumes}
+        \newsubcns{Effet d'une homothétie sur les longueurs, les angles,
+        les aires et les volumes}
+    \endsubcns
+\endcns
+    \newcmp{Utiliser un rapport de réduction ou d'agrandissement
+        (architecture, maquettes) pour calculer des longueurs, des aires,
+        des volumes}\endsubcmp
+    \newcmp{Utiliser l'échelle d'une carte}\endsubcmp
+    \newcmp{Utiliser des transformations pour calculer des grandeurs
+    géométriques}\endsubcmp
+    \newcmp{Faire le lien entre la proportionnalité et certaines
+        configurations ou transformations géométriques (agrandissment,
+        réduction, triangles semblables, homothéties)}\endsubcmp
+\endcmp
+\endattendus
+
+\newtheme{Espace et géométrie}
+\newattendu{Représenter l'espace}
+    \newcns{Abscisse, ordonnée, altitude}\endsubcns
+    \newcns{Latitude, longitude}\endsubcns
+\endcns
+    \newcmp{(Se) repérer sur une droite graduée, dans le plan muni d'un
+        repère orthogonal, dans un parallélépipède rectangle, sur une
+        sphère}
+        \newsubcns{(Se) repérer sur une droite graduée}
+        \newsubcns{(Se) repérer dans le plan muni d'un repère orthogonal}
+        \newsubcns{(Se) repérer dans un parallélépipède rectangle}
+        \newsubcns{(Se) repérer sur une sphère}
+        \endsubcmp
+    \newcmp{Reconnaître des solides (pavé droit, cube, prisme, cylindre
+        pyramide, cône, boule)}\endsubcmp
+    \newcmp{Construire et mettre en relation des représentations de ces
+        solides (vues en perspective cavalière, de face, de dessus,
+        sections places, patrons, etc.)}\endsubcmp
+    \newcmp{Utiliser un logiciel de géométrie dynamique pour représenter
+        des solides.}\endsubcmp
+\endcmp
+\newattendu{Utiliser des notions de géométrie plane pour démontrer}
+    \newcns{Caractérisation angulaire du parallélisme : angles alternes
+        internes, angles correspondants}\endsubcns
+    \newcns{Triangle (somme des angles, hauteurs et médiatrice,
+        inégalité triangulaire, cas d'égalité, triangles semblables)}
+        \newsubcns{Somme des angles d'un triangle}
+        \newsubcns{Hauteurs d'un triangle}
+        \newsubcns{Médiatrices d'un triangle}
+        \newsubcns{Inégalité triangulaire}
+        \newsubcns{Cas d'égalité des triangles}
+        \newsubcns{Triangles semblables}
+        \newsubcns{Constructibilité d'un triangle}
+        \endsubcns
+    \newcns{Parallélogramme (une définition et une propriété
+        caractéristique)}\endsubcns
+    \newcns{Théorème de Thalès et réciproque (configuation des triangles
+        emboîtés et du papillon)}
+        \newsubcns{Théorème de Thalès (configuration des triangles embôités
+        et du papillon)}
+        \newsubcns{Réciproque du théorème de Thalès (configuration des
+            triangles embôités et du papillon)}
+        \endsubcns
+    \newcns{Théorème de Pythagore et sa réciproque}
+        \newsubcns{Théorème de Pythagore (sens direct)}
+        \newsubcns{Théorème de Pythagore (réciproque)}
+    \endsubcns
+    \newcns{Lignes trigonométriques dans un triangle rectangle :
+        sinus, cosinus, tangente}\endsubcns
+\endcns
+    \newcmp{Mettre en \oe uvre ou écrire un protocole de construction
+        d'une figure géométrique}\endsubcmp
+    \newcmp{Faire le lien entre les cas d'égalités des triangles et la
+        construction d'un triangle à partir de la donnée de longueurs des
+        côtés et/ou de mesures d'angles}\endsubcmp
+    \newcmp{Comprendre l'effet d'une translation, d'une symétrie (axiale
+        et centrale), d'une rotation, d'une homothétie sur une figure}
+        \newsubcmp{Comprendre l'effet d'une symétrie (axiale et centrale) sur
+            une figure}
+        \newsubcmp{Comprendre l'effet d'une translation sur une figure}
+        \newsubcmp{Comprendre l'effet d'une rotation sur une figure}
+        \newsubcmp{Comprendre l'effet d'une homothétie sur une figure}
+        \endsubcmp
+    \newcmp{Mobiliser les connaissances des figures, des configurations et
+        des transformations au programme pour déterminer des grandeurs
+        géométriques}\endsubcmp
+    \newcmp{Mener des raisonnements et s'initier à la démonstration en
+        utilisant les propriétés des figures, des configurations et des
+        transformations}\endsubcmp
+\endcmp
+\endattendus
+
+\newtheme{Algorithmique et programmation}
+\newattendu{Écrire, mettre au point, exécuter un programme}
+    \newcns{Notions d'algorithmique et de programme}\endsubcns
+    \newcns{Notion de variable informatique}\endsubcns
+    \newcns{Déclenchement d'une action par un événement}\endsubcns
+    \newcns{Séquences d'instructions, boucles, instructions
+        conditionnelles}
+        \newsubcns{Séquences d'instructions}
+        \newsubcns{boucles}
+        \newsubcns{Instructions conditionnelles}
+        \endsubcns
+\endcns
+    \newcmp{Écrire, mettre au point (tester, corriger) et exécuter un
+    programme en réponse à un problème donné}
+    \newsubcmp{Compléter un programme en réponse à un problème donnée}
+    \newsubcmp{Mettre au point un programme en réponse à un problème donnée}
+    \endsubcmp
+\endcmp
+\endattendus
+\endthemes

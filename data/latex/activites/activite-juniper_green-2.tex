@@ -1,0 +1,47 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\begin{center}
+    \Large Juniper green
+\end{center}
+{\bfseries Règle supplémentaire : le premier joueur doit commencer le jeu par un nombre pair.\par}
+\vskip20pt
+{\centering
+\begin{tikzpicture}
+    \def\rectanglesize{0.3}
+    \foreach\i in{0,1,...,3}{
+        \foreach\j in{1,2,...,5}{
+            \draw (\j-\rectanglesize,-\i-\rectanglesize)rectangle(\j+\rectanglesize,-\i+\rectanglesize);
+            \draw node at(\j,-\i){\number\numexpr5*\i+\j};
+        }
+    }
+\end{tikzpicture}\par}
+\rule{\linewidth}{1pt}\vskip10pt
+{\centering
+\begin{tikzpicture}
+    \def\rectanglesize{0.3}
+    \foreach\i in{0,1,...,3}{
+        \foreach\j in{1,2,...,5}{
+            \draw (\j-\rectanglesize,-\i-\rectanglesize)rectangle(\j+\rectanglesize,-\i+\rectanglesize);
+            \draw node at(\j,-\i){\number\numexpr5*\i+\j};
+        }
+    }
+\end{tikzpicture}\par}\noindent
+\rule{.99\linewidth}{1pt}\vskip10pt
+{\centering
+\begin{tikzpicture}
+    \def\rectanglesize{0.3}
+    \foreach\i in{0,1,...,3}{
+        \foreach\j in{1,2,...,5}{
+            \draw (\j-\rectanglesize,-\i-\rectanglesize)rectangle(\j+\rectanglesize,-\i+\rectanglesize);
+            \draw node at(\j,-\i){\number\numexpr5*\i+\j};
+        }
+    }
+\end{tikzpicture}\par}
+\end{document}

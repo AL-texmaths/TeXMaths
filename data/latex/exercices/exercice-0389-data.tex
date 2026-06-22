@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}[scale=0.5]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(3,0){B}
+    \tkzDefPoint(4,2){C}
+    \tkzDefPoint(-6,0){O}
+    \tkzLabelPoints(A,B,C)
+    \tkzDrawPolygon(A,B,C)
+    \tkzDefPointBy[homothety=center O ratio 3 ](A)\tkzGetPoint{A'}
+    \tkzDefPointBy[homothety=center O ratio 3 ](B)\tkzGetPoint{B'}
+    \tkzDefPointBy[homothety=center O ratio 3 ](C)\tkzGetPoint{C'}
+    \tkzLabelPoints(A',B',C')
+    \tkzDrawPolygon(A',B',C')
+\end{tikzpicture}\vskip10pt\noindent
+Par quel nombre le triangle ABC a-il était multiplé pour obtenir le triangle
+A'B'C' ?
+\end{document}

@@ -1,0 +1,51 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{mdframed}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Voici deux programmes de calcul :\vskip10pt
+{\centering\begin{minipage}[t]{120pt}
+    \begin{mdframed}[
+            backgroundcolor=blue!10!white,
+            middlelinecolor=blue!50!black,
+            roundcorner=5pt%
+        ]
+        {\color{blue!50!black}\centering\bfseries Programme A\par\vskip8pt}
+        $\bullet$\hskip5pt Choisir un nombre.\vskip5pt
+        $\bullet$\hskip5pt Multipler par 7\vskip5pt
+        $\bullet$\hskip5pt Ajouter 8\vskip5pt
+        \hbox{}
+    \end{mdframed}
+\end{minipage}\hskip50pt%
+\begin{minipage}[t]{120pt}
+    \begin{mdframed}[
+        backgroundcolor=green!10!white,
+        middlelinecolor=green!50!black,
+        roundcorner=5pt%
+    ]
+        {\color{green!50!black}\centering\bfseries Programme B\par\vskip8pt}
+        $\bullet$\hskip5pt Choisir un nombre.\vskip5pt
+        $\bullet$\hskip5pt Ajouter 5\vskip5pt
+        $\bullet$\hskip5pt Multipler par 3\vskip5pt
+        $\bullet$\hskip5pt Soustraire 2
+    \end{mdframed}
+\end{minipage}
+\par}\vskip10pt
+\begin{enumerate}
+    \item Que donne le programme A si l'on choisit 9 comme nombre
+    de départ ?
+    \item Que donne le programme B si l'on choisit 4 comme nombre de
+    départ~?
+\end{enumerate}
+On désigne par la lettre $a$ le nombre de départ pour le programme A et par
+la lettre $b$ le nombre de départ pour le programme~B.
+\begin{enumerate}\setcounter{enumi}2
+    \item Que donne le programme A~?
+    \item Que donne le programme B~?
+\end{enumerate}
+\end{document}

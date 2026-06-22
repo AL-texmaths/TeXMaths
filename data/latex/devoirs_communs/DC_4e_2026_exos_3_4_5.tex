@@ -1,0 +1,138 @@
+\documentclass{article}
+
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{tabularray}
+\usepackage{eurosym}
+
+% Hexagone régulier, sommet en haut
+% #1 (optionnel) : rayon en cm (défaut : 1)
+% #2 : coordonnées du centre (ex. "0,0")
+\newcommand{\hexagone}[2][1]{%
+  \begin{scope}[shift={(#2)}]
+    \draw (90:#1) -- (30:#1) -- (-30:#1) -- (-90:#1) -- (-150:#1) -- (150:#1) -- cycle;
+  \end{scope}%
+}
+\def\identity#1{#1}
+\let\mathspoint\identity
+
+\begin{document}
+
+    La figure suivante est constituée de dix hexagones réguliers numérotés de 1 à
+    10.\smallskip\par\noindent
+    L'hexagone 5 est noté \mathspoint{ABCDEF}. Le point I est le milieu du segment [AB].
+    \begin{tikzpicture}[scale=1, baseline=(current bounding box.center)]
+    % Dix hexagones (rayon 1, disposition 3-4-3)
+    \foreach \num/\cx/\cy in {
+        1/0/1.5,      2/1.732/1.5,  3/3.464/1.5,
+        4/-0.866/0,   5/0.866/0,    6/2.598/0,    7/4.330/0,
+        8/0/-1.5,     9/1.732/-1.5, 10/3.464/-1.5%
+    }{
+        \hexagone{\cx,\cy}
+        \node[font=\small] at (\cx,\cy) {\num};
+    }
+    % Sommets A–F de l'hexagone 5, sens trigo depuis A (fond blanc pour visibilité)
+    \node[right,fill=white,inner sep=1pt] at (1.75,-0.35) {\mathspoint{A}};
+    \node[right,fill=white,inner sep=1pt] at (1.732, 0.5) {\mathspoint{B}};
+    \node[above,fill=white,inner sep=1pt] at (0.866, 1)   {\mathspoint{C}};
+    \node[left, fill=white,inner sep=1pt] at (0,     0.5) {\mathspoint{D}};
+    \node[left, fill=white,inner sep=1pt] at (0,    -0.5) {\mathspoint{E}};
+    \node[below,fill=white,inner sep=1pt] at (0.866,-1)   {\mathspoint{F}};
+    % Point I : milieu de [AB] (= milieu du côté droit de l'hexagone 5)
+    \fill (1.732,0) circle (2pt) node[right,inner sep=2pt] {\mathspoint{I}};
+    % Angle de 120° en A (intérieur de l'hexagone 9)
+    \tkzDefPoint(1.732,-0.5){Ahex}
+    \tkzDefPoint(0.866,-1){ALhex}
+    \tkzDefPoint(2.598,-1){ARhex}
+    \tkzMarkAngle[size=0.35](ALhex,Ahex,ARhex)
+    \tkzLabelAngle[pos=0.5](ALhex,Ahex,ARhex){\scriptsize$120^\circ$}
+    \end{tikzpicture}
+    \begin{minipage}[c]{0.5\linewidth}
+        Sans justification, répondre aux questions suivantes~:
+        \begin{enumerate}
+            \item Quelle est l'image de l'hexagone 2 par la symétrie de centre
+            \mathspoint{I}~?
+            \item Quelle est l'image de l'hexagone 4 par la symétrie d'axe
+            (\mathspoint{AB})~?
+            \item Quelle est l'image de l'hexagone 3 par la translation qui transforme
+            \mathspoint{C} en \mathspoint{E}~?
+            \item Quelle est l'image de l'hexagone 8 par la rotation de centre
+            \mathspoint{A} et d'angle 120$^\circ$, dans le sens inverse des aiguilles
+            d'une montre~?
+        \end{enumerate}
+    \end{minipage}
+
+
+    \begin{tikzpicture}[scale=0.2, baseline=(current bounding box.center)]
+        \coordinate[label=below left:A](A)at(0,0);
+        \coordinate[label=below right:D](D)at(25,0);
+        \coordinate[label=above right:C](C)at(39.79:19.21);
+        \coordinate[label=above:B](B)at(78.45:15);
+        \draw(A)--(D)--(C)--(B)--cycle;
+        \draw(A)--(C);
+        \tkzMarkRightAngle[size=1.75](A,B,C)
+        \path(A)--(B)node[pos=0.5, left]{15 cm};
+        \path(C)--(B)node[pos=0.5, above right]{12 cm};
+        \path(C)--(D)node[pos=0.5, right]{16 cm};
+        \path(A)--(D)node[pos=0.5, below]{25 cm};
+    \end{tikzpicture}
+    \begin{minipage}[c]{0.5\linewidth}
+        \begin{enumerate}
+            \item Calculer \mathspoint{AC}.
+            \item Le triangle ACD est-il rectangle en C~?
+            \item Calculer l'aire du quadrilatère ABCD.
+        \end{enumerate}
+    \end{minipage}
+
+\bigskip
+
+Le graphique ci-dessous représente le coût du carrelage en euros en fonction de la surface
+à couvrir en m$^2$. Les points sont alignés avec l'origine.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+\begin{axis}[
+    xlabel={Surface (en m$^2$)},
+    ylabel={Coût (en \euro)},
+    xmin=0, xmax=10.5,
+    ymin=0, ymax=210,
+    xtick={0,1,...,10},
+    ytick={0,20,...,200},
+    grid=both,
+    grid style={line width=0.5pt, draw=gray!50},
+    minor x tick num=1,
+    minor y tick num=1,
+    minor grid style={line width=0.25pt, draw=gray!25},
+    width=8cm, height=7cm,
+]
+\addplot[only marks, mark=x, mark size=4pt, thick] coordinates {
+    (1,20) (2.5,50) (5,100) (7.5,150) (9,180)
+};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item En observant le graphique, expliquer pourquoi le côut du carrelage
+    est proportionnel à la surface à couvrir.
+    \item Compléter par lecture graphique les cases blanches du tableau ci-dessous.
+    \item Les cases grisées ne peuvent pas être lues directement sur le graphique~:
+          les compléter à l'aide d'un produit en croix.
+\end{enumerate}
+
+\begin{center}
+\begin{tblr}{
+    hlines, vlines,
+    colspec={lcccccc},
+    row{1}={bg=gray!20, font=\bfseries},
+    row{2}={ht=1.2cm, valign=m},
+    cell{2}{4}={bg=gray!15},
+    cell{2}{7}={bg=gray!15},
+}
+    Surface (m$^2$) & 1 & 2,5 & 3 & 5 & 8 & 12 \\
+    Co\^ut (\euro) & & & & & & \\
+\end{tblr}
+\end{center}
+
+\end{document}

@@ -1,0 +1,380 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tikzpack}[03/02/2021]
+% --------
+% PACKAGES
+% --------
+\RequirePackage{tikz}
+\RequirePackage{tkz-euclide}
+\RequirePackage{calc}
+\RequirePackage{pgfplots}% begin axis in tikz pictures
+\RequirePackage{pgfkeys}%               keyword arguments
+\RequirePackage{emerald}% for handwritten style font
+\tikzset{every picture/.style={
+    /utils/exec={\sffamily},% font style
+    line width=1pt% line width
+    }
+}
+\usetikzlibrary{backgrounds}% background
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shapes,backgrounds,calc}
+% ----------
+% KEY VALUES
+% ----------
+\pgfkeys{/tikz/.cd,% to set the path
+  sommet name/.initial=O, % initial value
+  sommet name/.get=\sommetname, % to get the value from a macro
+  sommet name/.store in=\sommetname, % to store the value into a macro
+  right side name/.initial=x,
+  right side name/.get=\rightsidename,
+  right side name/.store in=\rightsidename,
+  left side name/.initial=y,
+  left side name/.get=\leftsidename,
+  left side name/.store in=\leftsidename,
+  angle/.initial=90,
+  angle/.get=\agl,
+  angle/.store in=\agl,
+  angle size/.initial=1,
+  angle size/.get=\aglsize,
+  angle size/.store in=\aglsize,
+  color/.initial=bleu,
+  color/.get=\clr,
+  color/.store in=\clr,
+  sommet pos/.initial=below left,
+  sommet pos/.get=\sommetpos,
+  sommet pos/.store in=\sommetpos,
+  sommet coordx/.initial=0,
+  sommet coordx/.get=\sommetcoordx,
+  sommet coordx/.store in=\sommetcoordx,
+  sommet coordy/.initial=0,
+  sommet coordy/.get=\sommetcoordy,
+  sommet coordy/.store in=\sommetcoordy,
+  right side pos/.initial=below,
+  right side pos/.get=\rightsidepos,
+  right side pos/.store in=\rightsidepos,
+  left side pos/.initial=left,
+  left side pos/.get=\leftsidepos,
+  left side pos/.store in=\leftsidepos,
+  right side len/.initial=3,
+  right side len/.get=\rightsidelen,
+  right side len/.store in=\rightsidelen,
+  left side len/.initial=3,
+  left side len/.get=\leftsidelen,
+  left side len/.store in=\leftsidelen,
+  right node pos/.initial=.8,
+  right node pos/.get=\rightnodepos,
+  right node pos/.store in=\rightnodepos,
+  left node pos/.initial=.8,
+  left node pos/.get=\leftnodepos,
+  left node pos/.store in=\leftnodepos,
+  below left angle/.initial=60,
+  below left angle/.get=\belowleftangle,
+  below left angle/.store in=\belowleftangle,
+  below right angle/.initial=60,
+  below right angle/.get=\belowrightangle,
+  below right angle/.store in=\belowrightangle}
+% ----------------------------------------
+% Triangle defined by base and base angles
+% ----------------------------------------
+\pgfkeys{/trianglewithangles/.cd,
+  % scope options
+  x shift/.store in=\xshift,
+  x shift = 0,
+  y shift/.store in=\yshift,
+  y shift = 0,
+  rotate/.store in=\rotate,
+  rotate=0,
+  scale/.store in=\scale,
+  scale=1,
+  below left angle value/.store in=\belowleftanglevalue,
+  below left angle value = 60,
+  below left angle size/.store in=\belowleftanglesize,
+  below left angle size=0.5,
+  below left angle label/.store in=\belowleftanglelabel,
+  below left angle label=B,
+  below left angle color/.store in=\belowleftanglecolor,
+  below left angle color=red,
+  below left angle label pos/.store in=\belowleftanglelabelpos,
+  below left angle label pos=left,
+  below right angle value/.store in=\belowrightanglevalue,
+  below right angle value = 60,
+  below right angle size/.store in=\belowrightanglesize,
+  below right angle size = 0.5,
+  below right angle label/.store in=\belowrightanglelabel,
+  below right angle label = C,
+  below right angle color/.store in=\belowrightanglecolor,
+  below right angle color=green,
+  below right angle label pos/.store in=\belowrightanglelabelpos,
+  below right angle label pos=right,
+  above angle size/.store in=\aboveanglesize,
+  above angle size=0.5,
+  above angle label/.store in=\abovelabel,
+  above angle label = A,
+  above angle color/.store in=\aboveanglecolor,
+  above angle color=blue,
+  above angle label pos/.store in=\aboveanglelabelpos,
+  above angle label pos=above,
+  base/.store in=\base,
+  base=3
+}
+\newcommand{\trianglewithangles}[1][]{%
+\pgfkeys{/trianglewithangles/.cd,#1}
+\begin{scope}[shift={(\xshift,\yshift)}, scale=\scale, rotate=\rotate]
+\coordinate[label=\belowleftanglelabelpos:\belowleftanglelabel](B)at(0, 0);
+\coordinate[label=\belowrightanglelabelpos:\belowrightanglelabel](C)at(\base,0);
+\path(C)--(B)([turn]\belowleftanglevalue:1)coordinate(A1);
+\path(B)--(C)([turn]180-\belowrightanglevalue:1)coordinate(A2);
+\coordinate[label=\aboveanglelabelpos:\abovelabel](A)at(intersection of B--A1 and C--A2);
+\tkzFillAngle[fill=\aboveanglecolor, size=\aboveanglesize](B,A,C)
+\tkzFillAngle[fill=\belowleftanglecolor, size=\belowleftanglesize](C,B,A)
+\tkzFillAngle[fill=\belowrightanglecolor, size=\belowrightanglesize](A,C,B)
+\draw(A)--(B)--(C)--cycle;
+\end{scope}
+}
+% -------------------------------
+% Triangle defined by side values
+% -------------------------------
+\pgfkeys{/trianglewithsides/.cd,
+% scope options
+x shift/.store in=\xshift,
+x shift = 0,
+y shift/.store in=\yshift,
+y shift = 0,
+rotate/.store in=\rotate,
+rotate=0,
+scale/.store in=\scale,
+scale=1,
+below left label/.store in=\belowleftlabel,
+below left label = A,
+below right label/.store in=\belowrightlabel,
+below right label = B,
+above label/.store in=\abovelabel,
+above label = C,
+right segment label/.store in=\rightsegmentlabel,
+right segment label = above right,
+left segment label/.store in=\leftsegmentlabel,
+left segment label = above left,
+below left label pos/.store in=\belowleftlabelpos,
+below left label pos= left,
+below right label pos/.store in=\belowrightlabelpos,
+below right label pos= right,
+above label pos/.store in=\abovelabelpos,
+above label pos = above,
+below segment label/.store in=\belowsegmentlabel,
+below segment label = below,
+below lenght/.store in=\belowlenght,
+below lenght = 14,
+left lenght/.store in=\leftlenght,
+left lenght = 7,
+right lenght/.store in=\ritghlenght,
+right lenght = 13
+}
+\newcommand{\trianglewithsides}[1][]{
+\pgfkeys{/trianglewithsides/.cd,#1}
+\begin{scope}[shift={(\xshift,\yshift)}, rotate=\rotate]
+    \tkzDefPoint(0,0){\belowleftlabel}
+    \tkzDefPoint(\belowlenght,0){\belowrightlabel}
+
+    \tkzInterCC[R](\belowleftlabel,\leftlenght cm)(\belowrightlabel,\ritghlenght cm)
+    \tkzGetPoints{\abovelabel}{\abovelabel'}
+    \pgfresetboundingbox % removes white space
+
+    \tkzDrawPolygon(\belowleftlabel,\abovelabel,\belowrightlabel)
+    \tkzLabelPoints[\belowleftlabelpos](\belowleftlabel)
+    \tkzLabelPoints[\abovelabelpos](\abovelabel)
+    \tkzLabelPoints[\belowrightlabelpos](\belowrightlabel)
+
+    % lengths (automatic)
+    \tkzCalcLength[cm](\belowleftlabel,\belowrightlabel)\tkzGetLength{ABl}
+    \tkzCalcLength[cm](\abovelabel,\belowrightlabel)\tkzGetLength{CBl}
+    \tkzCalcLength[cm](\belowleftlabel,\abovelabel)\tkzGetLength{ACl}
+
+    \tkzLabelSegment[midway, \belowsegmentlabel](\belowleftlabel,\belowrightlabel){$\pgfmathprintnumber\ABl$ cm}
+    \tkzLabelSegment[midway, \rightsegmentlabel](\abovelabel,\belowrightlabel){$\pgfmathprintnumber\CBl$ cm}
+    \tkzLabelSegment[midway, \leftsegmentlabel](\belowleftlabel,\abovelabel){$\pgfmathprintnumber\ACl$ cm}
+\end{scope}
+}
+% point with label
+\pgfkeys{/pointwithlabel/.cd,
+x shift/.store in=\xshift,
+x shift = 0,
+y shift/.store in=\yshift,
+y shift = 0,
+rotate/.store in=\rotate,
+rotate=0,
+scale/.store in=\scale,
+scale=1,
+label/.store in=\label,
+label = A,
+label distance/.store in=\labeldist,
+label distance = 10pt,
+label position/.store in=\labelpos,
+label position = 0,
+x coord/.store in=\xcoord,
+x coord = 0,
+y coord/.store in=\ycoord,
+y coord = 0
+}
+\newcommand{\pointwithlabel}[1][]{
+\pgfkeys{/pointwithlabel/.cd,#1}
+\begin{scope}[shift={(\xshift,\yshift)}, rotate=\rotate]
+  \coordinate(\label)at(\xcoord, \ycoord);
+  \node at ($(\label)+(\labelpos:\labeldist)$){\label};
+\end{scope}
+}
+% -----------
+% DECORATIONS
+% -----------
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,auto corner on length=1mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                            {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                        {\pgfqpoint{-\pgfdecorationsegmentaspect\pgfdecoratedinputsegmentremainingdistance}%
+                                        {\pgfmathresult\pgfdecorationsegmentamplitude}
+                        }
+        }
+        {%TO
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+
+% --------
+% COMMANDS
+% --------
+%\AnglexOy[
+%sommet name = O,
+%right side name = A,
+%left side name= B,
+%angle = 90,
+%color=LeCorbusier-32080,
+%sommet pos = below left,
+%right side pos = below right,
+%left side pos = left,
+%right side len = 5,
+%left side len = 2,
+%angle size = 1,
+%right node pos = .5,
+%left node pos = .8
+%]
+\newcommand{\Angle}[1][]{\tikzset{#1}
+\coordinate(A)at(0,0);
+\coordinate(B1)at(1,0);
+\path(A)([turn]90+\agl:1)coordinate(C1);
+\path(A)--(B1)coordinate[pos=\rightsidelen](B);
+\path(A)--(C1)coordinate[pos=\leftsidelen](C);
+%\path(A)--(B)node[pos=\rightnodepos, \rightsidepos]{$\rightsidename$};
+%\path(A)--(C)node[pos=\leftnodepos, \leftsidepos]{$\leftsidename$};
+\tkzFillAngle[fill=\clr, size=\aglsize](B,A,C)
+\draw(B)--(A)--(C);
+}
+\newcommand{\AnglexOy}[1][]{\tikzset{#1}
+\coordinate[label=\sommetpos:{\sommetname}](A)at(0,0);
+\coordinate(B1)at(1,0);
+\path(A)([turn]90+\agl:1)coordinate(C1);
+\path(A)--(B1)coordinate[pos=\rightsidelen](B);
+\path(A)--(C1)coordinate[pos=\leftsidelen](C);
+\path(A)--(B)node[pos=\rightnodepos, \rightsidepos]{$\rightsidename$};
+\path(A)--(C)node[pos=\leftnodepos, \leftsidepos]{$\leftsidename$};
+\tkzFillAngle[fill=\clr, size=\aglsize](B,A,C)
+\draw(B)--(A)--(C);
+}
+\newcommand{\AngleAOB}[1][]{\tikzset{#1}
+\coordinate[label=\sommetpos:{\sommetname}](A)at(0,0);
+\coordinate(B1)at(1,0);
+\path(A)([turn]90+\agl:1)coordinate(C1);
+\path(A)--(B1)coordinate[pos=\rightsidelen](B);
+\path(A)--(C1)coordinate[pos=\leftsidelen](C);
+\path(A)--(B)node[pos=\rightnodepos, \rightsidepos]{\rightsidename};
+\path(A)--(B)node[pos=\rightnodepos]{$\times$};
+\path(A)--(C)node[pos=\leftnodepos, \leftsidepos]{\leftsidename};
+\path(A)--(C)node[pos=\leftnodepos]{$\times$};
+\tkzFillAngle[fill=\clr, size=\aglsize](B,A,C)
+\draw(B)--(A)--(C);
+}
+
+\newcommand{\tstar}[5]{% inner radius, outer radius, tips, rot angle, options
+\pgfmathsetmacro{\starangle}{360/#3}
+\draw[#5] (#4:#1)
+\foreach \x in {1,...,#3}
+{ -- (#4+\x*\starangle-\starangle/2:#2) -- (#4+\x*\starangle:#1)
+}
+-- cycle;
+}
+
+\newcommand{\ngram}[4]{% outer radius, tips, rot angle, options
+\pgfmathsetmacro{\starangle}{360/#2}
+\pgfmathsetmacro{\innerradius}{#1*sin(90-\starangle)/sin(90+\starangle/2)}
+\tstar{\innerradius}{#1}{#2}{#3}{#4}
+}
+
+\makeatletter
+\pgfkeys{
+    /cycloid/.cd,%
+    radius/.store in=\cycloid@radius,%
+    radius=1,%
+    speed/.store in=\cycloid@speed,%
+    speed=0.008,%
+    number/.store in=\cycloid@number,%
+    number=1,%
+    rotate/.store in=\cycloid@rotate,%
+    rotate=0,
+    }
+
+\newcommand{\cycloid}[1][]{%
+    \pgfkeys{/cycloid/.cd,#1}
+    \begin{scope}[rotate=\cycloid@rotate]
+        \draw[very thick,xshift=20.5,yshift=28.5]%
+            plot[domain=-90:-90+\cycloid@number*360,samples=1000]%
+            ({\cycloid@speed*(\x) + \cycloid@radius*cos(\x)},{\cycloid@radius*sin(\x)});
+    \end{scope}
+    }
+    \pgfkeys{%
+    fiveStar/.cd,%
+    r1/.store in=\fiveStar@radiusone,%
+    r1=0.375,%
+    r2/.store in=\fiveStar@radiustwo,%
+    r2=1,%
+    rotate/.store in=\fiveStar@rotate,%
+    rotate=0,%
+    scale/.store in=\fiveStar@scale,%
+    scale=1,%
+    color/.store in=\fiveStar@color,%
+    color=black,%
+    fill/.store in=\fiveStar@fillColor,%
+    fill=none,%
+    xcenter/.store in=\fiveStar@xcenter,%
+    xcenter=0,%
+    ycenter/.store in=\fiveStar@ycenter,%
+    ycenter=0,%
+    }
+\newcommand{\fiveStar@command}[1][]{%
+    \pgfkeys{fiveStar/.cd,#1}
+    \begin{scope}[shift={(\fiveStar@xcenter,\fiveStar@ycenter)}]
+        \foreach\fiveStar@idAngle in{0,1,...,4}{%
+            \coordinate(A\fiveStar@idAngle)at%
+                (72*\fiveStar@idAngle-18+\fiveStar@rotate:\fiveStar@scale*\fiveStar@radiusone);
+        }
+        \foreach\fiveStar@idAngle in{0,1,...,4}{%
+            \coordinate(B\fiveStar@idAngle)at%
+            (72*\fiveStar@idAngle+18+\fiveStar@rotate:\fiveStar@scale*\fiveStar@radiustwo);
+        }
+    
+        \draw[\fiveStar@color, fill=\fiveStar@fillColor]%
+            (A0)--(B0)--(A1)--(B1)--(A2)--(B2)--(A3)--(B3)--(A4)--(B4)--cycle;
+    \end{scope}
+    }
+\def\fiveStar@definition[#1](#2,#3){%
+    \pgfkeys{fiveStar/.cd,xcenter=#2,ycenter=#3}
+    \fiveStar@command[#1]
+}
+\newcommand{\fiveStar}[1][]{%
+    \fiveStar@definition[#1]%
+}
+\makeatother

@@ -1,0 +1,40 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Fractions et partage}
+    \definition{fraction}
+    \noindent{\bfseries Exemple :}\vskip10pt\noindent
+    \small\exported[scale=1, ]<<\def\disquesize{0.8}\noindent
+    \begin{tblr}{colspec={Q[wd=63pt]Q[wd=43pt]Q[wd=43pt]Q[wd=43pt]Q[wd=88pt]},hlines,vlines}
+        Pour représenter des {\bfseries demis} de ce disque, on le partage en .......
+        parties égales.&\disque\disquesize\par\kern10pt$\dfrac12=$&\disque\disquesize\par\kern10pt
+        $\dfrac22=$&\SetCell[c=2]{l}\disque\disquesize\kern10pt\disque\disquesize\par\kern10pt$\dfrac32=$\par\kern5pt&\\
+        Pour représenter des {\bfseries tiers} de ce disque, on le partage en .......
+        parties égales.&\disque\disquesize\par\kern10pt$\dfrac13=$&\disque\disquesize\par\kern10pt
+        $\dfrac23=$&\disque\disquesize\par\kern10pt$\dfrac33=$&\disque\disquesize\kern10pt\disque\disquesize\par\kern10pt$\dfrac43=$\par\kern5pt\\
+        Pour représenter des {\bfseries quarts} de ce disque, on le partage en .......
+        parties égales.&\disque\disquesize\par\kern10pt$\dfrac14=$\par\kern10pt&\disque\disquesize\par\kern10pt
+        $\dfrac24=$&\disque\disquesize\par\kern10pt$\dfrac44=$&\disque{0.6}\kern5pt\disque{0.6}\kern5pt\disque{0.6}\par
+        \kern10pt$\dfrac94=$\par\kern5pt\\
+    \end{tblr}\par
+    >>
+    \bigpart{Nombres décimaux}
+    \subpart{Construction des nombres décimaux}
+    \definition{nombre_decimal}
+    \par\noindent{\bfseries Exemple :}
+    \begin{align*}
+        25,381
+        &=\dfrac{25381}{1000}\\
+        &=25+\dfrac{381}{1000}\\
+        &=25+\dfrac{3}{10}+\dfrac{8}{100}+\dfrac{1}{1000}
+    \end{align*}\vskip10pt\noindent\begingroup\centering
+    \begin{tblr}{colspec={*{6}{Q[c,m]}},
+        rows={ht=20pt},hlines,vlines}
+        \SetCell[c=3]{c}Partie entière&&&\SetCell[c=3]{c}Partie décimale&&\\
+        centaines&dizaines&unités&dixièmes&centièmes&millièmes\\
+        0&2&5&3&8&1
+    \end{tblr}\par\endgroup\vskip15pt
+    \subpart{Zéros inutiles}
+    \proposition{zeros_inutiles}
+    \par\noindent{\bfseries Exemple :}\vskip10pt
+    \leavevmode\hbox to .5\linewidth{{\bfseries a. }$005,00300=5,003$\hfill}\hbox{{\bfseries b. }$082,0900=82,09$}\hfill\par
+\end{document}

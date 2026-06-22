@@ -1,0 +1,43 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{enumerate}
+    \item (BC) et (DE) sont parallèles. Calculer AE et AC.\par\noindent
+    \begin{tikzpicture}[scale=0.6,rotate=-35]
+        \coordinate[label=above left:A](A)at(0,0);
+        \coordinate[label=below right:D](D)at(10,0);
+        \coordinate[label=above right:E](E)at(7,3);
+        \path(A)--(E)coordinate[pos=0.4,label=above right:B](B);
+        \path(A)--(D)coordinate[pos=0.4,label=below left:C](C);
+        \draw(A)--(E)--(D)--(C)--cycle;
+        \tkzDrawLine[add=0.5 and 0.5](B,C)
+        \draw node at(5,-3.5){AD = 10 cm};
+        \path(E)--(D)node[pos=0.5,right]{5 cm};
+        \path(A)--(B)node[pos=0.5,above,rotate=-35,sloped]{3 cm};
+        \path(B)--(C)node[pos=0.5,right]{2 cm};
+    \end{tikzpicture}
+    \item Calculer AE, AC et DE.\par\noindent
+    \begin{tikzpicture}[scale=0.55]
+        \coordinate[label=below left:C](C)at(0,0);
+        \coordinate[label=above left:A](A)at(0,4);
+        \coordinate[label=below right:E](E)at(10,0);
+        \path(C)--(E)coordinate[pos=0.7,label=below right:D](D);
+        \path(A)--(E)coordinate[pos=0.7,label=above right:B](B);
+        \tkzMarkRightAngle[size=0.5](E,D,B)
+        \tkzMarkRightAngle[size=0.5](E,C,A)
+        \draw(A)--(C)--(E)--cycle;
+        \tkzDrawLine[add=0.6 and 0.6](B,D)
+        \path(C)--(D)node[pos=0.5,below]{6 m};
+        \path(A)--(B)node[pos=0.5,above,sloped]{10 m};
+        \path(B)--(E)node[pos=0.5,above,sloped]{5 m};
+        \path(B)--(D)node[pos=0.5,left]{4 m};
+    \end{tikzpicture}
+\end{enumerate}
+\end{document}

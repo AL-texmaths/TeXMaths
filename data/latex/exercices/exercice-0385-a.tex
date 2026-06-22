@@ -1,0 +1,39 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+    \>figure1={%
+        \begin{tikzpicture}[scale=1.5,baseline=(A.base)]
+                \tkzDefPoint(0,0){A}
+                \tkzDefPoint(3,0){C}
+                \tkzDefPoint(2,0){B}
+                \tkzDrawPoints[cross out](A,B,C)
+                \tkzLabelPoints(A,B,C)
+                \tkzDrawSegment(A,C)
+                \tkzDefMidPoint(A,C)
+                \tkzGetPoint{M}
+                \tkzDefMidPoint(C,B)
+                \tkzGetPoint{N}
+                \draw node[above] at(N){2,2 cm};
+            \end{tikzpicture}\hskip30pt$AC=17$ cm
+    };
+    \>figure2={%
+        \hskip30pt\begin{tikzpicture}[scale=1.5]
+            \tkzDefPoint(0,0){E}
+            \tkzDefPoint(3,0){B}
+            \tkzDefPoint(3,2){C}
+            \tkzDefPoint(0,2){F}
+            \tkzDefPoint(1,0){A}
+            \tkzDefPoint(1,2){D}
+            \tkzLabelPoints[below left](E,A)
+            \tkzLabelPoints[below right](B)
+            \tkzLabelPoints[above right](C)
+            \tkzLabelPoints[above left](D,F)
+            \tkzDrawPolygon[line width=1pt](E,B,C,F)
+            \tkzDrawSegment[line width=1pt](A,D)
+            \tkzMarkRightAngles(E,B,C B,C,F C,F,E F,E,B E,A,D A,D,F)
+        \end{tikzpicture}\vskip10pt
+        \hskip30pt $AE=3$ m
+        \hskip30pt $EB=6$ m
+        \hskip30pt $CB=1,7$ m
+    };
+    \enonce{0385}%
+\end{document}

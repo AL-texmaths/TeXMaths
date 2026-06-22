@@ -1,0 +1,23 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Dans le triangle suivant, \<S1;\<S3; = 5cm, \<S3;\<S2; = 3 cm et \<S1;\<S2; = 4 cm.\vskip5pt
+\begin{tikzpicture}
+    \coordinate[label=below left:\<S1;](A)at(0,0);
+    \coordinate[label=below right:\<S2;](B)at(4,0);
+    \coordinate[label=above:\<S3;](C)at(4,3);
+    \tkzMarkRightAngle[size=0.3](C,B,A)
+    \draw(A)--(B)--(C)--cycle;
+\end{tikzpicture}\vskip5pt
+\begin{enumerate}
+    \item Calculer le \<fonction; de l'angle $\widehat{\text{\<S1;\<S3;\<S2;}}$.
+    \item Calculer la tangente de l'angle $\widehat{\text{\<angle;}}$.
+\end{enumerate}
+\end{document}

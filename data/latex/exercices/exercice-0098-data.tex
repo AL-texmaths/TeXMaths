@@ -1,0 +1,30 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{enumerate}
+    \item Prouver que si $\<variable;=\<n1;$, alors ce rectangle est un carré.
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate(S1)at(20:2);
+            \coordinate(S2)at(160:2);
+            \coordinate(S3)at(-160:2);
+            \coordinate(S4)at(-20:2);
+            \draw(S3)rectangle(S1);
+            \tkzMarkRightAngle(S1,S2,S3)
+            \tkzMarkRightAngle(S2,S3,S4)
+            \tkzMarkRightAngle(S3,S4,S1)
+            \tkzMarkRightAngle(S4,S1,S2)
+            \path(S1)--(S2)node[pos=0.5,above]{\<longueur;};
+            \path(S1)--(S4)node[pos=0.5,shift={(1,0)}]{\<largeur;};
+        \end{tikzpicture}
+    \end{center}
+    \item Est-ce le cas pour n'importe quel valeur de $\<variable;$ ?
+\end{enumerate}
+\end{document}

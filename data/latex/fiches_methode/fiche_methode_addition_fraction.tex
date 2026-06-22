@@ -1,0 +1,94 @@
+\documentclass{article}
+
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{tcolorbox}
+\usepackage{mdframed}
+\usepackage{amsmath}
+\usepackage{texmaths-colors}
+\usepackage{dashrule}
+
+\newgeometry{
+        lmargin=1.5cm,
+        rmargin=1.5cm,
+        top=1.5cm,
+        footskip=0pt
+    }%
+
+\mdfdefinestyle{byheart}{
+        backgroundcolor=white!80!black,
+        linecolor=white!20!black,
+        fontcolor=red!0!black,
+        roundcorner=5pt,
+        leftmargin=\parindent,
+        innertopmargin=8pt,
+        innerbottommargin=8pt,
+    }
+\mdfdefinestyle{simple}{
+        backgroundcolor=white!90!black,
+        linecolor=white!10!black,
+        fontcolor=red!0!black,
+        roundcorner=5pt,
+        leftmargin=\parindent
+        }
+
+\def\titre#1{\begin{mdframed}[style=byheart]
+    \centering\huge #1
+\end{mdframed}}
+
+\newlength{\boxwidth}
+
+\long\def\methode#1#2{\settowidth{\boxwidth}{\Large #1}
+\advance\boxwidth20pt\vskip20pt\noindent
+\begin{minipage}[b]{\boxwidth}
+\begin{mdframed}[style=simple]
+    {\Large #1}
+\end{mdframed}
+\end{minipage}\hskip10pt
+{\Large\color{vscode-crimson} #2}\vskip20pt}
+
+\def\calcstretch{2.5}
+\def\mulby#1#2{#1{\color{vscode-blue}\times#2}}
+\def\newcalc{\hdashrule{.7\linewidth}{.5pt}{2pt}\vskip20pt}
+
+\begin{document}
+\pagestyle{empty}\large
+\titre{Fiche méthode : additions et soustraction de fractions}
+\methode{Les dénominateurs sont identiques}{On ajoute les numérateurs.}
+\begingroup\renewcommand{\arraystretch}{\calcstretch}
+    $\begin{array}{cccc}
+        &\dfrac23&+&\dfrac53\\
+        =&&\dfrac73&
+    \end{array}$
+\endgroup
+\methode{Les dénominateurs sont différents}{On cherche un multiple commun.}
+\begin{minipage}{.4\linewidth}\renewcommand{\arraystretch}{\calcstretch}
+    $\begin{array}{cccc}
+        &\dfrac2{21}&+&\dfrac57\\
+        =&\dfrac2{21}&+&\dfrac{\mulby53}{\mulby73}\\
+        =&\dfrac2{21}&+&\dfrac{15}{21}
+    \end{array}$
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+    \color{vscode-blue}On remarque que $7\times3=21$.
+\end{minipage}\vskip20pt\newcalc
+\begin{minipage}{.4\linewidth}\renewcommand{\arraystretch}{\calcstretch}
+    $\begin{array}{cccc}
+        &\dfrac5{6}&+&\dfrac{10}9\\
+        =&\dfrac{\mulby{5}3}{\mulby63}&+&\dfrac{\mulby{10}2}{\mulby{9}2}
+    \end{array}$
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+    \color{vscode-blue}On remarque que 18 est un multiple de 6 et 9.
+\end{minipage}\vskip20pt\newcalc
+\begin{minipage}{.4\linewidth}\renewcommand{\arraystretch}{\calcstretch}
+    $\begin{array}{cccc}
+        &\dfrac{13}{11}&+&\dfrac37\\
+        =&\dfrac{\mulby{13}7}{\mulby{11}7}&+&\dfrac{\mulby3{11}}{\mulby7{11}}
+    \end{array}$
+\end{minipage}
+\begin{minipage}{.6\linewidth}
+    \color{vscode-blue}Si on ne trouve pas un multiple commun,
+    il suffit de multiplier les dénominateurs~:$$11\times7=7\times11=77$$
+\end{minipage}
+\end{document}

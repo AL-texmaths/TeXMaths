@@ -1,0 +1,66 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-boxes}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+    \begin{minipage}[t]{.55\linewidth}
+        \begin{flushleft}
+            Déterminer la transformation qui permet de passer:
+        \end{flushleft}
+        \begin{enumerate}
+            \item de la figure \circled{\<p1;} à la figure \circled{\<p2;};
+            \item de la figure \circled{\<p3;} à la figure \circled{\<p4;};
+            \item de la figure \circled{\<p5;} à la figure \circled{\<p6;};
+            \item de la figure \circled{\<p7;} à la figure \circled{\<p8;};
+        \end{enumerate}
+    \end{minipage}\hspace{.045\linewidth}
+    \begin{minipage}[t]{.4\linewidth}
+        \begin{flushleft}
+            \begin{tikzpicture}[scale=0.5, baseline=(current bounding box.north)]
+                \coordinate(O)at(0,0);
+                \coordinate(D1)at(-6,0);
+                \coordinate(D2)at(6,0);
+                \coordinate(E1)at(0,6);
+                \coordinate(E2)at(0,-6);
+                \coordinate(A0)at(-2,4);
+                \coordinate(A1)at(-5,1);
+                \coordinate(A2)at(-2,2);
+                \coordinate(A3)at(-3,3);
+                \coordinate(A4)at(-1,3);
+                \coordinate(A5)at(-2,5);
+                \coordinate(A6)at(-4,4);
+                \coordinate(A7)at(-3.7,2.4);
+                \foreach\i in{0,1,...,7}{
+                    \tkzDefPointBy[reflection=over E1--E2](A\i)\tkzGetPoint{B\i}
+                    \tkzDefPointBy[rotation=center O angle 180](A\i)\tkzGetPoint{C\i}
+                    \tkzDefPointBy[rotation=center O angle 90](A\i)\tkzGetPoint{F\i}
+                    }
+                \foreach\X in{A,B,C}{
+                    \fill[Rainbow1-vert](\X1)--(\X2)--(\X3)--(\X4)--(\X5)
+                    --(\X6)--cycle;
+                }
+                \draw[Rainbow1-bleu](-6,-6)grid(6,6);
+                \coordinate[label=below left:O](O)at(0,0);
+                \foreach\X/\j in{A/1,B/2,C/3,F/4}{
+                    \fill[Rainbow1-bleu](\X1)--(\X2)--(\X3)--(\X4)--(\X5)
+                    --(\X6)--cycle;
+                    \draw(\X1)--(\X2)--(\X3)--(\X4)--(\X5)
+                    --(\X6)--cycle;
+                    \draw node at(\X7){\circled{\j}};
+                    \draw node at(\X0){$\bullet$};
+                }
+                \foreach\X in{D,E}{
+                    \draw(\X1)--(\X2);
+                }
+                \draw node at(-5,-1){$(d_2)$};
+                \draw node at(1,5.3){$(d_1)$};
+            \end{tikzpicture}
+        \end{flushleft}
+    \end{minipage}
+\end{document}

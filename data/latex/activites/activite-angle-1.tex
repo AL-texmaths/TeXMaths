@@ -1,0 +1,46 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\usepackage{texmaths-boxes}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{tikzpicture}[rotate=-90]
+        \coordinate(O)at(0,0);
+        \coordinate(A)at(0:3);
+        \coordinate(B)at(40:3);
+        \draw(A)--(O)--(B);
+    \end{tikzpicture}\hfill
+    \begin{tikzpicture}[rotate=0]
+        \coordinate(O)at(0,0);
+        \coordinate(A)at(0:1);
+        \coordinate(B)at(40:1);
+        \draw(A)--(O)--(B);
+    \end{tikzpicture}\hfill
+    \begin{tikzpicture}[rotate=90]
+        \coordinate(O)at(0,0);
+        \coordinate(A)at(0:3);
+        \coordinate(B)at(40:1.5);
+        \draw(A)--(O)--(B);
+    \end{tikzpicture}\hfill
+    \begin{tikzpicture}[rotate=180]
+        \coordinate(O)at(0,0);
+        \coordinate(A)at(0:1);
+        \coordinate(B)at(40:2);
+        \draw(A)--(O)--(B);
+    \end{tikzpicture}\hfill\par\vskip10pt\noindent
+    \circled{1}\hfill
+    \circled{2}\hfill
+    \circled{3}\hfill
+    \circled{4}\hfill\par\vskip50pt
+    \begin{enumerate}
+        \item Classer les quatre angles ci-dessus par ordre croissant.
+        \answerspace{3.5em}
+        \item Justifier la réponse.
+        \answerspace{6em}
+    \end{enumerate}
+\end{document}

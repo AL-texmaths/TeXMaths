@@ -1,0 +1,36 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!rotate=0;%
+\!scale=1;%
+\begin{center}
+    \begin{tikzpicture}[rotate=\<rotate;,scale=\<scale;]
+        \coordinate(O)at(0,0);
+        \coordinate(S1)at(180:2);
+        \coordinate(S2)at(0:2);
+        \coordinate(S3)at(60:2);
+        \path(O)--(S2)([turn]-90:1.8)coordinate(S4);
+        \path(S1)--(S2)coordinate[pos=0.5](I3);
+        \path(S2)--(S3)coordinate[pos=0.5](I1);
+        \path(S3)--(S1)coordinate[pos=0.5](I2);
+        \path(I1)--(S1)node[pos=1.15]{\<S1;};
+        \path(I2)--(S2)node[pos=1.15]{\<S2;};
+        \path(I3)--(S3)node[pos=1.15]{\<S3;};
+        \path(I3)--(S4)node[pos=1.15]{\<S4;};
+        \path(S1)--(S4)node[pos=0.5,below,sloped,rotate=\<rotate;]{\<L3;};
+        \path(S2)--(S3)node[pos=0.5,above,sloped,rotate=\<rotate;]{\<L2;};
+        \path(S1)--(S3)node[pos=0.5,above,sloped,rotate=\<rotate;]{\<L1;};
+        \path(S2)--(S4)node[pos=0.5,above,sloped,rotate=\<rotate;]{\<L4;};
+        \draw(S1)--(S4)--(S2)--(S3)--cycle(S1)--(S2);
+        \tkzMarkRightAngle(S2,S3,S1)
+    \end{tikzpicture}
+\end{center}
+Le triangle \textsf{\<S2;\<S1;\<S4;} est-il rectangle en \textsf{\<S2;} ?
+\end{document}

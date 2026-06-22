@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+En utilisant l'inégalité triangulaire sur la figure ci-dessous, écrire six
+inégalités différentes.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \coordinate(A)at(0,0);
+            \coordinate(B)at(5,-2);
+            \coordinate(C)at(2,-3);
+            \coordinate(D)at(-1.5,-2.5);
+            \draw node[right]at(B){\sf\strut B};
+            \draw node[above]at(A){\sf\strut A};
+            \draw node[below]at(C){\sf\strut C};
+            \draw node[left]at(D){\sf\strut D};
+            \draw(A)--(B)--(C)--(D)--cycle;
+            \draw(A)--(C);
+        \end{tikzpicture}
+    \end{center}
+\end{document}

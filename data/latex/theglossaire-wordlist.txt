@@ -1,0 +1,14 @@
+[
+Tracer
+Tracer (à main levée)
+Construire
+Coder (une figure)
+Déduire
+Exprimer ($a$ en fonction de $x$)
+Réduire (une expression littérale)
+Traduire (en notation mathématiques)
+Traduire (un programme de calcul)
+Effectuer (une opération)
+Démontrer (par le calcul)
+Résoudre (un triangle)
+]

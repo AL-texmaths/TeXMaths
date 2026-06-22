@@ -1,0 +1,16 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+    \>S1=A;\>S2=B;\>S3=C;\>S4=D;%
+    \enonce{0047}%
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate[label=\<S1;](S1)at(-3,0);
+            \coordinate[label=\<S3;](S3)at(2,0);
+            \coordinate[label=below right:\<S2;](S2)at(2,-0.75);
+            \draw(S1)--(S3);
+            \node at(S1){$\times$};
+            \node at(S2){$\times$};
+            \node at(S3){$\times$};
+        \end{tikzpicture}
+    \end{center}
+\end{document}

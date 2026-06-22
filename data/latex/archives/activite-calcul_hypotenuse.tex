@@ -1,0 +1,53 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \begin{center}
+        \textbf{Calcul de l'hypoténuse}
+    \end{center}
+    \begin{minipage}{.4\linewidth}
+        \large Calculer la longueur \textsf{RT} en détaillant les calculs et le raisonnement.
+    \end{minipage}\hspace{0.05\linewidth}
+    \begin{minipage}{.55\linewidth}
+        \begin{center}
+            \begin{tikzpicture}[rotate=200, line width=1pt, scale=0.5]
+            \def\ab{6}
+            \def\ac{8}
+            \def\A{P}
+            \def\B{R}
+            \def\C{T}
+            \coordinate[label=above:{\A}](\A)at(0,0);
+            \coordinate[label=left:{\B}](\B)at(\ab,0);
+            \coordinate[label=below:{\C}](\C)at(0,\ac);
+            \tkzMarkRightAngle[color=red, scale=1.5](\C,\A,\B)
+            \draw(\A)--(\B)--(\C)--cycle;
+            \path(\A)--(\C)node[above, midway, sloped, rotate=200]{8 cm};
+            \path(\B)--(\A)node[above, midway, sloped, rotate=20]{6 cm};
+            \path(\B)--(\C)node[below left, midway, color=red]{\large{\boldmath$?$}};
+            \end{tikzpicture}
+        \end{center}
+    \end{minipage}
+    \begin{center}
+        \textbf{Calcul d'un côté de l'angle droit}
+    \end{center}
+    \begin{minipage}{.4\linewidth}
+        \large Calculer la longueur \textsf{DE} en détaillant les calculs et le raisonnement.
+    \end{minipage}\hspace{0.05\linewidth}
+    \begin{minipage}{.55\linewidth}
+        \begin{center}
+            \begin{tikzpicture}[rotate=-80, line width=1pt, scale=0.43]
+                \def\ab{5.5}
+                \def\ac{8.9}
+                \def\A{D}
+                \def\B{E}
+                \def\C{F}
+                \coordinate[label=above:{\A}](\A)at(0,0);
+                \coordinate[label=below:{\B}](\B)at(\ab,0);
+                \coordinate[label=right:{\C}](\C)at(0,\ac);
+                \tkzMarkRightAngle[color=red, scale=1.5](\C,\A,\B)
+                \draw(\A)--(\B)--(\C)--cycle;
+                \path(\A)--(\C)node[above, midway, sloped, rotate=100]{5,5 cm};
+                \path(\B)--(\C)node[below, midway, sloped, rotate=100]{7 cm};
+                \path(\A)--(\B)node[below left, midway, color=red]{\large{\boldmath$?$}};
+                \end{tikzpicture}
+        \end{center}
+    \end{minipage}
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    {\centering \begin{tikzpicture}\sf
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(1,0){A}
+        \tkzDefPoint(2,0){B}
+        \tkzDefPoint(3,0){C}
+        \tkzDefPoint(4,0){D}
+        \tkzDefPoint(2.5,0){E}
+        \tkzDefPoint(5,0){O1}
+        \tkzDefPoint(-5,0){O2}
+        \foreach\X in{O,A,B,E}{
+            \draw node[above] at(\X){\X\strut};
+        }
+        \draw[-Latex](O)--(O1);
+        \draw[dotted](-6,-4)rectangle(6,4);
+        \foreach \x in {0,...,4} {
+            \draw[line width=1pt] (\x,0.1cm) -- (\x,-0.1cm);
+            \draw (\x+0.5,0.05cm)--(\x+0.5,-0.05cm);
+            }
+        \draw node[below] at(O){0\strut};
+        \draw node[below] at(A){1\strut};
+    \end{tikzpicture}}\par\noindent{\centering\bfseries Première partie :}\par
+    \begin{enumerate}
+        \item Quelles sont les coordonnées des points B et E~?\vskip30pt
+        \item Placer sur la demi-droite graduée les point C(4) et D(3,5).
+        
+    \end{enumerate}
+    \par\noindent{\centering\bfseries Deuxième partie :}\par
+    \begin{enumerate}
+        \setcounter{enumi}{2}
+        \item Placer sur la droite graduée les points F(-3), G(-2,5) et H(+0,5).
+        \item Qu'est-ce qu'un nombre relatif~?
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer l'aire du triangle GHJ.\par\medskip
+\begin{tikzpicture}[scale=1.25]
+    \coordinate[label=below left:G](A)at(0,0);
+    \coordinate[label=below right:H](B)at(4,0);
+    \coordinate[label=above:J](C)at(-2,2);
+    \coordinate(A1)at(-2.25,2);
+    \coordinate(B1)at(-2.25,0);
+    \draw[latex-latex](A1)--(B1);
+    \draw(A)--(B)--(C)--cycle;
+    \path(A)--(B)node[midway,below]{\bfseries\<n1;};
+    \path(A)--(C)node[midway,above right]{\bfseries\<n2;};
+    \path(B)--(C)node[midway,above right]{\bfseries\<n3;};
+    \path(A1)--(B1)node[midway,left]{\<n4;};
+\end{tikzpicture}
+\end{document}

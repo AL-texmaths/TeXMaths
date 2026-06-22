@@ -1,0 +1,24 @@
+\documentclass{standalone}
+\usepackage{tikzpack}
+\usepackage{colorpack}
+\usepackage{frcursive}
+
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+	\begin{tikzpicture}[scale=1]
+		\draw[Rainbow1-bleu!70!black,line width=0.3](0,0)grid[color=Red,xstep=45,ystep=0.2](21,6.2);
+		\draw[red!40!blue,line width=0.3](4,0)grid[xstep=0.8,ystep=45](21,9);
+		\draw[Rainbow1-rouge,line width=0.4](4,0)--(4,9);
+		\draw[red!40!blue,line width=0.2](0,0)grid[xstep=45,ystep=0.8](21,6.2);
+		\draw[gray,line width=0.1](0,0)rectangle(21,9);
+		\draw[gray,fill=white,line width=0.1](1,6)circle(0.275);
+		\draw[gray,fill=white,line width=0.1](1,5.1)circle(0.275);
+		\draw[gray,fill=white,line width=0.1](1,4.3)circle(0.275);
+		\draw[white,fill=white,line width=0.1](0.725,4.3)rectangle(1.275,5.1);
+		\draw[gray,line width=0.08](0.725,4.29)--(0.725,5.11);
+		\draw[gray,line width=0.08](1.275,4.29)--(1.275,5.11);
+		\draw[red!80!black,line width=1.25](4,4)--(21,4);
+		\draw[red!80!black,line width=1.25](4,0.8)--(21,0.8);
+	\end{tikzpicture}
+\end{document}

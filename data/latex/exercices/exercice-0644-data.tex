@@ -1,0 +1,24 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+À l'issue de la coupe du monde, quatre équipes se trouvent en tête du
+classement FIFA. Le classement est effectué sur les matchs disputés ces
+trois dernières années. Les matchs nuls ne comptent pas.\par\vskip10pt
+Classer ces quatre équipes en comparant leur coefficient FIFA~:
+$$\text{Coefficient FIFA}=\dfrac{\text{Nombre de matchs gagnés}}{\text{Nombre de macths joués}}$$
+{\centering\begin{tblr}{colspec={*3{Q[c,m]}},row{1}={font=\bfseries,bg=gray!35},
+    vlines,hlines}
+    Nom de l'équipe & Matchs gagnés & Matchs perdus\\
+    France & 13 & 7\\
+    Allemagne & 15 & 3\\
+    Croatie & 12 & 8\\
+    Uruguay & 13 & 5\\
+\end{tblr}\par}
+\end{document}

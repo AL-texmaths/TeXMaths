@@ -1,0 +1,101 @@
+\documentclass{thecours}
+\begin{document}
+    \baselineskip14pt
+    \bigpart{Diviseurs d'un entier naturel}
+        \begin{mdframed}[
+                innerleftmargin=0pt,
+                innerrightmargin=-20.25pt,
+                innertopmargin=0pt,
+                innerbottommargin=0pt
+                ]
+            \begin{tblr}{
+                colspec={
+                    Q[c,m,wd=.15\linewidth]|Q[c,m,wd=.25\linewidth]|
+                    Q[c,m,wd=.15\linewidth]|Q[c,m,wd=.25\linewidth]},
+                rows={ht=40pt}}%
+                $6=2\times3$&6 partagé en 2 paquets de 3&$\bullet\bullet\bullet$\par
+                $\bullet\bullet\bullet$&2 et 3 sont des {\bfseries diviseurs} de 6\\\hline
+                $15=3\times5$&15 partagé en 3 paquets de 5&$\bullet\bullet\bullet
+                \bullet\bullet$\par$\bullet\bullet\bullet\bullet\bullet$&3 et 5 sont
+                des {\bfseries diviseurs} de 15\\\hline
+                $7=1\times7$&7 partagé en 1 paquet de 7&$\bullet\bullet\bullet\bullet
+                \bullet\bullet\bullet$&1 et 7 sont des {\bfseries diviseurs} de 7
+            \end{tblr}
+        \end{mdframed}
+    \bigpart{Décompostion en produit de facteurs premiers}
+    \definition{nombre_premier}
+    {\bfseries Exemple :} 7 est un nombre premier car ses seuls diviseurs sont 1 et
+    7.\par\smallbreak\noindent
+    {\bfseries Contre-exemple :} 6 n'est pas un nombre premier car il possède quatre
+    diviseurs~: 1, 6, 2 et 3.\par\kern5pt
+    \exported[scale=1.25]%
+            <<%
+    \noindent Voici la liste des nombres premiers inférieurs à 30 :
+    \begin{mdframed}[style=byheart]
+        \let\diagnum\relax
+        \let\circlenum\relax
+        \begin{tblr}{columns={c,wd=1.75em},rows={30pt}}
+            \diagnum0&\diagnum1&\circlenum2&\circlenum3&\diagnum4&\circlenum5&
+                \diagnum6&\circlenum7&\diagnum8&\diagnum9\\
+            \diagnum{10}&\circlenum{11}&\diagnum{12}&\circlenum{13}&\diagnum{14}
+                &\diagnum{15}&\diagnum{16}&\circlenum{17}&\diagnum{18}&
+                \circlenum{19}\\
+            \diagnum{20}&\diagnum{21}&\diagnum{22}&\circlenum{23}&\diagnum{24}&
+            \diagnum{25}&\diagnum{26}&\diagnum{27}&\diagnum{28}&\circlenum{29}\\
+        \end{tblr}
+    \end{mdframed}%
+            >>
+    \newpage
+    \proposition{decompostion_facteurs_premiers}
+    {\bfseries Exemple :}\par\kern5pt\global\leftskip2\parindent
+    \noindent
+    $12$\kern1ex\vtop{\hbox{$=\kern1ex2\times 2\times 3$}\par\hbox{$=\kern1ex2^2\times 3$}}\hfil
+    $75$\kern1ex\vtop{\hbox{$=\kern1ex3\times 5\times 5$}\par\hbox{$=\kern1ex3\times 5^2$}}\hfil
+    $36$\kern1ex\vtop{\hbox{$=\kern1ex2\times 2\times 3\times 3$}\par\hbox{$=\kern1ex2^2\times 3^2$}}\par
+    \global\leftskip\parindent
+    \bigbreak\noindent{\bfseries Méthode :}\par\kern5pt\global\leftskip2\parindent
+    \noindent\kern.5ex{\bfseries 1)} On cherche la décomposition de 156 en produits de facteurs premiers.\par
+    \global\leftskip3\parindent
+    \noindent On liste les nombres premiers dans l'ordre croissant : $$2,
+    3, 5, 7, 11, 13$$\par\noindent
+    \vtop{\hbox{156}\par\hbox{\hskip1ex78}\par\hbox{\hskip1ex39}\par\hbox{\hskip1ex13}}%
+    \kern1ex\vtop{\hbox{$=$}\hbox{$=$}\hbox{$=$}\hbox{$=$}}\kern1ex%
+    \vrule height8pt depth45pt\kern.75ex%
+    \vtop{\hbox{\kern.5ex$2$}\hbox{\kern.5ex$2$}\hbox{\kern.5ex$3$}\hbox{$13$}}%
+    \kern.75ex\vrule height8pt\kern.75ex
+    \kern1ex\vtop{\hbox{$\times$}\hbox{$\times$}\hbox{$\times$}\hbox{$\times$}}\kern1ex
+    \vtop{\hbox{$78$}\par\hbox{$39$}\par\hbox{$13$}\par\hbox{$1$}}\kern45pt%
+    Donc\quad$156$\kern1ex%
+    \vtop{\hbox{$=\kern1ex2\times 2\times 3\times 13$}\par\hbox{$=\kern1ex2^2\times 3\times 13$}}\par
+    \global\leftskip2\parindent
+    \kern15pt\noindent{\bfseries 2)} On cherche la décomposition de 252 en produits de facteurs premiers.\par
+    \global\leftskip3\parindent
+    \noindent On liste les nombres premiers dans l'ordre croissant : $$2,
+    3, 5, 7, 11, 13, 17$$\par\noindent
+    \vtop{\hbox{252}\par\hbox{126}\par\hbox{\hskip1ex63}\par\hbox{\hskip1ex21}\par\hbox{\hskip2ex1}}%
+    \kern1ex\vtop{\hbox{$=$}\hbox{$=$}\hbox{$=$}\hbox{$=$}\hbox{$=$}}\kern1ex%
+    \vrule height8pt depth57pt\kern.75ex%
+    \vtop{\hbox{\kern.5ex$2$}\hbox{\kern.5ex$2$}\hbox{\kern.5ex$3$}\hbox{\kern.5ex$3$}\hbox{\kern.5ex$7$}}%
+    \kern1.5ex\vrule height8pt\kern.75ex
+    \kern1ex\vtop{\hbox{$\times$}\hbox{$\times$}\hbox{$\times$}\hbox{$\times$}}\kern1ex
+    \vtop{\hbox{$126$}\par\hbox{$63$}\par\hbox{$21$}\par\hbox{$7$}\par\hbox{$1$}}\kern45pt%
+    Donc\quad$252$\kern1ex%
+    \vtop{\hbox{$=\kern1ex2\times 2\times 3\times 3$}\par\hbox{$=\kern1ex2^2\times 3^2\times 7$}}\par
+    \global\leftskip2\parindent
+    \newpage
+    \bigpart{Applications aux fractions}
+    \definition{fraction_irreductible_2}
+    {\bfseries Exemple :}\par\kern5pt\global\leftskip2\parindent
+    La fraction $\dfrac{12}{25}$ \par\medskip\global\leftskip0\parindent
+
+    {\bfseries Contre-exemple :}\par\kern5pt\global\leftskip2\parindent
+    La fraction $\dfrac{50}{170}$ n'est pas irréductible car 10 est un diviseur
+    commun à 50 et à 170~:
+    $$\dfrac{50}{170}=\dfrac{10\times5}{17\times10}=\dfrac{5}{17}$$
+    \par\medskip\global\leftskip0\parindent
+
+    {\bfseries Méthode :}\par\kern5pt\global\leftskip2\parindent
+    Pour rendre une fraction irréductible, on décompose le numérateur et le dénominateur
+    en facteurs premiers~: exemple avec $\dfrac{84}{30}$.
+
+\end{document}

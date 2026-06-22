@@ -1,0 +1,69 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-boxes}%
+\nodata
+\begin{document}%
+\tikzset{%
+    every picture/.style={%
+        baseline=(current bounding box.center)
+    }%
+}%
+\>figure1={%
+    \begin{tikzpicture}[scale=0.65,rotate=15]
+        \def\a{2}
+        \def\b{0.41421356237309515*\a}
+        \draw[fill=Rainbow1-rouge](\a,0)arc(-90:-180:\a)arc(0:-90:\a)arc(90:0:\a)arc(180:90:\a);
+        \draw(0,0)circle(\b);
+        \coordinate[label=above right:A](A1)at(45:\b);
+        \coordinate[label=above left:B](A2)at(135:\b);
+        \coordinate[label=below left:C](A3)at(-135:\b);
+        \coordinate[label=below right:D](A4)at(-45:\b);
+        \draw(A1)--(A2)--(A3)--(A4)--cycle;
+        \coordinate[label=above:E](A5)at(0,\a);
+        \coordinate[label=right:F](A6)at(\a,0);
+        \coordinate[label=below:G](A7)at(0,-\a);
+        \coordinate[label=left:H](A8)at(-\a,0);
+    \end{tikzpicture}
+};%
+\>figure2={%
+    \begin{tikzpicture}[scale=0.75]
+        \coordinate[label=below left:A](A1)at(0,0);
+        \coordinate[label=above left:B](A2)at(0,2);
+        \coordinate[label=above:C](A3)at(0.5,2.5);
+        \coordinate[label=above right:D](A4)at(1,2);
+        \coordinate[label=below right:E](A5)at(1,0);
+        \coordinate[label=above:F](A6)at(0.5,0.5);
+        \draw[fill=Rainbow1-jaune](A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+    \end{tikzpicture}
+};%
+\>figure3={%
+    \begin{tikzpicture}[scale=0.8]
+        \begin{axis}[hide x axis,hide y axis]
+            \draw(0,0)node[left]{A};
+            \draw(360,0)node[right]{B};
+            \addplot[domain=0:360,smooth]{sin(x)};
+        \end{axis}
+    \end{tikzpicture}
+};%
+\>figure4={%
+    \begin{tikzpicture}[scale=1.5,rotate=10]
+        \def\radius{0.3819660112501051}
+        \def\xx##1{(A##1)--(B##1)--}
+        \foreach\ii in{0,1,...,4}{%
+            \coordinate(A\ii)at(18+72*\ii:1);
+            \coordinate(B\ii)at(54+72*\ii:\radius);
+        }
+        \filldraw[line width=0.4pt,fill=Rainbow1-bleu]\xx0\xx1\xx2\xx3\xx4 cycle;
+        \node[above right]at(A0){K};
+        \node[above]at(A1){L};
+        \node[above left]at(A2){L};
+        \node[below left]at(A3){M};
+        \node[below right]at(A4){O};
+        \node[above right]at(B0){P};
+        \node[above left]at(B1){Q};
+        \node[shift={(-160:\radius-0.1)}]at(B2){R};
+        \node[below]at(B3){S};
+        \node[shift={(-20:\radius-0.1)}]at(B4){T};
+    \end{tikzpicture}
+};%
+\enonce{0072}%
+\end{document}

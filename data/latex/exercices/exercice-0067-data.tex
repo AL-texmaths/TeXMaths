@@ -1,0 +1,73 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!order=ABC;%
+\makeatletter
+\def\exos@figA{%
+    \begin{tikzpicture}[scale=0.3,baseline=(O.base),rotate=10]
+        \coordinate(O)at(0,0);
+        \tikzSegment[sommets=\*A;\*B;,lenght=2]
+        \coordinate(d0')at(0,3);
+        \coordinate(d1')at(0,-3);
+        \path(d0')--+(-1,0)coordinate[label=right:\color{vscode-crimson}$(\*d;)$](d0);
+        \path(d1')--+(1,0)coordinate(d1);
+        \draw[red](d0)--(d1);
+        \path(A1)--(O)node[sloped,pos=0.5]{\tiny\color{vscode-blue}$//$};
+        \path(A2)--(O)node[sloped,pos=0.5]{\tiny\color{vscode-blue}$//$};
+    \end{tikzpicture}
+}
+\def\exos@figB{%
+    \begin{tikzpicture}[scale=0.3,baseline=(O.base),rotate=-10]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(-0.5,0);
+        \tikzSegment[sommets=\*A;\*B;,lenght=4]
+        \coordinate(d0')at(0,3);
+        \coordinate(d1')at(0,-3);
+        \path(d0')--+(-0.5,0)coordinate[label=right:\color{vscode-crimson}$(\*d;)$](d0);
+        \path(d1')--+(-0.5,0)coordinate(d1);
+        \draw[red](d0)--(d1);
+        \tkzMarkRightAngle[color=vscode-blue](d0,O',A1)
+    \end{tikzpicture}%
+}%
+\def\exos@figC{%
+    \begin{tikzpicture}[scale=0.4,baseline=(O.base),rotate=-20]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(-0,0);
+        \tikzSegment[sommets=\*A;\*B;,lenght=3]
+        \coordinate(d0')at(0,2);
+        \coordinate(d1')at(0,-2);
+        \path(d0')--+(-0,0)coordinate[label=right:\color{vscode-crimson}$(\*d;)$](d0);
+        \path(d1')--+(-0,0)coordinate(d1);
+        \draw[red](d0)--(d1);
+        \tkzMarkRightAngle[color=vscode-blue](d0,O',A1)
+        \path(A1)--(O)node[sloped,pos=0.5]{\tiny\color{vscode-blue}$//$};
+        \path(A2)--(O)node[sloped,pos=0.5]{\tiny\color{vscode-blue}$//$};
+    \end{tikzpicture}%
+}%
+\def\exos@fig#1{\csname exos@fig#1\endcsname}%
+\edef\order{\*order;}%
+\begin{flushleft}
+    Dans chaque cas, indiquer si la droite $(\<d;)$ est la médiatrice du segment
+    \textsf{[\<S1;\<S2;]}. Justifier.
+\end{flushleft}\par\noindent
+\begingroup\small
+\begin{tblr}{%
+        colspec={Q[c,m]Q[c,m]},
+        columns={wd=100pt}
+    }
+    \textbf{a)}\hspace{5pt}\expandafter\expandafter\expandafter\exos@fig\expandafter\firstofthree\order
+    &
+    \textbf{b)}\hspace{5pt}\expandafter\expandafter\expandafter\exos@fig\expandafter\secondofthree\order
+\end{tblr}\par\noindent
+\textbf{c)}\hspace{5pt}\expandafter\expandafter\expandafter\exos@fig\expandafter\thirdofthree\order
+\endgroup
+\makeatother
+\end{document}

@@ -1,0 +1,85 @@
+\documentclass[17pt]{flash}
+\usepackage{tkz-euclide}
+\def\figureA{%
+\begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center), rotate=-20]
+    \coordinate(A)at(0,-3);
+    \coordinate(G)at(0,-5);
+    \coordinate(B)at(0,3);
+    \coordinate(H)at(0,5);
+    \path(A)+(35:4)coordinate(C);
+    \path(A)+(215:4)coordinate(E);
+    \path(B)+(35:4)coordinate(D);
+    \path(B)+(215:4)coordinate(F);
+    \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](D,B,H)
+    \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](C,A,B)
+    \tkzDrawLines(G,H C,E F,D)
+\end{tikzpicture}
+}
+\def\figureB{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center),rotate=40]
+        \coordinate(A)at(0,-3);
+        \coordinate(G)at(0,-5);
+        \coordinate(B)at(0,3);
+        \coordinate(H)at(0,5);
+        \path(A)+(35:4)coordinate(C);
+        \path(A)+(215:4)coordinate(E);
+        \path(B)+(35:4)coordinate(D);
+        \path(B)+(215:4)coordinate(F);
+        \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](D,B,H)
+        \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](E,A,G)
+        \tkzDrawLines(G,H C,E F,D)
+    \end{tikzpicture}
+}
+\def\figureC{%
+\begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center), rotate=100]
+    \coordinate(A)at(0,-3);
+    \coordinate(G)at(0,-5);
+    \coordinate(B)at(0,3);
+    \coordinate(H)at(0,5);
+    \path(A)+(35:4)coordinate(C);
+    \path(A)+(215:4)coordinate(E);
+    \path(B)+(35:4)coordinate(D);
+    \path(B)+(215:4)coordinate(F);
+    \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](F,B,A)
+    \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](C,A,B)
+    \tkzDrawLines(G,H C,E F,D)
+\end{tikzpicture}
+}
+\def\figureD{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,-3);
+        \coordinate(G)at(0,-5);
+        \coordinate(B)at(0,3);
+        \coordinate(H)at(0,5);
+        \path(A)+(35:4)coordinate(C);
+        \path(A)+(215:4)coordinate(E);
+        \path(B)+(35:4)coordinate(D);
+        \path(B)+(215:4)coordinate(F);
+        \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](H,B,F)
+        \tkzFillAngle[mark=none,fill=vscode-green,size=1.5](C,A,B)
+        \tkzDrawLines(G,H C,E F,D)
+    \end{tikzpicture}
+}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Géométrie: angles}
+\FlashShowConsignes{%
+        \item Pour chaque paire d'angles, écrire le vocabulaire adéquat.
+}
+\def\figScale{0.5}
+\AtCorrection{\def\figScale{0.2}}
+\flashlist{
+    \flashitem{30}{\figureA}
+    \flashitem{30}{\figureB}
+    \flashitem{30}{\figureC}
+    \flashitem{30}{\figureD}
+}
+
+\end{document}

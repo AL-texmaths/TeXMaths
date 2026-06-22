@@ -1,0 +1,48 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Nombre relatif}
+    \definition{nombre_relatifs_positifs_negatifs}
+    \noindent{\bfseries Exemple :}
+    \par\noindent{\bfseries Remarque :} Le signe d'un nombre relatif n'est pas une opération !
+    \methode{comparaison_nombres_relatifs}
+    \noindent{\bfseries Exemple :}
+    \bigpart{Repérage des point sur une droite}
+    \definition{droite_graduee}
+    \bigpart{Repérage des points dans un plan}
+    \definition{repere_cartesien}
+    \noindent{\bfseries Exemple :}\vskip10pt\noindent
+        \exported[scale=1, ]<<
+        \begin{tikzpicture}[scale=0.8]
+            \coordinate(O)at(0,0);
+            \coordinate(O1)at(6,0);
+            \coordinate(-O1)at(-6,0);
+            \coordinate(O2)at(0,5);
+            \coordinate(-O2)at(0,-5);
+            \draw[-latex](-O1)--(O1);
+            \draw[gray,line width=0.1pt](-6,-5)grid(6,5);
+            \draw[-latex](-O2)--(O2);
+            \draw[white,line width=0.5pt](-6,-5)rectangle(6,5);
+            \foreach\x in{-4,...,4}{
+                \draw[line width=1pt](\x,-0.1)--(\x,0.1);
+                \draw[line width=1pt](-0.1,\x)--(0.1,\x);
+                }
+            \coordinate(A)at(1,3);
+            \coordinate(B)at(4,-2);
+            \coordinate(C)at(-1.5,1.5);
+            \coordinate(D)at(-1.5,-2);
+            \foreach\X in{A,B,C,D}{
+                \draw node at(\X){+};
+                \draw node[above right]at(\X){\X};
+            }
+            \draw node[below right]at(O){0};
+            \draw node[below right]at(1,0){1};
+        \end{tikzpicture}\vskip20pt\noindent
+        Le point de coordonées (0;0) se nomme \toComplete{l'origine du
+        repère}.\par\noindent
+        L'axe horizontal est se nomme l'axe des \toComplete{abscisses}.\par\noindent
+        L'axe vertical est se nomme l'axe des \toComplete{ordonnées}.\par\noindent
+        Le point A a pour coordonnées \toComplete{(+1 ; +3)}.\par\noindent
+        Le point B a pour coordonnées \toComplete{(+4 ; -2)}.\par\noindent
+        Le point C a pour coordonnées \toComplete{(-1,5 ; +1,5)}.\par\noindent
+        Le point D a pour coordonnées \toComplete{(-1,5 ; -2)}.>>
+\end{document}

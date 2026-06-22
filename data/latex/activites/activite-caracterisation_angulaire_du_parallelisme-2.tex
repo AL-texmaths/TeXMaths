@@ -1,0 +1,26 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\begin{enumerate}
+    \item En utilisant vos connaissances ou le papier calque, trouver un maximum de paires d'angles égaux.
+    \vskip20pt\begin{tikzpicture}
+        \coordinate[label=above left:A](A)at(0,-3);
+        \coordinate[label=below:G](G)at(0,-5);
+        \coordinate[label=below right:B](B)at(0,3);
+        \coordinate[label=H](H)at(0,5);
+        \path(A)+(25:4)coordinate[label=C](C);
+        \path(A)+(205:4)coordinate[label=below left:E](E);
+        \path(B)+(35:4)coordinate[label=D](D);
+        \path(B)+(215:4)coordinate[label=F](F);
+        \tkzDrawLines[add=0 and 0](G,H C,E F,D)
+    \end{tikzpicture}\vskip20pt
+    \item Comparer avec votre voisin.
+\end{enumerate}
+\end{document}

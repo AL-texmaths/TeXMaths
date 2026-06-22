@@ -1,0 +1,25 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}\begingroup\small\vspace{10pt}
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[dashed](-6,-6)rectangle(6,6);
+            \coordinate[label=below left:A](A)at(-3,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \foreach\X in{A,B}{%
+                \node at(\X){$\times$};
+            }
+        \end{tikzpicture}
+    \end{center}
+    \begin{enumerate}[1), font=\bfseries]
+        \item
+            \begin{enumerate}[a), font=\bfseries]
+                \item Tracer [AB].
+                \item Placer un point C tel que AC = 4 cm et BC = 5 cm.
+                \item Tracer le triangle ABC.
+            \end{enumerate}
+        \item Dans le cahier d'exercice, tracer un triangle EFG tel que
+            \begin{center}
+                \centering EF = 7,5 cm ; EG = 5,5 cm ; FG = 6,5 cm.
+            \end{center}
+    \end{enumerate}\endgroup
+\end{document}

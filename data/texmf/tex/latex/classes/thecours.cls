@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{thecours}
+\DeclareOption{NewCenturySchoolbook}{\PassOptionsToClass{NewCenturySchoolbook}{themain}}
+\DeclareOption{Comfortaa}{\PassOptionsToClass{Comfortaa}{themain}}
+\DeclareOption{Verdana}{\PassOptionsToClass{Verdana}{themain}}
+\DeclareOption{ComicSansMS}{\PassOptionsToClass{ComicSansMS}{themain}}
+\DeclareOption{Rainbow1}{\PassOptionsToClass{Rainbow1}{themain}}
+\DeclareOption{toc}{\PassOptionsToClass{toc}{themain}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{themain}}
+\ProcessOptions\relax
+\LoadClass[../main.tex]{subfiles}
+\RequirePackage{texmaths-main}
+\AtBeginDocument{\begincoursstyle}
+\AtEndDocument{\endcoursstyle}

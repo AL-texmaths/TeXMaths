@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[a4paper, total={16cm, 26cm}]{geometry}
+\usepackage{enumitem}
+\usepackage{dashrule}
+\usepackage{tkz-euclide}
+
+\def\trait{\vskip15pt\rule{\linewidth}{0.5pt}}
+\def\thetitle{Évaluation de cours : Théorèmes de Pythagore/Thalès }
+\def\anskip{\vskip230pt}
+
+\begin{document}
+
+\begin{center}
+    \Large\thetitle (Sujet A)
+\end{center}
+\vskip10pt
+Nom : \hskip100pt Prénom : \hskip100pt Classe~:
+\vskip20pt
+\begin{enumerate}[label=\arabic*), font=\bfseries]
+    \item Dans chaque cas, calculer la longueur manquante~:
+    \begin{enumerate}[label=\alph*), font=\bfseries]
+        \item \begin{tikzpicture}[rotate=-140]
+            \coordinate[label=above:T](A)at(0,0);
+            \coordinate[label=left:U](B)at(4,0);
+            \coordinate[label=right:R](C)at(0,3);
+            \path (A)--(B)node[midway, above left]{6,3 cm};
+            \path (A)--(C)node[midway, above right]{1,6 cm};
+            \path (B)--(C)node[midway, below]{?};
+            \tkzMarkRightAngle(B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+        \end{tikzpicture}\anskip
+        \item \begin{tikzpicture}[scale=0.75]
+            \coordinate[label=below left:D](A)at(0,0);
+            \coordinate[label=below right:C](B)at(4,0);
+            \coordinate[label=above:A](C)at(0,3);
+            \path (A)--(B)node[midway, below]{?};
+            \path (A)--(C)node[midway, left]{39 m};
+            \path (B)--(C)node[midway, above right]{89 m};
+            \tkzMarkRightAngle(B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+        \end{tikzpicture}\anskip
+    \end{enumerate}
+    \item Le triangle suivant est-il rectangle~?\par
+    \begin{tikzpicture}[rotate=-150, scale=0.8]
+        \coordinate[label=above:A](A)at(0,0);
+        \coordinate[label=left:B](B)at(4,0);
+        \coordinate[label=right:C](C)at(0,3.5);
+        \path (A)--(B)node[midway, above left]{9,7 cm};
+        \path (A)--(C)node[midway, above right]{6,5 cm};
+        \path (B)--(C)node[midway, below]{7,2 cm};
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}\anskip
+    \item (ST) et (VU) sont parallèles. Calculer ST.\par\noindent
+    \begin{tikzpicture}[scale=0.6,rotate=-90]
+        \coordinate[label=above:R](A)at(0,0);
+        \coordinate[label=below left:V](D)at(10,0);
+        \coordinate[label=right:U](E)at(7,3);
+        \path(A)--(E)coordinate[pos=0.4,label=right:T](B);
+        \path(A)--(D)coordinate[pos=0.4,label=above left:S](C);
+        \draw(A)--(E)--(D)--(C)--cycle;
+        \path(C)--(D)node[pos=0.5,left]{7,5 cm};
+        \path(C)--(A)node[pos=0.5,above left]{3 cm};
+        \path(D)--(E)node[pos=0.5,below right]{8,75 cm};
+        \tkzDrawLine[add=0.5 and 0.5](B,C)
+    \end{tikzpicture}\anskip
+\end{enumerate}
+\newpage
+\begin{center}
+    \Large\thetitle (Sujet B)
+\end{center}
+\vskip10pt
+Nom : \hskip100pt Prénom : \hskip100pt Classe~:
+\vskip20pt
+\begin{enumerate}[label=\arabic*), font=\bfseries]
+    \item Dans chaque cas, calculer la longueur manquante~:
+    \begin{enumerate}[label=\alph*), font=\bfseries]
+        \item \begin{tikzpicture}[scale=0.75]
+            \coordinate[label=below left:E](A)at(0,0);
+            \coordinate[label=below right:D](B)at(4,0);
+            \coordinate[label=above:B](C)at(0,3);
+            \path (A)--(B)node[midway, below]{4,5 cm};
+            \path (A)--(C)node[midway, left]{2,8 cm};
+            \path (B)--(C)node[midway, above right]{?};
+            \tkzMarkRightAngle(B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+        \end{tikzpicture}\anskip
+        \item \begin{tikzpicture}[rotate=-140]
+            \coordinate[label=above:H](A)at(0,0);
+            \coordinate[label=left:J](B)at(4,0);
+            \coordinate[label=right:G](C)at(0,3);
+            \path (A)--(B)node[midway, above left]{55 m};
+            \path (A)--(C)node[midway, above right]{?};
+            \path (B)--(C)node[midway, below]{73 m};
+            \tkzMarkRightAngle(B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+        \end{tikzpicture}\anskip
+    \end{enumerate}
+    \item Le triangle suivant est-il rectangle~?\par
+    \begin{tikzpicture}[rotate=-150, scale=0.8]
+        \coordinate[label=above:A](A)at(0,0);
+        \coordinate[label=left:B](B)at(4,0);
+        \coordinate[label=right:C](C)at(0,3.5);
+        \path (A)--(B)node[midway, above left]{8,5 cm};
+        \path (A)--(C)node[midway, above right]{3,2 cm};
+        \path (B)--(C)node[midway, below]{7,7 cm};
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}\anskip
+    \item (KT) et (DB) sont parallèles. Calculer KT.\par\noindent
+    \begin{tikzpicture}[scale=0.6,rotate=-20]
+        \coordinate[label=left:A](A)at(0,0);
+        \coordinate[label=below right:B](D)at(10,0);
+        \coordinate[label=above right:D](E)at(7,3);
+        \path(A)--(E)coordinate[pos=0.4,label=above right:K](B);
+        \path(A)--(D)coordinate[pos=0.4,label=below left:T](C);
+        \draw(A)--(E)--(D)--(C)--cycle;
+        \path(C)--(D)node[pos=0.5,below left]{3 cm};
+        \path(C)--(A)node[pos=0.5,below left]{2 cm};
+        \path(D)--(E)node[pos=0.5,above right]{7,5 cm};
+        \tkzDrawLine[add=0.5 and 0.5](B,C)
+    \end{tikzpicture}\anskip
+\end{enumerate}
+\end{document}

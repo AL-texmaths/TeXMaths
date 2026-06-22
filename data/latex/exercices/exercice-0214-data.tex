@@ -1,0 +1,47 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Paris-Nice est une course cycliste que se déroule chaque année et qui mène les
+coureurs de la région parisienne à la région niçoise. L'édition 2021 s'est
+déroulée en 7 étapes décrites ci-dessous~:\vskip10pt
+{\centering
+\begin{tblr}{colspec=*5{Q[c,m]},hlines,vlines,
+    column{4}={font=\footnotesize},row{1}={font=\bfseries\normalsize}}
+Étape&Date&Profil&Parcours&Distance\\
+1&Dimanche 7 mars&Accidenté&Saint-Cyr-l'École $\longrightarrow$ Saint-Cyr-l'École&166 km\\
+2&Lundi 8 mars&Plat&Oinville-sur-Montcient $\longrightarrow$ Amilly&188 km\\
+3&Mercredi 10 mars&Accidenté&Chalon-sur-Saône $\longrightarrow$ Chiroubles&187,5 km\\
+4&Jeudi 11 mars&Plat&Vienne $\longrightarrow$ Bollène&200 km\\
+5&Vendredi 12 mars&Accidenté&Brignoles $\longrightarrow$ Biot&202,5 km\\
+6&Samedi 13 mars&Montagneux&Le Broc $\longrightarrow$ Valdeblore La Colmiane&119,5 km\\
+7&Dimanche 14 mars&Accidenté&Le Plan-du-Var $\longrightarrow$ Levens&93 km\\
+\end{tblr}
+\par}
+\begin{enumerate}
+    \item On étudie la série des distances parcourues par étape.
+    \begin{enumerate}
+        \item Calculer la distance moyenne parcourue par étape, arrondie au
+        dixième de km.
+        \item Calculer la médiane des distances parcourures par étape.
+        \item Calculer l'étendue de la série formée par les distances
+        parcourues par étape.
+    \end{enumerate}
+    \item Un journaliste affirme : \guillemets{Environ 57 \% du nombre total
+    d'étapes de cette édition se sont déroulées sur un parcours accidenté.}
+    \par\noindent A-t-il raison ? Expliquer votre réponse.
+    \item L'Allemand Maximilian SCHACHMANN a remporté la course en 28 h 50 min.
+    \item \par\noindent Le dernier au classement général a effectué l'ensemble
+    du parcours en 30 h 12 min.\par\noindent Combien de retard le dernier au
+    classement a-t-il accumulé par rapport au vainqueur~?
+    \item L'Irlandais Sam BENNETI a remporté la première étape en 3 h 51 min.
+    \par\noindent Déterminer sa vitesse moyenne en km/h, arrondie à l'unité,
+    lors de cette étape.
+\end{enumerate}
+\end{document}

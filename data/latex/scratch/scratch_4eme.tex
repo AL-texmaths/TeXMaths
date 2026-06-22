@@ -1,0 +1,170 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage{userpackages}
+\usepackage{scratch3}
+\usepackage{amsmath}
+\usepackage{geometry}
+
+\newgeometry{
+    lmargin=50pt,
+    hmargin=50pt,
+    top=50pt,
+    textheight=650pt
+}
+
+\def\source#1{
+    \begin{flushright}
+        \itshape\scriptsize Source Brevet #1
+    \end{flushright}
+}
+\def\adapte#1{
+    \begin{flushright}
+        \itshape\scriptsize Adapté du DNB #1
+    \end{flushright}
+}
+
+\newcounter{exercice}
+
+\def\newexercice{
+    \newpage
+    \stepcounter{exercice}
+    \begin{flushleft}
+        \Large\bfseries Exercice \arabic{exercice}
+    \end{flushleft}
+}
+
+\begin{document}
+\newexercice
+    Voici un programme de calcul.
+    \begin{center}
+        \begin{minipage}{.65\linewidth}
+            \begin{simplebox}
+                Choisir un nombre.
+                \vskip8pt
+                Prendre le double du nombre de départ.
+                \vskip8pt
+                Soustraire 6 au résultat.
+                \vskip8pt
+                Multiplier le résultat par le nombre de départ.
+            \end{simplebox}
+        \end{minipage}
+    \end{center}\vskip10pt
+    \begin{enumerate}[1), font=\bfseries]
+        \item Vérifier que si on choisit 4 comme nombre de départ, on obtient
+            8.
+        \item Appliquer ce programme de calcul au nombre $-3$.
+        \item Vous trouverez ci-dessous un script, écrit avec scratch.
+        \begin{center}
+            \begin{scratch}[corner=1ex, num blocks=true]
+                \blockinit{Quand \greenflag est cliqué}
+                \blocksensing{Demander \ovalnum{Choisi un nombre} et attendre}
+                \blockvariable{mettre \selectmenu{x} à \ovalsensing{réponse}}
+                \blockvariable{mettre \selectmenu{y} à \ovaloperator{2*\ovalvariable{\,x\,}}}
+                \blockvariable{mettre \selectmenu{z} à \ovaloperator{\ovalvariable{\,y\,}-\ovaloperator{\ovalnum{\phantom{---}}}}}
+                \blockvariable{mettre \selectmenu{Résultat} à \ovaloperator{\ovalnum{\phantom{---}}*\ovalnum{\phantom{---}}}}
+                \blocklook{dire \ovaloperator{\ovalnum{Le nombre final est } et \ovalvariable{Résultat}} pendant \ovalnum{2} secondes}
+            \end{scratch}
+        \end{center}
+        Compléter les lignes 5 et 6 pour que ce script corresponde au programme
+        de calcul.
+        \item On veut déterminer le nombre à choisir au départ pour obtenir zéro comme résultat.
+        \begin{enumerate}[a), font=\bfseries]
+            \item On appelle $x$ le nombre de départ. Exprimer en fonction de
+            $x$ le résultat final.
+            \item Quel(s) nombre(s) doit-on choisir au départ pour obtenir le
+            nombre 0 à l'arrivée ?
+        \end{enumerate}
+    \end{enumerate}
+    \adapte{Métropole 2020}
+
+    \newexercice
+    \begin{minipage}[c]{.60\linewidth}
+        On cherche à dessiner une éolienne avec le logiciel Scratch ; elle est formée de $3$ pales qui tournent autour d'un axe central.
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.35\linewidth}
+        \begin{center}
+            \begin{tikzpicture}[scale=0.6,rotate=90]
+                \foreach \i in {0,120,240}{
+                    \draw(\i:4)--(\i+20:1)--(\i-20:1)--cycle;
+                    \draw(\i:0.95)--(0,0);
+                }
+            \end{tikzpicture}\par 
+        Eolienne modélisée par Scratch
+        \end{center}
+    \end{minipage}
+    ~\par 
+    \begin{minipage}[c]{.60\linewidth}
+        \begin{enumerate}[1), font=\bfseries]
+            \item La figure ci-dessous représente une pale d'éolienne.
+            \begin{center}
+                \begin{tikzpicture}[scale=0.05]
+                    \coordinate[label=left:$A$](A)at(0,0);
+                    \coordinate[label=below:$C$](C)at(30,-13);
+                    \coordinate[label=right:$B$](B)at(30,0);
+                    \coordinate[label=above:$E$](E)at(30,13);
+                    \coordinate[label=right:$D$](D)at(179.43,0);
+                    \tkzMarkRightAngle[red,size=7](E,B,A)
+                    \draw(A)--(B)--(E)--(D)--(C)--(B);
+                    \tkzMarkAngle[size=7,mark=none](D,C,B)
+                    \tkzLabelAngle[pos=20,below=0.15](D,C,B){$85^\circ$}
+                    \tkzMarkSegments[mark=|](E,D D,C)
+                    \tkzMarkSegments[mark=s||](E,B B,C)
+                    \tkzLabelSegment[sloped](E,D){$150$}
+                    \tkzLabelSegment[below,sloped](B,C){$13$}
+                    \tkzLabelSegment[sloped](A,B){$30$}
+                \end{tikzpicture}
+            \end{center}
+            \begin{itemize}
+                \item $DEC$ est un triangle isocèle en $D$~;
+                \item $B$ est le milieu de $[EC]$~;
+                \item $[AB]$ est perpendiculaire à $[EC]$~; 
+                \item $\widehat{ECD}= 85^\circ$.
+            \end{itemize}
+            \begin{enumerate}[a), font=\bfseries]
+                \item Montrer que l'angle $\widehat{\text{CDE}} = 10\degres$.
+                \item Le script \og pale \fg{} ci-contre permet de tracer une pale de l'éolienne avec le logiciel Scratch.\par                     
+                Pourquoi la valeur indiquée dans le bloc de la ligne \no 6 est-elle 95~?
+                \item Dans ce même script \og pale \fg{}, par quelle valeur doit-on compléter le bloc situé à la ligne \no 8~? \par                     
+                Recopier cette valeur sur votre copie.
+            \end{enumerate}
+            \item Le script \og éolienne \fg{} ci-contre permet de tracer l'éolienne avec le logiciel Scratch. \par                 
+            Par quelle valeur doit-on compléter la boucle \og  répéter\fg{}~? Recopier cette valeur sur votre copie.                
+        \end{enumerate}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.35\linewidth}
+        \begin{center}
+            \setscratch{scale=.75}
+            \begin{scratch}[num blocks]
+                \initmoreblocks{définir \namemoreblocks{pale}}
+                \blockpen{stylo en position écriture}
+                \blockmove{avancer de \ovalnum{30}}
+                \blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+                \blockmove{avancer de \ovalnum{13}}
+                \blockmove{tourner \turnleft{} de \ovalnum{95} degrés}
+                \blockmove{avancer de \ovalnum{150}}
+                \blockmove{tourner \turnleft{} de \ovalnum{} degrés}
+                \blockmove{avancer de \ovalnum{150}}
+                \blockmove{tourner \turnleft{} de \ovalnum{95} degrés}
+                \blockmove{avancer de \ovalnum{13}}
+                \blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+                \blockmove{avancer de \ovalnum{30}}
+                \blockmove{tourner \turnright{} de \ovalnum{180} degrés}
+                \blockpen{relever le stylo}
+            \end{scratch}
+            ~\par \medskip
+            \begin{scratch}
+                \initmoreblocks{définir \namemoreblocks{éolienne}}
+                \blockmove{aller à x: \ovalnum0 y: \ovalnum0}
+                \blockrepeat{répéter \ovalnum{} fois}
+                {\blockmoreblocks{pale}
+                    \blockmove{tourner \turnright{} de \ovalnum{120} degrés}
+                }
+            \end{scratch}
+        \end{center}
+    \end{minipage}
+    \source{Métropole 2020}
+\end{document}

@@ -1,0 +1,143 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\begin{enumerate}
+    \item Dans chacun des cas suivants, dire quelle fraction de la figure est colorié.
+    \begin{center}
+    \vspace{-0.5cm}
+    \end{center}
+    \begin{minipage}{.45\linewidth}
+    \textbf{(1)}
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+    \filldraw[fill=Rainbow1-bleu](0,0) -- (90:1) arc (90:315:1) -- cycle;
+    \draw(-1,0)--(1,0);
+    \draw(0,-1)--(0,1);
+    \draw(45:1)--(225:1);
+    \draw(135:1)--(315:1);
+    \draw(0,0)circle(1);
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+    \textbf{(2)}
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+    \filldraw[fill=Rainbow1-rouge](0,0) -- (0,1)-- (-1,1) -- cycle;
+    \filldraw[fill=Rainbow1-rouge](0,0) -- (-1,0)-- (-1,-1) -- cycle;
+    \filldraw[fill=Rainbow1-rouge](0,0) -- (0,-1)-- (1,-1) -- cycle;
+    \draw(-1,-1)rectangle(1,1);
+    \draw(-1,0)--(1,0);
+    \draw(0,-1)--(0,1);
+    \draw(-1,-1)--(1,1);
+    \draw(-1,1)--(1,-1);
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}\hspace{.05\linewidth}
+    \begin{center}
+    \vspace{-0.5cm}
+    \end{center}
+    \begin{minipage}{.45\linewidth}
+    \textbf{(3)}
+    \begin{center}
+    \begin{tikzpicture}[scale=0.45]
+    \filldraw[fill=Rainbow1-jaune](0,3)rectangle(6,5);
+    \draw[xstep=2, ystep=1](0,0)grid(6,5);
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}
+    \begin{minipage}{.45\linewidth}
+    \textbf{(4)}
+    \begin{center}
+    \begin{tikzpicture}[scale=0.6]
+    \coordinate(O)at(0,0);
+    \coordinate(A)at(90:2);
+    \coordinate(B)at(210:2);
+    \coordinate(C)at(330:2);
+    \path(0,0)--(A)([turn]100:1)coordinate(A1);
+    \path(0,0)--(B)([turn]100:1)coordinate(B1);
+    \path(0,0)--(C)([turn]100:1)coordinate(C1);
+    \filldraw[fill=Rainbow1-vert](O)--(A)--(A1)to[out=-80, in=40](B)--cycle;
+    \draw(O)--(A)--(A1)to[out=-80, in=40](B)--cycle;
+    \draw(O)--(B)--(B1)to[out=40, in=160](C)--cycle;
+    \draw(O)--(C)--(C1)to[out=160, in=280](A)--cycle;
+    \end{tikzpicture}
+    \end{center}
+    \end{minipage}
+    \item Quelle fraction de l'aire du rectangle \textsf{ABCD} représente l'aire de chacun
+    des rectangles colorés ?
+    
+    \begin{center}
+    
+    \def\scalea{0.45}
+    \def\rectcolor{Rainbow1-orange}
+    
+    \noindent\begin{tabular}{c c c c c}
+        \begin{tikzpicture}[scale=\scalea]
+            \coordinate[label=above left:A](A)at(0,3);
+            \coordinate[label=above right:B](B)at(4,3);
+            \coordinate[label=below right:C](C)at(4,0);
+            \coordinate[label=below left:D](D)at(0,0);
+            \draw(D)grid(B);
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=\scalea]
+            \filldraw[fill=\rectcolor](0,0)rectangle(1,3);
+            \draw(0,0)grid(1,3);
+            \draw node at(-1,3){(1)};
+            \draw node at (0.5,-1.1){};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=\scalea]
+            \filldraw[fill=\rectcolor](0,0)rectangle(4,1);
+            \draw(0,0)grid(4,1);
+            \draw node at(2,2){(2)};
+            \draw node at (1,-2){};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=\scalea]
+            \filldraw[fill=\rectcolor](0,0)rectangle(3,3);
+            \draw(0,0)grid(3,3);
+            \draw node at(-1,3){(3)};
+            \draw node at (1,-1.1){};
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[scale=\scalea]
+            \filldraw[fill=\rectcolor](0,0)rectangle(2,2);
+            \draw(0,0)grid(2,2);
+            \draw node at(2,3){(4)};
+            \draw node at (1,-1.1){};
+        \end{tikzpicture}
+    \end{tabular}\par
+    \end{center}
+    
+    \begin{minipage}{0.55\linewidth}
+    \vspace{0.5cm}
+    \item Dans son panier, Franck a 25 fruits.
+    15 sont des pommes, les autres sont des oranges.
+    \begin{flushleft}
+        Quelle fraction des fruits représentent les pommes ?
+    \end{flushleft}
+    \begin{flushleft}
+        Quelle fraction des fruits représentent les oranges ?
+    \end{flushleft}
+    \vspace{0.5cm}
+    \item 15 filles et 14 garçons participent à un jeu télévisé.
+    \begin{flushleft}
+        Quelle fraction des participants représentent les filles ?
+    \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{.4\linewidth}
+    \begin{center}
+    \pdf{6eme_Ch4_A1-panier}
+    \end{center}
+    \end{minipage}
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass[17pt]{flash}
+\def\figureA{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(3,0);
+        \coordinate(C)at(0,2);
+        \path(B)([turn]-90:3)coordinate(D);
+        \path(B)--(D)([turn]-90:3)coordinate(E);
+        \path(B)--(C)([turn]-90:3.6)coordinate(F);
+        \path(C)--(F)([turn]-90:3.6)coordinate(G);
+        \path(A)--(C)([turn]90:2)coordinate(H);
+        \path(C)--(H)([turn]90:2)coordinate(I);
+        \draw(B)--(D)--(E)--(A);
+        \draw(C)--(F)--(G)--(B);
+        \draw(C)--(H)--(I)--(A);
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(D)node[pos=0.5]{3 cm$^2$};
+        \path(C)--(G)node[pos=0.5]{5 cm$^2$};
+        \path(A)--(H)node[pos=0.5]{4 cm$^2$};
+    \end{tikzpicture}
+}
+
+\def\figureB{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(3,0);
+        \coordinate(C)at(0,2);
+        \path(B)([turn]-90:3)coordinate(D);
+        \path(B)--(D)([turn]-90:3)coordinate(E);
+        \path(B)--(C)([turn]-90:3.6)coordinate(F);
+        \path(C)--(F)([turn]-90:3.6)coordinate(G);
+        \path(A)--(C)([turn]90:2)coordinate(H);
+        \path(C)--(H)([turn]90:2)coordinate(I);
+        \draw(B)--(D)--(E)--(A);
+        \draw(C)--(F)--(G)--(B);
+        \draw(C)--(H)--(I)--(A);
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(D)node[pos=0.5]{4 cm$^2$};
+        \path(C)--(G)node[pos=0.5]{9 cm$^2$};
+        \path(A)--(H)node[pos=0.5]{5 cm$^2$};
+    \end{tikzpicture}
+}
+
+\def\figureC{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(3,0);
+        \coordinate(C)at(0,2);
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(B)node[pos=0.5,below]{4 cm};
+        \path(C)--(B)node[pos=0.5,above right]{5 cm};
+        \path(A)--(C)node[pos=0.5,shift={(-0.5,0)}]{3 cm};
+    \end{tikzpicture}
+}
+
+\def\figureD{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(2,0);
+        \coordinate(C)at(0,2);
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(B)node[pos=0.5,below]{1 cm};
+        \path(C)--(B)node[pos=0.5,above right]{2 cm};
+        \path(A)--(C)node[pos=0.5,shift={(-0.5,0)}]{1 cm};
+    \end{tikzpicture}
+}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Calcul mental : aire d'un rectangle}
+\FlashShowConsignes{%
+        \item Appliquer mentalement le théorème de Pythagore.
+}
+\def\figScale{0.8}\small
+\AtCorrection{\def\figScale{0.5}\tiny}
+\flashlist{
+    \flashitem{30}{\figureA}
+    \flashitem{30}{\figureD}
+    \flashitem{60}{\figureC}
+    \flashitem{30}{\figureB}
+}
+
+\end{document}

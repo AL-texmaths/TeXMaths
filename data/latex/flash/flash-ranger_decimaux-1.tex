@@ -1,0 +1,27 @@
+\documentclass[17pt]{flash}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetVtop{-2em}
+\FlashSetItemSep{40pt}
+\FlashSetTitle{Nombres: ordre et comparaison}
+
+\FlashShowConsignes{%
+        \item Dans chaque cas, ranger les nombres par ordre croissant.
+}
+\small
+\def\sep{\hfill}
+\def\correctSep{\hfill/\hfill}
+\AtCorrection{\footnotesize\let\sep\correctSep}
+\flashlist{
+    \flashitem{30}{$6,12\sep61,2\sep6,21\sep6,7$}
+    \flashitem{60}{$3,6\sep6,8\sep3+\dfrac{6}{100}\sep6,16$}
+    \flashitem{60}{$\dfrac{340}{1\,000}\sep0,341\sep0,41\sep0,041$}
+}
+
+\end{document}

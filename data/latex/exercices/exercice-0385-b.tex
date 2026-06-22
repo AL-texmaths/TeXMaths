@@ -1,0 +1,40 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+    \>figure1={%
+        \hskip30pt\begin{tikzpicture}[scale=1.5]
+            \tkzDefPoint(0,0){A}
+            \tkzDefPoint(3,0){B}
+            \tkzDefPoint(1,0){C}
+            \tkzDefPoint(2,0){D}
+            \tkzDrawPoints[cross out](A,B,C,D)
+            \tkzLabelPoints(A,B,C,D)
+            \tkzDrawSegment(A,B)
+            \tkzDefMidPoint(A,C)
+            \tkzGetPoint{M}
+            \tkzDefMidPoint(C,B)
+            \tkzGetPoint{N}
+            \tkzMarkSegments[mark=s||](A,C C,D D,B)
+        \end{tikzpicture}\hskip30pt$AC=4,2$ cm
+    };%
+    \>figure2={%
+        \hskip30pt\begin{tikzpicture}[scale=1.5]
+            \tkzDefPoint(0,0){A}
+            \tkzDefPoint(3,0){B}
+            \tkzDefPoint(3,2){C}
+            \tkzDefPoint(0,2){D}
+            \tkzDefPoint(1,0){E}
+            \tkzDefPoint(1,2){F}
+            \tkzLabelPoints[below left](A,E)
+            \tkzLabelPoints[below right](B)
+            \tkzLabelPoints[above right](C)
+            \tkzLabelPoints[above left](D,F)
+            \tkzDrawPolygon[line width=1pt](A,B,C,D)
+            \tkzDrawSegment[line width=1pt](E,F)
+            \tkzMarkRightAngles(A,B,C B,C,D C,D,A D,A,B A,E,F E,F,D)
+        \end{tikzpicture}\vskip10pt
+        \hskip30pt $AE=3,6$ m
+        \hskip30pt $EB=7$ m
+        \hskip30pt $DA=2,1$ m\vskip30pt
+    };%
+    \enonce{0385}%
+\end{document}

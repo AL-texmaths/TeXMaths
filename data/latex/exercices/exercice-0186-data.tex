@@ -1,0 +1,46 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Dans cet exercice, toutes les longeurs sont exprimées en centimètres.
+\begin{enumerate}
+    \item (\<S5;\<S3;) et (\<S1;\<S2;) sont parallèles. Calculer \<S5;\<S3;.%
+    \vskip15pt\noindent{\centering
+    \begin{tikzpicture}[scale=0.6]
+        \coordinate[label=below right:\<S1;](S1)at(0,0);
+        \coordinate[label=below right:\<S2;](S2)at(5,0);
+        \coordinate[label=above left:\<S4;](S4)at(5,6);
+        \path(S2)--(S4)coordinate[pos=0.6,label=above right:\<S3;](S3);
+        \path(S1)--(S4)coordinate[pos=0.6,label=above left:\<S5;](S5);
+        \path(S1)--(S2)node[below,pos=0.5]{\<l3;};
+        \path(S1)--(S5)node[above left,pos=0.5]{\<l2;};
+        \path(S5)--(S4)node[above left,pos=0.5]{\<l1;};
+        \tkzDrawLine[add=0.2 and 0.2](S1,S2)
+        \tkzDrawLine[add=0.4 and 0.4](S5,S3)
+        \tkzDrawLine[add=0.2 and 0.2](S1,S4)
+        \tkzDrawLine[add=0.2 and 0.2](S2,S4)
+    \end{tikzpicture}\par}
+    \item (\<S6;\<S7;) et (\<S8;\<S5;) sont parallèles. Calculer \<S8;\<S9;.%
+    \vskip15pt\noindent{\centering
+    \begin{tikzpicture}[scale=0.6]
+        \coordinate[label=below right:\<S6;](S6)at(0,0);
+        \coordinate[label=below right:\<S7;](S7)at(5,0);
+        \coordinate[label=below right:\<S9;](S9)at(5,3);
+        \path(S7)--(S9)coordinate[pos=1.5,label=above left:\<S8;](S8);
+        \path(S6)--(S9)coordinate[pos=1.5,label=below right:\<S10;](S10);
+        \path(S6)--(S7)node[below,pos=0.5]{\<l4;};
+        \path(S9)--(S8)node[left,pos=0.5]{\<l5;};
+        \path(S8)--(S10)node[above,pos=0.5]{\<l6;};
+        \tkzDrawLine[add=0.2 and 0.2](S6,S7)
+        \tkzDrawLine[add=0.4 and 0.4](S10,S8)
+        \tkzDrawLine[add=0.2 and 0.8](S6,S9)
+        \tkzDrawLine[add=0.2 and 0.8](S7,S9)
+    \end{tikzpicture}\par}
+\end{enumerate}
+\end{document}

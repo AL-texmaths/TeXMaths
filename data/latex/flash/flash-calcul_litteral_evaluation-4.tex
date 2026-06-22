@@ -1,0 +1,26 @@
+\documentclass[17pt]{flash}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetVtop{-3em}
+\FlashSetItemSep{70pt}
+\FlashSetTitle{Calcul littéral}
+
+\FlashShowConsignes{%
+        \item Évaluer les expressions littérales suivante pour $y=-1$.
+}
+
+\def\fontSize{\small}
+\AtCorrection{\def\fontSize{\tiny}}
+\flashlist{
+    \flashitem{30}{$(y-5)\times2$}
+    \flashitem{30}{$-y^2$}
+    \flashitem{40}{{\fontSize$(y+1)\times(y+2)\times(y+3)\times(y+4)$}}
+    \flashitem{40}{$y^{65}$}
+}
+\end{document}

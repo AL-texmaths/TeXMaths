@@ -1,0 +1,33 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!labelpos-S4=above right;%
+\!labelpos-S5=below;%
+\!labelpos-S6=above left;%
+\begin{enumerate}
+    \item Énoncer la réciproque du théorème de Pythagore.
+    \ncar2\dotedline\vspace{20pt}
+    \item En justifiant, déterminer si le triangle suivant est rectangle
+    ou non.
+    \begin{center}
+        \begin{tikzpicture}[scale=2,rotate=45]
+            \coordinate[label=\<labelpos-S4;:\<S4;](S4)at(0:1);
+            \coordinate[label=\<labelpos-S5;:\<S5;](S5)at(180:1);
+            \coordinate[label=\<labelpos-S6;:\<S6;](S6)at(120:1);
+            \draw(S4)--(S5)--(S6)--cycle;
+            \path(S5)--(S4)node[pos=0.5,sloped,below,rotate=45]
+                {\<L1;};
+            \path(S6)--(S4)node[pos=0.5,sloped,above,rotate=45]
+                {\<L2;};
+            \path(S6)--(S5)node[pos=0.5,sloped,above,rotate=45]
+                {\<L3;};
+        \end{tikzpicture}
+    \end{center}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\begin{document}%
+\>figure={%%
+    \begin{tikzpicture}
+        \coordinate(A)at(0,0);
+        \coordinate(A0)at(-1,0);
+        \coordinate[label=below right:(d$_2$)](A1)at(3,0);
+        \coordinate(B)at(2,2);
+        \coordinate[label=above right:(d$_1$)](B0)at(-0.5,2);
+        \coordinate(B1)at(3.5,2);
+        \path(B)--(A)coordinate[pos=1.2](C);
+        \tkzFillAngle[fill=\currentcolor,mark=none,size=0.6](C,A,A1)
+        \tkzLabelAngle(C,A,A1){125$^\circ$}
+        \nextcolor
+        \tkzFillAngle[fill=\currentcolor,mark=none,size=0.6](B0,B,A)
+        \tkzLabelAngle(B0,B,A){52$^\circ$}
+        \nextcolor
+        \path(A)--(B)coordinate[pos=1.2](C);
+        \tkzFillAngle[fill=\currentcolor,mark=none,size=0.4](B1,B,C)
+        \tkzLabelAngle(B1,B,C){?}
+        \tkzDrawLine[add=0.6 and 0.6,line width=1pt](A,B)
+        \tkzDrawLines[line width=1pt](A0,A1 B0,B1)
+    \end{tikzpicture}};%
+\enonce{0523}%
+\end{document}

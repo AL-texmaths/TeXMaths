@@ -1,0 +1,37 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-boxes}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\begin{enumerate}
+    \item 
+    Résoudre les carrés magiques A et B suivants. On rapelle la règle~:\par\noindent
+    {\itshape La somme est la même pour chaque ligne, colonne et diagonale.}\medskip\par\noindent
+    \begin{minipage}{.45\linewidth}
+        {\bfseries Carré magique A~:}\smallskip\par\noindent
+        % \carremagiqueA246
+        \carremagique2/6/1|/3/|//|
+    \end{minipage}\hskip.09\linewidth
+    \begin{minipage}{.45\linewidth}
+        {\bfseries Carré magique B~:}\smallskip\par\noindent
+        % \carremagiqueA3{11}7
+        \carremagique9//|/7/11|//5|
+    \end{minipage}
+    \par\noindent\vskip10pt
+    \item Tenter de résoudre le carré magique suivant.\par\noindent
+    {\bfseries Carré magique C~:}\smallskip\par\noindent
+    % \show
+    % \carremagiqueA17{10}
+    \carremagique2//|1/4/|9//|\medskip\par\noindent
+    Que remarquez-vous~? Quelle solution peut-on apporter~?
+    \answerspace{100pt}
+    {\bfseries Carré magique BONUS~:}\par\noindent\vskip10pt
+    % \show\carremagiqueA394
+    \carremagique8//|3//9|//4|
+\end{enumerate}
+\end{document}

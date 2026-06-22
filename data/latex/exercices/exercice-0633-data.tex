@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+On peut calculer de plusieurs manière l'aire de cette figure. Prouver que ces
+expressions sont égales~:\par\vskip\baselineskip
+$$A=x^2+2x\times6$$
+$$B=2x(x+6)-x^2$$
+$$C=x\times6+(x+6)\times x$$
+    \par\vskip\baselineskip
+\begin{tikzpicture}[scale=2]
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(0,-1);
+    \coordinate(C)at(1,-1);
+    \coordinate(D)at(1,-2);
+    \coordinate(E)at(3,-2);
+    \draw(A)--(B)--(C)--(D)--(E)--(3,0)--cycle;
+    \tkzMarkSegments[mark=s||](A,B B,C C,D)
+    \path(A)--(B)node[midway, label={[label distance=0.1cm]180:$x$}]{};
+    \path(D)--(E)node[midway, below]{$6$};
+\end{tikzpicture}
+\end{document}

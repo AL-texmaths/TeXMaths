@@ -1,0 +1,68 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Vocabulaire et notations}
+    \definition{fonction_antecedant_image}
+    \definition{image_d_un_nombre_par_une_fonction}
+    \exported[scale=1, ]<<%
+    {\bfseries Exemple :} On considère la fonction $f$ qui ajoute 1 au nombre de
+    départ, puis élève au carré le résultat obtenu.
+    \begin{enumerate}
+        \item Que vaut l'image de 3 par la fonction $f$~?
+        \begin{itemize}
+            \item Version \guillemets{avec des mots}~: \toComplete{L'image de 3 par la fonction $f$ vaut 16.}
+            \item Version mathématique~: \toComplete{$f(3)=16$}
+        \end{itemize}
+        \item Donner un antécédent de $9$ par la fonction $f$.
+        \begin{itemize}
+            \item Version \guillemets{avec des mots}~: \toComplete{2 est un antécédent de 9 par la fonction $f$}
+            \item Version mathématique~: \toComplete{$f(2)=9$}
+        \end{itemize}
+        \item Peut-on trouver un autre antécédent de 9 par la fonction $f$~?
+        \dotedline
+    \end{enumerate}\par\medskip\noindent
+    {\bfseries Remarque :} Une image peut avoir plusieurs antécédents~! >>
+    \bigpart{Les trois modes de représentation d'une fonction}
+    On considère la fonction $f$ qui ajoute 1 au nombre de
+    départ, puis élève au carré le résultat obtenu.
+    \subpart{Expression littérale}\noindent
+    {\centering$f(x)=(x+1)^2$\par}\medskip\noindent
+    Calculer f(2) revient à évaluer l'expression littérale $(x+1)^2$ avec $x=2$.
+    \bigskip\subpart{Tableau de valeur}
+    \begin{tblr}{colspec=*{8}{Q[c,m]},column{1}={font=\bfseries},hlines,vlines}
+        x&-4&-1&0&2&3,5&6&10\\
+        f(x)&9&0&1&9&20,25&49&121\\
+    \end{tblr}\newpage
+    \subpart{Représentation graphique}
+    \methode{representation_graphique_fonction}
+    \par\noindent{\bfseries Exemple :}\vskip5pt
+    \exported[scale=0.8,]%
+            <<%
+            \begin{tikzpicture}[scale=0.8]\tracinglostchars=0\relax
+                \draw[gray,step=0.5](0,0)grid(10,11);
+                \begin{axis}[
+                    x=1cm, y=1cm,
+                    axis lines=left,
+                    axis lines=middle,
+                    legend pos=outer north east,
+                    tick style={thick,black,},
+                    xticklabel style={
+                        font=\small,
+                    },
+                    xmin=-4.99,xmax=4.99,
+                    ymin=-1.99,ymax=8.99%
+                ]
+                    \addplot [
+                        line width=1.25pt,
+                        samples=40%
+                    ]
+                    {(x+1)^2};
+                    \addlegendentry{$y=(x+1)^2$}
+                \end{axis}
+                \draw node[right] at(10,2){$x$};
+                \draw node[above] at(5,11){$y$};
+                \draw node[below right]at(5,2){\small 0};
+            \end{tikzpicture}
+            >>\par
+    Par lecture graphique, 4 a pour antécédents 1 et -3 par la fonction $f$.\vskip5pt
+    Le nombre 2 a pour image 9 par la fonction.
+\end{document}

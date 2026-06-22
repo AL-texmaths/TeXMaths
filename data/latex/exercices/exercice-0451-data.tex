@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Nommer les sommets manquants sachant que :
+\begin{center}\sf
+    NP = NT + TP\hskip10pt et\hskip10pt MP < MT+TP
+\end{center}
+    \begin{center}
+        \begin{tikzpicture}[rotate=20]
+            \coordinate(M)at(1,2);
+            \coordinate(T)at(0,0);
+            \coordinate(P)at(2.5,0);
+            \coordinate(N)at(-2,0);
+            \draw node[left]at(N){\sf\strut N};
+            \draw node[below]at(T){\sf\strut T};
+            \draw(N)--(P)--(M)--cycle;
+            \draw(T)--(M);
+        \end{tikzpicture}
+    \end{center}
+\end{document}

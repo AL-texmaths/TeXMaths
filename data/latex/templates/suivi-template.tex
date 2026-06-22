@@ -1,0 +1,23 @@
+\documentclass{article}
+
+\usepackage[a4paper,margin=5pt,landscape,top=15pt,footskip=0pt]{geometry}
+\usepackage{calc}
+\usepackage{tabularray}
+\usepackage{texmaths-colors}
+\usepackage{graphicx}
+
+\makeatletter
+
+\def\suivi@classe
+\def\suivi@periode
+\def\suivi@studentsnumber
+
+\newlength\rowheight
+\setlength\rowheight{(\textheight-80pt)/\suivi@studentsnumber-4pt}
+
+\begin{document}
+    \pagestyle{empty}
+    \resizebox{0.97\textwidth}{285pt}{%
+        \input{liste-\suivi@classe.tex}
+        }
+\end{document}

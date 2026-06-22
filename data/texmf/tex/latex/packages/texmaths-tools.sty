@@ -1,0 +1,40 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-tools}
+% ---------------------------
+% Pure TeX macros utilitaires
+% ---------------------------
+\def\@identity#1{#1}
+\def\@nhil#1{}
+\def\@gobone#1{}
+\def\@gobone@opt[#1]#2{}
+\def\firstofthree#1#2#3{#1}
+\def\secondofthree#1#2#3{#2}
+\def\thirdofthree#1#2#3{#3}
+% ------------------------------------------------------
+% tester la forme {a} ou {{a}} de l'argument d'une macro
+% ------------------------------------------------------
+\newif\ifisgroup
+\def\@eatuntilnhil#1\@nhil{}
+\def\main@ifgrouptrue@eat{\isgrouptrue\@eatuntilnhil}
+\def\main@ifgroupfalse@eat{\isgroupfalse\@eatuntilnhil}
+\def\@testisgroup#1{%
+    \@ifnextchar\bgroup
+        \main@ifgrouptrue@eat\main@ifgroupfalse@eat#1\@nhil
+        }
+% ----------------------------------------
+% possibilité d'écrire un caractère n fois
+% ----------------------------------------
+\newcount\ii
+\def\ncar#1#2{%
+    \ii=0 % initialise le compteur à 0
+    \def\val@max{#1}% stocke la valeur maximale
+    \def\car@save{#2}% stocke le caractère à afficher
+    \ncar@i% appelle la macro récursive
+    }
+    \def\ncar@i{%
+    \ifnum\ii<\val@max% si la valeur maxi n’est pas atteinte
+    \car@save% afficher le caractère
+    \advance\ii 1 % incrémenter le compteur
+    \ncar@i% recommencer
+    \fi
+    }

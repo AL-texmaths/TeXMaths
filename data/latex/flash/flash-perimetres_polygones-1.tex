@@ -1,0 +1,83 @@
+\documentclass[17pt]{flash}
+\usepackage{tkz-euclide}
+\def\figureA{%
+    \begin{tikzpicture}[scale=\figScale, line width=1.2pt, baseline=(current bounding box.center)]
+        \coordinate(O)at(0,0);
+        \coordinate(S1)at(0:1);
+        \coordinate(S2)at(120:1);
+        \coordinate(S3)at(-120:1);
+        \draw(S1)--(S2)--(S3)--cycle;
+        \tkzMarkSegments[mark=s||](S1,S2 S1,S3 S2,S3)
+        \path(S3)--(S1)node[pos=0.5,shift=(-80:0.5),sloped]{4 cm};
+    \end{tikzpicture}
+}
+
+\def\figureB{%
+    \begin{tikzpicture}[scale=\figScale, line width=1.2pt, baseline=(current bounding box.center)]
+        \coordinate(O)at(0,0);
+        \coordinate(S1)at(0:1.2);
+        \coordinate(S2)at(90:0.8);
+        \coordinate(S3)at(180:1.2);
+        \coordinate(S4)at(-90:0.8);
+        \draw(S1)--(S2)--(S3)--(S4)--cycle;
+        \tkzMarkSegments[mark=s||](S1,S2 S2,S3 S3,S4 S1,S4)
+        \path(S4)--(S1)node[pos=0.5, shift=(-80:0.5),sloped]
+            { 9 dm};
+    \end{tikzpicture}
+}
+
+\def\figureC{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center), line width=1.2pt]
+        \coordinate(O)at(0,0);
+        \coordinate(S1)at(0:0.8);
+        \coordinate(S2)at(90:0.8);
+        \coordinate(S3)at(180:1.5);
+        \coordinate(S4)at(-90:1);
+        \draw(S1)--(S2)--(S3)--(S4)--cycle;
+        \path(S4)--(S1)node[pos=0.5,shift=(-90:0.5),sloped]
+            { 9 mm};
+        \path(S1)--(S2)node[pos=0.5,shift=(90:0.5),sloped]
+            { 5,5 mm};
+        \path(S2)--(S3)node[pos=0.5,shift=(90:0.5),sloped]
+            { 11 mm};
+        \path(S3)--(S4)node[pos=0.5,shift=(-90:0.5),sloped]
+            { 25 mm};
+    \end{tikzpicture}
+}
+
+\def\figureD{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center), line width=1.2pt]
+        \coordinate(O)at(0,0);
+        \node at(O){$\times$};
+        \coordinate(S1)at(0:1);
+        \coordinate(S2)at(180:1);
+        \draw(O)circle(1);
+        \draw[stealth-stealth, line width=0.4 pt](S1)--(S2);
+        \path(S1)--(S2)node[pos=0.5,shift=(-90:0.5),sloped]
+            { 5 cm};
+    \end{tikzpicture}
+}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Calcul mental : aire d'un rectangle}
+\FlashShowConsignes{%
+        \item Calculer mentalement le périmètre des polygones suivants.
+        \item Écrire uniquement le résultat.
+}
+\def\figScale{2}
+\AtCorrection{\def\figScale{1.5}\footnotesize}
+\flashlist{
+    \flashitem{15}{\figureA}
+    \flashitem{15}{\figureB}
+    \flashitem{30}{\figureC}
+    \flashitem{15}{\figureD}
+}
+
+\end{document}

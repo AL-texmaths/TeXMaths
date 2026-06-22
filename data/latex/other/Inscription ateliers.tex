@@ -1,0 +1,125 @@
+\documentclass{article}
+
+\usepackage{hyperref}
+\usepackage{graphics}
+\usepackage{picturesdir}
+\usepackage[svgnames,dvipsnames]{xcolor}
+\usepackage{ulem}
+\setlength{\unitlength}{1cm}
+\usepackage{tabularx}
+\usepackage{amsmath}
+
+\usepackage{geometry}
+\geometry{a4paper}
+\geometry{top=1.5cm,bottom=0.5cm,left=1.5cm,right=1.5cm,marginparwidth=2cm}
+\linespread{1.5}
+\pagestyle{empty}
+
+\usepackage{enumitem}
+
+\renewcommand*{\LayoutCheckField}[2]{#2~#1}
+\def\DefaultHeightofCheckBox{12pt}
+\def\DefaultWidthofCheckBox{12pt}
+
+\def\atelier{jeux de société}
+
+\begin{document}
+    
+    \renewcommand*{\LayoutCheckField}[2]{#2~#1}
+    \def\DefaultHeightofCheckBox{12pt}
+    \def\DefaultWidthofCheckBox{12pt}
+    
+    \begin{minipage}[c]{.3\linewidth}
+        \includegraphics[scale=1.1]{pic/Logo_VH}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.25\linewidth}
+        
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.45\linewidth}
+        \begin{flushright}
+%            \includegraphics[scale=0.35]{pic/atelier_couture}
+            \includegraphics[scale=0.25]{pdf/RubixCube}
+%            \includegraphics[scale=0.35]{pic/Academie_Versailles}
+%            \includegraphics[scale=0.2]{pic/Region_academique}
+        \end{flushright}
+    \end{minipage}
+    ~\\ ~\\
+    \begin{center}
+        \Large{\textsc{Atelier \atelier}}
+    \end{center} \par \vfill
+    Au sein du collège Victor \textsc{Hugo}, nous proposons l'atelier \atelier \, pour les élèves de tous niveaux.
+%    
+%    sixième%
+%    , cinquième%
+%    , quatrième%
+%    , troisième%
+%    .
+    \par \vfill
+%    
+    Cet atelier peut permettre aux élèves de se divertir, de réfléchir, d'élaborer des stratégies. Un jeu de société est un amusement, mais il demande très souvent de mettre en place des méthodes pour gagner. On y réfléchit sans s'en rendre compte ! Il peut aussi permettre à certains de jouer à des jeux de société alors qu'ils n'en n'ont pas l'occasion chez eux et même d'en découvrir certains. \par Enfin, il est aussi très important d'apprendre... à perdre !
+%    Cet atelier peut permettre aux élèves d'apprendre d'autres notions que juste la couture, le crochet ou la broderie. Il permet aussi d'apprendre à ce concentrer, à écouter les consignes, à se détendre. Enfin, cela permet de travailler le respect du travail et des techniques de l'autre, sans jugement ni critique.
+%    
+%   Autre atelier
+%
+    \par \vfill 
+    Nous proposons l'atelier aux
+    élèves de tous niveaux tous les~:
+    \begin{itemize}[label=-]
+        \item jeudi en semaine A et B de $11$~h $30$ à $12$~h $30$~;
+        \item mardi en semaine B de $13$~h à $14$~h~;
+        \item vendredi en semaine A de $11$~h $30$ à $12$~h $30$.
+    \end{itemize} \par
+    Tout élève qui s'inscrit à l'atelier \atelier \, deviendra demi-pensionnaire, s'il ne l'est pas, sur la journée concernée.
+%
+%    , cinquièmes tous les ... de ...h à ...h%
+%    , quatrièmes tous les ... de ...h à ...h%
+%    , troisièmes tous les ... de ...h à ...h%
+    \par \vfill
+    Si vous souhaitez que votre enfant participe à cet atelier, veillez nous rendre ce papier avec le nom, prénom et la classe de votre enfant. \par \vfill
+    Cordialement, 
+    \par \medskip 
+    M$^\text{me}$ \textsc{Valente}%
+    , M. \textsc{Longelin}%
+%    , M$^\text{me}$ \textsc{Bessonie}%
+%    , M$^\text{me}$ \textsc{Poissy}%
+    \par \vfill \hrulefill ~\par \vfill \noindent 
+    \begin{minipage}[t]{.4\linewidth} 
+        Nom : \dotuline{ \TextField[name=nom,bordercolor=White,height=0.5cm,width=0.8\linewidth,align=0]{}        
+        } 
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.4\linewidth}
+        Prénom : \dotuline{ \TextField[name=prenom,bordercolor=White,height=0.5cm,width=0.72\linewidth,align=0]{}
+        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.2\linewidth}
+        Classe : \dotuline{ \TextField[name=classe,bordercolor=White,height=0.5cm,width=0.6\linewidth,align=0]{}
+        } 
+    \end{minipage}~\\ \vfill
+    \noindent Pour la séance du~: \hfill
+    \begin{minipage}[t]{.15\linewidth}
+        \CheckBox[bordercolor=black,backgroundcolor=white,name=jeudiSA]{Jeudi SA}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.15\linewidth}
+        \CheckBox[bordercolor=black,backgroundcolor=white,name=jeudiSB]{Jeudi SB}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.15\linewidth}
+        \CheckBox[bordercolor=black,backgroundcolor=white,name=mardi]{Mardi SB}
+    \end{minipage} \hfill
+    \begin{minipage}[t]{.15\linewidth}
+        \CheckBox[bordercolor=black,backgroundcolor=white,name=vendredi]{Vendredi SA} 
+    \end{minipage} ~\\ \vfill
+    \noindent 
+    \begin{minipage}[t]{.4\linewidth}
+        %        Date : \dotuline{ \TextField[name=date,bordercolor=White,height=0.5cm,width=0.85\linewidth,align=0]{}
+            %        }
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.6\linewidth}
+        Signature des parents : %\dotuline{ \TextField[name=sign,bordercolor=White,height=0.5cm,width=0.65\linewidth,align=0]{}
+            %        }
+    \end{minipage}
+    \vfill ~\vfill
+    \begin{center}
+        \scriptsize Collège Victor HUGO, 68, rue Victor Hugo, 95200 Sarcelles
+    \end{center}
+    
+\end{document}

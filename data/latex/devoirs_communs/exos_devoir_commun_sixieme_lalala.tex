@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\usepackage{tkz-euclide}
+\usepackage{tabularray}
+\usepackage{dashrule}
+\usepackage{mdframed}
+\usepackage{enumitem}
+
+\begin{document}
+\sf
+\def\completerule{\hdashrule[0.1ex][x]{1 cm}{0.5pt}{0.5mm}}
+\def\dotedline{\hdashrule[0.1ex][x]{\linewidth}{0.5pt}{0.5mm}}
+% -------------------
+\par\bigskip\noindent
+% Exerice opérations à poser
+Poser et effectuer les opérations suivantes.
+\begin{enumerate}[label=\alph*), font=\bfseries]
+    \item $3\,575+826$
+    \item $16\,432-5\,645$
+    \item $59\times431$
+\end{enumerate}
+% -------------------
+\par\bigskip\noindent
+% Exercice calcul mental
+Calculer mentalement et écrire le résultat sans justifier la réponse.\par\noindent
+$10\times257=$\par\noindent
+$62\times11=$\par\noindent
+$56\times9=$
+% -------------------
+\par\bigskip\noindent
+% Exercice 6 page 18
+Émilie avait 143 euros dans sa tirelire. Elle achète une poupée valant 55
+euros et trois petites robes valant 18 euros chacunes. Combien lui reste-il d'argent
+après ses achats~? ({\itshape justifier par des calculs et une phrase réponse})
+% -------------------
+\par\bigskip\noindent
+% Exercice 7 page 84
+Avec les outils de géométrie, réalise le programme de construction suivant.
+\begin{mdframed}[%
+    outerlinewidth=2,%
+    backgroundcolor = yellow!50!black!30!white%
+    ]%\tt
+    $\bullet$ Place quatre points E, D, F et G non alignés.\par\noindent
+    $\bullet$ Trace en bleu la droite passant par les points E et D.\par\noindent
+    $\bullet$ Trace en rouge la demi-droite d'origine E passant par F.\par\noindent
+    $\bullet$ Trace en vert le segment d'extrémités F et G.\par\noindent
+    $\bullet$ Trace le cercle de centre F et de rayon 4 cm.
+\end{mdframed}
+% -------------------
+\par\bigskip\noindent
+% Exercice 10 page 84
+\noindent Complète avec $\in$ ou $\notin$.\par\vskip10pt\noindent
+\begin{tikzpicture}[scale=0.75]
+    \coordinate[label=right:O](O)at(0,0);
+    \coordinate[label=above:Q](Q)at(-3,2);
+    \coordinate[label=above left:X](X)at(2,2);
+    \coordinate[label=below:M](M)at(4,2);
+    \coordinate[label=left:V](V)at(-2.5,0);
+    \coordinate[label=left:N](N)at(-2.5,-2.5);
+    \coordinate[label=above left:L](L)at(-2,-2);
+    \coordinate[label=above right:Z](Z)at(2.5,-2);
+
+    \draw node at(V){$\times$};
+    \draw node at(N){$\times$};
+    \draw node at(Z){$\times$};
+    \draw node at(L){$\times$};
+
+    \tkzDrawLines(Q,M Q,Z O,X)
+    \draw(L)--(O);
+\end{tikzpicture}
+\vskip15pt\noindent
+\begin{enumerate}
+    \item\par\vskip10pt\noindent\begin{tblr}{colspec={Q[c,m]|Q[c,m]|Q[c,m]}}
+        {\bfseries a. }X \completerule (QM)&{\bfseries d. }X \completerule [LO)&{\bfseries g. }M \completerule [QX]\\
+        {\bfseries b. }Z \completerule [OQ)&{\bfseries e. }Q \completerule [QZ]&{\bfseries h. }O \completerule [LX]\\
+        {\bfseries c. }Q \completerule (XM)&{\bfseries f. }N \completerule [XL)&{\bfseries i. }V \completerule [LQ]\\
+    \end{tblr}
+    \item VRAI ou FAUX ?
+    \begin{enumerate}[label=\alph*), font=\bfseries]
+        \item Les points Q, M et X sont alignés~?\par\noindent
+        \dotedline
+        \item Les points N, L et O sont alignés~?\par\noindent
+        \dotedline
+    \end{enumerate}
+\end{enumerate}
+% -------------------
+\par\bigskip\noindent
+% Exercice 16 page 84
+Entoure la figure qui correspond au programme de construction.
+\begin{mdframed}[%
+    outerlinewidth=2,%
+    backgroundcolor = yellow!50!black!30!white%
+    ]%\tt
+    $\bullet$ Place trois points A, B et C non alignés.\par\noindent
+    $\bullet$ Trace [AB].\par\noindent
+    $\bullet$ Trace (AC).\par\noindent
+    $\bullet$ Trace [BC).\par\noindent
+\end{mdframed}
+\begin{tikzpicture}
+    \draw node at(0,0){FIGURE A FAIRE};
+\end{tikzpicture}
+\end{document}

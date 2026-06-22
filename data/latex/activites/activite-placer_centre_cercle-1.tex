@@ -1,0 +1,49 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}\begingroup\small
+    \begin{minipage}{.45\linewidth}
+        \begin{center}
+            \begin{tikzpicture}[scale=0.55,baseline=(O.base)]
+                \coordinate(O)at(0,0);
+                \draw(O)circle(4);
+                \coordinate[label=above right:A](A1)at(10:4);
+                \coordinate[label=above:B](A2)at(100:4);
+                \coordinate[label=above left:C](A3)at(150:4);
+                \foreach\ii in{1,2,3}{%
+                    \node at(A\ii){$\times$};
+                }
+            \end{tikzpicture}
+        \end{center}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \begin{enumerate}
+            \item Appliquer le programme de tracé suivant.
+            \begin{enumerate}
+                \item Tracer [\textsf{AB}].
+                \item Tracer [\textsf{BC}].
+                \item Tracer la médiatrice (d$_1)$ de [\textsf{AB}].
+                \item Tracer la médiatrice (d$_2)$ de [\textsf{BC}].
+                \item Nommer \textsf{I} le point d'intersection de (d$_1)$ et (d$_2)$.
+            \end{enumerate}
+            \item Selon vous, que peut-on dire du point \textsf{I} ?
+            \ncar2\dotedline
+        \end{enumerate}
+    \end{minipage}\endgroup
+    \begin{flushleft}
+        \textbf{3)} En s'inspirant des questions précédentes, construire le centre du
+                cercle ci-dessous.
+    \end{flushleft}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.9,baseline=(O.base)]
+            \coordinate(O)at(0,0);
+            \draw[dotted](-5,-5)rectangle(7,5);
+            \draw(O)circle(4);
+        \end{tikzpicture}
+    \end{center}
+\end{document}

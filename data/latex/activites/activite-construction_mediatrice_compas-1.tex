@@ -1,0 +1,25 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{flushleft}
+        En utilisant le \textbf{compas}, construire la médiatrice de chacun des
+        segments suivants.
+    \end{flushleft}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \tikzSegment[sommets=AB,lenght=3,angle=20,midpos={0,0}]
+            \tikzSegment[sommets=CD,lenght=2,angle=70,midpos={5,0}]
+            \tikzSegment[sommets=EF,lenght=3,angle=-30,midpos={0,-5}]
+            \tikzSegment[sommets=GH,lenght=2,angle=-80,midpos={5,-5}]
+            \tikzSegment[sommets=IJ,lenght=4,angle=20,midpos={0,-12}]
+            \tikzSegment[sommets=KL,lenght=6,angle=70,midpos={6,-12}]
+        \end{tikzpicture}
+    \end{center}
+\end{document}

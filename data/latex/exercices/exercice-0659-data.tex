@@ -1,0 +1,61 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{enumitem}%
+\startdatakeys
+\source{25GENMATAN1}
+\cycle{4}
+\competencesDuSocle{CA, RE}
+\connaissancesRequises{A3a4,A3a5,A3b1,A3c*}
+\competencesTravaillees{A1f3,A1f6,A3a1,A3a3,A3b2,A3b3,A3d1,A3d2}
+\enddatakeys
+\begin{document}%
+On considère les deux programmes de calcul suivants~:\par
+\medskip\noindent
+\begin{minipage}[t]{.45\linewidth}
+    {\bfseries Programme A}
+    \begin{itemize}[label= $\bullet~~$]
+        \item Choisir un nombre
+        \item Multiplier par 3
+        \item Ajouter 15
+        \item Diviser par 3
+        \item Soustraire le nombre de départ
+    \end{itemize}
+\end{minipage}\hfil\vrule width 0.5pt\hfil
+\begin{minipage}[t]{.45\linewidth}
+    {\bfseries Programme B}\par\medskip
+    \begin{tikzpicture}
+    \tikzset{%
+        n/.style={draw, inner sep=1.5ex},
+        e/.style={-latex}%
+        }
+    \node[n](a1)at(0,4){Choisir un nombre};
+    \node[n](b1)at(-2.5,3){Soustraire 1};
+    \node[n](b2)at(2.5,3){Soustraire 6};
+    \node[n](c1)at(0,1.5){Multiplier les deux résultats obtenus};
+    \node[n](d1)at(0,0){Ajouter 5};
+    \path
+    (a1)edge[e](b1)
+    (a1)edge[e](b2)
+    (b1)edge[e](c1)
+    (b2)edge[e](c1)
+    (c1)edge[e](d1);
+    \end{tikzpicture}
+\end{minipage}\smallskip
+\begin{enumerate}
+\item Montrer que, lorsque le nombre choisi est 4, le résultat obtenu avec le
+programme A est 5.
+\item Montrer que, lorsque le nombre choisi est $- 2$, le résultat obtenu avec
+le programme A est 5.
+\item Justifier que l'affirmation suivante est vraie :
+\begin{center}
+    \guillemotleft\ Le programme A donne toujours le même résultat.
+    \guillemotright
+\end{center}
+\item Lorsque le nombre choisi est 10, quel résultat obtient-on avec le
+programme B~?
+\item Il existe exactement deux nombres pour lesquels les programmes A et B
+fournissent à chaque fois des résultats identiques.\par
+Quels sont ces deux nombres?
+\end{enumerate}
+\showthesource
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Cassiopée est une constellation constituée de cinq étoiles en forme de W
+visible dans l'hémisphère Nord.\vskip10pt\noindent
+\def\labelscolor{Rainbow1-orange}
+\begin{tikzpicture}[rotate=-45,Rainbow1-jaune,line width=1pt,scale=0.7]
+    \begin{scope}[rotate=45]
+        \fill[fill=Palette3-bleu,rounded corners=10pt](-2.5,1)rectangle(10,-5.5);
+    \end{scope}
+    \coordinate[label=left:{\bfseries E (Eps)}](E)at(0,0);
+    \coordinate[label=below left:{\bfseries R (Ruchbah)}](R)at(2.8,0);
+    \path(E)--(R)([turn]49:2.2)coordinate[label={\bfseries G (Gan)}](G);
+    \path(R)--(G)([turn]-70:2.8)coordinate[label=below:{\bfseries S (Shedar)}](S);
+    \path(G)--(S)([turn]100:3.2)coordinate[label={\bfseries C (Caph)}](C);
+    \tkzMarkAngle[mark=none,\labelscolor,size=0.65](G,R,E)
+    \tkzLabelAngle(G,R,E){\color{\labelscolor}{$\mathbf{121}^\circ$}}
+    \tkzMarkAngle[mark=none,\labelscolor,size=0.65](R,G,S)
+    \tkzLabelAngle(R,G,S){\color{\labelscolor}{$\mathbf{110}^\circ$}}
+    \tkzMarkAngle[mark=none,\labelscolor,size=0.65](C,S,G)
+    \tkzLabelAngle(C,S,G){\color{\labelscolor}{$\mathbf{80}^\circ$}}
+    \draw(E)--(R)--(G)--(S)--(C);
+    \draw node at(E){$\bullet$};
+    \draw node at(R){$\bullet$};
+    \draw node at(G){$\bullet$};
+    \draw node at(S){$\bullet$};
+    \draw node at(C){$\bullet$};
+\end{tikzpicture}
+\par\noindent Construire un plan de cette constellation en prenant :\par
+\noindent ER = 2,8 cm ; RG = 2,2 cm ; GS = 2,8 cm ; SC = 3,2 cm.
+\end{document}

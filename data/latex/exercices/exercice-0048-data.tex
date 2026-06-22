@@ -1,0 +1,23 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Reproduire la figure puis placer un point \textsf{M} sur la
+droite (\textsf{AC}) tel que \textsf{AM} = \textsf{BD}.
+\begin{center}
+    \begin{tikzpicture}
+        \coordinate[label=above left:A](A)at(-1,0);
+        \coordinate[label=above right:C](C)at(1,0.5);
+        \coordinate[label=below right:B](B)at(1.2,-0.5);
+        \coordinate[label=below left:D](D)at(0.2,-0.75);
+        \foreach\X in{A,B,C,D}{%
+            \node at(\X){$\times$};
+        }
+    \end{tikzpicture}
+\end{center}
+\end{document}

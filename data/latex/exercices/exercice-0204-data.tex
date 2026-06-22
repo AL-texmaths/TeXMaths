@@ -1,0 +1,47 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[t]{.49\linewidth}
+    Thalès de Millet (624-547 av JC) se rendit célèbre en donnant la hauteur de la
+    plus grande pyramide d'Égypte. Nous allons utiliser son théorème pour calculer
+    la hauteur de cette pyramide représentée ci-contre. KEOP est un carré de centre
+    H et de côté 230 m. [SH] est la hauteur de cette pyramide.
+\end{minipage}%
+\begin{minipage}[t]{.49\linewidth}
+    \pdf[scale=0.75]{pyramide_GEN2010POL2}
+\end{minipage}
+\begin{enumerate}
+    \item Soit I le milieu de [OE]. Calculer HI.
+    \item On se place à l'extérieur de la pyramide et on plante verticalement
+    un bâton représenté par le segment [AB] de 2 m de façon à ce que les points
+    M,B,S et M, A, H soient alignés.\par\noindent On sait que MA = 2,4 m et    
+    MH = 165 m.
+    \begin{tikzpicture}
+        \coordinate[label=above left:H](H)at(0,0);
+        \coordinate[label=above right:I](I)at(2,0);
+        \coordinate[label=above left:A](A)at(4,0);
+        \coordinate[label=above right:M](M)at(5,0);
+        \coordinate[label=above:S](S)at(0,3);
+        \coordinate[label=above right:B](B)at(4,0.6);
+        \draw(S)--(M)--(-2,0)--(S);
+        \draw(S)--(H);
+        \draw(S)--(I);
+        \draw(A)--(B);
+    \end{tikzpicture}
+    \begin{enumerate}
+        \item Justifier que (HS) et (AB) sont parallèles.
+        \item Écrire l'égalité des rapports provenant de la propriété de Thalès
+        dans le triangle MHS.
+        \item En déduire que la hauteur SH de la pyramide mesure 137,5 m.
+    \end{enumerate}
+    \item Calculer le volume de cette pyramide. Arrondir le résultat au m$^3$.\par\noindent
+    \textit{Volume d'une pyramide :} $V=\dfrac13B\times h.$\par\noindent
+    $B$ est l'aire de la base et $h$ la hauteur de la pyramide.
+\end{enumerate}
+\end{document}

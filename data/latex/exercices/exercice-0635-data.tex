@@ -1,0 +1,57 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{23GENMATAA1}
+\cycle{4}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Un centre de loisirs dispose d'un bâtiment et d'un espace extérieur pour accueillir des enfants.\medskip\par
+\noindent\begin{minipage}[c]{0.5\linewidth}
+    L'espace extérieur, modélisé par un triangle, est partagé en deux parties~:
+    un potager (quadrilatère $DEFG$ hachuré) et une zone de jeux (triangle $EFC$),
+    comme représenté par la figure ci-contre.
+    \begin{itemize}
+        \item Les points $C$, $E$ et $D$ sont alignés.
+        \item Les points $C$, $F$ et $G$ sont alignés.
+        \item Les droites $(EF)$ et $(DG)$ sont parallèles.
+        \item Les droites $(DG)$ et $(CD)$ sont perpendiculaires.
+        \item $CE=30$~m; $ED=10$~m et $DG=24$~m.
+    \end{itemize}
+\end{minipage}\smallskip
+    \begin{tikzpicture}[rotate=-20,scale=1.2,baseline=(current bounding box.center)]
+        \coordinate[label=below left:$A$](A)at(0,0);
+        \coordinate[label=above left:$B$](B)at(0,4);
+        \coordinate[label=above right:$C$](C)at(2,4);
+        \coordinate[label=below:$D$](D)at(2,0);
+        
+        \fill[white!80!black](A)--(B)--(C)--(D)--cycle;
+        \tkzMarkRightAngles[red, size=0.3](D,A,B A,B,C B,C,D)
+        \draw[](A)--(B)--(C)--(D)--cycle;
+        
+        \coordinate[label=right:$G$](G)at(4.4,0);
+        \coordinate[label=left:$E$](E)at(2,1);
+        \coordinate[label=right:$F$](F)at(3.8,1);
+        \tkzMarkRightAngle[red,size=0.3](G,D,E)
+        \draw(D)--(C)--(G)--cycle;
+        \draw[pattern={Lines[angle=45,distance={4pt}]}](E)--(F)--(G)--(D)--cycle;
+        \tkzDrawPoints(A,B,C,D,E,F,G)
+        \node at (1,2.5){Bâtiment};
+        \node at (2.5,2){Zone};
+        \node at (2.67,1.55){de jeux};
+        \draw[-Stealth](3,-0.4)--(3.2,0.55);
+        \node at (3,-0.6){Potager};
+    \end{tikzpicture}
+\begin{enumerate}
+    \item Déterminer la longueur $CD$.
+    \item Calculer la longueur $CG$. Arrondir au dixième de mètre près.
+    \item L'équipe veut séparer la zone de jeux et le potager par une clôture représentée par le segment $[EF]$.\\
+    Montrer que la clôture doit mesurer $18$~m.
+    \item Pour semer du gazon sur la zone de jeux, l'équipe décide d'acheter des sacs de $5$~kg de graines à $22.90$~\texteuro\, l'unité. Chaque sac permet de couvrir une surface d'environ $140$~m$^2$.\\
+    Quel budget doit-on prévoir pour pouvoir semer du gazon sur la totalité de la zone de jeux~?
+    \item La direction du centre affirme que la surface du potager est plus grande que celle de la zone de jeux. A-t-elle raison~?
+\end{enumerate}
+\showthesource
+\end{document}

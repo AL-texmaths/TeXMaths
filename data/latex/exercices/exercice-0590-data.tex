@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+A, B et C sont trois points non alignés.
+\begin{center}
+    \begin{tikzpicture}
+        \coordinate[label=below right:A](A)at(0,0);
+        \coordinate[label=above right:B](B)at(5,0);
+        \coordinate[label=left:C](C)at(60:5);
+        \tkzDrawLines[add=0.2 and 0.2](A,C A,B C,B)
+    \end{tikzpicture}
+\end{center}
+\begin{enumerate}
+    \item Tracer la droite (d$_1$) perpendiculaire à (AB) passant par C.
+    \item Tracer la droite (d$_2$) perpendiculaire à (BC) passant par A.
+    \item Tracer la droite (d$_3$) perpendiculaire à (AC) passant par B.
+    \item Que peut on dire de ces trois droites~?
+\end{enumerate}
+\end{document}

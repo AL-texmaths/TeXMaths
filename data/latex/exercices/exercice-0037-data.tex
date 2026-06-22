@@ -1,0 +1,35 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Enzo affirme : \guillemets{La droite $(d)$ est un axe de
+symétrie de cette figure tracée à main levée.}\par\noindent
+Cette affirmation est-elle vraie ou fausse ?
+\begin{center}
+    \begin{tikzpicture}[scale=0.9]
+        \coordinate[label=above left:{\<S1;}](S1)at(-2,2);
+        \coordinate[label=above right:{\<S2;}](S2)at(2,2);
+        \coordinate[label=below right:{\<S3;}](S3)at(2,-1);
+        \coordinate[label=below left:{\<S4;}](S4)at(-2,-1);
+        \coordinate(I)at(0,0);
+        \coordinate(J)at(0,2);
+        \coordinate[label=right:$\sf(d)$](d0)at(0,3);
+        \coordinate(d1)at(0,-1.5);
+        \tkzMarkRightAngle[color=red](I,J,S1)
+        \draw(S1)--(S2)--(S3)--(I)--(S4)--cycle;
+        \draw[red](d0)--(d1);
+        \path(S1)--(J)node[pos=0.5]{\color{red}\bfseries/};
+        \path(S2)--(J)node[pos=0.5]{\color{red}\bfseries/};
+        \path(S4)--(S1)node[pos=0.5, above, sloped]{5 cm};
+        \path(S4)--(I)node[pos=0.5, below, sloped]{3 cm};
+        \path(I)--(S3)node[pos=0.5, below, sloped]{3 cm};
+        \path(S3)--(S2)node[pos=0.5, below, sloped]{4 cm};
+    \end{tikzpicture}
+\end{center}
+\end{document}

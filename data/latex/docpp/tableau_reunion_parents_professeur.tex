@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage{tabularray}
+\usepackage{geometry}
+
+\newgeometry{
+        includehead,
+        lmargin=50pt,
+        textwidth=500pt,
+        top=10pt%
+        }
+
+\def\year{2023-2024}
+\def\date{mardi 14 novembre à partir de 16h}
+\def\level{5e}
+
+\def\thelist{
+    \begin{itemize}
+        \item\vskip20pt
+        \item\vskip30pt
+        \item\vskip30pt
+    \end{itemize}
+}
+
+\usepackage{fancyhdr}
+\begin{document}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[C]{Réunion parents-professeur}
+\fancyfoot{}
+\fancyfoot[L]{\year}
+\fancyfoot[R]{\date}
+
+\noindent
+\begin{tblr}{colspec={*6{Q[c,m,wd=70pt,font=\bfseries]}},hlines,vlines}
+    16h00-16h30\thelist
+    &16h30-17h00\thelist&17h00-17h30\thelist
+    &17h30-18h00\thelist&18h00-18h30\thelist
+    &18h30-19h00\thelist
+\end{tblr}
+
+\end{document}

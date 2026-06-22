@@ -1,0 +1,35 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{originale}
+\cycle{4}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+La figure ci-dessous représente un triangle en vraie grandeur.\par\medskip\noindent
+    {\centering
+    \begin{tikzpicture}[rotate=-30]
+        \triangleACA[A=35,AB=5cm,B=90](A,B,C)
+        \path(A)node[anchor=east]{A};
+        \path(B)node[anchor=north]{B};
+        \path(C)node[anchor=south west]{C};
+        \path(A)--(C)node[above left,midway]{6 cm};
+        \path(B)--(C)node[below right,midway]{2,5 cm};
+        \draw[fill=\currentcolor!50](A)--(B)--(C)--cycle;
+        \tkzMarkRightAngle[size=0.5, colored](C,B,A)
+    \end{tikzpicture}
+    \medskip\par}
+    \begin{enumerate}
+        \item Quelle est la nature du triangle \mathspoint{ABC}~?
+        \answerspace{2em}
+        \item Écrire les trois formules trigonométriques (cos, sin et tan).
+        \answerspace{3em}
+        \item On cherche à calculer l'angle $\widehat{\mathspoint{BAC}}$.
+        Quelle formule peut-être utilisée~?
+        \answerspace{3em}
+        \item Calculer l'angle $\widehat{\mathspoint{BAC}}$.
+        \answerspace{8em}
+    \end{enumerate}
+\end{document}

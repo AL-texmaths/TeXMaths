@@ -1,0 +1,35 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{originale}
+\cycle{4}
+\competencesDuSocle{CA, RE, CO}
+\connaissancesRequises{A3a1,A3a4,A3a5}
+\competencesTravaillees{A3d2}
+\enddatakeys
+\begin{document}%
+Soit ABC un triangle rectangle en A. On sait que~:
+\begin{itemize}
+    \item AC = $2\times$AB
+    \item Aire(ABC) = 50 cm$^2$
+\end{itemize}
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=below left:A](A)at(0,0);
+    \coordinate[label=above left:B](B)at(0,1);
+    \coordinate[label=below right:C](C)at(2,0);
+    \coordinate[label=below:M](M)at(1,0);
+    \coordinate(M1)at(1,0.05);
+    \coordinate(M2)at(1,-0.05);
+    \draw(A)--(B)--(C)--cycle;
+    \draw(M1)--(M2);
+    \tkzMarkSegments[mark=s||](A,B A,M M,C)
+    \tkzMarkRightAngle[size=0.125](C,A,B)
+\end{tikzpicture}\par\medskip\noindent
+On rappelle la formule donnant l'aire d'un triangle:
+$$\text{Aire}=\text{base}\times\text{hauteur}\div2$$
+\begin{enumerate}
+    \item En notant $x$ la longueur du segment [AB], exprimer l'aire du triangle ABC
+    en fonction de $x$.
+    \item Déterminer la longueur du segment [AB].
+\end{enumerate}
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass{article}
+
+\usepackage{enumitem}
+\usepackage{tkz-euclide}
+
+\begin{document}
+%Exo1
+Développer les expressions suivantes~:\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{A =} $5\times(2x+3)$\hfill}%
+    \hbox{{E =} $(5+2x)\times3$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{B =} $5+(2x+3)$\hfill}%
+    \hbox{{D =} $4\times(5x-2)$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{C =} $4\times(5x\times2)$\hfill}%
+        \hbox{{F =} $4\times(3\times x+2)$\hfill}
+
+\par\vskip\baselineskip
+% Exo2
+Lorsque c'est possible, développer les expressions suivantes~:\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{A =} $2(3+y)$\hfill}%
+    \hbox{{E =} $2x(x-y+4)$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{B =} $-5(x-y)$\hfill}%
+    \hbox{{F =} $(-4+x)\times5$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{C =} $-3(-2x+y)$\hfill}%
+        \hbox{{G =} $-(3-x)$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{D =} $x(-4-y)$\hfill}%
+            \hbox{{H =} $-2(-1+x)$\hfill}
+%Exo 3
+On peut calculer de plusieurs manière l'aire de cette figure. Prouver que ces
+expressions sont égales~:\par\vskip\baselineskip
+\leavevmode\hbox to .3\linewidth{{A =} $x^2+2x\times6$\hfill}%
+    \hbox to .3\linewidth{{B =} $2x(x+6)-x^2$\hfill}%
+    \hbox{{C=} $x\times6+(x+6)\times x$\hfill}%
+    \par\vskip\baselineskip
+\begin{tikzpicture}[scale=2]
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(0,-1);
+    \coordinate(C)at(1,-1);
+    \coordinate(D)at(1,-2);
+    \coordinate(E)at(3,-2);
+    \draw(A)--(B)--(C)--(D)--(E)--(3,0)--cycle;
+    \tkzMarkSegments[mark=s||](A,B B,C C,D)
+    \path(A)--(B)node[midway, label={[label distance=0.1cm]180:$x$}]{};
+    \path(D)--(E)node[midway, below]{$6$};
+\end{tikzpicture}
+%exo 4
+Factoriser les expressions suivantes puis réduire~:\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{A =} $131\times13+131\times87$\hfill}%
+    \hbox{{E =} $7x+42$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{B =} $37\times13-37\times3$\hfill}%
+    \hbox{{F =} $3x-3$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{C =} $4x+4\times5$\hfill}%
+        \hbox{{G =} $6x^2+36x$\hfill}
+\par\vskip\baselineskip
+\leavevmode\hbox to .5\linewidth{{D =} $24-8x$\hfill}%
+            \hbox{{H =} $x^2-2xy$\hfill}
+\end{document}

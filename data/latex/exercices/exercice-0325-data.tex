@@ -1,0 +1,22 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer l'aire du triangle ci-dessous.\par\medskip
+\begin{tikzpicture}
+    \coordinate[label=below left:A](A)at(0,0);
+    \coordinate[label=below right:B](B)at(4,0);
+    \coordinate[label=above left:C](C)at(0,2);
+    \tkzMarkRightAngle(B,A,C)
+    \draw(A)--(B)--(C)--cycle;
+    \path(A)--(B)node[midway,below]{\bfseries\<n1;};
+    \path(A)--(C)node[midway,left]{\bfseries\<n2;};
+    \path(B)--(C)node[midway,above right]{\bfseries\<n3;};
+\end{tikzpicture}
+\end{document}

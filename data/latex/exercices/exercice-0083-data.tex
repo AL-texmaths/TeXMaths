@@ -1,0 +1,51 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!coord1=150:1.5;%
+\!coord2=80:1;%
+\!coord3=-20:1.4;%
+\!coord4=220:1.3;%
+\!coord5=210:1.5;%
+\!coord6=-10:1.5;%
+\!coord7=70:1.5;%
+\begin{enumerate}
+    \item\begin{minipage}[t]{.3\linewidth}À vue d'\oe il, laquelle de ces
+        deux figures a le plus grand périmètre~?\end{minipage}
+        \hfill\begin{tikzpicture}[baseline=(O.base)]
+            \coordinate(O)at(0,0);
+            \coordinate(S1)at(\<coord1;);
+            \coordinate(S2)at(\<coord2;);
+            \coordinate(S3)at(\<coord3;);
+            \coordinate(S4)at(\<coord4;);
+            \path(S1)--(S3)node[pos=1.15]{\<S3;}node[pos=-0.1]{\<S1;};
+            \path(S2)--(S4)node[pos=1.15]{\<S4;}node[pos=-0.1]{\<S2;};
+            \filldraw[fill=Rainbow1-bleu](S1)--(S2)--(S3)--(S4)--cycle;
+        \end{tikzpicture}\hfill
+        \begin{tikzpicture}[baseline=(O.base)]
+            \coordinate(O)at(0,0);
+            \coordinate(S5)at(\<coord5;);
+            \coordinate(S6)at(\<coord6;);
+            \coordinate(S7)at(\<coord7;);
+            \path(S5)--(S6)coordinate[pos=0.5](I7);
+            \path(S5)--(S7)coordinate[pos=0.5](I6);
+            \path(S7)--(S6)coordinate[pos=0.5](I5);
+            \path(I5)--(S5)node[pos=1.15]{\<S5;};
+            \path(I6)--(S6)node[pos=1.15]{\<S6;};
+            \path(I7)--(S7)node[pos=1.15]{\<S7;};
+            \filldraw[fill=Rainbow1-vert](S5)--(S6)--(S7)--cycle;
+        \end{tikzpicture}
+    \item \begin{enumerate}
+        \item Tracer une droite $(d)$. Placer un point \textsf{O} sur cette
+        droite.
+        \item En utilisant \textbf{uniquement le compas} et la droite $(d)$,
+        comparer les périmètres des deux figures de la question \textbf{1)}. 
+    \end{enumerate}
+\end{enumerate}
+\end{document}

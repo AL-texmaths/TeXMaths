@@ -1,0 +1,56 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[t]{.3\linewidth}
+    {\Large\bfseries 1}\vskip5pt
+    \begin{tikzpicture}[rotate=40,scale=0.5]
+        \coordinate[label=below right:A](A)at(0,0);
+        \coordinate[label=below right:B](B)at(3,0);
+        \path(A)--(B)coordinate[pos=0.3,label=below right:M](M);
+        \tkzDrawLines(A,B)
+        \draw node at(A){\cross};
+        \draw node at(B){\cross};
+        \draw node at(M){\cross};
+    \end{tikzpicture}
+\end{minipage}\hfil
+\begin{minipage}[t]{.3\linewidth}
+    {\Large\bfseries 2}\vskip5pt
+    \begin{tikzpicture}[rotate=-40,scale=0.5]
+        \coordinate[label=above right:A](A)at(0,0);
+        \coordinate[label=above right:B](B)at(3,0);
+        \path(A)--(B)coordinate[pos=1.3,label=above right:M](M);
+        \tkzDrawLines(A,M)
+        \draw node at(A){\cross};
+        \draw node at(B){\cross};
+        \draw node at(M){\cross};
+    \end{tikzpicture}
+\end{minipage}\hfil
+\begin{minipage}[t]{.3\linewidth}
+    {\Large\bfseries 3}\vskip5pt
+    \begin{tikzpicture}[rotate=10,scale=0.5]
+        \coordinate[label=below:A](A)at(0,0);
+        \coordinate[label=below:B](B)at(3,0);
+        \coordinate[label=above right:M](M)at(4,1);
+        \draw node at(A){\cross};
+        \draw node at(B){\cross};
+        \draw node at(M){\cross};
+        \tkzDrawLines[add=0.1 and 0.2](A,B)
+    \end{tikzpicture}
+\end{minipage}\smallskip
+\begin{enumerate}
+\item Pour chacune des figures ci-dessus, compléter les phrases
+ci-dessous par \guillemets{appartient} ou \guillemets{n'appartient pas}.
+\begin{itemize}
+    \item Le point M \dotedrule wd of{n'appartient pas} à la droite passant par les points A et B.
+    \item Le point M \dotedrule wd of{n'appartient pas} au segment d'extrémités les points A et B.
+\end{itemize}
+\item Traduire les six phrases en langage mathématique.
+\end{enumerate}
+\end{document}

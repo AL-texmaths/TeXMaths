@@ -1,0 +1,31 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\textsf{\<s1;\<s2;\<s3;} est rectangle en \textsf{\<s2;} et
+\textsf{\<s1;\<s4;\<s3;} est rectangle en \textsf{\<s4;}.
+\begin{itemize}
+    \item Calculer \textsf{\<s4;\<s3;}. 
+\end{itemize}
+\begin{center}
+    \begin{tikzpicture}[scale=0.5]
+        \coordinate[label=below left:\<s2;](s2)at(0,0);
+        \coordinate[label=below right:\<s3;](s3)at(8,0);
+        \coordinate[label=above left:\<s1;](s1)at(0,3);
+        \coordinate[label=above:\<s4;](s4)at(2,5);
+        \tkzMarkRightAngle(s3,s2,s1)
+        \tkzMarkRightAngle(s1,s4,s3)
+        \path(s2)--(s3)node[pos=0.5,below,sloped]{\<l1;};
+        \path(s2)--(s1)node[pos=0.5,above,sloped]{\<l2;};
+        \path(s1)--(s4)node[pos=0.5,above,sloped]{\<l3;};
+        \draw(s1)--(s2)--(s3)--(s4)--cycle;
+        \draw(s1)--(s3);
+    \end{tikzpicture}
+\end{center}
+\end{document}

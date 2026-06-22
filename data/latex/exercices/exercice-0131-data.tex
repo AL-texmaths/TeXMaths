@@ -1,0 +1,38 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{center}
+    \begin{tikzpicture}[font=\sf]
+        \def\rectScale{2.5}
+        \coordinate(O)at(0,0);
+        \coordinate(S0)at(30:\rectScale);
+        \coordinate(S1)at(150:\rectScale);
+        \coordinate(S2)at(-150:\rectScale);
+        \coordinate(S3)at(-30:\rectScale);
+        \path(S2)--(S3)coordinate[pos=0.5](I1);
+        \path(S0)--(S1)coordinate[pos=0.5](I0);
+        \draw[thick,pattern=north west lines,pattern color=gray]
+                (S2)rectangle(S0);
+        \filldraw[fill=white](S0)--(I0)--(O)--(S0);
+        \filldraw[fill=white](S2)--(I1)--(O)--(S2);
+        \path(S2)--+(0,-0.2)coordinate(A0);
+        \path(S3)--+(0,-0.2)coordinate(A1);
+        \draw[latex-latex](A0)--(A1)node[pos=0.5,below]{12 cm};
+        \path(S3)--+(0.2,0)coordinate(B0);
+        \path(S0)--+(0.2,0)coordinate(B1);
+        \draw[latex-latex](B0)--(B1)node[pos=0.5,right]{8 cm};
+        \tkzMarkSegments[mark=s|](S2,I1 I1,S3)
+        \tkzMarkSegments[mark=s||](I1,O O,I0)
+        \tkzMarkRightAngle(O,I1,S2)
+        \tkzMarkRightAngle(O,I0,S0)
+    \end{tikzpicture}
+\end{center}
+Calculer l'aire de la partie hachurée.
+\end{document}

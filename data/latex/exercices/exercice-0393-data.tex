@@ -1,0 +1,21 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Chez le marchand de fruits, on voit le tableau suivant.\vskip10pt
+\begin{tblr}{%
+        colspec={Q[m,wd=80pt]*3{Q[c,m,wd=30pt]}},
+        column{1}={font=\bfseries,bg=gray!25!white},
+        hlines,
+        vlines}
+    Masse de pommes {\normalfont( en kg)}&2&4&5\\
+    Prix {\normalfont( en euros)}&5,00&9,00&10,00
+\end{tblr}\vskip10pt\noindent
+Le prix des pommes est-il proportionnel à la masse achetée~? Justifier la réponse.
+\end{document}

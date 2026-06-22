@@ -1,0 +1,155 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{texmaths-boxes}%
+\usepackage{scratch3}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{25GENMATPO3}
+\BO{2020}
+\cycle{4}
+\competencesDuSocle{RE,RA}
+\connaissancesRequises{C2a*,E1a*,E1c*,E1d1,E1d2}
+\competencesTravaillees{D2c1,D2c2,D2c3,E1a1}
+\enddatakeys
+\begin{document}%
+    On s'intéresse au motif dessiné ci-dessous que l'on retrouve dans un pavage
+    recouvrant un mur du palais de l'Alhambra en Espagne.\par\noindent
+    Ce motif est partagé en douze losanges superposables numérotés de 1 à 12. Dans
+    chaque losange, les côtés ont pour longueur 5cm, les angles aigus mesurent
+    $60^\circ$ et les angles obtus mesurent $120^\circ$.
+    \begin{center}
+        Le motif\par\vskip7pt
+        \begin{tikzpicture}[line width=0.7pt, scale=1.5]
+            \coordinate[label=below:\mathspoint{A}](A)at(0,0);
+            \foreach\i in{0,...,5}{
+                \coordinate(A\i)at(\i*60:1);
+                \coordinate(B\i)at(\i*60+30:{sqrt(3)});
+                \coordinate(C\i)at(\i*60:2);
+            }
+            \fill[\currentcolor!50](A)--(A0)--(B0)--(C1)--(B1)--(A2)--cycle;
+            \foreach\i in{1,...,5}{
+                \path(A\i)--(C\i)coordinate[midway](E\i);
+                \draw(E\i)circle(3.5pt)node{\footnotesize\number\numexpr2*\i};
+            }
+            \path(A0)--(C0)coordinate[midway](E0);
+            \draw(E0)circle(3.5pt)node{\footnotesize 12};
+            \tkzMarkAngle[size=0.25](A0,A,A1)
+            \tkzLabelAngle[pos=0.5](A0,A,A1){$60^\circ$}
+            \tkzMarkAngle[size=0.2](B0,A0,A)
+            \tkzLabelAngle[pos=0.35](B0,A0,A){$120^\circ$}
+            \foreach\i in{0,...,4}{
+                \edef\j{\number\numexpr\i+1}
+                \draw(A)--(A\i)--(B\i)--(A\j);
+                \path(A)--(B\j)coordinate[midway](D\j);
+                \draw(D\j)circle(3.5pt)node{\footnotesize\number\numexpr2*\j+1};
+            }
+            \path(A)--(B0)coordinate[midway](D'0);
+            \coordinate(D0)at($(D'0)+(-0.15,0.15)$);
+            \draw(D0)circle(3.5pt)node{\footnotesize 1};
+            \draw(A)--(A5)--(B5)--(A0);
+            \draw[dotted,line width=1.5pt](C0)--(C1)--(C2)--(C3)--(C4)--(C5)--cycle;
+            \draw (A0) node[right] {\mathspoint{B}};
+            \draw (B0) node[above right] {\mathspoint{C}};
+            \draw (C1) node[above right] {\mathspoint{D}};
+            \draw (B1) node[above] {\mathspoint{E}};
+            \draw (A2) node[above left] {\mathspoint{F}};
+            \path(A)--(A0)node[midway,below]{5 cm};
+        \end{tikzpicture}
+    \end{center}
+    \begin{flushleft}
+        \textbf{Partie 1}\par\medskip\noindent
+        Dans cette partie, aucune justification n'est demandée.
+    \end{flushleft}
+    \begin{enumerate}
+        \item Quelle est l'image du losange \circled1 par la symétrie centrale
+        de centre A~?
+        \item Quelle est l'image du losange \circled3 par la symétrie axiale
+        d'axe \mathspoint{(AF)}~?
+        \item Quelle est l'image du losange \circled7 par la roation
+        de centre \mathspoint{A} que transforme le losange \circled3 en losange
+        \circled{11}~?
+        \item Quelle est l'image du losange \circled8 par la translation qui
+        transforme \mathspoint{A} en \mathspoint{E}.
+    \end{enumerate}
+    \begin{flushleft}
+        \textbf{Partie 2}\par\medskip\noindent
+        Louis a remarqué que le motif donné sans l'énoncé s'obtient à partir de
+        l'hexagone \mathspoint{ABCDE} en appliquant plusieurs fopis la même
+        rotation de centre A.\par\noindent
+        Il souhaite tracer le motif avec le logiciel Scratch en prenant 10 pas
+        pour 1 cm.
+    \end{flushleft}
+    \noindent
+    \begin{minipage}[c]{.55\linewidth}
+        Le bloc dont le script est proposé ci-contre permet de tracer la figure
+        représentée ci-dessous sur laquelle la flèche indique l'orientation du
+        lutin au début du programme~:
+        \begin{center}
+            \begin{tikzpicture}[scale=1.5]
+                \coordinate[label=below left:\mathspoint{A}](A)at(-120:1);
+                \coordinate[label=below right:\mathspoint{B}](B)at(-60:1);
+                \coordinate[label=right:\mathspoint{C}](C)at(0:1);
+                \coordinate[label=above right:\mathspoint{D}](D)at(60:1);
+                \coordinate[label=above left:\mathspoint{E}](E)at(120:1);
+                \coordinate[label=left:\mathspoint{F}](F)at(180:1);
+                \draw[fill=\currentcolor!50](A)--(B)--(C)--(D)--(E)--(F)--cycle;
+                \path(A)--(B)coordinate[pos=0.45](A');
+                \path(A)--(B)coordinate[pos=2](B');
+                \draw[line width=1.5 pt,-latex](A)--(A');
+                \draw[dotted,line width=1pt](B)--(B');
+            \end{tikzpicture}
+        \end{center}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.4\linewidth}
+        \begin{scratch}[num blocks]
+            \initmoreblocks{définir \namemoreblocks{hexagone ABCDEF}}
+            \blockpen{stylo en position d'écriture}
+            \blockrepeat{répéter \ovalnum{...} fois}{
+                \blockmove{avancer de \ovalnum{...} pas}
+                \blockmove{tourner \turnleft\ de \ovalnum{...} degrés}
+            }
+            \blockpen{relever le stylo}
+        \end{scratch}
+    \end{minipage}
+    \begin{enumerate}
+        \item Sur l'ANNEXE, à rendre avec la copie, compléter les lignes 3, 4
+        et 5 afin que le bloc \guillemets{hexagone ABCDEF} trace l'hexagone
+        ABCDEF de côté 5 cm en partant du point A.\par\medskip\noindent
+        Aucune justification n'est attendue.
+        \item Parmi les trois scripts proposés ci-dessous, lequel permet de
+        tracer le motif en utilisant le bloc hexagone ABCDEF précédent.\par\medskip\noindent
+        Aucune justification n'est attendue.
+    \end{enumerate}
+    \begin{flushleft}
+        \textit{On rappelle que l'instruction }\begin{scratch}
+        \blockmove{s'orienter à \ovalnum{90} degrés}\end{scratch}
+        \textit{ signifie que le lutin se dirige vers la droite.}
+    \end{flushleft}\noindent\medskip
+    \begin{tblr}{colspec=*{3}{Q[c,m]},hlines,vlines,row{1}={font=\bfseries}}
+        Script A&Script B&Script C\\
+        \begin{scratch}
+            \blockinit{quand \greenflag est cliqué}
+            \blockmove{s'orienter à \ovalnum{90} degrés}
+            \blockrepeat{répéter \ovalnum{2} fois}{
+                \blockmoreblocks{Hexagone}
+                \blockmove{tourner \turnleft\ de \ovalnum{120} degrés}
+            }
+        \end{scratch}&
+        \begin{scratch}
+            \blockinit{quand \greenflag est cliqué}
+            \blockmove{s'orienter à \ovalnum{90} degrés}
+            \blockrepeat{répéter \ovalnum{4} fois}{
+                \blockmoreblocks{Hexagone}
+                \blockmove{tourner \turnleft\ de \ovalnum{90} degrés}
+            }
+        \end{scratch}&
+        \begin{scratch}
+            \blockinit{quand \greenflag est cliqué}
+            \blockmove{s'orienter à \ovalnum{90} degrés}
+            \blockrepeat{répéter \ovalnum{6} fois}{
+                \blockmoreblocks{Hexagone}
+                \blockmove{tourner \turnleft\ de \ovalnum{60} degrés}
+            }
+        \end{scratch}
+    \end{tblr}\showthesource
+\end{document}

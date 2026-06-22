@@ -1,0 +1,71 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\usepackage{tabularray}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \footnotesize
+    \begin{tblr}{colspec={Q[m]*2{Q[c,m]}},row{1}={bg=\maintblrbgcolor,font=\bfseries},
+        hlines,vlines,rows={ht=30pt}}
+        Phrase en français&Phrase codée&Représentation\\
+        Tracer la droite passant par A et B&Tracer (AB)&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+            \coordinate[label=above left:A](A)at(0,0);
+            \coordinate[label=above left:B](B)at(2,0);
+            \coordinate(O)at(0,.5);
+            \draw node at(A){$\times$};
+            \draw node at(B){$\times$};
+            \tkzDrawLines[add=.3 and .3](A,B)
+        \end{tikzpicture}\\
+        Tracer le segment d'extrémités A et B&Tracer [AB]&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+            \coordinate[label=above left:A](A)at(0,0);
+            \coordinate[label=above left:B](B)at(2,0);
+            \coordinate(O)at(0,.5);
+            \draw node at(A){$\times$};
+            \draw node at(B){$\times$};
+            \tkzDrawLines[add=0 and 0](A,B)
+        \end{tikzpicture}\\
+        Tracer la demi-droite d'origine A passant par B&Tracer $[AB)$&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+            \coordinate[label=above left:A](A)at(0,0);
+            \coordinate[label=above left:B](B)at(2,0);
+            \coordinate(O)at(0,.5);
+            \draw node at(A){$\times$};
+            \draw node at(B){$\times$};
+            \tkzDrawLines[add=0 and .4](A,B)
+        \end{tikzpicture}\\
+        &Tracer [IT]&\\
+        &&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+            \coordinate[label=above left:R](A)at(0,0);
+            \coordinate[label=above left:C](B)at(2,0);
+            \coordinate(O)at(0,.5);
+            \draw node at(A){$\times$};
+            \draw node at(B){$\times$};
+            \tkzDrawLines[add=.4 and 0](A,B)
+        \end{tikzpicture}\\
+        Tracer la droite passant par K et P.&&\\
+        &&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+            \coordinate[label=above left:G](A)at(0,0);
+            \coordinate[label=above left:H](B)at(2,0);
+            \coordinate(O)at(0,.5);
+            \draw node at(A){$\times$};
+            \draw node at(B){$\times$};
+            \tkzDrawLines[add=.4 and 0](A,B)
+        \end{tikzpicture}\\
+        Tracer le segment d'extrémités V et K.&&\\
+        &Tracer [LU]&\\
+        &&\begin{tikzpicture}[rotate=-10,scale=0.5,baseline=(O.base)]
+            \coordinate[label=above right:M](A)at(0,0);
+            \coordinate[label=above right:F](B)at(2,0);
+            \coordinate(O)at(0,.5);
+            \draw node at(A){$\times$};
+            \draw node at(B){$\times$};
+            \tkzDrawLines[add=0 and 0](A,B)
+        \end{tikzpicture}\\
+        Tracer la demi-droite d'origine J passant par R.&&\\
+        &Tracer (AP)&\\
+    \end{tblr}
+\end{document}

@@ -1,0 +1,23 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    En utilisant {\bfseries uniquement le compas}, construire le symétrique de A par
+    rapport à $(d)$. Même question pour B et C.\vskip50pt
+    \begin{tikzpicture}[scale=1.2,rotate=30]
+        \coordinate[label=below left:C](C)at(0,0);
+        \coordinate[label=above left:B](B)at(1.5,4);
+        \coordinate[label=below:A](A)at(-2,2);
+        \coordinate(D1)at(3,-5);
+        \coordinate[label=above right:$(d)$](D2)at(3,8);
+        \draw(D1)--(D2);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \draw node at(C){+};
+    \end{tikzpicture}
+\end{document}

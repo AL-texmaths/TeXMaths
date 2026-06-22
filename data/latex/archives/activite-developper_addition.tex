@@ -1,0 +1,57 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \begin{enumerate}[a), font=\bfseries]
+        \item Calculer l'aire du rectangle \textsc{ABCD} de \textbf{deux manières différentes}.
+        \begin{center}
+            \begin{tikzpicture}[scale=0.8]
+                \def\L{6}
+                \def\l{3}
+                \def\ll{2}
+                \coordinate[label=below left:{A}](A)at(0,0);
+                \coordinate[label=below right:{B}](B)at(\L,0);
+                \coordinate[label=above right:{C}](C)at(\L,\l);
+                \coordinate[label=above left:{D}](D)at(0,\l);
+                \coordinate[label=below:{E}](E)at(\ll,0);
+                \coordinate[label=above:{F}](F)at(\ll,\l);
+                \tkzDrawPolygon(A,B,C,D)
+                \draw(E)--(F);
+                \path(A)--(D)node[midway, sloped, above]{3 cm};
+                \path(D)--(F)node[midway, sloped, above]{2 cm};
+                \path(F)--(C)node[midway, sloped, above]{4 cm};
+            \end{tikzpicture}
+        \end{center}
+        \item Écrire \textbf{deux expression littérale} donnant l'aire du rectangle \textsc{ABCD}.
+        \begin{center}
+            \begin{tikzpicture}[scale=0.8]
+                \def\L{6}
+                \def\l{3}
+                \def\ll{2}
+                \coordinate[label=below left:{A}](A)at(0,0);
+                \coordinate[label=below right:{B}](B)at(\L,0);
+                \coordinate[label=above right:{C}](C)at(\L,\l);
+                \coordinate[label=above left:{D}](D)at(0,\l);
+                \coordinate[label=below:{E}](E)at(\ll,0);
+                \coordinate[label=above:{F}](F)at(\ll,\l);
+                \tkzDrawPolygon(A,B,C,D)
+                \draw(E)--(F);
+                \path(A)--(D)node[midway, left]{k};
+                \path(D)--(F)node[midway, sloped, above]{a};
+                \path(F)--(C)node[midway, sloped, above]{b};
+            \end{tikzpicture}
+        \end{center}
+        \item En vous aidant de la question précédente, compléter la propriété ci dessous:~\\
+        \begin{simplebox}
+            Pour tout nombre $a$, $b$, $k$: $$k(a+b)=$$
+            \vspace{.3cm}
+        \end{simplebox}
+        \item \textbf{Application :} développer les expression littérales suivantes:
+        \begin{center}
+            \begin{minipage}{.45\linewidth}
+                $3(x+4)=$
+            \end{minipage}\hspace{.05\linewidth}
+            \begin{minipage}{.45\linewidth}
+                $-2\times(1+x)=$
+            \end{minipage}
+        \end{center}
+    \end{enumerate}
+\end{document}

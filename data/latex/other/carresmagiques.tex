@@ -1,0 +1,90 @@
+\documentclass{article}
+
+\usepackage{tabularray}
+\makeatletter
+\def\carremagiqueB#1#2#3{%
+\def\Ba{#1}
+\def\Bc{#2}
+\def\Ac{#3}
+
+\def\Bb{\number\numexpr(\Ba+\Bc)/2\relax}
+\def\squaresum{\number\numexpr\Ba+\Bb+\Bc\relax}
+\def\Cc{\number\numexpr\Ba+\Bb-\Ac\relax}
+\def\Aa{\number\numexpr\Ac+\Bc-\Bb\relax}
+\def\Ab{\number\numexpr\squaresum-\Aa-\Ac\relax}
+\def\Cb{\number\numexpr\squaresum-\Ab-\Bb\relax}
+\def\Ca{\number\numexpr\squaresum-\Aa-\Ba\relax}
+
+\begin{tblr}{colspec={*{3}{Q[c,m,wd=10pt]}}, hlines, vlines,rows={ht=16pt}}
+    \@hideorshow\Aa&\@hideorshow\Ab&\bfseries\Ac\\
+    \bfseries\Ba&\@hideorshow\Bb&\bfseries\Bc\\
+    \@hideorshow\Ca&\@hideorshow\Cb&\@hideorshow\Cc
+\end{tblr}}
+
+% #1, #2 et #3 doivent être des nombres entiers de même parité
+\def\@hide#1{}
+\def\@show#1{#1}
+\let\@hideorshow\@hide
+\def\hide{\let\@hideorshow\@hide}
+\def\show{\let\@hideorshow\@show}
+\def\carremagiqueA#1#2#3{%
+    \def\aaa{#1}
+    \def\bbb{#2}
+    \def\ccc{#3}
+    \def\ddd{(\aaa+\bbb)/2}
+    \def\eee{(\aaa+\ccc)/2}
+    \def\fff{(\bbb+\ccc)/2}
+    \def\ggg{(\bbb-\ccc)/2}
+    \def\hhh{(\aaa-\ccc)/2}
+
+    \begin{tblr}{colspec={*{3}{Q[c,m,wd=15pt]}}, hlines, vlines,rows={ht=21pt}}
+        \@hideorshow{\number\numexpr\hhh+\bbb\relax}&\bfseries\number\numexpr\ccc\relax&\@hideorshow{\number\numexpr\ggg+\aaa\relax}\\
+        \bfseries\number\numexpr\aaa\relax&\@hideorshow{\number\numexpr\ddd\relax}&\bfseries\number\numexpr\bbb\relax\\
+        \@hideorshow{\number\numexpr\fff\relax}&\@hideorshow{\number\numexpr\aaa+\bbb-\ccc\relax}&\@hideorshow{\number\numexpr\eee\relax}\\
+    \end{tblr}}
+\makeatother
+\begin{document}
+% \noindent{\Large\bfseries Carré magique A~:}
+% \begin{center}
+%     \begin{tblr}[expand=\hideorshow]{colspec={*{3}{Q[c,m,wd=50pt]}}, hlines, vlines,rows={ht=20pt}}
+%         $(\frac12,1,-\frac12)$&$\mathbf{(0,0,1)}$&$(1,\frac12,-\frac12)$\\
+%         $\mathbf{(1,0,0)}$&$(\frac12, \frac12, 0)$&$\mathbf{(0,1,0)}$\\
+%         $(0,\frac12,\frac12)$&$(1,1,-1)$&$(\frac12,0, \frac12)$
+%         \end{tblr}    
+% \end{center}\par
+
+% \hide
+% \carremagiqueA246\vskip20pt
+% \show
+% \carremagiqueA246\vskip20pt
+
+% \noindent{\Large\bfseries Carré magique B~:}
+% \begin{center}
+%     \begin{tblr}{colspec={*{3}{Q[c,m,wd=50pt]}}, hlines, vlines,rows={ht=20pt}}
+%         $(-\frac12, \frac12, 1)$&$(2,1,-2)$&$\mathbf{(0,0,1)}$\\
+%         $\mathbf{(1,0,0)}$&$(\frac12, \frac12, 0)$&$\mathbf{(0,1,0)}$\\
+%         $(1,1,-1)$&$(-1,0,2)$&$(\frac32, \frac12, -1)$
+%         \end{tblr}    
+% \end{center}\par
+
+% \hide
+% \carremagiqueB246\vskip20pt
+% \show
+% \carremagiqueB246\vskip20pt
+\show
+\carremagiqueA{1}{5}{9}
+% \carremagiqueA3{11}7
+% \carremagiqueA348
+% \def\carremagique#1/#2/#3|#4/#5/#6|#7/#8/#9|{%
+% \begin{tblr}{colspec={*{3}{Q[c,m,wd=15pt]}}, hlines, vlines,rows={ht=22pt}}
+%     #1&#2&#3\\
+%     #4&#5&#6\\
+%     #7&#8&#9\\
+% \end{tblr}
+% }
+% \carremagique6//|3/4/|3//|
+% \carremagique-1/-5/0|/-2/|//|
+% \carremagique/-2/6|1/4/|//|
+% \carremagique0//-3|-1/2/|//|
+
+\end{document}

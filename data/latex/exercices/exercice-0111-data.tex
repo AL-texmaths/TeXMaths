@@ -1,0 +1,36 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{flushleft}
+    Calculer une valeur approchée du périmètre de la figure représentée ci-dessous.
+\end{flushleft}
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \coordinate(A1)at(1,1);
+        \coordinate(A2)at(-1,1);
+        \coordinate(A3)at(-3,1);
+        \coordinate(A4)at(-1,-1);
+        \coordinate(A5)at(1,-1);
+        \coordinate(A6)at(3,1);
+        \draw[fill=Rainbow1-vert](A1)--(A2)--(A3)arc(180:270:2)--(A5)arc(-90:0:2)--cycle;
+        \draw[dashed](A5)--(A1);
+        \draw[dashed](A4)--(A2);
+        \path(A1)--(A2)node[pos=0.5,sloped]{\color{red}||};
+        \path(A2)--(A3)node[pos=0.5,sloped]{\color{red}||};
+        \path(A2)--(A4)node[pos=0.5,sloped]{\color{red}||};
+        \path(A4)--(A5)node[pos=0.5,sloped]{\color{red}||};
+        \path(A1)--(A5)node[pos=0.5,sloped]{\color{red}||};
+        \path(A1)--(A6)node[pos=0.5,sloped]{\color{red}||};
+        \path(A1)--+(0,0.2)coordinate(A1');
+        \path(A2)--+(0,0.2)coordinate(A2');
+        \draw[latex-latex](A1')--(A2')node[pos=0.5,above]{1,2 dm};
+    \end{tikzpicture}
+\end{center}
+\end{document}

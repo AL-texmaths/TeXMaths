@@ -1,0 +1,37 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-gif}
+% --------
+% packages
+% --------
+\RequirePackage{animate}
+\RequirePackage{texmaths-path}
+\RequirePackage{luacode}
+
+\makeatletter
+% boolean permettant de desactiver l'affichage des gifs si trop gourmand
+\newif\ifgifactivated
+% par defaut les gifs ne sont pas activés
+\gifactivatedfalse
+% Gestion des gifs avec arguments optionnels
+\newcommand{\showgif}[2]{%
+    % Lire le nombre de frames
+    \newread\gifframenumber
+    \openin\gifframenumber=\texmaths@path@gifdata #1-FrameNumber.txt
+    \read\gifframenumber to \gifframenumbervalues
+    \closein\gifframenumber
+    % Afficher le gif
+    \animategraphics[
+        autoplay, loop, controls, #2
+    ]{2}{\texmaths@path@gifdata #1-}{0}{\gifframenumbervalues}%
+}
+
+% Commande principale \gif avec optionnel
+\newcommand{\gif}[2][]{%
+    \ifgifactivated
+        \showgif{#2}{#1}%
+    \else
+        {gif désactivés (gifactivatedfalse) : #2}%
+    \fi
+}
+\TMrunpython{update_gif.py}
+\makeatother

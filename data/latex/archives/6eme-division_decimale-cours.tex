@@ -1,0 +1,67 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \part{Algorithme de division décimale}
+        \definition{quotient}
+        \begin{exemple}
+            Le quotient de 5 par 2 est 2,5 car $$2\times2,5=5.$$
+        \end{exemple}
+        \begin{remarque}
+            Contrairement à la division euclidienne, le reste de la division
+            décimale est toujours nul.
+        \end{remarque}
+        \begin{center}
+            \begin{tblr}{
+                colspec={Q[wd=.4\linewidth]|Q[wd=.4\linewidth]},
+                row{1}={font=\bfseries}
+                }
+                Étapes :&Calcul :\\
+                \begin{enumerate}[1),font=\bfseries]
+                    \item On commence par effectuer le quotient de la partie entière
+                    du dividende par le diviseur.
+                    \item Une fois cette division effectuée :
+                    \begin{itemize}[$\bullet$]
+                        \item on abaisse le \textbf{chiffre des dizaines} ;
+                        \item on place la \textbf{virgule} au quotient ;
+                        \item on continue la division ;
+                    \end{itemize}
+                \end{enumerate}
+                &
+                \medskip\par\noindent
+                On divise $1\,250,1$ par $2,7$.
+                \vspace{20pt}\par
+                \opdiv[%
+                    decimalsepsymbol={,},
+                    voperator=bottom,
+                    displayintermediary=nonzero,
+                    dividendbridge,
+                    shiftdecimalsep=none%
+                    ]{1250.1}{27}
+            \end{tblr}
+        \end{center}
+    \newpage
+    \part{Arrondi et troncature}
+    \begin{exemple}\bigskip\par\noindent
+        \begin{minipage}{.4\linewidth}
+            \opdiv[%
+                    decimalsepsymbol={,},
+                    voperator=bottom,
+                    displayintermediary=nonzero,
+                    dividendbridge,
+                    shiftdecimalsep=none,
+                    maxdivstep=5%
+                    ]{19}{11}
+        \end{minipage}\hspace{.01\linewidth}
+        \begin{minipage}{.5\linewidth}
+            \begin{tblr}{
+                colspec={Q[c,m]Q[c,m,wd=70pt]Q[c,m,wd=70pt]},
+                row{1}={bg=Rainbow1-bleu,font=\bfseries},
+                hlines,vlines,rows={20pt}
+                }
+                &Troncature&Arrondi\\
+                À l'unité&1&2\\
+                Au dixième&1,7&1,7\\
+                Au centième&1,72&1,73
+            \end{tblr}
+        \end{minipage}
+    \end{exemple}
+\end{document}

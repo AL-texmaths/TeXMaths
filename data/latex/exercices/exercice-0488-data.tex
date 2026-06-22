@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+En utilisant les outils de géométrie, réaliser le programme de tracé ci dessous (A et B sont déjà placés).\vskip15pt\noindent
+\begin{enumerate}
+    \item Tracer [AB).
+    \item Tracer (d$_1$) perpendiculaire à (AB) passant par B.
+    \item Placer C tel que C$\in$(d$_1$) et BC = \<BC;.
+    \item Tracer (AC).
+    \item Tracer (d$_2$) parallèle à (AC) passant par B.
+\end{enumerate}
+\vskip120pt\hskip50pt
+\begin{center}
+    \begin{tikzpicture}[rotate=20]
+        \coordinate[label=below right:A](A)at(0,0);
+        \coordinate[label=below right:B](B)at(4,0);
+        \draw node at(A){+};
+        \draw node at(B){+};
+    \end{tikzpicture}
+\end{center}
+\end{document}

@@ -1,0 +1,469 @@
+% compilation LuaTeX Version 1.24.0 (MiKTeX 26.2 Portable)
+\documentclass{article}
+\usepackage[hmargin=20pt]{geometry}
+% ====================
+% PACKAGES NECESSAIRES
+% ====================
+\usepackage{amsmath}
+\usepackage{eurosym}
+\usepackage{tkz-euclide}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[tikz]{mdframed}
+\usepackage{enumitem}
+\usepackage{scratch3}
+\usepackage{tabularray}
+% ===================
+% MACROS ET COMMANDES
+% ===================
+\newcommand{\circled}[2][]{%
+\tikz[baseline=(char.base)] 
+\node[draw,circle,inner sep=1pt,#1] (char) {#2};%
+}
+
+\def\currentcolor{gray}
+
+\def\guillemets#1{« #1 »}
+
+\makeatletter
+\def\@gobone#1{}
+\def\@identity#1{#1}
+\let\answerspace\@gobone
+\let\mathspoint\@identity
+
+\def\funcFromMaths[#1][#2]#3=#4;{
+    \global\edef\@funcFromMahts@funcname{#3}
+    \tracinglostchars=0\relax
+    \begin{axis}[
+        x=1cm, y=1cm,
+        axis lines=left,
+        axis lines=middle,
+        legend style={
+            at={(0,1.05)},
+            anchor=south west,
+            fill=gray!50
+        },
+        tick style={thick,black},
+        #1
+    ]
+        \addplot [
+            samples=100,
+            line width=1.25pt,
+            #2
+        ]
+        {#4};
+        \addlegendentry{$y=#3(x)$}
+    \end{axis}}
+\makeatother
+\def\simpleFunc xmin=#1,xmax=#2,ymin=#3,ymax=#4,gridstep=#5,func=#6;{
+    \draw[gray,step=#5](0,0)grid(#2-#1,#4-#3);
+    \funcFromMaths[xmin=#1*0.999,xmax=#2*0.999,ymin=#3*0.999,ymax=#4*0.999][domain=#1:#2]#6;
+    \draw node[right] at(#2-#1,-#3){$x$};
+    \draw node[above] at(-#1,#4-#3){$y$};
+}
+
+\begin{document}
+% ==========
+% EXERCICE 1
+% ==========
+Dans cet exercice, les questions sont indépendantes.\par\noindent
+\textbf{Aucune justification n'est demandée.}
+\begin{enumerate}
+    \item Les notes obtenues par un élève sont 8 ; 12 ; 6 ; 19 ; 15\par
+    \begin{enumerate}
+        \item Que vaut la médiane de cette série de notes~?
+        \answerspace{1em}
+        \item Que vaut la moyenne de cette série de notes~?
+        \answerspace{1em}
+    \end{enumerate}
+    \item Quelles sont les solutions de l'équation ci-dessous~?
+    $$(2x-6)(5+x)=0$$
+    \answerspace{1em}
+    \item \begin{minipage}[t]{.5\linewidth}
+        Répondre aux questions suivantes par lecture graphique (voir ci-contre).
+        \begin{enumerate}
+            \item Donner un antécédent de 2 par la fonction $f$~?
+            \answerspace{1em}
+            \item Quel est l'image de -1 par la fonction $f$~?
+            \answerspace{1em}
+            \item Quel est l'image de 0 par la fonction $f$~?
+            \answerspace{1em}
+            \item Donner un antécédent de 0 par la fonction $f$~?
+            \answerspace{1em}
+        \end{enumerate}
+    \end{minipage}\hskip30pt
+    \begin{tikzpicture}[scale=0.9, baseline=(current bounding box.north)]
+        \simpleFunc xmin=-3,xmax=5,ymin=-4,ymax=4,gridstep=0.5,func=f=-1.5*x+0.5;
+    \end{tikzpicture}
+    \item \begin{minipage}[t]{.5\linewidth}
+        La figure ci-contre n'est pas en vraie grandeur.\par\noindent
+        Le triangle \mathspoint{DEF} est-il rectangle en E~?
+    \end{minipage}\hskip30pt
+    \begin{tikzpicture}[scale=1, rotate=-30, baseline=(current bounding box.center)]
+        \coordinate[label=left:D](D)at(0,0);
+        \coordinate[label=below:E](E)at(4,0);
+        \coordinate[label=above right:F](F)at(4,3);
+        \draw(D)--(E)--(F)--cycle;
+        \path(D)--(E)node[midway, below left]{5cm};
+        \path(D)--(F)node[midway, above]{6cm};
+        \path(F)--(E)node[midway, below right]{4cm};
+    \end{tikzpicture}
+    \item Écrire l'expression factorisée de $4x^2-1$.
+    \answerspace{1em}
+        \item \begin{minipage}[t]{.5\linewidth}
+        Dans le triangle \mathspoint{ABC}, rectangle en
+        \mathspoint{A}, quel calcul doit-on effectuer pour
+        déterminer le cosinus de l'angle $\widehat{\mathspoint{ABC}}$~?
+    \end{minipage}
+    \begin{tikzpicture}[scale=0.75, baseline=(current bounding box.center)]
+        \coordinate[label=below right:A](A)at(4,0);
+        \coordinate[label=above right:B](B)at(4,3);
+        \coordinate[label=below left:C](C)at(0,0);
+        \tkzMarkRightAngle[size=0.5](B,A,C)
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}
+    \answerspace{1em}
+\end{enumerate}
+% ==========
+\newpage
+% EXERCICE 2
+% ==========
+    On considère les programmes de calcul suivants~:\par\noindent
+    \begin{minipage}[t]{.45\linewidth}
+        \begin{mdframed}\vskip5pt\noindent
+            {\centering\textbf{PROGRAMME A}\par}
+            \begin{itemize}[itemsep=0pt]
+                \item Choisir un nombre
+                \item Ajouter 4
+                \item Multiplier par 3
+                \item[] \phantom{Soustraire le nombre de départ}
+            \end{itemize}
+        \end{mdframed}
+    \end{minipage}\hskip.05\linewidth
+    \begin{minipage}[t]{.5\linewidth}
+            \begin{mdframed}\vskip5pt\noindent
+            {\centering\textbf{PROGRAMME B}\par}
+            \begin{itemize}[itemsep=0pt]
+                \item Choisir un nombre
+                \item Multiplier par 5
+                \item Soustraire 3
+                \item Soustraire le nombre de départ
+            \end{itemize}
+        \end{mdframed}
+    \end{minipage}
+    \begin{enumerate}
+        \item Dans cette question, on choisit le nombre 2 pour tester les
+        deux programmes.
+        \begin{enumerate}
+            \item Vérifier par le calcul qu'on obtient 18 avec le programme A.
+            \item Vérifier par le calcul qu'on obtient 5 avec le programme B.
+        \end{enumerate}
+        \item Soit $f$ la fonction associée au prorgamme A, qui au nombre
+        choisi $x$ fait correspondre le résultat $f(x)$.
+        \begin{enumerate}
+            \item Justifier que $f(x)=3x+12$.
+            \item Calculer l'antécédent de 27 par la fonction $f$.
+        \end{enumerate}
+        \item Soit $g$ la fonction associée au programme B, qui au nombre
+        choisi $x$ fait correspondre le résultat $g(x)$.
+        \begin{enumerate}
+            \item Donner l'expression de $g(x)$.
+            \item Quel nombre faut-il choisir avec le programme B pour
+            obtenir 2 comme résultat~?
+        \end{enumerate}
+        \begingroup\leavevmode\hspace*{-\leftmargin}%
+            \begin{minipage}{.9\linewidth}
+                Hugo a choisi un nombre.\par\noindent
+                Il l'a testé avec les deux programmes et a trouvé le même résultat
+                à chaque fois.
+            \end{minipage}
+        \endgroup
+        \item Quel nombre a-t-il choisi~?
+    \end{enumerate}
+% ==========
+\newpage
+% EXERCICE 3
+% ==========
+    \begin{center}
+        \begin{tikzpicture}[scale=0.65]
+            \coordinate[label=above:A](A)at(0,0);
+            \coordinate[label=above right:B](B)at(4,0);
+            \coordinate[label=below:C](C)at(4,-3);
+            \coordinate[label=below:M](M)at(-3.175,0);
+            \coordinate[label=below left:E](E)at(-5.6,0);
+            \coordinate[label=above:D](D)at(-5.6,4.2);
+            \tkzMarkRightAngle[size=0.4](M,E,D)
+            \tkzMarkRightAngle[size=0.4](A,B,C)
+            \tkzLabelAngle[pos=1](D,M,E){$60^\circ$}
+            \tkzMarkAngle[size=0.6](D,M,E)
+            \path(D)--(A)node[midway, above right]{70 m};
+            \path(A)--(C)node[midway, below left]{50 m};
+            \path(B)--(C)node[midway, right]{30 m};
+            \draw(E)--(B)--(C)--(D)--cycle;
+            \draw(D)--(M);
+        \end{tikzpicture}
+    \end{center}
+    \noindent On a les données suivantes~:
+    \begin{itemize}
+        \item Les points \mathspoint{A}, \mathspoint{B}, \mathspoint{E} et
+        \mathspoint{M}  sont alignés
+        \item Les points \mathspoint{A}, \mathspoint{C} et \mathspoint{D} sont
+        alignés
+        \item \mathspoint{ADE} est un triangle rectangle en \mathspoint{E}
+        \item \mathspoint{ABC} est un triangle rectangle en \mathspoint{B}
+        \item \mathspoint{AD} = 70 m
+        \item \mathspoint{BC} = 30 m
+        \item \mathspoint{AC} = 50 m
+        \item $\widehat{\mathspoint{DME}}=60^\circ$
+    \end{itemize}
+    \begin{enumerate}
+        \item Calculer la longueur \mathspoint{AB}.
+        \item Montrer que les droites \mathspoint{(DE)} et \mathspoint{(BC)}
+        sont parallèles.
+        \item Montrer que la longueur \mathspoint{DE} est égale à 42 m.
+        \item Montrer que la longueur \mathspoint{EM} est environ égale à 24,2 m.
+        \item En déduire l'aire du triangle \mathspoint{DEM}.
+    \end{enumerate}
+% ==========
+\newpage
+% EXERCICE 4
+% ==========
+    On s'intéresse au motif dessiné ci-dessous que l'on retrouve dans un pavage
+    recouvrant un mur du palais de l'Alhambra en Espagne.\par\noindent
+    Ce motif est partagé en douze losanges superposables numérotés de 1 à 12. Dans
+    chaque losange, les côtés ont pour longueur 5cm, les angles aigus mesurent
+    $60^\circ$ et les angles obtus mesurent $120^\circ$.
+    \begin{center}
+        Le motif\par\vskip7pt
+        \begin{tikzpicture}[line width=0.7pt, scale=1.5]
+            \coordinate[label=below:\mathspoint{A}](A)at(0,0);
+            \foreach\i in{0,...,5}{
+                \coordinate(A\i)at(\i*60:1);
+                \coordinate(B\i)at(\i*60+30:{sqrt(3)});
+                \coordinate(C\i)at(\i*60:2);
+            }
+            \fill[\currentcolor!50](A)--(A0)--(B0)--(C1)--(B1)--(A2)--cycle;
+            \foreach\i in{1,...,5}{
+                \path(A\i)--(C\i)coordinate[midway](E\i);
+                \draw(E\i)circle(3.5pt)node{\footnotesize\number\numexpr2*\i};
+            }
+            \path(A0)--(C0)coordinate[midway](E0);
+            \draw(E0)circle(3.5pt)node{\footnotesize 12};
+            \tkzMarkAngle[size=0.25](A0,A,A1)
+            \tkzLabelAngle[pos=0.5](A0,A,A1){$60^\circ$}
+            \tkzMarkAngle[size=0.2](B0,A0,A)
+            \tkzLabelAngle[pos=0.35](B0,A0,A){$120^\circ$}
+            \foreach\i in{0,...,4}{
+                \edef\j{\number\numexpr\i+1}
+                \draw(A)--(A\i)--(B\i)--(A\j);
+                \path(A)--(B\j)coordinate[midway](D\j);
+                \draw(D\j)circle(3.5pt)node{\footnotesize\number\numexpr2*\j+1};
+            }
+            \path(A)--(B0)coordinate[midway](D'0);
+            \coordinate(D0)at($(D'0)+(-0.15,0.15)$);
+            \draw(D0)circle(3.5pt)node{\footnotesize 1};
+            \draw(A)--(A5)--(B5)--(A0);
+            \draw[dotted,line width=1.5pt](C0)--(C1)--(C2)--(C3)--(C4)--(C5)--cycle;
+            \draw (A0) node[right] {\mathspoint{B}};
+            \draw (B0) node[above right] {\mathspoint{C}};
+            \draw (C1) node[above right] {\mathspoint{D}};
+            \draw (B1) node[above] {\mathspoint{E}};
+            \draw (A2) node[above left] {\mathspoint{F}};
+            \path(A)--(A0)node[midway,below]{5 cm};
+        \end{tikzpicture}
+    \end{center}
+    \begin{flushleft}
+        \textbf{Partie 1}\par\medskip\noindent
+        Dans cette partie, aucune justification n'est demandée.
+    \end{flushleft}
+    \begin{enumerate}
+        \item Quelle est l'image du losange \circled1 par la symétrie centrale
+        de centre A~?
+        \item Quelle est l'image du losange \circled3 par la symétrie axiale
+        d'axe \mathspoint{(AF)}~?
+        \item Quelle est l'image du losange \circled7 par la rotation
+        de centre \mathspoint{A} que transforme le losange \circled3 en losange
+        \circled{11}~?
+        \item Quelle est l'image du losange \circled8 par la translation qui
+        transforme \mathspoint{A} en \mathspoint{E}.
+    \end{enumerate}
+    \begin{flushleft}
+        \textbf{Partie 2}\par\medskip\noindent
+        Louis a remarqué que le motif donné sans l'énoncé s'obtient à partir de
+        l'hexagone \mathspoint{ABCDE} en appliquant plusieurs fois la même
+        rotation de centre A.\par\noindent
+        Il souhaite tracer le motif avec le logiciel Scratch en prenant 10 pas
+        pour 1 cm.
+    \end{flushleft}
+    \noindent
+    \begin{minipage}[c]{.55\linewidth}
+        Le bloc dont le script est proposé ci-contre permet de tracer la figure
+        représentée ci-dessous sur laquelle la flèche indique l'orientation du
+        lutin au début du programme~:
+        \begin{center}
+            \begin{tikzpicture}[scale=1.5]
+                \coordinate[label=below left:\mathspoint{A}](A)at(-120:1);
+                \coordinate[label=below right:\mathspoint{B}](B)at(-60:1);
+                \coordinate[label=right:\mathspoint{C}](C)at(0:1);
+                \coordinate[label=above right:\mathspoint{D}](D)at(60:1);
+                \coordinate[label=above left:\mathspoint{E}](E)at(120:1);
+                \coordinate[label=left:\mathspoint{F}](F)at(180:1);
+                \draw[fill=\currentcolor!50](A)--(B)--(C)--(D)--(E)--(F)--cycle;
+                \path(A)--(B)coordinate[pos=0.45](A');
+                \path(A)--(B)coordinate[pos=2](B');
+                \draw[line width=1.5 pt,-latex](A)--(A');
+                \draw[dotted,line width=1pt](B)--(B');
+            \end{tikzpicture}
+        \end{center}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.4\linewidth}
+        \begin{scratch}[num blocks]
+            \initmoreblocks{définir \namemoreblocks{hexagone ABCDEF}}
+            \blockpen{stylo en position d'écriture}
+            \blockrepeat{répéter \ovalnum{...} fois}{
+                \blockmove{avancer de \ovalnum{...} pas}
+                \blockmove{tourner \turnleft\ de \ovalnum{...} degrés}
+            }
+            \blockpen{relever le stylo}
+        \end{scratch}
+    \end{minipage}
+    \begin{enumerate}
+        % ------------------
+        % Question originale
+        % ------------------
+        % \item Sur l'ANNEXE, à rendre avec la copie, compléter les lignes 3, 4
+        % et 5 afin que le bloc \guillemets{hexagone ABCDEF} trace l'hexagone
+        % ABCDEF de côté 5 cm en partant du point A.\par\medskip\noindent
+        % Aucune justification n'est attendue.
+        \item Recopier et compléter les lignes 3, 4 et 5 du script ci-contre afin que
+        le bloc \guillemets{hexagone ABCDEF} trace l'hexagone ABCDEF de côté 5 cm en
+        partant du point A.\par\medskip\noindent
+        Aucune justification n'est attendue.
+        \item Parmi les trois scripts proposés ci-dessous, lequel permet de
+        tracer le motif en utilisant le bloc hexagone ABCDEF précédent.\par\medskip\noindent
+        Aucune justification n'est attendue.
+    \end{enumerate}
+    \begin{flushleft}
+            \textit{On rappelle que l'instruction }\begin{scratch}
+                \blockmove{s'orienter à \ovalnum{90} degrés}\end{scratch}
+                \textit{ signifie que le lutin se dirige vers la droite.}
+    \end{flushleft}\noindent\medskip
+    \begin{tblr}{colspec=*{3}{Q[c,m]},hlines,vlines,row{1}={font=\bfseries}}
+        Script A&Script B&Script C\\
+        \begin{scratch}
+            \blockinit{quand \greenflag est cliqué}
+            \blockmove{s'orienter à \ovalnum{90} degrés}
+            \blockrepeat{répéter \ovalnum{2} fois}{
+                \blockmoreblocks{Hexagone}
+                \blockmove{tourner \turnleft\ de \ovalnum{120} degrés}
+            }
+        \end{scratch}&
+        \begin{scratch}
+            \blockinit{quand \greenflag est cliqué}
+            \blockmove{s'orienter à \ovalnum{90} degrés}
+            \blockrepeat{répéter \ovalnum{4} fois}{
+                \blockmoreblocks{Hexagone}
+                \blockmove{tourner \turnleft\ de \ovalnum{90} degrés}
+            }
+        \end{scratch}&
+        \begin{scratch}
+            \blockinit{quand \greenflag est cliqué}
+            \blockmove{s'orienter à \ovalnum{90} degrés}
+            \blockrepeat{répéter \ovalnum{6} fois}{
+                \blockmoreblocks{Hexagone}
+                \blockmove{tourner \turnleft\ de \ovalnum{60} degrés}
+            }
+        \end{scratch}
+    \end{tblr}
+% ==========
+\newpage
+% EXERCICE 5
+% ==========
+\textbf{PARTIE A :}\par\medskip\noindent
+    Un magasin a reçu 650 poissons dont 350 poissons de type A et 300 poissons
+    de type B. La responsable du magasin souhaite vendre ces poissons par lots
+    de sorte que~:
+    \begin{itemize}
+        \item le nombre de poissons de type A soit le même dans chaque lot~;
+        \item le nombre de poissons de type B soit le même dans chaque lot~;
+        \item tous les poissons soient répartis dans les lots.
+    \end{itemize}
+    \begin{enumerate}
+        \item Parmi les trois propositions suivantes, laquelle correspond à la
+        décomposition en produits de facteurs premiers du nombre 300~?
+        \textit{Aucune justification n'est demandée}\par\medskip\noindent
+        \begin{tblr}{colspec={*{3}{Q[c,m,wd=100pt]}},vlines}
+            \hline
+            Proposition 1&Proposition 2&Proposition 3\\
+            $2^2\times5\times15$&$2\times2\times3\times25$&$2^2\times3\times5^2$\\
+            \hline
+        \end{tblr}
+        \item Donner la décomposition en produit de facteurs premiers du nombre 350.
+        \item Quel nombre maximal de lots, la responsable du magasin pourra-t-elle
+        constituer~?
+        \item Dans ce cas, combien y aura-t-il de poissons de chaque type dans chaque
+        lot~?
+    \end{enumerate}
+    \textbf{PARTIE B :}\par\medskip\noindent
+    Le magasin a d'autres poissons, appelés \guillemets{poissons combattants}.
+    \begin{enumerate}
+        \item En captivité, il faut prévoir au moins 15 litres d'eau pour un
+        poisson. Sachant qu'un aquarium se remplit au $\dfrac45$ de sa hauteur,
+        lequel doit-on choisir pour un poisson combattant~?\par\smallskip\noindent
+    \begin{minipage}{.5\linewidth}
+        \begin{tblr}{%
+                colspec=*{2}{Q[c,m,wd=125pt]},
+                vlines,row{1,3}={font=\bfseries},cell{4}{2}={l}
+                }
+            \hline
+            Aquarium 1&Aquarium 2\\
+            \begin{tikzpicture}
+                \def\Rx{1.5}
+                \def\Ry{0.5}
+                \def\H{2}
+                \draw[thick] (0,\H) ellipse (\Rx cm and \Ry cm);
+                \draw[thick] (-\Rx,0) -- (-\Rx,\H);
+                \draw[thick] (\Rx,0) -- (\Rx,\H);
+                \draw[dotted] (\Rx,0) arc (0:180:\Rx cm and \Ry cm);
+                \draw[thick] (-\Rx,0) arc (180:360:\Rx cm and \Ry cm);
+            \end{tikzpicture}
+            &
+            \begin{tikzpicture}[yscale=1.2]
+                \def\L{2}
+
+                \draw[dotted] (0,0,0) -- (\L,0,0);
+                \draw[dotted] (0,0,0) -- (0,\L,0);
+                \draw[dotted] (0,0,0) -- (0,0,\L);
+        
+                \draw[thick] (0,0,\L) -- (\L,0,\L) -- (\L,\L,\L) -- (0,\L,\L) -- cycle;
+                \draw[thick] (\L,0,0) -- (\L,0,\L);
+                \draw[thick] (\L,\L,0) -- (\L,\L,\L);
+                \draw[thick] (0,\L,0) -- (0,\L,\L);
+                \draw[thick] (0,\L,0) -- (\L,\L,0) -- (\L,0,0);
+            \end{tikzpicture}
+            \\
+            Cylindre&Pavé droit\\
+            Diamètre de la base : 30 cm\par
+            Hauteur : 25 cm
+            &
+            Longueur : 28 cm\par
+            Largeur : 28 cm\par
+            Hauteur 30 cm\\
+            \hline
+        \end{tblr}
+    \end{minipage}\hskip10pt
+    \begin{minipage}{.4\linewidth}
+        {\centering\Large\textbf{Rappels}\par}
+        \bigskip
+        Le volume d'un pavé droit est donné par la formule~:
+        $$V = \text{Longueur}\times\text{Largeur}\times\text{Hauteur}$$
+        Le volume d'un cylindre de rayon de la base $r$ est donné par la formule~:
+        $$V=\pi\times r^2\times\text{Hauteur}$$
+        $$1\text{ dm}^3=1\text{ L}$$
+    \end{minipage}\par
+        \item Le prix d'un poisson combattant est de 15 \euro. Une famille
+        achète un poisson combattant et un aquarium. L'aquarium coûte 40 \euro.
+        Le vendeur fait une réduction de 15\% sur le prix total. Combien va
+        payer la famille~?
+    \end{enumerate}
+\end{document}

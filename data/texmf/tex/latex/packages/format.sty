@@ -1,0 +1,218 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{format}[2018/07/17]
+% --------
+% PACKAGES
+% --------
+% titlesec  :    select alternative section titles
+% ifthen    :    conditional commands
+% tcolorbox :    coloured boxes
+% xparse    :    a generic document command parser 
+% fancygdr  :    extensive control of page headers and footers in LaTeX
+% eso-pic   :    add picture commands (or backgrounds) to every page
+\RequirePackage{titlesec}
+\RequirePackage{ifthen}
+\RequirePackage{tcolorbox}
+\RequirePackage{xparse}
+\RequirePackage{fancyhdr}
+\RequirePackage{eso-pic}
+
+\newcommand{\backpic}[1]{\AddToShipoutPicture*{\put(0,0){
+    \parbox[b][\paperheight]{\paperwidth}{
+    \vfill
+    \centering
+    \includegraphics[height=\paperheight, width=\paperwidth, keepaspectratio]{#1}%
+    \vfill
+    }}}}
+
+% -----------
+% PAGE STYLES
+% -----------
+% available styles : empty, style1
+\DeclareOption{style1}{
+    \fancypagestyle{style1}{
+    \fancyhf{}
+    \fancyhead[RE]{\bfseries\leftmark}
+    \fancyhead[LO]{\bfseries\rightmark}
+    \fancyhead[LE]{\bfseries\thepage}
+    \fancyhead[RO]{\bfseries\thepage}
+    \fancyfoot{}
+    }
+}
+\newtcolorbox{titlebox1}{
+        colback=\matharticle@colorstyle-thmback!90,
+        colframe=\matharticle@colorstyle-thmback!50!black,
+        coltext=\matharticle@colorstyle-text,
+        rounded corners}
+% -------
+% OPTIONS
+% -------
+% article : 1, 2, 3
+% book    : 1, 2, 3
+\DeclareOption{article}{
+
+\def\@logo{logo_ut3}
+\ifthenelse{\equal{\matharticle@colorstyle}{emacs}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\matharticle@colorstyle}{solardark}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\matharticle@colorstyle}{monokai}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\matharticle@colorstyle}{spyderdark}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\matharticle@colorstyle}{zeburn}}{\def\@logo{logo_ut3_light}}{}
+
+\DeclareOption{1}{
+    \titleformat*{\section}{\LARGE\bfseries}
+    \titleformat*{\subsection}{\Large\bfseries}
+    \titleformat*{\subsubsection}{\large\bfseries}
+    \titleformat*{\paragraph}{\large\bfseries}
+    \titleformat*{\subparagraph}{\large\bfseries}
+    
+    \AtBeginDocument{
+        \makeatletter
+        \makeatother
+        \maketitle
+        \tableofcontents
+        \newpage}
+    }
+
+\DeclareOption{2}{
+    \titleformat*{\section}{\LARGE\bfseries}
+    \titleformat*{\subsection}{\Large\bfseries}
+    \titleformat*{\subsubsection}{\large\bfseries}
+    \titleformat*{\paragraph}{\large\bfseries}
+    \titleformat*{\subparagraph}{\large\bfseries}
+    
+    \AtBeginDocument{
+        \hspace{-15mm}
+        \begin{minipage}{0.5\textwidth}
+            \begin{flushleft}
+                \insertsvg{\@logo}{1.45}
+            \end{flushleft}
+        \end{minipage}
+        \hspace{6mm}
+        \begin{minipage}{0.48\textwidth}
+            \begin{flushright}
+                \large\@date\\
+                \Large
+                \@author
+            \end{flushright}
+        \end{minipage}
+        \begin{flushleft}
+        \ifthenelse{\equal{\@supervisor}{none}}
+        {\vspace{-5mm}}
+        {
+        \vspace{5mm}
+        \large \textbf{Professeur encadrant :} \@supervisor
+        \vspace{5mm}
+        }
+        \end{flushleft}
+        \begin{titlebox1}
+        \Huge\centering\@title
+        \end{titlebox1}
+        \tableofcontents
+        \newpage}
+    }
+\DeclareOption{3}{
+    \AtBeginDocument{
+    	\begin{center}
+            \hspace{-1cm}
+            \begin{minipage}{0.5\textwidth}
+                \begin{flushleft}
+                    \insertsvg{\@logo}{1.2}
+                \end{flushleft}
+            \end{minipage}
+            \hspace{6mm}
+            \begin{minipage}{0.48\textwidth}
+                \begin{flushright}
+                    \large\@date\\
+                    \Large
+                    \@author
+                \end{flushright}
+            \end{minipage}
+    		\begin{titlebox1}
+    	        \Huge\centering\@title
+    		\end{titlebox1}
+    	\end{center}
+    	}
+    }
+}
+\DeclareOption{book}{
+
+\def\@logo{logo_ut3}
+\ifthenelse{\equal{\mathbook@colorstyle}{emacs}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\mathbook@colorstyle}{solardark}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\mathbook@colorstyle}{monokai}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\mathbook@colorstyle}{spyderdark}}{\def\@logo{logo_ut3_light}}{}
+\ifthenelse{\equal{\mathbook@colorstyle}{zeburn}}{\def\@logo{logo_ut3_light}}{}
+
+\DeclareOption{1}{
+    \titleformat{\chapter}
+    [display]% shape
+    {\sc\LARGE}% format tout
+    {\centering Chapitre \thechapter}% label
+    {2ex}% space between label and title
+    {\centering\bfseries\scshape}% title format
+    [\vspace{1ex}]% space after title
+    \titleformat*{\section}{\LARGE\bfseries}
+    \titleformat*{\subsection}{\Large\bfseries}
+    \titleformat*{\subsubsection}{\large\bfseries}
+    \titleformat*{\paragraph}{\large\bfseries}
+    \titleformat*{\subparagraph}{\large\bfseries}
+
+        
+    \newboolean{frontbool}
+    \setboolean{frontbool}{false}
+
+    \NewDocumentCommand{\frontpic}{O{1}O{0mm}m}{\def\frontpath{#3}\setboolean{frontbool}{true}\def\@scale{#1}\def\@vspaces{#2}}
+        
+    \AtBeginDocument{
+        \begin{titlepage}
+            \begin{flushleft}
+                \hspace{-5mm}
+                \insertsvg{logo_ut3}{0.5}
+            \end{flushleft}
+            \begin{center}
+                \rule{\textwidth}{2pt}\vspace*{-\baselineskip}\vspace*{4pt} % Thick horizontal line
+                \rule{\textwidth}{0.4pt}\\[\baselineskip] % Thin horizontal line
+                \huge\@title\\
+                \rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{5pt} % Thin horizontal line
+                \rule{\textwidth}{2pt}\\[\baselineskip] % Thick horizontal line
+                \ifthenelse{\equal{\@supervisor}{none}}
+                    {\vspace{15mm}}
+                    {\vspace{5mm}
+                    \large \textbf{Professeur encadrant :} \@supervisor
+                    \vspace{5mm}\\}
+                \ifthenelse{\boolean{frontbool}}
+                    {\vspace{\@vspaces}\includegraphics[scale=\@scale]{\frontpath}}
+                    {}
+                \vfill
+                \begin{minipage}{0.4\textwidth}
+                    \begin{flushleft}
+                        \large
+                        \@author
+                    \end{flushleft}
+                \end{minipage}
+                \begin{minipage}{0.4\textwidth}
+                    \begin{flushright}
+                    \large
+                    M1 Mathématiques\\
+                    Année universitaire : 2018--2019
+                   \end{flushright}
+                \end{minipage}
+            \end{center}
+        \end{titlepage}
+        \newpage
+        ~
+        \thispagestyle{empty}
+        \newpage
+        
+        \tableofcontents
+        \thispagestyle{empty}
+        \newpage
+        ~
+        \thispagestyle{empty}
+        \newpage
+        
+        \pagestyle{style1}}
+    }
+\DeclareOption{tregan}{
+    }
+}
+\ProcessOptions

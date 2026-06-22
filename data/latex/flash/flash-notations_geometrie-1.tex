@@ -1,0 +1,54 @@
+\documentclass[17pt]{flash}
+\def\figureA{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate[label=above left:G](G)at(0,0);
+        \coordinate[label=above right:B](B)at(2,1);
+        \draw node at(G){+};
+        \draw node at(B){+};
+        \path(G)--(B)coordinate[pos=-0.5](G1);
+        \draw(G1)--(B);
+    \end{tikzpicture}
+}
+
+\def\figureB{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate[label=left:Y](Y)at(0,0);
+        \coordinate[label=right:X](X)at(3,-2);
+        \draw(Y)--(X);
+        \draw node at (Y){+};
+        \draw node at (X){+};
+    \end{tikzpicture}
+}
+
+\def\figureC{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate[label=above left:D](D)at(0,0);
+        \draw node at(D){+};
+    \end{tikzpicture}
+}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Géométrie : notations}
+\FlashShowConsignes{%
+        \item Dans chaque cas, traduire en notation mathématique.
+}
+\def\figScale{1}
+\AtCorrection{\def\figScale{0.5}}
+\small
+\flashlist{
+    \flashitem{20}{La droite passant par les points T et R.}
+    \flashitem{20}{Le segment d'extrémités les points A et D.}
+    \flashitem{15}{\figureA}
+    \flashitem{15}{\figureB}
+    \flashitem{15}{\figureC}
+    \flashitem{20}{La droite passant par les points H et F.}
+}
+
+\end{document}

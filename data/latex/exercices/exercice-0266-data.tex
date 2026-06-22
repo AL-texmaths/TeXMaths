@@ -1,0 +1,21 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+En utilisant le compas ou l'équerre, construire le symétrique du quadrilatère ABCD rapport à $(d)$.\vskip30pt\noindent
+\begin{tikzpicture}[scale=0.9,rotate=50]
+    \coordinate[label=below right:C](C)at(1,0);
+    \coordinate[label=above left:B](B)at(0.5,4);
+    \coordinate[label=below:A](A)at(-3,2);
+    \coordinate[label=above right:D](D)at(6,1);
+    \coordinate(D1)at(3,-5);
+    \coordinate[label=above right:$(d)$](D2)at(3,8);
+    \draw(D1)--(D2);
+    \draw(A)--(C)--(D)--(B)--cycle;
+\end{tikzpicture}
+\end{document}

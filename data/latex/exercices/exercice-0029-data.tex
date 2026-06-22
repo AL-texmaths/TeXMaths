@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!coordA=1,1;%
+\!coordB=3,3;%
+\!coordC=5,8;%
+Construire l'image du triangle \textsf{\<S1;\<S2;\<S3;} par la symétrie axiale d'axe
+\textsf{(d)}.
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+        \coordinate(d0)at(1,8);
+        \coordinate(d1)at(9,0);
+        \coordinate[label=above left:\<S1;](A)at(\*coordA;);
+        \coordinate[label=above left:\<S2;](B)at(\*coordB;);
+        \coordinate[label=below left:\<S3;](C)at(\*coordC;);
+        \draw(0,-1)grid(9,8);
+        \draw[green, line width=1.5pt](A)--(B)--(C)--cycle;
+        \draw[red, line width=1.5pt](d0)--(d1);
+        \node at(2.5,7.5){(d)};
+    \end{tikzpicture}
+\end{center}
+\end{document}

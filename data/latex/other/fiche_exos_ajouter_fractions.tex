@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{texmaths-main}
+\usepackage{geometry}
+\makeatletter
+\newcount\exercicecount
+\let\enonce\read@enonce
+\def\path@to@exercices{../exercices/}
+\def\exercice#1{%
+    \expandafter\ifnum\the\exercicecount>0
+        % \newpage
+    \fi
+    \global\advance\exercicecount1\relax
+    \begin{flushleft}
+        \begin{mdframed}
+            \Large\textbf{Exercice \the\exercicecount~:}
+        \end{mdframed}
+    \end{flushleft}
+    \read@exercice{#1}%
+}
+\makeatother
+\newgeometry{
+        hmargin=1.5cm,
+        top=1.5cm,
+        footskip=0pt
+    }
+\begin{document}
+    \pagestyle{empty}
+    \begin{center}
+        \LARGE\textbf{Exos cinquième fractions}
+    \end{center}
+    \begin{minipage}[t]{.5\linewidth}
+        \exercice{0704-c}
+        \exercice{0705-c}
+        \exercice{0706-c}
+    \end{minipage}
+    \begin{minipage}[t]{.5\linewidth}
+        \exercice{0707-c}
+        \exercice{0708-c}
+    \end{minipage}
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+    \begin{minipage}[c]{.55\linewidth}
+        \vskip5pt
+        On sait que $\mathspoint{(\<S5;\<S6;)}\newparallel\mathspoint{(\<S2;\<S3;)}$ et
+        $\mathspoint{(\<S1;\<S4;)}\newparallel\mathspoint{(\<S5;\<S6;)}$.
+        \vskip5pt
+        Démontrer que les droites $\mathspoint{(\<S1;\<S4;)}$ et $\mathspoint{(\<S2;\<S3;)}$
+        sont parallèles entre elles.
+    \end{minipage}\hspace{.1\linewidth}
+    \begin{minipage}[c]{.35\linewidth}
+        \begin{tikzpicture}[rotate=40,scale=0.6]\bfseries
+            \tikzset{every pic/.style={linewidth=.4pt}}
+            \coordinate[label=below:\mathspoint{\<S1;}](A)at(0,0);
+            \coordinate[label=right:\mathspoint{\<S2;}](B)at(3,0);
+            \coordinate[label=\mathspoint{\<S3;}](C)at(3,4);
+            \coordinate[label=left:\mathspoint{\<S4;}](D)at(0,2);
+            \coordinate[label=below right:\mathspoint{\<S5;}](E)at(1,0);
+            \coordinate[label=above left:\mathspoint{\<S6;}](F)at(1,2.66);
+            \tkzMarkRightAngle[colored](B,A,D)
+            \draw(A)--(B)--(C)--(D)--cycle;
+            \draw(E)--(F);
+        \end{tikzpicture}
+    \end{minipage}
+\end{document}

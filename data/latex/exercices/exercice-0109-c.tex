@@ -1,0 +1,24 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+    \>variable=$x$;%
+    \>figurename=rectangle ACHE;%
+    \>figure=%%
+    {\begin{tikzpicture}
+        \coordinate[label=below left:E](E)at(0,0);
+        \coordinate[label=below:F](F)at(1,0);
+        \coordinate[label=below right:H](H)at(4,0);
+        \coordinate[label=right:G](G)at(4,2);
+        \coordinate[label=above right:C](C)at(4,3);
+        \coordinate[label=above:B](B)at(1,3);
+        \coordinate[label=above left:A](A)at(0,3);
+        \coordinate[label=below left:D](D)at(0,2);
+        \path(A)--(B)node[pos=0.5,above]{\<variable;};
+        \path(A)--(D)node[pos=0.5,left]{\<variable;};
+        \path(D)--(E)node[pos=0.5,left]{2};
+        \path(B)--(C)node[pos=0.5,above]{3};
+        \draw(A)--(C)--(H)--(E)--cycle;
+        \draw(B)--(F);\draw(D)--(G);
+    \end{tikzpicture}}%
+    ;%
+    \enonce{0109}%
+\end{document}

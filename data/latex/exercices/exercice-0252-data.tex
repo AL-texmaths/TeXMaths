@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Voici la représentation graphique d'une fonction $g$ :
+\begin{tikzpicture}[baseline=(O.base),scale=0.45]
+    \coordinate(O)at(0,5);
+    \simpleFunc xmin=-5,xmax=9,ymin=-4,ymax=8,gridstep=1,func=f=x/2;
+\end{tikzpicture}\vskip10pt\noindent
+Par lecture graphique :
+\begin{enumerate}
+        \item compléter le tableau suivant :\vskip5pt
+        \begin{tblr}{colspec=*{7}{Q[c,m]},column{1}={font=\bfseries},hlines,vlines}
+            x&-1&0&1&2&3&4\\
+            f(x)&&&&&&\\
+        \end{tblr}
+    \item Quelle pourrait-être l'expression algébrique de cette fonction~?
+\end{enumerate}
+\end{document}

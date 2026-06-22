@@ -1,0 +1,20 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Sur la figure ci-dessous, placer C tel que ABC est équilatéral.\vskip40pt
+{\centering
+\begin{tikzpicture}[scale=2]
+    \coordinate[label=above right:A](A)at(60:1);
+    \coordinate[label=below left:B](B)at(180:1);
+    \coordinate(C)at(300:1);
+    \draw[white](A)--(B)--(C)--cycle;
+    \draw(A)--(B);
+\end{tikzpicture}
+\par\vskip40pt}
+\end{document}

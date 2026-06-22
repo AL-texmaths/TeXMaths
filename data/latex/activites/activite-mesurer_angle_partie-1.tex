@@ -1,0 +1,35 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    {\centering\Large\bfseries PARTIE 1\par}\vskip10pt\noindent
+    En utilisant le rapporteur, mesurer les angles suivants. Écrire une phrase réponse.\par\noindent
+    \begin{enumerate}
+        \item\hskip10pt\par\vskip80pt{\centering\begin{tikzpicture}[scale=3]
+            \AnglexOy[
+                angle=30,
+                right side pos=above right,
+                left side pos=above left,
+                color=blue!25!white%
+            ]
+        \end{tikzpicture}\par}
+        \dotedline
+        \item\hskip10pt\par\vskip80pt{\centering\begin{tikzpicture}[scale=2,rotate=65]
+            \AngleAOB[
+                angle=115,
+                right side pos=below right,
+                left side pos=above,
+                color=green!25!white,
+                right side name=A,
+                left side name=B,
+            ]
+        \end{tikzpicture}\par}
+        \dotedline
+    \end{enumerate}
+\end{document}

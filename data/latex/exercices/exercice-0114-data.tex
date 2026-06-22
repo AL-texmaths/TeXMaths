@@ -1,0 +1,34 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer une valeur approchée du périmètre de la figure
+suivante~:\par\smallskip\noindent
+\begin{center}
+    \begin{tikzpicture}[scale=0.75]
+        \coordinate(A0)at(0,0);
+        \coordinate(A1)at(4,0);
+        \coordinate(A2)at(8,0);
+        \coordinate(A3)at(8,4);
+        \coordinate(A4)at(8,8);
+        \coordinate(A5)at(4,8);
+        \coordinate(A6)at(0,8);
+        \coordinate(A7)at(0,4);
+        \path(A4)--+(90:0.4)coordinate(A4');
+        \path(A5)--+(90:0.4)coordinate(A5');
+        \draw[stealth-stealth](A5')--(A4')node[above,pos=0.5]{4 cm};
+        \draw[dashed](A0)rectangle(A4);
+        \foreach\ii in{0,1,...,6}{%
+            \path(A\ii)--(A\number\numexpr\ii+1\relax)
+                node[pos=0.5,sloped]{\color{\maincodagecolor}||};}
+        \path(A7)--(A0)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+        \draw[fill=\currentcolor](A1)arc(180:90:4)arc(-90:-180:4)arc(0:-90:4)arc(90:0:4);
+    \end{tikzpicture}
+\end{center}
+\end{document}

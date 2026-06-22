@@ -1,0 +1,90 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{3dFigures}
+% --------
+% packages
+% --------
+\usepackage{tikz}
+% --------
+% macros
+% --------
+\makeatletter
+
+\def\AngleDeFuite{45}
+\def\CoefficientDePerspective{0.7}
+
+\def\Longueur{1.3}
+\def\Hauteur{1}
+\def\Profondeur{1}
+
+\def\brique#1#2#3#4#5color=#6(#7);{
+    \coordinate(A)at(#7);
+    \path(A)--+(#1,0)coordinate(B);
+    \path(B)--+(0,#2)coordinate(C);
+    \path(C)--+(-#1,0)coordinate(D);
+    \path(A)--+(#5:#3*#4)coordinate(A0);
+    \path(B)--+(#5:#3*#4)coordinate(B0);
+    \path(C)--+(#5:#3*#4)coordinate(C0);
+    \path(D)--+(#5:#3*#4)coordinate(D0);
+    \draw[fill=#6](A)--(B)--(B0)--(C0)--(D0)--(D)--cycle;
+    \draw(C)--(C0);\draw(D)--(C)--(B);
+}
+
+\newcount\PyrColorCount
+\PyrColorCount0
+
+\def\PyrCol#1{white!70!#1!80!black}
+
+\def\color@A{\PyrCol{green}}
+\def\color@B{\PyrCol{red}}
+\def\color@C{\PyrCol{blue}}
+\def\color@D{\PyrCol{orange}}
+
+\def\Liste#1{
+    \ifcase#1%
+        \let\color@Pyramide\color@A
+    \or
+    \let\color@Pyramide\color@B
+    \or
+    \let\color@Pyramide\color@C
+    \else
+    \let\color@Pyramide\color@D
+    \fi
+}
+
+\def\Pyramide@A#1,#2,#3,#4,#5(#6,#7){%
+    \def\briqueA{\brique\Longueur\Hauteur\Profondeur
+        \CoefficientDePerspective\AngleDeFuite color=\color@Pyramide}
+
+    \begin{tikzpicture}[scale=0.5]
+        \briqueA(#6,#7);
+        \briqueA(#6+\Longueur,#7);
+        \briqueA(#6+\Longueur*2,#7);
+        \briqueA(#6+\Longueur*3,#7);
+        \briqueA(#6+\Longueur*4,#7);
+
+        \briqueA(#6+\Longueur/2,#7+\Hauteur);
+        \briqueA(#6+\Longueur/2+\Longueur,#7+\Hauteur);
+        \briqueA(#6+\Longueur/2+\Longueur*2,#7+\Hauteur);
+        \briqueA(#6+\Longueur/2+\Longueur*3,#7+\Hauteur);
+
+        \briqueA(#6+\Longueur,#7+\Hauteur*2);
+        \briqueA(#6+\Longueur*2,#7+\Hauteur*2);
+        \briqueA(#6+\Longueur*3,#7+\Hauteur*2);
+
+        \briqueA(#6+\Longueur/2+\Longueur,#7+\Hauteur*3);
+        \briqueA(#6+\Longueur/2+\Longueur*2,#7+\Hauteur*3);
+
+        \briqueA(#6+\Longueur*2,#7+\Hauteur*4);
+
+        \draw node at(#6+\Longueur/2,#7+\Hauteur/2){#1};
+        \draw node at(#6+\Longueur/2+\Longueur*1,#7+\Hauteur/2){#2};
+        \draw node at(#6+\Longueur/2+\Longueur*2,#7+\Hauteur/2){#3};
+        \draw node at(#6+\Longueur/2+\Longueur*3,#7+\Hauteur/2){#4};
+        \draw node at(#6+\Longueur/2+\Longueur*4,#7+\Hauteur/2){#5};
+    \end{tikzpicture}
+    
+}
+\def\PyramideA#1{\Liste{\the\PyrColorCount}\Pyramide@A#1(0,0)\advance\PyrColorCount1}
+\PyrColorCount0
+\makeatother
+

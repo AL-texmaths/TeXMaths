@@ -1,0 +1,50 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+    \source{22GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \automatismes{A3aa}
+    \objectifsApprentissage{A3aa,B3ca,D2ab,D2ah}
+    \motsCels{Réciproque Thalès}
+\enddatakeys
+\begin{document}%
+Pour chacune des quatre affirmations suivantes, dire si elle vraie ou fausse en
+expliquant soigneusement la réponse.
+\begin{enumerate}
+    \item Adriana doit effectuer le calcul suivant~:
+    $$-\dfrac75+\dfrac65\times\dfrac47$$
+    \noindent\textbf{Affirmation 1 :} Le résultat qu'elle obtient sous forme de
+    fraction irréductible est $-\dfrac4{35}$.
+    \item Sur la figure ci-dessous, qui n'est pas à l'échelle, les points
+    \mathspoint{G}, \mathspoint{A} et \mathspoint{R} sont alignés et les points
+    \mathspoint{E}, \mathspoint{A} et \mathspoint{M} sont alignés.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.5]
+            \coordinate[label=above:\mathspoint{A}] (A) at (0,0);
+            \coordinate[label=above right:\mathspoint{M}] (M) at (10:3);
+            \coordinate[label=above right:\mathspoint{R}] (R) at (-20:7);
+            \coordinate[label=below left:\mathspoint{G}] (G) at (160:9.8);
+            \coordinate[label=below left:\mathspoint{E}] (E) at (190:4.2);
+            \draw(E)--(M);
+            \draw(G)--(R);
+            \tkzDrawLines[add=0.1 and 0.3](G,E)
+            \tkzDrawLines[add=0.5 and 0.1](M,R)
+            \path(E)--(A)node[midway, below right]{4,2 cm};
+            \path(G)--(A)node[midway, above right]{9,8 cm};
+            \path(M)--(A)node[midway, above]{3 cm};
+            \path(R)--(A)node[midway, below]{7 cm};
+        \end{tikzpicture}
+    \end{center}
+    \noindent\textbf{Affirmation 2 :} Les droites \mathspoint{(GE)} et
+    \mathspoint{(GR) sont parallèles.}
+    \item \noindent\textbf{Affirmation 3 :} La décomposition en produit de
+    facteurs premiers de 126 est $2\times 7\times 9$.
+    \item Dans la recette de sauce de salade de Thomas, les volumes de
+    moutarde, de vinaigre et d'huile sont dans le ratio $1:3:7$.\par
+    \noindent\textbf{Affirmation 4 :} Pour obtenir 330 mL de sauce de salade,
+    il faut utiliser 210 mL d'huile.
+\end{enumerate}
+\showthesource
+\end{document}

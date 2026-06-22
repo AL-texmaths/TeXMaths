@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer l'aire du triangle DFE.\par\medskip
+\begin{tikzpicture}
+    \coordinate[label=below left:D](A)at(0,0);
+    \coordinate[label=below right:E](B)at(4,0);
+    \coordinate[label=above left:F](C)at(1,2);
+    \coordinate[label=above right:H](H)at(1,0);
+    \coordinate(A1)at(0,-0.25);
+    \coordinate(B1)at(4,-0.25);
+    \draw[latex-latex](A1)--(B1);
+    \draw(A)--(B)--(C)--cycle;
+    \draw(C)--(H);
+    \path(A1)--(B1)node[midway,below]{\bfseries\<n1;};
+    \path(A)--(C)node[midway,left]{\bfseries\<n2;};
+    \path(B)--(C)node[midway,above right]{\bfseries\<n3;};
+    \path(C)--(H)node[midway,right]{\bfseries\<n4;};
+\end{tikzpicture}
+\end{document}

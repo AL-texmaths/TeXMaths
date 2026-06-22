@@ -1,0 +1,63 @@
+\documentclass{thecours}
+\begin{document}
+    \noindent
+    La réciproque du théorème de Thalès permet de démontrer que deux droites
+    sont parallèles.
+    \theoreme{reciproque_thales}
+    \medskip{\bfseries Exemple :}\vskip5pt
+    \begin{tikzpicture}[baseline=(O.base),scale=1.5,rotate=-20]
+        \coordinate(O)at(0,1);
+        \coordinate[label=\mathspoint{A}](A)at(0,0);
+        \coordinate[label=above right:\mathspoint{B}](B)at(30:1);
+        \coordinate[label=above right:\mathspoint{C}](C)at(30:3);
+        \coordinate[label=below left:\mathspoint{D}](D)at(2,0);
+        \coordinate[label=below left:\mathspoint{E}](E)at(6,0);
+        \path(A)--(B)node[midway,above]{2};
+        \path(A)--(D)node[midway,below left]{3};
+        \path(B)--(C)node[midway,above]{2,4};
+        \path(D)--(E)node[midway,below left]{3,6};
+        \tkzDrawLines(A,E A,C B,D C,E)
+    \end{tikzpicture}\vskip10pt\noindent Les droites \mathspoint{(BD)} et \mathspoint{(CE)} sont-elles
+    parallèles~?\vskip5pt
+    $$\dfrac{\mathspoint{AB}}{\mathspoint{AC}}=\dfrac{2}{4,4}=\dfrac5{11}\hskip50pt
+    \dfrac{\mathspoint{AD}}{\mathspoint{AE}}=\dfrac{3}{6,6}=\dfrac5{11}$$\vskip5pt\noindent
+    D'après la réciproque du théorème de Thalès, les droites \mathspoint{(BD)} et \mathspoint{(CE)} sont
+    parallèles.
+    \newpage{\bfseries Exemple :}\vskip5pt
+    \begin{tikzpicture}[baseline=(O.base),scale=1.5,rotate=5]
+        \coordinate[label=\mathspoint{A}](A)at(0,0);
+        \coordinate[label=\mathspoint{T}](T)at(3,0);
+        \coordinate[label=above right:\mathspoint{R}](R)at(-2,0);
+        \coordinate[label=\mathspoint{F}](F)at(30:2.25);
+        \coordinate[label=\mathspoint{G}](G)at(-150:1.5);
+        \path(A)--(F)node[midway,above left]{2,25};
+        \path(R)--(A)node[midway,above]{2};
+        \path(G)--(A)node[midway,below right]{1,5};
+        \path(A)--(T)node[midway,below right]{3};
+        \tkzDrawLines(R,T F,G R,G F,T)
+    \end{tikzpicture}\vskip10pt\noindent Les droites \mathspoint{(RG)} et \mathspoint{(FT)} sont-elles
+    parallèles~?\vskip5pt
+    $$\dfrac{\mathspoint{AT}}{\mathspoint{RA}}=\dfrac{2}{3}\hskip50pt
+    \dfrac{\mathspoint{AF}}{\mathspoint{AG}}=\dfrac{2,25}{1,5}=\dfrac23$$\vskip5pt\noindent
+    D'après la réciproque du théorème de Thalès, les droites \mathspoint{(RG)} et \mathspoint{(FT)} sont
+    parallèles.\par\bigskip\noindent
+    {\bfseries Exemple~:}\smallskip\noindent
+    \begin{tikzpicture}[baseline=(O.base),scale=1.5,rotate=-20]
+        \coordinate(O)at(0,1);
+        \coordinate[label=\mathspoint{A}](A)at(0,0);
+        \coordinate[label=above right:\mathspoint{B}](B)at(30:1);
+        \coordinate[label=above right:\mathspoint{C}](C)at(30:3);
+        \coordinate[label=below left:\mathspoint{D}](D)at(2,0);
+        \coordinate[label=below left:\mathspoint{E}](E)at(6,0);
+        \path(A)--(B)node[midway,above]{2,4};
+        \path(A)--(D)node[midway,below left]{3};
+        \path(B)--(C)node[midway,above]{3,5};
+        \path(D)--(E)node[midway,below left]{3,5};
+        \tkzDrawLines(A,E A,C B,D C,E)
+    \end{tikzpicture}\vskip10pt\noindent Les droites \mathspoint{(AC)} et
+    \mathspoint{(AE)} sont-elles parallèles~?\vskip5pt
+    $$\dfrac{\mathspoint{AB}}{\mathspoint{AC}}=\dfrac{2,4}{5,9}=0,4\hskip50pt
+    \dfrac{\mathspoint{AD}}{\mathspoint{AE}}=\dfrac{3,5}{7}=0,5$$\vskip5pt\noindent
+    D'après la contraposée du théorème de Thalès, les droites \mathspoint{(RG)}
+    et \mathspoint{(FT)} ne sont pas parallèles.
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}
+\startdatakeys
+    \source{08GENMATAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{RA,CO}
+    \objectifsApprentissage{B3ac}
+\enddatakeys
+\begin{document}%
+    La figure ci-dessous n’est pas réalisée en vraie grandeur.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \coordinate[label=above:\mathspoint{A}](A)at(0,0);
+            \coordinate[label=above right:\mathspoint{B}](B)at(160:4.5);
+            \coordinate[label=below left:\mathspoint{C}](C)at(195:3);
+            \coordinate[label=below:\mathspoint{E}](E)at(15:5);
+            \coordinate[label=below left:\mathspoint{F}](F)at(-20:7.5);
+            \coordinate[label=below left:\mathspoint{N}](N)at(195:4.8);
+            \coordinate[label=below left:\mathspoint{M}](M)at(160:7.2);
+            \foreach\X in{A,B,C,E,F,N,M}{
+                \draw node at(\X){$\times$};
+                }
+            \tkzDrawLines[add=0.2 and 0.2](M,F N,E B,C M,N)
+        \end{tikzpicture}
+    \end{center}
+    Les droites \mathspoint{(BC)} et \mathspoint{(MN)} sont
+    parallèles.\medskip\par
+    \begin{enumerate}
+        \item Calculer \mathspoint{AM} et \mathspoint{BC}.
+        \item On sait de plus que $\mathspoint{AE}=5$~cm  et $\mathspoint{AF}=
+        7,5$~cm.\smallskip\par
+        Montrer que les droites \mathspoint{(EF)} et \mathspoint{(BC)} sont
+        parallèles.
+    \end{enumerate}
+\end{document}

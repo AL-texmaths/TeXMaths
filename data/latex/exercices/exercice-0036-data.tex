@@ -1,0 +1,39 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{mdframed}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Voici un énoncé :\vskip15pt
+\begin{tikzpicture}[rotate=25,scale=0.8]
+    \coordinate[label=above right:$(d)$](D1)at(0,-4);
+    \coordinate(D2)at(0,4);
+    \coordinate[label=above left:A](A)at(-2,2);
+    \coordinate[label=above left:A'](A')at(2,2);
+    \coordinate[label=below left:B](B)at(-3,-1);
+    \coordinate[label=below right:B'](B')at(3,-1);
+    \path(A)--(B)node[midway,above left]{5,6 cm};
+    \path(A')--(B')node[midway,above right]{6,5 cm};
+    \draw(A)--(B);
+    \draw(A')--(B');
+    % \draw(D1)--(D2);
+\end{tikzpicture}
+\begin{mdframed}
+    \guillemets{%
+        Réaliser une figure analogue, puis tracer l'axe de symétrie tel que
+        \textsf{A}' soit le symétrique de \textsf{A} et \textsf{B}' celui
+        de \textsf{B}.%
+    }
+\end{mdframed}
+En voyant le dessin, Abdelnacer dit immédiatement : \guillemets{%
+    Il n'est pas possible de trouver un tel axe de symétrie.
+}
+\begin{itemize}
+    \item Comment a-t-il procédé ?
+\end{itemize}
+\end{document}

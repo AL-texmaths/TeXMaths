@@ -1,0 +1,48 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-main}
+% -----------------------------------------------------------------------------
+% PACKAGES SPÉCIFIQUES
+% -----------------------------------------------------------------------------
+\RequirePackage{multicol}%                   pour les items sur une meme ligne
+\RequirePackage{xlop}%                       operations posées
+\opset{decimalsepsymbol={,}}
+
+\RequirePackage[percent]{overpic}%           ecrire variables sur image
+\RequirePackage{scratch3}%                   algorithmes en scratch3
+\RequirePackage{xstring}
+
+\RequirePackage{enumitem}%                   enumerate list
+\setlist[enumerate]{
+    topsep=4pt plus 2pt minus 4pt,
+    itemsep=5pt plus 4pt minus 2pt
+    }
+\setlist[enumerate,1]{font=\bfseries, label=\arabic*)}
+\setlist[enumerate,2]{font=\bfseries, label=\alph*)}
+% -----------------------------------------------------------------------------
+% PACKAGES PERSONNELS
+% -----------------------------------------------------------------------------
+\RequirePackage{texmaths-colors}% \currentcolor, \nextcolor, \initcolor
+\colortotal=5
+\def\currentcolor{%
+    \ifcase\colorindex
+    Rainbow1-violet\or
+    Rainbow1-bleu\or
+    Rainbow1-vert\or
+    Rainbow1-orange\or
+    Rainbow1-rouge%
+    \fi
+}
+\RequirePackage{texmaths-symbols}
+\RequirePackage{texmaths-spacing}
+\RequirePackage{texmaths-boxes}
+\RequirePackage{texmaths-tikz}
+\RequirePackage{texmaths-gif}
+\RequirePackage{texmaths-metadata}
+\RequirePackage{texmaths-calc}
+\RequirePackage{texmaths-variables}
+\RequirePackage{texmaths-pytools}
+% ===========================
+\def\toComplete@version{1}
+\def\setCompleteVersion#1{\def\toComplete@version{#1}}
+\def\toComplete#1{\ifnum\toComplete@version=0\relax\phantom{#1}\else#1\fi}
+% ===========================

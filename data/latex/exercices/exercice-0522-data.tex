@@ -1,0 +1,32 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}[line width=1pt]
+    \coordinate[label=above right:\<letter1;](A)at(0,0);
+    \coordinate[label=above right:\<letter5;](B)at(2,0);
+    \coordinate[label=above right:\<letter6;](C)at(2,2);
+    \coordinate[label=above right:\<letter2;](D)at(-1,1.9);
+    \path(B)--(A)coordinate[pos=1.7,label=\<letter3;](A0);
+    \path(D)--(A)coordinate[pos=1.7,label=right:\<letter4;](A1);
+    \path(C)--(B)coordinate[pos=1.1](B0);
+    \path(A)--(B)coordinate[pos=1.1](B1);
+    \path(D)--(C)coordinate[pos=1.1](C0);
+    \path(B)--(C)coordinate[pos=1.1](C1);
+    \path(A)--(D)coordinate[pos=1.6,label=\<letter7;](D0);
+    \path(C)--(D)coordinate[pos=1.7,label=\<letter8;](D1);
+    \tkzDrawLines[add=0.8 and 0.6](A,B C,D A,D)
+\end{tikzpicture}\par\medskip\noindent
+En utilisant les lettres sur la figures~:
+\begin{enumerate}
+    \item Nommer deux angles alternes-internes.
+    \item Nommer deux angles correspondants.
+    \item Nommer deux angles alternes-externes.
+\end{enumerate}
+\end{document}

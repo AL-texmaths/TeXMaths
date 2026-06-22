@@ -1,0 +1,25 @@
+\documentclass{article}
+
+% \usepackage[utf8]{inputenc}%             utf8 encoding
+% \usepackage[T1]{fontenc}%                prevent T1 encoding warning
+% \usepackage{lmodern}%                    prevent bitmapfont
+\usepackage{tikz}
+% \usepackage{enumitem}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=0.75]
+	\coordinate[label=below:O](O)at(0,0);
+	\coordinate[label=right:A](A)at(4.5,0);
+	\coordinate[label=below:E](E)at(1.8,0);
+	\coordinate[label=left:B](B)at(-4.5,0);
+	\coordinate[label=above left:D](D)at(102.26:4.5);
+	\coordinate[label=above right:$\mathcal{C}$](Circlename)at(50:4.5);
+	\path(A)--(D)coordinate[pos=0.3,label=above right:F](F);
+	\draw node at(O){$\times$};
+	\draw (O)circle(4.5);
+	\draw(A)--(B)--(D)--cycle;
+	\draw(E)--(F);
+\end{tikzpicture}
+
+\end{document}

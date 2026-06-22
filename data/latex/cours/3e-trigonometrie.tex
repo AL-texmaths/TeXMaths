@@ -1,0 +1,210 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Vocabulaire}
+    {\centering
+    \begin{tikzpicture}[scale=1.25,rotate=10]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(4,0);
+        \coordinate(C)at(4,3);
+        \coordinate(a1)at(1.5,2);
+        \coordinate(b1)at(5,1.5);
+        \coordinate(c1)at(2,-1);
+        \path(A)--(C)coordinate[midway](a2);
+        \path(B)--(C)coordinate[midway](b2);
+        \path(A)--(B)coordinate[midway](c2);
+        \tkzMarkRightAngle[size=0.3](C,B,A)
+        \tkzMarkAngle[size=0.8,mark=none](B,A,C)
+        \tkzFillAngle[size=0.8,fill=black!35!white](B,A,C)
+        \draw node[left] at(a1){hypoténuse};
+        \draw node[right] at(b1){côté \textbf{opposé} à l'angle};
+        \draw node[right] at(c1){côté \textbf{adjacent} à l'angle};
+        \draw[-Latex] (a1) to[bend left] (a2);
+        \draw[-Latex] (b1) to[bend right] (b2);
+        \draw[-Latex] (c1) to[bend left] (c2);
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}
+    \par}\medskip\noindent
+    {\bfseries Exemple :}\par\noindent
+    \begin{minipage}{.5\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=right:A](A)at(10:2);
+            \coordinate[label=below left:B](B)at(190:2);
+            \coordinate[label=above:C](C)at(60:2);
+            \tkzMarkRightAngle[size=0.2](B,C,A)
+            \draw(A)--(B)--(C)--cycle;
+        \end{tikzpicture}
+    \end{minipage}\hfill
+    \begin{minipage}{.4\linewidth}
+        Le triangle ABC est rectangle en C. L'hypoténuse est [AB].\par\smallskip
+        Le côté adjacent à $\widehat{\text{B}}$ est [BC].\par\smallskip
+        Le côté opposé à $\widehat{\text{B}}$ est [BA].\par\smallskip
+        Le côté adjacent à $\widehat{\text{A}}$ est [AC].\par\smallskip
+        Le côté opposé à $\widehat{\text{A}}$ est [BC].\par\smallskip
+    \end{minipage}
+    \bigpart{Fonctions trigonométriques}
+    \definition{sinus_cosinus_tangente}
+    \methode{calcul_trigonometrie_1}
+    {\bfseries Exemple :}\par\medskip\noindent{\centering
+    sin(50$^\circ)\approx0,77$\hskip40pt cos(50$^\circ)\approx0,82$\hskip40pt
+    tan(70$^\circ)\approx2,74$\par}
+    \methode{calcul_trigonometrie_2}
+    {\bfseries Exemple :}\medskip\par\noindent
+    \begin{tikzpicture}[baseline=(O.base)]
+        \coordinate(O)at(0,-1);
+        \coordinate[label=below left:A](A)at(0,0);
+        \coordinate[label=below right:B](B)at(3,0);
+        \coordinate[label=C](C)at(3,2);
+        \tkzMarkRightAngle[size=0.2](C,B,A)
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(B)node[midway,below]{4};
+        \path(B)--(C)node[midway,right]{3};
+        \path(A)--(C)node[midway,above left]{5};
+    \end{tikzpicture}\hskip50pt
+    \vbox{\hbox to.5\linewidth{cos($\widehat{\text{A}})=\dfrac45=0,8$\hfil}\par\smallskip
+    \hbox to.5\linewidth{sin($\widehat{\text{A}})=\dfrac35=0,6$\hfil}\par\smallskip
+    \hbox to.5\linewidth{cos($\widehat{\text{C}})=\dfrac35=0,6$\hfil}\par\smallskip
+    \hbox to.5\linewidth{sin($\widehat{\text{C}})=\dfrac45=0,8$\hfil}\par\smallskip
+    \hbox to.5\linewidth{tan($\widehat{\text{C}})=\dfrac43\approx1,33$\hfil}\par\smallskip
+    }
+    \bigpart{Applications}\medskip\par\noindent
+    Ces formules permettent de calculer des angles manquants ou des longueurs
+    manquantes dans un triangle rectangle.\medskip
+    \subpart{Calculer un angle}\bigskip
+    {\bfseries Exemple :}\medskip\par\noindent
+        \begin{tikzpicture}
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=C](C)at(3,2);
+            \tkzMarkRightAngle[size=0.2](C,B,A)
+            \tkzLabelAngle[pos=1](B,A,C){\bfseries ?}
+            \tkzFillAngle[size=0.8,fill=black!25!white](B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[midway,below]{\bfseries 4};
+            \path(A)--(C)node[midway,above left]{\bfseries 5};
+        \end{tikzpicture}\hfil
+        \vbox to 65pt{%
+            \hbox to.5\linewidth{cos($\widehat{A})=\dfrac45=0,8$\hfil}\par\smallskip
+            \hbox to.5\linewidth{Donc $\widehat{A}=\text{arccos}(0,8)\approx36,9^\circ$\hfil}\par
+            \vfil
+        }\newpage
+    {\bfseries Exemple :}\par
+        \begin{tikzpicture}
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=C](C)at(3,2);
+            \tkzMarkRightAngle[size=0.2](C,B,A)
+            \tkzLabelAngle[pos=1](B,A,C){\bfseries ?}
+            \tkzFillAngle[size=0.8,fill=black!25!white](B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+            \path(B)--(C)node[midway,right]{\bfseries 5};
+            \path(A)--(C)node[midway,above left]{\bfseries 13};
+        \end{tikzpicture}\hfil
+        \vbox to 65pt{%
+            \hbox to.5\linewidth{sin($\widehat{A})=\dfrac5{13}$\hfil}\par\smallskip
+            \hbox to.5\linewidth{Donc $\widehat{A}=\text{arcsin}\left(\dfrac5{13}\right)\approx22,6^\circ$\hfil}\par
+            \vfil
+        }\bigbreak\par
+    {\bfseries Exemple :}\par\medskip
+        \begin{tikzpicture}
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=C](C)at(3,2);
+            \tkzMarkRightAngle[size=0.2](C,B,A)
+            \tkzLabelAngle[pos=1](B,A,C){\bfseries ?}
+            \tkzFillAngle[size=0.8,fill=black!25!white](B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+            \path(B)--(C)node[midway,right]{\bfseries 8};
+            \path(A)--(B)node[midway,below]{\bfseries 15};
+        \end{tikzpicture}\hfil
+        \vbox to 65pt{%
+            \hbox to.5\linewidth{tan($\widehat{A})=\dfrac8{15}$\hfil}\par\smallskip
+            \hbox to.5\linewidth{Donc $\widehat{A}=\text{arctan}\left(\dfrac8{15}\right)\approx28,1^\circ$\hfil}\par
+            \vfil
+        }\bigbreak\par
+    \subpart{Calculer une longueur}\bigskip
+    {\bfseries Exemple :}\par\medskip
+    \begin{minipage}{.35\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=C](C)at(3,2);
+            \tkzMarkRightAngle[size=0.2](C,B,A)
+            \tkzLabelAngle[pos=1.25](B,A,C){\bfseries 40$^\circ$}
+            \tkzFillAngle[size=0.8,fill=black!25!white](B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(C)node[midway,above left]{\bfseries 8};
+            \path(B)--(C)node[midway,right]{\bfseries ?};
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \begin{align*}
+            \text{sin}(40^\circ)&\;=\;\dfrac{\text{BC}}8\\
+            \text{BC}&\;=\;8\times\text{sin}(40^\circ)\\
+            \text{BC}&\;\approx\;5,14
+        \end{align*}
+    \end{minipage}\par\bigskip
+    {\bfseries Exemple :}\par\medskip
+    \begin{minipage}{.35\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=C](C)at(3,2);
+            \tkzMarkRightAngle[size=0.2](C,B,A)
+            \tkzLabelAngle[pos=1.25](A,C,B){\bfseries 60$^\circ$}
+            \tkzFillAngle[size=0.8,fill=black!25!white](A,C,B)
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(C)node[midway,above left]{\bfseries 5};
+            \path(B)--(C)node[midway,right]{\bfseries ?};
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \begin{align*}
+            \text{cos}(60^\circ)&\;=\;\dfrac{\text{BC}}5\\
+            \text{BC}&\;=\;5\times\text{cos}(60^\circ)\\
+            \text{BC}&\;=\;2,5
+        \end{align*}
+    \end{minipage}\newpage
+    {\bfseries Exemple :}\par\medskip
+    \begin{minipage}{.35\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=C](C)at(3,2);
+            \tkzMarkRightAngle[size=0.2](C,B,A)
+            \tkzLabelAngle[pos=1.25](B,A,C){\bfseries 55$^\circ$}
+            \tkzFillAngle[size=0.8,fill=black!25!white](B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[midway,below]{\bfseries 4};
+            \path(B)--(C)node[midway,right]{\bfseries ?};
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \begin{align*}
+            \text{tan}(55^\circ)&\;=\;\dfrac{\text{BC}}4\\
+            \text{BC}&\;=\;4\times\text{tan}(55^\circ)\\
+            \text{BC}&\;\approx\;5,7
+        \end{align*}
+    \end{minipage}\par\bigskip
+    {\bfseries Exemple :}\par\medskip
+    \begin{minipage}{.35\linewidth}
+        \begin{tikzpicture}
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=C](C)at(3,2);
+            \tkzMarkRightAngle[size=0.2](C,B,A)
+            \tkzLabelAngle[pos=1.25](A,C,B){\bfseries 45$^\circ$}
+            \tkzFillAngle[size=0.8,fill=black!25!white](A,C,B)
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[midway,below]{\bfseries 12};
+            \path(B)--(C)node[midway,right]{\bfseries ?};
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \begin{align*}
+            \text{tan}(45^\circ)&\;=\;\dfrac{12}{\text{BC}}\\
+            \text{BC}\times\text{tan}(45^\circ)&\;=\;12\\
+            \text{BC}&\;=\;\dfrac{12}{\text{tan}(45^\circ)}\\
+            \text{BC}&\;\approx\;20,8
+        \end{align*}
+    \end{minipage}
+\end{document}

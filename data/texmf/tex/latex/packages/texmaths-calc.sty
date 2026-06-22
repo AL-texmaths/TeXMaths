@@ -1,0 +1,141 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-calc}
+
+\def\calcA#1=#2*(#3+#4){\hskip0pt%
+    \vtop{
+        \halign{
+            ##&${}=\hskip5pt\hfil$##&##&##\cr
+            #1&#2&${}\times{}$&$(#3+#4)$\cr
+            &#2&${}\times{}$&\hfil\number\numexpr#3+#4\hfil\cr
+            &&\number\numexpr#2*(#3+#4)&\crcr
+        }%
+    }%
+}%
+\def\calcB#1=(#2+#3)*#4{\hskip0pt%
+    \vtop{
+        \halign{
+            ##&${}=\hskip5pt\hfil$##&##&##\cr
+            #1&$(#3+#4)$&${}\times{}$&#2\cr
+            &\hfil\number\numexpr#3+#4\hfil&${}\times{}$&#2\cr
+            &&\number\numexpr#2*(#3+#4)&\crcr
+        }%
+    }%
+}%
+\def\calcC#1=(#2-#3)*#4{\hskip0pt%
+    \vtop{
+        \halign{
+            ##&${}=\hskip5pt\hfil$##&##&##\cr
+            #1&$(#2-#3)$&${}\times{}$&#4\cr
+            &\hfil\number\numexpr#2-#3\hfil&${}\times{}$&#4\cr
+            &&\number\numexpr#4*(#2-#3)&\crcr
+        }%
+    }%
+}%
+\def\calcD#1=#2*(#3-#4){\hskip0pt%
+    \vtop{
+        \halign{
+            ##&${}=\hskip5pt\hfil$##&##&##\cr
+            #1&#2&${}\times{}$&$(#3-#4)$\cr
+            &#2&${}\times{}$&\hfil\number\numexpr#3-#4\hfil\cr
+            &&\number\numexpr#2*(#3-#4)&\crcr
+        }%
+    }%
+}%
+\def\calcE#1=#2/(#3-#4){\hskip0pt%
+    \vtop{
+        \halign{
+            ##&${}=\hskip5pt\hfil$##&##&##\cr
+            #1&#2&${}\div{}$&$(#3-#4)$\cr
+            &#2&${}\div{}$&\hfil\number\numexpr#3-#4\hfil\cr
+            &&\number\numexpr#2/(#3-#4)&\crcr
+        }%
+    }%
+}%
+\def\calcF#1=#2+#3*#4{\hskip0pt%
+\vtop{
+    \halign{
+        ##&${}=\hskip5pt\hfil$##&##&##\cr
+        #1&#2&${}+{}$&$#3\times#4$\cr
+        &#2&${}+{}$&\hfil\number\numexpr#3*#4\hfil\cr
+        &&\number\numexpr#2+#3*#4&\crcr
+    }%
+}%
+}%
+\def\calcG#1=#2*#3-#4*#5{\hskip0pt%
+\vtop{
+    \halign{
+        ##&${}=\hskip5pt\hfil$##&##&##\cr
+        #1&$#2\times#3$&${}-{}$&$#4\times#5$\cr
+        &\hfil\number\numexpr#2*#3\hfil&${}-{}$&$#4\times#5$\cr
+        &\hfil\number\numexpr#2*#3\hfil&${}-{}$&\hfil\number\numexpr#4*#5\hfil\cr
+        &&\hfil\number\numexpr#2*#3-#4*#5&\hfil
+        \crcr
+    }%
+}%
+}%
+\def\calcH#1=#2/#3+#4{\hskip0pt%
+\vtop{
+    \halign{
+        ##&${}=\hskip5pt\hfil$##&##&##\cr
+        #1&$#2\div#3$&${}+{}$&#4\cr
+        &\hfil\number\numexpr#2/#3\hfil&${}+{}$&#4\cr
+        &&\number\numexpr#2/#3+#4&\crcr
+    }%
+}%
+}
+\def\calcI#1=#2+#3-#4+#5{\hskip0pt%
+\vtop{
+    \halign{
+        ##&${}=\hskip5pt\hfil$##&##&##\cr
+        #1&$#2+#3$&${}-{}$&$#4+#5$\cr
+        &\hfil\number\numexpr#2+#3\hfil&${}-{}$&$#4+#5$\cr
+        &&\hfil\number\numexpr#2+#3-#4\hfil&\hfil${}+#5$\hfil\cr
+        &&\hfil\number\numexpr#2+#3-#4+#5&\hfil
+        \crcr
+    }%
+}%
+}%
+\def\calcJ#1=(#2+#3-#4)*#5{\hskip0pt%
+\vtop{
+    \halign{
+        ##&${}=\hskip5pt\hfil$##&##&##&##\cr
+        #1&$(#2+#3$&${}-{}$&$#4$)&$\times#5$\cr
+        #1&$(\hfil\number\numexpr#2+#3\hfil$&${}-{}$&$#4$)&{}$\times#5${}\cr
+        #1&&$\hfil\number\numexpr#2+#3-#4\hfil$&${}{}$&$\times#5$\cr
+        #1&&&$\hfil\number\numexpr(#2+#3-#4)*#5\hfil$&${}{}$\cr
+        \crcr
+    }%
+}%
+}
+\def\calcK#1=(#2+#3)*(#4-#5){\hskip0pt%
+    \vtop{
+        \halign{
+            ##&${}=\hskip5pt\hfil$##&##&##\cr
+            #1&$(#2+#3)$&${}\times{}$&$(#4-#5$)\cr
+            #1&$\hfil\number\numexpr#2+#3\hfil$&${}\times{}$&$\hfil\number\numexpr#4-#5\hfil$\cr
+            #1&&$\hfil\number\numexpr(#2+#3)*(#4-#5)\hfil$&\cr
+            \crcr
+        }%
+    }%
+}
+\def\calcL#1=#2*#3+#4*#5{\hskip0pt%
+    \vtop{
+        \halign{
+            ##&${}=\hskip5pt\hfil$##&##&##\cr
+            #1&$#2\times#3$&${}+{}$&$#4\times#5$\cr
+            &\hfil\number\numexpr#2*#3\hfil&${}+{}$&$#4\times#5$\cr
+            &\hfil\number\numexpr#2*#3\hfil&${}+{}$&\hfil\number\numexpr#4*#5\hfil\cr
+            &&\hfil\number\numexpr#2*#3+#4*#5&\hfil
+            \crcr
+        }%
+    }%
+}
+
+\newcount\calculcount
+\calculcount=0
+\def\newcalc{\global\advance\calculcount1\relax$\text{\expandafter\@Alph\the\calculcount}=\;$}
+\def\newcalcline#1#2#3{\hbox{\hbox to.5\linewidth{\newcalc#1\hfil}\hbox{\newcalc#2\hfil}}\vskip#3}
+
+\newdimen\ratio
+\ratio=.4\linewidth
+\def\twocolscalc#1=#2,#3=#4;{\hskip0pt\hbox{\hbox to\ratio{#1=#2\hfil}#3=#4}}

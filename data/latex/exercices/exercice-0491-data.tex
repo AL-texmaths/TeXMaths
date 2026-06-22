@@ -1,0 +1,29 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Trouver tous les triangles particuliers dans la figure suivante~:
+\begin{center}
+    \begin{tikzpicture}[rotate=-25,scale=0.75]
+        \coordinate[label=below left:O](O)at(0,0);
+        \coordinate[label=below left:A](A)at(0,-4);
+        \coordinate[label=above left:B](B)at(-2,0);
+        \coordinate[label=below right:C](C)at(0,4);
+        \coordinate[label=right:D](D)at(2,0);
+        \path(D)--(A)([turn]120:4.48)coordinate[label=below right:E](E);
+        \draw(A)--(B)--(C)--(D)--cycle;
+        \draw(A)--(E)--(D);
+        \draw(A)--(C);
+        \draw(B)--(D);
+        \path(A)--(D)node[below right,midway]{\strut 3 cm};
+        \tkzMarkSegments[mark=||](A,B B,C C,D D,A A,E E,D)
+        \tkzMarkRightAngle(D,O,C)
+    \end{tikzpicture}
+\end{center}
+\end{document}

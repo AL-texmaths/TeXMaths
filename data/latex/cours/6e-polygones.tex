@@ -1,0 +1,137 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Vocabulaire}
+    \definition{polygone}
+    \definition{sommet_d_un_polygone}
+    \definition{diagonale}
+    {\bfseries Exemple :}\par\noindent
+    \begin{minipage}[c]{.24\linewidth}
+        \begin{tikzpicture}[scale=0.5]
+        \coordinate[label=below left:A](A)at(0,0);{\tiny }
+        \coordinate[label=below right:B](B)at(3,0);
+        \coordinate[label=right:C](C)at(4,2);
+        \coordinate[label=above:D](D)at(2.5,4);
+        \coordinate[label=left:E](E)at(0,1.5);
+        \draw(A)--(B)--(C)--(D)--(E)--cycle;
+        \end{tikzpicture}
+        \end{minipage}%
+        \begin{minipage}[c]{.7\linewidth}
+        \begin{itemize}[label=$ $]
+            \item Ce polygone se nomme ABCDE.
+            \item Les segments [AE] et [BC] sont des côtés.
+            \item Les points D et A sont des sommets.
+            \item Les segments [AC] et [BD] sont des diagonales.
+        \end{itemize}
+    \end{minipage}\par
+    \bigpart{Triangle}
+    \definition{triangle_isocele}
+    \newpage
+    {\bfseries Exemple :}\vskip15pt
+    \begin{tikzpicture}[scale=.75,baseline=(O.base)]
+        \coordinate[label=below left:D](A)at(-1.5,0);
+        \coordinate[label=below right:E](B)at(1.5,0);
+        \coordinate[label=above:G](C)at(0,4);
+        \coordinate(O)at(0,2);
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(C)node[sloped, pos=.5]{$\|$};
+        \path(B)--(C)node[sloped, pos=.5]{$\|$};
+    \end{tikzpicture}\hskip20pt DGE est isocèle en G car DG\,=\,EG.
+    \definition{triangle_equilateral}
+    {\bfseries Exemple :}\vskip15pt
+    \begin{tikzpicture}[baseline=(O.base)]
+        \def\a{1.8}
+        \coordinate(O)at(0,0);
+        \coordinate[label=A](A)at(90:\a);
+        \coordinate[label=below left:B](B)at(210:\a);
+        \coordinate[label=below right:C](C)at(330:\a);
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(C)node[sloped, pos=.5]{$\|$};
+        \path(B)--(C)node[sloped, pos=.5]{$\|$};
+        \path(A)--(B)node[sloped, pos=.5]{$\|$};
+        \end{tikzpicture}\hskip20pt ABC est équilatéral
+        car AB\,=\,BC\,=\,AC.
+    \definition{triangle_rectangle}
+    {\bfseries Exemple :}\vskip15pt
+    \begin{tikzpicture}[scale=0.7,baseline=(O.base)]
+        \def\a{1.5}
+        \coordinate(O)at(0,1);
+        \coordinate[label=below left:S](A)at(0,0);
+        \coordinate[label=below right:V](B)at(\a,0);
+        \coordinate[label=above:T](C)at(0,2*\a);
+        \draw(A)--(B)--(C)--cycle;
+        \tkzMarkRightAngle(C,A,B)
+        \end{tikzpicture}\hskip20pt VST est rectangle en S
+        car $\widehat{\text{VST}}=90^\circ$.
+    \definition{triangle_quelconque}
+    \bigpart{Quadrilatères}
+    \definition{quadrilatere}
+    {\bfseries Exemple :}\vskip5pt
+    \begin{tikzpicture}
+        \coordinate[label=right:A](A)at(0:2);
+        \coordinate[label=above right:B](B)at(50:2);
+        \coordinate[label=above left:C](C)at(150:3);
+        \coordinate[label=below:D](D)at(-90:1);
+        \draw(A)--(B)--(C)--(D)--cycle;
+    \end{tikzpicture}
+    \definition{losange}
+    {\bfseries Exemple :}\vskip5pt
+    \begin{tikzpicture}[scale=0.5,baseline=(O.base)]
+        \coordinate(O)at(0,0);
+        \coordinate[label=right:F](A)at(0:2);
+        \coordinate[label=above:D](B)at(90:3);
+        \coordinate[label=left:G](C)at(180:2);
+        \coordinate[label=below:H](D)at(-90:3);
+        \tkzMarkSegment[mark=s||](A,B)
+        \tkzMarkSegment[mark=s||](C,B)
+        \tkzMarkSegment[mark=s||](C,D)
+        \tkzMarkSegment[mark=s||](D,A)
+        \draw(A)--(B)--(C)--(D)--cycle;
+    \end{tikzpicture}\hskip10pt FDGH est un losange car
+    FD\,=\,DG\,=\,GH\,=\,HF.
+    \medskip
+    \definition{rectangle}
+    {\bfseries Exemple :}\vskip5pt\noindent
+    \begin{minipage}{.5\linewidth}
+        \begin{tikzpicture}[baseline=(O.base)]
+            \coordinate(O)at(0,0);
+            \coordinate[label=above right:N](A)at(20:2);
+            \coordinate[label=below right:M](B)at(-20:2);
+            \coordinate[label=above left:P](C)at(160:2);
+            \coordinate[label=below left:R](D)at(-160:2);
+            \tkzMarkRightAngle(A,B,D)
+            \tkzMarkRightAngle(B,D,C)
+            \tkzMarkRightAngle(D,C,A)
+            \tkzMarkRightAngle(C,A,B)
+            \draw(A)--(B)--(D)--(C)--cycle;
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}{.45\linewidth}
+        NMPR est un rectangle car
+        $\widehat{\text{NMP}}=\widehat{\text{MPR}}=
+        \widehat{\text{PRN}}=\widehat{\text{RNM}}=90^\circ$
+    \end{minipage}\par
+    \definition{carre}
+    {\bfseries Exemple :}\vskip5pt
+    \begin{minipage}{.4\linewidth}
+        \begin{tikzpicture}[baseline=(O.base),scale=0.8]
+            \coordinate(O)at(0,0);
+            \coordinate[label=above right:E](A)at(45:2);
+            \coordinate[label=below right:G](B)at(-45:2);
+            \coordinate[label=above left:Z](C)at(135:2);
+            \coordinate[label=below left:J](D)at(-135:2);
+            \tkzMarkRightAngle(A,B,D)
+            \tkzMarkRightAngle(B,D,C)
+            \tkzMarkRightAngle(D,C,A)
+            \tkzMarkRightAngle(C,A,B)
+            \tkzMarkSegment[mark=s||](A,B)
+            \tkzMarkSegment[mark=s||](D,B)
+            \tkzMarkSegment[mark=s||](C,D)
+            \tkzMarkSegment[mark=s||](C,A)
+            \draw(A)--(B)--(D)--(C)--cycle;
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        EGJZ est un carré car c'est un losange et un
+        rectangle.
+    \end{minipage}
+\end{document}

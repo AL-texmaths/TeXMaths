@@ -1,0 +1,29 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+En utilisant uniquement le compas et la règle (sans les graduations), tracer
+en vrai grandeur la figure suivante. Un premier segment vous est donné.\vskip20pt
+\begin{tikzpicture}[scale=1.8]
+    \coordinate(O)at(0:0);
+    \coordinate(A1)at(60:1);
+    \coordinate(A2)at(120:1);
+    \coordinate(A3)at(180:1);
+    \coordinate(A4)at(240:1);
+    \coordinate(A5)at(300:1);
+    \coordinate(A6)at(360:1);
+    \draw(A1)--(A2)--(A3)--(A4)--(A5)--(A6)--cycle;
+    \draw(O)--(A1);
+    \draw(O)--(A2);
+    \draw(O)--(A3);
+    \draw(O)--(A4);
+    \draw(O)--(A5);
+    \draw(O)--(A6);
+    \draw(4,-1)--(5,-1);
+\end{tikzpicture}
+\end{document}

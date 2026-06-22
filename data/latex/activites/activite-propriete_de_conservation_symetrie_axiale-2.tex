@@ -1,0 +1,44 @@
+\documentclass[activite]{thedocument}
+\usepackage{tkz-euclide}
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{enumerate}
+        \item En observant la figure suivante (pas en vrai grandeur), dire si les
+        triangles sont symétriques par rapport à $(d)$. Justifier.\vskip15pt
+        \begingroup\centering
+        \begin{tikzpicture}[scale=1.2,rotate=30]
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=above right:A'](A')at(6,0);
+            \coordinate[label=above left:B](B)at(1.5,4);
+            \coordinate[label=above right:B'](B')at(4.5,4);
+            \coordinate[label=below right:C](C)at(2,-1);
+            \coordinate[label=below:C'](C')at(4,-1);
+            \coordinate(D1)at(3,-3);
+            \coordinate[label=above right:$(d)$](D2)at(3,6);
+            \path(A)--(B)node[midway,left]{4,5 cm};
+            \path(B')--(A')node[midway,above right]{4,3 cm};
+            \tkzFillAngle[fill=blue!30!white,size=0.5](C,A,B)
+            \tkzLabelAngle[pos=0.8](C,A,B){\color{blue!70!white}95$^\circ$}
+            \tkzFillAngle[fill=blue!30!white,size=0.5](B',A',C')
+            \tkzLabelAngle[pos=0.8](B',A',C'){\color{blue!70!white}91$^\circ$}
+            \tkzFillAngle[fill=red!30!white,size=0.8](A,B,C)
+            \tkzLabelAngle[pos=1.2](A,B,C){\color{red!70!white}35$^\circ$}
+            \tkzFillAngle[fill=red!30!white,size=0.8](C',B',A')
+            \tkzLabelAngle[pos=1.2](C',B',A'){\color{red!70!white}35$^\circ$}
+            \draw(D1)--(D2);
+            \draw(A)--(B)--(C)--cycle;
+            \draw(A')--(B')--(C')--cycle;
+        \end{tikzpicture}\par\endgroup
+        \dotedline\dotedline\dotedline
+        \item Quel est l'effet de la symétrie axiale sur les longueurs~?
+        \dotedline
+        \item Quel est l'effet de la symétrie axiale sur les angles~?
+        \dotedline
+    \end{enumerate}
+\end{document}

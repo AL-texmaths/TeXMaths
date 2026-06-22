@@ -1,0 +1,65 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-boxes}
+\usepackage{enumitem}
+\startdatakeys
+\source{25GENMATNC1}
+\cycle{4}
+\competencesDuSocle{CA,CO}
+\connaissancesRequises{B4a*,B4c*}
+\competencesTravaillees{B4b*,A3d1,A3a1}
+\enddatakeys
+\begin{document}%
+    On considère les programmes de calcul suivants~:\par\noindent
+    \begin{minipage}[t]{.45\linewidth}
+        \begin{mdframed}\vskip5pt\noindent
+            {\centering\textbf{PROGRAMME A}\par}
+            \begin{itemize}[itemsep=0pt]
+                \item Choisir un nombre
+                \item Ajouter 4
+                \item Multipler par 3
+                \item[] \phantom{Soustraire le nombre de départ}
+            \end{itemize}
+        \end{mdframed}
+    \end{minipage}\hskip.05\linewidth
+    \begin{minipage}[t]{.5\linewidth}
+            \begin{mdframed}\vskip5pt\noindent
+            {\centering\textbf{PROGRAMME B}\par}
+            \begin{itemize}[itemsep=0pt]
+                \item Choisir un nombre
+                \item Multipler par 5
+                \item Soustraire 3
+                \item Soustraire le nombre de départ
+            \end{itemize}
+        \end{mdframed}
+    \end{minipage}
+    \begin{enumerate}
+        \item Dans cette question, on choisit le nombre 2 pour tester les
+        deux programmes.
+        \begin{enumerate}
+            \item Vérifier par le calcul qu'on obtient 18 avec le programme A.
+            \item Vérifier par le calcul qu'on obtient 5 avec le programme B.
+        \end{enumerate}
+        \item Soit $f$ la fonction associée au prorgamme A, qui au nombre
+        choisi $x$ fait correspondre le résultat $f(x)$.
+        \begin{enumerate}
+            \item Justifier que $f(x)=3x+12$.
+            \item Calculer l'antécédent de 27 par la fonction $f$.
+        \end{enumerate}
+        \item Soit $g$ la fonction associée au programme B, qui au nombre
+        choisi $x$ fait correspondre le résultat $g(x)$.
+        \begin{enumerate}
+            \item Donner l'expression de $g(x)$.
+            \item Quel nombre faut-il choisir avec le programme B pour
+            obtenir 2 comme résultat~?
+        \end{enumerate}
+        \begingroup\leavevmode\hspace*{-\leftmargin}%
+            \begin{minipage}{.9\linewidth}
+                Hugo a choisi un nombre.\par\noindent
+                Il l'a testé avec les deux programmes et a trouvé le même résultat
+                à chaque fois.
+            \end{minipage}
+        \endgroup
+        \item Quel nombre a-t-il choisi~?
+    \end{enumerate}
+    \showthesource
+\end{document}

@@ -1,0 +1,137 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+    \part{Réciproque du théorème de Pythagore}
+
+        \subpart{Réciproque d'une propriété}
+            \definition{hypotheses_et_conclusion}
+            \begin{exemple}
+                \begin{enumerate}[1), font=\bfseries]
+                    \item \textbf{Si} $\underbrace{\color{vscode-blue}%
+                    \text{deux droites sont perpendiculaires à une même
+                    droite}}_{\color{vscode-blue}\text{hypothèses}}$,
+                    \textbf{alors} $\underbrace{\color{vscode-green}%
+                    \text{elles sont parallèles}}_{\color{vscode-green}%
+                    \text{conclusion}}$.
+                    \item \textbf{Si} $\underbrace{\color{vscode-blue}%
+                    \text{un triangle est rectangle}}_{\color{vscode-blue}\text{hypothèses}}$,
+                    \textbf{alors} \par$\underbrace{\color{vscode-green}
+                    \text{alors le carré de l'hypoténuse est égal à la somme des carrés des deux autres côtés}}_{\color{vscode-green}%
+                    \text{conclusion}}$.
+                \end{enumerate}
+            \end{exemple}
+            \definition{reciproque_propriete}
+            \begin{exemple}%\par\noindent
+                \begin{itemize}
+                    \item[]{Propriété :}
+                        \textbf{Si} $\underbrace{\color{vscode-blue}%
+                        \text{deux droites sont perpendiculaires}}_{\color{vscode-blue}\text{hypothèses}}$,
+                        \textbf{alors} $\underbrace{\color{vscode-green}%
+                        \text{elles se coupent en un point}}_{\color{vscode-green}%
+                        \text{conclusion}}$.
+                    \item[]{Réciproque :}
+                        \textbf{Si} $\underbrace{\color{vscode-green}%
+                        \text{deux droites se coupent en un point}}_{\color{vscode-green}\text{hypothèses}}$,
+                        \textbf{alors} $\underbrace{\color{vscode-blue}%
+                        \text{elles sont perpendiculaires}}_{\color{vscode-blue}%
+                        \text{conclusion}}$.
+                \end{itemize}
+            \end{exemple}
+            \begin{remarque}
+                Même si une propriété est vraie, sa réciproque ne l'est pas forcément !
+            \end{remarque}
+
+        \subpart{Réciproque du théorème de Pythagore}
+        \theoreme{reciproque_pythagore}
+        \begin{exemple}
+            \begin{center}
+                \begin{tikzpicture}[scale=0.8]
+                    \def\phi{1.618}
+                    \def\x{\phi*3}
+                    \def\y{3}
+                    \draw[fill=vscode-green!30!](0,0)--(\x,0)--(0,\y)--cycle;
+                    \draw node[below left]at(0,0){$A$};
+                    \draw node[below right]at(\x,0){$B$};
+                    \draw node[above left]at(0,\y){$C$};
+                    \draw node[above right]at(\x/2,\y/2){$5\;cm$};
+                    \draw node[below]at(\x/2,0){$4\;cm$};
+                    \draw node[left]at(0,\y/2){$3\;cm$};
+                \end{tikzpicture}
+            \end{center}
+            \begin{tblr}{
+                colspec={Q[l,t,wd=.45\linewidth]|Q[l,t,wd=.45\linewidth]}
+            }
+            On calcule le carré du côté le plus long du triangle $ABC$:%
+            \par\vspace{15pt}
+            $\begingroup\renewcommand{\arraystretch}{1.3}
+            \begin{array}{cc}
+                &BC^2\\
+                =&5^2\\
+                =&25
+            \end{array}\endgroup
+            $
+            &
+            On calcule la somme du carré des deux autres côtés:\par\vspace{15pt}
+            $\begingroup\renewcommand{\arraystretch}{1.3}
+            \begin{array}{cccc}
+                &AB^2&+&AC^2\\
+                =&4^2&+&3^2\\
+                =&16&+&9\\
+                =&&25&
+            \end{array}\endgroup
+            $
+            \end{tblr}\par\vspace{10pt}
+            On a $BC^2=AB^2+AC^2$.\par\vspace{10pt}
+            D'après la réciproque du théorème de
+            Pythagore, le triangle $ABC$ est rectangle en $A$.
+        \end{exemple}
+        \begin{exemple}Quel est la nature du triangle \textsf{FGH} ?
+            \begin{center}
+                \begin{tikzpicture}[scale=.7]
+                    \def\ef{5}\def\fg{6}
+                    \def\eh{9}\def\hg{8}
+                    \coordinate[label=below left:{E}](E)at(0,0);
+                    \coordinate[label=below right:{F}](F)at(\ef,0);
+                    \path(E)--(F)--([turn]54.3:\fg)coordinate[label=right:{G}](G);
+                    \coordinate[label=above:{H}](H)at(0,9);
+                    \tkzMarkRightAngle[size=.5](F,E,H)
+                    \draw(E)--(F)--(G)--(H)--cycle;
+                    \draw(H)--(F);
+                    \path(E)--(F)node[below, midway, sloped]{\ef\;cm};
+                    \path(F)--(G)node[above, midway, sloped]{\fg\;cm};
+                    \path(E)--(H)node[above, midway, sloped]{\eh\;cm};
+                    \path(H)--(G)node[above, midway, sloped]{\hg\;cm};
+                \end{tikzpicture}
+            \end{center}
+
+            \begin{tblr}{
+                colspec={Q[l,t,wd=.45\linewidth]|Q[l,t,wd=.45\linewidth]}
+            }
+            On calcule le carré du côté le plus long du triangle $ABC$:%
+            \par\vspace{5pt}
+            Le triangle \textsf{EFH} est rectangle en \textsf{E}. D'après le théorème de Pythagore
+            \par\vspace{15pt}
+            $\begingroup\renewcommand{\arraystretch}{1.3}
+            \begin{array}{ccccc}
+                HF^2&=&EF^2&+&EH^2\\
+                &=&5^2&+&9^2\\
+                &=&&106&
+            \end{array}\endgroup
+            $
+            &
+            On calcule la somme du carré des deux autres côtés:\par\vspace{15pt}
+            $\begingroup\renewcommand{\arraystretch}{1.3}
+            \begin{array}{cccc}
+                &FG^2&+&GH^2\\
+                =&6^2&+&8^2\\
+                =&36&+&64\\
+                =&&100&
+            \end{array}\endgroup
+            $
+            \end{tblr}
+            \par\vspace{10pt}
+            Donc $\textsf{FH}^2\neq\textsf{FG}^2+\textsf{GH}^2$.
+            \par\vspace{10pt}
+            D'après le théorème de Pythagore, le triangle \textsf{FGH} n'est pas rectangle.
+        \end{exemple}
+\end{document}

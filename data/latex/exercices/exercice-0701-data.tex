@@ -1,0 +1,100 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\usepackage{tabularray}
+\startdatakeys
+\source{25GENMATAA1}
+\cycle{4}
+\competencesDuSocle{CA,RA}
+\connaissancesRequises{A2d*,C1c1,C1c3,C1d*}
+\competencesTravaillees{A2e1,A2g*,C1a*}
+\enddatakeys
+\begin{document}%
+    \textbf{PARTIE A :}\par\medskip\noindent
+    Un magasin a reçu 650 poissons dont 350 poissons de type A et 300 poissons
+    de type B. La responsable du magasin souhaite vendre ces poissons par lots
+    de sorte que~:
+    \begin{itemize}
+        \item le nombre de poissons de type A soit le même dans chaque lot~;
+        \item le nombre de poissons de type B soit le même dans chaque lot~;
+        \item tous les poissons soient répartis dans les lots.
+    \end{itemize}
+    \begin{enumerate}
+        \item Parmi les trois propositions suivantes, laquelle correspond à la
+        décomposition en produits de facteurs premiers du nombre 300~?
+        \textit{Aucune justification n'est demandée}\par\medskip\noindent
+        \begin{tblr}{colspec={*{3}{Q[c,m,wd=100pt]}},vlines}
+            \hline
+            Proposition 1&Proposition 2&Proposition 3\\
+            $2^2\times5\times15$&$2\times2\times3\times25$&$2^2\times3\times5^2$\\
+            \hline
+        \end{tblr}
+        \item Donner la décomposition en produit de facteurs premiers du nombre 350.
+        \item Quel nombre maximal de lots, la responsable du magasin pourra-t-elle
+        constituer~?
+        \item Dans ce cas, combien y aura-t-il de poissons de chaque type dans chaque
+        lot~?
+    \end{enumerate}
+    \textbf{PARTIE B :}\par\medskip\noindent
+    Le magasin a d'autres poissons, appelés \guillemets{poissons combattants}.
+    \begin{enumerate}
+        \item En captivité, il faut prévoir au moins 15 litres d'eau pour un
+        poisson. Sachant qu'un aquarium se remplit au $\dfrac45$ de sa hauteur,
+        lequel doit-on choisir pour un poisson combattant~?\par\smallskip\noindent
+    \begin{minipage}{.5\linewidth}
+        \begin{tblr}{%
+                colspec=*{2}{Q[c,m,wd=125pt]},
+                vlines,row{1,3}={font=\bfseries},cell{4}{2}={l}
+                }
+            \hline
+            Aquarium 1&Aquarium 2\\
+            \begin{tikzpicture}
+                \def\Rx{1.5}
+                \def\Ry{0.5}
+                \def\H{2}
+                \draw[thick] (0,\H) ellipse (\Rx cm and \Ry cm);
+                \draw[thick] (-\Rx,0) -- (-\Rx,\H);
+                \draw[thick] (\Rx,0) -- (\Rx,\H);
+                \draw[dotted] (\Rx,0) arc (0:180:\Rx cm and \Ry cm);
+                \draw[thick] (-\Rx,0) arc (180:360:\Rx cm and \Ry cm);
+            \end{tikzpicture}
+            &
+            \begin{tikzpicture}[yscale=1.2]
+                \def\L{2}
+
+                \draw[dotted] (0,0,0) -- (\L,0,0);
+                \draw[dotted] (0,0,0) -- (0,\L,0);
+                \draw[dotted] (0,0,0) -- (0,0,\L);
+        
+                \draw[thick] (0,0,\L) -- (\L,0,\L) -- (\L,\L,\L) -- (0,\L,\L) -- cycle;
+                \draw[thick] (\L,0,0) -- (\L,0,\L);
+                \draw[thick] (\L,\L,0) -- (\L,\L,\L);
+                \draw[thick] (0,\L,0) -- (0,\L,\L);
+                \draw[thick] (0,\L,0) -- (\L,\L,0) -- (\L,0,0);
+            \end{tikzpicture}
+            \\
+            Cylindre&Pavé droit\\
+            Diamètre de la base : 30 cm\par
+            Hauteur : 25 cm
+            &
+            Longueur : 28 cm\par
+            Largeur : 28 cm\par
+            Hauteur 30 cm\\
+            \hline
+        \end{tblr}
+    \end{minipage}\hskip10pt
+    \begin{minipage}{.4\linewidth}
+        {\centering\Large\textbf{Rappels}\par}
+        \bigskip
+        Le volume d'un pavé droit est donné par la formule~:
+        $$V = \text{Longueur}\times\text{Largeur}\times\text{Hauteur}$$
+        Le volume d'un cylindre de rayon de la base $r$ est donné par la formule~:
+        $$V=\pi\times r^2\times\text{Hauteur}$$
+        $$1\text{ dm}^3=1\text{ L}$$
+    \end{minipage}\par
+        \item Le prix d'un poisson combattant est de 15 \euro. Une famille
+        achète un poisson combattant et un aquarium. L'aquarium coûte 40 \euro.
+        Le vendeur fait une réduction de 15\% sur le prix total. Combien va
+        payer la famille~?
+    \end{enumerate}
+    \showthesource
+\end{document}

@@ -1,0 +1,115 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\usepackage{enumitem}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\textbf{Définitions:}
+\begin{enumerate}[label=$ $]
+    \item On dit qu'un angle est \textbf{aigu} s'il est plus petit qu'un angle droit.
+    \item On dit qu'un angle est \textbf{plat} s'il ses côtés forment une ligne droite.
+    \item On dit qu'un angle est \textbf{obtus} s'il est plus grand qu'un angle droit et plus petit qu'un angle plat.
+\end{enumerate}
+\rule{\textwidth}{0.4pt}
+Pour chacun des angles ci-dessous, indiquer s'il est aigu, droit, obtus ou plat.
+\begin{enumerate}[label=$ $]
+    \begin{minipage}[t]{.45\linewidth}
+    \item\hspace{1cm}
+    \begin{center}
+    \begin{tikzpicture}
+    \Angle[
+    angle = 80,
+    color=Rainbow1-violet,
+    right side len = 2,
+    left side len = 3,
+    angle size = .8,
+    ]
+    \end{tikzpicture}\\
+    \vspace{.5cm}\hdashrule{.5\linewidth}{.5pt}{2pt}\vspace{1cm}
+    \end{center}
+    \end{minipage}%
+    \hspace{.04\linewidth}
+    \begin{minipage}[t]{.5\linewidth}
+    \item\hspace{1cm}
+    \begin{center}
+    \begin{tikzpicture}[rotate=80]
+    \Angle[
+    angle = 160,
+    color=Rainbow1-orange,
+    right side len = 1.5,
+    left side len = 1.5,
+    angle size = .5,
+    ]
+    \end{tikzpicture}\\
+    \vspace{.5cm}\hdashrule{.5\linewidth}{.5pt}{2pt}\vspace{1cm}
+    \end{center}
+    \end{minipage}
+    \begin{minipage}[t]{.45\linewidth}
+    \item\hspace{1cm}
+    \begin{center}
+    \begin{tikzpicture}[rotate=10]
+    \Angle[
+    angle = 180,
+    color=Rainbow1-rouge,
+    right side len = 2,
+    left side len = 2,
+    angle size = .8,
+    ]
+    \end{tikzpicture}\\
+    \vspace{.5cm}\hdashrule{.5\linewidth}{.5pt}{2pt}\vspace{1cm}
+    \end{center}
+    \end{minipage}\hspace{.09\linewidth}
+    \begin{minipage}[t]{.45\linewidth}
+    \item\hspace{1cm}
+    \begin{center}
+    \begin{tikzpicture}[rotate=50, scale=.8]
+    \Angle[
+    angle = 105,
+    color=Rainbow1-bleu,
+    right side len = 3,
+    left side len = 2.5,
+    angle size = .8,
+    ]
+    \end{tikzpicture}\\
+    \vspace{.5cm}\hdashrule{.5\linewidth}{.5pt}{2pt}\vspace{1cm}
+    \end{center}
+    \end{minipage}
+    \begin{minipage}[t]{.45\linewidth}
+    \item\hspace{1cm}
+    \begin{center}
+    \begin{tikzpicture}[rotate=200]
+    \Angle[
+    angle = 20,
+    color=Rainbow1-vert,
+    right side len = 3,
+    left side len = 3,
+    angle size = 1,
+    ]
+    \end{tikzpicture}\\
+    \vspace{.5cm}\hdashrule{.5\linewidth}{.5pt}{2pt}\vspace{1cm}
+    \end{center}
+    \end{minipage}\hspace{.05\linewidth}
+    \begin{minipage}[t]{.45\linewidth}
+    \item\hspace{1cm}
+    \begin{center}
+    \begin{tikzpicture}[rotate=200, scale=.7]
+    \Angle[
+    angle = 90,
+    color=\mainbgcolor,
+    right side len = 3,
+    left side len = 3,
+    angle size = 1,
+    no mark=0%
+    ]
+    \tkzMarkRightAngle[size=.5](B,A,C)
+    \end{tikzpicture}\\
+    \vspace{.5cm}\hdashrule{.5\linewidth}{.5pt}{2pt}\vspace{1cm}
+    \end{center}
+    \end{minipage}
+\end{enumerate}
+\end{document}

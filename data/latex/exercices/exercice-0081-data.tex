@@ -1,0 +1,30 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!S3coord=0,1;%
+\!S1coord=-3,0;%
+\!S5coord=3,0;%
+\!S6coord=0,-3;%
+\begin{flushleft}
+    Calculer le périmètre du polygone \<S1;\<S2;\<S3;\<S4;\<S5;\<S6;.\par
+    On donnera un arrondi au dixième du résultat.
+\end{flushleft}\hspace{0.03\linewidth}
+\begin{center}
+    \begin{tikzpicture}[scale=0.7]
+        \draw[line width=0.5 pt](-4,-4)grid(4,4);
+        \coordinate[label=above:\<S3;](S3)at(\<S3coord;);
+        \coordinate[label=below:\<S6;](S6)at(\<S6coord;);
+        \coordinate[label=left:\<S1;](S1)at(\<S1coord;);
+        \coordinate[label=\<S2;](S2)at(-2,2);
+        \coordinate[label=above:\<S4;](S4)at(2,2);
+        \coordinate[label=right:\<S5;](S5)at(\<S5coord;);
+        \draw(S1)--(S2)--(S3)--(S4)--(S5)--(S6)--cycle;
+    \end{tikzpicture}
+\end{center}
+\end{document}

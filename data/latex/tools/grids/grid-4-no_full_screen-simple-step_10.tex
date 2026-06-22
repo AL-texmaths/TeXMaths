@@ -1,0 +1,19 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \def\scale{0.25}
+    \def\gridL{16}
+    \def\gridH{9}
+    \coordinate(A0)at(-\gridL,-\gridH);
+    \coordinate(A1)at(-\gridL*\scale,-\gridH*\scale);
+    \coordinate(B0)at(\gridL,\gridH);
+    \coordinate(B1)at(\gridL*\scale,\gridH*\scale);
+    \draw[white](A0)rectangle(B0);
+    \draw(A1)[line width=0.5pt,step=0.1]grid(B1);
+\end{tikzpicture}
+
+\end{document}

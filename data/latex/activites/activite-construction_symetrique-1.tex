@@ -1,0 +1,53 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}\def\constructionSymetriqueScale{2}
+    \begin{enumerate}
+        \item Construire les symétriques \textsf{A'}, \textsf{B'}, \textsf{C'} des points \textsf{A}, \textsf{B} et
+        \textsf{C} par rapport à \textsf{(d)}.
+        \begin{center}
+            \begin{tikzpicture}[scale=\constructionSymetriqueScale,xscale=0.75,rotate=-30]
+                \coordinate(A)at(2,0);
+                \coordinate(B)at(5,2);
+                \coordinate(C)at(4,2.56);
+                \draw[line width=1pt,color=red](0,3)--(9,2);
+                \draw[color=red]node[above]at(0,3){\large$(d)$};
+                \foreach\point in{A,B,C}{
+                    \draw node at(\point){$\times$};
+                    \draw node[below left]at(\point){$\point$};
+                }
+                \draw node at(0,5){\color{white}a};
+            \end{tikzpicture}
+        \end{center}\newpage
+        \item Construire le symétrique de [\textsf{XY}] par rapport à (d).
+        \begin{center}
+            \begin{tikzpicture}[scale=\constructionSymetriqueScale]
+                \coordinate(X)at(1,1);
+                \coordinate(Y)at(4,0);
+                \draw[line width=1pt,color=red](0,3)--(5,2);\draw[color=red]node[above]at(0,3){\large$(d)$};
+                \draw[line width=1pt, color=blue](X)--(Y);
+                \foreach\point in{X, Y}{
+                \draw node at(\point){$\times$};
+                \draw node[below left]at(\point){$\point$};
+                }
+                \draw node at(0,5){\color{white}};
+            \end{tikzpicture}
+        \end{center}\newpage
+        \item Construire l'image de la droite (e) par la symétrie axiale
+        d'axe \textsf{(d)}.
+        \begin{center}
+            \begin{tikzpicture}[scale=\constructionSymetriqueScale,xscale=0.9]
+                \coordinate(X)at(1,1);
+                \coordinate[label=above right:(e)](Y)at(6,0);
+                \draw[line width=1pt,color=red](0,3)--(5,-2);\draw[color=red]node[above]at(0,3){\large$(d)$};
+                \draw[line width=1pt, color=blue](X)--(Y);
+                \draw node at(0,5){\color{white}a};
+            \end{tikzpicture}
+        \end{center}
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,24 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+À vue d'\oe il, déterminer la nature des angles codés sur la figure ci
+dessous.\vskip15pt\noindent
+\begin{tikzpicture}
+    \coordinate[label=below:A](A)at(-100:1);
+    \coordinate[label=below left:B](B)at(-30:2);
+    \coordinate[label=above:C](C)at(85:1);
+    \coordinate[label=left:D](D)at(170:1.8);
+    \tkzFillAngle[fill=Rainbow1-rouge,size=0.5](B,A,D)
+    \tkzFillAngle[fill=Rainbow1-bleu,size=0.5](C,B,A)
+    \tkzFillAngle[fill=Rainbow1-orange,size=0.5](D,C,B)
+    \tkzFillAngle[fill=Rainbow1-vert,size=0.5](A,D,C)
+    \draw[line width=1pt](A)--(B)--(C)--(D)--cycle;
+\end{tikzpicture}
+\end{document}

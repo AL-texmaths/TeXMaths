@@ -1,0 +1,22 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Simon note le temps qu'il met pour télécharger des fichiers sur son
+ordinateur en fonction de leur taille.\vskip10pt
+\begin{tblr}{%
+        colspec={Q[m,wd=80pt]*3{Q[c,m,wd=30pt]}},
+        column{1}={font=\bfseries,bg=gray!25!white},
+        hlines,
+        vlines}
+    Taille du fichier {\normalfont( en Mo)}&2&4&10\\
+    Temps de téléchargement {\normalfont( en s)}&18&36&90
+\end{tblr}\vskip10pt\noindent
+Le temps de téléchargement est-il proportionnel à la taille du ficher~? Justifier la réponse.
+\end{document}

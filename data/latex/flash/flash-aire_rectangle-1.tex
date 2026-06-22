@@ -1,0 +1,93 @@
+\documentclass[17pt]{flash}
+\usepackage{texmaths-tikz}
+\def\figureA{%
+    \begin{tikzpicture}[font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(O)at(0,0);
+        \coordinate(S0)at(30:\rectScale);
+        \coordinate(S1)at(150:\rectScale);
+        \coordinate(S2)at(-150:\rectScale);
+        \coordinate(S3)at(-30:\rectScale);
+        \draw(S2)rectangle(S0);
+        \tkzMarkRightAngle[colored](S0,S1,S2)
+        \tkzMarkRightAngle[colored](S1,S2,S3)
+        \tkzMarkRightAngle[colored](S2,S3,S0)
+        \tkzMarkRightAngle[colored](S3,S0,S1)
+        \path(S2)--(S3)node[below, midway, sloped]{8 cm};
+        \path(S0)--(S3)node[above, midway, sloped]{6 cm};
+    \end{tikzpicture}
+}
+
+\def\figureB{%
+    \begin{tikzpicture}[font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(O)at(0,0);
+        \coordinate(S0)at(30:\rectScale);
+        \coordinate(S1)at(150:\rectScale);
+        \coordinate(S2)at(-150:\rectScale);
+        \coordinate(S3)at(-30:\rectScale);
+        \draw(S2)rectangle(S0);
+        \tkzMarkRightAngle[colored](S0,S1,S2)
+        \tkzMarkRightAngle[colored](S1,S2,S3)
+        \tkzMarkRightAngle[colored](S2,S3,S0)
+        \tkzMarkRightAngle[colored](S3,S0,S1)
+        \path(S2)--(S3)node[below, midway, sloped]{7 m};
+        \path(S0)--(S3)node[above, midway, sloped]{9 m};
+    \end{tikzpicture}
+}
+
+\def\figureC{%
+    \begin{tikzpicture}[font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(O)at(0,0);
+        \coordinate(S0)at(30:\rectScale);
+        \coordinate(S1)at(150:\rectScale);
+        \coordinate(S2)at(-150:\rectScale);
+        \coordinate(S3)at(-30:\rectScale);
+        \draw(S2)rectangle(S0);
+        \tkzMarkRightAngle[colored](S0,S1,S2)
+        \tkzMarkRightAngle[colored](S1,S2,S3)
+        \tkzMarkRightAngle[colored](S2,S3,S0)
+        \tkzMarkRightAngle[colored](S3,S0,S1)
+        \path(S2)--(S3)node[below, midway, sloped]{12 dm};
+        \path(S0)--(S3)node[above, midway, sloped]{0,2 m};
+    \end{tikzpicture}
+}
+
+\def\figureD{%
+    \begin{tikzpicture}[font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(O)at(0,0);
+        \coordinate(S0)at(45:\rectScale);
+        \coordinate(S1)at(135:\rectScale);
+        \coordinate(S2)at(-135:\rectScale);
+        \coordinate(S3)at(-45:\rectScale);
+        \draw(S2)rectangle(S0);
+        \tkzMarkRightAngle[colored](S0,S1,S2)
+        \tkzMarkRightAngle[colored](S1,S2,S3)
+        \tkzMarkRightAngle[colored](S2,S3,S0)
+        \tkzMarkRightAngle[colored](S3,S0,S1)
+        \path(S0)--(S3)node[above right, midway]{9 m};
+        \tkzMarkSegments[mark=s||, colored](S1,S2 S2,S3 S3,S0 S0,S1)
+    \end{tikzpicture}
+}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Calcul mental : aire d'un rectangle}
+\FlashShowConsignes{%
+        \item Calculer mentalement l'aire des rectangles suivants.
+        \item Écrire le résultat.
+}
+\def\figScale{1}
+\def\rectScale{3}
+\AtCorrection{\def\figScale{0.5}}
+\flashlist{
+    \flashitem{15}{\figureA}
+    \flashitem{15}{\figureB}
+    \flashitem{15}{\figureC}
+    \flashitem{15}{\figureD}
+}
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{flushleft}
+    Compléter le tableau suivant.
+\end{flushleft}
+\begin{tblr}{%
+        colspec={Q[c,m]Q[c,m]Q[c,m]},
+        rows={rowsep=2pt},
+        row{1}={font=\bfseries\small},
+        columns={wd=70pt},
+        column{3}={wd=50pt},
+        hlines,vlines%
+    }
+    Valeur&Notation scientifique&Avec préfixes\\
+    \<calcul1;&&\\
+    \<calcul2;&&\\
+    \<calcul3;&&
+\end{tblr}
+\end{document}

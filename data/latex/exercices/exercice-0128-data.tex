@@ -1,0 +1,46 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{0.49\linewidth}
+    \begin{enumerate}
+        \item Démontrer que les droites $(d_1)$ et $(d_3)$ sont parallèles
+        entre elles.
+        \item Démontrer que les droites $(d_1)$ et $(d_2)$ sont parallèles
+        entre elles.
+        \item Démontrer que les droites $(d_2)$ et $(d_3)$ sont parallèles
+        entre elles.
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}[c]{0.49\linewidth}
+    \begin{center}
+        \begin{tikzpicture}[rotate=-30, scale=0.6, font=\sf]
+            \coordinate(d10)at(0,0);
+            \coordinate[label=above right:$(d_1)$](d11)at(5,0);
+            \coordinate(d30)at(0,2);
+            \coordinate[label=above right:$(d_3)$](d31)at(5,2);
+            \coordinate(d20)at(0,5);
+            \coordinate[label=above right:$(d_2)$](d21)at(5,5);
+            \draw(d10)--(d11);
+            \draw(d20)--(d21);
+            \draw(d30)--(d31);
+            \path(d10)--(d11)coordinate[pos=0.8](A0);
+            \path(d30)--(d31)coordinate[pos=0.8](A1);
+            \path(d30)--(d31)coordinate[pos=0.3](B0);
+            \path(d20)--(d21)coordinate[pos=0.3](B1);
+            \draw(A0)--(A1);
+            \draw(B0)--(B1);
+            \tkzMarkRightAngle(A1,A0,d11)
+            \tkzMarkRightAngle(d31,A1,A0)
+            \tkzMarkRightAngle(B1,B0,A1)
+            \tkzMarkRightAngle(d21,B1,B0)
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\end{document}

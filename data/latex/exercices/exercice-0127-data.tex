@@ -1,0 +1,33 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{0.4\linewidth}
+    \begin{enumerate}
+        \item Quelle est la nature du quadrilatère {\sf IJKL}~?.
+        \item Démontrer que les côtés opposés du rectangle {\sf IJKL} sont parallèles
+        deux à deux.
+    \end{enumerate}
+\end{minipage}\hspace{0.18\linewidth}
+\begin{minipage}[c]{0.4\linewidth}
+    \begin{center}
+        \begin{tikzpicture}[rotate=-30, scale=0.5, font=\sf]
+            \coordinate[label=above left:I](I)at(-3,2);
+            \coordinate[label=above right:J](J)at(3,2);
+            \coordinate[label=below right:K](K)at(3,-2);
+            \coordinate[label=below left:L](L)at(-3,-2);
+            \draw(L)rectangle(J);
+            \tkzMarkRightAngle(I,J,K)
+            \tkzMarkRightAngle(J,K,L)
+            \tkzMarkRightAngle(K,L,I)
+            \tkzMarkRightAngle(L,I,J)
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\end{document}

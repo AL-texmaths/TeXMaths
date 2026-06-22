@@ -1,0 +1,60 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\linespread{1.06}
+\startdatakeys
+\source{originale}
+\cycle{4}
+\competencesDuSocle{CA}
+\connaissancesRequises{D2f*}
+\competencesTravaillees{D2d*}
+\enddatakeys
+\begin{document}%
+    Dans chaque cas~:
+    \begin{enumerate}
+        \item repérer l'hypoténuse, le côté adjacent à l'angle colorié et le
+        côté opposé à l'angle colorié~;
+        \item en utilisant les formules de la leçon, calculer le cosinus, le
+        sinus et la tangente de l'angle colorié.
+    \end{enumerate}
+    \par\smallskip\noindent
+        {\bfseries a)\hskip10pt}
+        \begin{tikzpicture}[rotate=20, baseline=(current bounding box.north), realsize]
+            \triangleCAC[A=90,AB=3cm,AC=2cm](B,C,A)
+            \tkzMarkRightAngle[size=0.3,colored](C,B,A)
+            \tkzFillAngle[size=0.8,\currentcolor](B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)node[anchor=south east]{A};
+            \path(B)node[anchor=north east]{B};
+            \path(C)node[anchor=west]{C};
+            \path(A)--(B)node[below left, midway]{3 cm};
+            \path(B)--(C)node[below right, midway]{2 cm};
+            \path(A)--(C)node[above right, midway]{3,6 cm};
+        \end{tikzpicture}
+        \hskip20pt{\bfseries b)\hskip10pt}
+        \begin{tikzpicture}[rotate=120, baseline=(current bounding box.north), realsize]
+            \triangleCAC[A=90,AB=3cm,AC=3cm](B,C,A)
+            \path(A)node[anchor=north east]{A};
+            \path(B)node[anchor=north west]{B};
+            \path(C)node[anchor=south west]{C};
+            \tkzMarkRightAngle[size=0.3,colored](C,B,A)
+            \tkzFillAngle[size=0.8,\currentcolor](B,A,C)
+            \draw(A)--(B)--(C)--cycle;
+            \tkzMarkSegments[mark=s||, colored](B,A B,C)
+            \path(B)--(C)node[above right, midway]{4 cm};
+            \path(A)--(C)node[above left, midway]{4,3 cm};
+        \end{tikzpicture}
+        \hskip20pt{\bfseries c)\hskip10pt}
+        \begin{tikzpicture}[baseline=(current bounding box.north), realsize]
+            \triangleCAC[A=90,AB=2.5cm,AC=5.5cm,rotate=90](B,C,A)
+            \path(A)node[anchor=north east]{A};
+            \path(B)node[anchor=north west]{B};
+            \path(C)node[anchor=south west]{C};
+            \tkzMarkRightAngle[size=0.3, colored](C,B,A)
+            \tkzFillAngle[size=0.8,\currentcolor](A,C,B)
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[below left, midway]{5,5 cm};
+            \path(B)--(C)node[below right, midway]{2,5 cm};
+            \path(A)--(C)node[above left, midway]{6 cm};
+        \end{tikzpicture}
+
+\end{document}

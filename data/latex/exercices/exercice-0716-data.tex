@@ -1,0 +1,204 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{mdframed}%
+\startdatakeys
+    \source{}
+    \BO{2026}
+    \cycle{}
+    \competencesDuSocle{}
+    \objectifsApprentissage{}
+\enddatakeys
+\begin{document}%
+\let\paragraph\relax
+\begin{mdframed}
+    \itshape
+    Pour chaque question, recopier sur la copie son numéro et la réponse correspondante.\\
+    Pour cette partie, aucune justification n'est demandée.\\
+    Pour les questions à choix multiple, une seule réponse est exacte.
+    \end{mdframed}
+
+    \vspace{10pt}
+
+    \paragraph{Question 1}
+    Calculer $A = \dfrac{2}{3} + \dfrac{3}{4}$.
+
+    \vspace{8pt}
+    \paragraph{Question 2}
+    Un article coûte 45\,\euro. Quel sera son prix après une réduction de 10\,\%\,?
+
+    \vspace{8pt}
+    \paragraph{Question 3}
+    Un professeur a dessiné à main levée le quadrilatère ci-dessous avec ses diagonales.\\
+    Que peut-on affirmer à propos de la nature de ce quadrilatère\,?\\
+    Recopier sur la copie la lettre de la bonne réponse.
+
+    \vspace{6pt}
+    %Tikz
+    \begin{center}
+        \begin{tikzpicture}[scale=1.1]
+        % Quadrilatère quelconque avec marques sur les côtés opposés
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (3.2,0.3);
+        \coordinate (C) at (3.5,1.8);
+        \coordinate (D) at (0.4,1.5);
+        % Diagonales
+        \draw (A) -- (B) -- (C) -- (D) -- cycle;
+        \draw (A) -- (C);
+        \draw (B) -- (D);
+        % Marques égalité côtés AB et CD
+        \draw[thick] (1.55,0.13) -- (1.65,0.17);
+        \draw[thick] (1.85,1.65) -- (1.95,1.69);
+        % Marques égalité côtés BC et DA
+        \draw[thick] (3.4,1.05) -- (3.37,1.15);
+        \draw[thick] (0.15,0.78) -- (0.12,0.88);
+        \end{tikzpicture}
+    \end{center}
+    %Fin Tikz
+    %PsTricks
+    \begin{center}
+    % \psset{unit=1.5cm}
+    % \begin{pspicture}(4,2)
+    % \uput[dl](0,0){A}\uput[dr](3.2,0.3){B}\uput[ur](3.5,1.8){C}\uput[ul](0.4,1.5){D}
+    % \def\barre{\psline(-0.05,-0.1)(-0.05,0.1)\psline(0.05,-0.1)(0.05,0.1)}
+    % \rput{30}(1,0.5){\barre}\rput{30}(2.6,1.35){\barre}\rput{-30}(1.1,1.2){\barre}\rput{-30}(2.4,0.65){\barre}
+    % \pslineByHand(0,0)(0.4,1.5)(3.5,1.8)(3.2,0.3)(0,0)
+    % \pslineByHand(0,0)(3.5,1.8)
+    % \pslineByHand(0.4,1.5)(3.2,0.3)
+    % \end{pspicture}
+    \end{center}
+
+    \vspace{6pt}
+    \begin{center}
+    \begin{tabular}{|p{0.19\textwidth}|p{0.19\textwidth}|p{0.19\textwidth}|p{0.25\textwidth}|}
+    \hline
+    \centering\textbf{Réponse A} & \centering\textbf{Réponse B} & \centering\textbf{Réponse C} & \centering\textbf{Réponse D}\tabularnewline
+    \hline
+    \centering C'est un losange & \centering C'est un rectangle & \centering C'est un carré &
+    \centering Ce n'est ni un losange, ni un rectangle\tabularnewline
+    \hline
+    \end{tabular}
+    \end{center}
+
+    \vspace{8pt}
+    \paragraph{Question 4}
+    Résoudre l'équation $5x - 15 = 20$.
+
+    \medskip
+
+    \paragraph{Question 5}
+    Dans le repère ci-contre, on a placé deux points A et B.
+
+    \medskip
+    \begin{minipage}{0.45\textwidth}
+    \begin{enumerate}
+        \item Quelle est l'abscisse du point A\,?
+        \item Quelles sont les coordonnées du point B\,?
+    \end{enumerate}
+    \end{minipage}\hfill
+    \begin{minipage}{0.52\textwidth}
+    \begin{center}
+    %Tikz
+    \begin{tikzpicture}[scale=0.65]
+        \begin{axis}[
+        axis lines=center,
+        xmin=-5.5, xmax=3.5,
+        ymin=-3.5, ymax=3.5,
+        xtick={-5,-4,...,3},
+        ytick={-3,-2,...,3},
+        tick label style={font=\small},
+        xlabel={},ylabel={},
+        grid=both,
+        grid style={line width=0.3pt, draw=gray!40},
+        width=7.5cm, height=7.5cm,
+        ]
+        \addplot[only marks, mark=x, mark size=3pt, thick] coordinates {(-2,2)};
+        \node[above left, font=\small] at (axis cs:-2,2) {A};
+        \addplot[only marks, mark=x, mark size=3pt, thick] coordinates {(-2,-1)};
+        \node[below right, font=\small] at (axis cs:-2,-1) {B};
+        \end{axis}
+    \end{tikzpicture}
+    %fin Tikz
+    %PSTricks
+    % \psset{unit=1cm,arrowsize=2pt 3}
+    % \begin{pspicture}(-4.1,-3.1)(3.1,3.1)
+    % \psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle]{->}(0,0)(-4.1,-3.1)(3.1,3.1)
+    % \psgrid[subgriddiv=1,gridlabels=0pt,gridwidth=0.15pt](-4.,-3.)(3.,3.)
+    % \psdots(-2,2)(-2,-1)
+    % \uput[l](-2,2){A}\uput[l](-2,-1){B}
+    % \end{pspicture}
+    %Fin PSTricks
+    \end{center}
+    \end{minipage}
+
+    \vspace{10pt}
+    \paragraph{Question 6}
+    Voici une série de nombres : 8 ; 19 ; 12 ; 3 ; 12 ; 25 ; 3 ; 11 ; 1.\\
+    Déterminer la médiane de cette série.
+
+    \vspace{8pt}
+    \paragraph{Question 7}
+    On considère un triangle ABC rectangle en A tel que :
+    \begin{itemize}
+    \item BC $= 5$ cm
+    \item $\widehat{\text{ABC}} = 60^\circ$.
+    \end{itemize}
+    Recopier sur la copie la formule qui permet d'obtenir la longueur AB.
+
+    \vspace{6pt}
+    \begin{minipage}{0.45\textwidth}
+    \begin{center}
+    \begin{tabular}{|c|c|}
+    \hline
+    $5 \times \sin(60)$ & $5 \times \cos(60)$ \\
+    \hline
+    $5 \div \sin(60)$ & $5 \div \cos(60)$ \\
+    \hline
+    \end{tabular}
+    \end{center}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.50\textwidth}
+    \begin{center}
+    %Tikz
+    \begin{tikzpicture}[scale=1.0]
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (2.5,0);
+    \coordinate (C) at (0,2.5);
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    % Angle droit en A
+     \draw (0.25,0) -- (0.25,0.25) -- (0,0.25);
+     % Angle 60° en B
+     \node[below right] at (B) {$60°$};
+     % Labels
+     \node[below left] at (A) {A};
+     \node[below right, xshift=2pt] at (B) {};
+     \node[below] at (B) {B};
+     \node[above left] at (C) {C};
+     % mesure BC
+     \node[right] at ($(B)!0.5!(C)$) {$5$ cm};
+    \end{tikzpicture}
+    %Fin Tikz
+    %PSTricks
+    % \psset{unit=1cm,arrowsize=2pt 3}
+    % \begin{pspicture}(7,4.5)
+    % \pspolygon(2.6,0.8)(4.5,0.8)(2.6,4)%ABC
+    % \uput[dl](2.6,0.8){A}\uput[dr](4.5,0.8){B}\uput[l](2.6,4){C}
+    % \psarc(4.5,0.8){0.4cm}{120}{180}\psframe(2.6,0.8)(2.8,1)
+    % \uput[ul](4.1,1){$60\degres$}\uput[ur](3.55,2.4){5 cm}
+    % \rput(3.5,0.1){\small\emph{La figure n'est pas représentée en vraie grandeur}}
+    % \end{pspicture}
+    %Fin PSTricks
+    \vspace{4pt}
+
+    \end{center}
+    \end{minipage}
+
+    \vspace{10pt}
+    \paragraph{Question 8}
+    Donner un diviseur de 387 autre que 1 et lui-même.
+
+    \vspace{20pt}
+    \begin{center}
+    \textbf{Restitution de la copie du candidat à l'issue de la partie 1}
+    \end{center}
+\end{document}

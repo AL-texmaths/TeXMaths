@@ -1,0 +1,53 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{enumerate}
+        \item Calculer l'aire du rectangle ABCD de deux manières différentes.
+        \begingroup\centering
+        \begin{tikzpicture}[scale=2]
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=above right:C](C)at(3,2);
+            \coordinate[label=above left:D](D)at(0,2);
+            \coordinate(E1)at(2,0);
+            \coordinate(E2)at(2,2);
+            \coordinate(F1)at(0,0.5);
+            \coordinate(F2)at(3,0.5);
+            \draw(A)--(B)--(C)--(D)--cycle;
+            \draw(E1)--(E2);
+            \draw(F1)--(F2);
+            \draw(A)--(E1)node[pos=0.5,below]{4cm};
+            \draw(E1)--(B)node[pos=0.5,below]{2cm};
+            \draw(B)--(F2)node[pos=0.5,right]{1 cm};
+            \draw(F2)--(C)node[pos=0.5,right]{3 cm};
+        \end{tikzpicture}\par\vskip50pt\endgroup
+        \item%
+        Écrire deux expressions littérales donnant l'aire du rectangle ABCD
+        ci-dessous.\vskip30pt
+        \begingroup\centering
+        \begin{tikzpicture}[scale=2]
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(3,0);
+            \coordinate[label=above right:C](C)at(3,2);
+            \coordinate[label=above left:D](D)at(0,2);
+            \coordinate(E1)at(2,0);
+            \coordinate(E2)at(2,2);
+            \coordinate(F1)at(0,0.5);
+            \coordinate(F2)at(3,0.5);
+            \draw(A)--(B)--(C)--(D)--cycle;
+            \draw(E1)--(E2);
+            \draw(F1)--(F2);
+            \draw(A)--(E1)node[pos=0.5,below]{a};
+            \draw(E1)--(B)node[pos=0.5,below]{b};
+            \draw(B)--(F2)node[pos=0.5,right]{c};
+            \draw(F2)--(C)node[pos=0.5,right]{d};
+        \end{tikzpicture}\par\vskip50pt\endgroup
+        \item En déduire une formule liant les nombres a, b, c et d.
+    \end{enumerate}
+\end{document}

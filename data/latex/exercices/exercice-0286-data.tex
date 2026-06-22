@@ -1,0 +1,30 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-boxes}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Compléter les phrases suivantes en observant la figure.\par\medskip
+{\centering\begin{tikzpicture}[scale=0.5]
+    \draw(-5,0)--(5,0);
+    \draw(0,-5)--(0,5);
+    \draw node[above right] at(0,5){$(d_1)$};
+    \draw node[above right] at(5,0){$(d_2)$};
+    \draw(-2,1)--(-1,2)--(-2,3)--(-3,2)--cycle;
+    \draw node at(-2,2){\circled{1}};
+    \draw(2,1)--(1,2)--(2,3)--(3,2)--cycle;
+    \draw node at(2,2){\circled{2}};
+    \draw(-2,-1)--(-1,-2)--(-2,-3)--(-3,-2)--cycle;
+    \draw node at(-2,-2){\circled{3}};
+    \draw(2,-1)--(1,-2)--(2,-3)--(3,-2)--cycle;
+    \draw node at(2,-2){\circled{4}};
+\end{tikzpicture}\par}\bigskip
+Les figures \circled{1} et \circled{3} sont symétriques \ncar{50}.\par\smallskip
+Les figures \circled{2} et \circled{4} sont symétriques \ncar{50}.\par\smallskip
+Les figures \circled{3} et \circled{4} sont symétriques \ncar{50}.\par\smallskip
+Les figures \circled{2} et \circled{1} sont symétriques \ncar{50}.
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+    Nommer les angles ci-dessous de deux manières différentes.
+    \vskip10pt\noindent
+    \begin{tikzpicture}[scale=0.5]
+        \AnglexOy[
+            sommet name=\<S1;,
+            right side name=\<r1;,
+            left side name=\<l1;,
+            color=Rainbow1-bleu,
+            angle=105%
+        ]
+    \end{tikzpicture}\hskip30pt
+    \begin{tikzpicture}[scale=0.5,rotate=80]
+        \AnglexOy[
+            sommet name=\<S2;,
+            right side name=\<r2;,
+            left side name=\<l2;,
+            left side pos=below left,
+            right side pos=right,
+            color=Rainbow1-vert,
+            angle=75%
+        ]
+    \end{tikzpicture}\vskip10pt
+    \begin{tikzpicture}[scale=0.5,rotate=15]
+        \AngleAOB[
+            sommet name=\<S3;,
+            right side name=\<r3;,
+            left side name=\<l3;,
+            left side pos=below left,
+            color=Rainbow1-orange,
+            angle=95%
+        ]
+    \end{tikzpicture}\hskip30pt
+    \begin{tikzpicture}[scale=0.6,rotate=15]
+        \AngleAOB[
+            sommet name=\<S4;,
+            right side name=\<r4;,
+            left side name=\<l4;,
+            left side pos=above left,
+            right side pos=below right,
+            color=Rainbow1-rouge,
+            angle=25%
+        ]
+    \end{tikzpicture}
+\end{document}

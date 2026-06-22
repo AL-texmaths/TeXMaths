@@ -1,0 +1,31 @@
+\documentclass{diapo}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesTravaillees{}
+\connaissancesRequises{}
+\enddatakeys
+\begin{document}
+\def\theframetitle{Introduction aux équations}
+\long\def\framecontent#1#2{%
+\begin{frame}\frametitle\theframetitle
+    {\centering\LARGE VRAI ou FAUX ?\par}
+    {\Huge $$#1$$\par}\pause
+    {\vskip20pt\centering\LARGE\color{vscode-crimson} #2}
+\end{frame}}
+    \framecontent{2+3=5}{Cette égalité est VRAIE~!}
+    \framecontent{3\times2=1}{Cette égalité est FAUSSE~!}
+    \framecontent{5^2=100\div4}{Cette égalité est VRAIE~!}
+    \framecontent{2+x=5}{Cela dépend de la valeur de $x$~!}
+    \framecontent{2+{\color{vscode-crimson}2}=5}{FAUX~!}
+    \framecontent{2+{\color{vscode-crimson}3}=5}{VRAI~!}
+    \begin{frame}
+        \frametitle\theframetitle
+        {\Huge$$2+x=5$$}%
+        {\noindent\Large\normalfont La valeur de $x$ pour laquelle l'égalité est vraie
+        est appelée {\bfseries\color{vscode-crimson} solution}\medskip\par\noindent
+        {\bfseries\color{vscode-crimson} Résoudre} une équation, c'est trouver
+        {\bfseries\color{vscode-crimson} toutes les solutions possibles !}\medskip\par\noindent
+        Ici, l'équation possède une seule solution : $x=3$.}
+    \end{frame}
+\end{document}

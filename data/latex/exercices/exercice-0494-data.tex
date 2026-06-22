@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Sur la figure ci-dessous~:
+\begin{enumerate}
+    \item Placer B tel que B$\in$[Ax).
+    \item Placer C tel que C$\in$[Ay) et AB = AC.
+    \item Placer D tel que DCB est équilatéral.
+    \item Tracer [DA].
+    \item Démontrer que les angles $\widehat{\text{BAD}}$ et $\widehat{\text{DAC}}$
+    sont égaux.
+\end{enumerate}
+\begin{center}
+    \begin{tikzpicture}[rotate=200,scale=1.25]
+        \coordinate[label=above:A](A)at(0,0);
+        \coordinate[label=above left:x](x)at(0:5);
+        \coordinate[label=below left:y](y)at(40:5);
+        \draw(A)--(x);
+        \draw(A)--(y);
+    \end{tikzpicture}
+\end{center}
+\end{document}

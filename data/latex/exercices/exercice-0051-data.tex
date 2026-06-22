@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\smallskip\par\noindent Les points \textsf{\<S1;},\textsf{\<S4;} et
+\textsf{\<S3;} sont alignés.
+\begin{center}
+    \begin{tikzpicture}[scale=0.5]
+        \coordinate[label=below right:\<S4;](S4)at(0,0);
+        \coordinate[label=below left:\<S1;](S1)at(-2.4,0);
+        \coordinate[label=below right:\<S3;](S3)at(6,0);
+        \coordinate[label=above:\<S2;](S2)at(0,3.2);
+        \draw(S1)--(S2)--(S3)--cycle;
+        \draw(S4)--(S2);
+        \path(S1)--(S2)node[pos=0.5,above,sloped]{\small\<L1;};
+        \path(S2)--(S3)node[pos=0.5,above,sloped]{\small\<L2;};
+        \path(S1)--(S4)node[pos=0.5,below,sloped]{\small\<L3;};
+        \path(S4)--(S2)node[pos=0.5,below,sloped]{\small\<L4;};
+    \end{tikzpicture}
+\end{center}
+Le triangle \textsf{\<S1;\<S2;\<S3;} est-il rectangle ?
+\end{document}

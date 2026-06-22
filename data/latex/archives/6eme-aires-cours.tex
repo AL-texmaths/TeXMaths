@@ -1,0 +1,184 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \part{Unités d'aires}
+    \definition{unite_de_surface}
+    \begin{exemple}Convertir les unités d'aire suivantes:
+        \begin{enumerate}[a), font=\bfseries]
+            \begin{multicols}{2}
+                \item 7 m$^2$ = \textcolor{red}{$70\,000$ cm$^2$}
+                \item 3,6 hm$^2$ = \textcolor{red}{360 dam$^2$}
+                \columnbreak
+                \item 137,01 cm$^2$ = \textcolor{red}{0,013701 m$^2$}
+                \item 0,12 dm$^2$ = \textcolor{red}{12 cm$^2$}
+            \end{multicols}
+        \end{enumerate}
+        \begin{center}
+            \exported[scale=1,lmargin=30,vmargins=30]%
+            <<
+                \begin{tblr}{
+                    colspec={*{14}{Q[c,m,wd=15pt]}},
+                    cell{1}{1}={c=2}{c},
+                    cell{1}{3}={c=2}{c},
+                    cell{1}{5}={c=2}{c},
+                    cell{1}{7}={c=2}{c},
+                    cell{1}{9}={c=2}{c},
+                    cell{1}{11}={c=2}{c},
+                    cell{1}{13}={c=2}{c},
+                    vlines,
+                    row{1}={20pt},
+                    row{2-6}={fg=red,ht=18pt}
+                }
+                \hline
+                \toComplete{km$^2$}&&\toComplete{hm$^2$}&&\toComplete{dam$^2$}
+                &&\toComplete{m$^2$}&&\toComplete{dm$^2$}&&\toComplete{cm$^2$}
+                &&\toComplete{mm$^2$}\\
+                \hline
+                &&&&&&&7&0&0&0&0&&\\
+                &&&3&6&0&&&&&&&&\\
+                &&&&&&&0&0&1&3&7&0&1\\
+                &&&&&&&&&0&1&2&&\\
+                &&&&&&&&&&&&&\\
+                \end{tblr}
+            >>
+        \end{center}
+    \end{exemple}
+    \part{Aires des figures planes particulières}
+        \subpart{Aire d'un rectangle}
+            \propriete{aire_rectangle}
+            \begin{center}
+                \begin{tikzpicture}
+                    \def\phiradius{3*0.951}
+                    \def\boxradius{2.1*0.951}
+                    \def\phiangle{37.72}
+                    \def\boxangle{7}
+                    \def\arrowskip{0.2}
+                    \coordinate(O)at(0,0);
+                    \coordinate(A0)at(180+\phiangle:\phiradius);
+                    \coordinate(A1)at(-\phiangle:\phiradius);
+                    \coordinate(A2)at(\phiangle:\phiradius);
+                    \draw[thick,pattern=north west lines, pattern color=gray](A0)rectangle(A2);
+                    \draw node at(O){\colbox[fill=white,draw=white]{\scriptsize aire$\,=\,$longueur$\,\times\,$largeur}};
+                    \path(A0)--+(-90:\arrowskip)coordinate(A0');
+                    \path(A1)--+(-90:\arrowskip)coordinate(A1');
+                    \path(A1)--+(0:\arrowskip)coordinate(A1'');
+                    \path(A2)--+(0:\arrowskip)coordinate(A2'');
+                    \draw[stealth-stealth](A0')--(A1')node[pos=0.5,below]{longueur};
+                    \draw[stealth-stealth](A1'')--(A2'')node[pos=0.5,right]{largeur};
+                \end{tikzpicture}
+            \end{center}
+            \begin{exemple}\smallskip\par\noindent
+                \begin{minipage}{.49\linewidth}
+                    \def\phiradius{3*0.951}
+                    \def\boxradius{2.1*0.951}
+                    \def\phiangle{37.72}
+                    \def\arrowskip{0.3}
+                    \begin{tikzpicture}[scale=0.8]
+                        \def\phiradius{3*0.951}
+                        \def\phiangle{37.72}
+                        \coordinate[label=below left:A](A0)at(180+\phiangle:\phiradius);
+                        \coordinate[label=below right:B](A1)at(-\phiangle:\phiradius);
+                        \coordinate[label=above right:C](A2)at(\phiangle:\phiradius);
+                        \coordinate[label=above left:D](A3)at(180-\phiangle:\phiradius);
+                        \draw(A0)rectangle(A2);
+                        \path(A0)--(A1)node[pos=0.5,below]{9 cm};
+                        \path(A1)--(A2)node[pos=0.5,right]{7 cm};
+                    \end{tikzpicture}
+                \end{minipage}\hspace{0.01\linewidth}
+                \begin{minipage}{.49\linewidth}
+                    $\begin{array}{ccccc}
+                        \text{aire}&=&\text{longueur}&\times&\text{largeur}\\
+                        &=&9&\times&7\\
+                        &=&&63&\\
+                    \end{array}$\bigskip\par\noindent
+                    L'aire du rectangle ABCD vaut $63$ cm$^2$.
+                \end{minipage}
+            \end{exemple}
+        \subpart{Aire d'un triangle rectangle}
+            \propriete{aire_triangle_rectangle}
+            \begin{center}
+                \begin{tikzpicture}
+                    \def\phiradius{3*0.951}
+                    \def\boxradius{1.2*0.951}
+                    \def\phiangle{27.72}
+                    \def\arrowskip{0.2}
+                    \def\boxangle{8}
+                    \coordinate(O)at(0,0);
+                    \coordinate(A0)at(180+\phiangle:\phiradius);
+                    \coordinate(A1)at(-\phiangle:\phiradius);
+                    \coordinate(A2)at(\phiangle:\phiradius);
+                    \coordinate(A3)at(180-\phiangle:\phiradius);
+                    \draw(A0)--(A1)node[pos=0.5,below]{base};
+                    \draw(A1)--(A2)node[pos=0.5,right]{hauteur};
+                    \draw[dashed](A0)--(A3)--(A2);
+                    \draw[rounded corners=0.5pt,thick,pattern=north west lines,
+                        pattern color=gray](A0)--(A1)--(A2)--cycle;
+                    \tkzMarkRightAngle(A2,A1,A0)
+                    \fill[rounded corners,white,shift={(-\phiangle:\phiradius/3)}]
+                        (180+\boxangle:\boxradius)rectangle(\boxangle:\boxradius);
+                    \draw node at(-\phiangle:\phiradius/3){\scriptsize base$\,\times\,$hauteur$\,\div2$};
+                \end{tikzpicture}
+            \end{center}
+            \begin{exemple}\smallskip\par\noindent
+                \begin{minipage}{.49\linewidth}
+                    \def\phiradius{3*0.951}
+                    \def\boxradius{2.1*0.951}
+                    \def\phiangle{37.72}
+                    \def\arrowskip{0.3}
+                    \begin{tikzpicture}[scale=0.75]
+                        \def\phiradius{3*0.951}
+                        \def\phiangle{27.72}
+                        \coordinate(A0)at(180+\phiangle:\phiradius);
+                        \coordinate(A1)at(-\phiangle:\phiradius);
+                        \coordinate(A2)at(\phiangle:\phiradius);
+                        \coordinate(A3)at(180-\phiangle:\phiradius);
+                        \tkzMarkRightAngle(A2,A1,A0)
+                        \draw(A0)--(A1)--(A2)--cycle;
+                        \draw(A0)--(A1)node[pos=0.5,below]{8 cm};
+                        \draw(A1)--(A2)node[pos=0.5,right]{2,5 cm};
+                    \end{tikzpicture}
+                \end{minipage}\hspace{0.01\linewidth}
+                \begin{minipage}{.49\linewidth}
+                    $\begin{array}{cccccc}
+                        \text{aire}&=&\text{base}&\times&\text{hauteur}&\div
+                            2\\
+                        &=&8&\times&2,5&\div 2\\
+                        &=&&20&&\div2\\
+                        &=&&&10&\\
+                    \end{array}$\bigskip\par\noindent
+                    L'aire du triangle ABC vaut $10$ cm$^2$.
+                \end{minipage}
+            \end{exemple}
+        \subpart{Aire d'un disque}
+            \propriete{aire_disque}
+            \begin{center}
+                \begin{tikzpicture}
+                    \coordinate(O)at(0,0);
+                    \draw[thick,pattern=north west lines, pattern color=gray]
+                        (O)circle(3);
+                    \draw[stealth-stealth](O)--(220:3)
+                        node[pos=0.5,below,sloped]
+                        {\colbox[fill=white,draw=white]{rayon}};
+                    \path(O)--+(90:0.8)node{\colbox[fill=white,draw=white]
+                        {$\pi\times\,$rayon$\,\times\,$rayon}};
+                \end{tikzpicture}
+            \end{center}
+            \begin{exemple}\medskip\par\noindent
+                \begin{minipage}{.49\linewidth}
+                    \begin{tikzpicture}[scale=0.5]
+                        \coordinate(O)at(0,0);
+                        \draw(O)circle(3);
+                        \draw[stealth-stealth](O)--(220:3)node
+                            [pos=0.5,below,sloped]{2,8 cm};
+                    \end{tikzpicture}
+                \end{minipage}\hspace{0.01\linewidth}
+                \begin{minipage}{.49\linewidth}
+                    $\begin{array}{ccccccc}
+                        \text{aire}&=&\pi&\times&\text{rayon}&\times&\text{rayon}\\
+                        &=&\pi&\times&2,8&\times&2,8\\
+                        &\approx&3,14&\times&2,8&\times&2,8\\
+                        &\approx&24,63&&&\\
+                    \end{array}$\bigskip\par\noindent
+                    L'aire du disque vaut {\bfseries environ} $24,63$ cm$^2$.
+                \end{minipage}
+            \end{exemple}
+\end{document}

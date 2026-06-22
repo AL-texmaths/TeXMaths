@@ -1,0 +1,83 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \begin{enumerate}[1),font=\bfseries]
+        \item Écrire une méthode permettant de \textbf{calculer} le
+        périmètre d'un polygone.
+        \ncar5\dotedline
+        \item Pour chacun des polygones suivant, écrire une
+        \textbf{expression mathématique} permettant de calculer
+        son périmètre.\par{\small
+        \begin{tikzpicture}[baseline=(O.base),scale=0.5]
+            \coordinate(O)at(0,1.5);
+            \coordinate[label=below left:E](A)at(-2,0);
+            \coordinate[label=below right:F](B)at(2,0);
+            \coordinate[label=above:G](C)at(1,3);
+            \draw(A)--(B)--(C)--cycle;
+        \end{tikzpicture}\hfill
+        \begin{tikzpicture}[baseline=(O.base),scale=0.5]
+            \coordinate(O)at(0,0);
+            \coordinate[label=below right:A](E)at(2,-1);
+            \coordinate[label=above right:B](F)at(2,1);
+            \coordinate[label=above left:C](G)at(-2,1);
+            \coordinate[label=below left:D](H)at(-2,-1);
+            \draw(E)--(F)--(G)--(H)--cycle;
+            \path(G)--(F)node[pos=0.5,sloped]{||};
+            \path(H)--(E)node[pos=0.5,sloped]{||};
+            \path(G)--(H)node[pos=0.5,sloped]{|};
+            \path(F)--(E)node[pos=0.5,sloped]{|};
+        \end{tikzpicture}\hfill
+        \begin{tikzpicture}[baseline=(O.base),scale=0.7]
+            \coordinate(O)at(0,0);
+            \coordinate[label=right:S](I)at(0:1.5);
+            \coordinate[label=above:T](J)at(90:1);
+            \coordinate[label=left:U](K)at(180:1.5);
+            \coordinate[label=below:V](L)at(-90:1);
+            \draw(I)--(J)--(K)--(L)--cycle;
+            \path(I)--(J)node[pos=0.5,sloped]{||};
+            \path(J)--(K)node[pos=0.5,sloped]{||};
+            \path(K)--(L)node[pos=0.5,sloped]{||};
+            \path(L)--(I)node[pos=0.5,sloped]{||};
+        \end{tikzpicture}}\vfill
+        \item Calculer le périmètre des polygones suivants.\par{\small
+        \begin{tikzpicture}[baseline=(O.base),scale=0.5]
+            \coordinate(O)at(0,1.5);
+            \coordinate[label=below left:E](A)at(-2,0);
+            \coordinate[label=below right:F](B)at(2,0);
+            \coordinate[label=above:G](C)at(1,3);
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[pos=0.5,below]{4 cm};
+            \path(A)--(C)node[pos=0.5,above,sloped]{7,5 cm};
+            \path(C)--(B)node[pos=0.5,above,sloped]{3 cm};
+        \end{tikzpicture}\hfill
+        \begin{tikzpicture}[baseline=(O.base),scale=0.5]
+            \coordinate(O)at(0,0);
+            \coordinate[label=below right:A](E)at(2,-1);
+            \coordinate[label=above right:B](F)at(2,1);
+            \coordinate[label=above left:C](G)at(-2,1);
+            \coordinate[label=below left:D](H)at(-2,-1);
+            \draw(E)--(F)--(G)--(H)--cycle;
+            \path(G)--(F)node[pos=0.5,sloped]{||};
+            \path(H)--(E)
+                node[pos=0.5,sloped]{||}
+                node[pos=0.5,shift={(0,-0.5)}]{5 cm};
+            \path(G)--(H)node[pos=0.5,sloped]{|};
+            \path(F)--(E)
+                node[pos=0.5,sloped]{|}
+                node[pos=0.5,sloped,shift={(0,0.5)}]{2,5 cm};
+        \end{tikzpicture}\hfill
+        \begin{tikzpicture}[baseline=(O.base),scale=0.7]
+            \coordinate(O)at(0,0);
+            \coordinate[label=right:S](I)at(0:1.5);
+            \coordinate[label=above:T](J)at(90:1);
+            \coordinate[label=left:U](K)at(180:1.5);
+            \coordinate[label=below:V](L)at(-90:1);
+            \draw(I)--(J)--(K)--(L)--cycle;
+            \path(I)--(J)node[pos=0.5,sloped]{||};
+            \path(J)--(K)node[pos=0.5,sloped]{||};
+            \path(K)--(L)node[pos=0.5,sloped]{||};
+            \path(L)--(I)
+                node[pos=0.5,sloped]{||}
+                node[pos=0.5,sloped,shift={(-90:0.4)}]{6,7 cm};
+        \end{tikzpicture}}\vfill
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-boxes}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{18GENMATMEAG3}
+\cycle{4}
+\competencesDuSocle{CA,RE}
+\connaissancesRequises{C1a*,B4a*,B4b*,B4c*,B4d*}
+\competencesTravaillees{B4b*,B4f*}
+\enddatakeys
+\begin{document}%
+Après un de ses entraînements de course à pied, Bob
+reçoit de la part de son entraineur le récapitulatif
+de sa course, reproduit ci-dessous.
+\begin{mdframed}\centering
+    {Entrainement course à pied\hfill\par}
+    \begin{tblr}{colspec=*3{Q[c,m]},row{1}={font=\bfseries}}
+        10,5 km&1 h 03 min& 6 min/km\\
+        Distance&Durée&Allure moyenne\\
+    \end{tblr}
+\end{mdframed}
+L'\textbf{allure} moyenne du coureur est le quotient de la durée
+de la course par la distance parcourure et s'exprime en min/km.
+\bigskip\par\noindent Exemple : si Bob met 18 min pour parcourir 3 km, son
+allure est de 6 min/km.
+\begin{enumerate}
+    \item Bob s'étonne de ne pas voir apparaître sa vitesse moyenne. Calculer
+    cette vitesse moyenne en km/h.
+    \item Soit $f$ la fonction définie pour tout $x>0$ par $f(x)=\dfrac{60}x$,
+    où $x$ est l'allure en min/km et $f(x)$ est la vitesse en km/h.\par\noindent 
+    Cette fonction permet donc de connaître la vitesse (en km/h) en fonction de
+    l'allure (en min/km).
+    \begin{enumerate}
+        \item La fonction $f$ est-elle une fonction linéaire~? Justifier.
+        \item Lors de sa dernière course, l'allure moyenne de Bob était de 5 min/km.\par\noindent
+        Calculer l'image de 5 par $f$. Que représente le résultat obtenu~?
+    \end{enumerate}
+    \item Répondre aux questions suivantes en utilisant la représentation
+    graphique de la fonction $f$ ci-dessous~:
+    \begin{enumerate}
+        \item Donner un antécédent de 10 par la fonction $f$.
+        \item Un piéton se déplace à environ 14 min/km. Donner une valeur
+        approchée de sa vitesse en km/h.\medskip\par\noindent
+        \begin{tikzpicture}[scale=2.25]\tiny
+        \draw[gray,step=0.14cm] (0,0) grid (36/7,32/7);
+        \begin{axis}[
+            axis lines=left,
+            xmin=0, ymin=0,
+            xtick={0,5,10,15,20,25,30},
+            ytick={0,5,10,15,20,25,30},
+            x=0.14cm, y=0.14cm,
+            xmax=36,ymax=32,
+            xlabel={\scriptsize Allure en min/km}, ylabel={\scriptsize Vitesse en km/h}%
+        ]
+            \addplot [
+                blue,
+                domain=2:32,
+                samples=100,
+                line width=1.1pt
+            ]
+                {60/x};
+                \node at (axis cs:35,1) {$x$};
+                \node at (axis cs:1,31) {$y$};
+        \end{axis}
+        \end{tikzpicture}
+        \par
+    \end{enumerate}
+\end{enumerate}
+\showthesource
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass{article}
+
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetikzlibrary{patterns}
+\usetikzlibrary{arrows}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=0.1]
+    \coordinate[label=below left:C](C)at(0,0);
+    \coordinate[label=above left:A](A)at(0,15);
+    \coordinate[label=above right:B](B)at(27,0);
+    \coordinate[label=above left:D](D)at(60,0);
+    \coordinate[label=below right:E](E)at(87,0);
+    \coordinate[label=above right:F](F)at(87,18);
+    \coordinate[label=right:H](H)at(87,11);
+    \path(D)--(F)coordinate[label=above left:J, pos=0.6](J);
+    \draw(B)--(A)--(C)--(E)--(F)--(D);
+    \draw(J)--(H);
+    \tkzMarkRightAngle[size=2.5](B,C,A)
+    \tkzMarkRightAngle[size=2.5](F,E,D)
+    \tkzMarkRightAngle[size=2.5](F,H,J)
+    \coordinate(D1)at(60,-5);
+    \coordinate(B1)at(27,-5);
+    \draw[pattern=north west lines](B)--(D)--(D1)--(B1)--cycle;
+    \path(C)--(B)node[midway,below]{Gradins Nord};
+    \path(D)--(E)node[midway,below]{Gradins Sud};
+    \path(D)--(E)node[midway,below]{Gradins Sud};
+    \path(B1)--(D1)node[midway,below]{Piscine olympique};
+\end{tikzpicture}
+
+\def\arrowsize{3mm}
+\begin{tikzpicture}[scale=0.5]
+    \fill[fill=gray!50!white](0.5,0.5)rectangle(10.5,4.5);
+    \foreach\i in{1,2,3,4}{
+        \foreach\j in {1,...,10}{
+            \draw[fill=white](\j,\i)circle(0.1);
+        }
+    }
+    \coordinate(A)at(0.5,5);
+    \coordinate(B)at(10.5,5);
+    \coordinate(C)at(0,0.5);
+    \coordinate(D)at(0,4.5);
+    \draw[{Latex[length=\arrowsize]}-{Latex[length=\arrowsize]}](A)--(B);
+    \draw[{Latex[length=\arrowsize]}-{Latex[length=\arrowsize]}](C)--(D);
+    \path(A)--(B)node[above,midway]{1,7 m};
+    \path(C)--(D)node[above,midway,sloped]{1 m};
+    \draw node[anchor=south west] at(12,3){{\bfseries Dimensions :} 1 m de large et 1,7 m de long};
+    \draw node[anchor=south west] at(12,2){{\bfseries\'Energie produite :} environ 350 kWh par an};
+\end{tikzpicture}
+
+\end{document}

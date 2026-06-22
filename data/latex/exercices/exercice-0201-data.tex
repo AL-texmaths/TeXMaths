@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer \<S1;\<S2;, \<S1;\<S3; et \<S4;\<S2;.\par\noindent
+\begin{tikzpicture}[scale=0.55]
+    \coordinate[label=below left:\<S3;](C)at(0,0);
+    \coordinate[label=above left:\<S1;](A)at(0,4);
+    \coordinate[label=below right:\<S2;](E)at(10,0);
+    \path(C)--(E)coordinate[pos=0.7,label=below right:\<S4;](D);
+    \path(A)--(E)coordinate[pos=0.7,label=above right:\<S5;](B);
+    \tkzMarkRightAngle[size=0.5](E,D,B)
+    \tkzMarkRightAngle[size=0.5](E,C,A)
+    \draw(A)--(C)--(E)--cycle;
+    \tkzDrawLine[add=0.6 and 0.6](B,D)
+    \path(C)--(D)node[pos=0.5,below]{6 m};
+    \path(A)--(B)node[pos=0.5,above,sloped]{10 m};
+    \path(B)--(E)node[pos=0.5,above,sloped]{5 m};
+    \path(B)--(D)node[pos=0.5,left]{4 m};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{tabularray}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{pgffor}
+\usepackage[a4paper,margin=5pt,top=15pt,footskip=10pt]{geometry}
+
+\def\calculs{
+    \begin{tblr}{colspec={QQ[m]Q[c,m,wd=150 pt]Q[c,m]},
+        vlines,hlines,rows={ht=30pt},row{1}={bg=gray!50!white,font=\bfseries}}
+        Choix (M ou C)&Calculs&Résultats&Points gagnés\\
+        &$298700\,700-47\,600$&&\\
+        &$1\,200\div 1$&&\\
+        &$10\times 4,73$&&\\
+        &$452\div 1$&&\\
+        &$2,6+1,9+4,4+5,1$&&\\
+        &$18\times\dfrac19$&&\\
+        &$298\,700-47\,600$&&\\
+        &$5394-4795$&&\\
+    \end{tblr}
+}
+
+\begin{document}\Large
+
+{\centering\calculs\par}
+\vskip100pt
+{\centering\calculs\par}
+
+\end{document}

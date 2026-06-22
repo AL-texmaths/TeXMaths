@@ -1,0 +1,39 @@
+\documentclass{article}
+
+\usepackage{pgffor}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{texmaths-cmpeval}
+
+\edef\scolaryear{\expandafter\ifnum\the\month>6\relax
+    \the\year-\number\numexpr\the\year+1\relax
+    \else
+    \number\numexpr\the\year-1\relax-\the\year
+    \fi
+    }
+
+\geometry{
+    hmargin=30pt,headsep=15pt,top=40pt,textheight=750pt
+}
+
+\def\firsttwoofthree#1#2#3{#1#2}
+\def\lastofthree#1#2#3{#3}
+
+\fancypagestyle{style2}{
+    \fancyhf{}% reinitialisation des paramètres
+    \fancyhead[L]{Compétences Cycle 4 - D'après le BOEN n° 31 du 30 juillet 2020}% en-tête droit
+    \fancyhead[R]{\scolaryear}
+    \renewcommand{\headrulewidth}{0.5pt}% épaisseur ligne séparation en tête
+    \renewcommand{\footrulewidth}{0pt}% épaisseur ligne séparation pied
+}
+
+\begin{document}
+    \global\emergencystretch=\hsize\small\pagestyle{style2}
+    \looponcmpeval\subcmpcode{%
+        \ifnum\expandafter\lastofthree\subcmpcode=1
+        {\vskip15pt\par\centering{\bfseries\large\competenceevaluee[\expandafter\firsttwoofthree
+            \subcmpcode]}\centering\par}\vskip8pt
+        \fi
+        \par\vskip8pt\noindent{\bfseries\subcmpcode\ : }\cmpeval[\subcmpcode]
+    }
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!A=1,1;%
+\!B=-2,-2;%
+\!C=-3,4;%
+\!D=2.5,4;%
+\!E=1.5,-1.5;%
+\begin{tikzpicture}
+    \coordinate(O)at(0,0);
+    \coordinate(-Ox)at(-5,0);
+    \coordinate(+Ox)at(5,0);
+    \coordinate(-Oy)at(0,-5);
+    \coordinate(+Oy)at(0,5);
+    \draw[line width=0.2pt, gray, step=0.5](-5,-5)grid(+5,+5);
+    \draw[line width=0.8pt, gray](-5,-5)grid(+5,+5);
+    \draw[-Latex](-Ox)--(+Ox);
+    \draw[-Latex](-Oy)--(+Oy);
+    \draw node[below right]at(0,0){0};
+    \draw node[below right]at(0.95,0){1};
+    \draw node[below right]at(0,0.95){1};
+    \foreach\x in{-5,...,5}{
+            \draw[line width=1pt](\x,-0.1)--(\x,0.1);
+            \draw[line width=1pt](-0.1,\x)--(0.1,\x);
+    }
+    \coordinate(A)at(\<A;);
+    \coordinate(B)at(\<B;);
+    \coordinate(C)at(\<C;);
+    \coordinate(D)at(\<D;);
+    \coordinate(E)at(\<E;);
+    \foreach\X in{A,B,C,D,E}{%
+            \draw node at(\X){$\times$};
+            \draw node[above right] at(\X){\bfseries\X};
+    }
+\end{tikzpicture}
+\begin{enumerate}
+    \item Comment appelle-t-on le point de coordonnées (0 ; 0) ?
+    \item Comment appelle-t-on l'axe \<axe;~?
+    \item Écrire les coordonnées des points {\bfseries A, B, C, D} et {\bfseries E}.
+    \item Quel(s) point(s) à(ont) la plus grande \<coord1;~?
+    \item Quel points ont une \<coord2; comprise entre -2 et +1~?
+\end{enumerate}
+\end{document}

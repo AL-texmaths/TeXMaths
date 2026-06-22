@@ -1,0 +1,34 @@
+\documentclass[17pt]{flash}
+\usepackage{tabularray}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{80pt}
+\FlashSetVtop{-2em}
+\FlashSetTitle{Exercices pour la mémoire à court terme}
+\FlashSetFirstColumnRatio{0.775}
+
+\FlashShowConsignes{%
+        \item Mémoriser un maximum de mots.
+        \item À la fin du timer, écrire les mots mémorisés.
+}
+
+\flash{20}{\footnotesize
+        \begin{tblr}{colspec=*{4}{Q[c,m,wd=50pt]},hlines,vlines,rows={ht=25pt}}
+            Poussette&Cactus&Porte&Arbre\\
+            Voiture&Bar&Tabouret&Cadre\\
+            Maison&Chien&Bouteille&Fleur\\
+            Batterie&Table&Sandale&Plume
+        \end{tblr}
+}
+
+\begin{frame}
+    Écrire le maximum de mots.
+\end{frame}
+
+\end{document}

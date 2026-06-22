@@ -1,0 +1,25 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{flushleft}
+    Dans un carré magique, la somme des nombres en ligne, en colonne et en
+    diagonale est la même.\smallskip\par\noindent
+    Recopier et compléter ce carré pour qu'il soit magique pour n'importe
+    quelle valeur de $\<variable;$ :
+\end{flushleft}
+\begin{center}
+    \begin{tblr}{
+        colspec={*{3}{Q[c,m,wd=30pt]}},rows={ht=30pt},hlines,vlines}
+    \<11;&\<12;&\<13;\\
+    \<21;&\<22;&\<23;\\
+    \<31;&\<32;&\<33;\\
+    \end{tblr}
+\end{center}
+\end{document}

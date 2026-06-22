@@ -1,0 +1,65 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{enumerate}
+        \item
+        \begin{tikzpicture}[baseline=(current bounding box.north)]
+            \draw[
+                thick,
+                pattern=north west lines,
+                pattern color=\currentcolor
+                ] (0,-1) rectangle (1,-0.5);
+            \draw node at(0.5,-1.5){unité d'aire};
+            \draw (4,-3) -- (8,-3) -- (8,-2) -- (6,-2) -- (6,0)--(4,0)--cycle;
+            \draw node at(5,-1.5){\Large\bfseries\sf A};
+        \end{tikzpicture}\vskip10pt
+        Calculer l'aire de la figure {\sf A}.\vfill
+        \item \hskip50pt
+        \begin{tikzpicture}[
+                baseline=(current bounding box.north),
+                scale=0.5
+                ]
+            \draw[
+                thick,pattern=north west lines,
+                pattern color=\currentcolor
+                ](-3,3) rectangle (-2,4);
+            \draw node at(-2.5,2.25){cm$^2$};
+            \draw (0,0) rectangle (10,6);
+            \coordinate(A)at(0,0);
+            \coordinate(B)at(10,0);
+            \coordinate(C)at(10,6);
+            \coordinate(D)at(0,6);
+            \coordinate(O)at(0,6);
+            \tkzMarkRightAngle[size=0.5, colored](A,B,C)
+            \tkzMarkRightAngle[size=0.5, colored](B,C,D)
+            \tkzMarkRightAngle[size=0.5, colored](C,D,A)
+            \tkzMarkRightAngle[size=0.5, colored](D,A,B)
+            \path(A)--(B)node[midway,below]{10 cm};
+            \path(B)--(C)node[midway,right]{6 cm};
+            \draw node at(5,3){\Large\bfseries\sf B};
+        \end{tikzpicture}\vskip10pt
+        Calculer l'aire de la figure {\sf B} en cm$^2$.\vfill
+        \item \hskip50pt\begin{tikzpicture}[baseline=(O.base),scale=0.3]
+            \draw(0,0)rectangle(10,6);
+            \coordinate(A)at(0,0);
+            \coordinate(B)at(10,0);
+            \coordinate(C)at(10,6);
+            \coordinate(D)at(0,6);
+            \coordinate(O)at(0,6);
+            \tkzMarkRightAngle[size=0.5, colored](A,B,C)
+            \tkzMarkRightAngle[size=0.5, colored](B,C,D)
+            \tkzMarkRightAngle[size=0.5, colored](C,D,A)
+            \tkzMarkRightAngle[size=0.5, colored](D,A,B)
+            \path(A)--(B)node[midway,below]{Longueur};
+            \path(B)--(C)node[midway,right]{largeur};
+        \end{tikzpicture}\vskip10pt
+        Écrire la formule donnant l'aire du rectangle.\vfill
+    \end{enumerate}
+\end{document}

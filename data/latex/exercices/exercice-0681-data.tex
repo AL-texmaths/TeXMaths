@@ -1,0 +1,61 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{enumitem}%
+\usepackage{texmaths-boxes}%
+\startdatakeys
+\source{19GENMATMEAG1}
+\cycle{4}
+\competencesDuSocle{CA, RE}
+\connaissancesRequises{A3a*,A3b*,A3c*}
+\competencesTravaillees{A3a1,A3a3,A3b*,A3d2}
+\enddatakeys
+\begin{document}%
+Voici deux programmes de calcul :\par\smallskip\noindent
+\begin{minipage}[c]{.38\linewidth}
+    \def\programlenght{1}
+    \program{1}{\item Le multipler par 3\item Ajouter 1}%
+\end{minipage}\hfil
+\begin{minipage}[c]{.5\linewidth}
+    {\centering\bfseries Programme 2~:\par}\medskip\noindent
+    \begin{tikzpicture}
+        \tikzset{%
+        n/.style={draw, inner sep=1.5ex},
+        e/.style={-latex}%
+        }
+        \node[n](a1)at(0,4){Choisir un nombre};
+        \node[n](b1)at(-2.5,3){Ajouter Soustraire 1};
+        \node[n](b2)at(2.5,3){Ajouter 2};
+        \node[n](c1)at(0,2){Multiplier les deux résultats obtenus};
+        \path
+        (a1)edge[e](b1)
+        (a1)edge[e](b2)
+        (b1)edge[e](c1)
+        (b2)edge[e](c1);
+    \end{tikzpicture}
+\end{minipage}
+\medskip
+\begin{enumerate}
+\item Vérifier que si on choisit 5 comme nombre de départ.\index{programme de calcul}
+\setlength\parindent{9mm}
+\begin{itemize}
+\item[$\bullet~~$]le résultat du programme 1 vaut $16$.
+\item[$\bullet~~$]le résultat du programme 2 vaut $28$. 
+\end{itemize}
+\setlength\parindent{0mm}
+On appelle $A(x)$ le résultat du programme 1 en fonction du nombre $x$ choisi au départ.
+La fonction $B$  :  $x \longmapsto  (x - 1)(x + 2)$ donne le résultat du programme 2 en fonction du nombre $x$ choisi au départ.
+\item
+	\begin{enumerate}
+		\item Exprimer $A(x)$ en fonction de $x$.
+		\item Déterminer le nombre que l'on doit choisir au départ pour obtenir 0 comme résultat du
+programme 1.
+	\end{enumerate}
+\item  Développer et réduire l'expression :
+\[B(x) = (x - 1)(x + 2).\]
+\item
+	\begin{enumerate}
+		\item Montrer que $B(x) - A(x) = (x + 1)(x - 3)$.
+		\item  Quels nombres doit-on choisir au départ pour que le programme 1 et le programme 2 donnent le même résultat ? Expliquer la démarche.
+	\end{enumerate}
+\end{enumerate}
+\showthesource
+\end{document}

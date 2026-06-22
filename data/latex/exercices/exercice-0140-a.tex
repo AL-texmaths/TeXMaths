@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\usepackage{texmaths-colors}
+\nodata
+\begin{document}%
+    \>Objet1=le segment d'extrémités les points F et G;%
+    \>Objet2=[JF);%
+    \>Objet3=%
+    {\begin{tikzpicture}[scale=0.5]
+        \coordinate[label=above left:A](A)at(0,0);
+        \coordinate[label=above left:B](B)at(3,1);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \tkzDrawLine[add=0.3 and 0](A,B)
+    \end{tikzpicture}};%
+    \>Objet4=la droite passant par les points T et R;%
+    \>Objet5=(BL);%
+    \>Objet6=%%
+    {\begin{tikzpicture}[scale=0.5]
+        \coordinate[label=above left:H](A)at(0,0);
+        \coordinate[label=above left:J](B)at(3,1);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \tkzDrawLine[add=0 and 0](A,B)
+    \end{tikzpicture}};%
+    \enonce{0140}%
+\end{document}

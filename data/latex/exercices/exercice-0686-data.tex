@@ -1,0 +1,44 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{18GENMATIN1}
+\cycle{4}
+\competencesDuSocle{RE,RA,CA}
+\connaissancesRequises{D2b6,D2f*}
+\competencesTravaillees{D2a*,D2d*,D2e*}
+\enddatakeys
+\begin{document}%
+    \noindent
+    \begin{minipage}[t]{.3\linewidth}
+        \noindent La figure ci-contre n'est pas l'échelle.
+    \end{minipage}\hfil
+    \begin{minipage}[t]{.65\linewidth}
+        \begin{tikzpicture}[scale=0.8]
+            \coordinate[label=below left:A](A)at(0,0);
+            \coordinate[label=above right:B](B)at(7,0);
+            \coordinate[label=above:C](C)at(0,4.0414);
+            \path(C)--(B)coordinate[pos=0.25,label=above right:H](H);
+            \draw(A)--(B)--(C)--cycle;
+            \draw(A)--(H);
+            \tkzMarkRightAngle[size=0.5](B,A,C)
+            \tkzMarkRightAngle[size=0.5](A,H,B)
+            \tkzMarkAngle[size=0.8](H,B,A)
+            \tkzLabelAngle[pos=1.4](H,B,A){$30^\circ$}
+            \path(A)+(0,-0.25)coordinate(A');
+            \path(B)+(0,-0.25)coordinate(B');
+            \draw[latex-latex](A')--(B')node[midway,below]{7 cm};
+        \end{tikzpicture}
+    \end{minipage}\medskip\par\noindent
+    On considère ci-dessus un triangle ABC rectangle en A tel que
+    $\widehat{\text{ABC}}=30^\circ$ et $\text{AB}=7$ cm. H est le pied de
+    la hauteur issue de A.
+    \begin{enumerate}
+        \item Tracer la figure en vrai grandeur sur la copie. Laisser les traits
+        de contruction apparents sur la copie.
+        \item Démontrer que AH = 3,5 cm.
+        \item Démontrer que ABC et HAC sont semblables.
+        \item Déterminer le coefficient de réduction permettant de passer
+        du triangle ABC au triangle HAC.
+    \end{enumerate}
+    \showthesource
+\end{document}

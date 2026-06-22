@@ -1,0 +1,78 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-spacing}
+
+\RequirePackage{dashrule}
+\RequirePackage{tikz}
+
+\makeatletter
+% 
+\newlength{\lenghtwordtocomplete}
+% Ligne pointillée de taille #1
+\def\doted#1{\hdashrule{#1}{0.5pt}{0.5pt 2pt}}
+% ligne pointillée de la largeur du mot 1
+\def\dotedrule wd of#1{\setbox0=\hbox{#1}\hdashrule{\wd0}{0.5pt}{1pt}}
+% Ligne pointillée de deux fois la largeure du mot #1
+\def\tocomplete#1{\settowidth{\lenghtwordtocomplete}{#1}\doted{2\lenghtwordtocomplete}}
+% Ligne pointillée de largeur .99\linewidth
+\def\dotedline{\par\vskip10pt\noindent\hdashrule{.99\linewidth}{.5pt}{2pt}\par}
+% Définition de la ligne pointillée
+\def\answer@space@top{\vskip\baselineskip\par\noindent}
+\def\answer@space@bottom{\par}
+\begingroup
+  \edef\temp{\endgroup\def\noexpand\removept##1.##2\string p\string t}%
+% \temp{#1\ifnum#2>0.#2\fi}% dans le cas où on arrondi pas
+\temp{#1}% pour l'arrondi
+\def\dimtodec{\expandafter\removept\the}
+\def\convertandround#1#2{%
+  \dimtodec\dimexpr\numexpr\dimexpr#1\relax*65536/\dimexpr 1#2\relax
+  \relax sp\relax
+}
+\def\answer@dotedlines#1{%
+  \answer@space@top
+  \edef\linestmp{\number\numexpr\convertandround{#1}{pt}/\convertandround{\baselineskip}{pt}\relax}%
+  \newcount\lines
+  \lines=1\relax
+  \expandafter\lines\linestmp\relax
+  \ifnum\lines=0 \lines=1 \fi
+  \loop
+    \noindent
+    \tikz\draw[dotted,line width=0.5pt](0,0)--(0.99\linewidth,0);%
+    \par
+    \advance\lines by -1
+  \ifnum\lines>0\repeat
+  \answer@space@bottom
+}
+
+\def\answer@squares#1{%
+  \answer@space@top
+  \noindent
+  \tikz\draw[dotted, line width=0.5pt, step=0.5cm] (0,0) grid (0.99\linewidth,#1); % Création de la grille
+  \answer@space@bottom
+}
+\def\answer@rectangle#1{%
+  \answer@space@top
+  \tikz\draw[line width=0.5pt] (0,0) rectangle (0.99\linewidth,#1);%
+  \answer@space@bottom
+}
+\def\answer@dotedline#1{%
+  \answer@space@top
+  \noindent\hdashrule{.99\linewidth}{.5pt}{2pt}%
+  \answer@space@bottom
+}
+\def\answer@empty#1{\answer@space@top\vskip#1\answer@space@bottom}
+\def\answer@none#1{}
+\def\setanswerspace#1{%
+  \ifcsname answer@#1\endcsname
+    \def\spacing@answer@space{#1}%
+  \else
+    \PackageError{texmaths-spacing}{%
+      Type d'espace de reponse inconnu : '#1'.\MessageBreak
+      Types valides : none, dotedlines, squares,\MessageBreak
+      rectangle, dotedline, empty%
+    }{}%
+    \def\spacing@answer@space{none}%
+  \fi
+}
+\setanswerspace{dotedlines}
+\def\answerspace#1{\csname answer@\spacing@answer@space\endcsname{#1}}
+\makeatother

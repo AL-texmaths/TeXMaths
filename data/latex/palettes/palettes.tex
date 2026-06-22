@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{colorpack}
+\usepackage{geometry}
+
+\newgeometry{
+    margin=2pt
+}
+
+\def\colorNum#1{\csname palette#1number\endcsname}
+\def\colorID#1{\csname colorID#1\endcsname}
+\def\getColorByID#1#2{\csname color#1#2\endcsname}
+
+\def\forcolor in#1#2{%
+    \def\colorPalette{#1}
+    \def\colorName{\getColorByID\colorPalette\colorIndex}
+    \def\colorFullName{\colorPalette-\colorName}
+    \foreach\colorIndex in{1,...,\colorNum{#1}}{%
+        #2
+    }
+}
+
+\def\showPalette#1{%
+    \edef\palette{\palettes[#1]}
+    \begin{tikzpicture}
+        \forcolor in\palette{
+            \filldraw[fill=\colorFullName](0,\colorIndex)rectangle(\rectangleWidth,\colorIndex+1);
+            \draw node at(\rectangleWidth/2,\colorIndex+0.5){\color{\colorFullName!60!black}\bfseries\colorName};
+            \global\edef\lastColorIndex{\colorIndex}
+        }
+        \draw node at(\rectangleWidth/2,\lastColorIndex+1.5){\color{white}\bfseries\palette};
+    \end{tikzpicture}
+}
+
+\def\palettes[#1]{\csname palettes#1\endcsname}
+
+\def\rectangleWidth{3}
+
+\def\showPalettes{%
+    \newcounter{showpalettescounter}
+    \foreach\paletteIndex in{1,...,\arabic{palette}}{%
+        \stepcounter{showpalettescounter}
+        \ifnum\arabic{showpalettescounter}=7\par\vspace{15pt}\setcounter{showpalettescounter}{0}\fi
+        \showPalette\paletteIndex
+    }
+}
+
+\begin{document}
+    \pagecolor{vscode-gray}
+    \showPalettes
+\end{document}

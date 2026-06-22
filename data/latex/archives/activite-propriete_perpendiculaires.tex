@@ -1,0 +1,25 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \begin{center}
+        \begin{tikzpicture}[baseline=(O).base]
+            \coordinate(O)at(0,0);
+            \coordinate[label=above left:$(d_1)$](A1)at(75:3);
+            \coordinate(B1)at(255:3);
+            \path(A1)--++(-2,0)coordinate[label=above left:$(d_2)$]
+                (A2);
+            \path(B1)--++(-2,0)coordinate(B2);
+            \draw(A1)--(B1);
+            \draw(A2)--(B2);
+        \end{tikzpicture}
+    \end{center}\medskip
+    \begin{enumerate}[1),font=\bfseries]
+        \item Tracer une droite $(d_3)$ telle que $(d_3)$ est perpendiculaire à $(d_1)$.
+        \item Que peut-on dire des droites $(d_3)$ et $(d_2)$.
+        \ncar4\dotedline
+        \item Compléter la propriété mathématique ci-dessous :
+        \begin{simplebox}
+            Si deux droites sont parallèles et qu'une troisième droite est
+            perpendiculaire à l'une, alors elles sont \doted{perpend}.
+        \end{simplebox}
+    \end{enumerate}
+\end{document}

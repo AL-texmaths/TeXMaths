@@ -1,0 +1,55 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Notation et vocabulaire}
+    \definition{droites_perpendiculaires}
+    \par\noindent{\bfseries Exemple~:}\par\vskip10pt\noindent
+    \begin{minipage}{.49\linewidth}
+        \begin{tikzpicture}
+            \coordinate(D1)at(0,0);
+            \coordinate[label=above left:(d)](D2)at(4,1);
+            \coordinate[label=right:A](A)at(1.5,-1.75);
+            \coordinate[label=above left:B](B)at(1,0.25);
+            \tkzDrawLines[add=0.25 and 0.15](D1,D2 B,A)
+            \tkzMarkRightAngle(A,B,D2)
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{.49\linewidth}
+        Les droites (d) et (AB) sont perpendiculaires.\par\noindent
+        En notation : $(d)\perp(\text{AB})$
+    \end{minipage}
+    \definition{droites_paralleles}
+    \par\noindent{\bfseries Exemple~:}\par\vskip10pt\noindent
+    \begin{minipage}{.49\linewidth}
+        \begin{tikzpicture}
+            \coordinate(D11)at(0,0);
+            \coordinate[label=above left:(d$_1$)](D12)at(4,1);
+            \coordinate(D21)at(0,-2);
+            \coordinate[label=above left:(d$_2$)](D22)at(4,-1);
+            \tkzDrawLines[add=0.25 and 0.15](D11,D12 D21,D22)
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{.49\linewidth}
+        Les droites (d$_1$) et (d$_2$) sont parallèles.\par\noindent
+        En notation : $(\text{d}_1)\parallel(\text{d}_2)$
+    \end{minipage}
+    \newpage
+    \bigpart{Méthodes de construction}
+    \subpart{Perpendiculaire à une droite passant par un point}
+    Pour tracer la droite perpendiculaire à (d) passant par A, on utilise
+    l'équerre comme ci-dessous~:
+    \begin{center}
+        \exported[scale=1.2,]%
+        <<%
+        \pic{methode_construction_perpendiculaires}
+        >>
+    \end{center}
+    \subpart{Parallèle à une droite passant par un point}
+    Pour tracer la droite parallèle à (d) passant par A, on fait glisser la
+    règle sur l'équerre comme ci-dessous~:
+    \begin{center}
+        \exported[scale=1.2,]%
+        <<%
+        \pic[scale=0.5]{methode_construction_paralleles}
+        >>
+    \end{center}
+\end{document}

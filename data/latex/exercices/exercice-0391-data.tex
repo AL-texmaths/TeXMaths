@@ -1,0 +1,22 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Voici les conseils de cuisson du grand chef Harry Cover pour réussir
+un poulet rôti.\vskip10pt
+\begin{tblr}{%
+        colspec={Q[m,wd=80pt]*4{Q[c,m,wd=30pt]}},
+        column{1}={font=\bfseries,bg=gray!25!white},
+        hlines,
+        vlines}
+    Masse du poulet {\normalfont( en kg)}&1&1,5&2&2,5\\
+    Temps de cuisson {\normalfont( en min)}&80&100&120&140
+\end{tblr}\vskip10pt\noindent
+Le temps de cuisson du poulet est-il proportionnel à sa masse~? Justifier la réponse.
+\end{document}

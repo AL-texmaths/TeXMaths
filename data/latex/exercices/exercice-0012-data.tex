@@ -1,0 +1,43 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Écrire toutes les égalités de Pythagore possibles dans les
+figures suivantes.\par\medskip\noindent
+L\par
+\begin{minipage}[t]{.45\linewidth}
+    \begin{tikzpicture}[rotate=30, scale=0.8]
+        \def\a{3}\def\b{1.5}
+        \coordinate[label=below left:\<s4;](s4)at(0,0);
+        \coordinate[label=below right:\<s3;](s3)at(\a,0);
+        \coordinate[label=above:\<s1;](s1)at(\a,\a);
+        \coordinate[label=above right:\<s2;](s2)at(\a+\b,\b);
+        \draw(s1)--(s2)--(s3)--(s4)--cycle;
+        \draw(s1)--(s3);
+        \tkzMarkRightAngle(s4,s3,s1)
+        \tkzMarkRightAngle(s3,s2,s1)
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}[t]{.45\linewidth}
+    \begin{tikzpicture}[scale=0.7]
+        \def\a{3}\def\b{1.5}
+        \coordinate[label=below left:\<s5;](s5)at(0,0);
+        \coordinate[label=below right:\<s6;](s6)at(2,0);
+        \coordinate[label=above right:\<s8;](s8)at(2,4);
+        \coordinate[label=right:\<s7;](s7)at(3,4);
+        \coordinate[label=above left:\<s9;](s9)at(-1,2.5);
+        \draw(s5)--(s6)--(s7)--(s8)--(s9)--cycle;
+        \draw(s5)--(s8);
+        \draw(s8)--(s6);
+        \tkzMarkRightAngle(s5,s6,s8)
+        \tkzMarkRightAngle(s7,s8,s6)
+        \tkzMarkRightAngle(s8,s9,s5)
+    \end{tikzpicture}
+\end{minipage}
+\end{document}

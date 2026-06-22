@@ -1,0 +1,155 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \part{Expressions littérales}
+        \subpart{Définition}
+            \definition{expression_litterale}
+            \begin{exemple}
+                \begin{enumerate}[i),font=\bfseries]
+                    \begin{multicols}{2}    
+                        \item $2\times(6+b)$
+                        \item $x\times 7$
+                        \columnbreak
+                        \item $2\times\pi\times r$
+                        \item $(b\times h)\div 2$
+                    \end{multicols}
+                \end{enumerate}
+            \end{exemple}
+        \subpart{Conventions d'écriture}
+            \regle{calcul_litteral_conventions_ecriture}
+            \begin{exemple}
+                \begin{enumerate}[i),font=\bfseries]
+                    \begin{multicols}{2}
+                        \item $4\times a$ se note $4a$.
+                        \columnbreak
+                        \item $3\times(y+8)$ se note $3(y+8)$.
+                    \end{multicols}
+                \end{enumerate}
+            \end{exemple}
+            \begin{remarque}\smallskip\par\noindent 
+                \begin{enumerate}[a),font=\bfseries]
+                    \begin{multicols}{2}
+                        \item $1\times d$ se note $d$.
+                        \item $(-1)\times x$ se note $-x$.
+                        \columnbreak
+                        \item $r\times r$ se note $r^2$.
+                        \item $\pi\times\pi\times\pi$ se note $\pi^3$.
+                    \end{multicols}
+                \end{enumerate}
+            \end{remarque}
+    \part{Évaluer d'une expression littérale}
+        \propriete{evaluer_une_expression_litterale}
+        \begin{exemple}
+            On évalue l'expression littérale $4a-12$ pour $a=3$, $a=0$ et $a=-2$.
+            \vskip 10 pt
+            Pour $a=3$ :
+            $$\begin{array}{cccc}
+                &4a&-&12\\
+                =&4\times a&-&12\\
+                =&4\times 3&-&12\\
+                =&12&-&12\\
+                =&&0&
+            \end{array}$$
+            \vskip 5 pt
+            Pour $a=0$ :
+            $$\begin{array}{cccc}
+                &4a&-&12\\
+                =&4\times a&-&12\\
+                =&4\times 0&-&12\\
+                =&0&-&12\\
+                =&&-12&
+            \end{array}$$
+            \vskip 5 pt
+            Pour $a=-2$ :
+            $$\begin{array}{cccc}
+                &4a&-&12\\
+                =&4\times a&-&12\\
+                =&4\times(-2)&-&12\\
+                =&-8&-&12\\
+                =&&-20&
+            \end{array}$$
+        \end{exemple}
+    \part{Test d'égalité}
+        \definition{egalite}
+        \begin{exemple}
+            \begin{enumerate}[i),font=\bfseries]
+                \item L'égalité $0=1$ est {\bfseries fausse}.
+                \item L'égalité $2\times 4=2^3$ est {\bfseries vraie}.
+            \end{enumerate}
+        \end{exemple}
+        \methode{tester_une_egalite}
+        \begin{exemple}
+            \begin{enumerate}[i), font=\bfseries]
+                \item Testons l'égalité $3x+2=5x+4$ pour $x=3$.
+                \vskip 10pt
+                \begin{tblr}{Q[wd=.45\linewidth]|Q[wd=.45\linewidth]}
+                    On évalue le membre de gauche pour $x=3$ :
+                    \par\vskip 10pt\hskip 30pt
+                    $\begin{array}{cccc}
+                        &3x&+&2\\
+                        =&3\times x&+&2\\
+                        =&4\times 3&+&2\\
+                        =&12&+&2\\
+                        =&&14&
+                    \end{array}$
+                    &
+                    On évalue le membre de droite pour $x=3$ :
+                    \par\vskip 10pt\hskip 30pt
+                    $\begin{array}{cccc}
+                        &5x&+&4\\
+                        =&5\times x&+&4\\
+                        =&5\times 3&+&4\\
+                        =&15&+&4\\
+                        =&&19&
+                    \end{array}$
+                \end{tblr}\vskip 10pt%
+                Les deux membres de l'égalité sont différents donc l'égalité
+                est fausse pour $x=3$.
+                \item Testons l'égalité $6x=2x-8$ pour $x=-2$.
+                \vskip 10pt
+                \begin{tblr}{Q[wd=.45\linewidth]|Q[wd=.45\linewidth]}
+                    On évalue le membre de gauche pour $x=-2$ :
+                    \par\vskip 10pt\hskip 30pt
+                    $\begin{array}{cccc}
+                        &&6x&\\
+                        =&6&\times&x\\
+                        =&6&\times&(-2)\\
+                        =&&-12&
+                    \end{array}$
+                    &
+                    On évalue le membre de droite pour $x=-2$ :
+                    \par\vskip 10pt\hskip 30pt
+                    $\begin{array}{cccc}
+                        &2x&-&8\\
+                        =&2\times x&-&8\\
+                        =&2\times(-2)&-&8\\
+                        =&-4&-&8\\
+                        =&&-12&
+                    \end{array}$
+                \end{tblr}\vskip 10pt%
+                Les deux membres de l'égalité sont égaux donc l'égalité
+                est vraie pour $x=-2$.
+            \end{enumerate}
+        \end{exemple}
+        \newpage
+        \part{Réduction d'une expression littérale}
+        \definition{reduire_une_expression_litterale}
+        \begin{exemple}
+            \begin{enumerate}[i),font=\bfseries]
+                \item$$\begin{array}{cccc}
+                    &a&+&3+4\\
+                    =&a&+&7
+                \end{array}$$
+                \item$$\begin{array}{cccccc}
+                    &-2&+&b&+&2\\
+                    =&b&+&-2&+&2\\
+                    =&b&+&&0&\\
+                    =&b&&&&
+                \end{array}$$
+                \item$$\begin{array}{cccccc}
+                    &4&\times&3&\times&x\\
+                    =&&12&&\times&x\\
+                    =&&&&12x&
+                \end{array}$$
+            \end{enumerate}
+        \end{exemple}
+\end{document}

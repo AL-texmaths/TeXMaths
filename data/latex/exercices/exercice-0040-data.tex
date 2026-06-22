@@ -1,0 +1,30 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!labelpos-S1=right;%
+\!labelpos-S2=left;%
+\!labelpos-S3=above;%
+\begin{enumerate}
+    \item Énoncer le \textbf{théorème de Pythagore}.
+    \dotedline\dotedline\vskip20pt
+    \item En justifiant, écrire l'égalité de Pythagore dans le triangle
+    suivant.
+    \begin{center}
+        \begin{tikzpicture}[scale=2]
+            \coordinate[label=\<labelpos-S1;:\<S1;](S1)at(0:1);
+            \coordinate[label=\<labelpos-S2;:\<S2;](S2)at(180:1);
+            \coordinate[label=\<labelpos-S3;:\<S3;](S3)at(120:1);
+            \tkzMarkRightAngle[size=0.1](S1,S3,S2)
+            \draw(S1)--(S2)--(S3)--cycle;
+        \end{tikzpicture}
+    \end{center}
+\end{enumerate}
+\vspace{120pt}
+\end{document}

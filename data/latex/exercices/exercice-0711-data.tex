@@ -1,0 +1,127 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularray}%
+\usepackage{scratch3}%
+\startdatakeys
+    \source{24GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{RA}
+    \objectifsApprentissage{B3ca,B1eb,E3ad,E3ae}
+    \motsCles{scratch,programmation}
+\enddatakeys
+\begin{document}%
+    \begin{minipage}[t]{.5\linewidth}
+        Dans cet exercice on considère la figure codée ci-contre.
+        \begin{itemize}
+            \item Les points \mathspoint{A}, \mathspoint{C} et \mathspoint{E}
+                sont alignés.
+            \item Les points \mathspoint{B}, \mathspoint{C} et \mathspoint{D}
+                sont alignés.
+            \item AB = 240 mm.
+            \item CE = 80 mm.
+        \end{itemize}
+    \end{minipage}\hfill
+    \begin{minipage}[t]{.48\linewidth}
+        \begin{center}
+                \begin{tikzpicture}[scale=1.2, baseline=(current bounding box.north)]
+        \coordinate[label=below left:\mathspoint{A}](A)at(0,0);
+        \coordinate[label=below right:\mathspoint{B}](B)at(2.4,0);
+        \coordinate[label=above right:\mathspoint{E}](E)at(60:3.2);
+        \path(E)--++(-0.8,0)coordinate[label=above left:\mathspoint{D}](D);
+        \path(60:2.4)coordinate[label=right:\mathspoint{C}](C);
+        \draw(A)--(B)--(D)--(E)--cycle;
+        \tkzMarkSegments[mark=||](D,E C,E D,C)
+        \path(C)--(E)node[midway,anchor=west, xshift=3mm]{80 mm};
+        \path(A)--(B)node[midway,below]{240 mm};
+        \tkzFillAngle[\currentcolor,size=0.5](B,A,E)
+        \tkzLabelAngle[pos=0.85](B,A,E){$60^\circ$}
+        \tkzMarkAngle[size=0.5, mark=|](B,A,E)
+        \tkzFillAngle[\currentcolor,size=0.5](C,B,A)
+        \tkzMarkAngle[mark=|,size=0.5](C,B,A)
+        \path(A)--(B)node[midway,yshift=-0.9cm]{%
+            \textit{le dessin n'est pas à l'échelle}
+            };
+    \end{tikzpicture}
+        \end{center}
+    \end{minipage}
+    \medskip
+    
+    \noindent\textbf{Partie A}
+    \begin{enumerate}
+        \item Montrer que le triangle \mathspoint{ABC} est équilatéral.
+        \item Montrer que les droites \mathspoint{(DE)} et \mathspoint{(AB)}
+        sont parallèles.
+    \end{enumerate}
+    \noindent\textbf{Partie B}\smallskip
+
+    \def\scratchscale{0.65}%
+    \noindent
+    \begin{minipage}{.4\linewidth}
+        \noindent On donne le programme suivant qui permet de tracer la figure
+        précédente.
+
+        \noindent Ce programme comporte une variable nommée \guillemets{côtés}.
+
+        \noindent Les longeurs sont données en pas~: \textbf{1 pas représente 1 mm.}
+
+        \medskip\noindent On rappelle que l'instruction \begin{scratch}[scale=\scratchscale]
+        \blockmove{s'orienter à \ovalnum{90} degrés}\end{scratch}
+        signifie que le lutin se dirige horizontalement vers la droite.
+    \end{minipage}\hfill
+    \begin{minipage}{.58\linewidth}
+            \medskip\noindent
+    \begin{tblr}{colspec=*{2}{Q[c,m]},hlines,vlines,row{1}={font=\small\bfseries}}
+        Programme&Le bloc triangle\\
+        \begin{scratch}[num blocks, scale=\scratchscale]
+            \blockinit{quand \greenflag est cliqué}
+            \blockmove{aller à x : \ovalnum{-180} y : \ovalnum{-150}}
+            \blockmove{s'orienter à \ovalnum{90} degrés}
+            \blockvariable{mettre \selectmenu{côtés} à \ovalnum{...}}
+            \blockmoreblocks{triangle}
+            \blockmove{tourner \turnleft\ de \ovalnum{60} degrés}
+            \blockmove{avancer de \ovalnum{240}}
+            \blockvariable{mettre \selectmenu{côtés} à
+                \ovaloperator{\ovalmove{côté}/3}}
+            \blockmoreblocks{triangle}
+        \end{scratch}&
+        \begin{scratch}[scale=\scratchscale]
+            \initmoreblocks{définir \namemoreblocks{triangle}}
+            \blockpen{stylo en position d'écriture}
+            \blockrepeat{répéter \ovalnum{3} fois}{
+                \blockmove{avancer de \ovalvariable{côtés} pas}
+                \blockmove{tourner \turnleft\ de \ovalnum{120} degrés}
+            }
+            \blockpen{relever le stylo}
+        \end{scratch}
+    \end{tblr}
+    \end{minipage}
+
+    \begin{enumerate}
+        \item Quelles sont les coordonnées du point de départ du lutin~?
+            Aucune justification n'est demandée.
+        \item Quelle valeur doit être saisie à la ligne 4 dans le
+            programme~? Aucune justification n'est demandée.
+        \item Le lutin démarre à la case D8. Dans quelle case se trouve-t-il
+            lorsqu'il vient d'exécuter la ligne 7 du programme~?
+            Aucune justification n'est demandée
+            \begin{center}
+                \newcounter{tmp}
+                \begin{tikzpicture}[scale=0.75]
+                    \draw[dotted] (0,0) grid (11,9);
+                    \foreach \i in {0,...,7} {
+                        \path (0.5,\i+0.5) node {\number\numexpr8-\i};
+                    }
+                    \foreach \i in {1,...,10} {
+                        \setcounter{tmp}{\i}
+                        \path (\i+0.5,8.5) node {\Alph{tmp}};
+                    }
+                    \draw(4.5,0.5)--(10.5,0.5)--(6.5,7.5)--(8.5,7.5)--cycle;
+                    \draw[-latex](3.75,-0.5)--(4.5,0.5);
+                    \path node[anchor=east] at (3.75,-0.5) {\small Départ du lutin};
+                \end{tikzpicture}
+            \end{center}
+        \item Expliquer l'instruction \guillemets{côté/3} de la ligne 8 du
+            programme pour le tracé de la figure.
+    \end{enumerate}
+\end{document}

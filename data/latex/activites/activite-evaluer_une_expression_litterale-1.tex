@@ -1,0 +1,63 @@
+\documentclass[activite]{thedocument}
+\usepackage{mdframed}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{enumerate}
+        \item Détailler les étapes du calcul suivant.
+        \begin{mdframed}
+            \large On évalue l'expression $4b+5$ pour $b=2$ :\vskip 30pt
+            \begin{center}
+                \begin{tikzpicture}[scale=1.8]
+                    \tikzstyle{operation}=[->,>=latex]
+                    \tikzstyle{etiquette}=[midway,fill=Rainbow1-vert]
+                    \def\skip{1.2}
+                    \def\xshift{2.5}
+        
+                    \node(n10)at(-2.5,0){};
+                    \node(n11)at(-1.8,0){$4b$};
+                    \node(n12)at(-1,0){$+$};
+                    \node(n13)at(-0.5,0){$5$};
+        
+                    \path(n10)--++(0,-\skip)node(n20){$=$};
+                    \path(n11)--++(0,-\skip)node(n21){$4\times b$};
+                    \path(n12)--++(0,-\skip)node(n22){$+$};
+                    \path(n13)--++(0,-\skip)node(n23){$5$};
+        
+                    \path(n20)--++(0,-\skip)node(n30){$=$};
+                    \path(n21)--++(0,-\skip)node(n31){$4\times 2$};
+                    \path(n22)--++(0,-\skip)node(n32){$+$};
+                    \path(n23)--++(0,-\skip)node(n33){$5$};
+        
+                    \path(n30)--++(0,-\skip)node(n40){$=$};
+                    \path(n31)--++(0,-\skip)node(n41){$8$};
+                    \path(n32)--++(0,-\skip)node(n42){$+$};
+                    \path(n33)--++(0,-\skip)node(n43){$5$};
+        
+                    \path(n40)--++(0,-\skip)node(n50){$=$};
+                    \path(n42)--++(0,-\skip)node(n52){$13$};
+                    %flèches
+                    \draw[operation](n13)to[out=-45,in=45]
+                        node[etiquette,shift={(\xshift+0.1,0)}]{\color{Rainbow1-vert}conventions d'écriture}
+                            (n23.north east);
+                    \draw[operation](n23)to[out=-45,in=45]
+                        node[etiquette,shift={(\xshift,0)}]{\color{Rainbow1-vert}on remplace $b$ par $2$}
+                        (n33.north east);
+                    \draw[operation](n33)to[out=-45,in=45]
+                        node[etiquette,shift={(\xshift+0.25,0)},align=left]{\color{Rainbow1-vert}on calcule
+                        sans oublier\\\color{Rainbow1-vert}les priorités opératoires}(n43.north east);
+                    \draw[operation](n43)to[out=-45,in=45](n52.north east);
+                \end{tikzpicture}
+            \end{center}
+        \end{mdframed}
+        \item En utilisant la même méthode, \textbf{évaluer} l'expression
+        littérale $25-4y$ pour $y=5$.
+    \end{enumerate}
+    
+\end{document}

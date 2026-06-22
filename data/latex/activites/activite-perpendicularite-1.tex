@@ -1,0 +1,25 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \noindent{\bfseries 1) }Placer un point B qui vérifie les deux conditions~:
+    \begin{itemize}
+        \item B $\in$ $(d)$;
+        \item la distance AB est la plus petite possible.
+    \end{itemize}
+    \vskip30pt{\centering
+    \begin{tikzpicture}[scale=1.5]
+        \coordinate[label=above left:A](A)at(0,0);
+        \coordinate[label=below left:(d)](D)at(-1.5,-4);
+        \draw(D)--(4,1);
+        \draw node at(A){$\times$};
+    \end{tikzpicture}}\par
+    \noindent{\bfseries 2) } Que peut-on dire des droites $(d)$ et $(AB)$~?
+    \begingroup\linewidth=.95\linewidth\noindent
+    \dotedline\dotedline\dotedline\endgroup
+\end{document}

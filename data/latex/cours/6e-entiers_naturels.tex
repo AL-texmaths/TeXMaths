@@ -1,0 +1,55 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Écriture des entiers naturels}\par\noindent
+    Les nombres entiers naturels s'écrivent avec 10 chiffres :
+        $$0,\;1,\;2,\;3,\;4,\;5,\;6,\;7,\;8,\;9$$
+    La position du chiffre dans le nombre indique combien d'unités, de
+    dizaines, de centaines, etc, comporte ce nombre.\vskip15pt\par\noindent
+    {\bfseries Exemple :} On décompose le nombre 61\;041\;920\;534.\vskip15pt\par\noindent
+    \centering
+    \begin{tblr}{colspec={*{12}{Q[c,m]}},row{1}={font=\bfseries},hlines,vlines}
+        \SetCell[c=3]{c}milliards&&&\SetCell[c=3]{c}millions&&&
+        \SetCell[c=3]{c}milliers&&&\SetCell[c=3]{c}unités&&\\
+        C&D&U&C&D&U&C&D&U&C&D&U\\
+        0&6&1&0&4&1&9&2&0&5&3&4
+    \end{tblr}
+    \centering\vskip10pt\par\noindent
+    \regle{ecriture_entiers_naturels}\vskip5pt\par\noindent
+    {\bfseries Exemple :} 
+    $200\;580$ s'écrit \guillemets{deux-cent-mille-cinq-cent-quatre-vingts}.
+    \bigpart{Addition et soustraction}
+    \subpart{Vocabulaire}
+    \definition{somme_termes}
+    \vskip5pt\par\noindent{\bfseries Exemple :} Dans un magasin de vêtements, madame
+    Simone achète un jean à $35$\euro\hspace{2mm}et une chemise à $97$\euro.\\
+    Combien devra-t-elle payer au total ?
+    \definition{difference_termes}
+    \vskip5pt\par\noindent{\bfseries Exemple :} Yannis a une collection de timbres
+    et d'images. Il en a 318 au total dont 185 timbre.\\Combien a-t-il d'images
+    ~?
+    \subpart{Propriétés}
+    \proposition{commutativite_associativite_addition}
+    \vskip5pt\par\noindent{\bfseries Exemple :}
+    On additionne $85,\;31,\;115,\;\text{et  }69$:
+    \begin{align*}
+        &\hskip13pt85+31+115+69\\
+        &=85+115+31+69\\
+        &=(85+115)+(31+69)\\
+        &=200+100\\
+        &=300
+    \end{align*}
+    \bigpart{Multiplication et division}
+    \subpart{Vocabulaire}
+    \definition{produit_facteurs}
+    \vskip5pt\par\noindent{\bfseries Exemple :} Valentine possède 16 sacs de
+    billes. Chaque sac contient 24 billes. Combien Valentine a-t-elle de
+    billes au total ?
+    \newpage
+    \subpart{Propriété}
+    \proposition{commutativite_associativite_multiplication}
+    \subpart{Division}
+    \definition{division_euclidienne}
+    \vskip5pt\par\noindent{\bfseries Exemple :} On souhaite ranger 179 \oe ufs dans
+    des boîtes pouvant chacune contenir 8 \oe ufs. De combien de boîtes
+    aura-t-on besoin~? Combien restera-t-il d'\oe ufs~?
+\end{document}

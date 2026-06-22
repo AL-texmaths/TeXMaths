@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}
+    \coordinate[label=below:A](A)at(0,0);
+    \coordinate[label=below right:B](B)at(0:3);
+    \coordinate[label=right:C](C)at(20:4);
+    \coordinate[label=D](D)at(100:5);
+    \coordinate[label=left:E](E)at(160:4);
+    % \draw(A)--(B)--(C)--(D)--(E)--cycle;
+    \draw node at(A){$\times$};
+    \draw node at(B){$\times$};
+    \draw node at(C){$\times$};
+    \draw node at(D){$\times$};
+    \draw node at(E){$\times$};
+\end{tikzpicture}
+\begin{enumerate}
+    \item Sur la figure ci-dessus, tracer le pentagone (cinq côtés) ABCDE.
+    \item Tracer les diagonales du pentagone (cinq sommets) ci-dessus.
+    \item Trouver toutes les paires d'angles égaux.
+\end{enumerate}
+\end{document}

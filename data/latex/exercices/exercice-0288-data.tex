@@ -1,0 +1,42 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{.5\linewidth}
+    \begin{tikzpicture}[rotate=-15]
+        \coordinate(d1)at(0,-3);
+        \coordinate[label=(d)](d2)at(0,3);
+        \coordinate[label=below left:A](A)at(-2,-1);
+        \coordinate[label=above right:B](B)at(-3,2);
+        \coordinate[label=below right:C](C)at(2,-1);
+        \coordinate[label=above right:D](D)at(3,2);
+        \coordinate(I1)at(0,-1);
+        \coordinate(I2)at(0,2);
+        \tkzMarkRightAngle[size=0.3](D,I2,d2)
+        \tkzMarkAngle[size=0.5](I2,I1,A)
+        \tkzLabelAngle[pos=1](I2,I1,A){90$^\circ$}
+        \path(I1)--(C)node[midway]{||};
+        \path(A)--(I1)node[midway]{||};
+        \draw(d1)--(d2);
+        \draw(A)--(B);
+        \draw(C)--(D);
+        \draw[dashed](A)--(C);
+        \draw[dashed](B)--(D);
+        \path(A)--(B)node[midway,left]{5 cm};
+        \path(C)--(D)node[midway,right]{4,5 cm};
+    \end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{.4\linewidth}
+    \begin{enumerate}
+        \item A et C sont ils symétriques par rapport à (d)~? Justifier.
+        \item\relax[AB] et [CD] sont ils symétriques par rapport à (d)~? Justifier.
+        \item La droite (d) coupe elle [BD] en son milieu ?
+    \end{enumerate}
+\end{minipage}
+\end{document}

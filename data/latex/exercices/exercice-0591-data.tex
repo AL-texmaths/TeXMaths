@@ -1,0 +1,35 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{enumerate}
+    \item Sur la figure ci-dessous, réaliser le programme de tracé avec les outils de
+    géométrie (A et B sont déjà placés).
+    \begin{enumerate}
+        \item Tracer (AB).
+        \item Tracer (d$_1$) perpendiculaire à (AB) passant par B.
+        \item Placer C tel que C $\in$ (d$_1$) et BC = 4 cm.
+        \item Tracer (d$_2$) parallèle à (AB) passant par C.
+        \item Tracer (d$_3$) perpendiculaire à (d$_2$) passant par A.
+        \item Placer D à l'intersection de (d$_2$) et (d$_3$)
+    \end{enumerate}
+    \item Quel est la nature du quadrilatère ABCD~?
+\end{enumerate}
+\begin{center}\noindent
+    \begin{tikzpicture}
+        \coordinate[label=below left:A](A)at(0,0);
+        \coordinate[label=below right:B](B)at(6.5,-1.5);
+        \coordinate[label=below right:B](B)at(6.5,-1.5);
+        \coordinate(C)at(7.68,1.18);
+        \coordinate(D)at(1.18,3.18);
+        \draw[white](A)--(B)--(C)--(D)--cycle;
+        \draw node at(A){+};
+        \draw node at(B){+};
+    \end{tikzpicture}
+\end{center}
+\end{document}

@@ -1,0 +1,64 @@
+\documentclass[17pt]{flash}
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\def\figure#1#2#3{
+        \triangleACA[A=#1,AB=#3,B=#2](A,B,C)
+        \tkzFillAngle[fill=\currentcolor](C,B,A)
+        \tkzLabelAngle[pos=1.5, font=\fontSize](C,B,A){#1$^\circ$}
+        \tkzFillAngle[fill=\currentcolor](B,A,C)
+        \tkzLabelAngle[pos=1.5, font=\fontSize](B,A,C){#2$^\circ$}
+        \draw(A)--(B)--(C)--cycle;
+}
+\def\figureA{%
+    \begin{tikzpicture}[scale=\figScale, rotate=20, baseline=(current bounding box.center)]
+        \figure{50}{80}4
+    \end{tikzpicture}
+}
+\def\figureB{%
+    \begin{tikzpicture}[scale=\figScale, rotate=40, baseline=(current bounding box.center)]
+        \figure{40}{40}6
+    \end{tikzpicture}
+}
+\def\figureC{%
+    \begin{tikzpicture}[scale=\figScale, rotate=40, baseline=(current bounding box.center)]
+        \figure{60}{60}4
+    \end{tikzpicture}
+}
+
+\def\figureD{%
+    \begin{tikzpicture}[scale=\figScale, rotate=-68, baseline=(current bounding box.center)]
+        \figure{35}{65}6
+    \end{tikzpicture}
+}
+
+\flashvisibletimertrue
+\FlashSetItemSep{2em}
+\FlashSetTitle{Calcul mental: sommes des anges dans un triangle}
+
+\FlashShowConsignes{%
+        \item Pour chaque triangle, calculer mentalement l'angle manquant.
+        \item Écrire uniquement le résultat.
+}
+
+\def\figScale{1}
+\def\fontSize{\small}
+\AtCorrection{
+    \def\figScale{0.6}%
+    \def\fontSize{\tiny}
+    }
+\flashlist{
+    % \flashitem{30}{\figureA}
+    \flashitem{30}{\figureA}
+    \flashitem{30}{coucou}
+    % \flashitem{30}{\figureB}
+    % \flashitem{30}{\figureC}
+    % \flashitem{30}{\figureD}
+}
+
+\end{document}

@@ -1,0 +1,75 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-boxes}%
+\nodata
+\begin{document}%
+\tikzset{%
+    every picture/.style={%
+        baseline=(current bounding box.center)
+    }%
+}%
+\>figure1={%
+    \begin{tikzpicture}[baseline=(A.base),scale=0.6]
+        \coordinate[label=left:A](A)at(0,0);
+        \coordinate[label=below:B](B)at(2,0);
+        \coordinate[label=right:C](C)at(4,0);
+        \coordinate[label=below:D](D)at(2,-2);
+        \filldraw[fill=Rainbow1-rouge](A)arc(180:0:1)arc(180:0:1)--(D)--cycle;
+        \tkzLabelPoint[below](B){B}
+        \tkzDrawPoints[cross out](B)
+    \end{tikzpicture}
+};%
+\>figure2={%
+    \begin{tikzpicture}[scale=0.24,baseline=(E.base)]
+        \coordinate[label=above:E](E)at(0,0);
+        \coordinate[label=below:F](F)at(0,-8);
+        \coordinate(G)at(4,-4);
+        \coordinate(K)at(2,-4);
+        \coordinate[label=above:H](H)at(6,0);
+        \coordinate[label=below:I](I)at(6,-8);
+        \filldraw[fill=Rainbow1-vert](E)--(G)--(F)--cycle;
+        \filldraw[fill=Rainbow1-vert](H)--(I)--(K)--cycle;
+        \tkzInterLL(E,G)(H,K) \tkzGetPoint{J}
+        \tkzInterLL(F,G)(I,K) \tkzGetPoint{Q}
+        \filldraw[fill=Rainbow1-vert!70!black](J)--(G)--(Q)--(K)--cycle;
+        \tkzLabelPoint[above=2pt](J){J}
+        \tkzLabelPoint[below=2pt](Q){Q}
+        \tkzLabelPoint[right](G){G}
+        \tkzLabelPoint[left](K){K}
+    \end{tikzpicture}
+};%
+\>figure3={%
+    \begin{tikzpicture}[baseline=(N.base),scale=0.54]
+        \coordinate(N)at(90:2);
+        \coordinate(L)at(210:2);
+        \coordinate(R)at(330:2);
+        \node[shift={(90:0.25)}]at(N){N};
+        \node[shift={(225:0.25)}]at(L){L};
+        \node[shift={(-45:0.25)}]at(R){R};
+        \draw (0,0) circle (2);
+        \fill[Rainbow1-orange](N)--(R)--(L)--cycle;
+        \draw(N)--(R)(R)--(L)(L)--(N);
+        \tkzDefMidPoint(N,R) \tkzGetPoint{T}
+        \tkzDefMidPoint(N,L) \tkzGetPoint{M}
+        \tkzDefMidPoint(L,R) \tkzGetPoint{P}
+        \fill[Rainbow1-orange!70!black](M)--(T)--(P)--(M);
+        \draw(M)--(P)(P)--(T)(T)--(M);
+        \node[shift={(135:0.25)}]at(M){M};
+        \node[shift={(45:0.25)}]at(T){T};
+        \node[shift={(-90:0.25)}]at(P){P};
+    \end{tikzpicture}
+};%
+\>figure4={%
+    \begin{tikzpicture}[baseline=(A_3.base),rotate=-10,scale=0.36]
+        \foreach \an [count=\i] in {0,60,...,300}
+        { \tkzDefPoint(\an:3){A_\i}}
+        \filldraw[fill=Rainbow1-bleu](A_1)--(A_2)--(A_3)--(A_4)--(A_5)--(A_6)--cycle;
+        \tkzLabelPoint[right](A_1){S}
+        \tkzLabelPoint[above right](A_2){Y}
+        \tkzLabelPoint[above](A_3){U}
+        \tkzLabelPoint[left](A_4){V}
+        \tkzLabelPoint[below left](A_5){W}
+        \tkzLabelPoint[below](A_6){Z}
+    \end{tikzpicture}
+};%
+\enonce{0072}%
+\end{document}

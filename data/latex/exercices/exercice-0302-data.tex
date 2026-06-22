@@ -1,0 +1,46 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{20GENMATAG1}
+\cycle{4}
+\competencesDuSocle{CA,RA,RE,CO}
+\connaissancesRequises{D2e*,D2d1,D2f*}
+\competencesTravaillees{D2a*,D2d*,D2e*}
+\motsCles{arccosinus,arcsinus,arctangente,cosinus,sinus,tangente,construire}
+\enddatakeys
+\begin{document}%
+    \begin{minipage}[c]{.5\linewidth}
+        La figure ci-contre est dessinée à main levée.\par\noindent
+        On donne les informations suivantes~:
+        \begin{itemize}
+            \item ABC est un triangle tel que :\par
+            AC = 10,4 cm, AB = 4 cm et BC = 9,6 cm~;
+            \item les points A, L et C sont aligné~;
+            \item les points B, K et C sont alignés~;
+            \item la droite (KL) est parallèle à la droite (AB)~;
+            \item CK = 3 cm.
+        \end{itemize}
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.4\linewidth}
+        \begin{tikzpicture}[scale=0.8, decoration=penciline,rotate=10]
+            \coordinate[label=above right:A](A)at(5,2);
+            \coordinate[label=below right:B](B)at(5,0);
+            \coordinate[label=below right:K](K)at(2,0);
+            \coordinate[label=above left:L](L)at(2,0.8);    
+            \coordinate[label=left:C](C)at(0,0);
+            \draw[decorate,thick](A)--(B)--(C)--cycle;
+            \path(K)--(L)coordinate[pos=-1](K');
+            \path(K)--(L)coordinate[pos=2](L');
+            \draw[decorate,thick](K')--(L');
+        \end{tikzpicture}
+    \end{minipage}\par
+    \begin{enumerate}
+        \item À l'aide d'instruments de géométrie, construire la figure en vrai
+        grandeur sur la copie en laissant apparents les traits de construction.
+        \item Prouver que le triangle ABC est rectangle en B.
+        \item Calculer la longueur CL en cm.
+        \item À l'aide de la calculatrice, calculer une valeur approchée de la
+        mesure de l'angle $\widehat{\mathspoint{CAB}}$, au degré près.
+    \end{enumerate}
+    \showthesource
+\end{document}

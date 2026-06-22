@@ -1,0 +1,43 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{.45\linewidth}
+    Sur un mur vertical, Arnaud a installé une étagère pour y poser des pots de
+    fleurs. \par\noindent Les mesures utilisées sont les suivantes :\par\smallskip
+    AT = 42 cm\par AE= 58 cm\par TE= 40 cm\par\medskip Le pot de fleur va-t-il
+    glisser~?
+\end{minipage}\hfill
+\begin{minipage}[c]{.45\linewidth}
+    \begin{tikzpicture}
+        \coordinate[label=below right:E](E)at(0,0);
+        \coordinate[label=below right:T](T)at(0,2);
+        \coordinate[label=below right:A](A)at(3,2);
+        \coordinate(B)at(3.6,3.5);
+        \fill[pattern=north west lines] (-1,-1) rectangle (0,3);
+        \draw(0,-1)--(0,3);
+        \draw(T)--(4,2);
+        \draw(E)--(A);
+        \filldraw[fill=gray!50!](3.2,2)--(3,2.8)--(4,2.8)--(3.8,2);
+        \draw(3.5,2.8)--(B);
+        \path[fill=gray!25!,draw=black](B)--+(0:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(36:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(72:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(108:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(144:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(180:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(-36:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(-72:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(-108:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(-144:0.2)circle(0.1);
+        \path[fill=gray!25!,draw=black](B)--+(-180:0.2)circle(0.1);
+        \filldraw[fill=gray=!75!](B)circle(0.2);
+    \end{tikzpicture}
+\end{minipage}
+\end{document}

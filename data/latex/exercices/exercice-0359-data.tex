@@ -1,0 +1,24 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}[scale=1.5, baseline=(current bounding box.center)]
+    \coordinate[label=below:\<S1;](S1)at(0,0);
+    \coordinate[label=below:\<S2;](S2)at(3,0);
+    \coordinate[label=\<S3;](S3)at(3,2);
+    \coordinate[label=\<S4;](S4)at(0,2);
+    \draw(S1)--(S2)--(S3)--(S4)--cycle;
+    \tkzMarkRightAngle(S1,S2,S3)
+    \tkzMarkRightAngle(S2,S3,S4)
+    \tkzMarkRightAngle(S3,S4,S1)
+\end{tikzpicture}\hskip30pt
+\begin{minipage}[c]{.5\linewidth}
+    Démontrer que \<S1;\<S2;\<S3;\<S4; est un rectangle.
+\end{minipage}
+\end{document}

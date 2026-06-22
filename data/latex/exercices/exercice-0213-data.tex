@@ -1,0 +1,52 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularray}
+\usepackage{mdframed}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{mdframed}
+Pour être en bonne santé, il est recommandé d'avoir régulièrement une pratique
+physique. Une recommandation serait de faire au moins une heure de pratique
+physique par jour en moyenne. Sur 1,6 million d'adolescents de 11 à 17 ans
+interrogés, 81 \% d'entre eux ne respectent pas cette recommandation.
+\vskip10pt\hfill{\itshape D'après un communiqué de presse sur la santé.}
+\end{mdframed}
+\begin{enumerate}
+    \item Sur les 1,6 million d'adolescents de 11 à 17 ans interrogés, combien
+    ne respectent pas cette recommandation~?
+    \vskip10pt Après la lecture de ce communiqué, un adolescent se donne un objectif.
+    \vskip10pt{\centering\bfseries Objectif : \guillemets{Faire au moins une heure de pratique physique par
+    jour en moyenne.}\par}
+    \vskip10pt
+    Pendant 14 jours consécutifs, il note dans le calendrier suivant, la durée
+    quotidienne qu'il consacre à sa pratique physique~:
+    \vskip10pt{\centering
+    \begin{tblr}{colspec=*7{Q[c,m]},hlines,vlines,
+        row{1,3}={font=\bfseries}}
+    Jour 1&Jour 2&Jour 3&Jour 4&Jour 5&Jour 6&Jour 7\\
+    50 min&15 min&1 h&1 h 40 min&30 min& 1 h 30 min&40 min\\
+    Jour 8&Jour 9&Jour 10&Jour 11&Jour 12&Jour 13&Jour 14\\
+    15 min&1 h&1 h 30 min&30 min&1 h& 1 h&0 min\\
+    \end{tblr}
+    \par}
+    \item\begin{enumerate}
+        \item Quelle est l'étendue des 14 durées quotidiennes notées dans le
+        calendrier~?
+        \item Donner une médiane de ces durées quotidiennes.
+    \end{enumerate}
+    \item\begin{enumerate}
+        \item Montrer que sur les 14 premiers jours, cet adolescent n'a pas
+        atteint son objectif.
+        \item Pendant les 7 jours suivants, cet adolescent décide alors de
+        consacrer plus de temps au sport pour atteindre son objectif sur
+        l'ensemble des 21 jours.\par\noindent Sur ces 7 derniers jours, quelle
+        est la durée totale de pratique physique qu'il doit au minimum prévoir
+        pour atteindre son objectif~?
+    \end{enumerate}
+\end{enumerate}
+\end{document}

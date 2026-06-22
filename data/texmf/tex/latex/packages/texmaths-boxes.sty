@@ -1,0 +1,130 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-boxes}
+\RequirePackage[tikz]{mdframed}
+\RequirePackage{tabularray}
+\RequirePackage{texmaths-tools}
+% ==========================================
+% Boîtes (mdframed) et tableaux (tabularray)
+% ==========================================
+\global\mdfdefinestyle{rectangle}{%
+    backgroundcolor=\mainbgcolor,
+    leftmargin=\parindent
+}
+% -----------------------------
+% simple tikz around characters
+% -----------------------------
+\newcommand{\circled}[2][]{%
+    \tikz[baseline=(char.base)] 
+    \node[draw,circle,inner sep=1pt,#1] (char) {#2};%
+}
+\newcommand{\colbox}[2][]{%
+    \tikz[baseline=-0.6ex]
+    \node[#1, draw, rounded corners]{#2};}%
+% --------------------
+% Programmes de calcul
+% --------------------
+\def\programlenght{.5}
+\def\program#1#2{%
+\begin{minipage}{\programlenght\linewidth}
+    \begin{mdframed}
+        {\bfseries Programme #1 :}
+        \begin{itemize}
+            \item Choisir un nombre.
+            #2
+        \end{itemize}
+    \end{mdframed}
+\end{minipage}}
+% -----------------------
+% Tableaux de conversions
+% -----------------------
+\def\ConvertTable ht=#1;{%
+    \noindent
+    \begin{tblr}{colspec={*{7}{X[c]}},hlines,vlines,row{2}={ht=#1}}
+        km&hm&dam&m&dm&cm&mm\\
+        &&&&&&\\
+    \end{tblr}\hfil\par
+}
+\def\ConvertTableSquare ht=#1;{%
+    \noindent
+    \begin{tblr}{colspec={*{14}{X[c]}},hlines,vlines,row{2}={ht=#1}}
+        \SetCell[c=2]{c}km$^2$&&\SetCell[c=2]{c}hm$^2$&&\SetCell[c=2]{c}dam$^2$&&%
+        \SetCell[c=2]{c}m$^2$&&\SetCell[c=2]{c}dm$^2$&&\SetCell[c=2]{c}cm$^2$&&\SetCell[c=2]{c}mm$^2$&\\
+        &&&&&&&&&&&&&\\
+    \end{tblr}\hfil\par
+}
+\def\ConvertTableCube ht=#1;{%
+    \noindent
+    \begin{tblr}{colspec={*{12}{X[c]}},hlines,vlines,row{3}={ht=#1}}
+        \SetCell[c=3]{c}m$^3$&&&\SetCell[c=3]{c}dm$^3$&&&\SetCell[c=3]{c}cm$^3$&&&\SetCell[c=3]{c}mm$^3$&&\\
+        &&&&&\small L&\small dL&\small cL&\small mL&&&\\
+        &&&&&&&&&&&\\
+    \end{tblr}\hfil\par
+}
+% --------------------------
+% Tableaux de démonstrations
+% --------------------------
+\makeatletter
+\def\TableauRaisonnement scale=#1;{%
+    \begin{tblr}{colspec={X[1,c]X[1,c]X[0.8,c]}, row{2}={ht=#1}, vlines}
+        \hline
+        Ce que je sais (codage et/ou texte)& Énoncé utilisé&Ce que je démontre\\
+        \hline
+        &&
+    \end{tblr}}
+
+    \newif\ifhiddingsquare
+\def\set@hideorshow{%
+    \ifhiddingsquare
+        \let\@hideorshow\@nhil
+    \else
+        \let\@hideorshow\@identity
+    \fi
+}
+% ---------------
+% Carrés magiques
+% ---------------
+\def\carremagiqueB#1#2#3{\set@hideorshow
+    \def\Ba{#1}
+    \def\Bc{#2}
+    \def\Ac{#3}
+
+    \def\Bb{\number\numexpr(\Ba+\Bc)/2\relax}
+    \def\squaresum{\number\numexpr\Ba+\Bb+\Bc\relax}
+    \def\Cc{\number\numexpr\Ba+\Bb-\Ac\relax}
+    \def\Aa{\number\numexpr\Ac+\Bc-\Bb\relax}
+    \def\Ab{\number\numexpr\squaresum-\Aa-\Ac\relax}
+    \def\Cb{\number\numexpr\squaresum-\Ab-\Bb\relax}
+    \def\Ca{\number\numexpr\squaresum-\Aa-\Ba\relax}
+
+    \begin{tblr}{colspec={*{3}{Q[c,m,wd=15pt]}}, hlines, vlines,rows={ht=30pt}}
+        \@hideorshow\Aa&\@hideorshow\Ab&\bfseries\Ac\\
+        \bfseries\Ba&\@hideorshow\Bb&\bfseries\Bc\\
+        \@hideorshow\Ca&\@hideorshow\Cb&\@hideorshow\Cc
+\end{tblr}%
+}
+% #1, #2 et #3 doivent être des nombres entiers de même parité
+\def\carremagiqueA#1#2#3{\set@hideorshow
+    \def\aaa{#1}
+    \def\bbb{#2}
+    \def\ccc{#3}
+    \def\ddd{(\aaa+\bbb)/2}
+    \def\eee{(\aaa+\ccc)/2}
+    \def\fff{(\bbb+\ccc)/2}
+    \def\ggg{(\bbb-\ccc)/2}
+    \def\hhh{(\aaa-\ccc)/2}
+
+    \begin{tblr}{colspec={*{3}{Q[c,m,wd=20pt]}}, hlines, vlines,rows={ht=30pt}}
+        \@hideorshow{\number\numexpr\hhh+\bbb\relax}&\bfseries\number\numexpr\ccc\relax&\@hideorshow{\number\numexpr\ggg+\aaa\relax}\\
+        \bfseries\number\numexpr\aaa\relax&\@hideorshow{\number\numexpr\ddd\relax}&\bfseries\number\numexpr\bbb\relax\\
+        \@hideorshow{\number\numexpr\fff\relax}&\@hideorshow{\number\numexpr\aaa+\bbb-\ccc\relax}&\@hideorshow{\number\numexpr\eee\relax}\\
+    \end{tblr}
+    }
+
+\def\carremagique#1/#2/#3|#4/#5/#6|#7/#8/#9|{%
+\begin{tblr}{colspec={*{3}{Q[c,m,wd=15pt]}}, hlines, vlines,rows={ht=22pt}}
+    #1&#2&#3\\
+    #4&#5&#6\\
+    #7&#8&#9\\
+\end{tblr}
+}
+\makeatother

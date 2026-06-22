@@ -1,0 +1,159 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{enumitem}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!scale1=1;%
+\!scale2=1;%
+\!scale3=1;%
+\!scale4=1;%
+\!scale5=1;%
+\!scale6=1;%
+\!scale7=1;%
+\!scale8=1;%
+\!rotate1=0;%
+\!rotate2=0;%
+\!rotate3=0;%
+\!rotate4=0;%
+\!rotate5=0;%
+\!rotate6=0;%
+\!rotate7=0;%
+\!rotate8=0;%
+Parmi les angles ci-dessous :\par\noindent
+\begingroup\baselineskip=5pt
+\begin{enumerate}[before=\setlength{\baselineskip}{2pt}]
+    \item nommer les angles aigus
+    \item nommer les angles obtus
+    \item nommer les angles droits et les angles plats
+\end{enumerate}
+\endgroup
+    \begin{tikzpicture}[scale=\<scale1;, rotate=\<rotate1;]
+    \AnglexOy[
+    sommet name = \<S1;,
+    right side name = \<rs1;,
+    left side name= \<ls1;,
+    angle = 120,
+    color=Rainbow1-rouge,
+    sommet pos = below left,
+    right side pos = below right,
+    left side pos = left,
+    right side len = 3,
+    left side len = 3,
+    angle size = 1,
+    right node pos = .8,
+    left node pos = .8
+    ]
+    \end{tikzpicture}\kern15pt
+    \begin{tikzpicture}[scale=\<scale2;, rotate=\<rotate2;]
+    \AngleAOB[
+    sommet name = \<S2;,
+    right side name = \<rs2;,
+    left side name= \<ls2;,
+    angle = 75,
+    color=Rainbow1-bleu,
+    sommet pos = below,
+    right side pos = right,
+    left side pos = below left,
+    right side len = 2,
+    left side len = 3,
+    ]
+    \end{tikzpicture}\kern15pt
+    \begin{tikzpicture}[scale=\<scale3;, rotate=\<rotate3;]
+    \AngleAOB[
+    sommet name = \<S3;,
+    right side name = \<rs3;,
+    left side name= \<ls3;,
+    angle = 100,
+    color=Rainbow1-vert,
+    sommet pos = below left,
+    right side pos = below,
+    left side pos = below left,
+    left side len = 1.8,
+    right side len = 3,
+    ]
+    \end{tikzpicture}\hskip15pt
+    \begin{tikzpicture}[scale=\<scale4;, rotate=\<rotate4;]
+    \AnglexOy[
+    sommet name = \<S4;,
+    right side name = \<rs4;,
+    left side name= \<ls4;,
+    angle = 30,
+    color=Rainbow1-orange,
+    sommet pos = below,
+    right side pos = right,
+    left side pos = below left,
+    right side len = 3,
+    left side len = 1.8%
+    ]
+    \end{tikzpicture}\hskip15pt
+    \begin{tikzpicture}[scale=\<scale5;, rotate=\<rotate5;]
+    \AnglexOy[
+    sommet name = \<S5;,
+    right side name = \<rs5;,
+    left side name= \<ls5;,
+    angle = 180,
+    color=Rainbow1-violet,
+    sommet pos = above,
+    right side pos = above left,
+    left side pos = above right,
+    right side len = 1.5,
+    left side len = 1.5,
+    angle size = .5,
+    right node pos = .8,
+    left node pos = .8
+    ]
+    \end{tikzpicture}\hskip15pt
+    \begin{tikzpicture}[scale=\<scale6;, rotate=\<rotate6;]
+    \AngleAOB[
+    sommet name = \<S6;,
+    right side name = \<rs6;,
+    left side name= \<ls6;,
+    angle = 110,
+    color=Rainbow1-rouge,
+    sommet pos = above,
+    right side pos = above left,
+    left side pos = above right,
+    right side len = 3,
+    left side len = 3,
+    ]
+    \end{tikzpicture}\hskip60pt
+    \begin{tikzpicture}[scale=\<scale7;, rotate=\<rotate7;]
+    \AnglexOy[
+    sommet name = \<S7;,
+    right side name = \<rs7;,
+    left side name= \<ls7;,
+    angle = 30,
+    color=Rainbow1-rouge,
+    sommet pos = above right,
+    right side pos = above left,
+    left side pos = below right,
+    right side len = 3,
+    left side len = 2,
+    angle size = 1,
+    right node pos = .8,
+    left node pos = .8
+    ]
+    \end{tikzpicture}\hskip15pt
+    \begin{tikzpicture}[scale=\<scale8;, rotate=\<rotate8;]
+    \AngleAOB[
+    sommet name = \<S8;,
+    right side name = \<rs8;,
+    left side name= \<ls8;,
+    angle = 90,
+    color=white,
+    sommet pos = below,
+    right side pos = above left,
+    left side pos = above right,
+    right side len = 3,
+    left side len = 3,
+    no mark=0%
+    ]
+    \tkzMarkRightAngle[size=.5](B,A,C)
+    \end{tikzpicture}
+\end{document}

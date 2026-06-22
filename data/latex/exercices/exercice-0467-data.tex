@@ -1,0 +1,97 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Pour chaque question ci-dessous, écrire une expression littérale (contenant
+$\<letter;$) qui correspond à la longueur $AB$~:
+\begin{enumerate}
+    \item \begin{tikzpicture}
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(6,0);
+        \draw(0,-0.1)--(0,0.1);
+        \draw(6,-0.1)--(6,0.1);
+        \draw[above] node at(A){\strut A};
+        \draw(A)--(B);
+        
+        \draw[above] node at(B){\strut B};
+        \coordinate(C)at(4,0);
+        \draw(4,-0.1)--(4,0.1);
+        \coordinate(A1)at(0,-0.2);
+        \coordinate(C1)at(4,-0.2);
+        \coordinate(B1)at(6,-0.2);
+        \draw[latex-latex](A1)--(C1);
+        \draw[latex-latex](C1)--(B1);
+        \path(A1)--(C1) node[midway,below]{\<l1;};
+        \path(C1)--(B1) node[midway,below]{$\<letter;$};
+    \end{tikzpicture}
+    \item \begin{tikzpicture}
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(6,0);
+        \draw(0,-0.1)--(0,0.1);
+        \draw(6,-0.1)--(6,0.1);
+        \draw[above] node at(A){\strut A};
+        \draw(A)--(B);
+        
+        \coordinate(C)at(4,0);
+        \draw[above left] node at(C){\strut B};
+        \draw(4,-0.1)--(4,0.1);
+        \coordinate(A1)at(0,-0.2);
+        \coordinate(C2)at(4,0.2);
+        \coordinate(B1)at(6,-0.2);
+        \coordinate(B2)at(6,0.2);
+        \draw[latex-latex](A1)--(B1);
+        \draw[latex-latex](C2)--(B2);
+        \path(A1)--(B1) node[midway,below]{\<l2;};
+        \path(B2)--(C2) node[midway,above]{$\<letter;$};
+    \end{tikzpicture}
+    \item \begin{tikzpicture}
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(6,0);
+        \draw(0,-0.1)--(0,0.1);
+        \draw(1,-0.1)--(1,0.1);
+        \draw(2,-0.1)--(2,0.1);
+        \draw(3,-0.1)--(3,0.1);
+        \draw(4,-0.1)--(4,0.1);
+        \draw(5,-0.1)--(5,0.1);
+        \draw(6,-0.1)--(6,0.1);
+        \draw[above] node at(A){\strut A};
+        \draw(A)--(B);
+        \path(0,0)--(1,0)node[midway]{o};
+        \path(1,0)--(2,0)node[midway]{o};
+        \path(2,0)--(3,0)node[midway]{o};
+        \path(3,0)--(4,0)node[midway]{o};
+        \path(4,0)--(5,0)node[midway]{o};
+        \path(5,0)--(6,0)node[midway]{o};
+        \draw[above] node at(B){\strut B};
+        \coordinate(A1)at(4,-0.2);
+        \coordinate(B1)at(5,-0.2);
+        \draw[latex-latex](A1)--(B1);
+        \path(A1)--(B1) node[midway,below]{$\<letter;$};
+    \end{tikzpicture}
+    \item \begin{tikzpicture}
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(6,0);
+        \draw(0,-0.1)--(0,0.1);
+        \draw(4,-0.1)--(4,0.1);
+        \draw(5,-0.1)--(5,0.1);
+        \draw(6,-0.1)--(6,0.1);
+        \draw[above] node at(A){\strut A};
+        \draw(A)--(B);
+        \path(4,0)--(5,0)node[midway]{o};
+        \path(5,0)--(6,0)node[midway]{o};
+        \draw[above] node at(B){\strut B};
+        \coordinate(A1)at(0,-0.2);
+        \coordinate(B1)at(5,-0.2);
+        \coordinate(C2)at(4,-0.2);
+        \draw[latex-latex](A1)--(C2);
+        \draw[latex-latex](C2)--(B1);
+        \path(C2)--(B1) node[midway,below]{$\<letter;$};
+        \path(A1)--(C2) node[midway,below]{\<l3;};
+    \end{tikzpicture}
+\end{enumerate}
+\end{document}

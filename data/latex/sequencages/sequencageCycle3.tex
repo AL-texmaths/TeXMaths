@@ -1,0 +1,310 @@
+\documentclass{article}
+% --------
+% PACKAGES
+% --------
+\usepackage{refcount}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[a5paper]{geometry}
+\usepackage{tabularray}
+\usepackage{enumitem}
+\usepackage[tikz]{mdframed}
+\usepackage{texmaths-cycle3-BO_2020}
+% --------
+% GEOMETRY
+% --------
+\geometry{
+    hmargin=30pt,
+    top=50pt,
+    headheight=20pt,
+    headsep=25pt,
+    textheight=500pt,
+    footskip=20pt
+}
+% -------------------
+% HEADERS AND FOOTERS
+% -------------------
+\makeatletter
+\def\level#1{\def\@level@name{#1}%
+    \setcounter{totalseances}0
+    \setcounter{sequence}0}
+\fancypagestyle{sequencage}
+    {
+        \fancyhf{}
+        \fancyhead[L]{\small Séquençage Cycle 4 \@level@name}
+        \fancyhead[R]{\small D'après le BOEN n$^\circ$ 31 du 30 juillet 2020}
+        \fancyfoot[C]{\thepage/\pageref{LastPage}}
+    }
+
+% --------
+% COUNTERS
+% --------
+\newcounter{totalseances}
+\newcounter{seancenumber}
+\newcounter{sequence}
+% ------
+% MACROS
+% ------
+\def\storecounter#1#2{%
+    \addtocounter{#1}{-1}\refstepcounter{#1}\label{#2}}
+\def\seancenumberseq#1{%
+    \getrefnumber{ref:seancenumber\@level@name#1}}
+\long\def\seance#1{%
+    \par\noindent
+    \stepcounter{seancenumber}\stepcounter{totalseances}%
+    {\bfseries Séance \theseancenumber : }#1
+    }
+\long\def\dontshowseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
+\def\sequence#1{%
+    \endsequence
+    \begingroup
+        \let\'\@firstofone
+        \let\`\@firstofone
+        \let\ \@underscore
+        \xdef\sequence@key{#1}
+    \endgroup
+    \stepcounter{sequence}\vskip5pt
+    \begin{mdframed}[roundcorner=5pt]
+        \begin{tblr}{colspec={X[1,l]X[2,c]X[1,r]}}%{colspec={X[1,l]X[2,l]X[1,r]}}
+            \bfseries Séquence \arabic{sequence}&
+            \footnotesize#1&
+            (\seancenumberseq\thesequence\ séances)
+        \end{tblr}
+    \end{mdframed}\vskip8pt
+}
+\def\endsequence{%
+    \storecounter{seancenumber}{ref:seancenumber\@level@name\thesequence}%
+    \setcounter{seancenumber}0%
+}
+\setlist{label=$-$}
+
+\def\cnsandcmp#1#2{%
+    {\itshape Connaissances}\vskip8pt
+    \@for\ii:=#1\do{%
+        \par\noindent$-$\hskip2ex\usecns[\ii]%
+        \immediate\write\seqcanal{CNS\ii:\@level@name:\sequence@key:}
+    }\vskip5pt\noindent\nopagebreak
+    {\itshape Compétences}\vskip8pt
+    \@for\jj:=#2\do{%
+    \par\noindent$-$\hskip2ex\usecmp[\jj]%
+    \immediate\write\seqcanal{CMP\jj:\@level@name:\sequence@key}
+    }\par\kern20pt\noindent
+}
+
+\def\showtotalseance{\vskip0pt plus 1fill\noindent
+{\large Nombre total de séances en \@level@name: {\bfseries\thetotalseances}}
+\vskip0pt plus 3fill}
+
+\def\@underscore{\string_}
+
+\def\sequence@key{undefined}
+
+\makeatother
+
+\begin{document}
+
+% \let\seance\dontshowseance
+
+\newwrite\seqcanal
+\immediate\openout\seqcanal=\jobname-structure.txt%
+
+\pagestyle{sequencage}
+
+\level{6eme}
+
+\sequence{Nombres entiers}
+\cnsandcmp{A1a1,A1a2,A2a*,A2b*,A2h1,A2h3,A2h5,A2d2,A2d3,A2e1,A2e2,A2e3,A2e4,A2e5,A3a*}{A1a1,A1a2,A1a3,A1a4,A2a*,A2b*,A3a*}
+\seance{Numération}
+\seance{Comparaison / Demi-droite graduée}
+\seance{Addition : sens et algorithme}
+\seance{Soustraction : sens et algorithme}
+\seance{Multiplication : sens et algorithme}
+\seance{Exemple / Exercices}
+
+\sequence{Aborder la géométrie}
+\cnsandcmp{C3a*,C3c*,C2f*,C2c*,C2e*}{C2a*,C2e*}
+\seance{Objets géométriques de base : vocabulaire et notation (point,
+    segment, droite, demi-droite)}
+\seance{Alignement et appartenance}
+\seance{Programme de tracé}
+\seance{Exemple / exercices}
+
+\sequence{Fraction}
+\cnsandcmp{A1b1,A1b2}{A1b1,A1b2,A1b3,A1b4,A1b5}
+\seance{Fractions-partage}
+\seance{Placer des fractions sur une demi-droite graduée}
+\seance{Placer des fractions sur une demi-droite graduée}
+\seance{Comparaison de fractions}
+
+\sequence{Angles}
+\cnsandcmp{B1m*,B1n*,B1o*}{B2a*,B1k*,B1l*,B1m*,B1n*,B1o*,B1p*,B1q*}
+\seance{Définition d'un angle}
+\seance{Notation d'une angle}
+\seance{Vocabulaire : droit, aigu, obtus}
+\seance{Mesurer un angle en utilisant le rapporteur}
+\seance{Tracer un angle en utilisant le rapporteur}
+\seance{Exemple / Exercices}
+
+\sequence{Division euclidienne}
+\cnsandcmp{A3a*,A1b3,A2c*,A2f*}{A1b6}
+\seance{Sens de la division euclidienne}
+\seance{Algorithme de la division euclidienne}
+\seance{Lien avec les fractions}
+\seance{Lien entre division euclidienne et résolution
+d'une multiplication à trou}
+\seance{Critères de divisibilité}
+
+\sequence{Perpendicularité et parallélisme}
+\cnsandcmp{C3b*,C3d*}{C3a*,C3b*,C3c*}
+\seance{Définition / Notation}
+\seance{Programme de tracé : construire une perpendiculaire}
+\seance{Programme de tracé : construire une parallèle}
+\seance{Propriété 1}
+\seance{Propriété 2}
+\seance{Propriété 3}
+\seance{Exemple / Exercices}
+
+\sequence{Organisation et gestion de données}
+\cnsandcmp{}{A3b*,A3c*,A3d*,A3e*}
+\seance{Lecture et construction d'un tableau}
+\seance{Lecture d'un diagramme}
+\seance{Construction d'un diagramme}
+\seance{Lecture et construction d'un graphique}
+
+\sequence{Nombres décimaux}
+\cnsandcmp{A1c1,A1c2,A2d1,A2h2,A2h4,A2h6}{A1c1,A1c3,A1c4,A1c5,A1c6}
+\seance{Fractions décimales}
+\seance{Numération décimale}
+\seance{Placer des nombres décimaux sur une droite graduée}
+\seance{Comparer des nombres décimaux}
+\seance{Addition et soustraction de nombres décimaux}
+\seance{Multiplication de nombres décimaux}
+
+\sequence{Polygones}
+\cnsandcmp{C2a*,C2b*,C2d*}{C2a*,C2c*,C2e*}
+\seance{Définition d'un polygone + vocabulaire}
+\seance{Définition des triangles particuliers}
+\seance{Tracer des triangles particuliers en utilisant le compas}
+\seance{Triangles : lien avec l'egalité des côtés et
+l'égalité des angles}
+\seance{Définition des quadrilatères particuliers}
+\seance{Tracer un rectangle ou un carré}
+\seance{Tracer un losange}
+\seance{Propriétés}
+\seance{Programmes de constructions}
+
+\sequence{Division décimale}
+\cnsandcmp{A2d4,A2h7,A2h8}{A1b6,A1c2}
+\seance{Sens de la division décimale}
+\seance{Algorithme de la division décimale}
+\seance{Multiplier/Diviser par 10, 100, ...}
+\seance{Multipler/Diviser par 0,1, 0,01, ...}
+\seance{Limite de la notation décimale}
+\seance{Exemples / Problème}
+
+\sequence{Priorités opératoires}
+\cnsandcmp{A2g*}{}
+\seance{Priorité des opérations entre parenthèses}
+\seance{Priorité des $\times$ / $\div$ par rapport aux + / -}
+\seance{Opérations de gauche à droite}
+\seance{Résumé des règles}
+\seance{Traduire un enchaînement d'opérations par une expression numérique}
+\seance{Écrire une expression numérique pour donner la solution à un problème}
+
+\sequence{Longueurs}
+\cnsandcmp{A1c3,B1a*,B1b*,B1c*,B1d*}{B2a*,A1c2,B1a*,B1b*,B1c*,B2b*,B2c*}
+\seance{Conversion des unités de longueurs}
+\seance{Définition du périmètre d'une figure}
+\seance{Périmètre d'un polygone}
+\seance{Périmètre d'un polygone}
+\seance{Définition du nombre pi}
+\seance{Définition d'un cercle}
+
+\sequence{Proportionnalité}
+\cnsandcmp{A3b*,A3c*,A3d*,A3e*,C3i*}{A3b*,A3f*,A2c*,B2h*,B2i*}
+\seance{Situation de proportionnalité}
+\seance{Tableaux de proportionnalité : méthode additive}
+\seance{Tableaux de proportionnalité : méthode multiplicative}
+\seance{Tableaux de proportionnalité : coefficient de proportionnalité}
+\seance{Ramener une proportion à un pourcentage}
+\seance{Appliquer un pourcentage}
+\seance{Échelles}
+
+\sequence{Aires et volumes}
+\cnsandcmp{B1e*,B1f*,B1g*,B1h*,B1i*,C1b*,B1j*,B1k*,B1l*,C2g*}{B2a*,A2b*,A2c*,B1d*,B1e*,B1f*,B1g*,B2c*,B2a*,B1h*,B1i*,B1j*,B2c*,C1b*,C2b*,C2d*}
+\seance{Conversion des unités d'aires}
+\seance{Définition de l'aire d'une figure}
+\seance{Aire d'un rectangle}
+\seance{Aire d'un carré}
+\seance{Aire d'un disque}
+\seance{Solides usuels}
+\seance{Vocabulaire}
+\seance{Conversion des unités de volume}
+\seance{Unités de contenance}
+
+\sequence{Symétrie axiale}
+\cnsandcmp{C3e*,C3f*,C3g*,C3h*}{C3d*,C3e*,C3f*}
+\seance{La symétrie axiale comme pliage le long d'un axe}
+\seance{Construction à l'aide d'un quadrillage}
+\seance{Définition rigoureuse}
+\seance{Construction à l'équerre et à la règle}
+\seance{Construction au compas}
+\seance{Axes de symétrie des figures usuelles}
+
+\sequence{Scratch}
+\cnsandcmp{C1a*}{C1a*,C1b*,C1c*,C2f*}
+
+\sequence{Instants et durées}
+\cnsandcmp{B2a*}{B2a*,B2d*,B2e*,B2f*,B2g*}
+
+\endsequence\showtotalseance\newpage
+
+% \immediate\closeout\seqcanal
+
+% \newpage
+% \foreach\themefor in{1,...,\total[themes]}
+% {%
+%     \newpage
+%     \def\themecode{\nbtoAlph\themefor}
+%     {\par\centering\LARGE\bfseries Thème \themecode\ : \theme[\themecode]\centering
+%         \par}\vskip8pt
+%     \foreach\attendufor in{1,...,\total[\nbtoAlph\themefor]}
+%     {%
+%         \def\attenducode{\nbtoAlph\themefor\attendufor}
+%         \begin{mdframed}\itshape\attendu[\attenducode]\hbadness=500\end{mdframed}
+%         {\bfseries Connaissances}\vskip8pt
+%         \foreach\cnsfor in{1,...,\total[\nbtoAlph\themefor\attendufor CNS]}
+%             {\def\cnscode{\nbtoAlph\themefor\attendufor\nbtoalph\cnsfor}%
+%             {\tt\cnscode\hskip10pt}
+%             \thetoks{CNS\cnscode*occ}
+%             \vskip8pt
+%             \begingroup\setlength{\leftskip}{10pt}
+%             \ifnum\subcnstotal>0
+%                 \foreach\subcnsfor in{1,...,\subcnstotal}{
+%                     {\itshape\subcnsfor)}\hskip5pt
+%                     \thetoks{CNS\nbtoAlph\themefor\attendufor
+%                     \nbtoalph\cnsfor\subcnsfor occ}\vskip5pt
+%                 }%
+%             \fi\par\endgroup
+%         }%
+%         {\bfseries Compétences}\vskip8pt
+%         \foreach\cmpfor in{1,...,\total[\nbtoAlph\themefor\attendufor CMP]}
+%         {%
+%             \def\cmpcode{\nbtoAlph\themefor\attendufor\nbtoalph\cmpfor}%
+%             {\tt\cmpcode\hskip10pt}
+%             \thetoks{CMP\cmpcode*occ}
+%             \vskip8pt
+%             \begingroup\setlength{\leftskip}{10pt}
+%             \ifnum\subcmptotal>0
+%                 \foreach\subcmpfor in{1,...,\subcmptotal}
+%                 {%
+%                 {\itshape\subcmpfor)}\hskip5pt
+%                 \thetoks{CMP\nbtoAlph\themefor\attendufor
+%                 \nbtoalph\cmpfor\subcmpfor occ}\vskip5pt
+%                 }%
+%             \fi\par\endgroup
+%         }%
+%     }%
+% }%
+
+\end{document}

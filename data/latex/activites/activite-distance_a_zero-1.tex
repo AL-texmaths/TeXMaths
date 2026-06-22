@@ -1,0 +1,34 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{center}
+        \begin{tikzpicture}
+            \draw[dotted](-5,-2)rectangle(5,2);
+            \coordinate(O)at(0,0);
+            \coordinate(C)at(1,0);
+            \coordinate(O1)at(4,0);
+            \coordinate(O2)at(-4,0);
+            \coordinate(A)at(2.75,0);
+            \coordinate(B)at(-2.75,0);
+            \draw[-latex](O1)--(O2);
+            \foreach\X/\x in{O/0,A/2.75,B/-2.75,C/1}{
+                \draw node[above] at(\X){\X\strut};
+                \draw[line width=1pt](\x,-0.1)--(\x,0.1);
+            }
+            \draw node[below] at(C){1\strut};
+            \draw node[below] at(O){0\strut};
+        \end{tikzpicture}
+    \end{center}\vskip20pt
+    \begin{enumerate}
+        \item En utilisant votre règle, donner l'abscisse du point A.\vskip50pt
+        \item Donner l'abscisse du point B.\vskip50pt
+        \item Que remarquez vous~?\vskip10pt
+        \dotedline\dotedline
+    \end{enumerate}
+\end{document}

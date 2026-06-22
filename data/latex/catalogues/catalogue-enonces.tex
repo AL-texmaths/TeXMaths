@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[a4paper, left=1cm, right=1cm, top=1cm, bottom=1.5cm]{geometry}
+\usepackage{texmaths-main}
+\setlist[enumerate,1]{label=\arabic* - , font=\bfseries}
+\mdfdefinestyle{byheart}{
+    nobreak,
+    backgroundcolor=vscode-green!20,
+    linecolor=vscode-green,
+    roundcorner=5pt,
+    leftmargin=\parindent,
+    innertopmargin=8pt,
+    innerbottommargin=8pt,
+    frametitlebackgroundcolor=vscode-green!40,
+    }
+\long\def\byheart#1#2{
+    \begin{mdframed}[style=byheart,frametitle=#1]
+        \leftskip\parindent
+        \rightskip0pt plus 1fil\relax
+        \noindent
+        #2
+    \end{mdframed}%
+}
+
+\def\showTitle#1{({\tt\texttt{\detokenize{#1}}})}
+
+\def\definition#1{\byheart{Définition \showTitle{#1}}{\input{../enonces/definitions/#1.tex}}}
+\def\propriete#1{\byheart{Propriété \showTitle{#1}}{\input{../enonces/proprietes/#1.tex}}}
+\def\methode#1{\byheart{Méthode \showTitle{#1}}{\input{../enonces/methodes/#1.tex}}}
+\def\regle#1{\byheart{Règle \showTitle{#1}}{\input{../enonces/regles/#1.tex}}}
+\def\theoreme#1{\byheart{Théorème \showTitle{#1}}{\input{../enonces/theoremes/#1.tex}}}
+\let\proposition\propriete
+\makeatletter
+\def\catalogues@enonce#1s/#2.tex{\csname #1\endcsname{#2}}
+\begin{document}
+    \immediate\write18{"python3" "\texmaths@path@root src/enonces_catalogue.py" "\texmaths@path@root data/latex/enonces" "enonces.tex"}
+    \input{enonces.tex}
+    \makeatother
+\end{document}

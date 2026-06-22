@@ -1,0 +1,24 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}[scale=1.1, baseline=(current bounding box.center)]
+    \coordinate[label=below right:A](A)at(0,0);
+    \coordinate[label=above right:B](B)at(5,0);
+    \coordinate[label=left:C](C)at(60:5);
+    \tkzDrawLines[add=0.2 and 0.2](A,C A,B C,B)
+\end{tikzpicture}\hskip30pt
+\begin{minipage}[c]{.5\linewidth}
+    \begin{enumerate}
+        \item Tracer (d$_1$) parallèle à (AB) passant par C.
+        \item Tracer (d$_2$) parallèle à (BC) passant par A.
+        \item Tracer (d$_3$) parallèle à (AC) passant par B.
+    \end{enumerate}
+\end{minipage}
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass[activite]{thedocument}
+\usepackage{tabularray}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{tblr}{colspec=*4{Q[c,m,wd=50pt]},row{1}={font=\bfseries}}
+        Motif n°1&Motif n°2&Motif n°3& Motif n°4\\
+        \begin{tikzpicture}[scale=0.3,baseline=(O.base)]
+            \coordinate(O)at(0.5,0.5);
+            \motif1
+        \end{tikzpicture}&
+        \begin{tikzpicture}[scale=0.3,baseline=(O.base)]
+            \coordinate(O)at(0.5,0.5);
+            \motif2
+        \end{tikzpicture}&
+        \begin{tikzpicture}[scale=0.3,baseline=(O.base)]
+            \coordinate(O)at(0.5,0.5);
+            \motif3
+        \end{tikzpicture}&
+    \end{tblr}
+    \begin{enumerate}
+        \item Dessiner le motif 4.
+        \item Combien de petits carrés contient le motif 4 ?\par\dotedline
+        \item Combien de petits carrés contient le motif 6 ?\par\dotedline\dotedline
+        \item Combien de petits carrés contient le motif 100 ?
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,94 @@
+\documentclass{thecours}
+\begin{document}
+
+    \bigpart{Définition}
+    \definition{symetrie_axiale}
+    \vskip5pt\noindent{\bfseries Exemple :}\vskip10pt
+        Sur le dessin suivant, les deux polygones {\;\sl ABCDE\;} et
+        {\;\sl A'B'C'D'E'\;} sont symétriques par rapport à la droite
+        $(d)$.
+        \begin{center}
+            \exported[scale=1,lmargin=30,vmargins=30]%
+            <<
+                \begin{tikzpicture}[scale=0.8]
+                    \coordinate(F0)at(-1,-2);
+                    \coordinate[label=above left:\color{red}$(d)$](F1)at(5,4);
+                    \coordinate[label=below:\sl A](A0)at(0,1);
+                    \coordinate[label=below right:\sl B](B0)at(0,2);
+                    \coordinate[label=above right:\sl C](C0)at(2.5,3);
+                    \coordinate[label=above right:\sl D](D0)at(0,4);
+                    \coordinate[label=left:\sl E](E0)at(-2,3);
+                    \tkzDefPointsBy[reflection = over F0--F1](A0,B0,C0,D0,E0){A',B',C',D',E'}
+                    \foreach\X/\Xlab in{A/left,B/above left,C/above,D/right,E/below}{%
+                        \coordinate[label=\Xlab:{\sl\X'}](\X1)at(\X');
+                    }
+                    \foreach\j in{0,'}{%
+                        \filldraw[fill=Rainbow1-vert](A\j)--(B\j)--(C\j)--(D\j)--(E\j)--cycle;
+                    }
+                    \draw[red](F0)--(F1);
+                \end{tikzpicture}
+            >>
+        \end{center}
+    
+    \bigpart{Propriétés}
+    \subpart{Points symétriques par rapport à une droite}
+    \proposition{axe_de_symetrie_mediatrice}
+    \bigskip\noindent{\bfseries Exemple :}\kern10pt\par\noindent
+        \begin{minipage}[t]{0.46\linewidth}
+            \begin{center}
+                \exported[scale=1,lmargin=30,vmargins=30]%
+                <<
+                    \begin{tikzpicture}[baseline=(I.base)]
+                        \coordinate(O)at(0,0);
+                        \coordinate[label=right:$\sf (d)$](X)at(2,5);
+                        \coordinate[label=above left:A](A)at(-1,3);
+                        \tkzDefPointsBy[reflection=over O--X](A){A'}
+                        \path(A)--(A')coordinate[pos=0.5](I);
+                        \toComplete{
+                            \draw node[below right]at(I){\sf I};
+                        }
+                        \draw node[below right]at(A'){A'};
+                        \draw[red](O)--(X);
+                        \draw node at(A){$\times$};
+                        \draw node at(A'){$\times$};
+                        \toComplete{
+                            \tkzMarkRightAngle(A',I,X)
+                            \draw(A)--(A');
+                            \path(A)--(I)node[pos=0.5,sloped]{//};
+                            \path(I)--(A')node[pos=0.5,sloped]{//};
+                            }
+                    \end{tikzpicture}
+                >>
+            \end{center}
+        \end{minipage}\hfil
+        \begin{minipage}[t]{0.45\linewidth}
+            \begin{center}
+                \begin{itemize}\sf
+                    \item\toComplete{(AA')$\perp$(d)}
+                    \item\toComplete{AI=A'I}
+                \end{itemize}
+            \end{center}
+        \end{minipage}\par
+    \methode{symetrique_point_equerre}
+    \vskip5pt{\bfseries Exemple :}
+        \begin{center}
+            \exported[scale=1.2,lmargin=30,vmargins=30]%
+            <<
+                \begin{tikzpicture}[rotate=40,scale=0.95]
+                    \coordinate(d0)at(0,-4);
+                    \coordinate[label=right:$\sf(d_1)$](d1)at(0,4);
+                    \coordinate[label=below:A](A)at(1,-2);
+                    \coordinate[label=right:B](B)at(5,0);
+                    \coordinate[label=above:C](C)at(4,3);
+                    \coordinate[label=left:D](D)at(2,3);
+                    \tkzDefPointsBy[reflection=over d0--d1](A,B,C,D){A',B',C',D'}
+                    \draw[red](d0)--(d1);
+                    \draw(A)--(B)--(C)--(D)--cycle;
+                    \draw[white](A')--(B')--(C')--(D')--cycle;
+                \end{tikzpicture}
+            >>
+        \end{center}
+
+    \subpart{Propriétés de conservation}
+    \proposition{symetrie_axiale_conservation}
+\end{document}

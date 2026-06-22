@@ -1,0 +1,25 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}[baseline=(O.base),scale=1.2,rotate=150]
+    \coordinate(O)at(0,0);
+    \coordinate[label=\<S2;](A)at(0,0);
+    \coordinate[label=above right:\<S1;](T)at(3,0);
+    \coordinate[label=above right:\<S3;](R)at(-2,0);
+    \coordinate[label=above right:\<S5;](F)at(30:2.25);
+    \coordinate[label=above right:\<S4;](G)at(-150:1.5);
+    \path(A)--(F)node[midway,below]{\<S5S2;};
+    \path(R)--(A)node[midway,below left]{\<S2S3;};
+    \path(G)--(A)node[midway,above]{\<S2S4;};
+    \path(A)--(T)node[midway,above right]{\<S1S2;};
+    \tkzDrawLines(R,T F,G R,G F,T)
+\end{tikzpicture}\vskip5pt Les droites (\<S1;\<S5;) et (\<S4;\<S3;) sont-elles
+parallèles~?
+\end{document}

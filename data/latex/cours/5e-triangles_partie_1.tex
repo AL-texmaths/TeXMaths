@@ -1,0 +1,23 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Construction de triangles}
+    \bigpart{Inégalité triangulaire}
+    \proposition{inegalite_triangulaire}
+    \noindent{\bfseries Exemple :}\vskip5pt\par\noindent
+    \begin{minipage}{.4\linewidth}
+        \begin{tikzpicture}[baseline=(C.base)]
+            \coordinate(O)at(0,1);
+            \coordinate[label=left:A](A)at(0,0);
+            \coordinate[label=below right:B](B)at(2,0);
+            \coordinate[label=above right:C](C)at(3,2.5);
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[below, pos=0.5]{3 cm};
+            \path(A)--(C)node[above left, pos=0.5]{7 cm};
+            \path(B)--(C)node[below right, pos=0.5]{3.5 cm};
+        \end{tikzpicture}
+    \end{minipage}\hskip10pt
+    \begin{minipage}{.4\linewidth}
+        Le plus long côté est [AC] donc on peut écrire $$AC<AB+BC$$
+    \end{minipage}
+    \bigpart{Constructibilité}
+\end{document}

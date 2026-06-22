@@ -1,0 +1,33 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-boxes}
+\usepackage{tkz-euclide}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\begin{center}
+    \begin{tikzpicture}[rotate=40]
+        \draw(-5,0)--(5,0);
+        \draw node[below right] at (5,0){$(d)$};
+        \coordinate[label=above right:D](D)at(2,1);
+        \coordinate[label=below left:C](C)at(-1,2);
+        \coordinate[label=A](A)at(0,3.5);
+        \coordinate[label=D'](D')at(2,-1);
+        \coordinate[label=below left:C'](C')at(-1,-2);
+        \coordinate[label=below right:A'](A')at(0,-3.5);
+        \draw(D)--(C)--(A)--cycle;
+        \draw(D')--(C')--(A')--cycle;
+        \path(A)--(D)node[midway,above]{4 cm};
+        \path(C')--(D')node[midway,above left]{4 cm};
+        \tkzMarkAngle[size=0.6](D,C,A)
+        \tkzLabelAngle(D,C,A){80$^\circ$}
+    \end{tikzpicture}
+\end{center}
+Sur la figure ci-dessus, le triangle A'C'D' est le symétrique de ACD par
+la symétrie d'axe $(d)$.\par\vskip30pt\noindent
+{\centering\TableauRaisonnement scale=150pt;\par}
+\end{document}

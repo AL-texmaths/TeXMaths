@@ -1,0 +1,31 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!coordD0=0,8;%
+\!coordD1=2,0;%
+\!coordS1=1,6;%
+\!coordS2=5,3;%
+Construire le symétrique du segment $[\<S1;\<S2;]$ par rapport à la droite $(d)$.
+\begin{center}
+    \begin{tikzpicture}[scale=0.6]
+        \coordinate(d0)at(\*coordD0;);
+        \coordinate(d1)at(\*coordD1;);
+        \draw[line width=1pt, color=red](d0)--(d1);
+        \draw[color=red]node[right]at(d0){\Large$(d)$};
+        \coordinate(S1)at(\*coordS1;);
+        \coordinate(S2)at(\*coordS2;);
+        \draw[color=blue, line width=1pt](S1)--(S2);
+        \draw node at(S1){\Large$\times$};
+        \draw node[above right]at(S1){\Large$\expandafter\<S1;$};
+        \draw node at(S2){\Large$\times$};
+        \draw node[above right]at(S2){\Large$\expandafter\<S2;$};
+        \draw[color=white]node at(-3,0){a};
+    \end{tikzpicture}
+\end{center}
+\end{document}

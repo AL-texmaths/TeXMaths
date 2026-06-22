@@ -1,0 +1,77 @@
+\documentclass[17pt]{flash}
+\usepackage{texmaths-tikz}
+\def\figureA{%
+    \begin{tikzpicture}[scale=\figScale,baseline=(O.base),rotate=10]
+        \coordinate(O)at(0,0);
+        \tikzSegment[sommets=BA,lenght=2]
+        \coordinate(d0')at(0,3);
+        \coordinate(d1')at(0,-3);
+        \path(d0')--+(-1,0)coordinate[label=right:(d)](d0);
+        \path(d1')--+(1,0)coordinate(d1);
+        \draw(d0)--(d1);
+        \tkzMarkSegments[mark=s||](A1,O A2,O)
+    \end{tikzpicture}
+}
+\def\figureB{%
+    \begin{tikzpicture}[scale=\figScale,baseline=(O.base),rotate=-10]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(-0.5,0);
+        \tikzSegment[sommets=BA,lenght=4]
+        \coordinate(d0')at(0,3);
+        \coordinate(d1')at(0,-3);
+        \path(d0')--+(-0.5,0)coordinate[label=right:(d)](d0);
+        \path(d1')--+(-0.5,0)coordinate(d1);
+        \draw(d0)--(d1);
+        \tkzMarkRightAngle(d0,O',A1)
+    \end{tikzpicture}
+}
+\def\figureC{%
+    \begin{tikzpicture}[scale=\figScale,baseline=(O.base),rotate=-20]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(-0,0);
+        \tikzSegment[sommets=BA,lenght=3]
+        \coordinate(d0')at(0,3);
+        \coordinate(d1')at(0,-3);
+        \path(d0')--+(-0,0)coordinate[label=right:(d)](d0);
+        \path(d1')--+(-0,0)coordinate(d1);
+        \draw(d0)--(d1);
+        \tkzMarkRightAngle(d0,O',A1)
+        \tkzMarkSegments[mark=s||](A1,O A2,O)
+    \end{tikzpicture}
+}
+\def\figureD{%
+    \begin{tikzpicture}[scale=\figScale,baseline=(O.base),rotate=30]
+        \coordinate(O)at(0,0);
+        \coordinate(O')at(-0,0);
+        \tikzSegment[sommets=BA,lenght=3]
+        \coordinate(d0')at(0,3);
+        \coordinate(d1')at(0,-3);
+        \path(d0')--+(-0,0)coordinate[label=right:(d)](d0);
+        \path(d1')--+(-0,0)coordinate(d1);
+        \draw(d0)--(d1);
+    \end{tikzpicture}
+}
+
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Géométrie}
+\FlashShowConsignes{%
+        \item (d) est-elle la médiatrice de [AB] ?
+}
+\def\figScale{1}
+\AtCorrection{\def\figScale{0.45}}
+\flashlist{
+    \flashitem{15}{\figureA}
+    \flashitem{15}{\figureB}
+    \flashitem{15}{\figureC}
+    \flashitem{15}{\figureD}
+}
+
+\end{document}

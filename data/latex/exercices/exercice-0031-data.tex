@@ -1,0 +1,34 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!coordS1=1,5;%
+\!coordS2=6,1;%
+\!posS3=0.8;%
+\!d0=0,0;%
+\!d1=10,4;%
+Pour chaque points sur la figure ci-dessous, construire son symétrique par
+rapport à la droite $(d)$.
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+        \coordinate(S1)at(\*coordS1;);
+        \coordinate(S2)at(\*coordS2;);
+        \coordinate(d0)at(\*d0;);
+        \coordinate(d1)at(\*d1;);
+        \path(d0)--(d1)coordinate[pos=\*posS3;](S3);
+        \draw[line width=1pt, color=red](d0)--(d1);
+        \draw[color=red]node[below right]at(d0){\Large$(d)$};
+        \draw node at(S1){\Large$\times$};
+        \draw node[below left]at(S1){\Large$\<S1;$};
+        \draw node at(S2){\Large$\times$};
+        \draw node[below right]at(S2){\Large$\<S2;$};
+        \draw node at(S3){\Large$\times$};
+        \draw node[below right]at(S3){\Large$\<S3;$};
+    \end{tikzpicture}
+\end{center}
+\end{document}

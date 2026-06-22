@@ -1,0 +1,35 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-symbols}[08/03/2026]
+% ========
+% PACKAGES
+% ========
+\RequirePackage{eurosym}%                    signe euro
+\RequirePackage{amsmath}%                    *align environment
+\RequirePackage{amssymb}%                    \square
+\RequirePackage{pifont}%                     \ding{210}
+\RequirePackage{bbding}%                     \Plane
+\RequirePackage{iftex}%                      \ifLuaTeX, \ifXeTeX
+\ifLuaTeX
+  \RequirePackage{fontspec}%                 fontspec pour les polices OpenDyslexic
+  % definition de la police OpenDyslexic
+  \newfontfamily\opendyslexic{OpenDyslexic}
+  \newcommand\dysfont{\opendyslexic\small}
+\else
+  \RequirePackage[utf8]{inputenc}%             utf8 encoding
+  \RequirePackage[T1]{fontenc}%                prevent T1 encoding warning
+  \RequirePackage{lmodern}%                    prevent bitmapfont
+\fi
+% guillemets en LaTeX
+\long\def\guillemets#1{{\guillemotleft}~#1~{\guillemotright}}
+% symbole parallèles
+\newcommand{\newparallel}{\mathrel{\mathpalette\new@parallel\relax}}
+\newcommand{\new@parallel}[2]{%
+  \begingroup
+\sbox\z@{$#1A$}% get the height of an uppercase letter
+  \resizebox{!}{\ht\z@}{\raisebox{\depth}{$\m@th#1/\mkern-5mu/$}}%
+  \endgroup
+}
+\def\cross{\rule[0.2em]{.5em}{.1em}\hspace{-.3em}\rule[0em]{.1em}{.5em}\,}
+\let\mathspoint\text
+\def\defined#1{\begingroup\bfseries#1\endgroup}
+\renewcommand{\parallel}{\mathrel{/\mskip-3mu/}}

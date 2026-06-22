@@ -1,0 +1,19 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+    \>S1=A;\>S2=B;\>S3=C;\>S4=D;\>S5=E;%
+    \enonce{0046}%
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate[label=\<S1;](A)at(-2,0.3);
+            \coordinate[label=\<S3;](C)at(2,-0.3);
+            \path(\<S1;)--(\<S3;)coordinate[pos=-0.2](d0);
+            \path(\<S1;)--(\<S3;)coordinate[pos=1.2](d1);
+            \coordinate[label=above right:\<S2;](B)at(-0.75,1.5);
+            \coordinate[label=below right:\<S4;](D)at(-0.75,-1);
+            \draw(d0)--(d1);
+            \foreach\X in{\<S1;,\<S2;,\<S3;,\<S4;}{%
+                \node at(\X){$\times$};
+            }
+        \end{tikzpicture}
+    \end{center}
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[activite]{thedocument}
+\usepackage{tabularray}
+\usepackage{texmaths-path}
+\usepackage{texmaths-colors}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\noindent{\Large\bfseries Première partie}\vskip10pt\noindent
+Manon a laissé le robinet de sa salle de bains légèrement ouvert. L'eau coule
+avec un débit régulier. Le tableau ci-dessous montre la quantité d'eau perdue
+en fonction du temps qui passe.\vskip10pt\noindent
+\begin{tblr}{colspec={Q[m]*5{Q[c,m,wd=20pt]}},hlines,vlines,
+    column{1}={bg=\maintblrbgcolor}}
+    {\bfseries Durée} (en h)&5&6&12&15&24\\
+    {\bfseries Quantité d'eau perdue} (en L)&30&&&&
+\end{tblr}
+\vskip10pt{\centering\pdf{Cycle4-Myriade-187-9-figure}}
+\begin{enumerate}
+    \item Déterminer le coefficient de proportionnalité de ce tableau.
+    \item Que représente ce nombre~?
+    \item Completer le tableau.
+\end{enumerate}
+\vskip20pt\noindent
+\noindent{\Large\bfseries Deuxième partie}\vskip10pt\noindent
+Le tableau suivant traduit une situation de proportionnalité. Le compléter.
+\vskip10pt\noindent
+\begin{tblr}{colspec={Q[m]*4{Q[c,m,wd=30pt]}},hlines,vlines,
+    column{1}={bg=\maintblrbgcolor}}
+    {\bfseries Nombre de cartes achetées}&5&12&&21\\
+    {\bfseries Prix} (en euros)&2&&6&\\
+\end{tblr}
+\vskip30pt\noindent
+\noindent{\Large\bfseries Troisième partie}\vskip10pt\noindent
+Chez le marchand de fruits, on voit le tableau suivant.\vskip10pt\noindent
+\begin{tblr}{colspec={Q[m]*4{Q[c,m,wd=30pt]}},hlines,vlines,
+    column{1}={bg=\maintblrbgcolor}}
+    {\bfseries Masse de pommes} (en kg)&2&4&5&13\\
+    {\bfseries Prix} (en euros)&5,00&10,00&12,50&33,00\\
+\end{tblr}\vskip10pt\noindent Le prix des pommes est-il proportionnel
+à la masse achetée~?
+\end{document}

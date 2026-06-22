@@ -1,0 +1,22 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+En observant la figure ci-dessus, écrire deux paires d'angles correspondants et
+deux paires d'angles alternes-internes.\vskip15pt
+\begin{tikzpicture}
+    \coordinate[label=below left:A](A)at(0,0);
+    \coordinate[label=below right:B](B)at(3,0);
+    \coordinate[label=above right:C](C)at(2,2);
+    \coordinate[label=D](C1)at(-1,2);
+    \coordinate[label=E](C2)at(4,2);
+    \coordinate[label=F](B1)at(1.25,3.5);
+    \draw(C1)--(C2);
+    \draw(B1)--(B)--(A)--(C);
+\end{tikzpicture}
+\end{document}

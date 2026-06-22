@@ -1,0 +1,67 @@
+\documentclass[A4]{dnbqcm}
+\usepackage{texmaths-tikz}
+\usepackage{texmaths-spacing}
+\startdatakeys
+\source{}
+\cycle{4}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\noindent Dans cet exercice, les questions sont indépendantes.\par\noindent
+\textbf{Aucunes justification n'est demandée.}
+\begin{enumerate}
+    \item \begin{minipage}[t]{.5\linewidth}
+        Dans le triangle \mathspoint{ABC}, rectangle en
+        \mathspoint{A}, quel calcul doit-on effectuer pour
+        déterminer le cosinus de l'angle $\widehat{\mathspoint{ABC}}$~?
+    \end{minipage}
+    \begin{tikzpicture}[scale=0.75, baseline=(current bounding box.center)]
+        \coordinate[label=below right:A](A)at(4,0);
+        \coordinate[label=above right:B](B)at(4,3);
+        \coordinate[label=below left:C](C)at(0,0);
+        \tkzMarkRightAngle[size=0.5,colored](B,A,C)
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}
+    \answerspace{1em}
+    \item Les notes obtenues par un élève sont 8 ; 12 ; 6 ; 19 ; 15\par
+    \begin{enumerate}
+        \item Que vaut la médiane de cette série de notes~?
+        \answerspace{1em}
+        \item Que vaut la moyenne de cette série de notes~?
+        \answerspace{1em}
+    \end{enumerate}
+    \item \begin{minipage}[t]{.5\linewidth}
+        Répondre au questions suivantes par lecture graphique (voir ci-contre).
+        \begin{enumerate}
+            \item Quel est l'antécédent de 2 par la fonction $f$~?
+            \answerspace{1em}
+            \item Quel est l'image de -1 par la fonction $f$~?
+            \answerspace{1em}
+            \item Quel est l'image de 0 par la fonction $f$~?
+            \answerspace{1em}
+            \item Quel est l'antécédent de 0 par la fonction $f$~?
+            \answerspace{1em}
+        \end{enumerate}
+    \end{minipage}\hskip30pt
+    \begin{tikzpicture}[scale=0.9, baseline=(current bounding box.north)]
+        \simpleFunc xmin=-3,xmax=5,ymin=-4,ymax=4,gridstep=0.5,func=f=-1.5*x+0.5;
+    \end{tikzpicture}
+    \item Écrire l'expression factorisée de $4x^2-1$.
+    \answerspace{1em}
+    \item Quelles sont les solutions de l'équation ci-dessous~?
+    $$(2x-6)(5+x)$$
+    \answerspace{1em}
+    \item \begin{minipage}[t]{.5\linewidth}
+        La figure ci-contre n'est pas en vrai grandeur.\par\noindent
+        Le triangle \mathspoint{DEF} est-il rectangle~?
+    \end{minipage}\hskip30pt
+    \begin{tikzpicture}[scale=1, baseline=(current bounding box.center)]
+        \coordinate[label=above:A](A)at(0,0);
+        \coordinate[label=above:B](B)at(4,0);
+        \coordinate[label=above:C](C)at(4,3);
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}
+\end{enumerate}
+\end{document}

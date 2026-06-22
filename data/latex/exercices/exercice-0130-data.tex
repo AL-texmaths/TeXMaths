@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{center}
+    \begin{tikzpicture}[scale=0.5,font=\sf]
+        \coordinate[label=below:D](S0)at(0,0);
+        \coordinate[label=below left:A](S1)at(-3,0);
+        \coordinate[label=right:C](S2)at(6,0);
+        \coordinate[label=above:B](S3)at(0,7);
+        \draw(S1)--(S2)--(S3)--cycle;
+        \draw(S0)--(S3);
+        \tkzMarkRightAngle[size=0.6](S2,S0,S3)
+        \path(S0)--(S3)node[pos=0.5,right]{7};
+        \path(S1)--(S0)node[pos=0.5,below]{3};
+        \path(S0)--(S2)node[pos=0.5,below]{6};
+    \end{tikzpicture}
+\end{center}
+Calculer l'aire du triangle {\sf ABC}.
+\end{document}

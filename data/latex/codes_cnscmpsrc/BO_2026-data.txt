@@ -1,0 +1,384 @@
+obj|:|A1aa|:|Comparer et dénombrer des collections en les organisant
+obj|:|A1ab|:|Construire des collections de cardinal donné
+obj|:|A1ac|:|Connaître et utiliser les relations entre les unités de numération
+obj|:|A1ad|:|Connaître la suite écrite et la suite orale des nombres jusqu’à 999 999
+obj|:|A1ae|:|Connaître la valeur des chiffres en fonction de leur position dans un nombre
+obj|:|A1af|:|Connaître et utiliser diverses représentations d’un nombre et passer de l’une à l’autre
+obj|:|A1ag|:|Comprendre et savoir utiliser les expressions « égal à », « supérieur à », « inférieur à », « compris entre … et … »
+obj|:|A1ah|:|Comparer, encadrer, intercaler des nombres entiers en utilisant les symboles =, < et >
+obj|:|A1ai|:|Ordonner des nombres dans l’ordre croissant ou décroissant
+obj|:|A1aj|:|Savoir placer des nombres et repérer des points sur une demi-droite graduée
+obj|:|A1ak|:|Savoir reconnaître les multiples de 2, de 5 et de 10 à partir de leur écriture chiffrée
+obj|:|A1al|:|Savoir déterminer si un nombre entier donné est un multiple d’un nombre entier inférieur ou égal à 10
+obj|:|A1am|:|Savoir déterminer si un nombre entier inférieur ou égal à 10 est un diviseur d’un nombre entier donné
+obj|:|A1ba|:|Savoir interpréter, représenter, écrire et lire des fractions
+obj|:|A1bb|:|Savoir écrire une fraction supérieure à 1 comme la somme d’un entier et d’une fraction inférieure à 1
+obj|:|A1bc|:|Savoir écrire la somme d’un entier et d’une fraction inférieure à 1 comme une unique fraction
+obj|:|A1bd|:|Savoir encadrer une fraction par deux nombres entiers consécutifs
+obj|:|A1be|:|Savoir placer une fraction ou la somme d’un nombre entier et d’une fraction inférieure à un sur une demi-droite graduée
+obj|:|A1bf|:|Savoir repérer un point d’une demi-droite graduée par une fraction ou par la somme d’un nombre entier et d’une fraction
+obj|:|A1bg|:|Comparer des fractions
+obj|:|A1bh|:|Additionner et soustraire des fractions
+obj|:|A1bi|:|Déterminer une fraction d’une quantité ou d’une grandeur
+obj|:|A1ca|:|Interpréter, représenter, écrire et lire des fractions décimales
+obj|:|A1cb|:|Connaître et utiliser les relations entre unités simples, dixièmes et centièmes
+obj|:|A1cc|:|Placer une fraction décimale sur une demi-droite graduée et repérer un point d’une demi-droite graduée par une fraction
+obj|:|A1cd|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et d’une fraction décimale inférieure à 1
+obj|:|A1ce|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et de fractions décimales ayant un numérateur
+obj|:|A1cf|:|Comparer, encadrer, intercaler des fractions décimales en utilisant les symboles =, < et >
+obj|:|A1cg|:|Ordonner des fractions décimales dans l’ordre croissant ou décroissant
+obj|:|A1ch|:|Passer d’une écriture sous forme d’une fraction décimale ou d’une somme de fractions décimales à une écriture à virgule et réciproquement
+obj|:|A1ci|:|Interpréter, représenter, écrire et lire des nombres décimaux (écriture à virgule)
+obj|:|A1cj|:|Placer un nombre décimal en écriture à virgule sur une demi-droite graduée et repérer un point d’une demi-droite graduée par
+obj|:|A1ck|:|Savoir donner la partie entière et l’arrondi à l’entier d’un nombre décimal
+obj|:|A1cl|:|Comparer, encadrer, intercaler, ordonner, par ordre croissant ou décroissant, des nombres décimaux donnés par leur écriture à
+obj|:|A1da|:|Connaître des faits numériques usuels relatifs aux nombres entiers
+obj|:|A1db|:|Connaître quelques relations entre des fractions usuelles
+obj|:|A1dc|:|Connaître l’écriture décimale de fractions usuelles
+obj|:|A1dd|:|Utiliser ses connaissances en numération pour calculer mentalement
+obj|:|A1de|:|Ajouter ou soustraire un nombre entier inférieur à 10, d’unités, de dizaines, de centaines, de dixièmes ou de centièmes à un nombre décimal, lorsqu’il n’y a pas de retenue
+obj|:|A1df|:|Multiplier un nombre entier par 10, 100 ou 1 000
+obj|:|A1dg|:|Multiplier un nombre décimal par 10
+obj|:|A1dh|:|Diviser un nombre décimal par 10
+obj|:|A1di|:|Ajouter ou soustraire 8, 9, 18, 19, 28, 29, 38 ou 39, à un nombre
+obj|:|A1dj|:|Multiplier un nombre entier inférieur à 10 par un nombre entier de dizaines ou de centaines
+obj|:|A1dk|:|Multiplier un nombre entier par 4 ou par 8
+obj|:|A1dl|:|Multiplier un nombre entier par 5
+obj|:|A1dm|:|Utiliser la distributivité de la multiplication par rapport à l’addition dans des cas simples
+obj|:|A1ea|:|Estimer le résultat d’une opération
+obj|:|A1eb|:|Savoir effectuer un calcul contenant des parenthèses
+obj|:|A1ec|:|Poser en colonnes et effectuer des additions et des soustractions de nombres décimaux
+obj|:|A1ed|:|Poser et effectuer des multiplications de deux nombres entiers
+obj|:|A1ee|:|Poser et effectuer des multiplications d’un nombre décimal par un nombre entier inférieur à 10
+obj|:|A1ef|:|Poser et effectuer des divisions euclidiennes avec un diviseur à un chiffre
+obj|:|A1fa|:|Résoudre des problèmes additifs en une étape des types « parties-tout » et « comparaison »
+obj|:|A1fb|:|Résoudre des problèmes additifs en deux ou trois étapes
+obj|:|A1fc|:|Résoudre des problèmes multiplicatifs de type « parties-tout » en une étape
+obj|:|A1fd|:|Résoudre des problèmes de comparaison multiplicative
+obj|:|A1fe|:|Résoudre des problèmes mixtes en deux ou trois étapes
+obj|:|A1ff|:|Résoudre des problèmes de dénombrement
+obj|:|A1fg|:|Résoudre des problèmes d’optimisation
+obj|:|A1ga|:|Trouver le nombre manquant dans une égalité à trous
+obj|:|A1gb|:|Déterminer la valeur d’un nombre inconnu en utilisant un symbole ou une lettre pour le représenter
+obj|:|A1gc|:|Résoudre des problèmes algébriques
+obj|:|A1gd|:|Exécuter un programme de calcul
+obj|:|A1ge|:|Identifier et formuler une règle de calcul pour poursuivre une suite de nombres
+obj|:|A1gf|:|Identifier des régularités et poursuivre une suite de motifs évolutive
+obj|:|A2aa|:|Connaître et utiliser les relations entre les unités de numération
+obj|:|A2ab|:|Connaître la suite écrite et la suite orale des nombres jusqu’à 999 999 999
+obj|:|A2ac|:|Connaître et utiliser diverses représentations d’un nombre et passer de l’une à l’autre
+obj|:|A2ad|:|Connaître la valeur des chiffres en fonction de leur position dans un nombre
+obj|:|A2ae|:|Comparer, encadrer, intercaler des nombres entiers en utilisant les symboles =, < et >
+obj|:|A2af|:|Ordonner des nombres dans l’ordre croissant ou décroissant
+obj|:|A2ag|:|Placer des nombres et repérer des points sur une demi-droite graduée
+obj|:|A2ah|:|Déterminer si un nombre entier inférieur ou égal à 10 est un diviseur d’un nombre entier donné ou si un nombre entier donné est un multiple d’un nombre entier inférieur ou égal à 10
+obj|:|A2ai|:|Déterminer des diviseurs d’un nombre entier inférieur ou égal à 100
+obj|:|A2aj|:|Déterminer tous les diviseurs d’un nombre entier inférieur ou égal à 30
+obj|:|A2ak|:|Déterminer les diviseurs communs à deux nombres entiers inférieurs ou égaux à 30
+obj|:|A2al|:|Déterminer des multiples communs à deux nombres entiers inférieurs à 15
+obj|:|A2ba|:|Interpréter, représenter, écrire et lire des fractions
+obj|:|A2bb|:|Écrire une fraction supérieure à 1 comme la somme d’un entier et d’une fraction inférieure à 1
+obj|:|A2bc|:|Écrire la somme d’un entier et d’une fraction inférieure à 1 comme une unique fraction
+obj|:|A2bd|:|Encadrer une fraction entre deux nombres entiers consécutifs
+obj|:|A2be|:|Placer une fraction ou la somme d’un nombre entier et d’une fraction inférieure à un sur une demi-droite graduée
+obj|:|A2bf|:|Repérer un point d’une demi-droite graduée par une fraction ou par la somme d’un nombre entier et d’une fraction
+obj|:|A2bg|:|Comparer des fractions
+obj|:|A2bh|:|Additionner et soustraire des fractions
+obj|:|A2bi|:|Calculer le produit d’un entier et d’une fraction
+obj|:|A2bj|:|Déterminer une fraction d’une quantité ou d’une grandeur
+obj|:|A2ca|:|Interpréter, représenter, écrire et lire des fractions décimales
+obj|:|A2cb|:|Connaître et utiliser les relations entre unités simples, dixièmes et centièmes
+obj|:|A2cc|:|Placer une fraction décimale sur une demi-droite graduée et repérer un point d’une demi-droite graduée par une fraction
+obj|:|A2cd|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et d’une fraction décimale inférieure à 1
+obj|:|A2ce|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et de fractions décimales ayant un numérateur
+obj|:|A2cf|:|Comparer, encadrer, intercaler des fractions décimales en utilisant les symboles =, < et >
+obj|:|A2cg|:|Ordonner des fractions décimales dans l’ordre croissant ou décroissant
+obj|:|A2ch|:|Passer d’une écriture sous forme d’une fraction décimale ou d’une somme de fractions décimales à une écriture à virgule et
+obj|:|A2ci|:|Interpréter, représenter, écrire et lire des nombres décimaux (écriture à virgule)
+obj|:|A2cj|:|Placer un nombre décimal en écriture à virgule sur une demi-droite graduée et repérer un point d’une demi-droite graduée par
+obj|:|A2ck|:|Savoir donner la partie entière et l’arrondi à l’entier d’un nombre décimal
+obj|:|A2cl|:|Comparer, encadrer, intercaler, ordonner, par ordre croissant ou décroissant, des nombres décimaux donnés par leur écriture à
+obj|:|A2da|:|Connaître des faits numériques usuels avec des entiers
+obj|:|A2db|:|Connaître la moitié des nombres impairs jusqu’à 15
+obj|:|A2dc|:|Connaître quelques relations entre des fractions usuelles
+obj|:|A2dd|:|Connaître l’écriture décimale de fractions usuelles
+obj|:|A2de|:|Ajouter ou soustraire un nombre entier à un nombre décimal lorsqu’il n’y a pas de retenue
+obj|:|A2df|:|Ajouter un nombre entier à un nombre décimal lorsqu’il y a une retenue
+obj|:|A2dg|:|Multiplier un nombre décimal par 10, 100 ou 1 000
+obj|:|A2dh|:|Diviser un nombre décimal par 10, 100 ou 1 000
+obj|:|A2di|:|Ajouter deux nombres décimaux inférieurs à 10, s’écrivant avec au plus un chiffre après la virgule
+obj|:|A2dj|:|Ajouter ou soustraire 8, 9, 18, 19, 28, 29, …, 98 ou 99 à un nombre
+obj|:|A2dk|:|Multiplier un nombre entier, inférieur à 10, de dizaines, de centaines ou de milliers par un nombre entier, inférieur à 10, de
+obj|:|A2dl|:|dizaines, de centaines ou de milliers
+obj|:|A2dm|:|Utiliser la distributivité de la multiplication par rapport à l’addition dans des cas simples
+obj|:|A2dn|:|Calculer le double d’un nombre décimal dans des cas simples
+obj|:|A2do|:|Calculer la moitié d’un nombre décimal dans des cas simples
+obj|:|A2dp|:|Diviser un nombre entier par 4 ou par 8
+obj|:|A2dq|:|Multiplier un nombre décimal par 5
+obj|:|A2dr|:|Multiplier un nombre décimal par 50
+obj|:|A2ea|:|Estimer le résultat d’une opération
+obj|:|A2eb|:|Savoir réaliser un calcul contenant une ou deux paires de parenthèses
+obj|:|A2ec|:|Poser et effectuer la multiplication d’un nombre décimal par un nombre entier
+obj|:|A2ed|:|Poser et effectuer des divisions décimales avec un dividende entier et un diviseur à un chiffre
+obj|:|A2ee|:|Poser et effectuer des divisions décimales avec un dividende décimal et un diviseur à un chiffre
+obj|:|A2fa|:|Résoudre des problèmes additifs en une ou plusieurs étapes 
+obj|:|A2fb|:|Résoudre des problèmes multiplicatifs de type « parties-tout » en une étape 
+obj|:|A2fc|:|Résoudre des problèmes mixtes en plusieurs étapes 
+obj|:|A2fd|:|Résoudre des problèmes de comparaison multiplicative 
+obj|:|A2fe|:|Résoudre des problèmes de dénombrement 
+obj|:|A2ff|:|Résoudre des problèmes d’optimisation 
+obj|:|A2fg|:|Résoudre des problèmes préparant à l’utilisation d’algorithmes 
+obj|:|A2ga|:|Trouver le nombre manquant dans une égalité à trous
+obj|:|A2gb|:|Résoudre des problèmes algébriques
+obj|:|A2gc|:|Exécuter ou produire un programme de calcul
+obj|:|A2gd|:|Identifier et formuler une règle de calcul pour poursuivre une suite de nombres
+obj|:|A2ge|:|Identifier des régularités et poursuivre une suite de motifs évolutive
+obj|:|A2gf|:|Trouver le nombre d’éléments pour une étape donnée dans une suite de motifs évolutive
+obj|:|A3aa|:|Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+obj|:|A3ab|:|Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+obj|:|A3ac|:|Connaître des grands nombres entiers
+obj|:|A3ad|:|Reconnaître un nombre décimal
+obj|:|A3ae|:|Connaître la définition d’un pourcentage
+obj|:|A3af|:|Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+obj|:|A3ag|:|Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+obj|:|A3ah|:|Repérer un nombre décimal sur une demi-droite graduée
+obj|:|A3ai|:|Comparer deux nombres décimaux
+obj|:|A3aj|:|Ordonner une liste de nombres décimaux
+obj|:|A3ak|:|Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+obj|:|A3al|:|Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
+obj|:|A3am|:|Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+obj|:|A3an|:|Additionner et soustraire des nombres décimaux
+obj|:|A3ao|:|Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
+obj|:|A3ap|:|Connaître le lien avec la division par 10, 100 et par 1 000
+obj|:|A3aq|:|Comprendre le sens de la multiplication de deux nombres décimaux
+obj|:|A3ar|:|Calculer le produit de deux nombres décimaux
+obj|:|A3as|:|Contrôler les résultats à l’aide d’ordres de grandeur
+obj|:|A3at|:|Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
+obj|:|A3au|:|Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+obj|:|A3av|:|Résoudre des problèmes mettant en jeu des divisions décimales
+obj|:|A3aw|:|Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+obj|:|A3ax|:|Résoudre des problèmes mettant en jeu des divisions euclidiennes
+pro|:|A3aa|:|Découverte d'écritures des nombres à partir de lettres ou de dessins~: numérations acrophoniques grecque, romaine, hiéroglyphique égyptienne
+pro|:|A3ab|:|Découverte d'algorithmes opératoires, développés dans plusieurs traditions mathématiques, comme la multiplication par jalousies ou en tableau
+pro|:|A3ac|:|Manipulation d'abaques à jetons ou de bouliers pour remobiliser le principe de la numération et la notion de « base de numération »
+pro|:|A3ad|:|Découverte de la numération sexagésimale paléo-babylonienne, qui repose sur les mêmes principes mathématiques que le système utilisé pour exprimer des durées en heures, minutes et secondes
+pro|:|A3ae|:|Le passage de ce système de numération au système décimal (et vice versa) est un autre contexte que celui des durées pour travailler la division euclidienne
+pro|:|A3af|:|Découverte de l'écriture des nombres décimaux utilisée par Simon Stevin de Bruges pour illustrer le lien entre numération décimale et fractions décimales
+obj|:|A3ba|:|Relier une fraction au résultat exact de la division de son numérateur par son dénominateur
+obj|:|A3bb|:|Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+obj|:|A3bc|:|Compléter des égalités à trous multiplicatives
+obj|:|A3bd|:|Placer une fraction sur une demi-droite graduée dans des cas simples
+obj|:|A3be|:|Graduer un segment de longueur donnée
+obj|:|A3bf|:|Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal
+obj|:|A3bg|:|Utiliser une multiplication pour appliquer une fraction à un nombre entier
+obj|:|A3bh|:|Établir des égalités de fractions
+obj|:|A3bi|:|Comparer et encadrer des fractions
+obj|:|A3bj|:|Ordonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes
+obj|:|A3bk|:|Effectuer des opérations sur les fractions
+obj|:|A3bl|:|Additionner et soustraire des fractions
+obj|:|A3bm|:|Multiplier une fraction par un nombre entier
+obj|:|A3bn|:|Résoudre des problèmes mettant en jeu des fractions
+obj|:|A3bo|:|Inventer des problèmes mettant en jeu des fractions
+obj|:|A3bp|:|Comprendre le sens d’un pourcentage
+obj|:|A3bq|:|Calculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples
+obj|:|A3br|:|Appliquer un pourcentage à une grandeur ou à un nombre
+obj|:|A3ca|:|Utiliser des modèles pré-algébriques pour résoudre des problèmes algébriques
+obj|:|A3cb|:|Identifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure 
+obj|:|B1aa|:|Connaître et utiliser les unités de longueur du millimètre au kilomètre et les symboles associés
+obj|:|B1ab|:|Connaître les relations entre les unités de longueur
+obj|:|B1ac|:|Choisir une unité adaptée pour exprimer une longueur
+obj|:|B1ad|:|Comparer des longueurs
+obj|:|B1ae|:|Disposer de quelques longueurs de référence
+obj|:|B1af|:|Estimer la longueur d’un objet ou d’une distance
+obj|:|B1ag|:|Savoir ce qu’est le périmètre d’une figure plane
+obj|:|B1ah|:|Déterminer le périmètre d’un polygone en utilisant une règle graduée
+obj|:|B1ai|:|Résoudre des problèmes mettant en jeu les longueurs des côtés d’un polygone et son périmètre
+obj|:|B1ba|:|Connaître et utiliser les unités de masse du gramme à la tonne et les symboles associés
+obj|:|B1bb|:|Connaître les relations entre les unités de masse
+obj|:|B1bc|:|Choisir une unité adaptée pour exprimer une masse
+obj|:|B1bd|:|Comparer des masses
+obj|:|B1be|:|Disposer de quelques masses de référence
+obj|:|B1bf|:|Estimer la masse d’un objet
+obj|:|B1ca|:|Connaître et utiliser les unités de contenance du millilitre à l’hectolitre et les symboles associés
+obj|:|B1cb|:|Connaître les relations entre les unités de contenance
+obj|:|B1cc|:|Choisir une unité adaptée pour exprimer une contenance
+obj|:|B1cd|:|Comparer des contenances
+obj|:|B1da|:|Comparer les aires de différentes figures planes
+obj|:|B1db|:|Déterminer des aires
+obj|:|B1dc|:|Connaître et utiliser les centimètres carrés pour exprimer des aires
+obj|:|B1ea|:|Utiliser le lexique spécifique associé aux angles
+obj|:|B1eb|:|Comprendre et utiliser les notations des angles
+obj|:|B1ec|:|Comparer des angles
+obj|:|B1fa|:|Lire l’heure sur une horloge à aiguilles
+obj|:|B1fb|:|Positionner les aiguilles d’une horloge correspondant à une heure donnée en heure et minute
+obj|:|B1fc|:|Comparer et mesurer des durées écoulées entre deux instants affichés sur une horloge (instants et durées sont exprimés en heure et minute)
+obj|:|B1fd|:|Résoudre des problèmes à une ou deux étapes impliquant des durées
+obj|:|B2aa|:|Comparer les aires de différentes figures planes
+obj|:|B2ab|:|Déterminer des aires
+obj|:|B2ac|:|Connaître et utiliser les unités centimètre carré, décimètre carré et mètre carré pour exprimer des aires
+obj|:|B2ad|:|Convertir des aires entre différentes unités
+obj|:|B2ae|:|Déterminer l’aire d’un carré ou d’un rectangle
+obj|:|B2ba|:|Utiliser le lexique spécifique associé aux angles
+obj|:|B2bb|:|Comprendre et utiliser les notations des angles
+obj|:|B2bc|:|Comparer des angles
+obj|:|B2bd|:|Construire un angle égal à la somme de deux angles donnés ou un angle multiple d’un angle donné
+obj|:|B2be|:|Construire par pliage la moitié d’un angle donné
+obj|:|B2bf|:|Savoir qu’un angle droit mesure 90°
+obj|:|B2ca|:|Lire l’heure sur une horloge à aiguilles
+obj|:|B2cb|:|Positionner les aiguilles d’une horloge correspondant à une heure donnée en heure, minute et seconde
+obj|:|B2cc|:|Comparer et mesurer des durées écoulées entre deux instants affichés sur une horloge (instants et durées sont exprimés en heure, minute et seconde)
+obj|:|B2cd|:|Résoudre des problèmes à une ou plusieurs étapes impliquant des durées
+aut|:|B3aa|:|L’élève connaît les significations des préfixes allant du kilo- au milli-, ainsi que les relations entre le mètre, ses multiples et ses sous-multiples, et fait le lien avec les unités de numération du système décimal. 
+aut|:|B3ab|:|L’élève connaît les relations entre deux unités successives du système décimal, par exemple : 1 dm = 10 cm et 1 cm = $\dfrac {1}{10}$ dm = 0,1 dm.
+aut|:|B3ac|:|L’élève sait convertir en mètre une longueur donnée dans une autre unité, multiple ou sous-multiple du mètre. Inversement, l’élève sait convertir dans une unité donnée une longueur exprimée en mètre. 
+aut|:|B3ad|:|L’élève sait utiliser le compas comme outil de report de longueurs.
+aut|:|B3ae|:|Il sait que le périmètre d’une figure plane est la longueur de son contour. L’élève sait calculer le périmètre d’un carré et d’un rectangle.
+obj|:|B3aa|:|Savoir que le périmètre du disque est proportionnel à son diamètre.
+obj|:|B3ab|:|Connaître la formule du périmètre d’un disque.
+obj|:|B3ac|:|Calculer le périmètre d’un disque.
+obj|:|B3ad|:|Calculer des périmètres de figures composées.
+obj|:|B3ae|:|Résoudre des problèmes impliquant des longueurs.
+aut|:|B3ba|:|L’élève sait comparer des aires sans avoir recours à la mesure, par superposition ou par découpage et recollement de surfaces.
+aut|:|B3bb|:|L’élève sait que 1 cm$^2$ est l’aire d’un carré de 1 cm de côté, que 1 m$^2$ est l’aire d’un carré de 1 m de côté, que 1 dm$^2$ est l’aire d’un carré de 1 dm de côté.
+aut|:|B3bc|:|Dans des cas simples, l’élève sait déterminer l’aire d’une surface en s’appuyant sur un quadrillage composé de carreaux dont les côtés mesurent 1 cm.
+aut|:|B3bd|:|L’élève sait que : 1 m$^2$ = 1 m $\times $ 1 m = 10 dm $\times $ 10 dm = 10 $\times $ 10 dm$^2$ = 100 dm$^2$ ; 1 dm$^2$ = 1 dm $\times $ 1 dm = 10 cm $\times $ 10 cm = 10 $\times $ 10 cm$^2$ = 100 cm$^2$.
+aut|:|B3be|:|L’élève mémorise que 1 cm$^2$ est égal à un centième de 1 dm$^2$, qu’il écrit 1 cm$^2=\dfrac {1}{100}$
+aut|:|B3bf|:|L’élève mémorise que 1 dm$^2$ est égal à un centième de 1 m$^2$, qu’il écrit 1 dm$^2=\dfrac {1}{100}$ m$^2$ ou 1 dm$^2=0,001$ m$^2$.
+obj|:|B3ba|:|Effectuer des conversions d’aire
+obj|:|B3bb|:|Connaître la formule de l’aire d’un carré ou d’un rectangle
+obj|:|B3bc|:|Calculer l’aire d’un carré ou d’un rectangle
+obj|:|B3ca|:|L’élève connaît l’unité centimètre cube.
+obj|:|B3cb|:|L’élève sait comparer des volumes.
+obj|:|B3cc|:|L’élève sait déterminer un volume.
+aut|:|B3da|:|L’élève lit l’heure sur un cadran à aiguilles ou sur un affichage digital (heures, minutes et secondes).
+aut|:|B3db|:|L’élève place les aiguilles pour qu’une horloge indique une heure donnée.
+aut|:|B3dc|:|L’élève connaît les unités de mesure de durées jour, heure, minute et seconde et les relations qui les lient.
+aut|:|B3dd|:|L’élève sait combien de jours il y a dans une année (bissextile ou non), combien d’années il y a dans un siècle, et dans un millénaire.
+aut|:|B3de|:|L’élève sait qu’une demi-heure c’est 30 minutes, qu’un quart d’heure c’est 15 minutes, que trois quarts d’heure c’est 45 minutes.
+obj|:|B3da|:|Effectuer des calculs sur des horaires et des durées
+obj|:|B3db|:|Résoudre des problèmes impliquant des horaires et des durées
+obj|:|B3dc|:|Convertir des durées
+pro|:|B3da|:|L’élève découvre l’histoire et le fonctionnement de différents types de calendriers : solaires, lunaires ou luni-solaires. Il comprend le lien entre les calendriers julien et grégorien et les différentes approximations de la valeur de l’année tropique. 
+pro|:|B3db|:|Selon ses intérêts et ses besoins, l’élève peut également s’interroger sur les moyens de partager le temps, découvrir les clepsydres (horloges à eau) ou d’autres instruments historiques et interculturels (grecs, arabes, chinois).
+obj|:|C1aa|:|Utiliser le vocabulaire géométrique approprié dans le contexte d’apprentissage des notions correspondantes
+obj|:|C1ab|:|Utiliser les outils géométriques usuels : règle, règle graduée, équerre et compas
+obj|:|C1ac|:|Connaître les codes usuels utilisés en géométrie
+obj|:|C1ad|:|Décrire et reconnaître un cercle et un disque comme un ensemble de points caractérisés par leur distance à un point donné
+obj|:|C1ae|:|Reconnaître et utiliser la notion de perpendicularité
+obj|:|C1af|:|Reconnaître et utiliser la notion de parallélisme
+obj|:|C1ag|:|Reconnaître et nommer les figures suivantes en faisant référence à leur définition : triangle, triangle rectangle, triangle isocèle, triangle équilatéral, quadrilatère, carré, rectangle, losange, trapèze, trapèze rectangle, pentagone et hexagone
+obj|:|C1ah|:|Connaître les propriétés de parallélisme des côtés opposés, des égalités de longueurs et d’angles pour les figures usuelles~: triangle rectangle, triangle isocèle, triangle équilatéral, carré, rectangle, losange, trapèze et trapèze rectangle 
+obj|:|C1ai|:|Reproduire ou construire un carré, un rectangle, un triangle, un triangle rectangle ou un cercle ou des assemblages de ces figures sur tout support (papier quadrillé, pointé ou uni), avec une règle graduée, une équerre ou un compas. 
+obj|:|C1aj|:|Construire une figure géométrique composée de segments, de droites, de polygones usuels et de cercles
+obj|:|C1ak|:|Reconnaître si une figure possède un ou plusieurs axes de symétrie
+obj|:|C1al|:|Compléter une figure pour la rendre symétrique par rapport à une droite donnée, horizontale ou verticale
+obj|:|C1am|:|Construire, sur papier quadrillé, la figure symétrique d’une figure donnée par rapport à une droite horizontale ou verticale
+obj|:|C1ba|:|Nommer un cube, une boule, un pavé, un cône, une pyramide, un cylindre ou un prisme droit
+obj|:|C1bb|:|Décrire un cube, un pavé, une pyramide ou un prisme droit en faisant référence à des propriétés et en utilisant le vocabulaire approprié
+obj|:|C1bc|:|Reconnaître un patron d’un cube
+obj|:|C1bd|:|Construire un patron d’un cube
+obj|:|C1be|:|Reconnaître un patron d’un pavé
+obj|:|C1ca|:|Connaître et utiliser le vocabulaire lié aux déplacements
+obj|:|C1cb|:|Comprendre, utiliser et produire une suite d’instructions qui décrivent un déplacement en utilisant un vocabulaire spatial précis
+obj|:|C1cc|:|Résoudre des problèmes portant sur des assemblages de cubes
+aut|:|C2aa|:|L’élève connaît le lexique et le codage des objets de base de la géométrie plane : angle droit, égalité de longueurs, égalité d’angles.
+aut|:|C2ab|:|Il reconnaît un carré, un rectangle, un triangle.
+aut|:|C2ac|:|Il reconnaît si une figure possède un ou plusieurs axes de symétrie.
+aut|:|C2ad|:|Il sait coder des angles droits et des longueurs égales
+obj|:|C2aa|:|Connaître et utiliser la définition de la distance entre deux points
+obj|:|C2ab|:|Connaître et utiliser la définition du milieu d’un segment
+obj|:|C2ac|:|Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+obj|:|C2ad|:|Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+obj|:|C2ae|:|Résoudre des problèmes mettant en jeu des distances à un point
+obj|:|C2af|:|Connaître la définition de la médiatrice d’un segment
+obj|:|C2ag|:|Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment
+obj|:|C2ah|:|Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice
+obj|:|C2ai|:|Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+obj|:|C2aj|:|Mesurer un angle
+obj|:|C2ak|:|Construire un angle de mesure donnée
+obj|:|C2al|:|Connaître la définition de la bissectrice d’un angle saillant
+obj|:|C2am|:|Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes
+obj|:|C2an|:|Construire des triangles
+obj|:|C2ao|:|Connaître et utiliser les propriétés angulaires des triangles particuliers : triangle rectangle, triangle isocèle, triangle équilatéral
+obj|:|C2ap|:|Connaître la valeur de la somme des mesures des angles d’un triangle
+obj|:|C2aq|:|L’utiliser pour calculer des angles, effectuer des constructions et résoudre des problèmes
+obj|:|C2ar|:|Savoir que les médiatrices d’un triangle sont concourantes
+obj|:|C2as|:|Connaître et construire le cercle circonscrit à un triangle
+obj|:|C2at|:|Connaître la définition du symétrique d’un point par rapport à une droite
+obj|:|C2au|:|Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions
+obj|:|C2ba|:|Voir dans l’espace des assemblages de cubes
+obj|:|D1aa|:|Recueillir des données et produire un tableau, un diagramme en barres ou un ensemble de points dans un repère pour présenter
+obj|:|D1ab|:|Lire et interpréter les données d’un tableau à simple ou double entrée, d’un diagramme en barres ou d’une courbe
+obj|:|D1ac|:|Résoudre des problèmes en une ou plusieurs étapes en utilisant les données d’un tableau à simple ou double entrée, d’un
+obj|:|D1ba|:|Identifier des expériences aléatoires
+obj|:|D1bb|:|Identifier toutes les issues possibles lors d’une expérience aléatoire simple
+obj|:|D1bc|:|Comprendre et utiliser le vocabulaire approprié : « impossible », « possible », « certain », « probable », « peu probable », « une
+obj|:|D1bd|:|Comparer des issues d’expériences aléatoires ou des évènements selon leur probabilité de réalisation
+obj|:|D1be|:|Comprendre que ce n’est pas parce qu’il y a deux issues possibles que chacune a une chance sur deux de se réaliser
+obj|:|D1bf|:|Reconnaître des situations d’équiprobabilité
+obj|:|D2aa|:|Recueillir des données et produire un tableau, un diagramme en barres ou un ensemble de points dans un repère pour présenter des données recueillies
+obj|:|D2ab|:|Lire et interpréter les données d’un tableau, d’un diagramme en barres, d’un diagramme circulaire ou d’une courbe
+obj|:|D2ac|:|Résoudre des problèmes en une ou deux étapes en utilisant les données d’un tableau, d’un diagramme en barres, d’un diagramme circulaire ou d’une courbe
+obj|:|D2ba|:|Identifier toutes les issues possibles lors d’une expérience aléatoire simple
+obj|:|D2bb|:|Identifier toutes les issues réalisant un évènement dans une expérience aléatoire simple
+obj|:|D2bc|:|Dans une situation d’équiprobabilité, lors d’une expérience aléatoire simple, exprimer la probabilité d’un évènement sous la forme « a chances sur b »
+obj|:|D2bd|:|Comparer des probabilités dans des cas simples
+obj|:|D2be|:|Comprendre la notion d’indépendance lors de la répétition de la même expérience aléatoire
+obj|:|D2bf|:|Dans des situations d’équiprobabilité, recenser toutes les issues possibles d’une expérience aléatoire en deux étapes dans un tableau ou dans un arbre afin de déterminer des probabilités
+obj|:|D3aa|:|Planifier une enquête et recueillir des données
+obj|:|D3ab|:|Réaliser des mesures et les consigner dans un tableau
+obj|:|D3ac|:|Construire un tableau simple pour présenter des données (observations, caractères)
+obj|:|D3ad|:|Faire un choix en filtrant les données d’un tableau selon un critère
+obj|:|D3ba|:|Savoir que la probabilité d’un évènement est un nombre compris entre 0 et 1
+obj|:|D3bb|:|Calculer des probabilités dans des situations simples d’équiprobabilité
+obj|:|D3bc|:|Comparer des résultats d’une expérience aléatoire répétée à une probabilité calculée
+obj|:|E1aa|:|Identifier une situation de proportionnalité
+obj|:|E1ab|:|Savoir résoudre un problème de proportionnalité
+obj|:|E2aa|:|Identifier une situation de proportionnalité
+obj|:|E2ab|:|Savoir résoudre un problème de proportionnalité
+aut|:|E3aa|:|L’élève sait repérer des relations multiplicatives simples entre des nombres (double, quadruple, moitié, tiers, quart).
+aut|:|E3ab|:|Il associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.
+obj|:|E3aa|:|Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante
+obj|:|E3ab|:|Identifier si une situation relève du « modèle » de la proportionnalité
+obj|:|E3ac|:|Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication
+obj|:|E3ad|:|ou l’addition, retour à l’unité
+obj|:|E3ae|:|Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques
+obj|:|E3af|:|S’initier à la résolution de problèmes d’échelles
+obj|:|F3aa|:|Identifier une instruction ou une séquence d’instructions
+obj|:|F3ab|:|Produire et exécuter une séquence d’instructions
+obj|:|F3ac|:|Répéter à la main une séquence d’instructions pour accomplir une tâche imposée
+obj|:|F3ad|:|Programmer la construction d’un chemin simple
+ certain ratio.
+aut|:|D3ac|:|Partager une somme entre deux personnes proportionnellement à leur âge.
+aut|:|D3ad|:|Calculer le pourcentage d'une quantité.
+aut|:|D3ae|:|Calculer la distance réelle entre deux villes, connaissant la distance sur une carte dont l'échelle est connue.
+aut|:|D3af|:|Appliquer, dans des cas simples, une augmentation ou une diminution exprimée en pourcentages, en utilisant ou non le coefficient multiplicateur.
+obj|:|D3aa|:|Traduire une augmentation ou une diminution en pourcentages.
+obj|:|D3ab|:|Relier la représentation graphique d'une situation de proportionnalité avec le théorème de Thalès.
+obj|:|D3ac|:|Connaitre et utiliser les fonctions linéaires.
+obj|:|D3ba|:|Utiliser les différentes représentations d'une fonction.
+obj|:|D3bb|:|Définir et connaitre le vocabulaire : image, antécédents.
+obj|:|D3bc|:|Définir et utiliser les fonctions linéaires.
+obj|:|D3bd|:|Résoudre graphiquement des équations et des inéquations linéaires.
+obj|:|D3be|:|Relier fonctions linéaires et proportionnalité.
+obj|:|D3bf|:|Définir et utiliser les fonctions affines.
+obj|:|D3bg|:|Déterminer graphiquement les coefficients d'une fonction affine.
+obj|:|D3bh|:|Représenter la fonction carré.
+pro|:|D3ba|:|Méthode de simple fausse position (pour les problèmes du type $y = ax$).
+obj|:|E1aa|:|Manipuler des instructions simples et les séquencer.
+obj|:|E1ab|:|Identifier les entrées et sorties d'un programme.
+obj|:|E1ac|:|Représenter des formules sous la forme d'une expression informatique dans un langage de programmation par blocs.
+obj|:|E1ad|:|Calculer la valeur de formules à l'aide d'une suite d'instructions dans un langage de programmation par blocs.
+obj|:|E1ae|:|Prévoir la valeur d'une expression informatique avant son exécution.
+obj|:|E1af|:|Analyser un programme simple donné et modifier ses paramètres.
+obj|:|E1ag|:|Effectuer une boucle inconditionnelle simple permettant de répéter une séquence linéaire d'instructions un nombre précis de fois.
+obj|:|E2aa|:|Représenter des conditions simples.
+obj|:|E2ab|:|Écrire des instructions conditionnelles.
+obj|:|E2ac|:|Manipuler une variable.
+obj|:|E2ad|:|Écrire un programme simple donné pour réaliser un objectif ou résoudre un problème.
+obj|:|E2ae|:|Modifier un programme donné pour changer son comportement.
+obj|:|E3aa|:|Approfondir la notion de variables.
+obj|:|E3ab|:|Utiliser des conditions composées.
+obj|:|E3ac|:|Utiliser une boucle conditionnelle.
+obj|:|E3ad|:|Structurer des programmes.
+obj|:|E3ae|:|Écrire un programme donné pour réaliser un objectif ou résoudre un problème.

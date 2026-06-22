@@ -1,0 +1,36 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Sacha : \guillemets{L'angle $\widehat{\mathspoint{AOB}}$ mesure $60^\circ$.%
+}\par\noindent Gabriel : \guillemets{Je suis certain que tu te trompes.}\par
+\centering
+\begin{tikzpicture}[line width=1pt]
+    \AngleAOB[
+    sommet name = O,
+    right side name = A,
+    left side name= B,
+    angle = 120,
+    color=Rainbow1-rouge,
+    sommet pos = below left,
+    right side pos = below,
+    left side pos = below left,
+    right side len = 2.5,
+    left side len = 2.5,
+    angle size = 1,
+    right node pos = .8,
+    left node pos = .8
+    ]
+\end{tikzpicture}
+    \begin{enumerate}
+        \item Pourquoi Gabriel affirme-t-il cela ?
+        \item Vérifier avec le rapporteur.
+        \item Quelle semble être l'erreur de Sacha~?
+    \end{enumerate}
+\end{document}

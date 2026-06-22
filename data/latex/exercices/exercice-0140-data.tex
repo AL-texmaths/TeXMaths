@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\usepackage{texmaths-colors}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Remplir le tableau suivant.\vskip5pt\par\noindent
+\begin{tblr}{
+        colspec={X[3,c,m]X[1,c,m]X[3,c,m]},
+        row{1}={bg=\maintblrbgcolor,font=\bfseries},
+        rows={ht=20pt},vlines,hlines
+    }
+    Phrase en français&Phrase codée&Représentation\\
+    Tracer \<Objet1;&&\\
+    &Tracer \<Objet2;&\\
+    &&\<Objet3;\\
+    Tracer \<Objet4;&&\\
+    &Tracer \<Objet5;&\\
+    &&\<Objet6;
+\end{tblr}
+\end{document}

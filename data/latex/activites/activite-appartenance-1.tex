@@ -1,0 +1,44 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-boxes}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\begin{mdframed}
+    \begin{tikzpicture}
+        \coordinate[label=above left:D](D)at(0,0);
+        \coordinate[label=above right:B](B)at(3,1);
+        \path(D)--(B)coordinate[pos=1.4](A);
+        \path(D)--(B)coordinate[pos=0.3](K);
+        \path(D)--(B)coordinate[pos=-0.3](X);
+        \path(D)--(B)coordinate[pos=-1.3](S);
+        \draw node at (D){+};
+        \draw node at (B){+};
+        \draw(D)--(B);
+        \coordinate(J)at(1,1);
+        \coordinate(M)at(1,-1);
+        \coordinate(Z)at(2,-3);
+        \coordinate(C)at(-1,-2);
+        \coordinate(W)at(3,3);
+        \foreach\X in{A,K,X,S,J,M,Z,C,W}{
+            \draw node at (\X){+};
+            \draw node[above left] at (\X){\X};
+        }
+    \end{tikzpicture}
+\end{mdframed}
+\setanswerspace{squares}
+\begin{enumerate}
+    \item Classer tous les points de la figure ci-dessus en deux
+    catégories.
+    \answerspace{105pt}
+    \item Justifier la réponse.
+    \answerspace{105pt}
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,950 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-cycle4-BO_2026}[19/06/2022]
+\RequirePackage{amsmath}
+
+\makeatletter
+\def\nbtoalph#1{\@alph{#1}}
+\def\nbtoAlph#1{\@Alph{#1}}
+
+\def\write@oe{oe}
+\def\write@protect{}
+\def\write@mapstochar{}
+\def\write@rightarrow{ fleche }
+\def\write@sqrt#1{racine de #1}
+\def\fourthcycle@activate@writing{%
+    \let\oe\write@oe
+    \let\protect\write@protect
+    \let\mapstochar\write@mapstochar
+    \let\rightarrow\write@rightarrow
+    \let\sqrt\write@sqrt
+}
+
+\def\deftoks#1{\expandafter\newtoks\csname#1\endcsname}
+\def\settoks#1#2{\csname#1\endcsname={#2}}
+\def\thetoks#1{\the\csname#1\endcsname}
+\def\step#1{#1=\expandafter{\expandafter!\the#1}}
+\def\steptoks#1{\expandafter\step\csname#1\endcsname}
+
+\def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
+\def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
+\def\edefunivar#1[#2]{\expandafter\edef\csname\string#1[#2]\endcsname}
+% ========================
+% CONSTRUCTION DES PARTIES
+% ========================
+\newunivar\fourthcycle@theme
+\newunivar\fourthcycle@level
+\newunivar\fourthcycle@subtheme
+\newunivar\fourthcycle@aut
+\newunivar\fourthcycle@obj
+\newunivar\fourthcycle@pro
+\newunivar\fourthcycle@total
+
+\newcounter{fourthcycle@boB@theme}
+\newcounter{fourthcycle@boB@level}
+\newcounter{fourthcycle@boB@subtheme}
+\newcounter{fourthcycle@boB@aut}
+\newcounter{fourthcycle@boB@obj}
+\newcounter{fourthcycle@boB@pro}
+
+\counterwithin{fourthcycle@boB@level}{fourthcycle@boB@theme}
+\counterwithin{fourthcycle@boB@subtheme}{fourthcycle@boB@level}
+\counterwithin{fourthcycle@boB@aut}{fourthcycle@boB@subtheme}
+\counterwithin{fourthcycle@boB@obj}{fourthcycle@boB@subtheme}
+\counterwithin{fourthcycle@boB@pro}{fourthcycle@boB@subtheme}
+
+\def\endthemes{\edefunivar\fourthcycle@total[themes]{\arabic{fourthcycle@boB@theme}}}
+\def\endlevels{\edefunivar\fourthcycle@total[\Alph{fourthcycle@boB@theme}]{\arabic{fourthcycle@boB@level}}}
+\def\endsubthemes{\edefunivar\fourthcycle@total[\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}]{\arabic{fourthcycle@boB@subtheme}}}
+\def\endaut{\edefunivar\fourthcycle@total[\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}AUT]{\arabic{fourthcycle@boB@aut}}}
+\def\endobj{\edefunivar\fourthcycle@total[\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}OBJ]{\arabic{fourthcycle@boB@obj}}}
+\def\endpro{\edefunivar\fourthcycle@total[\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}PRO]{\arabic{fourthcycle@boB@pro}}}
+
+\def\endsubtheme{\endaut\endobj\endpro}
+
+\def\newtheme#1{\stepcounter{fourthcycle@boB@theme}\defunivar\fourthcycle@theme[\Alph{fourthcycle@boB@theme}]{#1}}
+\def\newlevel#1{\stepcounter{fourthcycle@boB@level}\defunivar\fourthcycle@level
+    [\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}]{#1}}
+\def\newsubtheme#1{\stepcounter{fourthcycle@boB@subtheme}\defunivar\fourthcycle@subtheme
+    [\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}]{#1}}
+\def\newaut#1{
+    \stepcounter{fourthcycle@boB@aut}
+    \deftoks{AUT\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@aut}occ}
+    \settoks{AUT\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@aut}occ}{}
+    \edef\tmpkey{\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@aut}}
+    \defunivar\fourthcycle@aut[\tmpkey]{#1}%
+	\immediate\write\datafile{aut|:|\tmpkey|:|\unexpanded{#1}}%
+    }
+\def\newobj#1{
+    \stepcounter{fourthcycle@boB@obj}
+    \deftoks{OBJ\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@obj}occ}
+    \settoks{OBJ\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@obj}occ}{}
+    \edef\tmpkey{\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@obj}}
+    \defunivar\fourthcycle@obj[\tmpkey]{#1}%
+	\immediate\write\datafile{obj|:|\tmpkey|:|\unexpanded{#1}}%
+    }
+\def\newpro#1{
+    \stepcounter{fourthcycle@boB@pro}
+    \deftoks{PRO\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@pro}occ}
+    \settoks{PRO\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@pro}occ}{}
+    \edef\tmpkey{\Alph{fourthcycle@boB@theme}\arabic{fourthcycle@boB@level}\alph{fourthcycle@boB@subtheme}\alph{fourthcycle@boB@pro}}
+    \defunivar\fourthcycle@pro[\tmpkey]{#1}%
+	\immediate\write\datafile{pro|:|\tmpkey|:|\unexpanded{#1}}%
+    }
+
+\global\def\useaut[#1]{\steptoks{AUT#1occ}\fourthcycle@aut[#1]}
+\global\def\useobj[#1]{\steptoks{OBJ#1occ}\fourthcycle@obj[#1]}
+\global\def\usepro[#1]{\steptoks{PRO#1occ}\fourthcycle@pro[#1]}
+
+\newcounter{fourthcycle@boB@occ}
+
+\def\gobone#1{}
+
+\def\catalogue@loop#1{%
+    \ifnum#1=0
+    \else
+    \edef\tempa{\expandafter\gobone#1}%
+    \stepcounter{fourthcycle@boB@occ}\catalogue@loop\tempa\fi
+}
+\def\@countfourthcycle@boB@occ#1{\setcounter{fourthcycle@boB@occ}{0}\catalogue@loop#1\thefourthcycle@boB@occ}
+\def\countocc#1{\begingroup\edef\temp{\thetoks{#1fourthcycle@boB@occ}}\@countfourthcycle@boB@occ\temp\endgroup}
+\makeatother
+% ========================================
+% DEFINITION DES CONNAISSANCES/COMPETENCES
+% ========================================
+\newwrite\datafile
+\immediate\openout\datafile=\jobname-cycle4-data.txt\relax
+% ---- THÈME A : Nombres et calculs ----
+\newtheme{Nombres et calculs}
+
+% Cinquième
+\newlevel{Cinquième}
+
+\newsubtheme{Opérations}
+\newaut{Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et
+    CM2.}
+\newaut{Déterminer le quotient et le reste dans une division euclidienne, par
+    exemple, savoir que $17 = 3 \times 5 + 2$.}
+\newaut{Utiliser les tables de multiplication pour factoriser des nombres
+    entiers décomposables en produit de deux nombres différents de 1, par
+	exemple,
+    $21 = 3 \times 7$.}
+\newaut{Savoir calculer des produits en lien avec les tables : $0,6 \times 7$ ;
+    $40 \times 0,03$.}
+\newaut{Multiplier et diviser par 10, 100, 1~000.}
+\newaut{Additionner et soustraire des décimaux, par exemple, $2{,}7 + 1{,}4$ ;
+	$3{,}4 - 0{,}8$.}
+\newobj{Additionner, soustraire, multiplier et diviser pour résoudre des
+	problèmes et contrôler la vraisemblance de son résultat.}
+\newobj{Connaitre le sens et les situations d'emploi de ces opérations.}
+\newobj{Diviser par un nombre décimal.}
+\newobj{Enchainer des opérations.}
+\newobj{Traduire un problème, une succession donnée d'opérations, un programme
+	de calcul, en une seule expression, en faisant appel ou non à des parenthèses.}
+\newobj{Nommer un calcul, distinguer sommes et produits, termes et facteurs.}
+\newobj{Connaitre et utiliser les priorités opératoires.}
+\newobj{Connaitre et utiliser la distributivité simple sur des exemples
+	numériques.}
+\newobj{Utiliser les notions de multiples et diviseurs.}
+\newobj{Connaitre les critères de divisibilité par 3 et par 9.}
+\newobj{Mobiliser un algorithme dans le cadre du calcul numérique.}
+\newpro{Notion de nombre premier et développements sur ce thème (existence d'un
+	nombre infini de nombres premiers, crible d'Ératosthène, etc.).}
+\endsubtheme
+
+\newsubtheme{Nombres relatifs}
+\newaut{Additionner, soustraire, multiplier des nombres décimaux à une ou deux
+	décimales.}
+\newaut{Savoir que pour compléter une addition à trou, on utilise une
+	soustraction : $2 + ... = 7$ se complète en calculant $7 - 2$.}
+\newobj{Définir les nombres relatifs.}
+\newobj{Définir l'opposé et la valeur absolue d'un nombre.}
+\newobj{Définir la notion de nombre positif, strictement positif, négatif,
+	strictement négatif.}
+\newobj{Utiliser les nombres relatifs pour représenter des grandeurs
+	observables qui peuvent prendre des valeurs inférieures à zéro (température,
+	temps, altitude, etc.), en particulier dans le cadre de la résolution de
+	problèmes.}
+\newobj{Lire l'abscisse d'un nombre relatif sur une droite graduée et placer un
+	nombre relatif d'abscisse donnée.}
+\newobj{Comparer et ranger dans l'ordre croissant et décroissant des nombres
+	décimaux relatifs.}
+\newobj{Additionner deux nombres décimaux relatifs.}
+\newobj{Additionner plusieurs nombres décimaux relatifs.}
+\newobj{Soustraire deux nombres décimaux relatifs.}
+\newobj{Connaitre et justifier les situations dans lesquelles des parenthèses
+	sont indispensables au sens des écritures.}
+\newobj{Simplifier l'écriture de sommes comportant des parenthèses.}
+\newobj{Enchainer additions et soustractions de décimaux relatifs.}
+\newobj{Résoudre des problèmes mobilisant addition et soustraction de nombres
+	décimaux relatifs.}
+\newpro{Premières apparitions des nombres négatifs avec Brahmagupta (600), dont
+	l'existence était toujours niée au XVII$^\text{e}$ siècle.}
+\endsubtheme
+
+\newsubtheme{Nombres rationnels}
+\newaut{Entretenir la connaissance et l'utilisation des tables de
+	multiplication.}
+\newaut{Entretenir l'écriture décimale des fractions simples comme
+	$\frac{1}{2}$ ; $\frac{1}{4}$ ; $\frac{3}{4}$ ; $\frac{3}{2}$ ; $\frac{4}{2}$
+	; $\frac{5}{2}$ ; $\frac{1}{10}$ ; $\frac{100}{100}$ ; $\frac{7}{1}$.}
+\newaut{Faire vivre la notion de nombre quotient en complétant des
+	multiplications à trou : $3 \times \ldots = 7$ puis $3 \times \frac{7}{3} =
+	\ldots$}
+\newaut{Lire l'abscisse d'un point sur une droite graduée en tiers, en quarts,
+	en moitiés, en dixièmes.}
+\newaut{Reconnaitre des fractions égales : $\frac{2}{3} = \frac{\ldots}{15}$ ;
+	$\frac{4}{7} = \frac{\ldots}{14}$.}
+\newaut{Comparer deux fractions : $\frac{2}{7}$ et $\frac{5}{7}$ ;
+	$\frac{8}{12}$ et $\frac{8}{21}$ ; $\frac{3}{4}$ et $\frac{7}{18}$ ;
+	$\frac{8}{3}$ et $\frac{6}{7}$.}
+\newaut{Écrire une fraction sous la forme d'une somme d'un nombre entier et
+	d'une fraction inférieure à 1 : $\frac{17}{5} = 3 + \frac{2}{5}$.}
+\newaut{Addition et soustraction de fractions simples : $\frac{3}{5} +
+	\frac{4}{5}$ ; $1 - \frac{2}{3}$ ; $\frac{4}{7} - \frac{2}{21}$ ; $3 +
+	\frac{2}{5}$ ; $\frac{2}{5} + \frac{1}{4}$.}
+\newaut{Prendre une fraction simple d'un nombre : le $\frac{1}{3}$ de 18 ; le
+	$\frac{1}{4}$ de 12.}
+\newaut{Prendre 1~\%, 10~\% ou 50~\% d'un nombre, en lien avec la
+	proportionnalité.}
+\newaut{Écrire un même nombre sous de multiples formes, par exemple dire que
+	$1{,}2 = \frac{12}{10} = \frac{6}{5} = 1 + \frac{1}{5} = 120~\% =
+	\frac{120}{100}$ etc.}
+\newobj{Comparer des fractions.}
+\newobj{Additionner et soustraire des fractions de dénominateurs quelconques.}
+\newobj{Résoudre des problèmes avec des additions et soustractions de
+	fractions.}
+\endsubtheme
+
+\newsubtheme{Puissances}
+\newaut{Entretenir les tables de multiplications.}
+\newaut{Connaitre les unités d'aires et de volume.}
+\newobj{Découvrir la notion de puissance d'un nombre et sa notation dans le cas
+	du carré et du cube.}
+\newobj{Connaitre les carrés des entiers de 0 à 12.}
+\newobj{Connaitre le cube de 10.}
+\newobj{Savoir écrire un nombre sous la forme d'une puissance 2 ou 3.}
+\newobj{Calculer la valeur numérique d'expressions contenant des puissances
+	simples, additions, soustractions et produits.}
+\newobj{Calculer la valeur d'une expression littérale contenant une puissance
+	simple.}
+\endsubtheme
+
+\newsubtheme{Calcul littéral et algébrique}
+\newaut{Identifier des régularités et poursuivre une suite de motifs évolutive.}
+\newaut{Trouver le nombre d'éléments pour une étape donnée dans une suite de
+	motifs évolutive.}
+\newaut{Identifier la structure d'un motif évolutif en repérant une régularité.}
+\newaut{Nombre quotient.}
+\newobj{Produire des formules (double, triple, carré, successeur, prédécesseur,
+	aire, périmètre, etc.).}
+\newobj{Calculer la valeur d'une expression littérale par substitution.}
+\newobj{Tester si une égalité entre expressions algébriques comportant une
+	variable est vraie ou fausse.}
+\newobj{Déterminer si une expression littérale est une somme ou un produit.}
+\newobj{Exploiter les relations $k(a + b) = ka + kb$ ou $k(a - b) = ka - kb$
+	pour factoriser, ou développer une expression littérale.}
+\newobj{Réduire une expression littérale de la forme $ax + b$, où $a$ et $b$
+	sont des nombres décimaux.}
+\newobj{Démontrer une propriété générale par le calcul littéral.}
+\newobj{Utiliser un contre-exemple pour démontrer qu'une assertion est fausse.}
+\newobj{Formuler des conjectures en s'appuyant sur un langage algorithmique ou
+	un tableur.}
+\newobj{Donner à la lettre le statut d'inconnue.}
+\newobj{Modéliser des problèmes relevant des opérations à trous par des
+	équations du type $ax = c$ ou $x + b = c$.}
+\newobj{Résoudre des équations du type $ax = c$ ou $x + b = c$ par des méthodes
+	arithmétiques s'appuyant sur les opérations inverses.}
+\newpro{Lien avec Al-Khwarizmi pour qui la résolution des problèmes fait appel
+	à la « chose » qu'on cherche.}
+\newpro{Spécificité de la résolution des équations du type $x + b = c$ («
+	Al-jabr ») et du type $ax = c$ (« Al-hatt ») chez Al-Khwarizmi.}
+\endsubtheme
+
+\endsubthemes
+
+% Quatrième
+\newlevel{Quatrième}
+
+\newsubtheme{Opérations sur les nombres relatifs}
+\newaut{Manipulation de sommes et différences de nombres relatifs.}
+\newaut{Opposé d'un nombre, somme des opposés.}
+\newaut{Entretien des tables de multiplication.}
+\newaut{Multiplier et diviser par 10, 100, 1~000.}
+\newaut{Compléter des multiplications à trou : $5 \times \ldots = 3$ ; faire le
+	lien entre multiplication et division.}
+\newaut{Multiplication comme addition itérée : $3 + 3 + 3 + 3 = 4 \times 3$.}
+\newobj{Multiplier deux nombres relatifs : d'abord dans le cas où un seul des
+	facteurs est négatif, puis, grâce à la distributivité, dans le cas où les deux
+	facteurs sont négatifs.}
+\newobj{Diviser deux nombres relatifs.}
+\newobj{Savoir calculer un enchainement d'opérations avec des nombres relatifs.}
+\newobj{Utiliser le vocabulaire (somme, quotient, etc.) à partir d'un
+	enchainement d'opérations dans un programme de calcul et inversement.}
+\endsubtheme
+
+\newsubtheme{Nombres rationnels}
+\newaut{Addition et soustraction de fractions de dénominateurs quelconques mais
+	simples.}
+\newaut{Comparaison de fractions.}
+\newaut{Savoir qu'une fraction est aussi le quotient : $\frac{3}{7}$ (le nombre
+	qui, multiplié par 7, donne 3, donc savoir que $7 \times \frac{3}{7} = 3$).}
+\newaut{Savoir que prendre la fraction d'un nombre revient à multiplier la
+	fraction par ce nombre.}
+\newobj{Simplifier une fraction.}
+\newobj{Définir la notion de nombre rationnel : le quotient de deux nombres
+	entiers relatifs.}
+\newobj{Exprimer l'opposé d'un nombre rationnel.}
+\newobj{Calculer le produit de nombres rationnels.}
+\newobj{Calculer et représenter la fraction d'une fraction, d'un nombre, d'une
+	quantité.}
+\newobj{Définir l'inverse d'un nombre et connaitre sa notation.}
+\newobj{Déterminer l'inverse d'une fraction.}
+\newobj{Diviser des fractions.}
+\newobj{Calculer la valeur d'expressions comportant plusieurs opérations avec
+	des fractions.}
+\newobj{Résoudre des problèmes mobilisant les opérations sur les fractions :
+	addition, soustraction, multiplication, division, inverse.}
+\endsubtheme
+
+\newsubtheme{Puissances}
+\newaut{Connaitre et reconnaitre les carrés parfaits des entiers de 0 à 12.}
+\newaut{Multiplier et diviser par 10, 100, 1~000 ; savoir compléter $1~200 =
+	1{,}2 \times \ldots$}
+\newaut{Puissances simples : $2^2 = 4$ ; $2^3 = 8$ ; $3^3 = 27$.}
+\newaut{$10^2 = 100$ ; $10^3 = 1~000$.}
+\newobj{Définir les puissances d'exposant positif d'un nombre $a$.}
+\newobj{Multiplier des puissances d'exposant entier naturel d'un même nombre
+	entre elles.}
+\newobj{Multiplier des puissances d'un même exposant entier naturel de deux
+	nombres entre elles.}
+\newobj{Résoudre des problèmes faisant intervenir des puissances.}
+\endsubtheme
+
+\newsubtheme{Racine carrée}
+\newaut{Donner les carrés des nombres entiers compris entre 0 et 12.}
+\newobj{Comprendre et connaitre la définition de la racine carrée d'un nombre
+	positif.}
+\newobj{Encadrer la racine carrée d'un entier par deux nombres entiers
+	consécutifs.}
+\newpro{Découverte de l'existence de nombres irrationnels (lien entre l'aire
+	d'un carré et la longueur d'un de ses côtés).}
+\newpro{$\sqrt{2}$ n'est pas décimal (démonstration par l'absurde en
+	considérant le chiffre des unités).}
+\endsubtheme
+
+\newsubtheme{Calcul littéral et algébrique}
+\newaut{Donner la valeur d'expressions numériques simples.}
+\newaut{Résoudre des équations du type $ax = c$ et $x + b = c$, où $a$, $b$ et
+	$c$ sont des nombres.}
+\newaut{Écrire $3 \times x$ sous la forme $3x$ et savoir que $3x$ c'est $3
+	\times x$.}
+\newaut{Connaitre et utiliser : $1 \times x = x$ ; $x + x = 2x$ ; $x \times x =
+	x^2$ ; $3x + 2x = 5x$ ; $3x \times 2x = 6x^2$.}
+\newaut{Donner le double, le triple, la moitié, le prédécesseur, le successeur,
+	le carré d'un nombre.}
+\newaut{Tester si un nombre vérifie une égalité.}
+\newobj{Produire des formules et tester leur vraisemblance : aires de formes
+	géométriques simples, nombres pairs/impairs, etc.}
+\newobj{Connaitre et utiliser la distributivité simple pour développer et
+	factoriser une expression algébrique.}
+\newobj{Utiliser le calcul algébrique pour produire des démonstrations.}
+\newobj{Résoudre une équation du premier degré du type $ax + b = c$.}
+\newobj{Mettre en équation un problème et le résoudre à l'aide d'une équation
+	du premier degré du type $ax + b = cx + d$.}
+\newobj{Formuler des conjectures à l'aide d'un algorithme ou d'un tableur pour
+	résoudre de manière exacte ou approchée une équation.}
+\endsubtheme
+
+\endsubthemes
+
+% Troisième
+\newlevel{Troisième}
+
+\newsubtheme{Nombres rationnels}
+\newaut{Additionner, soustraire, multiplier et diviser des fractions.}
+\newobj{Mettre une fraction sous forme irréductible.}
+\newobj{Rendre irréductible une fraction.}
+\newobj{Résoudre des problèmes faisant appel à des fractions.}
+\newpro{Notation des ensembles des entiers naturels, des entiers relatifs, des
+	décimaux, des rationnels.}
+\endsubtheme
+
+\newsubtheme{Puissances}
+\newaut{Puissance comme multiplication itérée : $3 \times 3 \times 3 \times 3 =
+	3^4$.}
+\newaut{Multiplication de puissances d'exposant positif d'un nombre.}
+\newaut{Multiplication de puissances de même exposant positif de deux nombres.}
+\newobj{Définir les puissances d'exposant négatif d'un nombre.}
+\newobj{Multiplier et diviser des puissances.}
+\newobj{Déterminer la notation scientifique d'un nombre.}
+\newobj{Résoudre des problèmes notamment en utilisant la notation scientifique.}
+\newpro{L'échiquier de Sissa.}
+\newpro{Le papyrus de Rhind.}
+\endsubtheme
+
+\newsubtheme{Racine carrée}
+\newaut{Donner les carrés des nombres entiers compris entre 0 et 12.}
+\newobj{Résoudre analytiquement et graphiquement des équations de la forme $x^2
+	= a$.}
+\newobj{Résoudre des problèmes utilisant la racine carrée.}
+\newpro{Notion de parabole et de faisceaux convergents vers son foyer. Lien
+	avec les paraboles pour capter les chaînes de télévision.}
+\newpro{Algorithmes d'extraction de racines carrées.}
+\endsubtheme
+
+\newsubtheme{Multiples et diviseurs}
+\newaut{Factoriser un nombre entier positif : $60 = 2^2 \times 3 \times 5$.}
+\newaut{Simplifier une fraction dont le numérateur et le dénominateur sont dans
+	une même table de multiplication, par exemple $\frac{15}{35}$ et
+	$\frac{63}{14}$.}
+\newaut{Trouver un dénominateur commun à deux fractions pour les additionner,
+	les soustraire ou les comparer.}
+\newaut{Appliquer les critères de divisibilité par 2, 3, 5, 9.}
+\endsubtheme
+
+\newsubtheme{Calcul littéral et algébrique}
+\newaut{Résoudre des équations du type $ax = c$, $x + b = c$, $ax + b = c$.}
+\newaut{Simplifier des expressions littérales.}
+\newaut{Calculer la valeur d'une expression algébrique avec des puissances ou
+	non.}
+\newaut{Donner la nature d'une expression littérale : $3x + 2$ est une somme,
+	$5(x + 4)$ est un produit.}
+\newaut{Développer et factoriser une expression simple.}
+\newaut{Donner l'expression générique d'un nombre pair, d'un nombre impair.}
+\newaut{Prendre l'opposé d'une expression : savoir que $-(5 - 4x) = -5 + 4x$.}
+\newobj{Simplifier des expressions produits ou des rapports comportant des
+	facteurs communs.}
+\newobj{Utiliser la double distributivité pour développer et factoriser des
+	expressions dont le facteur est apparent.}
+\newobj{Résoudre analytiquement et graphiquement une inéquation du premier
+	degré du type $ax \geq b$.}
+\newobj{Résoudre une équation produit nul.}
+\newobj{Manipuler les trois identités remarquables pour développer et
+	factoriser :
+$a^2 + 2ab + b^2 = (a+b)^2$ ;
+$a^2 - 2ab + b^2 = (a-b)^2$ ;
+$a^2 - b^2 = (a-b)(a+b)$.}
+\newobj{Pratiquer un raisonnement par analyse-synthèse dans le cadre d'une
+	résolution d'équation.}
+\newpro{Étude de l'identité de Sophie Germain.}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+% ---- THÈME B : Espace et géométrie ----
+\newtheme{Espace et géométrie}
+
+% % Cinquième
+\newlevel{Cinquième}
+
+\newsubtheme{Repérage sur une droite et dans le plan}
+\newaut{Placer sur une demi-droite graduée un point dont l'abscisse est un
+	nombre décimal.}
+\newaut{Repérer un nombre décimal sur une demi-droite graduée.}
+\newobj{Sur une droite graduée : lire l'abscisse d'un point donné ; placer un
+	point d'abscisse donnée.}
+\newobj{Dans le plan muni d'un repère orthogonal : lire les coordonnées d'un
+	point donné ; placer un point de coordonnées données.}
+\endsubtheme
+
+\newsubtheme{Représentation de l'espace}
+\newaut{Reconnaitre des vues (de dessus, dessous, etc.) d'empilements de cubes.}
+\newaut{Dénombrer des cubes dans des empilements.}
+\newaut{Reconnaitre un cube, un pavé représenté en perspective cavalière.}
+\newaut{Reconnaitre un patron d'un cube.}
+\newobj{Construire et mettre en relation différentes représentations en
+	perspectives cavalières des solides suivants : pavé droit, cube, cylindre de
+	révolution, prisme droit.}
+\newobj{Savoir mettre en relation une représentation en perspective cavalière
+	et un patron d'un pavé, d'un prisme droit ou d'un cylindre de révolution.}
+\newobj{Calculer le volume du cube, du pavé droit, du prisme droit.}
+\newobj{Connaitre et convertir des unités usuelles (volume et capacité).}
+\newobj{Calculer l'aire du disque, le volume du cylindre de révolution.}
+\newpro{Solides de Platon, formule d'Euler.}
+\newpro{Tableaux d'Escher pour jouer sur la perception de l'espace et des
+	volumes.}
+\endsubtheme
+
+\newsubtheme{Transformations}
+\newaut{Reconnaitre et construire le symétrique d'une figure par symétrie
+	axiale, dont l'axe est vertical, horizontal, ou en diagonale sur quadrillage.}
+\newaut{Construire le symétrique, par rapport à un axe, d'un point, d'une
+	figure, sur feuille blanche.}
+\newobj{Définir le demi-tour, ou symétrie centrale.}
+\newobj{Connaitre les propriétés du demi-tour.}
+\newpro{Rosaces et pavages dans l'art du Moyen Âge.}
+\newpro{Lien avec les formes vues dans la nature : flocon, alvéoles d'abeilles,
+	fleurs.}
+\endsubtheme
+
+\newsubtheme{Angles}
+\newaut{Reconnaitre et citer sur une configuration géométrique des angles :
+	angle plein, plat, nul, droit ; angles opposés par le sommet, adjacents,
+	supplémentaires, aigus, obtus.}
+\newaut{Savoir qu'un angle droit mesure $90^\circ$, qu'un angle plat mesure $180^\circ$.}
+\newaut{Reconnaitre une bissectrice.}
+\newaut{Connaitre les mesures des angles de l'équerre dont dispose l'élève
+	($30^\circ$, $60^\circ$, $90^\circ$ ou $45^\circ$, $45^\circ$, $90^\circ$).}
+\newobj{Caractériser le parallélisme par les angles : angles alternes-internes,
+	angles correspondants.}
+\newpro{Éléments d'Euclide (Livre I, proposition 27 ou 28).}
+\endsubtheme
+
+\newsubtheme{Triangles}
+\newaut{Reconnaitre un triangle isocèle, équilatéral ou rectangle à partir d'un
+	schéma codé.}
+\newaut{Connaitre la somme des angles d'un triangle, calculer le $3^\text{e}$
+	angle d'un triangle connaissant les mesures des deux autres.}
+\newaut{Connaitre la notion de médiatrice, de cercle circonscrit.}
+\newobj{Connaitre la somme des angles d'un triangle et savoir la démontrer.}
+\newobj{Construire des triangles à partir de données partielles.}
+\newobj{Connaitre les propriétés des médiatrices et du cercle circonscrit dans
+	le cas de triangles particuliers.}
+\newobj{Calculer l'aire d'un triangle.}
+\newobj{Définir et tracer les hauteurs dans un triangle.}
+\newobj{Savoir que les hauteurs d'un triangle sont concourantes.}
+\newobj{Définir et tracer les médianes dans un triangle.}
+\newobj{Démontrer qu'une médiane partage un triangle en deux triangles d'aires
+	égales.}
+\newobj{Utiliser ces propriétés dans le cas de triangles particuliers.}
+\newpro{Droite d'Euler, cercle des neuf points.}
+\newpro{En suivant un programme de construction donné, l'élève construit, à la
+	règle et au compas, un pentagone régulier.}
+\newpro{Construction d'ogives en lien avec l'art gothique.}
+\newpro{Construction de rosaces trilobées, du triangle de Reuleaux.}
+\newpro{Différents instruments de mesure.}
+\endsubtheme
+
+\newsubtheme{Parallélogrammes}
+\newaut{Reconnaitre en justifiant un quadrilatère, un parallélogramme, un
+	rectangle, un losange, un carré, un trapèze, un pentagone, un hexagone dans
+	des figures complexes.}
+\newaut{Exploiter le codage d'une figure pour identifier des parallélogrammes
+	particuliers.}
+\newobj{Définir le parallélogramme.}
+\newobj{Construire des parallélogrammes.}
+\newobj{Connaitre les propriétés caractéristiques des côtés opposés et des
+	diagonales.}
+\newobj{Utiliser une propriété caractéristique sur les diagonales ou les côtés
+	pour les construire ou donner la nature du quadrilatère.}
+\newobj{Définir les parallélogrammes particuliers (rectangle, losange, carré).}
+\newobj{Connaitre les propriétés caractéristiques.}
+\newobj{Savoir calculer l'aire d'un parallélogramme et de figures complexes.}
+\newobj{Résoudre des problèmes faisant appel à des conversions d'unités de
+	longueur et d'unités d'aires.}
+\endsubtheme
+
+\endsubthemes
+
+% % Quatrième
+\newlevel{Quatrième}
+
+\newsubtheme{Transformations}
+\newaut{Construire le symétrique d'un point par demi-tour.}
+\endsubtheme
+
+\newsubtheme{Repérage sur une droite et dans le plan}
+\newaut{Placer sur une droite graduée un point dont l'abscisse est un nombre
+	relatif.}
+\newaut{Repérer un nombre relatif sur une droite graduée.}
+\newaut{Dans le plan muni d'un repère orthogonal : lire les coordonnées d'un
+	point donné ; placer un point de coordonnées données.}
+\endsubtheme
+
+\newsubtheme{Représentation de l'espace}
+\newaut{Reconnaitre les solides : cube, pavé, cylindre, prisme droit.}
+\newaut{Connaitre et utiliser les formules du volume d'un cube, d'un pavé, d'un
+	prisme, d'un cylindre.}
+\newaut{Reconnaitre la base d'un prisme donné en perspective cavalière.}
+\newaut{Savoir calculer l'aire des figures planes usuelles : triangle,
+	rectangle, disque.}
+\newobj{Reconnaitre des solides (pyramide, cône de révolution).}
+\newobj{Construire et mettre en relation différentes représentations des
+	solides (pavé droit, cube, cylindre de révolution, prisme droit, pyramides et
+	cônes de révolution).}
+\newobj{Connaitre le volume de la pyramide et du cône de révolution.}
+\newpro{Lien avec la pyramide du Louvre, les pyramides égyptiennes.}
+\endsubtheme
+
+\newsubtheme{Parallélogrammes et translations}
+\newaut{Dire si des figures planes sont images l'une de l'autre par une
+	symétrie axiale (dont on identifie l'axe) ou par un demi-tour (dont on
+	identifie le centre).}
+\newaut{Dans une configuration donnée, déterminer les images de figures, de
+	droites, de segments, de points par une symétrie axiale ou un demi-tour.}
+\newaut{Reconnaitre un parallélogramme à l'aide de sa définition ou d'une
+	propriété caractéristique grâce aux codages.}
+\newaut{Reconnaitre un parallélogramme particulier à partir de ses propriétés
+	caractéristiques, notamment à partir des propriétés de ses diagonales.}
+\newobj{Comprendre l'effet d'une translation.}
+\newobj{Faire le lien avec les parallélogrammes, les angles.}
+\newobj{Connaitre et utiliser les propriétés de conservation des translations.}
+\newpro{Pavage d'Escher ou de l'Alhambra.}
+\endsubtheme
+
+\newsubtheme{Triangles}
+\newaut{Reconnaitre des droites remarquables, y compris dans les triangles
+	particuliers (médiatrices, médianes, hauteurs, bissectrices).}
+\newobj{Connaitre les trois théorèmes relatifs à la droite des milieux dans un
+	triangle.}
+\newobj{Connaitre le théorème de Pythagore, sa réciproque, sa contraposée.}
+\newobj{Mener un travail de logique sur la réciproque et la contraposée.}
+\newobj{Caractériser un triangle rectangle à l'aide de son cercle circonscrit,
+	par son inscription dans un demi-cercle dont le diamètre est un côté du
+	triangle.}
+\newobj{Déterminer le centre du cercle circonscrit d'un triangle rectangle.}
+\newobj{Construire des rectangles sans équerre.}
+\newpro{Théorème de Varignon : l'élève étudie la démonstration historique
+	d'Euclide basée sur les aires.}
+\newpro{Quelques repères historiques autour de Pythagore et son œuvre.}
+\endsubtheme
+
+\endsubthemes
+
+% % Troisième
+\newlevel{Troisième}
+
+\newsubtheme{Repérage sur une droite et dans le plan}
+\newaut{Placer sur une droite graduée un point dont l'abscisse est un nombre
+	relatif.}
+\newaut{Repérer un nombre relatif sur une droite graduée.}
+\newaut{Dans le plan muni d'un repère orthogonal : lire les coordonnées d'un
+	point donné ; placer un point de coordonnées données.}
+\endsubtheme
+
+\newsubtheme{Représentation de l'espace}
+\newaut{Reconnaitre des solides (pavé droit, cube, prisme droit, cylindre,
+	pyramide, cône).}
+\newaut{Connaitre et utiliser les formules du volume d'une pyramide ou d'un
+	cône.}
+\newaut{Donner la nature d'une face d'une pyramide représentée en perspective
+	cavalière.}
+\newaut{Identifier les patrons de pyramides données (par exemple inscrites dans
+	un cube).}
+\newobj{Définir la boule et la sphère.}
+\newobj{Définir les grands cercles, le diamètre.}
+\newobj{Visualiser et réaliser des sections de pavé parallèlement à une face,
+	de cylindre parallèlement ou perpendiculairement à son axe, d'une boule.}
+\newobj{Connaitre et utiliser la formule du volume d'une boule de rayon donné.}
+\newpro{La formule du volume, trouvée au III$^\text{e}$ siècle avant J.-C.,
+	d'après une intuition d'Archimède comme étant $\dfrac{2}{3}$ du cylindre qui
+	contient la boule.}
+\newpro{Les cinq polyèdres réguliers de l'espace et les illustrations de
+	Léonard de Vinci pour le traité mathématique \textit{De divina proportione}
+    de Luca Pacioli.}
+\endsubtheme
+
+\newsubtheme{Triangles}
+\newaut{Utiliser la propriété du triangle rectangle et de son cercle
+	circonscrit.}
+\newaut{Écrire l'égalité de Pythagore dans un triangle rectangle.}
+\newaut{Utiliser la droite des milieux pour prouver que des droites sont
+	parallèles, pour calculer une longueur, pour prouver qu'un point est le milieu
+	d'un côté.}
+\newobj{Connaitre et appliquer le théorème de Thalès, sa réciproque, sa
+	contraposée (configurations des triangles emboîtés et configuration dite du
+	papillon).}
+\newobj{Connaitre et utiliser les lignes trigonométriques dans le triangle
+	rectangle : cosinus, sinus, tangente.}
+\newpro{Repères historiques autour du théorème de Thalès, qui n'est pas appelé
+	comme cela dans les autres pays.}
+\newpro{Construction des polygones réguliers à la règle et au compas.}
+\endsubtheme
+
+\newsubtheme{Translations et vecteurs}
+\newaut{Mobiliser les connaissances sur la symétrie axiale, le demi-tour, la
+	translation.}
+\newobj{Définir et utiliser la translation : définition ponctuelle avec
+	parallélogramme.}
+\newobj{Définir et utiliser les notions de vecteur, de vecteurs égaux, de
+	vecteur nul, d'opposé d'un vecteur.}
+\newobj{Définir et utiliser la somme de deux vecteurs par enchainement de
+	deux translations.}
+\newobj{Découvrir et utiliser la relation de Chasles.}
+\newpro{Savoir qu'un hexagone est obtenu à partir de triangles équilatéraux.}
+\newpro{Lien avec les fractales comme les flocons de Von Koch ou les
+	triangles de Sierpinski.}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+% ---- THÈME C : Organisation et gestion de données et probabilités ----
+\newtheme{Organisation et gestion de données et probabilités}
+
+% % Cinquième
+\newlevel{Cinquième}
+
+\newsubtheme{Statistiques}
+\newobj{Recueillir et organiser des données.}
+\newobj{Calculer des effectifs et des fréquences (exprimées sous forme
+	décimale, fractionnaire ou de pourcentage).}
+\newobj{Lire et interpréter des informations présentées sous forme de
+	tableaux, de diagrammes et de graphiques.}
+\newobj{Représenter, sur papier ou à l'aide d'un tableur-grapheur, des
+	données sous la forme d'un tableau, d'un diagramme (diagramme en barres,
+	diagramme circulaire) ou d'un graphique cartésien.}
+\newobj{Choisir une représentation adaptée à ce qu'il convient de mettre en
+	avant.}
+\newobj{Calculer et interpréter la moyenne simple d'une série de données.}
+\newpro{Étude des diagrammes de Florence Nightingale.}
+\endsubtheme
+
+\newsubtheme{Probabilités}
+\newaut{Positionner sur une échelle de probabilité des évènements : évènement
+	impossible ; évènement certain ; obtenir pile en lançant une pièce équilibrée
+	; obtenir une valeur donnée en lançant un dé équilibré ; obtenir une couleur
+	d'une boule lors du tirage dans une urne.}
+\newaut{Donner la probabilité sous diverses formes (fraction, décimale,
+	pourcentage) pour des évènements simples.}
+\newaut{Lier l'expression « une chance sur quatre » (par exemple) et la
+	probabilité $\frac{1}{4}$.}
+\newobj{Aborder les questions relatives au hasard à partir de problèmes
+	simples.}
+\newobj{Utiliser le vocabulaire des probabilités dans des contextes concrets
+	: expérience aléatoire, issue, évènement.}
+\newobj{Attribuer des probabilités dans des cas simples (équiprobabilité).}
+\newobj{Répéter matériellement une expérience aléatoire simple. Enregistrer
+	les résultats observés dans un tableau d'effectifs et de fréquences.}
+\endsubtheme
+
+\endsubthemes
+
+% % Quatrième
+\newlevel{Quatrième}
+
+\newsubtheme{Statistiques}
+\newaut{Calculer une moyenne pour un très petit nombre de valeurs.}
+\newaut{Calculer un effectif manquant dans un tableau pour un petit nombre de
+	valeurs.}
+\newaut{Calculer une fréquence simple.}
+\newobj{Calculer une moyenne pondérée dans le cas d'une série discrète de
+	petits effectifs présentée sous forme de données brutes, d'un tableau ou d'un
+	diagramme en barres.}
+\newobj{Déterminer une médiane et l'interpréter dans le cas d'une série de
+	petit effectif présentée sous forme de données brutes.}
+\newobj{Calculer et interpréter l'étendue d'une série présentée sous forme de
+	données brutes, d'un tableau, d'un diagramme en barres, d'un diagramme
+	circulaire.}
+\newobj{Comprendre l'évolution de la médiane et de la moyenne quand on ajoute
+	une valeur extrême.}
+\newobj{Résoudre des problèmes faisant intervenir les différents indicateurs.}
+\newobj{Résoudre des problèmes de comparaison de séries statistiques.}
+\newobj{Utiliser le tableur pour calculer une moyenne, une médiane et
+	l'étendue d'une série statistique.}
+\newpro{Le premier traité des \textit{Essais d'arithmétique politique} de
+	Willem Kersseboom (XVIII$^\text{e}$ s.).}
+\endsubtheme
+
+\newsubtheme{Probabilités}
+\newobj{Utiliser le vocabulaire et les notations ensemblistes pour décrire
+	une expérience aléatoire dans des cas simples et définir la notion
+	d'évènement.}
+\newobj{Définir : complémentaire, réunion, intersection, ensemble vide
+	(évènement impossible).}
+\newobj{Calculer la probabilité d'un évènement et de l'évènement contraire.}
+\newobj{Exemples simples d'expériences aléatoires à deux épreuves (par
+	exemple, lancer de deux pièces, d'une pièce et d'un dé, de deux dés, etc.).}
+\newobj{À partir de la répétition d'une expérience aléatoire, réalisée
+	matériellement ou simulée, comparer des graphiques de distributions
+	(fréquentielle et probabiliste).}
+\newobj{Observer la fluctuation des fréquences pour un nombre de répétitions
+	fixé de l'expérience aléatoire.}
+\endsubtheme
+
+\endsubthemes
+
+% % Troisième
+\newlevel{Troisième}
+
+\newsubtheme{Statistiques}
+\newaut{Calculer une moyenne.}
+\newaut{Donner une médiane pour une série comportant un petit nombre de
+	valeurs.}
+\newaut{Calculer l'étendue d'une série.}
+\newobj{Calculer des effectifs cumulés croissants.}
+\newobj{Donner les quartiles et la médiane d'une série donnée sous forme de
+	tableau d'effectifs ou de diagramme en barres.}
+\newobj{Construire et utiliser des boîtes à moustache pour représenter les
+	valeurs de position d'une série statistique.}
+\newobj{Comprendre et interpréter des données statistiques.}
+\newobj{Utiliser le tableur pour calculer une moyenne, une médiane et
+	l'étendue d'une série statistique.}
+\endsubtheme
+
+\newsubtheme{Probabilités}
+\newobj{Connaitre et savoir appliquer la relation $P(A \cup B) + P(A \cap B)
+	= P(A) + P(B)$.}
+\newobj{Simuler des expériences aléatoires indépendantes.}
+\newobj{Observer la stabilisation des fréquences lorsqu'on augmente le nombre
+	de répétitions de l'expérience aléatoire, faire le lien entre fréquence et
+	probabilité selon le nombre de répétitions.}
+\newpro{Problème de l'erreur de D'Alembert.}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+% ---- THÈME D : Proportionnalité, fonctions ----
+\newtheme{Proportionnalité, fonctions}
+
+% % Cinquième
+\newlevel{Cinquième}
+
+\newsubtheme{Proportionnalité}
+\newaut{Reconnaitre si une situation donnée entre dans le cadre de la
+	proportionnalité ou non.}
+\newaut{Dans des situations simples, mobiliser une procédure adaptée
+	(propriété de linéarité pour la multiplication ou l'addition, retour à
+	l'unité) pour résoudre un problème lié à la proportionnalité.}
+\newobj{Utiliser des proportions, des pourcentages.}
+\newobj{Calculer, appliquer des proportions, des pourcentages.}
+\newobj{Identifier des situations de proportionnalité dans des contextes
+	concrets (prix, recettes, distances, échelles).}
+\newobj{Représenter une situation de proportionnalité par un tableau ou un
+	graphique.}
+\newobj{Reconnaitre une situation de proportionnalité à partir d'un tableau
+	ou d'un graphique.}
+\newobj{Reconnaitre graphiquement qu'un nuage de points est ou n'est pas
+	associé à une situation de proportionnalité entre données discrètes.}
+\endsubtheme
+
+\newsubtheme{Fonctions}
+\newobj{Introduire l'expression : « en fonction de » dans des contextes
+	concrets ou mathématiques.}
+\newobj{Produire un tableau de valeurs.}
+\newobj{Lire et interpréter un tableau de valeurs.}
+\newobj{Placer dans un repère orthogonal donné des points correspondant à un
+	tableau de valeurs.}
+\newobj{Lire et interpréter un graphique cartésien donné par une courbe ou un
+	nuage de points.}
+\newobj{Traduire la relation de dépendance entre deux grandeurs par un
+	tableau de valeurs à partir d'une formule.}
+\newobj{Produire une formule simple représentant la dépendance de deux
+	grandeurs.}
+\newobj{Caractériser graphiquement la proportionnalité.}
+\endsubtheme
+
+\endsubthemes
+
+% Quatrième
+\newlevel{Quatrième}
+
+\newsubtheme{Proportionnalité}
+\newaut{Déterminer $a$~\% de $c$ quand $a$ vaut 100, 50, 25, 10 ou 1.}
+\newaut{Compléter : 20~\% de 120 = $\ldots$ ; $30 = \frac{\ldots}{100} \times
+	1~000$.}
+\newobj{Utiliser des grandeurs quotients, avec ou sans unités.}
+\newobj{Comparer deux nombres ou deux grandeurs à l'aide de leur rapport ou
+	ratio.}
+\newobj{Exprimer la proportionnalité entre deux suites de nombres par des
+	égalités de rapports ou sous forme de ratio.}
+\newobj{Déterminer une quatrième proportionnelle.}
+\newobj{Calculer avec des pourcentages.}
+\newobj{Rendre compte d'une augmentation ou d'une diminution exprimée en
+	pourcentages au moyen d'un coefficient multiplicateur.}
+\newobj{Définir le coefficient multiplicateur.}
+\newobj{Résoudre des problèmes de partage proportionnel.}
+\endsubtheme
+
+\newsubtheme{Fonctions}
+\newobj{Savoir appliquer un programme de calcul à deux (plusieurs) étapes à
+	un nombre simple puis à une variable.}
+\newobj{Savoir retrouver le nombre de départ après avoir remonté un programme
+	de calcul simple.}
+\newobj{Produire une formule littérale représentant la dépendance d'une
+	grandeur en fonction d'une autre.}
+\newobj{Représenter l'expression d'une grandeur en fonction d'une autre par
+	un graphique.}
+\newobj{Comprendre la dépendance d'une grandeur en fonction d'une autre.}
+\endsubtheme
+
+\endsubthemes
+
+% % Troisième
+\newlevel{Troisième}
+
+\newsubtheme{Proportionnalité}
+\newaut{Partager une somme en deux parts selon un certain ratio.}
+\newaut{Partager une masse en trois parts selon un certain ratio.}
+\newaut{Partager une somme entre deux personnes proportionnellement à leur
+	âge.}
+\newaut{Calculer le pourcentage d'une quantité.}
+\newaut{Calculer la distance réelle entre deux villes, connaissant la
+	distance sur une carte dont l'échelle est connue.}
+\newaut{Appliquer, dans des cas simples, une augmentation ou une diminution
+	exprimée en pourcentages, en utilisant ou non le coefficient multiplicateur.}
+\newobj{Traduire une augmentation ou une diminution en pourcentages.}
+\newobj{Relier la représentation graphique d'une situation de
+	proportionnalité avec le théorème de Thalès.}
+\newobj{Connaitre et utiliser les fonctions linéaires.}
+\endsubtheme
+
+\newsubtheme{Fonctions}
+\newobj{Utiliser les différentes représentations d'une fonction.}
+\newobj{Définir et connaitre le vocabulaire : image, antécédents.}
+\newobj{Définir et utiliser les fonctions linéaires.}
+\newobj{Résoudre graphiquement des équations et des inéquations linéaires.}
+\newobj{Relier fonctions linéaires et proportionnalité.}
+\newobj{Définir et utiliser les fonctions affines.}
+\newobj{Déterminer graphiquement les coefficients d'une fonction affine.}
+\newobj{Représenter la fonction carré.}
+\newpro{Méthode de simple fausse position (pour les problèmes du type $y =
+	ax$).}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+% ---- THÈME E : La pensée informatique ----
+\newtheme{La pensée informatique}
+
+% % Cinquième
+\newlevel{Cinquième}
+
+\newsubtheme{Algorithmique et programmation}
+\newobj{Manipuler des instructions simples et les séquencer.}
+\newobj{Identifier les entrées et sorties d'un programme.}
+\newobj{Représenter des formules sous la forme d'une expression informatique
+	dans un langage de programmation par blocs.}
+\newobj{Calculer la valeur de formules à l'aide d'une suite d'instructions
+	dans un langage de programmation par blocs.}
+\newobj{Prévoir la valeur d'une expression informatique avant son exécution.}
+\newobj{Analyser un programme simple donné et modifier ses paramètres.}
+\newobj{Effectuer une boucle inconditionnelle simple permettant de répéter
+	une séquence linéaire d'instructions un nombre précis de fois.}
+\endsubtheme
+
+\endsubthemes
+
+% % Quatrième
+\newlevel{Quatrième}
+
+\newsubtheme{Algorithmique et programmation}
+\newobj{Représenter des conditions simples.}
+\newobj{Écrire des instructions conditionnelles.}
+\newobj{Manipuler une variable.}
+\newobj{Écrire un programme simple donné pour réaliser un objectif ou
+	résoudre un problème.}
+\newobj{Modifier un programme donné pour changer son comportement.}
+\endsubtheme
+
+\endsubthemes
+
+% % Troisième
+\newlevel{Troisième}
+
+\newsubtheme{Algorithmique et programmation}
+\newobj{Approfondir la notion de variables.}
+\newobj{Utiliser des conditions composées.}
+\newobj{Utiliser une boucle conditionnelle.}
+\newobj{Structurer des programmes.}
+\newobj{Écrire un programme donné pour réaliser un objectif ou résoudre un
+	problème.}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+\endthemes

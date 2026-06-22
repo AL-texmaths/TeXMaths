@@ -1,0 +1,67 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}
+\usepackage{texmaths-boxes}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Gaspard travaille avec un logiciel de géométrie dynamique pour construire une
+frise.\par\noindent Il a construit un triangle $ABC$ isocèle en $C$
+(motif \circled1), puis il a obtenu le losange $ACBD$ (motif \circled2).\bigskip
+\par\noindent Voici les captures d'écran de son travail~:
+\begin{center}
+    \begin{tblr}{colspec={|Q[c,m,wd=5cm]|Q[c,m,wd=8cm]|}}\hline 
+        Motif \circled1 & Motif \circled2 \\ \hline 
+        \begin{tikzpicture}[scale=0.5]
+            \tkzDefPoint(0,0){C}
+            \tkzDefShiftPoint[C](-15:3){B}
+            \tkzDefShiftPoint[C](15:3){A}
+            \tkzDrawSegments[line width=1](A,B B,C C,A)
+            %                    \tkzDrawPoints(A,B,C)
+            \tkzLabelPoints[left](C)
+            \tkzLabelPoints[below](B)
+            \tkzLabelPoints[above](A)
+        \end{tikzpicture}
+        & 
+        \begin{tikzpicture}[scale=0.5]
+            \tkzDefPoint(0,0){C}
+            \tkzDefShiftPoint[C](-15:3){B}
+            \tkzDefShiftPoint[C](15:3){A}
+            \tkzDefPointBy[reflection=over A--B](C)  \tkzGetPoint{D}
+            \tkzDrawSegments[line width=1](A,B B,C C,A A,D B,D)
+            %                    \tkzDrawPoints(A,B,C,D)
+            \tkzLabelPoints[left](C)
+            \tkzLabelPoints[below](B)
+            \tkzLabelPoints[above](A)
+            \tkzLabelPoints[right](D)
+        \end{tikzpicture} \\ \hline
+    \end{tblr}
+\end{center}
+\begin{enumerate}
+\item Préciser une transformation permettant de compléter le motif \circled1
+pour obtenir le motif \circled2.
+\item Une fois le motif \circled2 construit, Gaspard a appliqué à plusieurs
+reprises une translation. Il obtient ainsi la frise ci-dessous.\smallskip\par\noindent
+Préciser de quelle translation il s'agit. 
+\begin{center}
+    \begin{tikzpicture}[scale=2,rotate=-15]
+        \coordinate[label=above:A](A0)at(0,0);
+        \coordinate(A4)at(4,0);
+        \path(A0)--(A4)coordinate[pos=0.25,label=above:D](A1);
+        \path(A0)--(A4)coordinate[pos=0.5](A2);
+        \path(A0)--(A4)coordinate[pos=0.75](A3);
+        \coordinate[label=left:C](B0)at(210:1);
+        \path(B0)--+(4,0)coordinate(B4);
+        \path(B0)--(B4)coordinate[pos=0.25,label=below:B](B1);
+        \path(B0)--(B4)coordinate[pos=0.5](B2);
+        \path(B0)--(B4)coordinate[pos=0.75](B3);
+        \draw[line width=1](A0)--(A4)--(B4)--(B0)--cycle;
+        \draw[line width=1](A0)--(B1)--(A1)--(B2)--(A2)--(B3)--(A3)--(B4);
+    \end{tikzpicture}
+\end{center}
+\end{enumerate}
+\end{document}

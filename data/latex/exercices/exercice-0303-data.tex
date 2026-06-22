@@ -1,0 +1,46 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{20GENMATNC1}
+\cycle{4}
+\competencesDuSocle{CA,RA,CO}
+\connaissancesRequises{D2e*,D2d1,D2f*}
+\competencesTravaillees{D2a*,D2d*,D2e*,B3d*}
+\enddatakeys
+\begin{document}%
+    \begin{minipage}[c]{.5\linewidth}
+        Dans la figure suivante, on donne les distances en mètres :\par\noindent
+        AB = 400, AC = 300, BC = 500 et CD = 700.\vskip5pt
+        Les droites (AE) et (BD) se coupent en C.\vskip5pt
+        Les droites (AB) et (DE) sont parallèles.
+    \end{minipage}\hfill
+    \begin{minipage}[c]{.4\linewidth}
+        \begin{tikzpicture}[scale=0.8,decoration=penciline,rotate=-20]
+            \coordinate[label=A](A)at(-2,0);
+            \coordinate[label=below left:B](B)at(-2,-3);
+            \coordinate[label=below right:E](E)at(3,0);
+            \coordinate[label=right:D](D)at(3,4);    
+            \coordinate[label=C](C)at(0,0);
+            \draw[decorate,thick](A)--(B)--(D)--(E)--cycle;
+        \end{tikzpicture}
+    \end{minipage}\par
+    \begin{enumerate}
+        \item Caluler la longueur DE.
+        \item Montrer que le triangle ABC est rectangle.
+        \item Calculer la mesure de l'angle $\widehat{\text{ABC}}$. Arrondir au degré.
+        \par\medskip\noindent
+        \begingroup\leavevmode\hspace*{-\leftmargin}%
+            \begin{minipage}{.9\linewidth}
+                Lors d'une course doivent effectuer plusieurs du parcours représenté ci-dessus.
+                Ils partent du point A, puis passent par les points B, C, D et E dans cet
+                ordre puis de nouveau par le point C pour revenir au point A.\vskip5pt\noindent
+                Mattéo, le vainqueur, a mis 1 h 48 min pour effectuer les 5 tours du parcours.
+                La distance parcourure pour faire un tour est 2 880 m.
+            \end{minipage}
+        \endgroup
+        \item Calculer la distance totale parcourue pour effectuer les cinq
+        tours du parcours.
+        \item Calculer la vitesse moyenne de Mattéo. Arrondir à l'unité.
+    \end{enumerate}
+    \showthesource
+\end{document}

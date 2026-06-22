@@ -1,0 +1,29 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{center}\footnotesize
+    \drawTikzOnPic[style={/utils/exec={\normalfont\bfseries}}]{%
+        \pdf[scale=1.15]{pythagore_architecture}
+    }{%
+        \node[anchor=center] at (0.21,0.12){\<L1;};
+        \node[anchor=center] at (0.78,0.12){\<L2;};
+        \node[anchor=center,rotate=-90] at (0.41,0.3){\<L3;};
+        \node[anchor=center,rotate=90] at (0.57,0.3){\<L3;};
+        \node[anchor=center] at (0.49,0.7){\<L4;};
+    }
+\end{center}
+\begin{enumerate}
+    \item Déterminer une valeur approchée, au centimètre près,
+    de la longueur du tablier de ce pont.
+    \item Ce pont a une largeur de \<largeurPont;.\par
+    En déduire un valeur approchée de l'aire du plancher constituant
+    le sol du pont.
+\end{enumerate}
+\end{document}

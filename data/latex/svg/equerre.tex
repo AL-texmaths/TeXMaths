@@ -1,0 +1,25 @@
+\documentclass[tikz]{standalone}
+\usepackage{pgfmath}
+\usetikzlibrary{calc}
+\begin{document}
+	\begin{tikzpicture}
+		% équerre : triangle isocèle rectangle (A=(0,0), B=(r,0), C=(0,r))
+		\pgfmathsetmacro{\radius}{5}
+		\pgfmathsetmacro{\innerscale}{0.4} % facteur d'échelle pour le triangle intérieur
+		\coordinate (A) at (0,0);
+		\coordinate (B) at (\radius,0);
+		\coordinate (C) at (0,\radius);
+		% centre pour la similitude (centroïde du triangle)
+		\coordinate (G) at ({\radius/3-0.18},{\radius/3-0.18});
+		% points du triangle intérieur (similaire, centré en G)
+		\coordinate (Ai) at ($(G)!{\innerscale}!(A)$);
+		\coordinate (Bi) at ($(G)!{\innerscale}!(B)$);
+		\coordinate (Ci) at ($(G)!{\innerscale}!(C)$);
+		% repère du centre
+		\fill[red,opacity=0.01] (A) circle (0.01);
+		% remplissage unique : triangle extérieur moins triangle intérieur (trou)
+		\path[even odd rule, fill=blue, fill opacity=0.2, draw=none]
+		(A) -- (B) -- (C) -- cycle
+		(Ai) -- (Ci) -- (Bi) -- cycle;
+	\end{tikzpicture}
+\end{document}

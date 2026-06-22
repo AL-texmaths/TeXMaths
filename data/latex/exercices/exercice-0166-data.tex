@@ -1,0 +1,40 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Classer par ordre croissant les angles suivants.\vskip10pt\noindent
+\begin{tikzpicture}[rotate=10]
+    \Angle[
+        angle = 60,
+        color=Rainbow1-rouge,
+        right side len=1.3,
+        left side len=2.7,
+        angle size=0.75%
+    ]
+    \tkzLabelAngle[pos=1.2](B,A,C){(1)}
+\end{tikzpicture}\hskip30pt
+\begin{tikzpicture}[rotate=-30]
+    \Angle[
+        angle=20,
+        color=Rainbow1-vert,
+        right side len=1.5,
+        left side len=2.7%
+    ]
+    \tkzLabelAngle[pos=1.4](B,A,C){(2)}
+\end{tikzpicture}\hskip30pt
+\begin{tikzpicture}[rotate=55]
+    \Angle[
+        angle=35,
+        color=Rainbow1-violet,
+        right side len=1.3,
+        left side len=2.5%
+    ]
+    \tkzLabelAngle[pos=1.3](B,A,C){(3)}
+\end{tikzpicture}
+\end{document}

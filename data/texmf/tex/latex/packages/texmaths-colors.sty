@@ -1,0 +1,129 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-colors}[2018/05/26]
+% ========
+% PACKAGES
+% ========
+\RequirePackage{xcolor}
+% ========
+% COMMANDS
+% ========
+\newcounter{palette}
+\def\newpalette[#1]#2{%
+    \stepcounter{palette}
+    \expandafter\edef\csname palettes\arabic{palette}\endcsname{#1}
+    \newcounter{palette-#1}
+    \def\newcolor##1##2{\definecolor{#1-##1}{HTML}{##2}\stepcounter{palette-#1}%
+        \expandafter\edef\csname colorID#1-##1\endcsname{\arabic{palette-#1}}%
+        \expandafter\global\expandafter\edef\csname color#1\arabic{palette-#1}\endcsname{##1}}%
+    #2
+    \expandafter\edef\csname palette#1number\endcsname{\arabic{palette-#1}}
+}
+\newcount\colorindex
+\newcount\colortotal
+\def\nextcolor{%
+    \global\advance\colorindex by 1
+    \ifnum\colorindex=\colortotal
+        \global\colorindex=0
+    \fi
+}
+\def\initcolor{\colorindex=0\relax}
+% DEFAULT MAIN COLORS
+\def\currentcolor{gray}
+\def\mainbgcolor{white}%
+\def\mainthmbgcolor{black!10!white}%
+\def\maintblrbgcolor{black!10!white}%
+\def\maincodagecolor{black}
+% ========
+% PALETTES
+% ========
+\newpalette[vscode]
+{
+    \newcolor{gray}{1e1e1e}
+    \newcolor{white}{ffffff}
+    \newcolor{yellow}{dadea8}
+    \newcolor{blue}{5899d7}
+    \newcolor{green}{65c9af}
+    \newcolor{crimson}{b63838}
+}
+\newpalette[6emeTriangle]
+{
+    \newcolor{rouge}{e69b87}
+    \newcolor{vert}{a5c5ac}
+    \newcolor{violet}{c19cbc}
+    \newcolor{yellow}{f5c952}
+    \newcolor{blue}{cdd0df}
+}
+\newpalette[Rainbow1]
+{
+    \newcolor{rouge}{e7b3a7}
+    \newcolor{orange}{f8c5a5}
+    \newcolor{jaune}{fae5ac}
+    \newcolor{vert}{b6cfb6}
+    \newcolor{bleu}{abdee6}
+    \newcolor{violet}{cbaacb}
+}
+\newpalette[CalmSerenity]
+{
+    \newcolor{1}{d4f0f0}
+    \newcolor{2}{a2e1db}
+    \newcolor{3}{8fcaca}
+    \newcolor{4}{cce2cb}
+    \newcolor{5}{b6cfb6}
+    \newcolor{6}{97c1a9}
+}
+\newpalette[Tangerine]
+{
+    \newcolor{1}{ff968A}
+    \newcolor{2}{ffaea5}
+    \newcolor{3}{ffc5bf}
+    \newcolor{4}{ffd8be}
+    \newcolor{5}{ffc8a2}
+}
+\newpalette[Chalk]
+{
+    \newcolor{bleu}{abdee6}
+    \newcolor{violet}{cbaacb}
+    \newcolor{jaune}{ffffb5}
+    \newcolor{orange}{ffccb6}
+    \newcolor{rouge}{f3b0c3}
+}
+\newpalette[PaletteIndigo]
+{
+    \newcolor{gris}{caccca}
+    \newcolor{orange}{f0c69c}
+    \newcolor{rouge}{e4875b}
+    \newcolor{rose}{e993bf}
+    \newcolor{jaune}{faf2a6}
+    \newcolor{vert}{b7d8a6}
+    \newcolor{magenta}{d4c2e1}
+    \newcolor{bleu}{a2cbe7}
+}
+\newpalette[LibreOffice]
+{
+    \newcolor{grisclair4}{dddddd}
+    \newcolor{orclair4}{fff5ce}
+}
+\newpalette[Palette1]
+{
+    \newcolor{bleu}{264653}
+    \newcolor{vert}{2a9d8f}
+    \newcolor{jaune}{e9c46a}
+    \newcolor{orange}{f4a261}
+    \newcolor{rouge}{e76f51}
+}
+\newpalette[Palette2]
+{
+    \newcolor{bleu}{4281a4}
+    \newcolor{vert}{9cafb7}
+    \newcolor{jaune}{ead2ac}
+    \newcolor{orange}{e6b89c}
+    \newcolor{rouge}{fe938c}
+}
+\newpalette[Palette3]
+{
+    \newcolor{bleu}{227c9d}
+    \newcolor{vert}{17c3b2}
+    \newcolor{jaune}{fef9ef}
+    \newcolor{orange}{ffcb77}
+    \newcolor{rouge}{fe6d73}
+}

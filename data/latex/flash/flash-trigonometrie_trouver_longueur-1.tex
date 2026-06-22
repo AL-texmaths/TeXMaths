@@ -1,0 +1,30 @@
+\documentclass[17pt]{flash}
+\usepackage{texmaths-tikz}
+\startdatakeys
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA}
+    \automatismes{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{0pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Trigonométrie}
+\flash{180}{%
+    \begin{tikzpicture}
+        \triangleACA[A=35,AB=5cm,B=90](A,B,C)
+        \path(A)node[anchor=east]{A};
+        \path(B)node[anchor=north west]{B};
+        \path(C)node[anchor=south]{C};
+        \tkzMarkRightAngle(C,B,A)
+        \tkzFillAngle[\currentcolor](A,C,B)
+        \tkzLabelAngle[pos=1.35](A,C,B){55$^\circ$}
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(B)node[midway, below]{4,5 cm};
+        \path(A)--(C)node[midway, above left]{?};
+    \end{tikzpicture}
+}
+\FlashCorrection
+\end{document}

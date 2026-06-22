@@ -1,0 +1,48 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Construire {\bfseries si possible} les triangles suivants en vrai grandeur. Justifier.
+\vskip15pt\noindent
+\begin{tikzpicture}
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(2,0);
+    \coordinate(C)at(3,2);
+    \draw node[below left]at(A){\strut A};
+    \draw node[below right]at(B){\strut B};
+    \draw node[above]at(C){\strut C};
+    \path(A)--(B)node[midway, below, sloped]{\<L1;};
+    \path(B)--(C)node[midway, below, sloped]{\<L2;};
+    \path(A)--(C)node[midway, above, sloped]{\<L3;};
+    \draw(A)--(B)--(C)--cycle;
+\end{tikzpicture}\hskip20pt
+\begin{tikzpicture}
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(2,0);
+    \coordinate(C)at(3,2);
+    \draw node[below left]at(A){\strut D};
+    \draw node[below right]at(B){\strut E};
+    \draw node[above]at(C){\strut F};
+    \path(A)--(B)node[midway, below, sloped]{\<L4;};
+    \path(B)--(C)node[midway, below, sloped]{\<L5;};
+    \path(A)--(C)node[midway, above, sloped]{\<L6;};
+    \draw(A)--(B)--(C)--cycle;
+\end{tikzpicture}\hskip20pt
+% \begin{tikzpicture}
+%     \coordinate(A)at(0,0);
+%     \coordinate(B)at(2,0);
+%     \coordinate(C)at(3,2);
+%     \draw node[below left]at(A){\strut A};
+%     \draw node[below right]at(B){\strut B};
+%     \draw node[above]at(C){\strut C};
+%     \path(A)--(B)node[midway, below, sloped]{\<L7;};
+%     \path(B)--(C)node[midway, below, sloped]{\<L8;};
+%     \path(A)--(C)node[midway, above, sloped]{\<L9;};
+%     \draw(A)--(B)--(C)--cycle;
+% \end{tikzpicture}
+\end{document}

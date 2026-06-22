@@ -1,0 +1,22 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Parmi les triangles suivants, lesquels sont semblables~?
+\begin{tikzpicture}
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(4,2);
+    \coordinate(C)at(-0.8,1.8);
+    \draw(A)--(B)--(C)--cycle;
+    \tkzMarkAngle[size=0.4](B,A,C)
+    \tkzMarkAngle[size=0.4](A,C,B)
+    \tkzLabelAngle[pos=0.8](B,A,C){80$^\circ$}
+    \tkzLabelAngle[pos=0.8](A,C,B){76$^\circ$}
+\end{tikzpicture}
+\end{document}

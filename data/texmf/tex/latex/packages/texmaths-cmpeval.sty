@@ -1,0 +1,134 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-cmpeval}[27/02/2026]
+
+\makeatletter
+
+\def\write@oe{oe}
+\def\activate@writing{%
+    \let\oe\write@oe
+    \let\rightarrow\write@rightarrow
+}
+
+\def\addtofull@cmpeval#1#2{%
+    \ifx\full@cmpeval\undefined\edef\full@cmpeval{"#1":"#2"}\else
+        \edef\full@cmpeval{\full@cmpeval,"#1":"#2"}
+    \fi
+    }
+
+\def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
+\def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
+\def\edefunivar#1[#2]{\expandafter\edef\csname\string#1[#2]\endcsname}
+
+\newunivar\cmpeval
+\defunivar\cmpeval[CH]{Chercher}
+\defunivar\cmpeval[MO]{Modéliser}
+\defunivar\cmpeval[RE]{Représenter}
+\defunivar\cmpeval[RA]{Raisonner}
+\defunivar\cmpeval[CA]{Calculer}
+\defunivar\cmpeval[CO]{Communiquer}
+
+\newcounter{subcmpeval}
+\setcounter{subcmpeval}{0}
+
+
+\newunivar\competenceevaluee
+\newunivar\subcmpeval
+\def\endcmpeval{
+    \edef\NBsubcmpeval{\arabic{subcmpeval}}
+    \expandafter\ifnum\NBsubcmpeval>0
+        \expandafter\edef\csname NBsubcmpeval\cmpcode\endcsname{\NBsubcmpeval}
+    \fi
+}
+\def\cmpevalcodes{CH,MO,RE,RA,CA,CO}
+
+\defunivar\competenceevaluee[CH]{Chercher}
+\defunivar\competenceevaluee[MO]{Modéliser}
+\defunivar\competenceevaluee[RE]{Représenter}
+\defunivar\competenceevaluee[RA]{Raisonner}
+\defunivar\competenceevaluee[CA]{Calculer}
+\defunivar\competenceevaluee[CO]{Communiquer}
+\def\setcmpevalcode#1{
+    \endcmpeval
+    \setcounter{subcmpeval}0\def\cmpcode{#1}
+    \addtofull@cmpeval{#1}{\competenceevaluee[#1]}
+    }
+\def\addcmpeval#1{
+    \stepcounter{subcmpeval}
+    \edef\subcmpevalcode{\cmpcode\arabic{subcmpeval}}
+    \defunivar\cmpeval\expandafter[\subcmpevalcode]{#1}
+    \begingroup\activate@writing
+        \global\addtofull@cmpeval{\subcmpevalcode}{#1}
+    \endgroup
+    }
+\long\def\looponcmpeval#1#2{%
+    \foreach\ii in\cmpevalcodes{
+        \foreach\jj in{1,...,\csname NBsubcmpeval\ii\endcsname}{
+            \edef#1{\ii\jj}#2}
+}}
+
+% CHERCHER
+\setcmpevalcode{CH}
+\addcmpeval{Extraire d'un document les informations utiles, les reformuler
+    les organiser, les confronter à ses connaissances}
+\addcmpeval{S'engager dans une démarche scientifique, observer,
+    questionner, manipuler, expérimenter (sur une feuille de papier,
+    avec des objets, à l'aide de logiciels), émettre des hypothèses,
+    chercher des exemples ou des contre-exemples, simplifier ou
+    particulariser une situation, émettre une conjecture}
+\addcmpeval{Tester, essayer plusieurs pistes de résolution}
+\addcmpeval{Décomposer un problème en sous-problèmes}
+% MODELISER
+\setcmpevalcode{MO}
+\addcmpeval{Reconnaître un modèle mathématique (proportionnalité,
+    équiprobabilité) et raisonner dans le cadre de ce modèle pour
+    résoudre un problème}
+\addcmpeval{Traduire en langage mathématique une situation réelle
+    (par exemple à l'aide d'équations, de fonctions, de configurations
+    géométriques, d'outils statistiques)}
+\addcmpeval{Comprendre et utiliser une simulation numérique ou géométrique}
+\addcmpeval{Valider ou invalider un modèle, comparer une situation à un
+    modèle connu (par exemple un modèle aléatoire)}
+% REPRESENTER
+\setcmpevalcode{RE}
+\addcmpeval{Choisir et mettre en relation des cadres (numérique, algébrique,
+    géométrique) adaptés pour traiter un problème ou pour étudier un objet
+    mathématique}
+\addcmpeval{Produire et utiliser plusieurs représentations des nombres.}
+\addcmpeval{Représenter des données sous forme d'une série statistique.}
+\addcmpeval{Utiliser, produire et mettre en relation des représentations de
+    solides (par exemple perspective ou vue de dessus/de dessous) et de
+    situations spatiales (schémas, croquis, maquettes, patrons, figures
+    géométriques, photographies, plans, cartes, courbes de niveau)}
+% RAISONNER
+\setcmpevalcode{RA}
+\addcmpeval{Résoudre des problèmes impliquant des grandeurs variées
+    (géométriques, physiques, économiques) : mobiliser les connaissances
+    nécessaires, analyser et exploiter ses erreurs, mettre à l'essai
+    plusieurs solutions}
+\addcmpeval{Mener collectivement une investigation en sachant prendre en compte
+    le point de vue d'autrui}
+\addcmpeval{Démontrer : utiliser un raisonnement logique et des règles établies
+    (propriétés, théorèmes, formules) pour parvenir à une conclusion}
+\addcmpeval{Fonder et défendre ses jugements en s'appuyant sur des résultats
+    établis et sur sa maîtrise de l'argumentation}
+% CALCULER
+\setcmpevalcode{CA}
+\addcmpeval{Calculer avec des nombres rationnels, de manière exacte ou
+    approchée, en combinant de façon appropriée le calcul mental, le calcul
+    posé et le calcul instrumenté (calculatrice ou logiciel)}
+\addcmpeval{Contrôler la vraisemblance de ses résultats, notamment en estimant
+    des ordres de grandeurs ou en utilisant des encadrements}
+\addcmpeval{Calculer en utilisant le langage algébrique (lettres, symboles,
+    etc.)}
+% COMMUNIQUER
+\setcmpevalcode{CO}
+\addcmpeval{Faire le lien entre le langage naturel et le langage algébrique.
+    Distinguer des spécificités du langage mathématique par rapport à la
+    langue française}
+\addcmpeval{Expliquer à l'oral ou à l'écrit (sa démarche, son raisonnement,
+    un calcul, un protocole de construction géométrique, un algorithme),
+    comprendre les explications d'un autre et argumenter dans l'échange}
+\addcmpeval{Vérifier la validité d'une information et distinguer ce qui est
+    objectif et ce qui est subjectif ; lire, interpréter, commenter, produire
+    des tableaux, des graphiques, des diagrammes}
+\endcmpeval

@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{texmaths-main}
+\usepackage{geometry}
+\makeatletter
+\newcount\exercicecount
+\let\enonce\read@enonce
+\def\path@to@exercices{../exercices/}
+\def\exercice#1{%
+    \expandafter\ifnum\the\exercicecount>0
+        % \newpage
+    \fi
+    \advance\exercicecount1\relax
+    \begin{flushleft}
+        \begin{mdframed}
+            \Large\textbf{Exercice \the\exercicecount~:}
+        \end{mdframed}
+    \end{flushleft}
+    \read@exercice{#1}%
+}
+\makeatother
+\newgeometry{
+        hmargin=1.5cm,
+        top=1.5cm,
+        footskip=0pt
+    }
+\begin{document}
+\pagestyle{empty}
+\begin{center}
+    \LARGE\textbf{Exos cinquième}
+\end{center}
+\exercice{0702-c}
+\exercice{0327-c}
+\exercice{0328-c}
+\setanswerspace{squares}
+\exercice{0646-c}
+\setanswerspace{dotedlines}
+\exercice{0624-c}
+\exercice{0430-c}
+\end{document}

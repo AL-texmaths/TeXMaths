@@ -1,0 +1,66 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Pour chacun des triangles suivants, indiquer q'il est
+possible d'écrire l'égalité de Pythagore. Si oui, l'écrire.
+\vspace{20pt}
+\par
+\begin{minipage}[t]{.45\linewidth}
+    \begin{tikzpicture}[rotate=30]
+        \coordinate[label=below left:\<s1;](s1)at(0,0);
+        \coordinate[label=right:\<s2;](s2)at(3,0);
+        \coordinate[label=above left:\<s3;](s3)at(2,1.5);
+        \draw(s1)--(s2)--(s3)--cycle;
+        \tkzMarkAngle[mark=none, size=0.7](s2,s1,s3)
+        \tkzLabelAngle[pos=1](s2,s1,s3){\<angle1;$^\circ$}
+        \tkzMarkAngle[mark=none, size=0.7](s3,s2,s1)
+        \tkzLabelAngle[pos=1](s3,s2,s1){\<angle2;$^\circ$}
+    \end{tikzpicture}
+\end{minipage}\hspace{20pt}
+\begin{minipage}[t]{.45\linewidth}
+    \begin{tikzpicture}[scale=0.9, rotate=20]
+        \coordinate[label=below left:\<s4;](s4)at(0,0);
+        \coordinate[label=right:\<s5;](s5)at(3,0);
+        \coordinate[label=above left:\<s6;](s6)at(2,1.5);
+        \draw(s4)--(s5)--(s6)--cycle;
+        \tkzMarkRightAngle(s5,s6,s4)
+    \end{tikzpicture}
+\end{minipage}\par
+\begin{minipage}[t]{.45\linewidth}
+    \begin{tikzpicture}[scale=0.6,rotate=-20]
+        \coordinate[label=below left:\<s7;](s7)at(0,0);
+        \coordinate[label=below right:\<s8;](s8)at(4,0);
+        \coordinate[label=above:\<s9;](s9)at(2,1.5);
+        \draw(s7)--(s8)--(s9)--cycle;
+    \end{tikzpicture}
+\end{minipage}\hspace{.05\linewidth}
+\begin{minipage}[t]{.45\linewidth}
+    \begin{tikzpicture}[scale=0.4,rotate=-25]
+        \coordinate[label=below left:\<s10;](s10)at(0,0);
+        \coordinate[label=below right:\<s11;](s11)at(4,0);
+        \coordinate[label=above:\<s12;](s12)at(2,3.46);
+        \draw(s10)--(s11)--(s12)--cycle;
+        \path(s10)--(s12)node[pos=0.5, sloped]{//};
+        \path(s11)--(s12)node[pos=0.5, sloped]{//};
+        \path(s10)--(s11)node[pos=0.5, sloped]{//};
+    \end{tikzpicture}
+\end{minipage}\par\vspace{-20pt}
+\begin{center}
+    \begin{tikzpicture}[scale=0.4,rotate=15]
+        \coordinate[label=below left:\<s13;](s13)at(0,0);
+        \coordinate[label=below right:\<s14;](s14)at(3,0);
+        \coordinate[label=above left:\<s15;](s15)at(0,3);
+        \draw(s13)--(s14)--(s15)--cycle;
+        \tkzMarkRightAngle(s14,s13,s15)
+        \path(s15)--(s13)node[pos=0.5, sloped]{//};
+        \path(s14)--(s13)node[pos=0.5, sloped]{//};
+    \end{tikzpicture}
+\end{center}
+\end{document}

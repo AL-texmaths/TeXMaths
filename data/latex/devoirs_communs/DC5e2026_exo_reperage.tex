@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{tikz}
+\usepackage{amsmath}
+\begin{document}
+%--------------------
+\begin{minipage}{.5\linewidth}
+    \begin{tikzpicture}[scale=0.65]
+        \def\axewidth{1pt}
+        \draw[draw=gray](-6,-6)grid(6,6);
+        \draw[draw=white, line width=2pt](-6,-6)rectangle(6,6);
+        \draw[-{latex[scale=1]}, line width=\axewidth](0,-6)--(0,6);
+        \draw[-{latex[scale=1]}, line width=\axewidth](-6,0)--(6,0);
+        \draw node[anchor=north east] at(0,0){0};
+        \draw node at(0,1){$\bullet$};
+        \draw node[anchor=south east] at(0,1){1};
+        \draw node at(1,0){$\bullet$};
+        \draw node[anchor=north west] at(1,0){1};
+        \coordinate[label=below left:A](A)at(0,-4);
+        \coordinate[label=above right:D](D)at(3,4);
+        \coordinate[label=above right:H](H)at(3,0);
+        \coordinate[label=below left:I](I)at(-3,-2);
+        \coordinate[label=above left:M](M)at(-2,3);
+        \coordinate[label=below right:S](S)at(3,-3);
+        \coordinate[label=below left:U](U)at(-4,-1);
+        \coordinate[label=above right:Y](Y)at(4,2);
+        \def\repstep{0.075}
+        \foreach\X in{A,D,H,I,M,S,U,Y}{
+            \path(\X)+(-\repstep,+\repstep)coordinate(\X1);
+            \path(\X)+(+\repstep,-\repstep)coordinate(\X3);
+            \path(\X)+(+\repstep,+\repstep)coordinate(\X2);
+            \path(\X)+(-\repstep,-\repstep)coordinate(\X4);
+            \draw[line width=\axewidth](\X1)--(\X3);
+            \draw[line width=\axewidth](\X2)--(\X4);
+        }
+    \end{tikzpicture}
+\end{minipage}\hfil
+\begin{minipage}{.49\linewidth}
+    \begin{enumerate}
+        \item Placer sur le repère les points $\text{B}(1;3)$, $\text{O}(2;-1)$ et $\text{T}(-1;-1)$.
+        \item Donner les coordonnées des points M et Y.	
+        \item Trouver le mot dont les lettres sont dans l'ordre suivant en justifiant:
+            \begin{enumerate}
+                \item Mon ordonnée est positive alors que mon abscisse ne l'est pas.
+                \item Mon abscisse est nulle.		
+                \item Mon ordonnée est identique à mon abscisse. 
+                \item Mon ordonnée est nulle.
+                \item Mon abscisse et mon ordonnée sont des nombres opposés.
+            \end{enumerate} 
+    \end{enumerate}
+\end{minipage}\par
+%----------------------
+\end{document}

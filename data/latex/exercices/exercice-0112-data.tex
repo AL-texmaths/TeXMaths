@@ -1,0 +1,62 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer une valeur approchée du périmètre des figures
+suivantes~:\par\smallskip\noindent
+\textbf{1)}
+\begin{tikzpicture}[scale=0.35,baseline=(O.base)]
+    \coordinate(O)at(0,3);
+    \coordinate(A0)at(3,0);
+    \coordinate(A1)at(-3,0);
+    \coordinate(A2)at(0,-8.5);
+    \path(A0)--+(-25:0.3)coordinate(A0');
+    \path(A2)--+(-25:0.3)coordinate(A2');
+    \draw[fill=\currentcolor](A0)arc(0:180:3)--(A2)--cycle;
+    \draw[stealth-stealth](A0)--(A1)node[pos=0.5,below]{6 cm};
+    \draw[stealth-stealth](A2')--(A0')node[pos=0.5,below right]{9 cm};
+    \path(A0)--(A2)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A1)--(A2)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+\end{tikzpicture}\smallskip\par\noindent
+\textbf{2)}
+\begin{tikzpicture}[scale=0.55,baseline=(O.base)]
+    \coordinate(O)at(0,1.5);
+    \coordinate(A0)at(0,0);
+    \path(A0)--+(3,0)coordinate(A1);
+    \path(A1)--+(0,-2)coordinate(A2);
+    \path(A2)--+(-3,0)coordinate(A3);
+    \path(A3)--+(0,-3)coordinate(A4);
+    \path(A4)--+(-3,0)coordinate(A5);
+    \path(A5)--+(0,3)coordinate(A6);
+    \path(A6)--+(156.4:2.5)coordinate(A7);
+    \path(A7)--+(23.6:2.5)coordinate(A8);
+    \draw[fill=\currentcolor](A0)\foreach\ii in{1,2,...,8}{--(A\ii)}arc(180:0:1.51);
+    \draw[dashed](A8)--(A0);
+    \path(A0)--(A8)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A0)--(A1)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A2)--(A3)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A3)--(A4)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A5)--(A4)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A6)--(A5)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A7)--(A6)coordinate[pos=0.5](B0);
+    \path(A7)--(A8)coordinate[pos=0.5](B1);
+    \draw[red,line width=0.75](B0)circle(0.1);
+    \draw[red,line width=0.75](B1)circle(0.1);
+    \def\arrowskip{0.3}
+    \path(A0)--+(90:\arrowskip)coordinate(A0');
+    \path(A1)--+(90:\arrowskip)coordinate(A1');
+    \path(A1)--+(0:\arrowskip)coordinate(A1'');
+    \path(A2)--+(0:\arrowskip)coordinate(A2'');
+    \path(A7)--+(115:\arrowskip)coordinate(A7');
+    \path(A8)--+(115:\arrowskip)coordinate(A8');
+    \draw[stealth-stealth](A0')--(A1')node[pos=0.5,above]{3 cm};
+    \draw[stealth-stealth](A1'')--(A2'')node[pos=0.5,right]{2 cm};
+    \draw[stealth-stealth](A7')--(A8')node[pos=0.5,above,sloped]{2.5 cm};
+\end{tikzpicture}
+\end{document}

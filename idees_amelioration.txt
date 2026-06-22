@@ -1,0 +1,68 @@
+=============================================
+                    Github
+=============================================
+=============================================
+                    VSCode
+=============================================
+===============================================================================
+					Python
+===============================================================================
+L'erreur missing pdf doit mener à un test de compilation pour le fichier en question.
+Vérouiller les cases "ouvrir avec adobe" ou "ouvrir avec pdfxchange" si
+les executables ne sont pas trouvés
+USBSave --> vérifier l'existence des chemins avant l'execution du programme
+Checker la possibilité native e linux pour remplacer sumatrapdf (commande lp)
+Checker la possibilité de connecter linux a une imprimante via wifi
+===============================================================================
+					Java / html
+===============================================================================
+-- exerciseur --
+>> feedback rapide
+>> indices en cas d'echecs répétés
+>> lien vers la leçon/exemple etc.
+>> système de niveau, la réussite de plusieurs exercices d'affilés
+permet le passage au niveau suivant
+-------
+genialy
+-------
+===============================================================================
+					LaTeX
+===============================================================================
+--> revoir la macro \videoManim de texmaths-path
+--> revoir le code avec lualatex/Expl3 pour amélioration
+% --------------------------
+% mise a jour de la database (fichiers latex)
+- identifier les packages nécéssaires a mettre dans le préambule
+- utiliser \mathpoints (Maj+MP) et \currentcolor (CC)
+- insérer les answer spaces dans les exercices
+- supprimer les overfull/underfull des exercices (voir le log)
+- écrire les métadonnées
+% --------------------------
+===============================================================================
+					Pédagogique
+===============================================================================
+- activité destinée à faire assimiler la notion de surface : pour calculer
+l'aire, préparer des petits carreaux en carton. L'élève devra mesurer
+différentes surfaces à l'aide de ces petits carreaux :
+---> chaque groupe à différents petits carreaux
+---> en classe entière, constater la différence et en détecter la cause
+---> la solution est donc de se mettre d'accord sur une unité d'aire en
+particulier
+---> le cm carré
+---> demander s'il existe d'autre unités d'aires connues ? (cm, dm, ...).
+---> qu'est-ce qui est commun à ces unités ? R. le mètre
+---> le mètre carré est l'unité de référence. Selon les cas, on choisit
+différentes unités multiples ou sous-multiples de l'unité de référence
+
+- animation qui permet de créer des images mentales pour faciliter la
+lecture graphique
+--> problèmes :
+    on connaît l'image on cherche l'antécédent;
+	on veut l'image de 0 ou l'antécédent de 0.
+--> animation (gif) qui cache les axes non nécessaires au moment des
+lectures
+--> vidéo manim peut-être plus interessant
+--> gif issue des vidéos manim ??
+
+--> exercice trigo: démontrer que les angles aigus d'un triangle rectangle
+isocèle valent 45 degrés avec tangente

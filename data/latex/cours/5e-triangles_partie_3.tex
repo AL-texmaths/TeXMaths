@@ -1,0 +1,19 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Somme des angles d'un triangle}
+    \propriete{somme_des_angles_dans_un_triangle}
+    \noindent{\bfseries Exemple :}\vskip10pt
+    \par\noindent{\bfseries Remarque :}\vskip10pt
+    Si je connais deux angles dans un triangle, je connais le
+    troisième !
+    \bigpart{Hauteurs d'un triangle}
+    \definition{hauteur_issue_d_un_sommet}
+    \exported[scale=1]<<\vskip20pt{\centering
+        \begin{tikzpicture}[scale=1.2,rotate=35]
+            \coordinate(A)at(0,0);
+            \coordinate(B)at(4,0);
+            \coordinate(C)at(6,3);
+            \draw(A)--(B)--(C)--cycle;
+        \end{tikzpicture}\par}\vskip20pt
+    >>
+\end{document}

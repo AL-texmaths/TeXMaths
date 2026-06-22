@@ -1,0 +1,71 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!numquestions=4;%
+\smallskip\par\noindent Calculer l'aire des figures suivantes (le point
+O est le centre du cercle).\par\medskip
+\def\cerclediam#1{%
+    \begin{tikzpicture}[baseline={(B.base)}]
+        \coordinate(O)at(0,0);
+        \coordinate(B)at(90:1.5);
+        \filldraw[fill=Rainbow1-rouge](O)circle(1.5);
+        \node at(O){$\times$};
+        \node[shift={(45:0.4)}]at(O){O};
+        \coordinate(S1)at(0:1.5);
+        \coordinate(S2)at(180:1.5);
+        \draw[stealth-stealth,line width=0.4pt](S1)--(S2);
+        \path(S1)--(S2)node[pos=0.5,shift={(-90:0.3)}]{#1};
+    \end{tikzpicture}%
+}%
+\def\cercleray#1{%
+    \begin{tikzpicture}[baseline={(B.base)}]
+        \coordinate(O)at(0,0);
+        \coordinate(B)at(90:1.5);
+        \filldraw[fill=Rainbow1-bleu](O)circle(1.5);
+        \node at(O){$\times$};
+        \node[shift={(45:0.4)}]at(O){O};
+        \coordinate(S1)at(0:0);
+        \coordinate(S2)at(180:1.5);
+        \draw[stealth-stealth,line width=0.4pt](S1)--(S2);
+        \path(S1)--(S2)node[pos=0.5,shift={(-90:0.3)}]{#1};
+    \end{tikzpicture}%
+}%
+\def\demicercle#1{%
+    \begin{tikzpicture}[baseline={(B.base)}]
+        \coordinate(O)at(0,0);
+        \coordinate(B)at(90:1.5);
+        \coordinate(S1)at(0:1.5);
+        \coordinate(S2)at(180:1.5);
+        \path(S1)--++(0,-0.25)coordinate(s1);
+        \path(S2)--++(0,-0.25)coordinate(s2);
+        \filldraw[fill=Rainbow1-vert](S1)arc(0:180:1.5)--cycle;
+        \node at(O){$\times$};
+        \node[shift={(45:0.4)}]at(O){O};
+        \draw[stealth-stealth,line width=0.4pt](s1)--(s2);
+        \path(s1)--(s2)node[pos=0.5,shift={(-90:0.3)}]{#1};
+    \end{tikzpicture}%
+}%
+\def\quartcercle#1{%
+    \begin{tikzpicture}[baseline={(O.base)}]
+        \coordinate(O)at(0,0);
+        \coordinate(S1)at(0:2.5);
+        \coordinate(S2)at(180:0);
+        \path(S1)--++(0,0.25)coordinate(s1);
+        \path(S2)--++(0,0.25)coordinate(s2);
+        \filldraw[fill=Rainbow1-jaune](S1)arc(0:-90:2.5)--(O)--cycle;
+        \node at(O){$\times$};
+        \node[shift={(180:0.4)}]at(O){O};
+        \draw[stealth-stealth,line width=0.4pt](s1)--(s2);
+        \path(s1)--(s2)node[pos=0.5,shift={(90:0.3)}]{#1};
+    \end{tikzpicture}%
+}%
+\hbox{\hbox to .5\linewidth{{\bfseries a)} \cercleray{\<rayon1;}\hfill}{\bfseries b) }\cerclediam{\<diametre1;}}\vskip5pt
+\ifnum\<numquestions;=4\hbox{\hbox to .5\linewidth{{\bfseries c)} \demicercle{\<diametre2;}\hfill}{\bfseries d) }\quartcercle{\<rayon2;}}\else\fi
+\end{document}

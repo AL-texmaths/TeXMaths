@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{.45\linewidth}
+    Sur la figure ci-contre, écrire le nom de~:
+    \begin{enumerate}
+        \item deux angles alternes-internes et les droites associées~;
+        \item deux angles qui ne sont pas alternes-internes.
+    \end{enumerate}
+\end{minipage}\hskip20pt
+\begin{tikzpicture}[baseline=(current bounding box.center)]
+    \coordinate[label=below left:D](D)at(0,0);
+    \coordinate[label=above left:A](A)at(0.2,2);
+    \coordinate[label=below right:C](C)at(2,0);
+    \coordinate[label=above right:B](B)at(2.3,3);
+    \path(D)--(A)coordinate[pos=0.6,label=left:E](E);
+    \draw(D)--(C)--(B)--(A)--cycle;
+    \draw(E)--(B);
+    \draw(E)--(C);
+\end{tikzpicture}
+\end{document}

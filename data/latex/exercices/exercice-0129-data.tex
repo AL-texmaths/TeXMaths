@@ -1,0 +1,65 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer l'aire des triangles rectangle suivants.
+\begin{center}\def\triangleScale{2}
+    \begin{tblr}{%
+            colspec={Q[c,m,wd=0.45\linewidth]Q[c,m,wd=0.45\linewidth]},
+        }
+        \begin{tikzpicture}[baseline=(O.base)]
+            \coordinate(O)at(0,0);
+            \coordinate[label=below left:\<S1;](A)at(180:\triangleScale);
+            \coordinate[label=below right:\<S2;](B)at(0:\triangleScale);
+            \coordinate[label=\<S3;](C)at(120:\triangleScale);
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[pos=0.5,below,sloped]{\<L3;};
+            \path(B)--(C)node[pos=0.5,above,sloped]{\<L2;};
+            \path(A)--(C)node[pos=0.5,above,sloped]{\<L1;};
+            \tkzMarkRightAngle(B,C,A)
+        \end{tikzpicture}
+        &
+        \begin{tikzpicture}[baseline=(O.base),rotate=20]
+            \coordinate(O)at(0,0);
+            \coordinate[label=below left:\<S4;](A)at(180:\triangleScale);
+            \coordinate[label=right:\<S5;](B)at(0:\triangleScale);
+            \coordinate[label=above left:\<S6;](C)at(120:\triangleScale);
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[pos=0.5,below,sloped,rotate=20]{\<L6;};
+            \path(B)--(C)node[pos=0.5,above,sloped,rotate=20]{\<L5;};
+            \path(A)--(C)node[pos=0.5,above,sloped,rotate=20]{\<L4;};
+            \tkzMarkRightAngle(B,C,A)
+        \end{tikzpicture}\\
+        \begin{tikzpicture}[baseline=(O.base),rotate=70]
+            \coordinate(O)at(0,0);
+            \coordinate[label=below:\<S7;](A)at(180:\triangleScale);
+            \coordinate[label=above right:\<S8;](B)at(0:\triangleScale);
+            \coordinate[label=left:\<S9;](C)at(120:\triangleScale);
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[pos=0.5,above,sloped,rotate=70]{\<L9;};
+            \path(B)--(C)node[pos=0.5,above,sloped,rotate=70]{\<L8;};
+            \path(A)--(C)node[pos=0.5,above,sloped,rotate=70]{\<L7;};
+            \tkzMarkRightAngle(B,C,A)
+        \end{tikzpicture} 
+        &
+        \begin{tikzpicture}[baseline=(O.base),rotate=-40]
+            \coordinate(O)at(0,0);
+            \coordinate[label=below left:\<S10;](A)at(180:\triangleScale);
+            \coordinate[label=below right:\<S11;](B)at(0:\triangleScale);
+            \coordinate[label=\<S12;](C)at(120:\triangleScale);
+            \draw(A)--(B)--(C)--cycle;
+            \path(A)--(B)node[pos=0.5,below,sloped,rotate=-40]{\<L12;};
+            \path(B)--(C)node[pos=0.5,above,sloped,rotate=-40]{\<L11;};
+            \path(A)--(C)node[pos=0.5,above,sloped,rotate=-40]{\<L10;};
+            \tkzMarkRightAngle(B,C,A)
+        \end{tikzpicture}
+    \end{tblr}
+\end{center}
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!angle1=70;%
+\!rotate1=0;%
+\!scale1=1;%
+\!angle2=40;%
+\!rotate2=0;%
+\!scale2=1;%
+\!angle3=115;%
+\!rotate3=0;%
+\!scale3=1;%
+\!angle4=75;%
+\!rotate4=0;%
+\!scale4=1;%
+\!angle5=55;%
+\!rotate5=0;%
+\!scale5=1;\par\noindent
+Mesurer les angles suivants.\vskip10pt\noindent
+\begin{tikzpicture}[scale=\<scale1;,rotate=\<rotate1;]
+    \Angle[angle=\<angle1;,color=Rainbow1-rouge]
+    \draw node[below left] at(A){\bfseries (1)};
+\end{tikzpicture}\hfil
+\begin{tikzpicture}[scale=\<scale2;,rotate=\<rotate2;]
+    \Angle[angle=\<angle2;,color=Rainbow1-bleu]
+    \draw node[below left] at(A){\bfseries (2)};
+\end{tikzpicture}\hfil
+\begin{tikzpicture}[scale=\<scale3;,rotate=\<rotate3;]
+    \Angle[angle=\<angle3;,color=Rainbow1-vert]
+    \draw node[below right] at(A){\bfseries (3)};
+\end{tikzpicture}\par
+\begin{tikzpicture}[scale=\<scale4;,rotate=\<rotate4;]
+    \Angle[angle=\<angle4;,color=Rainbow1-orange]
+    \draw node[below right] at(A){\bfseries (4)};
+\end{tikzpicture}\hfil
+\begin{tikzpicture}[scale=\<scale5;,rotate=\<rotate5;]
+    \Angle[angle=\<angle5;,color=Rainbow1-violet]
+    \draw node[below right] at(A){\bfseries (5)};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass[17pt]{flash}
+\usepackage{tabularray}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{60pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Calcul mental : proportionnalité}
+
+\FlashShowConsignes{%
+        \item Les tableaux suivants sont des tableaux de proportionnalité.
+        \item Dans chaque cas, écrire le nombre manquant.
+}
+\flashlist{
+    \flashitem{60}{\Large
+        \begin{tblr}{colspec={Q[c,m]Q[c,m]},vlines,hlines}
+            9&18\\
+            4&\color{red}?
+        \end{tblr}
+    }
+
+    \flashitem{60}{\Large
+        \begin{tblr}{colspec={Q[c,m]Q[c,m]},vlines,hlines}
+            7&\color{red}?\\
+            3&30
+        \end{tblr}
+    }
+
+    \flashitem{60}{\Large
+        \begin{tblr}{colspec={Q[c,m]Q[c,m]},vlines,hlines}
+            5&25\\
+            \color{red}?&35
+        \end{tblr}
+    }
+}
+
+\end{document}

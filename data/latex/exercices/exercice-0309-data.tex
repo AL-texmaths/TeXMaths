@@ -1,0 +1,25 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}[baseline=(O.base),scale=1.2,rotate=50]
+    \coordinate(O)at(0,-1);
+    \coordinate[label=below right:\<S1;](A)at(0,0);
+    \coordinate[label=above left:\<S2;](B)at(30:1);
+    \coordinate[label=above left:\<S3;](C)at(30:3);
+    \coordinate[label=below right:\<S4;](D)at(2,0);
+    \coordinate[label=below right:\<S5;](E)at(6,0);
+    \path(A)--(B)node[midway,left]{\<S1S2;};
+    \path(A)--(D)node[midway,below right]{\<S1S4;};
+    \path(B)--(C)node[midway,left]{\<S2S3;};
+    \path(D)--(E)node[midway,below right]{\<S4S5;};
+    \tkzDrawLines(A,E A,C B,D C,E)
+\end{tikzpicture}\vskip10pt Démontrer que les droites (\<S2;\<S4;) et (\<S3;\<S5;)
+sont parallèles.
+\end{document}

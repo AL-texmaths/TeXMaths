@@ -1,0 +1,35 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Construire en vrai grandeur les triangles suivants~:
+\begin{enumerate}
+    \item \begin{tikzpicture}
+        \coordinate[label=below left:A](A)at(0,0);
+        \coordinate[label=below right:B](B)at(4,0);
+        \coordinate[label=above right:C](C)at(3,3);
+        \path(A)--(B)node[below,sloped,midway]{\<L1;};
+        \path(A)--(C)node[above,sloped,midway]{\<L2;};
+        \tkzMarkAngle[mark=none](B,A,C)
+        \tkzLabelAngle[pos=1.4](B,A,C){\<angle1;}
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}
+    \item \begin{tikzpicture}
+        \coordinate[label=below left:A](A)at(0,0);
+        \coordinate[label=below right:B](B)at(4,0);
+        \coordinate[label=above right:C](C)at(3,3);
+        \path(A)--(C)node[above,sloped,midway]{\<L3;};
+        \tkzMarkAngle[mark=none](B,A,C)
+        \tkzLabelAngle[pos=1.4](B,A,C){\<angle2;}
+        \tkzMarkAngle[mark=none](A,C,B)
+        \tkzLabelAngle[pos=1.4](A,C,B){\<angle3;}
+        \draw(A)--(B)--(C)--cycle;
+    \end{tikzpicture}
+\end{enumerate}
+\end{document}

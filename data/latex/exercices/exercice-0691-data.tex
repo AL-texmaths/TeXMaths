@@ -1,0 +1,74 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{19GENMATMEAG1}
+\cycle{4}
+\competencesDuSocle{RA,CA}
+\connaissancesRequises{D2f*,D2b6}
+\competencesTravaillees{D2e*,B3e*,C2d*}
+\enddatakeys
+\begin{document}%
+    {\itshape Dans cet exercice, on donnera, si nécessaire, une valeur approchée
+    des résultats au centième près.}\par\bigskip\noindent
+    Pour construire le décor d'une pièce de théâtre ({\itshape Figure 1}), Joanna
+    dispose d'une plaque rectangulaire \mathspoint{ABCD} de 4 m sur 2 m dans
+    laquelle elle doit découper les trois triangles du décor avant de les
+    superposer. Elle propose un découpage de la plaque ({\itshape Figure 2}).\par
+    \bigskip\noindent
+    {\centering
+    \edef\thecurrentcolor{\currentcolor}
+    \begin{tikzpicture}
+        \coordinate(A)at(0,0);
+        \coordinate(B0)at(2,0);
+        \coordinate(C0)at(0,3.46);
+        \coordinate(B1)at(1.73,0);
+        \coordinate(C1)at(0,3);
+        \coordinate(B2)at(1,0);
+        \coordinate(C2)at(0,1.73);
+        \draw[fill=\thecurrentcolor!20](A)--(B0)--(C0)--cycle;
+        \draw[fill=\thecurrentcolor!50](A)--(B1)--(C1)--cycle;
+        \draw[fill=\thecurrentcolor](A)--(B2)--(C2)--cycle;
+        \draw node at(1,-0.75){\itshape Figure 1};
+    \end{tikzpicture}\hskip100pt
+    \begin{tikzpicture}
+        \coordinate[label=above left:\mathspoint{A}](A)at(0,2);
+        \coordinate[label=below left:\mathspoint{D}](D)at(0,0);
+        \coordinate[label=above:\mathspoint{M}](M)at(3.46,2);
+        \coordinate[label=below left:\mathspoint{N}](N)at(3.46,0);
+        \coordinate[label=above right:\mathspoint{B}](B)at(4,2);
+        \coordinate[label=below right:\mathspoint{C}](C)at(4,0);
+        \path(M)--(D)coordinate[pos=0.25,label=above right:\mathspoint{P}](P);
+        \draw(A)--(B)--(C)--(D)--cycle;
+        \draw[fill=\thecurrentcolor!20](A)--(M)--(D)--cycle;
+        \draw[fill=\thecurrentcolor!50](D)--(P)--(N)--cycle;
+        \draw[fill=\thecurrentcolor](N)--(P)--(M)--cycle;
+        \nextcolor
+        \tkzFillAngle[colored](M,D,A)
+        \tkzMarkAngle(M,D,A)
+        \tkzMarkRightAngle[colored, fill=\markscolor](D,P,N)
+        \tkzMarkRightAngle[colored, fill=\markscolor](A,M,N)
+        
+        \tkzMarkAngle[fill=\currentcolor](M,D,A)
+        \draw node at(2,-0.75){\itshape Figure 2};
+    \end{tikzpicture}
+    \par}\bigskip\noindent
+    Le triangle \mathspoint{ADM} respecte les conditions suivantes~:
+    \begin{itemize}
+        \item Le triangle \mathspoint{ADM} est rectangle en \mathspoint{A}.
+        \item $\mathspoint{AD}=2$ m
+        \item $\widehat{\mathspoint{ADM}}=60^\circ$
+    \end{itemize}
+    \begin{enumerate}
+        \item Montrer que \mathspoint{[AM]} mesure eniron 3,46 m.
+        \item La partie de la plaque non utilisée est représentée en blanc
+        sur la figure 2 (rectangle MNCB). Calculer une valeur approchée au centième
+        de la proportion de la plaque qui n'est pas utilisée.
+        \item Pour que la superposition des triangles soit harmonieuse, Joanna veut
+        que les trois triangles \mathspoint{AMD}, \mathspoint{PNM} et \mathspoint{PDN}
+        soient semblables. Démontrer que c'est bien le cas.
+        \item Joanna aimerait que le coefficient d'agrandissement pour passer du triangle
+        \mathspoint{PDN} au triangle \mathspoint{AMD} soit plus petit que 1,5. Est-ce
+        le cas~? Justifier.
+    \end{enumerate}
+    \showthesource
+\end{document}

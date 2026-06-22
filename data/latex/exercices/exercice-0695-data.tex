@@ -1,0 +1,50 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tikz}
+\usepackage{tabularray}
+\startdatakeys
+\source{24GENMATAN1}
+\cycle{4}
+\competencesDuSocle{CA}
+\connaissancesRequises{A3c*,A3b2}
+\competencesTravaillees{A3a1,A3d*}
+\enddatakeys
+\begin{document}%
+\begin{center}
+	\begin{tikzpicture}[>=stealth]
+		\draw[shift={(0,8)}] (-2.5,-0.4) rectangle (2.5,0.4) (0,0) node {Nombre choisi au départ};
+		\draw[shift={(-4.5,6)}] (-2.5,-0.4) rectangle (2.5,0.4) (0,0) node {Ajouter 2};
+		\draw[shift={(-4.5,4)}] (-2.5,-0.4) rectangle (2.5,0.4) (0,0) node {Multiplier par 4};
+		\draw[shift={(4.5,6)}] (-2.5,-0.4) rectangle (2.5,0.4) (0,0) node {Multiplier par 5};
+		\draw[shift={(4.5,4)}] (-2.5,-0.4) rectangle (2.5,0.4) (0,0) node {Soustraire 3};
+		\draw[shift={(0,2)}] (-2.5,-0.4) rectangle (2.5,0.4) (0,0) node {Multiplier les deux nombres};
+		\draw[shift={(0,0)}] (-2.5,-0.4) rectangle (2.5,0.4) (0,0) node {Résultat obtenu à l'arrivée};
+		\draw[->] (0,7.6)--(-4.5,6.5);
+		\draw[->] (0,7.6)--(4.5,6.5);
+		\draw[->] (-4.5,5.6)--(-4.5,4.5);
+		\draw[->] (4.5,5.6)--(4.5,4.5);
+		\draw[->] (-4.5,3.6)--(0,2.5);
+		\draw[->] (4.5,3.6)--(0,2.5);
+		\draw[->] (0,1.6)--(0,0.5);
+	\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+	\item Montrer que si on choisit 2 comme nombre de départ, le résultat à l'arrivée est 112.
+	\item Quel est le résultat obtenu à l'arrivée quand on choisit -3 comme nombre de départ?
+	\item On choisit $x$ comme nombre de départ.
+	Parmi les expressions suivantes, lesquelles permettent d'exprimer le résultat à
+    l'arrivée de ce programme de calcul. Aucune justification n'est demandée.
+	\begin{center}
+		\begin{tblr}{colspec={*{4}{Q[c,m]}},hlines,vlines}
+			Expression A & Expression B & Expression C & Expression D \\
+			$(x+2 \times 4)(x \times 5-3)$
+            & $(4 x+2)(5 x-3)$
+            & $(4 x+8)(5 x-3)$
+            & $(x+2) \times 4 \times(5 x-3)$
+		\end{tblr}
+	\end{center}
+	\item Trouver les deux nombres de départ qui permettent d'obtenir 0 à l'arrivée.
+    Expliquer la démarche.
+	\item Développer et réduire l'expression B.
+\end{enumerate}
+\showthesource
+\end{document}

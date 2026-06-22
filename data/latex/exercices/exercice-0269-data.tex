@@ -1,0 +1,63 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{mdframed}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Voici deux programmes de calcul :\vskip5pt
+\begin{minipage}[t]{.45\linewidth}
+    {\bfseries Programme 1}
+    \begin{mdframed}
+        Choisir un nombre\par\smallskip
+        Le multiplier par 3\par\smallskip
+        Ajouter 1
+    \end{mdframed}
+\end{minipage}\hfil
+\begin{minipage}[t]{.45\linewidth}
+    {\bfseries Programme 2}
+    \begin{mdframed}\centering\begin{tikzpicture}[scale=0.8]
+        \coordinate(A)at(0,0);
+        \coordinate(B1)at(-2,-1.5);
+        \coordinate(B2)at(2,-1.5);
+        \coordinate(C1)at(0,-3);
+        \coordinate(C2)at(0,-3.5);
+        \draw node at(A){Choisir un nombre};
+        \draw node at(B1){Soustraire 1};
+        \draw node at(B2){Ajouter 2};
+        \draw node at(C1){Multiplier les};
+        \draw node at(C2){deux nombres obtenus};
+        \draw[->](0,-0.5)--(-2,-1);
+        \draw[->](0,-0.5)--(2,-1);
+        \draw[->](-2,-2)--(-0.2,-2.5);
+        \draw[->](2,-2)--(0.2,-2.5);
+    \end{tikzpicture}\end{mdframed}
+\end{minipage}
+\begin{enumerate}
+    \item Vérifier que si on choisit 5 comme nombre de départ
+    \begin{itemize}
+        \item le résultat du programme 1 vaut 16.
+        \item le résultat du programme 2 vaut 28.
+    \end{itemize}
+    On appelle $A(x)$ le résultat du programme 1 en fonction du nombre $x$
+    choisi au départ.\par\noindent
+    La fonction $B:x\mapsto(x-1)(x+2)$ donne le résultat du programme 2 en
+    fonction du nombre choisi au départ.
+    \item
+    \begin{enumerate}
+        \item Donner l'expression algébrique de $A$.
+        \item Déterminer le nombre que l'on choisi au départ pour obtenir
+        $0$ comme résultat du programme 1.
+    \end{enumerate}
+    \item Développer et réduire l'expression :$$B(x)=(x-1)(x+2)$$
+    \item
+    \begin{enumerate}
+        \item Montrer que $B(x)-A(x)=(x+1)(x-3)$.
+        \item Quels nombres doit on choisir au départ pour le programme 1 et
+        le programme 2 donne le même résultat~? Expliquer la démarche.
+    \end{enumerate} 
+\end{enumerate}
+\end{document}

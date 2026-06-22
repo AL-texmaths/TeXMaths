@@ -1,0 +1,31 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[t]{.5\linewidth}
+    \begin{enumerate}
+        \item Dans le cahier, placer trois points comme ci-contre.
+        \item Tracer :
+        \begin{enumerate}
+            \item en rouge (AB)
+            \item en vert [AC]
+            \item en bleu [CB)
+        \end{enumerate}
+        \item Placer un point D sur (AB) mais qui n'appartient pas à [AB].
+    \end{enumerate}
+\end{minipage}\hskip20pt minus 10pt
+\begin{tikzpicture}[scale=0.5, baseline=(current bounding box.north)]
+    \coordinate[label=above left:A](A)at(1,6);
+    \coordinate[label=above left:B](B)at(5,4);
+    \coordinate[label=below right:C](C)at(2,1);
+    \draw[line width=0.5pt,gray] (0,0)grid(7,7);
+    \draw node at (A){\cross};
+    \draw node at (B){\cross};
+    \draw node at (C){\cross};
+\end{tikzpicture}
+\end{document}

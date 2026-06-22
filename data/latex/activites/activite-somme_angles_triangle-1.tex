@@ -1,0 +1,53 @@
+\documentclass[activite]{thedocument}
+\usepackage{tkz-euclide}
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{tikzpicture}[scale=3,rotate=-10]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(3,0);
+        \coordinate(C)at(2,1);
+        \tkzFillAngle[fill=red!70!black,size=0.5](B,A,C)
+        \tkzLabelAngle[pos=0.75](B,A,C){(1)}
+        \tkzFillAngle[fill=red!70!black,size=0.25](A,C,B)
+        \tkzLabelAngle[pos=0.35](A,C,B){(1)}
+        \tkzFillAngle[fill=red!70!black,size=0.5](C,B,A)
+        \tkzLabelAngle[pos=0.6](C,B,A){(1)}
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(B)coordinate[pos=0.45](A1);
+        \path(A)--(C)coordinate[pos=0.45](A2);
+        \draw[dashed](A1)--(A2);
+        \path(B)--(A)coordinate[pos=0.45](B1);
+        \path(B)--(C)coordinate[pos=0.45](B2);
+        \draw[dashed](B1)--(B2);
+        \path(C)--(B)coordinate[pos=0.45](C1);
+        \path(C)--(A)coordinate[pos=0.45](C2);
+        \draw[dashed](C1)--(C2);
+    \end{tikzpicture}\vfill
+    \begin{tikzpicture}[scale=3,rotate=30]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(3,0);
+        \coordinate(C)at(4,1.5);
+        \tkzFillAngle[fill=blue!70!black,size=0.6](B,A,C)
+        \tkzLabelAngle[pos=0.7](B,A,C){(2)}
+        \tkzFillAngle[fill=blue!70!black,size=0.5](A,C,B)
+        \tkzLabelAngle[pos=0.6](A,C,B){(2)}
+        \tkzFillAngle[fill=blue!70!black,size=0.25](C,B,A)
+        \tkzLabelAngle[pos=0.35](C,B,A){(2)}
+        \draw(A)--(B)--(C)--cycle;
+        \path(A)--(B)coordinate[pos=0.45](A1);
+        \path(A)--(C)coordinate[pos=0.45](A2);
+        \draw[dashed](A1)--(A2);
+        \path(B)--(A)coordinate[pos=0.45](B1);
+        \path(B)--(C)coordinate[pos=0.45](B2);
+        \draw[dashed](B1)--(B2);
+        \path(C)--(B)coordinate[pos=0.45](C1);
+        \path(C)--(A)coordinate[pos=0.45](C2);
+        \draw[dashed](C1)--(C2);
+    \end{tikzpicture}
+\end{document}

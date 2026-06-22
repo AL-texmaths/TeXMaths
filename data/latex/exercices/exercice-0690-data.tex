@@ -1,0 +1,75 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{xstring}%
+\startdatakeys
+\source{originale}%
+\cycle{4}%
+\competencesDuSocle{RA,CA}%
+\connaissancesRequises{D2b1,D2f*}%
+\competencesTravaillees{D2d*,D2e*}%
+\enddatakeys
+\begin{document}%
+\!triangle1-A=25;%
+\!triangle1-AB=3.5 cm;%
+\!triangle1-scale=1;%
+\StrSubstitute{\*triangle1-AB;}{.}{,}[\triangleoneABshow]%
+\StrBefore{\*triangle1-AB;}{ }[\triangleoneABnum]%
+\edef\triangleoneAB{\triangleoneABnum cm}%
+\!triangle2-A=50;%
+\!triangle2-AB=5 dm;%
+\!triangle2-scale=0.75;%
+\StrSubstitute{\*triangle2-AB;}{.}{,}[\triangletwoABshow]%
+\StrBefore{\*triangle2-AB;}{ }[\triangletwoABnum]%
+\edef\triangletwoAB{\triangletwoABnum cm}%
+\!triangle3-AB=6.9 cm;%
+\!triangle3-BC=9.2 cm;%
+\!triangle3-CA=11.5 cm;%
+\!triangle3-scale=0.75;%
+\StrSubstitute{\*triangle3-AB;}{.}{,}[\trianglethreeABshow]%
+\StrBefore{\*triangle3-AB;}{ }[\trianglethreeABnum]%
+\edef\trianglethreeAB{\trianglethreeABnum cm}%
+\StrSubstitute{\*triangle3-BC;}{.}{,}[\trianglethreeBCshow]%
+\StrBefore{\*triangle3-BC;}{ }[\trianglethreeBCnum]%
+\edef\trianglethreeBC{\trianglethreeBCnum cm}%
+\StrSubstitute{\*triangle3-CA;}{.}{,}[\trianglethreeCAshow]%
+\StrBefore{\*triangle3-CA;}{ }[\trianglethreeCAnum]%
+\edef\trianglethreeCA{\trianglethreeCAnum cm}%
+Résoudre les trois triangles suivants en utilisant les formules
+trigonométriques.\par\medskip\noindent
+\begin{tikzpicture}[rotate=45, scale=\*triangle1-scale;, baseline=(current bounding box.center)]
+    \triangleACA[A=\*triangle1-A;,B=90,AB=\triangleoneAB](A,B,C)
+    \fill[\currentcolor!50](A)--(B)--(C)--cycle;
+    \tkzMarkRightAngle[size=0.65, colored](C,B,A)
+    \path(A)node[anchor=north east]{A};
+    \path(B)node[anchor=north west]{B};
+    \path(C)node[anchor=south]{C};
+    \path(A)--(B)node[midway,below right]{\triangleoneABshow};
+    \tkzFillAngle[fill=\currentcolor,size=1*\*triangle1-scale;](B,A,C)
+    \tkzLabelAngle[pos=1.4](B,A,C){\*triangle1-A;$^\circ$}
+    \draw(A)--(B)--(C)--cycle;
+\end{tikzpicture}\hfill
+\begin{tikzpicture}[rotate=150, scale=\*triangle2-scale;, baseline=(current bounding box.center)]
+    \triangleACA[A=\*triangle2-A;,B=90,AB=\triangletwoAB](A,B,C)
+    \fill[\currentcolor!50](A)--(B)--(C)--cycle;
+    \tkzMarkRightAngle[size=0.75, colored](C,B,A)
+    \path(A)node[anchor=west]{E};
+    \path(B)node[anchor=south]{D};
+    \path(C)node[anchor=east]{F};
+    \path(A)--(B)node[midway,above right]{\triangletwoABshow};
+    \tkzFillAngle[fill=\currentcolor,size=1*\*triangle2-scale;](B,A,C)
+    \tkzLabelAngle[pos=1.2/\*triangle2-scale;](B,A,C){\*triangle2-A;$^\circ$}
+    \draw(A)--(B)--(C)--cycle;
+\end{tikzpicture}\hfill
+\begin{tikzpicture}[rotate=-45, scale=\*triangle3-scale;, baseline=(current bounding box.center)]
+    \triangleCCC[AB=3cm,BC=4cm,CA=5cm](A,B,C)
+    \fill[\currentcolor!50](A)--(B)--(C)--cycle;
+    \tkzMarkRightAngle[size=0.75, colored](C,B,A)
+    \path(A)node[anchor=east]{G};
+    \path(B)node[anchor=north]{H};
+    \path(C)node[anchor=west]{I};
+    \path(A)--(B)node[midway,below left]{\trianglethreeABshow};
+    \path(B)--(C)node[midway,below right]{\trianglethreeBCshow};
+    \path(C)--(A)node[midway,above left]{\trianglethreeCAshow};
+    \draw(A)--(B)--(C)--cycle;
+\end{tikzpicture}\hfill\hbox{}\par
+\end{document}

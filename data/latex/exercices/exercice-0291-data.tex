@@ -1,0 +1,32 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Le déménageur pourra-t-il relever cette armoire~?\par\medskip
+\begin{tikzpicture}[scale=0.25]
+    \coordinate(A1)at(0,22);
+    \coordinate(A2)at(35,22);
+    \coordinate(A3)at(35,0);
+    \coordinate(A4)at(0,0);
+    \fill[pattern=north west lines](A1)rectangle(35,23);
+    \fill[pattern=north west lines](A4)rectangle(35,-1);
+    \draw[line width=2pt](A1)--(A2);
+    \draw[line width=2pt](A4)--(A3);
+    \draw[latex-latex,ultra thick,black!50!](3,0)--(3,22)node[sloped,midway,above]{\color{black!50!}2,20 m};
+    \coordinate(B1)at(27,12);
+    \draw[line width=2 pt,fill=black](B1)circle(1.5);
+    \draw[line width=2 pt](27,10.5)--(27,5)--(25,3)--(25,0);
+    \draw[line width=2 pt](27,5)--(30,0);
+    \draw[line width=2 pt](27,9)--(22,15);
+    \filldraw[fill=black!80!](10,0)--(6,4)--(22,20)--(26,16)--cycle;
+    \draw[line width=2 pt](27,9)--(22,13);
+    \draw[latex-latex,ultra thick,black!50!](5.5,4.5)--(21.5,20.5)node[sloped,midway,above]{\color{black!50!}2,10 m};
+    \draw[latex-latex,ultra thick,black!50!](22.5,20.5)--(26.5,16.5)node[sloped,midway,above]{\color{black!50!}70 cm};
+\end{tikzpicture}
+\end{document}

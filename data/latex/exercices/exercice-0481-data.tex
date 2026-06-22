@@ -1,0 +1,29 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Le triangle ci-dessous est-il constructible~? Justifier.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.65]
+            \draw[dotted](0,0)rectangle(8,6);
+            \coordinate(E)at(1,2);
+            \coordinate(D)at(6,3);
+            \coordinate(F)at(5,5);
+            \draw node at(D){$\times$};
+            \draw node[right]at(D){\sf\strut\<S1;};
+            \draw node at(F){$\times$};
+            \draw node[above right]at(F){\sf\strut\<S2;};
+            \draw node at(E){$\times$};
+            \draw node[below left]at(E){\strut\<S3;};
+            \path(E)--(F)node[midway,above,sloped]{\strut\<L1;};
+            \path(F)--(D)node[midway,above,sloped]{\strut\<L2;};
+            \path(E)--(D)node[midway,below,sloped]{\strut\<L3;};
+            \draw(E)--(F)--(D)--cycle;
+        \end{tikzpicture}
+    \end{center}
+\end{document}

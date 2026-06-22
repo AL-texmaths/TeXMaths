@@ -1,0 +1,96 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}
+\usepackage{scratch3}
+\startdatakeys
+\source{23GENMATMEAG1}
+\cycle{4}
+\competencesDuSocle{CA,RA,CO}
+\connaissancesRequises{D2f*,E1a*,E1c*,E1d*}
+\competencesTravaillees{D2d*,E1a*}
+\enddatakeys
+\begin{document}%
+\def\next{\par\smallskip\noindent}
+On veut fabriquer un escalier en bois de hauteur 272 cm.\next
+La figure ci-dessous représente une vue de profil de cet escalier.\next
+La hauteur d'une marche est de 17 cm.\next
+La profondeur d'une marche pour poser le pied mesure 27 cm.\next
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+    \def\height{1}\def\depth{2}
+    \coordinate[label=below left:\mathspoint{A}](A0)at(0,0);
+    \foreach\i in{1,...,3}{
+        \coordinate(A\i)at(\i*\depth,\i*\height);
+        \edef\j{\number\numexpr\i-1}
+        \draw(A\j)rectangle(A\i);
+    }
+    \coordinate (A4) at ($(A3) + (\depth,\height)$);
+    \draw[dotted](A3)rectangle(A4);
+    \coordinate (C0) at ($(A4) + (0.5*\depth,0.5*\height)$);
+    \coordinate (C1) at ($(C0) + (\depth,\height)$);
+    \coordinate[label=above right:\mathspoint{C}](C2) at ($(C1) + (\depth,\height)$);
+    \draw[dotted](C0)rectangle(C1);
+    \draw(C1)rectangle(C2);
+    \coordinate[label=below right:\mathspoint{B}](B)at(6.5*\depth,0);
+    \fill[\mainbgcolor](A0)--(C2)--(B)--cycle;
+    \draw(A0)--(B)--(C2);
+    \coordinate(D)at(3*\depth,3*\height);
+    \coordinate(E)at(4.5*\depth,4.5*\height);
+    \draw(A0)--(D);
+    \draw[dotted](D)--(E);
+    \draw(E)--(C2);
+    \tkzMarkRightAngle[size=0.5,colored](C2,B,A0)
+    \def\lenghtlabel{1}
+    \coordinate(A'1)at($(A0)+(-\lenghtlabel,0)$);
+    \coordinate(A'2)at($(A0)+(-\lenghtlabel,\height)$);
+    \coordinate(B'1)at($(A0)+(0,\depth+\lenghtlabel)$);
+    \coordinate(B'2)at($(A0)+(\depth,3*\lenghtlabel)$);
+    \coordinate(C'1)at($(C2)+(\lenghtlabel,0)$);
+    \coordinate(C'2)at($(B)+(\lenghtlabel,0)$);
+    \draw[latex-latex](A'1)--(A'2);
+    \draw[latex-latex](B'1)--(B'2);
+    \draw[latex-latex](C'1)--(C'2);
+    \draw[dotted](A0)--(A'1);
+    \draw[dotted](0,\height)--(A'2);
+    \draw[dotted](0,\height)--(B'1);
+    \draw[dotted](\depth,\height)--(B'2);
+    \draw[dotted](C'1)--(C2);
+    \draw[dotted](C'2)--(B);
+    \path(A'1)--(A'2)node[midway,anchor=east,text width=2cm]{hauteur d'une marche};
+    \path(B'1)--(B'2)node[midway,anchor=south,text width=2cm]{profondeur d'une marche};
+    \path(C'1)--(C'2)node[midway,anchor=west, text width=2cm]{hauteur de l'escalier};
+    \end{tikzpicture}
+\end{center}
+\begin{enumerate}
+    \item \begin{enumerate}
+        \item Montrer qu'il faut prévoir 16 marches pour construire cet escalier.
+        \item Montrer que la longueur \mathspoint{AB} est égale à 432 cm.
+    \end{enumerate}
+    \item Pour permettre une montée agréable, l'angle $\widehat{\mathspoint{BAC}}$
+    doit être compris entre $25^\circ$ et $40^\circ$.
+    \begin{enumerate}
+        \item Calculer la mesure de l'angle $\widehat{\mathspoint{BAC}}$, arrondie
+        au degré près.
+        \item L'escalier permet-t-il une montée agréable~?
+    \end{enumerate}
+    \item \begin{minipage}[t]{.5\linewidth}
+        On rédife un programme \textit{Scratch} pour dessiner l'escalier.\next
+        (1 cm dans la réalité est représneté par 1 pas dans le programme.)\next
+        \textbf{Représenter} les lignes 5, 6, 7 et 9 \textbf{sur la copie} en
+        les complétant.
+    \end{minipage}
+    \begin{scratch}
+        \blockinit{Quand \greenflag est cliqué}
+        \blockmove{s'orienter à \ovalnum{90} degrés}
+        \blockpen{effacer tout}
+        \blockpen{stylo en position d'écriture}
+        \blockrepeat{Répéter \ovalnum{...} fois}
+        {
+            \blockmove{tourner \turnleft\ de \ovalnum{...} degrés}
+            \blockmove{avancer de \ovalnum{...} pas}
+            \blockmove{tourner \turnright\ de \ovalnum{...} degrés}
+            \blockmove{avancer de \ovalnum{...} pas}
+        }
+\end{scratch}
+\end{enumerate}
+\showthesource
+\end{document}

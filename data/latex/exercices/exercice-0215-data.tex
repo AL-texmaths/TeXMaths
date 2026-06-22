@@ -1,0 +1,64 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+{\itshape Les deux parties de cet exercice sont indépendantes.}\vskip5pt
+Une entreprise produit et vend des jus de fruit contenus dans des briques en
+carton qui ont la forme d'un pavé droit.
+\vskip10pt{\bfseries PARTIE A : Briques de jus de pomme}\vskip10pt
+Ces briques sont fabriquées pour contenir 350 mL de jus de pomme.\vskip5pt
+Lors d'un contrôle, 24 briques sont prélevées au hasard et analysées.\par
+Le tableau ci-dessous donne le volume de jus de pomme (en mL) contenu
+dans ces briques~:\vskip5pt{\centering
+\begin{tblr}{colspec=*{12}{Q[c,m]},hlines,vlines}
+Volume en ml&344&347&348&349&350&351&352&353&354&356&357\\
+Effectif&1&2&4&4&2&3&1&2&3&1&1
+\end{tblr}\vskip10pt}
+\begin{enumerate}
+    \item Déterminer la médiane des volumes de cette série. Interpréter ce
+    résultat.
+    \item Calculer l'étendue de cette série.
+    \item On prélève au hasard une brique parmi celles contrôlées, quelle est
+    la probabilité qu'elle contienne exactement 350 mL de jus de pomme~?
+    \item Lorsque le volume de jus de pomme contenu dans une brique est
+    compris entre 345 mL et 355 mL, cette brique peut-être vendue.\vskip5pt
+    Quel est le pourcentage de briques que l'entreprise peut vendre parmi les
+    briques contrôlée~?
+\end{enumerate}\bigskip
+{\bfseries PARTIE B : Briques de jus de raisin}\vskip10pt
+\begin{minipage}[c]{.5\linewidth}
+    L'entreprise souhaite commercialiser une nouvelle brique en forme de pavé
+    droit pour le jus de raisin. Sa base est un rectangle de longueur 6,4 cm
+    et de largeur 5 cm.
+\end{minipage}\hfill
+\begin{minipage}[c]{.35\linewidth}
+    \begin{tikzpicture}[scale=0.3]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(6.4,0);
+        \coordinate(C)at(6.4,11);
+        \coordinate(D)at(0,11);
+        \path(A)--+(3,2)coordinate(A1);
+        \path(B)--+(3,2)coordinate(B1);
+        \path(C)--+(3,2)coordinate(C1);  
+        \path(D)--+(3,2)coordinate(D1);
+        \draw[dotted](A)--(A1)--(D1);
+        \draw[dotted](A1)--(B1);
+        \draw(A)--(B)--(C)--(D)--cycle;
+        \draw(B)--(B1)--(C1)--(D1)--(D);
+        \draw(C)--(C1);
+        \path(A)--(B)node[below,pos=0.5]{6,4 cm};
+        \path(B)--(B1)node[below right,pos=0.5]{5 cm};
+    \end{tikzpicture}
+\end{minipage}
+\begin{enumerate}
+    \item Calculer l'aire de la base de cette brique~?
+    \item Quelle doit être la hauteur de cette brique pour que son volume soit
+    de 400 cm$^3$~?
+\end{enumerate}
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{mdframed}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!angle=90;%
+\begin{flushleft}
+    Dans le cadre ci-dessous, construire l'image du triangle \textsf{ABC} par la rotation
+    de centre \textsf{O} d'angle \<angle;$^\circ$ dans le sens \<sens; (\textit{
+    laissez les traits de construction}).
+\end{flushleft}
+\begin{mdframed}
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate[label=below left:O](O)at(0,0);
+            \draw node at(O){\textbf{+}};
+            \coordinate[label=above left:A](A1)at(-3,-2);
+            \coordinate[label=below:B](A2)at(-3,-4);
+            \coordinate[label=right:C](A3)at(1,-5);
+            \foreach\i in{1,2,3}{%
+                \tkzDefPointBy[rotation= center O angle \*angle;](A\i)\tkzGetPoint{B\i}
+            }
+            \tkzDrawPolygon[fill=blue!50!white](A1,A2,A3)
+            \draw node at(0,4){};
+            \draw node at(0,-6){};
+        \end{tikzpicture}
+    \end{center}
+\end{mdframed}
+\end{document}

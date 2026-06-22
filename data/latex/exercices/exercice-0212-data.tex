@@ -1,0 +1,48 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Voici le nombre de passages de véhicules au péage du pont de l'île de Ré au
+cours de l'année 2020, reporté dans une feuille de calcul : \vskip10pt
+{\centering\begin{tblr}{
+    colspec={Q[c,m]Q[c,m]Q[c,m]},
+    hlines,vlines
+    }
+    &A&B\\
+    1&Mois&Nombre de passages\\
+    2&Janvier&210\,320\\
+    3&Février&218\,464\\
+    4&Mars&138\,395\\
+    5&Avril&62\,930\\
+    6&Mai&179\,699\\
+    7&Juin&295\,333\\
+    8&Juillet&389\,250\\
+    9&Août&376\,551\\
+    10&Septembre&313\,552\\
+    11&Octobre&267\,864\\
+    12&Novembre&142\,152\\
+    13&Décembre&206\,662\\
+    14&Total&2\,801\,172
+\end{tblr}\par}
+\begin{enumerate}
+    \item Quelle formule a-t-on saisi dans la cellule B14 pour obtenir le
+    nombre total de passages en 2020~?
+    \item Calculer le nombre moyen de passages par mois.
+    \item Donner l'étendue de la série.
+    \item Afin d'étudier les effets du confinement de 2020, on souhaite
+    comparer le nombre de passages de véhicules sur le pont de l'île de Ré du
+    mois de mai 2020 avec celui du mois de mai 2021.\par\noindent
+    En mai 2021, 305\,214 véhicules ont passé le péage du pont.\par\noindent
+    Calculer le pourcentage d'augmentation du nombre de passages de véhicules
+    entre mai 2020 et main 2021. Arrondir à l'unité.
+    \item Sachant que le pont a une longueur de 3\,000 mètres, quelles est la
+    vitesse moyenne, exprimée en km/h, d'un cycliste qui le traverse en 10
+    minutes~?
+\end{enumerate}
+\end{document}

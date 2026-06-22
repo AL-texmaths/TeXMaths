@@ -1,0 +1,38 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{SESAMATHS2016C4}
+\cycle{4}
+\competencesDuSocle{}
+\automatismes{}
+\objectifsApprentissage{}
+\enddatakeys
+\begin{document}%
+    Les points \mathspoint{A}, \mathspoint{D} et \mathspoint{B} sont alignés.
+    \par\smallskip\noindent
+    En justifiant soigneusement votre réponse, calculer la mesure de l'angle
+    $\widehat{\mathspoint{ABC}}$.
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5,rotate=-15]
+            \coordinate[label=below right:\mathspoint{A}](A) at (2,0);
+            \coordinate[label=below left:\mathspoint{B}](B) at (-3,0);
+            \coordinate[label=above:\mathspoint{C}](C) at (60:1.5);
+            \coordinate[label=below left:\mathspoint{D}](D) at (0,0);
+            \tkzFillAngle[\currentcolor!50, size=0.5cm](C,A,D)
+            \tkzMarkAngle[size=0.5cm](C,A,D)
+            \tkzLabelAngle[pos=0.75](C,A,D){$35^\circ$}
+            \nextcolor
+            \tkzFillAngle[\currentcolor!50, size=0.5cm](A,D,C)
+            \tkzMarkAngle[fill=\currentcolor,size=0.5cm](A,D,C)
+            \tkzLabelAngle[pos=0.75](A,D,C){$85^\circ$}
+            \nextcolor
+            \tkzFillAngle[\currentcolor!50, size=0.5cm](D,C,A)
+            \tkzMarkAngle[fill=\currentcolor,mark=|,size=0.5cm](D,C,A)
+            \tkzFillAngle[\currentcolor!50, size=0.5cm](B,C,D)
+            \tkzMarkAngle[fill=\currentcolor,mark=|,size=0.5cm](B,C,D)
+            \draw(A)--(B)--(C)--cycle;
+            \draw(C)--(D);
+        \end{tikzpicture}
+    \end{center}
+    \answerspace{4cm}
+\end{document}

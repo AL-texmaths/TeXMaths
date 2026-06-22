@@ -1,0 +1,45 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+\>figure1={\begin{tikzpicture}[scale=1.5]%
+    \coordinate[label=below left:G](A)at(0,0);
+    \coordinate[label=right:F](B)at(20:2);
+    \coordinate[label=E](C)at(60:2);
+    \draw(A)--(B)--(C)--cycle;
+    \tkzMarkSegment[mark=s||](A,B)
+    \tkzMarkSegment[mark=s||](A,C)
+    \path(C)--(B)node[above,pos=0.5,sloped]{2,6 cm};
+\end{tikzpicture}};%
+\>figure2={\begin{tikzpicture}[scale=1.5]%
+    \coordinate[label=above:R](A)at(0,0);
+    \coordinate[label=below left:M](B)at(-140:2);
+    \coordinate[label=right:T](C)at(-80:2);
+    \draw(A)--(B)--(C)--cycle;
+    \tkzMarkSegment[mark=s||](A,B)
+    \tkzMarkSegment[mark=s||](A,C)
+    \tkzMarkSegment[mark=s||](B,C)
+\end{tikzpicture}};%
+\>figure3={\begin{tikzpicture}[scale=0.75,rotate=30]%
+    \coordinate[label=right:B](A)at(0:1.5);
+    \coordinate[label=above:V](B)at(90:1.5);
+    \coordinate[label=left:N](C)at(180:1.5);
+    \coordinate[label=below:F](D)at(-90:1.5);
+    \draw(A)--(B)--(C)--(D)--cycle;
+    \tkzMarkRightAngle(A,B,C)
+    \tkzMarkRightAngle(B,C,D)
+    \tkzMarkRightAngle(C,D,A)
+    \tkzMarkRightAngle(D,A,B)
+    \path(C)--(B)node[above,pos=0.5,sloped,rotate=30]{2,6 cm};
+\end{tikzpicture}};%
+\>figure4={\begin{tikzpicture}[scale=0.75,rotate=65]%
+    \coordinate[label=above right:G](A)at(0:1);
+    \coordinate[label=above left:K](B)at(90:2);
+    \coordinate[label=below left:E](C)at(180:1);
+    \coordinate[label=below right:A](D)at(-90:2);
+    \draw(A)--(B)--(C)--(D)--cycle;
+    \tkzMarkSegment[mark=s||](A,B)
+    \tkzMarkSegment[mark=s||](C,B)
+    \tkzMarkSegment[mark=s||](C,D)
+    \tkzMarkSegment[mark=s||](A,D)
+\end{tikzpicture}};%
+\enonce{0499}%
+\end{document}

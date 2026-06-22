@@ -1,0 +1,143 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \part{Rappels}
+        \begin{center}
+            \exported[scale=1,lmargin=30,vmargins=30]%
+            <<
+                \begin{tblr}{
+                    colspec={Q[c,m]Q[c,m]Q[c,m]},hlines,vlines,
+                    row{1}={font=\bfseries},
+                    cell{4}{3}={gray!50!white},
+                    column{2}={wd=150pt}
+                }
+                    Figure&Vocabulaire&Notation\\
+                    \begin{tikzpicture}[baseline=(O).base]
+                        \coordinate(O)at(0,0);
+                        \coordinate[label=above left:$(d_1)$](A1)at(40:2);
+                        \coordinate(B1)at(220:2);
+                        \path(A1)--++(-2,0)coordinate[label=above left:$(d_2)$](A2);
+                        \path(B1)--++(-2,0)coordinate(B2);
+                        \draw(A1)--(B1);
+                        \draw(A2)--(B2);
+                    \end{tikzpicture}
+                    & \toComplete{Les droites $(d_1)$ et $(d_2)$ sont {\color{red}parallèles entre
+                    elles}.\\
+                    $(d_1)$ {\color{red} est parallèle à} $(d_2)$.}
+                    & \toComplete{$(d_1)\parallel(d_2)$}\\
+                    \begin{tikzpicture}[baseline=(O).base]
+                        \coordinate(O)at(0,0);
+                        \coordinate[label=above left:$(d_1)$](A1)at(40:2);
+                        \coordinate(B1)at(220:2);
+                        \coordinate[label=above left:$(d_2)$](A2)at(130:1.5);
+                        \coordinate(B2)at(310:1);
+                        \draw(A1)--(B1);
+                        \draw(A2)--(B2);
+                    \end{tikzpicture}
+                    & \toComplete{Les droites $(d_1)$ et $(d_2)$ sont {\color{red}perpendiculaires entre
+                    elles}.\\ $(d_1)$ {\color{red} est perpendiculaire à} $(d_2)$.}
+                    & \toComplete{$(d_1)\perp(d_2)$}\\
+                    \begin{tikzpicture}[baseline=(O).base]
+                        \coordinate(O)at(0,0);
+                        \coordinate[label=above left:$(d_1)$](A1)at(40:2);
+                        \coordinate(B1)at(220:2);
+                        \coordinate[label=above left:$(d_2)$](A2)at(170:1.5);
+                        \coordinate(B2)at(350:1);
+                        \draw(A1)--(B1);
+                        \draw(A2)--(B2);
+                    \end{tikzpicture}
+                    & \toComplete{Les droites $(d_1)$ et $(d_2)$ sont {\color{red}sécantes}.}
+                    &\\
+                \end{tblr}
+            >>
+        \end{center}\smallskip
+    \part{Démontrer que deux droites sont parallèles entre elles}
+        \propriete{parallelisme_1}
+        \begin{exemple}\medskip\par\noindent
+            \begin{minipage}[c]{.45\linewidth}
+                \begin{tikzpicture}[baseline=(O).base]
+                    \coordinate(O)at(0,0);
+                    \coordinate[label=above left:$(d_1)$](A1)at(75:2);
+                    \coordinate(B1)at(255:2);
+                    \path(A1)--++(-2,0)coordinate[label=above left:$(d_2)$]
+                        (A2);
+                    \path(B1)--++(-2,0)coordinate(B2);
+                    \path(A1)--++(2,0)coordinate[label=above left:$(d_3)$]
+                        (A3);
+                    \path(B1)--++(2,0)coordinate(B3);
+                    \draw(A1)--(B1);
+                    \draw(A2)--(B2);
+                    \draw(A3)--(B3);
+                \end{tikzpicture}
+            \end{minipage}\hspace{.05\linewidth}
+            \begin{minipage}[c]{.45\linewidth}
+                \begin{itemize}[$\bullet$]
+                    \item{\bfseries Hypothèses : }$(d_1)$ et $(d_2)$ sont
+                        parallèles à $(d_3)$.
+                    \item{\bfseries Conclusion : }$(d_1)$ et $(d_2)$ sont parallèles
+                        entre elles.
+                \end{itemize}
+            \end{minipage}
+        \end{exemple}
+        \propriete{parallelisme_2}
+        \begin{exemple}\medskip\par\noindent
+            \begin{minipage}[c]{.45\linewidth}
+                \begin{tikzpicture}[baseline=(O).base]
+                    \coordinate(O)at(0,0);
+                    \coordinate[label=above left:$(d_1)$](A1)at(75:2);
+                    \coordinate(B1)at(255:2);
+                    \path(A1)--++(-2,0)coordinate[label=above left:$(d_2)$]
+                        (A2);
+                    \path(B1)--++(-2,0)coordinate(B2);
+                    \coordinate[label=above left:$(d_3)$](A3)at(165:3);
+                    \coordinate(B3)at(335:1);
+                    \coordinate(I1)at(intersection of A1--B1 and A3--B3);
+                    \coordinate(I2)at(intersection of A2--B2 and A3--B3);
+                    \tkzMarkRightAngle(A1,I1,A3)
+                    \tkzMarkRightAngle(A2,I2,A3)
+                    \draw(A1)--(B1);
+                    \draw(A2)--(B2);
+                    \draw(A3)--(B3);
+                \end{tikzpicture}
+            \end{minipage}\hspace{.05\linewidth}
+            \begin{minipage}[c]{.45\linewidth}
+                \begin{itemize}[$\bullet$]
+                    \item{\bfseries Hypothèses : }$(d_1)$ et $(d_2)$ sont
+                        perpendiculaires à $(d_3)$.
+                    \item{\bfseries Conclusion : }$(d_1)$ et $(d_2)$ sont
+                        parallèles entre elles.
+                \end{itemize}
+            \end{minipage}
+        \end{exemple}
+    \part{Démontrer que deux droites sont perpendiculaires entre elles}
+        \propriete{perpendicularite_1}
+        \begin{exemple}\medskip\par\noindent
+            \begin{minipage}[c]{.45\linewidth}
+                \begin{tikzpicture}[baseline=(O).base]
+                    \coordinate(O)at(0,0);
+                    \coordinate[label=above left:$(d_1)$](A1)at(75:2);
+                    \coordinate(B1)at(255:2);
+                    \path(A1)--++(-2,0)coordinate[label=above left:$(d_2)$]
+                        (A2);
+                    \path(B1)--++(-2,0)coordinate(B2);
+                    \coordinate[label=above left:$(d_3)$](A3)at(165:3);
+                    \coordinate(B3)at(335:1);
+                    \coordinate(I1)at(intersection of A1--B1 and A3--B3);
+                    \coordinate(I2)at(intersection of A2--B2 and A3--B3);
+                    \tkzMarkRightAngle(A1,I1,A3)
+                    \draw(A1)--(B1);
+                    \draw(A2)--(B2);
+                    \draw(A3)--(B3);
+                \end{tikzpicture}
+            \end{minipage}\hspace{.05\linewidth}
+            \begin{minipage}[c]{.45\linewidth}
+                \begin{itemize}[$\bullet$]
+                    \item{\bfseries Hypothèses : }$(d_2)$ est parallèle à $(d_1)$ et
+                    $(d_3)$ est perpendiculaire à $(d_1)$
+                    \item{\bfseries Conclusion : }$(d_3)$ et $(d_2)$ sont
+                        perpendiculaires entre elles.
+                \end{itemize}
+            \end{minipage}
+        \end{exemple}
+    \part{Application}
+        \methode{paralleles_equerre_regle}
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.75, font=\sf]
+            \coordinate[label=above left:D](I)at(-3,2);
+            \coordinate[label=above right:C](J)at(3,2);
+            \coordinate[label=below right:B](K)at(3,-2);
+            \coordinate[label=below left:A](L)at(-3,-2);
+            \draw(L)rectangle(J);
+            \draw[thick,pattern=north west lines,pattern color=\currentcolor]
+                (L)--(J)--(K)--cycle;
+            \tkzMarkRightAngle[colored](I,J,K)
+            \tkzMarkRightAngle[colored](J,K,L)
+            \tkzMarkRightAngle[colored](K,L,I)
+            \tkzMarkRightAngle[colored](L,I,J)
+            \path(L)--(K)node[below,pos=0.5]{10 cm};
+            \path(J)--(K)node[right,pos=0.5]{6 cm};
+        \end{tikzpicture}
+    \end{center}
+    \begin{enumerate}
+        \item Quelle est la nature du triangle {\sf ABC}~?
+        \answerspace{2em}
+        \item Calculer l'aire du rectangle {\sf ABCD}.
+        \answerspace{3em}
+        \item Quelle fraction du rectangle est hachurée~?
+        \answerspace{3em}
+        \item Calculer l'aire du triangle {\sf ABC}.
+        \answerspace{3em}
+    \end{enumerate}
+\end{document}

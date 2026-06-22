@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage{tabularray}
+\usepackage{geometry}
+\usepackage{amssymb}
+
+\newgeometry{
+        includehead,
+        lmargin=50pt,
+        textwidth=500pt,
+        top=0pt%
+        }
+
+\def\date{mardi 14 novembre à partir de 16h}
+\def\level{5e}
+
+\def\mot{\noindent
+    Madame, Monsieur,\vskip10pt
+    {\bfseries Une réunion Parent/Professeur aura lieu le \date.} Ce moment sera pour
+    nous l'occasion de dresser un bilan de demi-semestre pour cette rentrée en
+    \level. Merci de cocher un(des) horaire(s) de préférence ou bien votre
+    indisponibilité. J'indiquerai sur ce même papier l'horaire retenu ou vous
+    contacterai alors par téléphone si demandé. Bien à vous, M. Longelin.
+    \vskip15pt\noindent
+    {\bfseries Nom :}
+    \vskip15pt\noindent
+    \begin{tblr}{colspec={Q[c,m]*6{Q[c,m,wd=58pt,font=\bfseries]}},hlines,vlines}
+        Indisponibilité&16h00-16h30&16h30-17h00&17h00-17h30&17h30-18h00&18h00-18h30&18h30-19h00\\
+        &&&&&&
+    \end{tblr}\bigskip\par\noindent
+    $\square$ Je ne peux pas me déplacer mais accepte un rendez-vous téléphonique
+    (indiquer l'horaire ci-dessous svp)\medskip\par\noindent
+    $\square$ Horaire du rendez-vous téléphonique.
+}
+
+\begin{document}\pagestyle{empty}
+
+\mot\par\vfill
+\mot\par\vfill
+\mot
+
+\end{document}

@@ -1,0 +1,1032 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{highlightcode}[2018/06/04]
+% --------
+% PACKAGES
+% --------
+% color    :    colour control
+% fancyvrb :    sophisticated verbatim text
+% framed   :    framed or shaded regions that can break across pages
+\RequirePackage[french]{babel}
+\RequirePackage{color}
+\RequirePackage{fancyvrb}
+\RequirePackage{framed}
+% -------
+% OPTIONS
+% -------
+% available light themes : arduino, bw, idle, pydev, scintilla, solarlight, spyder, trac
+% vaailable dark themes  : emacs, monokai, solardark, spyderdark, zeburn
+\DeclareOption{arduino}{
+    \definecolor{background}{HTML}{F3F3F3}
+    \definecolor{leftbar}{HTML}{DFDFDF}
+    \definecolor{numbercolor}{HTML}{777777}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@err\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.65,0.09,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@c\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.58,0.65,0.65}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.58,0.65,0.65}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.58,0.65,0.65}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.58,0.65,0.65}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.59,0.62}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.59,0.62}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.59,0.62}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.59,0.62}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.83,0.33,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.45,0.56,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.54,0.48,0.32}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.54,0.48,0.32}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.54,0.48,0.32}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.54,0.48,0.32}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.54,0.48,0.32}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.54,0.48,0.32}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.83,0.33,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.26,0.31,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.55,0.55}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.54,0.48,0.32}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.58,0.65,0.65}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.58,0.65,0.65}{##1}}}
+}
+\DeclareOption{bw}{
+    \definecolor{background}{HTML}{F6F6F6}
+    \definecolor{leftbar}{HTML}{E0E0E0}
+    \definecolor{numbercolor}{HTML}{000000}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@s\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@sa\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@sb\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@sc\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@dl\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@s2\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@sh\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@sx\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@sr\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@s1\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@ss\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit}
+}
+\DeclareOption{emacs}{
+    \definecolor{background}{HTML}{000000}
+    \definecolor{leftbar}{HTML}{555555}
+    \definecolor{numbercolor}{HTML}{000000}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.32,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.24,0.32,0.91}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.24,0.32,0.91}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.50,0.25}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.50,0.25}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.24,0.32,0.91}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.24,0.32,0.91}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.24,0.32,0.91}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.24,0.32,0.91}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.24,0.32,0.91}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.50,0.25}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.32,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.32,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.32,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.32,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.32,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.32,0.00}{##1}}}
+}
+\DeclareOption{idle}{
+    \definecolor{background}{HTML}{F6F6F6}
+    \definecolor{leftbar}{HTML}{EFEFEF}
+    \definecolor{numbercolor}{HTML}{777777}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.47,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.47,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.47,0.47,0.47}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.47,0.47,0.47}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.47,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.47,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.47,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.47,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,0.47,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.00,0.00}{##1}}}
+}
+\DeclareOption{monokai}{
+    \definecolor{background}{HTML}{2A2B24}
+    \definecolor{leftbar}{HTML}{2A2B24}
+    \definecolor{numbercolor}{HTML}{666666}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.98,0.15,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.65,0.89,0.18}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.87,0.87,0.85}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.90,0.86,0.45}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.68,0.51,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.46,0.44,0.37}{##1}}}
+}
+\DeclareOption{pydev}{
+    \definecolor{background}{HTML}{F6F6F6}
+    \definecolor{leftbar}{HTML}{EFEFEF}
+    \definecolor{numbercolor}{HTML}{777777}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.75,0.75,0.75}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.75,0.75,0.75}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.75,0.75,0.75}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.75,0.75,0.75}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.75,0.75,0.75}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.75,0.75,0.75}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.75,0.75,0.75}{##1}}}
+}
+\DeclareOption{scintilla}{
+    \definecolor{background}{HTML}{F6F6F6}
+    \definecolor{leftbar}{HTML}{EFEFEF}
+    \definecolor{numbercolor}{HTML}{777777}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+}
+\DeclareOption{solardark}{
+   \definecolor{background}{HTML}{002B36}
+   \definecolor{leftbar}{HTML}{073642}
+   \definecolor{numbercolor}{HTML}{657B83}
+
+   \makeatletter
+   \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+       \let\PY@ul=\relax \let\PY@tc=\relax%
+       \let\PY@bc=\relax \let\PY@ff=\relax}
+   \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+   \def\PY@toks#1+{\ifx\relax#1\empty\else%
+       \PY@tok{#1}\expandafter\PY@toks\fi}
+   \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+       \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+   \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+   \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.35,0.43,0.46}{##1}}}
+   \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.42,0.44,0.77}{##1}}}
+   \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.42,0.44,0.77}{##1}}}
+   \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.71,0.54,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.15,0.55,0.82}{##1}}}
+   \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.71,0.54,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.42,0.44,0.77}{##1}}}
+   \expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.15,0.55,0.82}{##1}}}
+   \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+   \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+   \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@fm\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.15,0.55,0.82}{##1}}}
+   \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.51,0.58,0.59}{##1}}}
+   \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+   \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+   \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+   \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+   \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+   \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+   \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+   \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.35,0.43,0.46}{##1}}}
+   \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.35,0.43,0.46}{##1}}}
+   \expandafter\def\csname PY@tok@cp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.35,0.43,0.46}{##1}}}
+   \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.35,0.43,0.46}{##1}}}
+   \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.35,0.43,0.46}{##1}}}
+   \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.35,0.43,0.46}{##1}}}  
+}
+\DeclareOption{solarlight}{
+    \definecolor{background}{HTML}{FDF6E3}
+    \definecolor{leftbar}{HTML}{EEE8D5}
+    \definecolor{numbercolor}{HTML}{839496}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.58,0.63,0.63}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.42,0.44,0.77}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.42,0.44,0.77}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.71,0.54,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.15,0.55,0.82}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.71,0.54,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.42,0.44,0.77}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.15,0.55,0.82}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.52,0.60,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.15,0.55,0.82}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.48,0.51}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.16,0.63,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.29,0.09}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.58,0.63,0.63}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.58,0.63,0.63}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.58,0.63,0.63}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.58,0.63,0.63}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.58,0.63,0.63}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.58,0.63,0.63}{##1}}}
+}
+\DeclareOption{spyder}{
+    \definecolor{background}{HTML}{FFFFFF}
+    \definecolor{leftbar}{HTML}{EFEFEF}
+    \definecolor{numbercolor}{HTML}{ADADAD}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.68,0.68,0.68}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.57,0.29,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.56,0.00,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.67,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.68,0.68,0.68}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.68,0.68,0.68}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.68,0.68,0.68}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.68,0.68,0.68}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.68,0.68,0.68}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.68,0.68,0.68}{##1}}}
+}
+\DeclareOption{spyderdark}{
+    \definecolor{background}{HTML}{131926}
+    \definecolor{leftbar}{HTML}{282828}
+    \definecolor{numbercolor}{HTML}{ADADAD}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.56,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.67}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.56,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.67}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.75,0.37,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.75,0.37,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.67}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.78,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.56,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.56,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.56,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.56,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.56,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,1.00,1.00}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.07,0.65,0.26}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.78,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.78,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.78,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.78,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.78,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.78,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+}
+\DeclareOption{trac}{
+    \definecolor{background}{HTML}{F3F3F3}
+    \definecolor{leftbar}{HTML}{DFDFDF}
+    \definecolor{numbercolor}{HTML}{777777}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+    \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.53}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@bf=\textbf\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.27,0.33,0.53}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.27,0.33,0.53}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@gh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@gu\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.67,0.67}{##1}}}
+    \expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.87,0.87}{\strut ##1}}}
+    \expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.00}{##1}}\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{0.87,1.00,0.87}{\strut ##1}}}
+    \expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+    \expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@gp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+    \expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+    \expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@err\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.65,0.09,0.09}{##1}}\def\PY@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{0.89,0.82,0.82}{\strut ##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kp\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@fm\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.00,0.00}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.53,0.27}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.60,0.60}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf}
+    \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.53}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.53}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.53}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.53}{##1}}}
+}
+\DeclareOption{zeburn}{
+    \definecolor{background}{HTML}{3F3F3F}
+    \definecolor{leftbar}{HTML}{3F3F3F}
+    \definecolor{numbercolor}{HTML}{7A738F}
+
+    \makeatletter
+    \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+        \let\PY@ul=\relax \let\PY@tc=\relax%
+        \let\PY@bc=\relax \let\PY@ff=\relax}
+    \def\PY@tok#1{\csname PY@tok@#1\endcsname}
+    \def\PY@toks#1+{\ifx\relax#1\empty\else%
+        \PY@tok{#1}\expandafter\PY@toks\fi}
+    \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+        \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+    \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+    \expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.50,0.62,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.69,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.94,0.94,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.69,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@p\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@n\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.94,0.94,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@bp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@nc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.94,0.94,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@nd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@ne\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.94,0.94,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.94,0.94,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.55,0.82,0.83}{##1}}}
+    \expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.69,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.69,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@kp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.69,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.69,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@kt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.87,0.69,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@ni\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.94,0.94,0.56}{##1}}}
+    \expandafter\def\csname PY@tok@py\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@nn\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@nx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@nt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.86,0.86,0.80}{##1}}}
+    \expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@sd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@se\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@si\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.80,0.58,0.58}{##1}}}
+    \expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.55,0.82,0.83}{##1}}}
+    \expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.55,0.82,0.83}{##1}}}
+    \expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.55,0.82,0.83}{##1}}}
+    \expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.55,0.82,0.83}{##1}}}
+    \expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.55,0.82,0.83}{##1}}}
+    \expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.55,0.82,0.83}{##1}}}
+    \expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.50,0.62,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.50,0.62,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cp\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.50,0.62,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.50,0.62,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.50,0.62,0.50}{##1}}}
+    \expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.50,0.62,0.50}{##1}}}
+}
+\ProcessOptions
+
+% CODEBOX DEFINITION
+\newenvironment{codebox}[1][\hsize]
+{
+\renewcommand
+        \theFancyVerbLine{\textcolor{numbercolor}
+            {\footnotesize\arabic{FancyVerbLine}}}
+\def\FrameCommand 
+{
+    {\hspace{1cm}\color{leftbar}\vrule width 5mm}%
+    \hspace{0pt}% must no space.
+    \fboxsep=\FrameSep\colorbox{background}%
+}
+\MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
+\setlength{\FrameSep}{0pt}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+\renewcommand{\ttdefault}{txtt}% boldfaced text in verbatim environment
+
+\endinput

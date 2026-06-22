@@ -1,0 +1,31 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{enumerate}
+    \item Tracer (d$_3$) perpendiculaire à (d$_1$) passant
+    par le point A.
+    \item Tracer (d$_4$) perpendiculaire à (d$_2$) passant par le point A.
+    \item Tracer (d$_5$) parallèle à (d$_1$) passant
+    par le point B.
+    \item Tracer (d$_6$) parallèle à (d$_2$) passant
+    par le point B.
+\end{enumerate}
+\begin{center}
+    \begin{tikzpicture}[scale=1]
+        \coordinate[label=above right:A](A)at(0,0);
+        \coordinate[label=below:B](B)at(1,-3);
+        \coordinate[label=above left:(d$_1$)](d1)at(5,-1);
+        \coordinate[label=above right:(d$_2$)](d2)at(5,-3);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \tkzDrawLines[add=0.5 and 0.5](A,d2 B,d1)
+    \end{tikzpicture}
+\end{center}
+\end{document}

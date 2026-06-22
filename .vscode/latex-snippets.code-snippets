@@ -1,0 +1,92 @@
+{
+	"Basic LaTeX Template": {
+	"prefix": "template-basic",
+	"body": [
+		"\\documentclass{article}",
+		"\\title{${1:Title}}",
+		"\\author{${2:Author}}",
+		"\\begin{document}",
+		"\\maketitle",
+		"$0",
+		"\\end{document}"
+	],
+	"description": "Generates a basic LaTeX document"
+	},
+	"Angle":{
+		"prefix": "ANGLE",
+		"body": "\\widehat{\\mathspoint{${TM_SELECTED_TEXT:${1}}}}",
+		"description" : "angle in math mode"
+	},
+	"use texmaths package":{
+		"prefix": "USETM",
+		"body": "\\usepackage{texmaths-${TM_SELECTED_TEXT:${1}}}%",
+		"description" : "use texmaths package"
+	},
+	"use package":{
+		"prefix": "USEP",
+		"body": "\\usepackage{${TM_SELECTED_TEXT:${1}}}%",
+		"description" : "use package"
+	},
+	"espace destiné à la réponse":{
+		"prefix": "AS",
+		"body": "\\answerspace{${TM_SELECTED_TEXT:${1}}}",
+		"description" : "use texmaths package"
+	},
+	"text maths":{
+		"prefix": "MP",
+		"body": "\\mathspoint{${TM_SELECTED_TEXT:${1}}}$0",
+		"description" : "unified maths notations for points labels"
+	},
+	"current color":{
+		"prefix": "CC",
+		"body": "\\currentcolor$0",
+		"description" : "couleur actuellement utilisé dans le document.\nUtiliser \\nextcolor pour changer."
+	},
+	"Func":{
+		"prefix": "FUNC",
+		"body": [
+			"\\begin{tikzpicture}",
+			"    \\draw[gray, step=.5cm] (0,0) grid (2,2);",
+			"    \\begin{axis}[",
+			"        x=1cm, y=1cm,",
+			"        axis lines=left,",
+			"        xmin=0, ymin=0,",
+			"        xmax=2,ymax=2,",
+			"        % xtick={0,0.5,1},",
+			"        % ytick={0,0.5,1},",
+			"        % xlabel={Allure en min/km},",
+			"        % ylabel={Vitesse en km/h}%",
+		    "    ]",
+			"    \\addplot [",
+				    "blue,",
+				    "domain=0.25:2,",
+				    "samples=100,",
+				    "line width=1.5pt",
+			    "]",
+			"{1/x};",
+		    "\\end{axis}",
+		    "\\draw node[right] at(2,0){$x$};",
+		    "\\draw node[above] at(0,2){$y$};",
+	        "\\end{tikzpicture}"
+		],
+		"description": "function tikz pgfplots"
+	},
+	"New glossary word":{
+		"prefix":"NW",
+		"body": [
+			"\\newword{$0}{}{%",
+			"",
+			"}{}{}"
+		]
+	},
+	"Double minipage":{
+		"prefix":"DOUBLE",
+		"body":"\\hbox to.5\\linewidth{$0\\hfil}\\hbox{}\\par",
+		"description":"two hbox in one line"
+	},
+	"Defined word":{
+		"prefix":"DW",
+		"body":"\\defined{${TM_SELECTED_TEXT:${1}}}$0",
+		"description":"defined word"
+	}
+}

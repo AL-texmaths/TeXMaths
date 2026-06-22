@@ -1,0 +1,85 @@
+\documentclass[17pt]{flash}
+\usepackage{texmaths-spacing}%
+\usepackage{tkz-euclide}%
+\def\figureA{%
+    \begingroup\fontSize
+    \begin{tikzpicture}[rotate=20,scale=\figScale]
+        \coordinate[label=above left:A](A)at(0,0);
+        \coordinate[label=above left:B](B)at(3,0);
+        \coordinate[label=above left:C](C)at(2,0);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \draw node at(C){+};
+        \draw(A)--(B);
+    \end{tikzpicture}\vskip10pt\par\noindent
+    C\doted{50pt}[AB]\endgroup
+}
+\def\figureB{%
+    \begingroup\fontSize
+    \begin{tikzpicture}[rotate=20,scale=\figScale]
+        \coordinate[label=above left:F](A)at(0,0);
+        \coordinate[label=above left:E](B)at(3,0);
+        \coordinate[label=above left:D](C)at(0.7,0);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \draw node at(C){+};
+        \draw(A)--(B);
+    \end{tikzpicture}\vskip10pt\par\noindent
+    F\doted{50pt}[DE]\endgroup
+}
+\def\figureC{%
+    \begingroup\fontSize
+    \begin{tikzpicture}[rotate=20,scale=\figScale]
+        \coordinate[label=above left:X](A)at(0,0);
+        \coordinate[label=above left:Z](B)at(3,0);
+        \coordinate[label=above left:Y](C)at(2,0);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \draw node at(C){+};
+        \tkzDrawLine[add=0.2 and 0.2](A,B)
+    \end{tikzpicture}\vskip10pt\par\noindent
+    Z\doted{50pt}[YX)\endgroup
+}
+
+\def\figureD{%
+    \begingroup\fontSize
+    \begin{tikzpicture}[rotate=20,scale=\figScale]
+        \coordinate[label=above left:N](A)at(0,0);
+        \coordinate[label=above left:W](B)at(3,0);
+        \draw node at(A){+};
+        \draw node at(B){+};
+        \tkzDrawLine[add=0.5 and 0.5](A,B)
+    \end{tikzpicture}\vskip10pt\par\noindent
+    N\doted{50pt}[NW]\endgroup
+}
+
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{2em}
+\FlashSetVtop{-2em}
+\FlashSetTitle{Notations géométriques}
+
+\FlashShowConsignes{%
+        \item Recopier et compléter avec le signe $\in$ ou $\notin$.
+}
+
+\def\figScale{1.5}
+\def\fontSize{\small}
+\AtCorrection{
+    \def\figScale{0.5}%
+    \def\fontSize{\footnotesize}
+    }
+\flashlist{
+    \flashitem{25}{\figureA}
+    \flashitem{25}{\figureB}
+    \flashitem{25}{\figureC}
+    \flashitem{25}{\figureD}
+}
+
+\end{document}

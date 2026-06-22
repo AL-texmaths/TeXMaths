@@ -1,0 +1,12 @@
+\documentclass[10pt]{article}
+\usepackage[a5paper, hmargin=20pt,vmargin=20pt]{geometry}
+\usepackage{texmaths-sources}
+\usepackage{pgffor}
+\begin{document}
+\noindent{\bfseries\LARGE Codage des sources\centering\par}
+\makeatletter
+\foreach\key@src in\keys@src{
+    \noindent{\bfseries\key@src : }\par{\itshape\src[\key@src]}\vskip10pt\par
+}\par
+\makeatother
+\end{document}

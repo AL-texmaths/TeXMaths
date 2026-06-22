@@ -1,0 +1,103 @@
+\documentclass[../main.tex]{subfiles}
+
+
+\begin{document}
+
+    \part{Définitions et vocabulaire}
+
+    \subpart{Carré d'un nombre}
+    \definition{notation_carre}
+    \begin{exemple}
+        \begin{itemize}
+            \item\carreentier{5}
+            \item\carre{3,6}
+            \item L'aire d'un carré de côté $a$ vaut $a^2$.
+        \end{itemize}
+    \end{exemple}
+
+    \subpart{Racine carré d'un nombre}
+    \definition{racine_carre}
+    \begin{exemple}
+        \begin{itemize}
+            \item$\sqrt{49}=7$ car $7^2=49$
+        \item$\sqrt{81}=9$ car $9^2=81$
+        \end{itemize}
+    \end{exemple}
+
+    \subpart{Hypoténuse}
+    \definition{hypotenuse}
+    \begin{exemple}\par\noindent
+        \>s1=A;%
+        \>s2=C;%
+        \>s3=E;%
+        \begin{minipage}{.35\linewidth}
+            \begin{tikzpicture}[scale=0.9,rotate=-143.1301024]
+                \coordinate[label=above:\<s1;](s1)at(0,0);
+                \coordinate[label=below left:\<s2;](s2)at(4,0);
+                \coordinate[label=below right:\<s3;](s3)at(0,3);
+                \draw(s1)--(s2)--(s3)--cycle;
+                \tkzMarkRightAngle(s3,s1,s2)
+            \end{tikzpicture}    
+        \end{minipage}\hspace{.05\linewidth}
+        \begin{minipage}{.55\linewidth}
+            Le triangle \textsf{\<s1;\<s2;\<s3;} est rectangle en
+            \textsf{\<s1;}. L'hypoténuse du triangle \textsf{\<s1;\<s2;\<s3;}
+            est $[\textsf{\<s2;\<s3;}]$.                
+        \end{minipage}
+    \end{exemple}
+
+    \part{Énoncé du théorème de Pythagore}
+    \theoreme{pythagore}\vspace{20pt}
+    \begin{exemple}\par
+        \>s1=B;%
+        \>s2=A;%
+        \>s3=C;%
+        \begin{minipage}{.45\linewidth}
+            \begin{tikzpicture}[rotate=-143.1301024]
+                \coordinate[label=above:\<s1;](s1)at(0,0);
+                \coordinate[label=below left:\<s2;](s2)at(4,0);
+                \coordinate[label=below right:\<s3;](s3)at(0,3);
+                \draw(s1)--(s2)--(s3)--cycle;
+                \tkzMarkRightAngle(s3,s1,s2)
+            \end{tikzpicture}    
+        \end{minipage}\hspace{.05\linewidth}
+        \begin{minipage}{.45\linewidth}
+            Le triangle \textsf{\<s1;\<s2;\<s3;} est rectangle en
+            \textsf{\<s1;}.\par
+            D'après le théorème de Pythagore:
+                $$\textsf{\<s1;\<s3;}^2=\textsf{\<s2;\<s1;}^2+%
+                \textsf{\<s2;\<s3;}^2$$
+        \end{minipage}
+    \end{exemple}\vspace{20pt}
+    \begin{exemple}
+        \>s1=\textsf{E};%
+        \>s2=\textsf{G};%
+        \>s3=\textsf{L};%
+        \>s1s2=4;%
+        \>s1s3=3;%
+        On souhaite \textbf{calculer} la longueur \<s2;\<s3; du
+        triangle \textsf{\<s1;\<s2;\<s3;}.
+        \begin{center}
+            \begin{tikzpicture}[scale=0.8,rotate=143.1301024]
+                \coordinate[label=right:\<s1;](s1)at(0,0);
+                \coordinate[label=above left:\<s2;](s2)at(4,0);
+                \coordinate[label=below:\<s3;](s3)at(0,3);
+                \draw(s1)--(s2)--(s3)--cycle;
+                \tkzMarkRightAngle(s3,s1,s2)
+                \path(s1)--(s2)node[pos=0.5,above right]{\<s1s2;};
+                \path(s1)--(s3)node[pos=0.5,below right]{\<s1s3;};
+            \end{tikzpicture}
+        \end{center}
+        Le triangle \textsf{\<s1;\<s2;\<s3;} est rectangle en
+        \textsf{\<s1;}.\par\noindent
+        D'après le théorème de Pythagore:
+        \begin{calculs}{ccccc}
+            \<s2;\<s3;^2&=&\<s1;\<s2;^2&+&\<s1;\<s3;^2\\
+            \<s2;\<s3;^2&=&\<s1s2;^2&+&\<s1s3;^2\\
+            \<s2;\<s3;^2&=&\number\numexpr\<s1s2;*\<s1s2;\relax&+&%
+                \number\numexpr\<s1s3;*\<s1s3;\relax\\
+            \<s2;\<s3;^2&=&&\number\numexpr\<s1s2;*\<s1s2;+\<s1s3;%
+                *\<s1s3;\relax&
+        \end{calculs}
+    \end{exemple}
+\end{document}

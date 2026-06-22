@@ -1,0 +1,37 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{20GENMATCAL}
+\cycle{4}
+\competencesDuSocle{CA, CO}
+\connaissancesRequises{A3a*, A3c*}
+\competencesTravaillees{A3d*}
+\enddatakeys
+\begin{document}%
+On considère le programme de calcul suivant~:\par
+\begin{center}
+    \begin{tikzpicture}
+    \tikzset{%
+        n/.style={draw, inner sep=1.5ex},
+        e/.style={-latex}%
+        }
+    \node[n](a1)at(0,4){Choisir un nombre};
+    \node[n](b1)at(-2.5,3){Ajouter 4};
+    \node[n](b2)at(2.5,3){Multiplier par 2 puis soustraire 3};
+    \node[n](c1)at(0,1.5){Multiplier les deux résultats obtenus};
+    \path
+    (a1)edge[e](b1)
+    (a1)edge[e](b2)
+    (b1)edge[e](c1)
+    (b2)edge[e](c1);
+    \end{tikzpicture}
+\end{center}
+\begin{enumerate}
+    \item Vérifier que si le nombre choisi au départ est 5, alors le résultat est 63.
+    \item Quel résultat obtient-on si le nombre choisi au départ est -3~?
+    \item On note $x$ le nombre choisi. Parmi les expressions suivantes, recopier celle
+    qui correspond au programme de calcul donné par le script.
+    $$\text{A}=(x+4)\times(2x-3)\qquad\text{B}=x+4\times2x-3\qquad\text{C}=x+4\times(2x-3)$$
+    \item Pour quelle(s) valeur(s) de $c$ obtient-on un résultat égal à 0~?
+\end{enumerate}
+\showthesource
+\end{document}

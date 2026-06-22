@@ -1,0 +1,39 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    Les figures ci dessous ont été tracé à main levée.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \draw[dotted](0,0)rectangle(8,6);
+            \coordinate(E)at(1,2);
+            \coordinate(D)at(6,3);
+            \coordinate(F)at(5,5);
+            \draw node at(D){$\times$};
+            \draw node[right]at(D){\sf\strut D};
+            \draw node at(F){$\times$};
+            \draw node[above right]at(F){\sf\strut F};
+            \draw node at(E){$\times$};
+            \draw node[below left]at(E){\strut E};
+            \path(E)--(F)node[midway,above,sloped]{\strut 3,5 m};
+            \path(F)--(D)node[midway,above,sloped]{\strut 1 m};
+            \path(E)--(D)node[midway,below,sloped]{\strut 5 m};
+            \draw(E)--(F)--(D)--cycle;
+        \end{tikzpicture}
+    \end{center}
+    \begin{enumerate}
+        \item Dans le triangle ci-dessus, vérifiez les trois inégalités triangulaires.
+        \begin{itemize}
+            \item De {\sf E} à {\sf F}~:\vskip60pt
+            \item De {\sf F} à {\sf D}~:\vskip60pt
+            \item De {\sf E} à {\sf D}~:\vskip60pt
+        \end{itemize}
+        \item Que peut-on en déduire~?
+        \dotedline\dotedline
+    \end{enumerate}
+\end{document}

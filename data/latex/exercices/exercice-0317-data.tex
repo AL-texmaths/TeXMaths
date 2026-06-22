@@ -1,0 +1,23 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Sur la figure suivante, \<S4;\<S5; = \<S4S5; et \<S2;\<S3; = \<S2S3;.
+Calculer \<S1;\<S2;.\vskip5pt
+\begin{tikzpicture}[scale=0.8]
+    \coordinate[label=\<S1;](A)at(0,4.24);
+    \coordinate[label=above left:\<S2;](B)at(-1.5,0);
+    \coordinate[label=above right:\<S3;](C)at(1.5,0);
+    \coordinate[label=:\<S4;](E)at(-6,0);
+    \coordinate[label=:\<S5;](F)at(6,0);
+    \draw(E)--(F);
+    \draw(B)--(A)--(C);
+    \tkzMarkSegments[mark=||](E,B C,F A,B A,C)
+\end{tikzpicture}
+\end{document}

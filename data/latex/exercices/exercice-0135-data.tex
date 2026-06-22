@@ -1,0 +1,41 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{enumitem}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[t]{.35\linewidth}
+    \begin{tikzpicture}[baseline=(current bounding box.north)]
+        \coordinate[label=above left:\<S1;](S1)at(0,0);
+        \coordinate[label=below right:\<S2;](S2)at(3,0);
+        \coordinate[label=above left:\<S3;](S3)at(2,2);
+        \path(S1)--(S3)coordinate[pos=1.5,label=above left:\<S4;](S4);
+        \path(S1)--(S2)coordinate[pos=-0.3,label=above left:\<S5;](S5);
+        \draw node at(S4){+};
+        \draw node at(S5){+};
+        \tkzDrawLine[add=1 and 1](S1,S3)
+        \tkzDrawLine[add=1 and 0](S1,S2)
+        \draw(S1)--(S3)--(S2);
+    \end{tikzpicture}
+\end{minipage}\hspace{.05\linewidth}
+\begin{minipage}[t]{.5\linewidth}
+    \begin{enumerate}
+        \item En utilisant la figure ci-contre, compléter les phrases suivantes
+        par \guillemets{appartient} ou \guillemets{n'appartient pas}~:
+        \begin{enumerate}[itemsep=3.0pt plus 2.0pt minus 2.0pt]
+            \item Le point \<Q1aPoint; \doted{100pt} \<Q1aObjet;.
+            \item Le point \<Q1bPoint; \doted{100pt} \<Q1bObjet;.
+            \item Le point \<Q1cPoint; \doted{100pt} \<Q1cObjet;.
+            \item Le point \<Q1dPoint; \doted{100pt} \<Q1dObjet;.
+            \item Le point \<Q1ePoint; \doted{100pt} \<Q1eObjet;.
+        \end{enumerate}
+        \item Traduire chaque phrases précédentes en notations mathématiques.
+        {\bfseries\vskip5pt a)\hskip.5\linewidth b)\par c)\hskip.5\linewidth d)\par e)}
+    \end{enumerate}
+\end{minipage}
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+    \begingroup\centering
+    \begin{tikzpicture}
+        \coordinate[label=above:\<S1;](S1)at(0,2);
+        \coordinate[label=below left:\<S2;](S2)at(-3,0);
+        \coordinate[label=below right:\<S3;](S3)at(2,0);
+        \coordinate[label=below:\<S4;](S4)at(0,0);
+        \tkzMarkRightAngle(S1,S4,S2)
+        \draw(S1)--(S2)--(S3)--cycle;
+        \draw(S4)--(S1);
+    \end{tikzpicture}\par\endgroup
+    \begin{enumerate}
+        \item Compléter le tableau suivant en observant la figure ci-dessus.
+        \vskip10pt\begingroup\centering\<table;\par\endgroup\vskip10pt
+        \item Nommer de quatre manières différentes l'angle de sommet \<S3;.
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}
+    \coordinate[label=above left:O](O)at(0,0);
+    \coordinate[label=below left:A](A)at(1,0);
+    \coordinate[label=below right:B](B)at(2,-1);
+    \coordinate[label=above right:C](C)at(3,1);
+    \draw node at(O){+};
+    \draw(A)--(B)--(C)--cycle;
+    \tkzDefPointsBy[homothety = center O ratio 2.7](A,B,C){A',B',C'}
+    \tkzDefPointsBy[homothety = center O ratio -2.7](A,B,C){A'',B'',C''}
+    % \draw(A')--(B')--(C')--cycle;
+    % \draw(A'')--(B'')--(C'')--cycle;
+    \draw(-9,3)rectangle(9,-3);
+\end{tikzpicture}\par
+\begin{enumerate}
+    \item Construire l'image du triangle ABC par l'homothétie de centre O de rapport 2,7.
+    \item Construire l'image du triangle ABC par l'homothétie de centre O de rapport -2,7.
+    \item Quelle transformation permet de passer du triangle construit en {\bfseries 1)} au triangle
+    construit en {\bfseries 2)} ?
+\end{enumerate}
+\end{document}

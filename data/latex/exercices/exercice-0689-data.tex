@@ -1,0 +1,75 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-path}%
+\usepackage{texmaths-tikz}%
+\usepackage{mdframed}%
+\usepackage{enumitem}%
+\startdatakeys
+\source{19GENMATAMS}
+\cycle{4}
+\competencesDuSocle{CA,RA,CO,CH}
+\connaissancesRequises{D2e1,D2f*}
+\competencesTravaillees{A1i*,A1g*,D2d*,D2e*}
+\enddatakeys
+\begin{document}%
+\!scale=1.4;%
+Un silo à grains permet de stocker des céréales. Un ascenseur permet d'acheminer
+le blé dans le silo.\par\noindent L'ascenseur est soutenu par un pilier.%
+\par\noindent
+{\centering\pic[scale=0.3]{19GENMATAMS-ex4-fig1.png}\par}\medskip
+\begin{minipage}[t]{.5\linewidth}
+    On modélise l'installation par la figure ci-dessous qui n'est pas réalisée
+    à l'échelle~:
+    \begin{enumerate}
+        \item Les points \mathspoint{C}, \mathspoint{E} et \mathspoint{M}
+        sont alignés;
+        \item Les points \mathspoint{C}, \mathspoint{F}, \mathspoint{H}
+        et \mathspoint{P} sont alignés;
+        \item Les droites \mathspoint{(EF)} et \mathspoint{(MH)} sont
+        perpendiculaires à la droite \mathspoint{(CH)};
+        \item $\mathspoint{CH}=8,50$ m et $\mathspoint{CF}=2,50$ m;
+        \item Hauteur du cylindre : $\mathspoint{HM}=20,40$ m;
+        \item Diamètre du cylindre : $\mathspoint{HP}=4,20$ m. 
+    \end{enumerate}
+\end{minipage}
+\begin{minipage}[t]{.4\linewidth}
+    \begin{tikzpicture}[scale=\*scale;,baseline=(current bounding box.north)]
+        \coordinate[label=below:C](C)at(0,0);
+        \coordinate[label=below:F](F)at(1,0);
+        \coordinate[label=below:H](H)at(3,0);
+        \coordinate[label=below:P](P)at(4,0);
+        \coordinate[label=above left:E](E)at(1,1);
+        \coordinate[label=above:M](M)at(3,3);
+        \coordinate(Q)at(4,3);
+        \draw[fill=\currentcolor](H)--(P)--(Q)--(M)--cycle;
+        \tkzMarkRightAngle[colored](H,F,E)
+        \tkzMarkRightAngle[colored](P,H,M)
+        \tkzDrawLine[add=0.2 and 0.2](C,P)
+        \draw(C)--(M);\draw(E)--(F);
+        \path(M)--(P)node[midway]{\footnotesize Cylindre};
+    \end{tikzpicture}
+\end{minipage}\par\bigskip
+\noindent{\textbf{Les quatres questions suivantes sont indépendantes.}}
+\begin{enumerate}
+    \item Quelle est la longueur \mathspoint{CM} de l'ascenseur à blé~?
+    \item Quelle est la hauteur \mathspoint{EF} du pilier~?
+    \item Quelle est la mesure de l'angle $\widehat{\mathspoint{HCM}}$
+    entre le sol et l'ascenseur à blé~?\par\noindent On donnera une
+    valeur approchée au degré près.
+    \item Un mètre cube de blé pèse environ 800 kg.\par\noindent
+    Quelle masse maximale de blé peut-on stocker dans ce silo~? On
+    donnera la réponse à une tonne près.
+\end{enumerate}
+{\centering
+\begin{minipage}{.6\linewidth}
+    \begin{mdframed}
+        \noindent\textbf{Rappels :}
+        \begin{itemize}[label=--]
+            \item 1 tonne = 1\,000 kg;
+            \item volume d'un cylindre de rayon \mathspoint{R} et de hauteur
+            \mathspoint{h} : $\pi\times\mathspoint{R}^2\times\mathspoint{h}$;
+        \end{itemize}
+    \end{mdframed}
+\end{minipage}
+\par}
+\showthesource
+\end{document}

@@ -1,0 +1,69 @@
+\documentclass[17pt]{flash}
+\usepackage{texmaths-tikz}
+\startdatakeys
+\cycle{4}
+\competencesDuSocle{RA,CA}
+\connaissancesRequises{D2b4}
+\competencesTravaillees{D2e*}
+\motsCles{triangles}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{40pt}
+\FlashSetVtop{-2em}
+\FlashSetTitle{}
+\FlashShowConsignes{%
+    \item Pour chaque triangle suivant, vérifier mentalement l'inégalité
+    triangulaire.
+    \item Écrire OUI si le triangle est constructible et NON si non.
+}
+\AtCorrection{
+    \tikzset{every picture/.style={scale=0.5, baseline=(current bounding box.center), font=\footnotesize}}
+    \colorindex=0
+    }
+\flashlist{
+    \flashitem{30}{%
+        \begin{tikzpicture}
+            \triangleCCC[AB=3cm,BC=4cm,CA=5cm,rotate=20](A,B,C)
+            \draw[fill=\currentcolor](A)--(B)--(C)--cycle;
+            \tkzMarkRightAngle[colored, size=0.5](A,B,C)
+            \path(A)--(B)node[midway,below right]{3cm};
+            \path(B)--(C)node[midway,right]{4cm};
+            \path(C)--(A)node[midway,above left]{5cm};
+        \end{tikzpicture}
+        \nextcolor
+    }
+    \flashitem{30}{%
+        \begin{tikzpicture}
+            \triangleCCC[AB=3cm,BC=3cm,CA=5cm,rotate=20](A,B,C)
+            \draw[fill=\currentcolor](A)--(B)--(C)--cycle;
+            \path(A)--(B)node[midway,below right]{3cm};
+            \path(B)--(C)node[midway,right]{3cm};
+            \path(C)--(A)node[midway,above left]{8cm};
+        \end{tikzpicture}
+        \nextcolor
+    }
+    \flashitem{30}{%
+        \begin{tikzpicture}
+            \triangleCCC[AB=2cm,BC=4cm,CA=5cm,rotate=-30](A,B,C)
+            \draw[fill=\currentcolor](A)--(B)--(C)--cycle;
+            \path(A)--(B)node[midway,below left]{2cm};
+            \path(B)--(C)node[midway,below right]{4cm};
+            \path(C)--(A)node[midway,above left]{5cm};
+        \end{tikzpicture}
+        \nextcolor
+    }
+    \flashitem{30}{%
+        \begin{tikzpicture}
+            \triangleCCC[AB=3.5cm,BC=2.5cm,CA=4cm,rotate=100](A,B,C)
+            \draw[fill=\currentcolor](A)--(B)--(C)--cycle;
+            \path(A)--(B)node[midway, right]{3,5cm};
+            \path(B)--(C)node[midway,above left]{2,5cm};
+            \path(C)--(A)node[midway,below left]{4cm};
+        \end{tikzpicture}
+        \nextcolor
+    }
+}
+
+\end{document}

@@ -1,0 +1,469 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-cycle3-BO_2020}[19/06/2022]
+
+\makeatletter
+\def\nbtoalph#1{\@alph{#1}}
+\def\nbtoAlph#1{\@Alph{#1}}
+
+\def\write@oe{oe}
+\def\thirdcycle@activate@writing{%
+    \let\oe\write@oe
+    \let\rightarrow\write@rightarrow
+}
+
+\def\addtofull@cns@thirdcycle#1#2{%
+    \ifx\full@cns@thirdcycle\undefined\edef\full@cns@thirdcycle{"#1":"#2"}\else
+        \edef\full@cns@thirdcycle{\full@cns@thirdcycle,"#1":"#2"}
+    \fi
+    }
+\def\addtofull@cmp@thirdcycle#1#2{%
+    \ifx\full@cmp@thirdcycle\undefined\edef\full@cmp@thirdcycle{"#1":"#2"}\else
+        \edef\full@cmp@thirdcycle{\full@cmp@thirdcycle,"#1":"#2"}
+    \fi
+    }
+
+\def\deftoks#1{\expandafter\newtoks\csname#1\endcsname}
+\def\settoks#1#2{\csname#1\endcsname={#2}}
+\def\thetoks#1{\the\csname#1\endcsname}
+\def\step#1{#1=\expandafter{\expandafter!\the#1}}
+\def\steptoks#1{\expandafter\step\csname#1\endcsname}
+
+\def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
+\def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
+\def\edefunivar#1[#2]{\expandafter\edef\csname\string#1[#2]\endcsname}
+
+\newunivar\theme
+\newunivar\attendu
+\newunivar\cns
+\newunivar\cmp
+\newunivar\total
+
+\newcounter{theme}
+\newcounter{attendu}
+\newcounter{cns}
+\newcounter{cmp}
+\newcounter{subcns}
+\newcounter{subcmp}
+
+\counterwithin{attendu}{theme}
+\counterwithin{cns}{attendu}
+\counterwithin{cmp}{attendu}
+\counterwithin{subcns}{cns}
+\counterwithin{subcmp}{cmp}
+
+\def\endthemes{\edefunivar\total[themes]{\arabic{theme}}}
+\def\endattendus{\edefunivar\total[\Alph{theme}]{\arabic{attendu}}}
+\def\endcns{\edefunivar\total[\Alph{theme}\arabic{attendu}CNS]{\arabic{cns}}}
+\def\endcmp{\edefunivar\total[\Alph{theme}\arabic{attendu}CMP]{\arabic{cmp}}}
+\def\endsubcns{\edefunivar\total
+    [\Alph{theme}\arabic{attendu}CNS\alph{cns}]{\arabic{subcns}}}
+\def\endsubcmp{\edefunivar\total
+    [\Alph{theme}\arabic{attendu}CMP\alph{cmp}]{\arabic{subcmp}}}
+
+\def\subcnstotal{\total[\nbtoAlph\themefor\attendufor CNS\nbtoalph\cnsfor]}
+\def\subcmptotal{\total[\nbtoAlph\themefor\attendufor CMP\nbtoalph\cmpfor]}
+
+\def\newtheme#1{\stepcounter{theme}\defunivar\theme[\Alph{theme}]{#1}}
+\def\newattendu#1{\stepcounter{attendu}\defunivar\attendu
+    [\Alph{theme}\arabic{attendu}]{#1}}
+\def\newcns#1{
+    \stepcounter{cns}
+    \deftoks{CNS\Alph{theme}\arabic{attendu}\alph{cns}*occ}
+    \settoks{CNS\Alph{theme}\arabic{attendu}\alph{cns}*occ}{}
+    \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cns}*}
+    \defunivar\cns[\tmpkey]{#1}
+    \begingroup\thirdcycle@activate@writing\global\addtofull@cns@thirdcycle{\tmpkey}{#1}\endgroup
+    }
+\def\newcmp#1{
+    \stepcounter{cmp}
+    \deftoks{CMP\Alph{theme}\arabic{attendu}\alph{cmp}*occ}
+    \settoks{CMP\Alph{theme}\arabic{attendu}\alph{cmp}*occ}{}
+    \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cmp}*}
+    \defunivar\cmp[\tmpkey]{#1}
+    \begingroup\thirdcycle@activate@writing\global\addtofull@cmp@thirdcycle{\tmpkey}{#1}\endgroup
+    }
+\def\newsubcns#1{
+    \stepcounter{subcns}
+    \deftoks{CNS\Alph{theme}\arabic{attendu}\alph{cns}\arabic{subcns}occ}
+    \settoks{CNS\Alph{theme}\arabic{attendu}\alph{cns}\arabic{subcns}occ}{}
+    \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cns}\arabic{subcns}}
+    \defunivar\cns[\tmpkey]{#1}
+    \begingroup\thirdcycle@activate@writing\global\addtofull@cns@thirdcycle{\tmpkey}{#1}\endgroup
+    }
+\def\newsubcmp#1{
+    \stepcounter{subcmp}
+    \deftoks{CMP\Alph{theme}\arabic{attendu}\alph{cmp}\arabic{subcmp}occ}
+    \settoks{CMP\Alph{theme}\arabic{attendu}\alph{cmp}\arabic{subcmp}occ}{}
+    \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cmp}\arabic{subcmp}}
+    \defunivar\cmp[\tmpkey]{#1}
+    \begingroup\thirdcycle@activate@writing\global\addtofull@cmp@thirdcycle{\tmpkey}{#1}\endgroup
+    }
+
+\global\def\usecns[#1]{\steptoks{CNS#1occ}\cns[#1]}
+\global\def\usecmp[#1]{\steptoks{CMP#1occ}\cmp[#1]}
+
+\newcounter{occ}
+
+\def\gobone#1{}
+
+\def\loop#1{%
+    \ifnum#1=0
+    \else
+    \edef\tempa{\expandafter\gobone#1}%
+    \stepcounter{occ}\loop\tempa\fi
+}
+
+\def\@countocc#1{\setcounter{occ}{0}\loop#1\theocc}
+\def\countocc#1{\begingroup\edef\temp{\thetoks{#1occ}}\@countocc\temp\endgroup}
+\makeatother
+% ========================================
+% DEFINITION DES CONNAISSANCES/COMPETENCES
+% ========================================
+\newtheme{Nombres et calculs}
+\newattendu{Utiliser et représenter les grands nombres entiers, des fractions
+simples, les nombres décimaux}
+\newcns{Entiers naturels}
+    \newsubcns{Connaître les unités de la numération décimale pour les nombres
+    entiers (unités simples, dizaines, centaines, milliers, millions,
+    milliards)}
+    \newsubcns{Connaître les relations qui lient les unités de la numération
+    décimale pour les nombres entiers}
+    \endsubcns
+
+\newcns{Fractions}
+    \newsubcns{Connaître diverses désignations des fractions : orales, écrites
+    et décompositions additives et multiplicatives}
+    \newsubcns{Connaître des égalités entre des fractions usuelles}
+    \newsubcns{Connaître et utiliser quelques fractions simples comme opérateur
+    de partage en faisant le lien entre les formulations en langage courant et leur écriture mathématique}
+    \endsubcns
+
+\newcns{Nombres décimaux}
+    \newsubcns{Connaître les unités de la numération décimale (unités simples,
+    dixièmes, centièmes, millièmes) et les relations qui les lient.}
+    \newsubcns{Connaître et utiliser diverses désignations orales et écrites d'un nombre décimal (fractions décimales, écritures décimale, décompositions additives et multiplicatives)}
+    \newsubcns{Connaître le lien entre les unités de numération et les unités de mesure}
+\endsubcns
+\endcns
+\newcmp{Entiers naturels}
+    \newsubcmp{Composer, décomposer les grands nombres entiers, en utilisant
+    des regroupement par milliers}
+    \newsubcmp{Comprendre et appliquer les règles de la numérations décimale
+    de position aux grands nombres entiers (jusqu'à 12 chiffres)}
+    \newsubcmp{Comparer, ranger, encadrer des grands nombres entiers}
+    \newsubcmp{Repérer et placer des grands nombres entiers et les placer sur une demi-droite graduée adaptée}
+    \endsubcmp
+\newcmp{Fractions}
+    \newsubcmp{Utiliser des fractions pour rendre compte de partages de
+    grandeurs ou de mesures de grandeurs}
+    \newsubcmp{Repérer et placer des fractions sur une demi-droite graduée
+    adaptée}
+    \newsubcmp{Encadrer une fraction par deux nombres entiers consécutifs}
+    \newsubcmp{Comparer deux fractions de même dénominateur}
+    \newsubcmp{Écrire une fraction sous la forme de somme d'un entier et d'une
+    fraction inférieure à 1}
+    \newsubcmp{Utiliser des fractions pour exprimer un quotient}
+    \endsubcmp
+\newcmp{Nombres décimaux}
+    \newsubcmp{Comprendre et appliquer aux nombres décimaux les règles de la
+    numération décimale de position}
+    \newsubcmp{Utiliser les nombres décimaux pour rendre compte de mesures de grandeurs}
+    \newsubcmp{Repérer et placer un nombre décimal sur une demi-droite graduée adaptée}
+    \newsubcmp{Comparer, ranger des nombres décimaux}
+    \newsubcmp{Encadrer un nombre décimal par deux nombres entiers ou deux nombres décimaux}
+    \newsubcmp{Intercaler des nombres décimaux entre deux nombres donnés}
+    \endsubcmp
+\endcmp
+\newattendu{Calculer avec des nombres entiers et des nombres décimaux}
+\newcns{Tables de multiplications de 0 à 10}\endsubcns
+\newcns{Connaître les multiples de 25 et de 50}\endsubcns
+\newcns{Connaître les diviseurs de 100}\endsubcns
+\newcns{Connaître des procédures élémentaires de calcul}
+    \newsubcns{Multiplier ou diviser un nombre décimal par 10, 100 ou 1000}
+    \newsubcns{Rechercher le complément à l'entier supérieur}
+    \newsubcns{Multiplier par 5, par 25, par 50}
+    \newsubcns{Multiplier par 0,1 par 0,5}
+    \endsubcns
+\newcns{Connaître les propriéts de l'additions, de la soustraction et de la multiplication}
+    \newsubcns{Commutativité de l'addition}
+    \newsubcns{Commutativité de la multiplication}
+    \newsubcns{Associativité de l'addition}
+    \newsubcns{Associativité de la multiplication}
+    \newsubcns{Distributivité de la multiplication par rapport à l'addition}
+    \endsubcns
+\newcns{Connaître les critères de divisibilité par 2, 3, 5, 9 et 10}\endsubcns
+\newcns{Dans un calcul en ligne, utiliser des parenthèses pour indiquer ou
+respecter une chronologie dans les calculs.}\endsubcns
+\newcns{Calcul posé}
+    \newsubcns{Algorithme de l'addition de nombres entiers}
+    \newsubcns{Algorithme de l'addition de nombres décimaux}
+    \newsubcns{Algorithme de la soustraction de nombres entiers}
+    \newsubcns{Algorithme de la soustraction de nombres décimaux}
+    \newsubcns{Algorithme de la multiplication de nombres entiers}
+    \newsubcns{Algorithme de la multiplication de nombres décimaux}
+    \newsubcns{Algorithme de division euclidienne d'un entier par un entier}
+    \newsubcns{Algorithme de division décimale d'un nombre décimal par un nombre entier}
+    \endsubcns
+\endcns
+\newcmp{Utiliser ces propriétés et procédures pour élaborer et mettre en oeuvre des stratégies de calcul}\endsubcmp
+\newcmp{Vérifier la vraisemblance d'un résultat, notamment en estimant un ordre de grandeur}\endsubcmp
+\newcmp{Utiliser une calculatrice pour trouver ou vérifier un résultat}\endsubcmp
+\endcmp
+\newattendu{Résoudre des problèmes en utilisant des fractions, des nombres
+décimaux et le calcul}
+\newcns{Sens des opérations}\endsubcns
+\newcns{Situation de proportionnalité}\endsubcns
+\newcns{Propriétés de linéarité (additive et multiplicative)}\endsubcns
+\newcns{Coefficient de proportionnalité}\endsubcns
+\newcns{Pourcentage}\endsubcns
+\endcns
+\newcmp{Résoudre des problèmes à une ou plusieurs étapes mettant en jeu les
+quatre opérations}\endsubcmp
+\newcmp{Prélever des données numériques à partir de supports variés. Produire
+des tableaux, diagrammes et graphiques organisant des données numériques.}\endsubcmp
+\newcmp{Exploiter et communiquer des résultats de mesures.}\endsubcmp
+\newcmp{Lire ou construire des représentations de données (tableaux, diagrammes
+en bâtons, circulaires ou semi-circulaires, graphiques cartésiens)}\endsubcmp
+\newcmp{Organiser des données issues d'autre enseignements en vue de les traiter}\endsubcmp
+\newcmp{Appliquer un pourcentage}\endsubcmp
+\endcmp
+% ======= A COMPLETER =========
+\endattendus
+\newtheme{Grandeurs et mesures}
+\newattendu{Comparer, estimer, mesurer des grandeurs géométriques avec des
+nombres entiers et des nombres décimaux}
+\newcns{notion de longueur : cas particulier du périmètre}\endsubcns
+\newcns{unités relatives aux longueurs : relations entre les unités de longueur
+et les unités de numération}\endsubcns
+\newcns{formule du périmètre d'un carré, d'un rectangle}\endsubcns
+\newcns{formule de la longueur d'un cercle}\endsubcns
+\newcns{unités usuelles d'aire et leur relations : multiples et sous multiples
+du m$^2$}\endsubcns
+\newcns{formule de l'aire d'un carré}\endsubcns
+\newcns{formule de l'aire d'un rectangle}\endsubcns
+\newcns{formule de l'aire d'un triangle}\endsubcns
+\newcns{formule de l'aire d'un disque}\endsubcns
+\newcns{unités usuelles de contenance (multiples et sous multiples du
+litre)}\endsubcns
+\newcns{unités usuelles de volume (cm$^3$, dm$^3$, m$^3$), relations entre ces
+unités}\endsubcns
+\newcns{formules du volume d'un cube, d'un pavé droit}\endsubcns
+\newcns{notion d'angle}\endsubcns
+\newcns{lexique associé aux angles : angle droit, aigu, obtus}\endsubcns
+\newcns{mesure en degré d'un angle}\endsubcns
+\endcns
+\newcmp{Comparer des périmètres avec ou sans recours à la mesure}\endsubcmp
+\newcmp{Calculer le périmètre d'un polygone en ajoutant les longueurs des côtés}\endsubcmp
+\newcmp{Calculer le périmètre d'un carré et d'un rectangle, la longueur d'un
+cercle, en utilisant la formule}\endsubcmp
+\newcmp{Comparer des surfaces selon leurs aires sans avoir recours à la mesure,
+par superposition ou par découpage et recollement}\endsubcmp
+\newcmp{Différencier périmètre et aire d'une figure}\endsubcmp
+\newcmp{Estimer la mesure d'une aire et l'exprimer avec une unité adaptée}\endsubcmp
+\newcmp{Déterminer la mesure de d'aire d'une surface à partir d'un pavage simple
+ou en utilisant une formule}\endsubcmp
+\newcmp{Relier les unités de volume et de contenance}\endsubcmp
+\newcmp{Estimer la mesure d'un volume ou d'une contenance par différentes
+procédures (transvasements, appréciation de l'ordre de grandeur) et
+l'exprimer dans une unité adaptée}\endsubcmp
+\newcmp{Déterminer le volume d'un pavé droit en se rapportant à un
+dénombrement d'unités (cubes de taille adaptée ou en utilisant une formule)}\endsubcmp
+\newcmp{Identifier des angles dans une figures géométrique}\endsubcmp
+\newcmp{Comparer des angles, en ayant ou non recours à leur mesure (par superposition,
+avec un calque)}\endsubcmp
+\newcmp{Reproduire un angle donné en utilisant un gabarit}\endsubcmp
+\newcmp{Estimer qu'un angle est droit, aigu ou obtus}\endsubcmp
+\newcmp{Utiliser l'équerre pour vérifier qu'un angle est droit, aigu ou obtus,
+ou pour construire un angle droit}\endsubcmp
+\newcmp{Utiliser le rapporteur pour déterminer la mesure en degré d'un angle}\endsubcmp
+\newcmp{Construire un angle de mesure donnée en degrés}\endsubcmp
+\endcmp
+\newattendu{Résoudre des problèmes impliquant des grandeurs en utilisant des
+nombres entiers et des nombres décimaux}
+\newcns{unités de mesures usuelles : jour, semaine, heure, minute, seconde,
+dixième de seconde, mois, année, siècle, millénaire}\endsubcns
+\endcns
+\newcmp{Résoudre des problèmes de comparaison avec et sans recours à la mesure}\endsubcmp
+\newcmp{Résoudre des problèmes dont la résolution mobilise simultanément des
+unités différentes de mesure et/ou des conversions}\endsubcmp
+\newcmp{Calculer des périmètres, des aires ou des volumes, en mobilisant ou
+non, selon les cas, des formules}\endsubcmp
+\newcmp{Calculer la durée écoulée entre deux instants donnés}\endsubcmp
+\newcmp{Déterminer un intant à partir de la connaissance d'un instant et d'une
+durée}\endsubcmp
+\newcmp{Connaître et utiliser les unités de mesure des durées et leurs
+relations}\endsubcmp
+\newcmp{Résoudre des problèmes en, exploitant des ressources variées (horaires
+de transport, horaires de marées, programmes de cinéma ou de télévision, etc.)}\endsubcmp
+\newcmp{Identifier une situation de proportionnalité entre deux grandeurs à
+partir du sens de la situation.}\endsubcmp
+\newcmp{Résoudre un problème de proportionnalité impliquant des grandeurs.}\endsubcmp
+\endcmp
+\endattendus
+\newtheme{Espace et géométrie}
+\newattendu{(Se) repérer et (se) déplacer dans l'espace en utilisant ou en
+élaborant des représentations}
+\newcns{vocabulaire permettant de définir des positions et des déplacements
+(tourner à gauche, à droite ; faire demi-tour, effectuer un quart de tour à
+droite, à gauche)}\endsubcns
+\newcns{divers modes de représentation de l'espace : maquettes, plans,
+schémas}\endsubcns
+\endcns
+\newcmp{Se repérer, décrire ou exécuter des déplacements, sur un plan ou sur une carte}\endsubcmp
+\newcmp{Accomplir, décrire, coder des déplacements dans des espaces familiers}\endsubcmp
+\newcmp{Programmer les déplacements d'un robot ou ceux d'un personnage sur un écran en
+utilisant un logiciel de programmation}\endsubcmp
+\endcmp
+\newattendu{Reconnaître, nommer, décrire, reproduire, représenter, construire
+quelques solides et figures géométriques}
+\newcns{triangles, triangle rectangle, triangle isocèle, triangle équilatéral}\endsubcns
+\newcns{quadrilatères (carré, rectangle, losange, première approche du parallélogramme)}\endsubcns
+\newcns{cercle, disque}\endsubcns
+\newcns{polygone, côté, sommet, angle, diagonale}\endsubcns
+\newcns{centre, rayon, diamètre}\endsubcns
+\newcns{milieu d'un segment}\endsubcns
+\newcns{hauteur, face, arête}\endsubcns
+\endcns
+\newcmp{Reconnaître, nommer, décrire des figures simples ou complexes}\endsubcmp
+\newcmp{Reconnaître, nommer, décrire des solides simples ou complexes : cube,
+pavé droit, prisme droit, pyramide, cylindre, cône, boule}\endsubcmp
+\newcmp{Reproduire, représenter, construire des figures simples ou complexes}\endsubcmp
+\newcmp{Reproduire, représenter, construire des solides simples ou complexes}\endsubcmp
+\newcmp{Réaliser, compléter et rédiger un programme de construction d'une
+figure plane}\endsubcmp
+\newcmp{Réaliser une figure plane simple ou une figure complexe à l'aide d'un
+logiciel de géométrie dynamique}\endsubcmp
+\endcmp
+\newattendu{Reconnaître et utiliser quelques relations géométriques}
+\newcns{alignement, appartenance}\endsubcns
+\newcns{perpendicularité, parallélisme}\endsubcns
+\newcns{segment de droite}\endsubcns
+\newcns{distance entre deux points, entre un point et une droite}\endsubcns
+\newcns{figure symétrique, axe de symétrie d'une figure, figures symétriques
+par rapport à une droite}\endsubcns
+\newcns{propriétés de conservation de la symétrie axiale}\endsubcns
+\newcns{médiatrice d'un segment : définition}\endsubcns
+\newcns{médiatrice d'un segment : ensemble des points équidistants des
+extrémités du segment}\endsubcns
+\newcns{agrandissement ou réduction d'une figure}\endsubcns
+\endcns
+\newcmp{tracer avec l'équerre la droite perpendiculaire à une droite donnée
+passant par un point donné}\endsubcmp
+\newcmp{tracer avec la règle et l'équerre la droite parallèle à une droite donné}\endsubcmp
+\newcmp{déterminer le plus court chemin entre un point et une droite}\endsubcmp
+\newcmp{compléter une figure par symétrie axiale}\endsubcmp
+\newcmp{construire le symétrique d'un point, d'un segment, d'une droite par
+rapport à un axe donné}\endsubcmp
+\newcmp{reproduire une figure en respectant une échelle donnée}\endsubcmp
+\endcmp
+\endattendus
+\endthemes
+
+% \newunivar\cmpeval
+% \defunivar\cmpeval[CH]{Chercher}
+% \defunivar\cmpeval[MO]{Modéliser}
+% \defunivar\cmpeval[RE]{Représenter}
+% \defunivar\cmpeval[RA]{Raisonner}
+% \defunivar\cmpeval[CA]{Calculer}
+% \defunivar\cmpeval[CO]{Communiquer}
+
+% \newcounter{subcmpeval}
+% \setcounter{subcmpeval}{0}
+
+% \newunivar\competenceevaluee
+% \newunivar\subcmpeval
+% \def\endcmpeval{
+%     \edef\NBsubcmpeval{\arabic{subcmpeval}}
+%     \expandafter\ifnum\NBsubcmpeval>0
+%         \expandafter\edef\csname NBsubcmpeval\cmpcode\endcsname{\NBsubcmpeval}
+%     \fi
+% }
+% \def\setcmpevalcode#1{
+%     \endcmpeval
+%     \setcounter{subcmpeval}0\def\cmpcode{#1}}
+% \def\addcmpeval#1{
+%     \stepcounter{subcmpeval}
+%     \edef\subcmpevalcode{\cmpcode\arabic{subcmpeval}}
+%     \defunivar\cmpeval\expandafter[\subcmpevalcode]{#1}}
+
+% \def\cmpevalcodes{CH,MO,RE,RA,CA,CO}
+
+% \defunivar\competenceevaluee[CH]{Chercher}
+% \defunivar\competenceevaluee[MO]{Modéliser}
+% \defunivar\competenceevaluee[RE]{Représenter}
+% \defunivar\competenceevaluee[RA]{Raisonner}
+% \defunivar\competenceevaluee[CA]{Calculer}
+% \defunivar\competenceevaluee[CO]{Communiquer}
+
+% \long\def\looponcmpeval#1#2{%
+%     \foreach\ii in\cmpevalcodes{
+%         \foreach\jj in{1,...,\csname NBsubcmpeval\ii\endcsname}{
+%             \edef#1{\ii\jj}#2}
+% }}
+
+% % CHERCHER
+% \setcmpevalcode{CH}
+% \addcmpeval{Extraire d'un document les informations utiles, les reformuler
+%     les organiser, les confronter à ses connaissances}
+% \addcmpeval{S'engager dans une démarche scientifique, observer,
+%     questionner, manipuler, expérimenter (sur une feuille de papier,
+%     avec des objets, à l'aide de logiciels), émettre des hypothèses,
+%     chercher des exemples ou des contre-exemples, simplifier ou
+%     particulariser une situation, émettre une conjecture}
+% \addcmpeval{Tester, essayer plusieurs pistes de résolution}
+% \addcmpeval{Décomposer un problème en sous-problèmes}
+% % MODELISER
+% \setcmpevalcode{MO}
+% \addcmpeval{Reconnaître un modèle mathématique (proportionnalité,
+%     équiprobabilité) et raisonner dans le cadre de ce modèle pour
+%     résoudre un problème}
+% \addcmpeval{Traduire en langage mathématique une situation réelle
+%     (par exemple à l'aide d'équations, de fonctions, de configurations
+%     géométriques, d'outils statistiques)}
+% \addcmpeval{Comprendre et utiliser une simulation numérique ou géométrique}
+% \addcmpeval{Valider ou invalider un modèle, comparer une situation à un
+%     modèle connu (par exemple un modèle aléatoire)}
+% % REPRESENTER
+% \setcmpevalcode{RE}
+% \addcmpeval{Choisir et mettre en relation des cadres (numérique, algébrique,
+%     géométrique) adaptés pour traiter un problème ou pour étudier un objet
+%     mathématique}
+% \addcmpeval{Produire et utiliser plusieurs représentations des nombres.}
+% \addcmpeval{Représenter des données sous forme d'une série statistique.}
+% \addcmpeval{Utiliser, produire et mettre en relation des représentations de
+%     solides (par exemple perspective ou vue de dessus/de dessous) et de
+%     situations spatiales (schémas, croquis, maquettes, patrons, figures
+%     géométriques, photographies, plans, cartes, courbes de niveau)}
+% % RAISONNER
+% \setcmpevalcode{RA}
+% \addcmpeval{Résoudre des problèmes impliquant des grandeurs variées
+%     (géométriques, physiques, économiques) : mobiliser les connaissances
+%     nécessaires, analyser et exploiter ses erreurs, mettre à l'essai
+%     plusieurs solutions}
+% \addcmpeval{Mener collectivement une investigation en sachant prendre en compte
+%     le point de vue d'autrui}
+% \addcmpeval{Démontrer : utiliser un raisonnement logique et des règles établies
+%     (propriétés, théorèmes, formules) pour parvenir à une conclusion}
+% \addcmpeval{Fonder et défendre ses jugements en s'appuyant sur des résultats
+%     établis et sur sa maîtrise de l'argumentation}
+% % CALCULER
+% \setcmpevalcode{CA}
+% \addcmpeval{Calculer avec des nombres rationnels, de manière exacte ou
+%     approchée, en combinant de façon appropriée le calcul mental, le calcul
+%     posé et le calcul instrumenté (calculatrice ou logiciel)}
+% \addcmpeval{Contrôler la vraisemblance de ses résultats, notamment en estimant
+%     des ordres de grandeurs ou en utilisant des encadrements}
+% \addcmpeval{Calculer en utilisant le langage algébrique (lettres, symboles,
+%     etc.)}
+% % COMMUNIQUER
+% \setcmpevalcode{CO}
+% \addcmpeval{Faire le lien entre le langage naturel et le langage algébrique.
+%     Distinguer des spécificités du langage mathématique par rapport à la
+%     langue française}
+% \addcmpeval{Expliquer à l'oral ou à l'écrit (sa démarche, son raisonnement,
+%     un calcul, un protocole de construction géométrique, un algorithme),
+%     comprendre les explications d'un autre et argumenter dans l'échange}
+% \addcmpeval{Vérifier la validité d'une information et distinguer ce qui est
+%     objectif et ce qui est subjectif ; lire, interpréter, commenter, produire
+%     des tableaux, des graphiques, des diagrammes}
+% \endcmpeval

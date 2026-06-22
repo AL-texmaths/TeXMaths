@@ -1,0 +1,35 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+    \>variable=y;%
+    \>expr1=$4{\<variable;}$;%
+    \>expr2=${\<variable;}({\<variable;}+5)$;%
+    \>expr3=${\<variable;}+5$;%
+    \>expr4=$5{\<variable;}$;%
+    \>expr5=${\<variable;}+5+{\<variable;}+5$;%
+    \>expr6=${\<variable;}^2+5{\<variable;}$;%
+    \>expr7=$2({\<variable;}+5)+2{\<variable;}$;%
+    \begin{center}
+        \begin{tikzpicture}[scale=1.5]
+            \coordinate[label=below:C](C)at(0,0);
+            \coordinate[label=below:F](F)at(-1,0);
+            \coordinate[label=below:D](D)at(2,0);
+            \coordinate[label=above:B](B)at(0,1);
+            \coordinate[label=above:A](A)at(-1,1);
+            \coordinate[label=above:E](E)at(2,1);
+            \path(F)--(A)node[pos=0.5,above left]{\<variable;};
+            \path(B)--(E)node[pos=0.5,above]{5};
+            \draw(A)--(E)--(D)--(F)--cycle;
+            \draw(B)--(C);
+            \tkzMarkSegments[mark=s||](A,B B,C F,C A,F)
+            \tkzMarkRightAngle[size=0.1](A,B,C)
+            \tkzMarkRightAngle[size=0.1](F,A,B)
+            \tkzMarkRightAngle[size=0.1](C,F,A)
+            \tkzMarkRightAngle[size=0.1](B,C,F)
+            \tkzMarkRightAngle[size=0.1](B,E,D)
+            \tkzMarkRightAngle[size=0.1](E,D,C)
+            \tkzMarkRightAngle[size=0.1](D,C,B)
+            \tkzMarkRightAngle[size=0.1](C,B,E)
+        \end{tikzpicture}
+    \end{center}
+    \enonce{0108}%
+\end{document}

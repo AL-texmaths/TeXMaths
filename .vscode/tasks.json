@@ -1,0 +1,245 @@
+{
+    "tasks": [
+        {
+            "label": "split main",
+            "type": "process",
+            "command": "${workspaceFolder}/texmaths/bin/python",
+            "args": [
+                "-m",
+                "src.mainsplit"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "group": "build"
+        },
+        {
+            "label": "export examples",
+            "type": "process",
+            "command": "${workspaceFolder}/texmaths/bin/python",
+            "args": [
+                "-m",
+                "src.export_exemple"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "group": "build"
+        },
+        {
+            "label": "split main + export examples",
+            "dependsOn": [
+                "split main",
+                "export examples"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "write enonces catalogue",
+            "type": "process",
+            "command": "${workspaceFolder}/texmaths/bin/python",
+            "args": [
+                "-m",
+                "src.enonces_catalogue"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "compile feuilles de suivi",
+            "type": "process",
+            "command": "${workspaceFolder}/texmaths/bin/python",
+            "args": [
+                "-m",
+                "src.compile_suivi"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "make new doc",
+            "type": "process",
+            "command": "${workspaceFolder}/texmaths/bin/python",
+            "args": [
+                "-m",
+                "src.make_new_doc"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "test all exercices",
+            "type": "process",
+            "command": "${workspaceFolder}/texmaths/bin/python",
+            "args": [
+                "-m",
+                "src.test_all_exercices"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "print pdf",
+            "type": "process",
+            "command": "${workspaceFolder}/texmaths/bin/python",
+            "args": [
+                "-m",
+                "src.printer"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "Git push avec date TeXMaths (github and machine)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "$date = Get-Date -Format 'yyyy-MM-dd'; $message = 'Update ' + $date; git add .; git commit -m $message; git push machine main; git push github main"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "build",
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Git push avec date MiKTeX Local (github and machine)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "$date = Get-Date -Format 'yyyy-MM-dd'; $message = 'Update ' + $date; git add .; git commit -m $message; git push machine main; git push github main"
+            ],
+            "options": {
+                "cwd": "\\Root\\Programmes\\MiKTeX\\texmfs\\data\\tex\\latex\\local"
+            },
+            "group": {
+                "kind": "build",
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "open BO 2026",
+            "type": "shell",
+            "command": "code",
+            "args": [
+                "-r", 
+                "${workspaceFolder}/data/latex/codes_cnscmpsrc/BO_2026.pdf"
+            ],
+            "windows": {
+                "command": "\\Root\\Programmes\\VSCode\\code.exe"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "open Programmes Cycle 3 BO 2026",
+            "type": "shell",
+            "command": "code",
+            "args": [
+                "-r", 
+                "/Documents/Officiel/BO_2026/Cycle3_programmes.pdf"
+            ],
+            "windows": {
+                "command": "\\Root\\Programmes\\VSCode\\code.exe"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "open Programmes Cycle 4 BO 2026",
+            "type": "shell",
+            "command": "code -r ",
+            "args": [
+                "-r", 
+                "/Documents/Officiel/BO_2026/Cycle4_programmes.pdf"
+            ],
+            "windows": {
+                "command": "\\Root\\Programmes\\VSCode\\code.exe"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "open sources",
+            "type": "shell",
+            "command": "code",
+            "args": [
+                "-r", 
+                "${workspaceFolder}/data/latex/codes_cnscmpsrc/Sources.pdf"
+            ],
+            "windows": {
+                "command": "\\Root\\Programmes\\VSCode\\code.exe"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
+            "label": "open exercice id",
+            "type": "shell",
+            "command": "code",
+            "args": [
+                "-r", 
+                    "${workspaceFolder}/data/latex/exercices/exercice-${input:exerciceID}-data.tex"
+                ],
+            "windows": {
+                "command": "\\Root\\Programmes\\VSCode\\code.exe"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "dirpath",
+            "type": "promptString",
+            "description": "Entrez le nom du dossier : ",
+        },
+        {
+            "id": "classes",
+            "type": "promptString",
+            "description": "Entrez les classes (a separer avec espace) :"
+        },
+        {
+            "id": "texfilestocompile",
+            "type": "promptString",
+            "description": "Entrez le nom des fichiers à compiler (regex)"
+        },
+        {
+            "id": "exerciceID",
+            "type": "promptString",
+            "description": "Entrez l'ID de l'exercice à ouvrir"
+        }
+    ],
+    "version": "2.0.0"
+}

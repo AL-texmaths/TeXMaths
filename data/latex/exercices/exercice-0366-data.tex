@@ -1,0 +1,29 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{center}Les points A, M, N, P et B sont alignés.\par\medskip
+\begin{tikzpicture}
+    \coordinate[label=below:A](A)at(0,0);
+    \coordinate[label=below:M](M)at(1,0);
+    \coordinate[label=below:N](N)at(3,0);
+    \coordinate[label=below:P](P)at(5,0);
+    \coordinate[label=below:B](B)at(6,0);
+    \tkzDrawSegments(A,B)
+    \draw node at(A){\cross};
+    \draw node at(M){\cross};
+    \draw node at(N){\cross};
+    \draw node at(P){\cross};
+    \draw node at(B){\cross};
+\end{tikzpicture}\end{center}\par\medskip\noindent
+Recopier chaque expression en complétant par $\in$ ou $\notin$, puis
+écrire la phrase en français.\vskip10pt
+\hbox{\hbox to.3\linewidth{{\bfseries 1)}\hskip10pt M\doted{20pt}[AB]}\hbox to.3\linewidth{{\bfseries 2)}\hskip10pt P\doted{20pt}[MN]}\hbox to.3\linewidth{{\bfseries 3)}\hskip10pt B\doted{20pt}(AN)}}\par
+\hbox{\hbox to.3\linewidth{{\bfseries 4)}\hskip10pt N\doted{20pt}(BP)}\hbox to.3\linewidth{{\bfseries 5)}\hskip10pt M\doted{20pt}[AN]}\hbox to.3\linewidth{{\bfseries 6)}\hskip10pt A\doted{20pt}[PM]}}\par
+\end{document}

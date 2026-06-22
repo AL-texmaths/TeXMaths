@@ -1,0 +1,63 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\small Parmi les triangles suivants, déterminer ceux qui sont semblables.\vskip10pt\par\noindent
+\begin{tikzpicture}[rotate=-20]
+    \triangleAngles{%
+        anglea=76,
+        angleb=80,
+        show angles=true,
+        base=1.8,
+        A label pos=below left,
+        C label pos=below right}
+\end{tikzpicture}
+\begin{tikzpicture}[rotate=15]
+    \triangleAngles{%
+        anglea=35,
+        show angles=true,
+        base=3,
+        A label pos=left,
+        C label pos=below right,
+        B label pos=above right,
+        A=F,B=E,C=D}
+\end{tikzpicture}
+\begin{tikzpicture}
+    \triangleAngles{%
+        anglea=46,
+        angleb=110,
+        show angles=true,
+        base=2,
+        A label pos=left,
+        C label pos=below right,
+        A=G,B=H,C=I}
+\end{tikzpicture}
+\par
+\begin{tikzpicture}[rotate=-45]
+    \triangleAngles{%
+        anglea=80,
+        angleb=24,
+        show angles=true,
+        base=3,
+        A label pos=above,
+        C label pos=left,
+        B label pos=below right,
+        A=J,B=K,C=L}
+\end{tikzpicture}
+\begin{tikzpicture}[rotate=20]
+    \triangleAngles{%
+        anglea=24,
+        angleb=110,
+        show angles=true,
+        base=3,
+        A label pos=below left,
+        C label pos=below right,
+        A=C,B=V,C=N}
+\end{tikzpicture}
+\end{document}

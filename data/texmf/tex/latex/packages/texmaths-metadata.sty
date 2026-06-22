@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-metadata}[2026/02/27]
+% Packages requis
+\RequirePackage{texmaths-sources}%
+% macros utilitaires
+\def\@gobone#1{}
+% Definition de \source
+\def\eat@until@begin#1\enddatakeys{}
+\def\get@the@source#1{\edef\showthesource{%
+\unexpanded{\begin{flushright}}%
+    \unexpanded{\itshape\src[#1]}%
+    \unexpanded{\end{flushright}}}%
+    \eat@until@begin
+    }
+\def\eat@until@source#1\source{\get@the@source}
+\let\source\get@the@source
+% bornes de definitions des métadonnées
+\let\startdatakeys\relax
+\let\enddatakeys\relax
+% Désactivation des métadonnées.
+\let\cycle\@gobone
+\let\competencesDuSocle\@gobone
+\let\connaissancesRequises\@gobone
+\let\competencesTravaillees\@gobone
+\let\motsCles\@gobone
+\let\automatismes\@gobone
+\let\objectifsApprentissage\@gobone
+\let\BO\@gobone

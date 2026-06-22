@@ -1,0 +1,29 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{flushleft}
+    Dans chaque cas, tracer la médiatrice du segment [AB].\par Cette médiatrice
+    est-elle un axe de symétrie de la figure ?
+\end{flushleft}\par\noindent
+    \textbf{a)}\begin{tikzpicture}[baseline=(I.base),scale=1]
+        \coordinate[label=above left:I](I)at(0,0);
+        \coordinate[label=above right:J](J)at(4,0);
+        \coordinate[label=below left:A](A)at(-0.5,-2);
+        \coordinate[label=below right:B](B)at(3.5,-2);
+        \filldraw[fill=Rainbow1-rouge](A)--(B)--(J)--(I)--cycle;
+    \end{tikzpicture}\par\noindent
+    \textbf{b)}\begin{tikzpicture}[rotate=20,baseline=(B.base),scale=1]
+        \coordinate[label=left:A](I)at(0,0);
+        \coordinate[label=above:D](J)at(4,0);
+        \coordinate[label=below:C](A)at(0,-2);
+        \coordinate[label=right:B](B)at(4,-2);
+        \filldraw[fill=Rainbow1-jaune](A)--(B)--(J)--(I)--cycle;
+    \end{tikzpicture}
+\end{document}

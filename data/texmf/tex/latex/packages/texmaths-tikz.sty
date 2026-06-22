@@ -1,0 +1,612 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-tikz}[08/03/2026]
+% ========
+% PACKAGES
+% ========
+\RequirePackage{tkz-euclide}
+\usetikzlibrary{calc,decorations.pathmorphing,patterns,bending,patterns.meta}
+
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\RequirePackage{texmaths-symbols}
+\RequirePackage{texmaths-colors}
+\RequirePackage{etoolbox}
+
+\newif\iftizknextcolor
+\tizknextcolortrue
+\AtBeginEnvironment{tikzpicture}{\iftizknextcolor\nextcolor\else\fi}
+\def\markscolor{vscode-crimson}
+% ==========================
+% Definition des styles tikz
+% ==========================
+\tikzset{colored/.style={color=\markscolor}}
+\tikzset{realsize/.style={scale=0.984}}
+
+\makeatletter
+% ===========================
+% MACROS: caractères entourés
+% ===========================
+\def\diagnum#1{%
+    \begin{tikzpicture}[baseline=(O.base)]
+        \coordinate(O)at(0,-0.12);
+        \draw(-0.12,-0.12)--(0.12,0.12);
+        \node at(0,0){#1};
+    \end{tikzpicture}%
+}
+\def\circlenum#1{%
+    \begin{tikzpicture}[baseline=(O.base)]
+        \draw(0,0)circle(.25);
+        \draw node at(0,0){#1};
+    \end{tikzpicture}%
+}
+\newcommand{\newuparrow}[2][]{%
+    \hskip10pt
+    \tikz\draw[-{Latex[bend]}, #1] (0,0) to[bend left] (#2,0);
+}
+\newcommand{\newdownarrow}[2][]{%
+    \hskip10pt
+    \tikz\draw[-{Latex[bend]}, #1] (0,0) to[bend right] (#2,0);
+}
+% ===========================
+% MACROS: figures tikz
+% ===========================
+\def\@true{true}
+\pgfkeys
+{
+    /tikzvariables/.cd,
+    point/.store in=\exercice@tikz@variables@point,
+    point={0,0},
+    base/.store in=\exercice@tikz@variables@base,
+    base=1,
+    anglea/.store in=\exercice@tikz@variables@anglea,
+    anglea=60,
+    angleb/.store in=\exercice@tikz@variables@angleb,
+    angleb=60,
+    show angles/.store in=\exercice@tikz@variables@showangles,
+    show angles=false,
+    angles label pos/.store in=\exercice@tikz@variables@angleslabelpos,
+    angles label pos=0.9,
+    A/.store in=\exercice@tikz@variables@A,
+    A=A,
+    B/.store in=\exercice@tikz@variables@B,
+    B=B,
+    C/.store in=\exercice@tikz@variables@C,
+    C=C,
+    A label pos/.store in=\exercice@tikz@variables@Alabelpos,
+    A label pos=above,
+    B label pos/.store in=\exercice@tikz@variables@Blabelpos,
+    B label pos=above,
+    C label pos/.store in=\exercice@tikz@variables@Clabelpos,
+    C label pos=above,
+    font size/.store in=\exercice@tikz@variable@fontsize,
+    font size = \normalsize%
+}
+\def\triangle@angles#1{%
+    \pgfkeys{/tikzvariables/.cd,#1}\tiny
+    \coordinate[label=\exercice@tikz@variables@Alabelpos:\exercice@tikz@variables@A](A)at(\exercice@tikz@variables@point);
+    \coordinate[label=\exercice@tikz@variables@Blabelpos:\exercice@tikz@variables@B](B)at(\exercice@tikz@variables@base,0);
+    \path(A)--(B)([turn]\exercice@tikz@variables@angleb:1)coordinate(C1);
+    \path(B)--(A)([turn]-\exercice@tikz@variables@anglea:1)coordinate(C2);
+    \coordinate[label=\exercice@tikz@variables@Clabelpos:\exercice@tikz@variables@C](C)at (intersection of B--C1 and A--C2);
+    \ifx\exercice@tikz@variables@showangles\@true
+        \tkzFillAngle[size=0.6,mark=none,fill=\currentcolor](C,A,B)
+        \tkzFillAngle[size=0.6,mark=none,fill=\currentcolor](A,B,C)
+        \tkzLabelAngle[pos=\exercice@tikz@variables@angleslabelpos, font=\exercice@tikz@variable@fontsize](C,A,B){\exercice@tikz@variables@anglea$^\circ$}
+        \tkzLabelAngle[pos=\exercice@tikz@variables@angleslabelpos, font=\exercice@tikz@variable@fontsize](A,B,C){\exercice@tikz@variables@angleb$^\circ$}
+    \fi
+    \draw(A)--(B)--(C)--cycle;
+}
+\def\triangleAngles#1{\triangle@angles{#1}}
+
+\newcommand{\drawTikzOnPic}[3][]{%
+    \begin{tikzpicture}[#1]
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {#2};
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]
+            #3
+        \end{scope}
+    \end{tikzpicture}
+}
+\pgfkeys{
+    /tikzSegment/.cd,
+    sommets/.store in=\tikzSegment@sommets,
+    sommets=AB,
+    lenght/.store in=\tikzSegment@lenght,
+    lenght=4,
+    angle/.store in=\tikzSegment@angle,
+    angle=0,
+    midpos/.store in=\tikzSegment@midpos,
+    midpos={0,0}%
+}
+\newcommand{\tikzSegment}[1][]{%
+    
+    \pgfkeys{/tikzSegment/.cd,#1}
+    \coordinate(O1)at(\tikzSegment@midpos);
+    \path(O1)--+(\tikzSegment@angle:\tikzSegment@lenght/2)%
+        coordinate[label={[label distance=2pt]\tikzSegment@angle:%
+            \expandafter\@firstoftwo\tikzSegment@sommets}](A1);
+    \path(O1)--+(180+\tikzSegment@angle:\tikzSegment@lenght/2)%
+        coordinate[label={[label distance=2pt]180+\tikzSegment@angle:%
+            \expandafter\@secondoftwo\tikzSegment@sommets}](A2);
+    \draw[|-|](A1)--(A2);
+    
+}
+\pgfkeys{/tikzAngles/.cd,% to set the path
+  sommet name/.initial=O, % initial value
+  sommet name/.get=\sommetname, % to get the value from a macro
+  sommet name/.store in=\sommetname, % to store the value into a macro
+  right side name/.initial=x,
+  right side name/.get=\rightsidename,
+  right side name/.store in=\rightsidename,
+  left side name/.initial=y,
+  left side name/.get=\leftsidename,
+  left side name/.store in=\leftsidename,
+  angle/.initial=90,
+  angle/.get=\agl,
+  angle/.store in=\agl,
+  angle size/.initial=1,
+  angle size/.get=\aglsize,
+  angle size/.store in=\aglsize,
+  color/.initial=blue,
+  color/.get=\clr,
+  color/.store in=\clr,
+  sommet pos/.initial=below left,
+  sommet pos/.get=\sommetpos,
+  sommet pos/.store in=\sommetpos,
+  sommet coordx/.initial=0,
+  sommet coordx/.get=\sommetcoordx,
+  sommet coordx/.store in=\sommetcoordx,
+  sommet coordy/.initial=0,
+  sommet coordy/.get=\sommetcoordy,
+  sommet coordy/.store in=\sommetcoordy,
+  right side pos/.initial=below,
+  right side pos/.get=\rightsidepos,
+  right side pos/.store in=\rightsidepos,
+  left side pos/.initial=left,
+  left side pos/.get=\leftsidepos,
+  left side pos/.store in=\leftsidepos,
+  right side len/.initial=3,
+  right side len/.get=\rightsidelen,
+  right side len/.store in=\rightsidelen,
+  left side len/.initial=3,
+  left side len/.get=\leftsidelen,
+  left side len/.store in=\leftsidelen,
+  right node pos/.initial=.8,
+  right node pos/.get=\rightnodepos,
+  right node pos/.store in=\rightnodepos,
+  left node pos/.initial=.8,
+  left node pos/.get=\leftnodepos,
+  left node pos/.store in=\leftnodepos,
+  below left angle/.initial=60,
+  below left angle/.get=\belowleftangle,
+  below left angle/.store in=\belowleftangle,
+  below right angle/.initial=60,
+  below right angle/.get=\belowrightangle,
+  below right angle/.store in=\belowrightangle,
+  no mark/.initial=1,
+  no mark/.get=\nomark,
+  no mark/.store in=\nomark,
+  }
+\newcommand{\Angle}[1][]{
+    \pgfkeys{/tikzAngles/.cd,#1}
+    \coordinate(A)at(0,0);
+    \coordinate(B1)at(1,0);
+    \path(A)([turn]90+\agl:1)coordinate(C1);
+    \path(A)--(B1)coordinate[pos=\rightsidelen](B);
+    \path(A)--(C1)coordinate[pos=\leftsidelen](C);
+    \tkzFillAngle[fill=\clr, size=\aglsize](B,A,C)
+    \if\nomark=1\tkzMarkAngle[\clr!50!black,size=\aglsize,mark=none](B,A,C)\fi
+    \draw(B)--(A)--(C);
+}
+\newcommand{\AnglexOy}[1][]{
+    \pgfkeys{/tikzAngles/.cd,#1}
+    \coordinate[label=\sommetpos:{\mathspoint{\sommetname}}](A)at(0,0);
+    \coordinate(B1)at(1,0);
+    \path(A)([turn]90+\agl:1)coordinate(C1);
+    \path(A)--(B1)coordinate[pos=\rightsidelen](B);
+    \path(A)--(C1)coordinate[pos=\leftsidelen](C);
+    \path(A)--(B)node[pos=\rightnodepos, \rightsidepos]{\mathspoint{\rightsidename}};
+    \path(A)--(C)node[pos=\leftnodepos, \leftsidepos]{\mathspoint{\leftsidename}};
+    \tkzFillAngle[fill=\clr, size=\aglsize](B,A,C)
+    \if\nomark=1\tkzMarkAngle[\clr!50!black,size=\aglsize,mark=none](B,A,C)\fi
+    \draw(B)--(A)--(C);
+}
+\newcommand{\AngleAOB}[1][]{
+    \pgfkeys{/tikzAngles/.cd,#1}
+    \coordinate[label=\sommetpos:{\mathspoint{\sommetname}}](A)at(0,0);
+    \coordinate(B1)at(1,0);
+    \path(A)([turn]90+\agl:1)coordinate(C1);
+    \path(A)--(B1)coordinate[pos=\rightsidelen](B);
+    \path(A)--(C1)coordinate[pos=\leftsidelen](C);
+    \path(A)--(B)node[pos=\rightnodepos, \rightsidepos]{\mathspoint{\rightsidename}};
+    \path(A)--(B)node[pos=\rightnodepos]{$\times$};
+    \path(A)--(C)node[pos=\leftnodepos, \leftsidepos]{\mathspoint{\leftsidename}};
+    \path(A)--(C)node[pos=\leftnodepos]{$\times$};
+    \tkzFillAngle[fill=\clr, size=\aglsize](B,A,C)
+    \if\nomark=1\tkzMarkAngle[\clr!50!black,size=\aglsize,mark=none](B,A,C)\fi
+    \draw(B)--(A)--(C);
+}
+% -------------------------------------------
+% graphique pour représentations de fonctions
+% -------------------------------------------
+\def\funcFromMaths[#1][#2]#3=#4;{
+    \global\edef\@funcFromMahts@funcname{#3}
+    \tracinglostchars=0\relax
+    \begin{axis}[
+        x=1cm, y=1cm,
+        axis lines=left,
+        axis lines=middle,
+        legend style={
+            at={(0,1.05)},    % 0.5 = centre en x, 1.05 = un peu au-dessus
+            anchor=south west,       % ancre la légende sur son bord inférieur
+            % draw=none,          % pas de cadre si tu veux
+            fill=\maintblrbgcolor
+        },
+        tick style={thick,black},
+        #1
+    ]
+        \addplot [
+            samples=100,
+            line width=1.25pt,
+            #2
+        ]
+        {#4};
+        \addlegendentry{$y=#3(x)$}
+    \end{axis}}
+\def\simpleFunc xmin=#1,xmax=#2,ymin=#3,ymax=#4,gridstep=#5,func=#6;{
+    \draw[gray,step=#5](0,0)grid(#2-#1,#4-#3);
+    \funcFromMaths[xmin=#1*0.999,xmax=#2*0.999,ymin=#3*0.999,ymax=#4*0.999][domain=#1:#2]#6;
+    \draw node[right] at(#2-#1,-#3){$x$};
+    \draw node[above] at(-#1,#4-#3){$y$};
+}
+% --------------------
+% fogures à main levée
+% --------------------
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,
+    auto corner on length=1mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                      {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                    {\pgfqpoint{-\pgfdecorationsegmentaspect
+                     \pgfdecoratedinputsegmentremainingdistance}%
+                               {\pgfmathresult\pgfdecorationsegmentamplitude}
+                    }
+        }
+        {%TO 
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+
+\def\motif#1{
+    \draw[fill=red!20!white](-#1,0)rectangle(#1+1,1);
+    \draw[fill=red!20!white](0,-#1)rectangle(1,#1+1);
+    \foreach\x in{1,...,#1}{
+        \draw(\x,0)--(\x,1);
+        \draw(-\x,0)--(-\x,1);
+        \draw(0,\x)--(1,\x);
+        \draw(0,1-\x)--(1,1-\x);
+    }
+}
+
+\def\disque#1{\begin{tikzpicture}[baseline=(O.base),scale=#1]
+    \coordinate (O)at(0,.75);
+    \draw node at(0,0){$\times$};
+    \draw (0,0)circle(.75);
+\end{tikzpicture}}
+
+\def\demidroitegraduee#1#2#3{
+    \edef\testa{#1}
+    \edef\testb{#2}
+    \edef\testd{#3}
+    \edef\testc{\number\numexpr\testb-1\relax}
+    \begin{tikzpicture}[xscale=\testd,line width=0.8pt]
+        \foreach\numa in{0,...,\testa}{
+            \coordinate[label={[label distance=10pt]-90:\numa}](X)at(\numa,0);
+            \path(X)--+(0,0.2)coordinate(X1);
+            \path(X)--+(0,-0.2)coordinate(X2);
+            \draw[line width=1.5pt](X1)--(X2);
+            \foreach\numb in{1,...,\testc}{
+                \path(X)--+(\numb/\testb,0)coordinate(Y);
+                \path(Y)--+(0,0.1)coordinate(Y1);
+                \path(Y)--+(0,-0.1)coordinate(Y2);
+                \draw(Y1)--(Y2);
+            }
+            \draw[-latex](0,0)--(\testa+1,0);
+        }
+    \end{tikzpicture}
+}
+\newcommand{\hexagone}[2][1]{%
+  \begin{scope}[shift={(#2)}]
+    \draw (90:#1) -- (30:#1) -- (-30:#1) -- (-90:#1) -- (-150:#1) -- (150:#1) -- cycle;
+  \end{scope}%
+}
+% -------------------------
+% Fraction-partage en tikz
+% -------------------------
+\def\fraction#1/#2,scale=#3;{%
+    \begin{tikzpicture}[scale=#3]
+        \coordinate(O)at(0,0);
+        \foreach\i in{0,...,#2}{
+            \coordinate(A\i)at(90+\i*360/#2:1);
+        }
+        \draw(O)circle(1);
+        \edef\jmax{\number\numexpr#1-1\relax}
+        \foreach\j in{0,...,\jmax}{%
+            \filldraw[fill=\currentcolor](O)--(A\j)arc[%
+                start angle=90+\j*360/#2,
+                end angle=90+(\j+1)*360/#2,
+                radius=1]--cycle;
+            }
+        \foreach\i in{1,...,#2}{%
+            \draw(O)--(A\i);
+        }
+    \end{tikzpicture}%
+    }
+% -------------------------------------------
+% CODE pour l'exercice "le chemin mysterieux"
+% -------------------------------------------
+\def\the@node(#1)#2fill=#3{%
+    \draw[gray,fill=#3,line width=1pt](#1)circle(0.45);
+    \draw node at(#1){\bfseries\sf\large #2};
+}
+\def\NodeD{\the@node(0,0)Dfill={blue!30!white!80!black}}
+\def\NodeA{\the@node(6,-6)Afill={green!30!white!80!black}}
+\def\TheNode(#1)#2{\the@node(#1)#2fill={yellow!30!white!80!black}}
+
+\def\NumberLine#1,#2,#3,#4,#5(#6){%
+    \TheNode(0,#6){#1}    
+    \TheNode(1.5,#6){#2}
+    \TheNode(3,#6){#3}
+    \TheNode(4.5,#6){#4}
+    \TheNode(6,#6){#5}
+}
+% -----------------------------------------
+% Resolution des triangles grace a pgfmaths
+% -----------------------------------------
+\pgfkeys{
+  /TeXMaths/Triangles/ACA/.cd,
+    coordA/.store in=\texmaths@trianglesACA@acoord, % initial value
+    coordA={0,0},
+    AB/.store in=\texmaths@trianglesACA@longueur,
+    AB=5cm,
+    A/.store in=\texmaths@trianglesACA@anglea,
+    A=30,
+    B/.store in=\texmaths@trianglesACA@angleb,
+    B=60,
+    nodeA/.store in=\texmaths@trianglesACA@nodea,
+    nodeA=A,
+    nodeB/.store in=\texmaths@trianglesACA@nodeb,
+    nodeB=B,
+    nodeC/.store in=\texmaths@trianglesACA@nodec,
+    nodeC=C,
+    rotate/.store in=\texmaths@trianglesACA@rotate,
+    rotate=0,
+  /TeXMaths/Triangles/CAC/.cd,
+    coordA/.store in=\txmt@trianglesCAC@coorda, % initial value
+    coordA={0,0},
+    AB/.store in=\txmt@trianglesCAC@longueurab,
+    AB=5cm,
+    AC/.store in=\txmt@trianglesCAC@longueurca,
+    AC=5cm,
+    A/.store in=\txmt@trianglesCAC@anglea,
+    A=45,
+    nodeA/.store in=\txmt@trianglesCAC@nodea,
+    nodeA=A,
+    nodeB/.store in=\txmt@trianglesCAC@nodeb,
+    nodeB=B,
+    nodeC/.store in=\txmt@trianglesCAC@nodec,
+    nodeC=C,
+    rotate/.store in=\txmt@trianglesCAC@rotate,
+    rotate=0,
+  /TeXMaths/Triangles/CCC/.cd,
+    coordA/.store in=\txmt@trianglesCCC@coorda, % initial value
+    coordA={0,0},
+    AB/.store in=\txmt@trianglesCCC@longueurab,
+    AB=5cm,
+    BC/.store in=\txmt@trianglesCCC@longueurbc,
+    BC=5cm,
+    CA/.store in=\txmt@trianglesCCC@longueurca,
+    CA=5cm,
+    nodeA/.store in=\txmt@trianglesCCC@nodea,
+    nodeA=A,
+    nodeB/.store in=\txmt@trianglesCCC@nodeb,
+    nodeB=B,
+    nodeC/.store in=\txmt@trianglesCCC@nodec,
+    nodeC=C,
+    rotate/.store in=\txmt@trianglesCCC@rotate,
+    rotate=0
+    }
+\newlength{\txmt@trianglesACA@tmp@AB}
+\newlength{\txmt@trianglesCCC@tmp@AB}
+\newlength{\txmt@trianglesCCC@tmp@BC}
+\newlength{\txmt@trianglesCCC@tmp@CA}
+\def\txmt@triangles@aca#1{
+    \pgfkeys{/TeXMaths/Triangles/ACA/.cd, #1}
+    \setlength{\txmt@trianglesACA@tmp@AB}{\texmaths@trianglesACA@longueur}
+    \edef\ABpt{\strip@pt\txmt@trianglesACA@tmp@AB} % valeur pure en points
+    \pgfmathsetmacro{\ABnum}{\ABpt/28.453} % 1 cm ≈ 28.453 pt
+
+    \coordinate (\texmaths@trianglesACA@nodea) at (\texmaths@trianglesACA@acoord);
+    \coordinate (\texmaths@trianglesACA@nodeb) at ($(\texmaths@trianglesACA@nodea) + (\texmaths@trianglesACA@rotate:\ABnum cm)$);
+    \pgfmathsetmacro{\BCnum}{\ABnum * sin(\texmaths@trianglesACA@anglea) / sin(180 - \texmaths@trianglesACA@anglea - \texmaths@trianglesACA@angleb)}
+    \path(\texmaths@trianglesACA@nodea)--(\texmaths@trianglesACA@nodeb)([turn]\number\numexpr180-\texmaths@trianglesACA@angleb:\BCnum cm) coordinate (\texmaths@trianglesACA@nodec);
+}
+\def\txmt@triangles@cac#1{
+  \pgfkeys{/TeXMaths/Triangles/CAC/.cd, #1}
+  \coordinate(\txmt@trianglesCAC@nodea)at(\txmt@trianglesCAC@coorda);
+  \coordinate(\txmt@trianglesCAC@nodeb)at($(\txmt@trianglesCAC@nodea)+(\txmt@trianglesCAC@rotate:\txmt@trianglesCAC@longueurab)$);
+  \path(\txmt@trianglesCAC@nodeb)--(\txmt@trianglesCAC@nodea)([turn]\number\numexpr\txmt@trianglesCAC@anglea-180:\txmt@trianglesCAC@longueurca)coordinate(\txmt@trianglesCAC@nodec);
+}
+\pgfkeys{
+  /TeXMaths/Triangles/ACA/.cd,
+  coordA/.store in=\txmtACAcoordA,
+  coordA={0,0},
+  AB/.store in=\txmtACAAB,
+  AB=5,
+  A/.store in=\txmtACAA,
+  A=30,
+  B/.store in=\txmtACAB,
+  B=60
+}
+
+\def\txmt@triangles@ccc#1{
+  \pgfkeys{/TeXMaths/Triangles/CCC/.cd, #1}
+  \coordinate(\txmt@trianglesCCC@nodea)at(\txmt@trianglesCCC@coorda);
+  \coordinate(\txmt@trianglesCCC@nodeb)at($(\txmt@trianglesCCC@nodea)+(\txmt@trianglesCCC@rotate:\txmt@trianglesCCC@longueurab)$);
+
+  \setlength{\txmt@trianglesCCC@tmp@AB}{\txmt@trianglesCCC@longueurab}
+  \edef\ABpt{\strip@pt\txmt@trianglesCCC@tmp@AB} % valeur pure en points
+  \pgfmathsetmacro{\ABnum}{\ABpt/28.453} % 1 cm ≈ 28.453 pt
+
+  \setlength{\txmt@trianglesCCC@tmp@BC}{\txmt@trianglesCCC@longueurbc}
+  \edef\BCpt{\strip@pt\txmt@trianglesCCC@tmp@BC} % valeur pure en points
+  \pgfmathsetmacro{\BCnum}{\BCpt/28.453} % 1 cm ≈ 28.453 pt
+
+  \setlength{\txmt@trianglesCCC@tmp@CA}{\txmt@trianglesCCC@longueurca}
+  \edef\CApt{\strip@pt\txmt@trianglesCCC@tmp@CA} % valeur pure en points
+  \pgfmathsetmacro{\CAnum}{\CApt/28.453} % 1 cm ≈ 28.453 pt
+
+  \pgfmathsetmacro{\cosgamma}{(\ABnum^2+\BCnum^2-\CAnum^2)/(2*\ABnum*\BCnum)}
+  \pgfmathparse{180-acos(\cosgamma)}
+  \global\edef\txt@triangles@gammaturn{\pgfmathresult}
+  \path(\txmt@trianglesCCC@nodea)--(\txmt@trianglesCCC@nodeb)([turn]\txt@triangles@gammaturn:\txmt@trianglesCCC@longueurbc)coordinate(\txmt@trianglesCCC@nodec);
+}
+\ExplSyntaxOn
+\NewDocumentCommand{\triangleACA}{O{} d()}{%
+  \tl_set:Nn \l_tmpa_tl { #2 }
+  % Découpe la chaîne par virgule
+  \seq_set_split:NnV \l_tmpa_seq { , } \l_tmpa_tl
+  
+  % Assigner aux macros globales
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeA_tl
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeB_tl
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeC_tl
+  \txmt@triangles@aca{%
+    #1,
+    nodeA=\tl_use:N \g_nodeA_tl,
+    nodeB=\tl_use:N \g_nodeB_tl,
+    nodeC=\tl_use:N \g_nodeC_tl,
+    }
+}
+\NewDocumentCommand{\triangleCAC}{O{} d()}{%
+  \tl_set:Nn \l_tmpa_tl { #2 }
+  % Découpe la chaîne par virgule
+  \seq_set_split:NnV \l_tmpa_seq { , } \l_tmpa_tl
+  
+  % Assigner aux macros globales
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeA_tl
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeB_tl
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeC_tl
+  \txmt@triangles@cac{%
+    #1,
+    nodeA=\tl_use:N \g_nodeA_tl,
+    nodeB=\tl_use:N \g_nodeB_tl,
+    nodeC=\tl_use:N \g_nodeC_tl,
+    }
+}
+\NewDocumentCommand{\triangleCCC}{O{} d()}{%
+  \tl_set:Nn \l_tmpa_tl { #2 }
+  % Découpe la chaîne par virgule
+  \seq_set_split:NnV \l_tmpa_seq { , } \l_tmpa_tl
+  
+  % Assigner aux macros globales
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeA_tl
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeB_tl
+  \seq_pop_left:NN \l_tmpa_seq \g_nodeC_tl
+  \txmt@triangles@ccc{%
+    #1,
+    nodeA=\tl_use:N \g_nodeA_tl,
+    nodeB=\tl_use:N \g_nodeB_tl,
+    nodeC=\tl_use:N \g_nodeC_tl,
+    }
+}
+\ExplSyntaxOff
+% ===========
+% 3D Figures
+%============
+\def\AngleDeFuite{45}
+\def\CoefficientDePerspective{0.7}
+
+\def\Longueur{1.3}
+\def\Hauteur{1}
+\def\Profondeur{1}
+
+\def\brique#1#2#3#4#5color=#6(#7);{
+    \coordinate(A)at(#7);
+    \path(A)--+(#1,0)coordinate(B);
+    \path(B)--+(0,#2)coordinate(C);
+    \path(C)--+(-#1,0)coordinate(D);
+    \path(A)--+(#5:#3*#4)coordinate(A0);
+    \path(B)--+(#5:#3*#4)coordinate(B0);
+    \path(C)--+(#5:#3*#4)coordinate(C0);
+    \path(D)--+(#5:#3*#4)coordinate(D0);
+    \draw[fill=#6](A)--(B)--(B0)--(C0)--(D0)--(D)--cycle;
+    \draw(C)--(C0);\draw(D)--(C)--(B);
+}
+
+\newcount\PyrColorCount
+\PyrColorCount0
+
+\def\PyrCol#1{white!70!#1!80!black}
+
+\def\color@A{\PyrCol{green}}
+\def\color@B{\PyrCol{red}}
+\def\color@C{\PyrCol{blue}}
+\def\color@D{\PyrCol{orange}}
+
+\def\Liste#1{
+    \ifcase#1%
+        \let\color@Pyramide\color@A
+    \or
+    \let\color@Pyramide\color@B
+    \or
+    \let\color@Pyramide\color@C
+    \else
+    \let\color@Pyramide\color@D
+    \fi
+}
+
+\def\Pyramide@A#1,#2,#3,#4,#5(#6,#7){%
+    \def\briqueA{\brique\Longueur\Hauteur\Profondeur
+        \CoefficientDePerspective\AngleDeFuite color=\color@Pyramide}
+
+    \begin{tikzpicture}[scale=0.5]
+        \briqueA(#6,#7);
+        \briqueA(#6+\Longueur,#7);
+        \briqueA(#6+\Longueur*2,#7);
+        \briqueA(#6+\Longueur*3,#7);
+        \briqueA(#6+\Longueur*4,#7);
+
+        \briqueA(#6+\Longueur/2,#7+\Hauteur);
+        \briqueA(#6+\Longueur/2+\Longueur,#7+\Hauteur);
+        \briqueA(#6+\Longueur/2+\Longueur*2,#7+\Hauteur);
+        \briqueA(#6+\Longueur/2+\Longueur*3,#7+\Hauteur);
+
+        \briqueA(#6+\Longueur,#7+\Hauteur*2);
+        \briqueA(#6+\Longueur*2,#7+\Hauteur*2);
+        \briqueA(#6+\Longueur*3,#7+\Hauteur*2);
+
+        \briqueA(#6+\Longueur/2+\Longueur,#7+\Hauteur*3);
+        \briqueA(#6+\Longueur/2+\Longueur*2,#7+\Hauteur*3);
+
+        \briqueA(#6+\Longueur*2,#7+\Hauteur*4);
+
+        \draw node at(#6+\Longueur/2,#7+\Hauteur/2){#1};
+        \draw node at(#6+\Longueur/2+\Longueur*1,#7+\Hauteur/2){#2};
+        \draw node at(#6+\Longueur/2+\Longueur*2,#7+\Hauteur/2){#3};
+        \draw node at(#6+\Longueur/2+\Longueur*3,#7+\Hauteur/2){#4};
+        \draw node at(#6+\Longueur/2+\Longueur*4,#7+\Hauteur/2){#5};
+    \end{tikzpicture}
+    
+}
+\def\PyramideA#1{\Liste{\the\PyrColorCount}\Pyramide@A#1(0,0)\advance\PyrColorCount1}
+\PyrColorCount0
+\makeatother

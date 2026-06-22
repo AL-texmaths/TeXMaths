@@ -1,0 +1,131 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Angles opposés par le sommet}
+    \proposition{egalite_des_angles_opposes_par_le_sommet}
+    \noindent{\bfseries Exemple :}\vskip5pt\noindent
+           \begin{tikzpicture}[baseline=(current bounding box.center)]
+            \tkzDefPoint(0,0){O}
+            \coordinate[label=above right:\mathspoint{A}](A)at(2,0);
+            \coordinate[label=above left:\mathspoint{B}](B)at(-2,0);
+            \coordinate[label=above left:\mathspoint{C}](C)at(35:2);
+            \coordinate[label=above left:\mathspoint{D}](D)at(215:1.5);
+            \draw node at(A){$\times$};
+            \draw node at(B){$\times$};
+            \draw node at(C){$\times$};
+            \draw node at(D){$\times$};
+            \tkzFillAngle[size=0.75, color=\currentcolor](B,O,D)
+            \tkzFillAngle[size=0.75, color=\currentcolor](A,O,C)
+            \nextcolor
+            \tkzFillAngle[size=0.5, color=\currentcolor](C,O,B)
+            \tkzFillAngle[size=0.5, color=\currentcolor](D,O,A)
+            \tkzLabelPoint[above left](O){\mathspoint{O}}
+            \tkzDrawLines[add=0.1 and 0.1](C,D B,A)
+            \end{tikzpicture}\hfill
+        \begin{minipage}{.52\linewidth}
+            Sur cette figure, \mathspoint{O} est le point d'intersection des droites (\mathspoint{DC}) et (\mathspoint{BA}).\par\noindent
+            Les angles $\widehat{\mathspoint{AOC}}$ et $\widehat{\mathspoint{BOD}}$ sont opposés par le sommet.
+            D'après la propriété 1, ils sont égaux.\par\smallskip\noindent
+            Les angles $\widehat{\mathspoint{COB}}$ et $\widehat{\mathspoint{DOA}}$ sont opposés par le sommet.
+            D'après la propriété 1, ils sont égaux.
+        \end{minipage}\par
+    \bigpart{Caractérisation angulaire du parallèlisme}
+    \subpart{Vocabulaire}\noindent
+    Dans ce chapitre, on a toujours {\bfseries deux droites ({\normalfont
+    parallèles ou non}) coupées par une sécante}.\vskip20pt
+    \exported[scale=1.75,]<<\noindent
+    \>scale=0.25;%
+        \begin{tikzpicture}[scale=\<scale;]
+            \coordinate(A)at(0,-3);
+            \coordinate(G)at(0,-5);
+            \coordinate(B)at(0,3);
+            \coordinate(H)at(0,5);
+            \path(A)+(25:4)coordinate(C);
+            \path(A)+(205:4)coordinate(E);
+            \path(B)+(35:4)coordinate(D);
+            \path(B)+(215:4)coordinate(F);
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](D,B,H)
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](C,A,B)
+            \tkzDrawLines(G,H C,E F,D)
+        \end{tikzpicture}
+        \hskip20pt
+        \begin{tikzpicture}[scale=\<scale;]
+            \coordinate(A)at(0,-3);
+            \coordinate(G)at(0,-5);
+            \coordinate(B)at(0,3);
+            \coordinate(H)at(0,5);
+            \path(A)+(25:4)coordinate(C);
+            \path(A)+(205:4)coordinate(E);
+            \path(B)+(35:4)coordinate(D);
+            \path(B)+(215:4)coordinate(F);
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](F,B,A)
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](C,A,B)
+            \tkzDrawLines(G,H C,E F,D)
+        \end{tikzpicture}
+        \hskip20pt
+        \begin{tikzpicture}[scale=\<scale;]
+            \coordinate(A)at(0,-3);
+            \coordinate(G)at(0,-5);
+            \coordinate(B)at(0,3);
+            \coordinate(H)at(0,5);
+            \path(A)+(25:4)coordinate(C);
+            \path(A)+(205:4)coordinate(E);
+            \path(B)+(35:4)coordinate(D);
+            \path(B)+(215:4)coordinate(F);
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](H,B,F)
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](G,A,C)
+            \tkzDrawLines(G,H C,E F,D)
+        \end{tikzpicture}\par\noindent
+    >>
+    \hbox to 0.75\linewidth{\small correspondants\hfil alternes-internes\hfil alternes-externes}
+    \newpage
+    \subpart{Proprietes}
+    \gifactivatedtrue
+    \noindent\gif{AnglesCorrespondantsParallelisme}[scale=0.25]
+    \propriete{si_paralleles_alors_angles_egaux}
+    {\bfseries Exemple :}\vskip20pt
+    On sait que (\mathspoint{FD})$\parallel$(\mathspoint{EC}).\par\noindent
+    \begin{center}
+        \begin{tikzpicture}[scale=0.5]
+            \coordinate[label=above left:\mathspoint{A}](A)at(0,-3);
+            \coordinate[label=below left:\mathspoint{G}](G)at(0,-5);
+            \coordinate[label=above left:\mathspoint{B}](B)at(0,3);
+            \coordinate[label=above left:\mathspoint{H}](H)at(0,5);
+            \path(A)+(35:4)coordinate[label=above left:\mathspoint{C}](C);
+            \path(A)+(215:4)coordinate[label=above left:\mathspoint{E}](E);
+            \path(B)+(35:4)coordinate[label=above left:\mathspoint{D}](D);
+            \path(B)+(215:4)coordinate[label=above left:\mathspoint{F}](F);
+            \tkzDrawLines(G,H C,E F,D)
+        \end{tikzpicture}
+    \end{center}\par
+    Les droites (\mathspoint{FD}) et (\mathspoint{EC}) sont parallèles, donc
+    on peut utiliser la propriété~2~: les angles alternes-internes sont égaux.
+    \par\noindent Donc $$\widehat{\mathspoint{DBA}}=\widehat{\mathspoint{FAE}}$$
+    $$\widehat{\mathspoint{FBA}}=\widehat{\mathspoint{CAB}}$$
+    La propriété 2 permet d'affirmer que les angles correspondants sont égaux.
+    Donc
+    $$\widehat{\mathspoint{HBD}}=\widehat{\mathspoint{BAC}}$$
+    $$\widehat{\mathspoint{BAE}}=\widehat{\mathspoint{HBF}}$$
+
+    \propriete{si_angles_egaux_alors_paralleles}
+
+    \begin{center}
+        \begin{tikzpicture}[scale=0.5]
+            \coordinate[label=above left:\mathspoint{A}](A)at(0,-3);
+            \coordinate[label=below left:\mathspoint{G}](G)at(0,-5);
+            \coordinate[label=above left:\mathspoint{B}](B)at(0,3);
+            \coordinate[label=above left:\mathspoint{H}](H)at(0,5);
+            \path(A)+(35:4)coordinate[label=above left:\mathspoint{C}](C);
+            \path(A)+(215:4)coordinate[label=above left:\mathspoint{E}](E);
+            \path(B)+(35:4)coordinate[label=above left:\mathspoint{D}](D);
+            \path(B)+(215:4)coordinate[label=above left:\mathspoint{F}](F);
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](F,B,A)
+            \tkzLabelAngle[pos=2](F,B,A){42$^\circ$}
+            \tkzFillAngle[mark=none,fill=\currentcolor,size=1.5](C,A,B)
+            \tkzLabelAngle[pos=2](C,A,B){42$^\circ$}
+            \tkzDrawLines(G,H C,E F,D)
+        \end{tikzpicture}
+    \end{center}\par\noindent
+    Les angles $\widehat{\mathspoint{FBA}}$ et $\widehat{\mathspoint{CAB}}$ sont
+    alternes-internes et égaux. \par\smallskip\noindent D'après la propriété 3,
+    les droites (\mathspoint{FD}) et (\mathspoint{EC}) sont parallèles.
+\end{document}

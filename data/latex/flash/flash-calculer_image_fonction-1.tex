@@ -1,0 +1,28 @@
+\documentclass[17pt]{flash}
+\def\funcexpr{$f(x)=x^2+6$}
+\def\funcant#1{$f(#1)=\quad?$}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{80pt}
+\FlashSetVtop{-2em}
+\FlashSetTitle{Fonctions : calcul d'image}
+\flashheader{\funcexpr}
+
+\FlashShowConsignes{%
+        \item Calculer l'image des nombres suivants par la fonction $f$
+        définie par\bigskip\par{\centering\funcexpr\par}
+}
+
+\flashlist{
+    \flashitem{15}{\funcant{0}}
+    \flashitem{15}{\funcant{-3}}
+    \flashitem{15}{\funcant{-1}}
+    \flashitem{15}{\funcant{11}}
+}
+\end{document}

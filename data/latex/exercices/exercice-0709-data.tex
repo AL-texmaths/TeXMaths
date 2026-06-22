@@ -1,0 +1,48 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+    \source{22GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \automatismes{B3cb}
+    \objectifsApprentissage{B3ca, B3cb}
+\enddatakeys
+\begin{document}%
+    On considère la figure suivante, où toutes les longueurs sont données en
+    centimètre. Les points \mathspoint{C}, \mathspoint{A} et \mathspoint{E}
+    sont alignés et les points \mathspoint{B}, \mathspoint{A} et \mathspoint{D}
+    sont alignés.\par\smallskip\noindent
+    \textit{La figure n'est pas représentée en vraie grandeur.}
+    \par\medskip\noindent
+    \begin{minipage}{0.45\linewidth}
+    \begin{enumerate}
+        \item Prouver que le segment \mathspoint{[AB]} mesure 4 cm.
+        \item En utilisant la question précédente, démontrer que les droites
+            \mathspoint{(BC)} et \mathspoint{(DE)} sont parallèles.
+        \item En déduire que la droite \mathspoint{(DB)} est perpendiculaire
+            à la droite \mathspoint{(DE)}.
+        \item Calculer l'aire du triangle \mathspoint{ADE} arrondie à l'unité.
+        \end{enumerate}
+    \end{minipage}\hfill
+    \begin{minipage}{0.5\linewidth}
+        \begin{tikzpicture}[scale=0.3]
+        \coordinate[label=below right:A](A)at(0,0);
+        \coordinate[label=above right:B](B)at(-90:4);
+        \coordinate[label=above left:C](C)at(-150:8);
+        \coordinate[label=above left:D](D)at(90:9.6);
+        \coordinate[label=above:E](E)at(30:19.2);
+        \tkzMarkRightAngle[size=0.8,colored](A,B,C)
+        \tkzMarkAngle[size=1.2](C,A,B)
+        \tkzLabelAngle[pos=2.2](C,A,B){$60^\circ$}
+        \path(C)--(A)node[midway,above]{$8$};
+        \path(A)--(E)node[midway,above left]{$19,2$};
+        \path(A)--(D)node[midway,left]{$9,6$};
+        \tkzDrawLine[add=0.1 and 0.1](B,D)
+        \tkzDrawLine[add=0.05 and 0.05](C,E)
+        \tkzDrawLine[add=0.2 and 0.2](D,E)
+        \tkzDrawLine[add=0.2 and 0.2](C,B)
+        \end{tikzpicture}
+    \end{minipage}\par
+    \showthesource
+\end{document}

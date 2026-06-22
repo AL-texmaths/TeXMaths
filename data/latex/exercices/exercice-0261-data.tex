@@ -1,0 +1,36 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\usepackage{tabularray}
+\startdatakeys
+\source{originale}
+\cycle{4}
+\competencesDuSocle{RE}
+\connaissancesRequises{B4b*}
+\competencesTravaillees{B4b*}
+\enddatakeys
+\begin{document}%
+\!func={xmin=-4,xmax=4,ymin=-2,ymax=2,gridstep=0.25,func=f=x^2-1.5;};%
+\!scale=1;%
+\edef\func{\*func;}%
+\noindent
+\begin{minipage}{.5\linewidth}
+Voici, ci-contre, la représentation graphique d'une fonction $f$.
+Par lecture graphique~:
+\begin{enumerate}
+    \item Quelle est l'image de \<n1; par la fonction $f$~? Faire une phrase réponse.
+    \item Traduire la phrase réponse précédente en notation mathématique.
+    \item Donner un antécédent de \<n2; par la fonction $f$~? Faire une phrase réponse.
+    \item Traduire la phrase réponse précédente en notation mathématique.
+    \item Compléter le tableau suivant :\par\noindent
+    \begin{tblr}{colspec=*{6}{Q[c,m,wd=30pt]},column{1}={font=\bfseries,bg=\maintblrbgcolor},hlines,vlines}
+        $x$&\<n3;&\<n4;&&\<n6;\\
+        $f(x)$&&&\<n5;&&\<n7;\\
+    \end{tblr}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{.45\linewidth}
+    \begin{tikzpicture}[scale=\*scale;]
+    \expandafter\simpleFunc\func
+\end{tikzpicture}
+\end{minipage}\par
+\end{document}

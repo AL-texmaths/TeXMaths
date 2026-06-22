@@ -1,0 +1,17 @@
+data/latex/**/*.pdf
+data/latex/**/*.out
+data/latex/**/*.aux
+data/latex/**/*.toc
+data/latex/**/*.nav
+data/latex/**/*.log
+data/latex/**/*.synctex
+data/latex/**/*.synctex.gz
+data/latex/**/*.fdb_latexmk
+data/latex/**/*.fls
+
+data/graphics
+data/katex
+
+data/tmp
+src/__pycache__
+output

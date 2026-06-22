@@ -1,0 +1,45 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer une valeur approchée du périmètre des figures
+suivantes~:\par\smallskip\noindent
+\textbf{1)}
+\begin{tikzpicture}[baseline=(A0.base)]
+    \coordinate(A0)at(0,0);
+    \coordinate(A1)at(2.5,0);
+    \coordinate(A2)at(5,0);
+    \coordinate(A3)at(7.5,0);
+    \draw[fill=\currentcolor](A0)arc(180:0:1.25)--cycle;
+    \draw[fill=\currentcolor](A1)arc(180:360:1.25)--cycle;
+    \draw[fill=\currentcolor](A2)arc(180:0:1.25)--cycle;
+    \path(A0)--(A1)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A1)--(A2)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A2)--(A3)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A1)--+(90:0.2)coordinate(A1');
+    \path(A2)--+(90:0.2)coordinate(A2');
+    \draw[stealth-stealth](A1')--(A2')node[pos=0.5,above]{2,5 cm};
+\end{tikzpicture}\smallskip\par\noindent
+\textbf{2)}
+\begin{tikzpicture}[scale=0.8,baseline=(O.base)]
+    \coordinate(O)at(0,2);
+    \coordinate(A0)at(0,0);
+    \coordinate(A1)at(-2,0);
+    \coordinate(A2)at(2,0);
+    \coordinate(A3)at(4,0);
+    \draw[fill=\currentcolor](A0)--(A1)arc(180:0:2)--(A3)arc(0:-180:2);
+    \draw[dashed](A0)--(A2);
+    \path(A0)--(A1)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A0)--(A2)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A2)--(A3)node[pos=0.5,sloped]{\color{\maincodagecolor}||};
+    \path(A2)--+(90:0.2)coordinate(A2');
+    \path(A3)--+(90:0.2)coordinate(A3');
+    \draw[stealth-stealth](A2')--(A3')node[pos=0.5,above]{2 cm};
+\end{tikzpicture}
+\end{document}

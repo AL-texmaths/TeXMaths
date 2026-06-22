@@ -1,0 +1,44 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Sur la figure ci-dessous, les droites qui semblent perpendiculaires ou
+parallèles le sont réellement.
+\begin{center}
+    \begin{tikzpicture}[scale=1.5]
+    \coordinate[label=below left:E](E)at(0,0);
+    \coordinate[label=below:C](C)at(2,0);
+    \coordinate[label=below right:F](F)at(4,0);
+    \coordinate[label=right:N](N)at(4,1.5);
+    \coordinate[label=above right:G](G)at(4,3);
+    \coordinate[label=S](S)at(2,3);
+    \coordinate[label=above left:D](D)at(0,3);
+    \coordinate[label=left:R](R)at(0,1.5);
+    \coordinate[label=below right:Y](Y)at(1,0.75);
+    \coordinate[label=below left:P](P)at(3,0.75);
+    \coordinate[label=above left:K](K)at(3,2.25);
+    \coordinate[label=above right:H](H)at(1,2.25);
+    \coordinate[label=L](L)at(2,1.5);
+    \draw(E)--(F)--(G)--(D)--cycle;
+    \draw(Y)--(P)--(K)--(H)--cycle;
+    \draw(E)--(G);
+    \draw(D)--(F);
+    \draw node at(S){+};
+    \draw node at(R){+};
+    \draw node at(C){+};
+    \draw node at(N){+};
+    \end{tikzpicture}
+\end{center}
+\begin{enumerate}
+    \item La droite perpendiculaire à (HK) passant par H est la droite \doted{2cm}.
+    \item La droite perpendiculaire à (CE) passant par N est la droite \doted{2cm}.
+    \item La droite parallèle à (HK) passant par N est la droite \doted{2cm}.
+    \item La droite parallèle à (CF) passant par S est la droite \doted{2cm}.
+    \item La droite parallèle à (PN) passant par R est la droite \doted{2cm}.
+\end{enumerate}
+\end{document}

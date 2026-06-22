@@ -1,0 +1,16 @@
+\documentclass[exercice]{thedocument}%
+\begin{document}%
+    \>figure={%
+        \begin{tikzpicture}[rotate=100]
+            \coordinate[label=right:E](A)at(0:2);
+            \coordinate[label=above left:G](B)at(120:2);
+            \coordinate[label=below left:H](C)at(180:2.5);
+            \draw(A)--(C);
+            \tkzDrawLine[add=0.2 and 0.3](B,A)
+            \tkzDrawLine[add=0 and 0.4](B,C)
+            \path(B)--(C)coordinate[pos=1.2,label=above right:T](D);
+            \draw node at(D){+};
+        \end{tikzpicture}
+    };%
+    \enonce{0142}%
+\end{document}

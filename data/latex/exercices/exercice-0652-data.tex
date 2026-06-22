@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Pour son petit déjeuner, Christophe a mangé du pain, du beurre et a bu du lait.\par\noindent
+Chacun de ses aliments contient de l'eau.\par\noindent
+Le tableau ci-dessous donne la composition du petit déjeuner ainsi que la masse d'eau
+contenue dans chaque aliment.\vskip10pt\noindent
+\begin{tblr}{colspec={*4{Q[c,m]}},vlines,hlines,row{1}={font=\bfseries, bg=gray!30},column{1}={font=\bfseries, bg=gray!30}}
+    Aliments&Pain&Beurre&Lait\\
+    Masse&50 g&12 g&300 g\\
+    Masse d'eau&15 g&5 g&280 g
+\end{tblr}
+\begin{enumerate}
+    \item Déterminer la proportion d'eau que contient le lait.\par\noindent Exprimer cette proportion sous
+    forme de fraction irréductible.
+    \item Déterminer la proportion d'eau que contient le pain.\par\noindent Exprimer cette proportion sous
+    forme de fraction irréductible.
+    \item Calculer la masse d'eau contenue dans 1 g de beurre.
+\end{enumerate}
+\end{document}

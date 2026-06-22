@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Sur la figure ci-dessous~:
+\begin{enumerate}
+    \item Tracer (AB).
+    \item Construire C tel que $\widehat{\text{ABC}}=120^\circ$ et $\text{BC}=5$ cm.
+    \item Construire (d$_1$) parallèle à (BC) passant par A.
+    \item Construire (d$_2$) perpendiculaire à (AB) passant par C.
+    \item Quelle est la mesure de l'angle $\widehat{\text{BAC}}$ ?
+\end{enumerate}\vskip50pt
+\begin{center}
+\begin{tikzpicture}
+    \coordinate[label=A](A)at(0,0);
+    \draw node at(A){+};
+    \coordinate[label=B](B)at(6,0);
+    \draw node at(B){+};
+    \path(A)--(B)([turn]-60:5)coordinate(C);
+    \draw[white] node at(C){+};
+\end{tikzpicture}
+\end{center}
+\end{document}

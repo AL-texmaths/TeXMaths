@@ -1,0 +1,25 @@
+% Met à jour le fichier json contenant le code
+% associé à la valeur codée :
+% - les connaissances du cycle 4
+% - les connaissances du cycle 3
+% - les sources des exercices
+% - les compétences du socle
+\documentclass{article}
+\usepackage{texmaths-path}
+\usepackage{texmaths-cycle3-BO_2020}
+\usepackage{texmaths-cycle4-BO_2020}
+\usepackage{texmaths-sources}
+\usepackage{texmaths-cmpeval}
+\begin{document}
+    test
+    \makeatletter
+    \newwrite\jsonfile
+    \immediate\openout\jsonfile=code_index_tmp.json\relax
+    \immediate\write\jsonfile{{%
+        "cycle 4 BO 2020" : {"cns":{\full@cns@fourthcycle}, "cmp":{\full@cmp@fourthcycle}},%
+        "cycle 3 BO 2020" : {"cns":{\full@cns@thirdcycle}, "cmp":{\full@cmp@thirdcycle}},%
+        "src":{\full@src},%
+        "cmpsocle":{\full@cmpeval}%
+        }}
+    \immediate\closeout\jsonfile
+\end{document}

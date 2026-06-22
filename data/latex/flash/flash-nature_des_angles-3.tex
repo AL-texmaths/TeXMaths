@@ -1,0 +1,86 @@
+\documentclass[17pt]{flash}
+\usepackage{texmaths-tikz}
+\def\figureA{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \Angle[angle=18,color=\currentcolor]
+    \end{tikzpicture}
+}
+\def\figureB{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \Angle[angle=180,color=\currentcolor]
+    \end{tikzpicture}
+}
+\def\figureC{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \Angle[angle=126,color=\currentcolor]
+    \end{tikzpicture}
+}
+\def\figureD{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(2.5,0);
+        \coordinate(C)at(0,2.5);
+        \tkzMarkAngle[size=0.5,fill=\currentcolor,mark=none](B,A,C)
+        \draw(C)--(A)--(B);
+    \end{tikzpicture}
+}
+\def\figureE{%
+    \begin{tikzpicture}[scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(2.5,0);
+        \coordinate(C)at(0,2.5);
+        \tkzMarkRightAngle[size=0.5](B,A,C)
+        \draw(C)--(A)--(B);
+    \end{tikzpicture}
+}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Géométrie}
+\FlashShowConsignes{%
+        \item Pour chaque angle, écrire sa nature.
+}
+\def\figScale{1}
+\AtCorrection{\def\figScale{0.7}}
+\flashlist{
+    \flashitem{15}{\figureA}
+    \flashitem{15}{\figureB}
+    \flashitem{15}{\figureC}
+    \flashitem{15}{\figureD}
+    \flashitem{15}{\figureE}
+}
+
+\end{document}
+
+    \setCalcList[vspace=50pt]{%
+        15/{
+        \begin{tikzpicture}
+            \Angle[angle=18,color=vscode-crimson]
+        \end{tikzpicture}
+        },
+        15/{
+        \begin{tikzpicture}[scale=0.7]
+            \Angle[angle=180,color=vscode-crimson]
+        \end{tikzpicture}
+        },
+        15/{
+        \begin{tikzpicture}[scale=0.8]
+            \Angle[angle=126,color=vscode-crimson]
+        \end{tikzpicture}
+        },
+        15/{
+
+        },
+        15/{
+
+        }
+        }
+        
+
+\end{document}

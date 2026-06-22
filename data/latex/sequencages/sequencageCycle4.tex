@@ -1,0 +1,545 @@
+\documentclass{article}
+% --------
+% PACKAGES
+% --------
+\usepackage{texmaths-symbols}
+\usepackage{refcount}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[a5paper]{geometry}
+\usepackage{tabularray}
+\usepackage{enumitem}
+\usepackage[tikz]{mdframed}
+\usepackage{texmaths-cycle4-BO_2020}
+% --------
+% GEOMETRY
+% --------
+\geometry{
+    hmargin=18pt,
+    top=50pt,
+    headheight=20pt,
+    headsep=25pt,
+    textheight=500pt,
+    footskip=20pt
+}
+% -------------------
+% HEADERS AND FOOTERS
+% -------------------
+\makeatletter
+\def\level#1{\def\@level@name{#1}%
+    \setcounter{totalseances}0
+    \setcounter{sequence}0}
+\fancypagestyle{sequencage}
+    {
+        \fancyhf{}
+        \fancyhead[L]{\small Séquençage Cycle 4 \@level@name}
+        \fancyhead[R]{\small D'après le BOEN n$^\circ$ 31 du 30 juillet 2020}
+        \fancyfoot[C]{\thepage/\pageref{LastPage}}
+    }
+
+% --------
+% COUNTERS
+% --------
+\newcounter{totalseances}
+\newcounter{seancenumber}
+\newcounter{sequence}
+% ------
+% MACROS
+% ------
+\def\storecounter#1#2{%
+    \addtocounter{#1}{-1}\refstepcounter{#1}\label{#2}}
+\def\seancenumberseq#1{%
+    \getrefnumber{ref:seancenumber\@level@name#1}}
+\long\def\seance#1{%
+    \par\noindent
+    \stepcounter{seancenumber}\stepcounter{totalseances}%
+    {\bfseries Séance \theseancenumber : }#1
+    }
+\long\def\dontshowseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
+\def\sequence#1{%
+    \begingroup
+        \let\'\@firstofone
+        \let\`\@firstofone
+        \let\ \@underscore
+        \xdef\sequence@key{#1}
+    \endgroup
+    \stepcounter{sequence}\vskip5pt
+    \begin{mdframed}[roundcorner=5pt]
+        \begin{tblr}{colspec={X[1,l]X[2,c]X[1,r]}}%{colspec={X[1,l]X[2,l]X[1,r]}}
+            \bfseries Séquence \arabic{sequence}&
+            \footnotesize#1&
+            (\seancenumberseq\thesequence\ séances)
+        \end{tblr}
+    \end{mdframed}\vskip8pt
+}
+\def\endsequence{%
+    \storecounter{seancenumber}{ref:seancenumber\@level@name\thesequence}%
+    \setcounter{seancenumber}0%
+}
+\setlist{label=$-$}
+
+\def\cnsandcmp#1#2{%
+    {\itshape Connaissances}\vskip8pt
+    \@for\ii:=#1\do{%
+        \par\noindent$-$\hskip2ex\usecns[\ii]%
+        \immediate\write\seqcanal{CNS\ii:\@level@name:\sequence@key:}%
+    }\vskip5pt\noindent\nopagebreak
+    {\itshape Compétences}\vskip8pt
+    \@for\jj:=#2\do{%
+    \par\noindent$-$\hskip2ex\usecmp[\jj]%
+    % \immediate\write\seqcanal{CMP\jj:\@level@name:\sequence@key}%
+    }\par\kern20pt\noindent
+}
+
+\def\showtotalseance{\vskip0pt plus 1fill\noindent
+{\large Nombre total de séances en \@level@name: {\bfseries\thetotalseances}}
+\vskip0pt plus 3fill}
+
+\def\@underscore{\string_}
+
+\def\sequence@key{undefined}
+
+\makeatother
+\def\hideseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
+% \let\seance\hideseance
+\begin{document}
+
+\newwrite\seqcanal
+\immediate\openout\seqcanal=\jobname-structure.txt%
+
+Les connaissances et compétences liées au thème E (algorithmique et
+programmation) sont à travailler tout au long du cycle 4, en salle informatique
+ou en exercice en classe, en lien avec d'autres notions.
+
+\pagestyle{sequencage}
+
+\level{5eme}
+
+\sequence{Expressions numériques}
+\cnsandcmp{A1h1,A1h2}{A1f1,A1f6,A1j1}
+\seance{Vocabulaire}
+\seance{Règles de priorités opératoires}
+\seance{Traduction}
+\seance{Version}
+\seance{Résolution de problèmes}
+\endsequence
+\par\vskip10pt\noindent{\bfseries Automatismes : tracer figures usuelles à main levée}
+
+\sequence{Constructibilité d'un triangle}
+\cnsandcmp{D2b7,D2b4}{D2a*}
+\seance{Sens géométrique de l'inégalité}
+\seance{Figures à main levée qu'on ne peut pas tracer}
+\seance{Application de l'inégalité}
+\seance{Une seule inégalité suffit}
+\seance{Résolution de problèmes}
+\endsequence
+
+\sequence{Découverte des nombres relatifs}
+\cnsandcmp{A1a1,A1a2,A1a3,A1g1,A1h3}{A1a1,A1a4,A1c1,A1d1,A1j2}
+\seance{Introduction aux nombres négatifs}
+\seance{Comparer des nombres négatifs}
+\seance{Notion d'opposé}
+\seance{Repérage sur un plan}
+\seance{Résolution de problèmes}
+\seance{Additions}
+\endsequence
+
+\sequence{Opérations sur les fractions}
+\cnsandcmp{A1b1,A2e*,A1h6,A1g2}{A1a2,A1b*,A1f4,A1j1,A1c2,A1d2}
+\seance{Rappels : définition d'une fraction}
+\seance{Activité : plusieurs fractions peuvent représenter un même nombre}
+\seance{Modification d'une fraction / simplification}
+\seance{Additions et soustractions de fractions de même dénominateur}
+\seance{Additions de fractions de dénominateurs multiples}
+\seance{Additions de fractions de dénominateurs quelconque}
+\seance{Résolution de problèmes}
+\endsequence
+
+\sequence{Cas d'égalité des triangles}
+\cnsandcmp{D2b5}{D2b*,D2d*}
+\seance{Initiation à la démonstration}
+\seance{CCC}
+\seance{Exercices de démonstrations utilisant CCC}
+\seance{CAC}
+\seance{Exercices de démonstrations utilisant CAC}
+\seance{ACA}
+\seance{Exercices de démonstrations utilisant ACA}
+\seance{Cas particuliers}
+\seance{Résolution de problèmes}
+\endsequence
+
+\sequence{Calcul littéral}
+\cnsandcmp{A3a1,A3a2,A3a3}{A3a3,A3b*}
+\seance{Expression littérale}
+\seance{Conventions d'écriture}
+\seance{Evaluer une expression littérale}
+\seance{Tester une égalité}
+\seance{Réduction (uniquement des additions/soustrations)}
+\seance{Réduction (uniquement des multiplications/divisions)}
+\seance{Réduction (toutes opérations)}
+\seance{Modélisation}
+\endsequence
+
+\sequence{Angles alternes-internes}
+\cnsandcmp{D2a*}{D2d*,D2e*}
+\seance{Égalité des angles opposés par le sommet}
+\seance{Vocabulaire}
+\seance{Sens direct}
+\seance{Démonstrations (exercices)}
+\seance{Réciproque}
+\seance{Démonstrations (exercices)}
+\endsequence
+
+\sequence{Proportionnalité}
+\cnsandcmp{B3a*,A1b2}{B3a*,B3e*}
+\seance{Multiplications à trou}
+\seance{Situation de proportionnalité / définition}
+\seance{Méthodes additives / multiplicatives}
+\seance{Coefficient de proportionnalité}
+\seance{Représentation de la proportionnalité : tableau}
+\seance{Résolution de problèmes}
+\endsequence
+
+\sequence{Somme des angles d'un triangle}
+\cnsandcmp{D2b1}{C1a*,C1b*,C1c*,D2d*,D2e*}
+\seance{Sommes des angles}
+\seance{Démonstration de la propriété}
+\seance{Retour sur ACA}
+\endsequence
+
+\sequence{Arithmétique}
+\cnsandcmp{A2a*,A2b*,A2c*}{A2a*,A2c*,A2g*}
+\seance{Division euclidienne}
+\seance{Multiples et diviseurs}
+\seance{Critères de divisibilité}
+\seance{Lien avec les fractions}
+\seance{Résolution de problème}
+\endsequence
+
+\sequence{Hauteurs et médiatrices d'un triangle}
+\cnsandcmp{D2b2,D2b3}{D2a*}
+\seance{Hauteurs}
+\seance{Les hauteurs d'un triangle sont concourantes (activité)}
+\seance{Médiatrices}
+\seance{Les médiatrices d'un triangles sont concourantes (activité)}
+\endsequence
+
+\sequence{Additions et soustractions de nombres relatifs}
+\cnsandcmp{A1h3,A1h4}{A1a1,A1f2,A1j1}
+\seance{Additions de \guillemets{petits} nombre entiers : lien avec les dettes, température,~...}
+\seance{Additions de nombres relatifs de même signe}
+\seance{Additions de nombres relatifs signes}
+\seance{Additions de plusieurs nombres relatifs}
+\seance{Soustractions de nombres relatifs}
+\seance{Enlever les parenthèses}
+\seance{Enlever les parenthèses}
+\endsequence
+
+\sequence{Symétrie et centrale}
+\cnsandcmp{C2a1}{C2c*,D2c1,D2d*,D2e*}
+\seance{Rappels sur la symétrie axiale : construction}
+\seance{Axes de symétrie des figures usuelles}
+\seance{Symétrie centrale : centre de symétrie}
+\seance{Définition de la symétrie centrale comme demi-tour}
+\seance{Définition rigoureuse et construction}
+\seance{Construction de figures complexes}
+\endsequence
+
+\sequence{Parallélogrammes}
+\cnsandcmp{D2c*}{D2d*,D2e*}
+\seance{Définition quadrilatère possédant un axe de symétrie}
+\seance{Propriétés : angles opposés égaux et côtés opposés égaux}
+\seance{Lien avec les rectangles / carrés}
+\seance{Lien entre les diagonales et la nature du quadrilatère}
+\endsequence
+
+\showtotalseance\newpage
+
+\level{4eme}
+\sequence{Sommes\ et\ diff\'erences\ de\ nombres\ relatifs}
+\cnsandcmp{A1h4}{A1f3,A1j2}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Proportionnalit\'e}
+\cnsandcmp{B3b*,B3c*,C1a*,B3c*}{A1a1,B3a*,B3b*,B3d*,B3e*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Produits\ et\ quotients\ de\ nombres\ relatifs}
+\cnsandcmp{A1h5}{A1a1,A1b*,A1h2,A1j1}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Translation}
+\cnsandcmp{C2a2}{D2a*,D2c2,D2d*,D2e*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Sommes\ et\ diff\'erences\ de\ nombres\ rationnels}
+\cnsandcmp{A1f*,A1b3,A2e*,A1h6}{A1a1,A1a2,A1f2,A2f*,A1d*,A1f5,A1j1}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Rotation}
+\cnsandcmp{C2a3}{D2a*,C2c*,D2c3,D2d*,D2e*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Produits\ et\ quotients\ de\ nombres\ rationnels}
+\cnsandcmp{A1b4,A1h8,A1h9}{A1a2,A1b*,A1f5,A1j1}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Calcul\ litt\'eral}
+\cnsandcmp{A3a1,A3a2,A3a3}{A1a2,A3a3,A3b*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{\'Equation}
+\cnsandcmp{A3a4,A3a5}{A3c*,A3d1}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Th\'eor\`eme\ de\ Pythagore}
+\cnsandcmp{A1c*,A1d*,D2e1,C1b*}{A1b*,A1i*,D2d*,D2e*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Puissance\ d'un\ nombre}
+\cnsandcmp{A1e*,A1i*,A1j*}{A1a3,A1b*,A1c3,A1h1,A1h2,A1j1,A1g*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{R\'eciproque\ du\ th\'eor\`eme\ de\ Pythagore}
+\cnsandcmp{D2e2}{D2d*,D2e*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Distributivit\'e}
+\cnsandcmp{A3b1,A3b2}{A3a1,A3a2,A3b*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Statistiques}
+\cnsandcmp{B1a*,B1b*}{B1a*,B1b*,B1d*,B1e*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+\sequence{Probabilit\'es}
+\cnsandcmp{B2a*,B2b*,B2c*}{B2a*,B2b*}
+\seance{}
+\seance{}
+\seance{}
+\seance{}
+\endsequence
+
+
+\showtotalseance\newpage
+
+\level{3eme}
+
+\sequence{Arithm\'etique}
+\cnsandcmp{A2d*}{A2b*,A2d*,A2e1,A2e2,A2g*}
+\seance{Vocabulaire : diviseurs et multiples}
+\seance{Définition d'un nombre premier et Crible d'Ératostène}
+\seance{Décomposition d'un nombre en facteurs premiers : méthode 1}
+\seance{Décomposition d'un nombre en facteurs premiers : méthode 2}
+\seance{Exercice(s) type brevet}
+\seance{Recherche du PGCD}
+\seance{Exercice(s) type brevet}
+\seance{Simplification de fractions}
+\seance{Exercice(s) type brevet}
+\endsequence
+
+\sequence{Thal\`es\ (Partie\ 1)}
+\cnsandcmp{D2b6,D2d1}{D2d*,D2e*}
+\seance{Définition de deux triangle semblables}
+\seance{Propriété des triangles semblables}
+\seance{Théorème de Thalès : sens direct}
+\seance{Exercices type brevet}
+\seance{Théorème de Thalès : sens direct (configuration papillon)}
+\seance{Exercices type brevet}
+\endsequence
+
+\sequence{Calcul\ litt\'eral}
+\cnsandcmp{A3b1,A3b2,A3d*}{A3a1,A3a2,A3b*}
+\seance{Réduction d'une expression littérale}
+\seance{Découverte de la propriété de la distributivité simple}
+\seance{Distributivité simple : développer dans des cas simples}
+\seance{Distributivité simple : développer puis réduire}
+\seance{Scratch + exercices type brevet}
+\seance{Distributivité simple : factoriser}
+\seance{Distributivité simple : factoriser (lien avec le regroupement de termes)}
+\seance{Distributivité double : découverte de la propriété + démonstration}
+\seance{Distributivité double : développer}
+\seance{exercices types brevet}
+\seance{Identités remarquables}
+\seance{Identité remarquable : factoriser $a^2-b^2$}
+\endsequence
+
+\sequence{Statistiques}
+\cnsandcmp{B1a*,B1b*,B1c*}{B1a*,B1b*,B1c*,B1d*,B1e*}
+\seance{Définition d'une série statistique et calcul de moyenne (cas simple)}
+\seance{Calcul de médiane (cas simple) et étendue}
+\seance{Utilité de la notion d'effectifs : tableau d'effectifs}
+\seance{Fréquence + exercice type brevet}
+\seance{Calcul de la moyenne pondérée}
+\seance{Calcul de la médiane avec les effectifs}
+\seance{Exercices types brevet}
+\seance{Lecture de diagramme (tableau, bâtons)}
+\seance{Lecture de diagramme (histogramme)}
+\seance{Lecture de diagramme (circulaire)}
+\seance{Exercices type brevet}
+\endsequence
+
+\sequence{\'Equations}
+\cnsandcmp{A3c*}{A3c*,A3d1,A3d2}
+\seance{Rappels sur les équations : vocabulaire}
+\seance{Résolutions d'équations par recherche des solutions}
+\seance{Équations du type $ax+b=c$ : technique}
+\seance{Équations du type $ax+b=c$ : mise en équation}
+\seance{Équations du type $ax+b=cx+d$ : technique}
+\seance{Équations du type $ax+b=cx+d$ : mise en équation}
+\seance{Équation produit nul : technique}
+\seance{Mise en équations}
+\seance{Equation carré constant}
+\seance{Mise en équations}
+\endsequence
+
+\sequence{Notion\ de\ fonction}
+\cnsandcmp{B4a*,B4b*,B4c*}{B4a*,B4b*,B4c*,B4d*,B4f*}
+\seance{Découverte de la notion de fonction, vocabulaire}
+\seance{Exprimer une grandeur en fonction de $x$}
+\seance{Utiliser le vocabulaire (antécédent, image)}
+\seance{Tableau de valeur}
+\seance{Exercices type brevet}
+\seance{Représentation graphique}
+\seance{Exercices type brevet}
+\endsequence
+
+\sequence{Trigonom\'etrie}
+\cnsandcmp{D2f*}{D2d*,D2e*}
+\seance{Découverte des fonction cos et sin: côtés adj/opp dans un triangle d'hypoténuse 1}
+\seance{Découverte des trois formules trigonométriques: deux manières de les calculer}
+\seance{Calculer un angle en connaissant les lignes trigonométriques}
+\seance{Calculer une longueur en connaissant les angles}
+\endsequence
+
+\sequence{Thal\`es\ (Partie\ 2)}
+\cnsandcmp{D2d2}{D2e*}
+\endsequence
+
+\sequence{Homoth\'etie}
+\cnsandcmp{C2a4}{C2a*,C2b*,C2c*,C2d*,D2c4}
+\endsequence
+
+\sequence{Fonctions\ lin\'eaires\ et\ affine}
+\cnsandcmp{B4d*}{B3a*,B3d*,B4e*}
+\endsequence
+
+\sequence{Probabilit\'es}
+\cnsandcmp{B2a*,B2b*,B2c*}{B2a*,B2b*,B2c*,B2d*}
+\endsequence
+
+\sequence{Repr\'esenter\ l'espace}
+\cnsandcmp{D1a*,D1b*,C1c1,C1c2,C1c3,C1c4,C1c5,C1d*}{D1a*,D1b*,D1c*,D1d*,C1a*}
+\endsequence
+
+\showtotalseance
+
+
+
+\immediate\closeout\seqcanal
+
+\newpage
+\makeatletter
+\foreach\themefor in{1,...,\fourthcycle@total[themes]}%
+{%
+    \newpage
+    \def\themecode{\nbtoAlph\themefor}
+    {\par\centering\LARGE\bfseries Thème \themecode\ : \fourthcycle@theme[\themecode]\centering
+        \par}\vskip8pt
+    \foreach\attendufor in{1,...,\fourthcycle@total[\nbtoAlph\themefor]}
+    {%
+        \def\attenducode{\nbtoAlph\themefor\attendufor}
+        \begin{mdframed}\itshape\fourthcycle@attendu[\attenducode]\hbadness=500\end{mdframed}
+        {\bfseries Connaissances}\vskip8pt
+        \foreach\cnsfor in{1,...,\fourthcycle@total[\nbtoAlph\themefor\attendufor CNS]}
+            {\def\cnscode{\nbtoAlph\themefor\attendufor\nbtoalph\cnsfor}%
+            {\tt\cnscode\hskip10pt}
+            \thetoks{CNS\cnscode*occ}
+            \vskip8pt
+            \begingroup\setlength{\leftskip}{10pt}
+            \ifnum\subcnstotal>0
+                \foreach\subcnsfor in{1,...,\subcnstotal}{
+                    {\itshape\subcnsfor)}\hskip5pt
+                    \thetoks{CNS\nbtoAlph\themefor\attendufor
+                    \nbtoalph\cnsfor\subcnsfor occ}\vskip5pt
+                }%
+            \fi\par\endgroup
+        }%
+        {\bfseries Compétences}\vskip8pt
+        \foreach\cmpfor in{1,...,\fourthcycle@total[\nbtoAlph\themefor\attendufor CMP]}
+        {%
+            \def\cmpcode{\nbtoAlph\themefor\attendufor\nbtoalph\cmpfor}%
+            {\tt\cmpcode\hskip10pt}
+            \thetoks{CMP\cmpcode*occ}
+            \vskip8pt
+            \begingroup\setlength{\leftskip}{10pt}
+            \ifnum\subcmptotal>0
+                \foreach\subcmpfor in{1,...,\subcmptotal}
+                {%
+                {\itshape\subcmpfor)}\hskip5pt
+                \thetoks{CMP\nbtoAlph\themefor\attendufor
+                \nbtoalph\cmpfor\subcmpfor occ}\vskip5pt
+                }%
+            \fi\par\endgroup
+        }%
+    }%
+}%
+
+\end{document}

@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}
+\startdatakeys
+\source{inconnue}
+\cycle{4}
+\competencesDuSocle{RA,CO}
+\connaissancesRequises{D2a*,D2b5}
+\competencesTravaillees{D2e*}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}
+    \coordinate[label=\mathspoint{O}](O)at(0,0);
+    \coordinate[label=below right:\mathspoint{A}](A)at(-40:1.5);
+    \coordinate[label=above right:\mathspoint{B}](B)at(20:3);
+    \coordinate[label=above left:\mathspoint{C}](C)at(140:1.5);
+    \coordinate[label=below left:\mathspoint{D}](D)at(200:3);
+    \draw(A)--(B)--(D)--(C)--(A)--(D);
+    \tkzMarkSegments[mark=|](D,O O,B)
+    \tkzMarkSegments[mark=||](C,O O,A)
+\end{tikzpicture}
+\begin{enumerate}
+    \item Démontrer que $\widehat{\mathspoint{AOB}}=\widehat{\mathspoint{COD}}$.
+    \answerspace{9em}
+    \item Démontrer que les triangles \mathspoint{AOB} et \mathspoint{COD}
+    sont égaux.
+    \answerspace{9em}
+\end{enumerate}
+\end{document}

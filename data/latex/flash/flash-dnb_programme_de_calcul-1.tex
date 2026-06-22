@@ -1,0 +1,38 @@
+\documentclass[17pt]{flash}
+\usepackage{mdframed}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{80pt}
+\FlashSetVtop{-6em}
+\FlashSetTitle{Équations}
+
+\FlashShowConsignes{%
+        \item Répondre au problème suivant.
+}
+
+\small
+\flash{180}{%
+\begin{minipage}[t]{.7\linewidth}
+    \begin{mdframed}[%
+            innerleftmargin=0pt,
+            innerrightmargin=0pt]\noindent
+        \begin{itemize}\ttfamily\raggedright
+            \item Choisir un nombre
+            \item Soustraire 5
+            \item Prendre le carré du résultat
+        \end{itemize}
+    \end{mdframed}
+\end{minipage}\par\medskip\noindent
+Quel(s) nombre(s) faut-il choisir au départ pour obtenir 36 à la fin~?
+}
+\centering
+\footnotesize
+\FlashCorrection
+
+\end{document}

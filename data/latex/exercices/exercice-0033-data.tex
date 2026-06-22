@@ -1,0 +1,74 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{mdframed}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\def\sampleA{%
+    \coordinate[label=below right:O](O)at(0,0);
+    \coordinate[label=below right:A](A)at(3,1);
+    \coordinate[label=above right:B](B)at(4,4);
+    \coordinate[label=above left:C](C)at(1,3);
+    \coordinate[label=above:$\sf(d_1)$](d10)at(-5,0);
+    \coordinate(d11)at(5,0);
+    \coordinate[label=right:$\sf(d_2)$](d20)at(0,5);
+    \coordinate(d21)at(0,-5);
+    \tkzDefPointsBy[reflection = over d10--d11](A,B,C){D,E,F}
+    \tkzDefPointsBy[reflection = over d20--d21](D,E,F){G,H,I}
+    \tkzDefPointsBy[reflection = over d10--d11](G,H,I){J,K,L}
+    \draw(O)--(A)--(B)--(C)--(O);
+    \draw[red](d10)--(d11);
+    \draw[red](d20)--(d21);
+}
+\begin{mdframed}
+    \begin{center}
+        \begin{tikzpicture}[baseline=(O.base),scale=0.5]
+            \begin{scope}[shift={(-16,0)}]\sampleA\end{scope}
+            \draw[->](-10,0)--(-6,0);
+            \node[shift={(0,0.4)}]at(-8,0){\textbf{construction}};
+            \sampleA
+            \foreach\labelPos/\labelName in{%
+                above right/D,%
+                below right/E,%
+                below left/F,%
+                below left/G,%
+                below left/H,%
+                below right/I,%
+                below left/J,%
+                above left/K,%
+                above right/L%
+                }{\node[\labelPos]at(\labelName){\labelName};}
+            
+            \draw(O)--(D)--(E)--(F)--(O);
+            \draw(O)--(G)--(H)--(I)--(O);
+            \draw(O)--(J)--(K)--(L)--(O);
+            
+        \end{tikzpicture}
+    \end{center}
+\end{mdframed}
+Comme dans l'exemple précédant, compléter la figure ci-dessous, par symétrie axiale
+(\textit{laisser les traits de contructions, et coder la figure}).
+\begin{center}
+    \begin{tikzpicture}[scale=1.2]
+        \coordinate[label=below right:O](O)at(0,0);
+        \coordinate[label=below right:A](A)at(3.5,1.5);
+        \coordinate[label=above right:B](B)at(2,2);
+        \coordinate[label=above left:C](C)at(1.5,3.5);
+        \coordinate[label=above:$\sf(d_1)$](d10)at(-5,0);
+        \coordinate(d11)at(5,0);
+        \coordinate[label=right:$\sf(d_2)$](d20)at(0,5);
+        \coordinate(d21)at(0,-5);
+        \tkzDefPointsBy[reflection = over d10--d11](A,B,C){D,E,F}
+        \tkzDefPointsBy[reflection = over d20--d21](D,E,F){G,H,I}
+        \tkzDefPointsBy[reflection = over d10--d11](G,H,I){J,K,L}
+        \draw(O)--(A)--(B)--(C)--(O);
+        \draw[red](d10)--(d11);
+        \draw[red](d20)--(d21);
+    \end{tikzpicture}
+\end{center}
+\end{document}

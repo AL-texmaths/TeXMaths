@@ -1,0 +1,46 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{0.4\linewidth}
+    \begin{enumerate}
+        \item Quelle est la valeur de l'angle $\widehat{BAC}$~?
+        \item Démontrer votre résultat.
+    \end{enumerate}
+\end{minipage}%
+\begin{minipage}[c]{0.4\linewidth}
+    \begin{center}
+        \begin{tikzpicture}[rotate=-30, scale=0.7]
+            \coordinate[label=below left:D](A0)at(-2,0);
+            \coordinate[label={[label distance=3pt]-90:F}](A1)at(0,0);
+            \coordinate[label={[label distance=3pt]180:A}](A2)at(2,0);
+            \coordinate[label=below left:B](A3)at(3,0);
+            \coordinate[label=above left:E](B1)at(0,4);
+            \coordinate[label=above left:C](B2)at(2,4);
+            \node at(A0){$\times$};
+            \node at(A3){$\times$};
+            \node at(B1){$\times$};
+            \node at(B2){$\times$};
+            \path(A0)--(A3)coordinate[pos=-0.25](C0);
+            \path(A0)--(A3)coordinate[pos=1.25](C1);
+            \path(A1)--(B1)coordinate[pos=-0.25](C2);
+            \path(A1)--(B1)coordinate[pos=1.25](C3);
+            \path(A2)--(B2)coordinate[pos=-0.25](C4);
+            \path(A2)--(B2)coordinate[pos=1.25](C5);
+            \draw(C0)--(C1);
+            \draw(C2)--(C3);
+            \draw(C4)--(C5);
+            \tkzMarkAngle[size=0.5,mark=none](A2,A1,B1)
+            \tkzLabelAngle[pos=1.2](A2,A1,B1){{\boldmath$90^\circ$}}
+            \tkzMarkAngle[size=0.5,mark=none](A3,A2,B2)
+            \tkzLabelAngle[pos=0.9](A3,A2,B2){\bfseries?}
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}
+\end{document}

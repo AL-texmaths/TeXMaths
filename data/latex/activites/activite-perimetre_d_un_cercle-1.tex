@@ -1,0 +1,42 @@
+\documentclass[activite]{thedocument}
+\usepackage{texmaths-tikz}
+\usepackage{tabularray}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\def\tikzcircle#1{%
+    \begin{tikzpicture}[baseline=(O.base)]
+        \coordinate(O)at(0,0);
+        \node at(O){$\times$};
+        \coordinate(S1)at(0:1);
+        \coordinate(S2)at(180:1);
+        \draw(O)circle(1);
+        \draw[color=\markscolor, stealth-stealth, line width=0.4 pt](S1)--(S2);
+        \path(S1)--(S2)node[pos=0.5,shift=(-90:0.3),sloped]
+            {\color\markscolor #1 cm};
+    \end{tikzpicture}
+}
+
+    \begin{enumerate}
+        \item Compléter le tableau suivant.\smallskip\par\noindent
+            \begin{tblr}{
+                colspec={Q[c,m]Q[c,m,wd=100pt]Q[c,m,wd=130pt]},hlines,vlines,
+                row{1}={font=\bfseries}
+            }
+            cercle&périmètre&périmètre $\div$ diamètre\\
+            \tikzcircle4&\Large 12,57 cm&\\
+            \tikzcircle{2,5}&\Large 7,85 cm&\\
+            \tikzcircle{5,6}&\Large 17,59 cm&\\
+            \tikzcircle8&\Large 25,13 cm&\\
+            \end{tblr}
+        \item Que remarquez-vous ?
+        \dotedline\dotedline
+        \item Quel est le périmètre du cercle ci-dessous (justifier) :\vskip5pt
+        \tikzcircle{3,8}
+    \end{enumerate}
+\end{document}

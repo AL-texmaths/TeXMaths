@@ -1,0 +1,25 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Fonctins linéaires}
+    \definition{fonction_lineaire}
+    {\bfseries Exemple :}\par\vskip10pt
+    La fonction repérésentée ci-dessous est la fonction
+    $$f(x)=2x$$
+    \exported[scale=0.8,]%
+    <<\begin{tikzpicture}[scale=0.6]
+        \simpleFunc xmin=-5,xmax=5,ymin=-5,ymax=5,gridstep=0.5,func=f=2*x;
+    \end{tikzpicture}>>
+    \newpage
+    \bigpart{Fonctions affines}
+    \definition{fonction_affine}
+    {\bfseries Exemple :}\par\vskip10pt
+    La fonction repérésentée ci-dessous est la fonction
+    $$f(x)=2x+3$$
+    \exported[scale=0.8,]%
+    <<\begin{tikzpicture}[scale=0.6]
+        \simpleFunc xmin=-5,xmax=5,ymin=-2,ymax=8,gridstep=0.5,func=f=2*x+3;
+    \end{tikzpicture}>>\par\medskip\noindent
+    {\bfseries Remarque :} La représentation graphique d'une fonction affine est une
+    droite qui ne passe pas nécessairement par l'origine.\par\medskip\noindent
+    {\bfseries Remarque :} Une fonction linéaire est une fonction affine particulère.
+\end{document}

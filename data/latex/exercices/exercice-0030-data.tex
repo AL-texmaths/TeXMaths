@@ -1,0 +1,30 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!coordS1=1,1;%
+\!coordS2=2,3;%
+\!coordS3=4,5;%
+\!coordS4=6,6;%
+Construire l'image du polygone \textsf{\<S1;\<S2;\<S3;\<S4;} par la symétrie axiale d'axe
+\textsf{(d)}.
+\begin{center}
+    \begin{tikzpicture}[scale=0.8]
+        \coordinate(d0)at(0,9);
+        \coordinate(d1)at(9,0);
+        \coordinate[label=above left:\<S1;](A)at(\*coordS1;);
+        \coordinate[label=above left:\<S2;](B)at(\*coordS2;);
+        \coordinate[label=below left:\<S3;](C)at(\*coordS3;);
+        \coordinate[label=below left:\<S4;](D)at(\*coordS4;);
+        \draw(-1,0)grid(9,9);
+        \draw[blue, line width=1.5pt](A)--(B)--(C)--(D)--cycle;
+        \draw[red, line width=1.5pt](d0)--(d1);
+        \node at(3.5,6.5){(d)};
+    \end{tikzpicture}
+\end{center}
+\end{document}

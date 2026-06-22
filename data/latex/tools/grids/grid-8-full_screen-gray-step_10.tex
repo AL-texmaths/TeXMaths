@@ -1,0 +1,16 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}
+    \def\gridL{16}
+    \def\gridH{9}
+    \coordinate(A0)at(-\gridL,-\gridH);
+    \coordinate(B0)at(\gridL,\gridH);
+    \draw(A0)[line width=0.5pt,step=0.1,gray]grid(B0);
+    \draw(A0)[line width=0.5pt,step=1]grid(B0);
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,47 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-path}[08/03/2026]
+
+\RequirePackage{graphicx}
+\RequirePackage{svg}
+\RequirePackage{pgfkeys}
+\RequirePackage{hyperref}
+\RequirePackage{luacode}
+
+\makeatletter
+
+\directlua{
+  if package.config:sub(1,1) == "\\" then
+      tex.sprint("\\def\\system@path@root{\\Root\\}")
+  else
+      tex.sprint("\\def\\system@path@root{/home/antoine/}")
+  end
+}
+
+\def\texmaths@path@root{\system@path@root Projects/TeXMaths/}
+\def\texmaths@path@gifdata{\texmaths@path@root data/graphics/gif/data/}
+\graphicspath{{../graphics/}{../../graphics/}}
+
+% \def\videoManim#1#2#3{\href{run:/Root/Projets/Manim/media/videos/#1/1080p60/#2.mp4}{#3}}
+\def\videoManim#1#2#3{\href{run:E:/Root/Projets/Manim/media/videos/#1/1080p60/#2.mp4}{#3}}
+
+\svgsetup{
+  inkscapepath=\texmaths@path@root data/latex/svg-inkscape/%
+}
+\svgpath{{../graphics/svg/}{../../graphics/svg/}}
+
+\pgfkeys{
+  /pdf/.cd,
+  scale/.store in = \scale,
+  scale = 1,
+  /pic/.cd,
+  scale/.store in = \scale,
+  scale = 1, 
+  /gif/.cd,
+  scale/.store in = \scale,
+    scale = 1
+    }
+\newcommand{\pdf}[2][]{\pgfkeys{/pdf/.cd,#1}\includegraphics[scale=\scale]{pdf/#2}}
+\newcommand{\pic}[2][]{\pgfkeys{/pic/.cd,#1}\includegraphics[scale=\scale]{pic/#2}}
+\newcommand{\svg}[2][]{\includesvg[#1]{#2.svg}}
+    
+\makeatother

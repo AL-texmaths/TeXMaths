@@ -1,0 +1,67 @@
+\documentclass[activite]{thedocument}
+\usepackage{tabularray}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\begin{enumerate}
+    \item Selon vous, quelles figures parmi les suivantes sont des \textbf{polygones} ?
+    \vspace{1cm}
+    \begin{center}\def\c{.25\linewidth}
+        \begin{tabular}{p{\c}p{\c}p{\c}}
+            (a)
+            \begin{center}
+                \begin{tikzpicture}[scale=0.7, rotate=20]
+                    \coordinate(A)at(0,0);
+                    \coordinate(B)at(3,0);
+                    \coordinate(C)at(4,2);
+                    \coordinate(D)at(2.5,4);
+                    \coordinate(E)at(0,1.5);
+                    \draw(A)--(B)--(C)--(D)--(E)--cycle;
+                \end{tikzpicture}
+            \end{center}
+            &(b)
+            \begin{center}
+                \begin{tikzpicture}
+                    \draw(0,0)circle(1.2);
+                \end{tikzpicture}
+            \end{center}
+            &(c)
+            \begin{center}
+                \begin{tikzpicture}[scale=0.7, rotate=-30]
+                    \draw(-2,0)--(2,0);
+                    \draw(0,2)--(0,-2);
+                \end{tikzpicture}
+            \end{center}
+            \\(d)
+            \begin{center}
+                \begin{tikzpicture}[rotate=10]
+                    \def\a{1.6}
+                    \coordinate(A)at(90:\a);
+                    \coordinate(B)at(210:\a);
+                    \coordinate(C)at(330:\a);
+                    \draw(A)--(B)--(C)--cycle;
+                    \node[white]at(0,1.5){a};
+                \end{tikzpicture}
+            \end{center}
+            &(e)
+            \begin{center}
+                \begin{tikzpicture}[scale=0.7, rotate=-20]
+                    \draw(-2,3)--(0,0)--(2,0)--(.5,4);
+                \end{tikzpicture}
+            \end{center}
+            &(f)
+            \begin{center}
+                \begin{tikzpicture}[scale=0.9]
+                    \draw(0,0)rectangle(3,2);
+                \end{tikzpicture}
+            \end{center}
+        \end{tabular}
+    \end{center}
+    \item Écrire la \textbf{définition d'un polygone.}
+\end{enumerate}
+\end{document}

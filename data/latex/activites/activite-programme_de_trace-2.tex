@@ -1,0 +1,54 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{enumerate}
+        \item Compléter le programme de tracé pour qu'il corresponde à la figure ci-dessous.\vskip10pt\noindent
+        \begin{minipage}[b]{.45\linewidth}
+            \begin{itemize}
+                \item Placer trois points A, B et C non \tocomplete{alignés}.
+                \item Tracer [AB].
+                \item Tracer \tocomplete{[AB]}.
+                \item Placer un point D tel que \par\tocomplete{$D\in[BC]$}.
+            \end{itemize}
+        \end{minipage}\hfill
+        \begin{minipage}[t]{.45\linewidth}
+            \begin{tikzpicture}
+                \coordinate[label=below left:A](A)at(0,0);
+                \coordinate[label=above right:B](B)at(4,-1);
+                \coordinate[label=above right:C](C)at(2,2);
+                \draw node at(A){+};
+                \draw node at(B){+};
+                \draw node at(C){+};
+                \draw(A)--(B);
+                \path(B)--(C)coordinate[pos=1.3](C1);
+                \draw(B)--(C1);
+                \path(A)--(B)coordinate[pos=0.6, label=below left:D](D);
+                \draw node at(D){|};
+            \end{tikzpicture}
+        \end{minipage}\par\vskip10pt
+        \item Rédiger le programme de tracé pour qu'il corresponde à la figure ci-dessous.\par\vskip10pt\noindent
+        $\bullet$\hfill
+        \begin{minipage}[t]{.45\linewidth}
+            \begin{tikzpicture}[rotate=-45, baseline=(A.base)]
+                \coordinate[label=below left:O](A)at(0,0);
+                \coordinate[label=above right:X](B)at(4,-1);
+                \coordinate[label=above right:Y](C)at(2,2);
+                \draw node at(A){+};
+                \draw node at(B){+};
+                \draw node at(C){+};
+                \path(B)--(A)coordinate[pos=-0.3](B1);
+                \draw(A)--(B1);
+                \path(B)--(C)coordinate[pos=-0.3](B2);
+                \draw(C)--(B2);
+                \path(A)--(B)coordinate[pos=0.6, label=below left:Z](D);
+                \draw node at(D){-};
+            \end{tikzpicture}
+        \end{minipage}
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,72 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[t]{.75\linewidth}
+    Le hand-spinner est une sorte de toupie plate qui tourne sur elle-même.
+\vskip10pt\noindent
+On donne au hand-spinner une vitesse de rotation initiale au temps
+t\,=\,0, puis, au cours du temps, sa vitesse de rotation diminue jusqu'à
+l'arrêt complet du hand-spinner. Sa vitesse de rotation est alors égale à 0.%
+\vskip5pt\noindent
+Grâce à un appareil de mesure, on a relevé la vitesse de roation exprimée en
+nombre de tours par seconde.
+\vskip5pt\noindent
+\end{minipage}%
+\begin{minipage}[t]{.25\linewidth}
+    \pic[scale=0.1]{handspinner}
+\end{minipage}
+Sur le graphique ci-dessous, on a représenté cette vitesse en fonction du
+temps exprimé en seconde :\vskip5pt
+{\centering
+    \begin{tikzpicture}
+        \begin{axis}[
+            minor ytick={0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25},
+            ymax=25,ymin=0,
+            minor xtick={0,4,8,12,16,20,24,28,32,36,40,44,48,52,56,60,64,68,72,76,80,84,88,92,96,100},
+            xmax=100,xmin=0,
+            grid=minor,
+            axis lines=left,
+            xlabel={Temps (en s)}, 
+            ylabel={Vitesse de rotation (en nombre de tours par seconde)},
+            width=8cm, height=8cm, 
+            ] 
+            \draw[line width=1.5pt](0,20)--(94,0);
+        \end{axis}
+    \end{tikzpicture}
+\par}\noindent
+{\bfseries 1) }Par {\bfseries lecture graphique}, répondre aux questions suivantes : 
+\begin{enumerate}
+    \item Quelle est la vitesse de rotation initiale du \guillemets{hand-spinner} (en
+    nombre de tours par seconde)~?
+    \item Quelle est la vitesse de rotation du \guillemets{hand-spinner} (en nombre
+    de tours par seconde) au bout d'une minute et vingt secondes~?
+    \item Au bout de combien de temps le \guillemets{hand-spinner} va-t-il s'arrêter~?
+\end{enumerate}\noindent
+{\bfseries 2) }Pour calculer la vitesse de rotation du \guillemets{hand-spinner} en fonction du temps
+$t$, notée $V(t)$, on utilise la fonction suivante : $$V(t) = -0,214
+\times t + V_{initiale}$$
+\begin{itemize}
+    \item $t$ est le temps (exprimé en s) qui s'est écoulé depuis le début de
+    la rotation du \guillemets{hand-spinner}~; 
+    \item $V_{initiale}$ est la vitesse de rotation à laquelle on a lancé le
+    \guillemets{hand-spinner} au départ.
+\end{itemize}
+\begin{enumerate}
+    \item On lance le \guillemets{hand-spinner} à une vitesse initiale de $20$ tours
+    par seconde. Sa vitesse de rotation est donc donnée par la formule :
+    $$V(t)= -0.214 \times t + 20$$
+    Calculer sa vitesse de rotation au bout de $30$ s.
+    \item Au bout de combien de temps le \guillemets{hand-spinner} va-t-il s'arrêter ?
+    Justifier par un calcul.
+    \item Est-il vrai que, d'une manière générale, si l'on fait tourner le
+    \guillemets{hand-spinner} deux fois plus vite au départ, il tournera deux
+    fois plus longtemps ? Justifier.
+\end{enumerate}
+\end{document}

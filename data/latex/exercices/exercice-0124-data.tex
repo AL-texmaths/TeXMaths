@@ -1,0 +1,46 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Calculer une valeur approchée du périmètre de la figure suivante :
+\begin{tikzpicture}[scale=0.55,baseline=(O.base)]
+    \coordinate(O)at(0,1.5);
+    \coordinate(A0)at(0,0);
+    \path(A0)--+(3,0)coordinate(A1);
+    \path(A1)--+(0,-2)coordinate(A2);
+    \path(A2)--+(-3,0)coordinate(A3);
+    \path(A3)--+(0,-3)coordinate(A4);
+    \path(A4)--+(-3,0)coordinate(A5);
+    \path(A5)--+(0,3)coordinate(A6);
+    \path(A6)--+(156.4:2.5)coordinate(A7);
+    \path(A7)--+(23.6:2.5)coordinate(A8);
+    \draw[fill=Rainbow1-vert](A0)\foreach\ii in{1,2,...,8}{--(A\ii)}arc(180:0:1.51);
+    \draw[dashed](A8)--(A0);
+    \path(A8)--(A0)node[pos=0.5,sloped]{\color{red}||};
+    \path(A0)--(A1)node[pos=0.5,sloped]{\color{red}||};
+    \path(A2)--(A3)node[pos=0.5,sloped]{\color{red}||};
+    \path(A3)--(A4)node[pos=0.5,sloped]{\color{red}||};
+    \path(A5)--(A4)node[pos=0.5,sloped]{\color{red}||};
+    \path(A6)--(A5)node[pos=0.5,sloped]{\color{red}||};
+    \path(A7)--(A6)coordinate[pos=0.5](B0);
+    \path(A7)--(A8)coordinate[pos=0.5](B1);
+    \draw[red,line width=0.75](B0)circle(0.1);
+    \draw[red,line width=0.75](B1)circle(0.1);
+    \def\arrowskip{0.3}
+    \path(A0)--+(90:\arrowskip)coordinate(A0');
+    \path(A1)--+(90:\arrowskip)coordinate(A1');
+    \path(A1)--+(0:\arrowskip)coordinate(A1'');
+    \path(A2)--+(0:\arrowskip)coordinate(A2'');
+    \path(A7)--+(115:\arrowskip)coordinate(A7');
+    \path(A8)--+(115:\arrowskip)coordinate(A8');
+    \draw[stealth-stealth](A0')--(A1')node[pos=0.5,above]{\<L3;};
+    \draw[stealth-stealth](A1'')--(A2'')node[pos=0.5,right]{\<L2;};
+    \draw[stealth-stealth](A7')--(A8')node[pos=0.5,above,sloped]{\<L1;};
+\end{tikzpicture}
+\end{document}

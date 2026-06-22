@@ -1,0 +1,36 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Sur cette figure, les points A, O et B sont alignés.\par\centering
+\begin{tikzpicture}[rotate=15,line width=1pt,scale=0.7]
+    \coordinate[label=below:O](O)at(0,0);
+    \coordinate[label=above:A](A)at(-3,0);
+    \coordinate[label=above:B](B)at(2,0);
+    \coordinate[label=below right:C](C)at(65:2.5);
+    \coordinate[label=above right:D](D)at(155:1.6);
+    \tkzFillAngle[fill=Rainbow1-violet,size=0.8](B,O,C)
+    \tkzMarkAngle[Rainbow1-violet!50!black,mark=none,size=0.8](B,O,C)
+    \tkzLabelAngle[pos=1.3](B,O,C){$65^\circ$}
+    \tkzDrawLine[add=0 and 0.2](O,C)
+    \tkzDrawLine[add=0.3 and 0.3](A,B)
+    \tkzDrawLine[add=0 and 1.5](O,D)
+    \draw node at(A){+};
+    \draw node at(B){+};
+    \draw node at(C){+};
+    \draw node at(D){+};
+\end{tikzpicture}
+\begin{enumerate}
+    \item Malvina était absente, Yacine doit lui donner les indications
+    nécessaires par téléphone pour qu'elle réalise (sans la voir) la figure
+    ci-dessus.\par\noindent
+    Aider Yacine à rédiger son message.
+    \item Calculer la mesure de l'angle $\widehat{\text{BOC}}$.
+\end{enumerate}
+\end{document}

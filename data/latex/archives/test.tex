@@ -1,0 +1,31 @@
+\documentclass{article}
+
+\usepackage{texmaths-main}
+\usepackage{enumitem}
+
+\begin{document}
+\begin{enumerate}[label=\arabic*),font=\bfseries]
+    \item Selon vous qu'est-ce que les fractions suivantes ont en commun~?\vskip20pt
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \coordinate(A1)at(-2,1);
+            \coordinate(A2)at(0,0);
+            \coordinate(A3)at(2.5,-2);
+            \coordinate(A4)at(3.5,1);
+            \coordinate(A5)at(4,-0.75);
+            \draw node at(A1){$\dfrac{58}{116}$};
+            \draw node at(A2){$\dfrac{2}{4}$};
+            \draw node at(A3){$\dfrac{9}{18}$};
+            \draw node at(A4){$\dfrac{5}{10}$};
+            \draw node at(A5){$\dfrac{23}{46}$};
+            \draw[dotted](-3,-3)rectangle(5,2);
+        \end{tikzpicture}
+    \end{center}\dotedline\dotedline\dotedline
+    \item Combien de fractions similaires à celles-ci pouvez-vous écrire~?
+    \dotedline\dotedline\dotedline\dotedline
+    \item Quelle est la plus \guillemets{simple} de toutes~? Pourquoi~?
+    \dotedline\dotedline\dotedline
+\end{enumerate}
+
+
+\end{document}

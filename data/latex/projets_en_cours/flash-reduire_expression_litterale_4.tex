@@ -1,0 +1,29 @@
+\documentclass{flash}
+\setTitle{\textbf{Calcul littéral : réduction}}
+\begin{document}
+    \consignes{%
+    Réduire les expressions littérales suivantes (4 calculs).%
+    }%
+    \def\calcA{$5\times b-6\times b$}
+    \def\calcB{$3\times a\times 3 \times a$}
+    \def\calcC{$x+5x-4x+y$}
+    \def\calcD{$(2+4)\times x+3\times y-3x$}
+    \ABCFrame{30}{\calcA}[A=$11b$,B=$-b$,C=$1b^2$]
+    \ABCFrame{30}{\calcB}[A=$6a$,B=$9a^2$,C=$6a^2$]
+    \ABCFrame{30}{\calcC}[A=$2x+y$,B=$6xy$,C=$9x+y$]
+    \ABCFrame{30}{\calcD}[A=$10x+3y$,B=$3x^2+3y$,C=$3x+3y$]
+    \begingroup
+    \color{vscode-gray}
+    \setbeamercolor{background canvas}{bg=vscode-yellow}
+    \begin{frame}
+        \begin{calclist}[vscode-crimson]
+            \begin{multicols}{2}\large
+                \item \calcA\ {\color{vscode-blue}(B)}\vspace{\columnsvspace}
+                \item \calcB\ {\color{vscode-blue}(B)}\vspace{\columnsvspace}
+                \item \calcC\ {\color{vscode-blue}(A)}\vspace{\columnsvspace}
+                \item \calcD\ {\color{vscode-blue}(C)}\vspace{\columnsvspace}
+            \end{multicols}
+        \end{calclist}
+    \end{frame}
+    \endgroup
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!rotate1=0;%
+\!rotate2=0;%
+\begin{flushleft}
+    Les triangles suivants sont-ils rectangles ? Démontrer votre résultat.
+\end{flushleft}
+\begin{center}
+    \begin{tblr}{%
+            colspec={Q[c,m,wd=0.4\linewidth]Q[c,m,wd=0.4\linewidth]},
+        }
+        \begin{tikzpicture}[rotate=\<rotate1;,baseline=(O.base)]
+            \coordinate(O)at(0,0);
+            \coordinate(S1)at(180:2);
+            \coordinate(S2)at(0:2);
+            \coordinate(S3)at(45:2);
+            \draw(S1)--(S2)--(S3)--cycle;
+            \path(S1)--(S2)coordinate[pos=0.5](I3);
+            \path(S2)--(S3)coordinate[pos=0.5](I1);
+            \path(S3)--(S1)coordinate[pos=0.5](I2);
+            \path(I1)--(S1)node[pos=1.15]{\<S1;};
+            \path(I2)--(S2)node[pos=1.15]{\<S2;};
+            \path(I3)--(S3)node[pos=1.15]{\<S3;};
+            \path(S1)--(S2)node[pos=0.5,below,sloped,rotate=\<rotate1;]{\<L3;};
+            \path(S2)--(S3)node[pos=0.5,above,sloped,rotate=\<rotate1;]{\<L2;};
+            \path(S1)--(S3)node[pos=0.5,above,sloped,rotate=\<rotate1;]{\<L1;};
+        \end{tikzpicture}
+        &\def\rotate{-20}
+        \begin{tikzpicture}[rotate=\<rotate2;,baseline=(O.base)]
+            \coordinate(O)at(0,0);
+            \coordinate(S1)at(180:2);
+            \coordinate(S2)at(0:2);
+            \coordinate(S3)at(120:2);
+            \draw(S1)--(S2)--(S3)--cycle;
+            \path(S1)--(S2)coordinate[pos=0.5](I3);
+            \path(S2)--(S3)coordinate[pos=0.5](I1);
+            \path(S3)--(S1)coordinate[pos=0.5](I2);
+            \path(I1)--(S1)node[pos=1.15]{\<S4;};
+            \path(I2)--(S2)node[pos=1.15]{\<S5;};
+            \path(I3)--(S3)node[pos=1.15]{\<S6;};
+            \path(S1)--(S2)node[pos=0.5,below,sloped,rotate=\<rotate2;]{\<L6;};
+            \path(S2)--(S3)node[pos=0.5,above,sloped,rotate=\<rotate2;]{\<L5;};
+            \path(S1)--(S3)node[pos=0.5,above,sloped,rotate=\<rotate2;]{\<L4;};
+        \end{tikzpicture}
+    \end{tblr}
+\end{center}
+\end{document}

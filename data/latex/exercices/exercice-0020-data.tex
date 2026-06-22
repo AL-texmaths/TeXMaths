@@ -1,0 +1,60 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{texmaths-boxes}
+\usepackage{multicol}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{.35\linewidth}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.4]
+            \def\rayon{5}
+            \def\angleDiff{10}
+            \def\rayonDiff{1}
+            \coordinate(O)at(0,0);
+            \foreach\num in{1,2,...,12}{
+                \coordinate(A1)at(\num*30-30-\angleDiff:\rayon);
+                \coordinate(A2)at(\num*30-30:\rayon+\rayonDiff);
+                \coordinate(A3)at(\num*30-30+\angleDiff:\rayon);
+                \filldraw[orange!50!white, fill=yellow!50!white](O)--(A1)--(A2)--(A3)
+                --cycle;
+                \node at(\num*30-30:\rayon){\circled{\num}};
+            }
+            \draw node at(O){O};
+        \end{tikzpicture}
+    \end{center}
+\end{minipage}\hspace{0.05\linewidth}
+\begin{minipage}[c]{.55\linewidth}
+    \begin{flushleft}
+        Cette rosace est formée de douze pétales superposables et régulièrement
+        répartis.
+    \end{flushleft}
+    \begin{enumerate}
+        \item Par la rotation de centre O et d'angle $120^\circ$ dans le sens
+        horaire, quelle est l'image du pétale:
+        \begin{enumerate}
+            \begin{multicols}{3}
+                \item\textcircled{\scalebox{0.7}{\<p1;}}\columnbreak
+                \item\textcircled{\scalebox{0.7}{\<p2;}}\columnbreak
+                \item\textcircled{\scalebox{0.7}{\<p3;}}
+            \end{multicols}
+        \end{enumerate}
+        \item Dans chaque cas, donner une rotation qui transforme le pétale:
+        \begin{enumerate}
+            \begin{multicols}{3}
+                \item\textcircled{\scalebox{0.7}{\<p4;}} en
+                \textcircled{\scalebox{0.7}{\<p5;}}\columnbreak
+                \item\textcircled{\scalebox{0.7}{\<p6;}} en
+                \textcircled{\scalebox{0.7}{\<p7;}}\columnbreak
+                \item\textcircled{\scalebox{0.7}{\<p8;}} en
+                \textcircled{\scalebox{0.7}{\<p9;}}
+            \end{multicols}
+        \end{enumerate}
+    \end{enumerate}
+\end{minipage}
+\end{document}

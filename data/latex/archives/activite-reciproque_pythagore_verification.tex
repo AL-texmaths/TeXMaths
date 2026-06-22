@@ -1,0 +1,65 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}\small
+    \begin{enumerate}[1),font=\bfseries]
+        \item Écrire le théorème de Pythagore.
+        \ncar2\dotedline
+        \item Écrire la réciproque du théorème de Pythagore.
+        \ncar2\dotedline
+        \item\textbf{Application :} Remplir le tableau suivant :
+        \begin{center}\def\triangleScale{1}
+            \begin{tblr}{%
+                    colspec={|Q[c,m,wd=100pt]|Q[c,m,wd=60pt]|Q[c,m,wd=60pt]|Q[c,m,wd=50pt]|},
+                    vlines, hlines,
+                    row{1} = {font=\bfseries},
+                    row{2-5} = {abovesep=10pt,belowsep=5pt}
+                }
+                Triangle&Carré du côté le plus long&Somme des carrés des
+                deux autres côtés&Triangle rectangle ?\\
+                \begin{tikzpicture}[baseline=(O.base)]
+                    \coordinate(O)at(0,0);
+                    \coordinate(A)at(180:\triangleScale);
+                    \coordinate(B)at(0:\triangleScale);
+                    \coordinate(C)at(120:\triangleScale);
+                    \draw(A)--(B)--(C)--cycle;
+                    \path(A)--(B)node[pos=0.5,below]{5 cm};
+                    \path(B)--(C)node[pos=0.5,above,sloped]{4 cm};
+                    \path(A)--(C)node[pos=0.5,above,sloped]{3 cm};
+                \end{tikzpicture}
+                &&&\\
+                \begin{tikzpicture}[baseline=(O.base),fullrotate=20,scale=0.95]
+                    \coordinate(O)at(0,0);
+                    \coordinate(A)at(180:\triangleScale);
+                    \coordinate(B)at(0:\triangleScale);
+                    \coordinate(C)at(120:\triangleScale);
+                    \draw(A)--(B)--(C)--cycle;
+                    \path(A)--(B)node[pos=0.5,below]{13 cm};
+                    \path(B)--(C)node[pos=0.5,above,sloped]{12 cm};
+                    \path(A)--(C)node[pos=0.5,above,sloped]{5 cm};
+                \end{tikzpicture}
+                &&&\\
+                \begin{tikzpicture}[baseline=(O.base),fullrotate=-40,scale=0.8]
+                    \coordinate(O)at(0,0);
+                    \coordinate(A)at(180:\triangleScale);
+                    \coordinate(B)at(0:\triangleScale);
+                    \coordinate(C)at(120:\triangleScale);
+                    \draw(A)--(B)--(C)--cycle;
+                    \path(A)--(B)node[pos=0.5,below]{2,9 cm};
+                    \path(B)--(C)node[pos=0.5,above,sloped]{2,1 cm};
+                    \path(A)--(C)node[pos=0.5,above,sloped]{2 cm};
+                \end{tikzpicture}
+                &&&\\
+                \begin{tikzpicture}[baseline=(O.base),fullrotate=40]
+                    \coordinate(O)at(0,0);
+                    \coordinate(A)at(180:\triangleScale);
+                    \coordinate(B)at(0:\triangleScale);
+                    \coordinate(C)at(120:\triangleScale);
+                    \draw(A)--(B)--(C)--cycle;
+                    \path(B)--(A)node[pos=0.5,below]{5,3 cm};
+                    \path(C)--(B)node[pos=0.5,above,sloped]{4,7 cm};
+                    \path(C)--(A)node[pos=0.5,above,sloped]{2,8 cm};
+                \end{tikzpicture}
+                &&&
+            \end{tblr}
+        \end{center}
+    \end{enumerate}
+\end{document}

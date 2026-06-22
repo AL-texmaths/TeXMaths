@@ -1,0 +1,35 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Pour chaque figure, calculer une valeur approchée de la longueur du côté noté
+par un point d'interrogation.\par\vskip5pt
+\begin{tikzpicture}[scale=0.8]
+    \coordinate[label=below left:A](A)at(0,0);
+    \coordinate[label=below right:B](B)at(3,0);
+    \coordinate[label=C](C)at(3,2);
+    \tkzMarkRightAngle[size=0.2](C,B,A)
+    \tkzLabelAngle[pos=1.1](A,C,B){\bfseries 40$^\circ$}
+    \tkzFillAngle[size=0.8,fill=black!25!white](A,C,B)
+    \draw(A)--(B)--(C)--cycle;
+    \path(C)--(B)node[midway,right]{\bfseries ?};
+    \path(A)--(C)node[midway,above left]{\bfseries 6};
+\end{tikzpicture}\hskip30pt
+\begin{tikzpicture}[scale=0.8]
+    \coordinate[label=below left:A](A)at(0,0);
+    \coordinate[label=below right:B](B)at(3,0);
+    \coordinate[label=C](C)at(3,2);
+    \tkzMarkRightAngle[size=0.2](C,B,A)
+    \tkzLabelAngle[pos=1.2](B,A,C){\bfseries 30$^\circ$}
+    \tkzFillAngle[size=0.8,fill=black!25!white](B,A,C)
+    \draw(A)--(B)--(C)--cycle;
+    \path(A)--(B)node[midway,below]{\bfseries ?};
+    \path(B)--(C)node[midway,right]{\bfseries 4,5};
+\end{tikzpicture}
+\end{document}

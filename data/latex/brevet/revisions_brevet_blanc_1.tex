@@ -1,0 +1,393 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}%             utf8 encoding
+\usepackage[T1]{fontenc}%                prevent T1 encoding warning
+\usepackage{lmodern}%                    prevent bitmapfont
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage[np]{numprint}
+\usepackage{scratch3}
+\usepackage{amsmath}
+\usepackage{tabularx}
+\usepackage{geometry}
+\usepackage{multicol}
+
+\newgeometry{
+        % includehead,
+        lmargin=50pt,
+        rmargin=50pt,
+        % textwidth=\page@width,
+        top=50pt,
+        % headsep=\page@vtop@sep,
+        % headheight=\page@head@height,
+        % textheight=\page@textheight,
+        % footskip=2\page@vtop@sep
+    }%
+
+\long\def\guillemets#1{{\guillemotleft}~#1~{\guillemotright}}
+
+\begin{document}
+
+\begin{center}\LARGE
+    Révisions Brevet Blanc : quatre exercices tirées des annales du Brevet.
+\end{center}
+
+\textbf{Exercice 1 (DNB Centres étrangers 2024)}
+
+\medskip
+
+Un entraîneur de sport prépare deux circuits d'entraînement contenant plusieurs exercices de cardio et de renforcement musculaire :
+
+\begin{itemize}[label=\textbullet]
+	\item un circuit commence à l'exercice 1 et se termine en revenant à l'exercice 1;
+	\item le circuit 1 contient cinq exercices. Chaque exercice dure 40 secondes et doit être suivi de 16 secondes de repos permettant de se rendre à l'exercice suivant;
+	\item le circuit 2 contient dix exercices. Chaque exercice dure 30 secondes et doit être suivi de 5 secondes de repos permettant de se rendre à l'exercice suivant.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[line cap=round,baseline={(C)}]
+		\draw[<-, >=stealth] (0,2.9)--(0,3.5) node[above]{Départ / Arrivée};
+		\foreach \ex in {1,...,5}{
+			\draw[line width=1.5pt] (162-\ex*72:2)circle (0.2);
+			\node at (162-\ex*72:2.7) {Ex~\ex};
+			\draw (162-\ex*72:2)--(90-\ex*72:2);}
+		\node (C) at(0,0) {Circuit 1};
+\end{tikzpicture}
+\hfill~
+\begin{tikzpicture}[line cap=round,baseline={(C)}]
+		\draw[<-, >=stealth] (0,2.9)--(0,3.5) node[above]{Départ / Arrivée};
+		\foreach \ex in {1,...,10}{
+			\draw[line width=1.5pt] (126-\ex*36:2)circle (0.2);
+			\node at (126-\ex*36:2.7) {Ex~\ex};
+			\draw (126-\ex*36:2)--(90-\ex*36:2);}
+		\node (C) at(0,0) {Circuit 2};
+\end{tikzpicture}
+
+\end{center}
+
+\begin{enumerate}
+\item Montrer que le circuit 1 s'effectue en 280 secondes et que le circuit 2 s'effectue en 350 secondes.
+\item Donner la décomposition en produit de facteurs premiers de $280$ et de $350$.
+\item Une séance d'entraînement est constituée de plusieurs tours du même circuit.
+
+Au coup de sifflet de l'entraîneur, Camille commence une séance d'entraînement sur le circuit 1 et Dominique sur le circuit 2.
+
+	\begin{enumerate}
+		\item Expliquer pourquoi, lorsque \np{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1.
+
+		Préciser où se trouve Dominique sur le circuit 2 lorsque \np{2800} secondes se sont écoulées.
+
+		\item Après le coup de sifflet, combien de temps faut-il à Camille et Dominique pour se retrouver en même temps pour la première fois au départ de leur circuit ? Exprimer cette durée en minute et seconde.
+	\end{enumerate}
+\end{enumerate}
+
+\newpage\textbf{Exercice 2 (DNB Asie juin 2024)}
+
+\medskip
+
+On considère le programme de calcul ci-dessous :
+
+\begin{center}
+\begin{tabular}{|l|}\hline
+$\bullet~$Choisir un nombre\\
+$\bullet~$Mettre ce nombre au carré\\
+$\bullet~$Soustraire le triple du nombre de départ\\
+$\bullet~$Soustraire 4\\ \hline
+\end{tabular}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item Montrer que si on choisit 5 comme nombre de départ, le résultat du programme est 6.
+\item On choisit $x$ comme nombre de départ.
+
+Exprimer le résultat du programme en fonction de $x$.
+\item Vérifier que l'on peut écrire ce résultat sous la forme $(x+ 1)(x - 4)$.
+\item Déterminer les nombres à choisir au départ pour que le résultat du programme soit 0.
+\item Juliette a écrit le programme ci-dessous :
+
+\begin{scratch}[num blocks]
+\blockinit{quand \greenflag est cliqué}
+\blockmove{demander \ovalnum{Choisir un nombre} et attendre}
+\blockvariable{mettre \selectmenu{x} à \ovalmove{réponse}}
+\blockvariable{mettre \selectmenu{y} à \ovaloperator{\ovalnum{\ldots}*\ovalnum{\ldots}}}
+\blockvariable{mettre \selectmenu{z} à \ovaloperator{\ovalnum{3}*\ovalnum{x}}}
+\blockvariable{mettre \selectmenu{Résultat} à \ovaloperator{\ovalnum{\ldots}-\ovalnum{\ldots} - 4}}
+\blocklook{dire \ovalnum{Résultat } pendant \ovalnum{5}secondes}
+\end{scratch}
+\end{enumerate}
+
+\medskip
+
+Recopier et compléter sur la copie les lignes 4 et 6 du programme afin que celui-ci corresponde au programme de calcul encadré.
+
+\bigskip
+
+\newpage\textbf{Exercice 3 (DNB Métropole 2024)}
+
+\medskip
+
+Sur la figure ci-dessous, on a :
+
+\medskip
+
+\begin{itemize}
+\item $\mathcal{C}$ est un cercle de centre O et de rayon $4,5$~cm ;
+\item $[\text{AB}]$ est un diamètre de ce cercle et D est un point du cercle ;
+\item les points B, E, A sont alignés, ainsi que les points D, F{}, A ;
+\item les droites (BD) et (EF) sont parallèles ;
+\item BD $= 5,4$ cm ~;~ DA $= 7,2$ cm \:et\: AE $= 2,7$ cm.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.75]
+    \coordinate[label=below:O](O)at(0,0);
+    \coordinate[label=right:A](A)at(4.5,0);
+    \coordinate[label=left:B](B)at(-4.5,0);
+    \coordinate[label=above left:D](D)at(106.26:4.5);
+    \coordinate[label=below:E](E)at(1.8,0);
+    \path(A)--(D)coordinate[pos=0.3,label=above right:F](F);
+    \draw(A)--(B)--(D)--cycle;
+    \draw(E)--(F);
+    \draw(O)circle(4.5);
+    \draw node at(45:5){$\mathcal{C}$};
+\end{tikzpicture}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Justifier que le diamètre [AB] mesure 9 cm.
+\item Démontrer que le triangle ABD est rectangle en D.
+\item Calculer AF{}.
+\item 
+	\begin{enumerate}
+		\item Justifier que l'aire du triangle ABD est égale à $19,44~\text{cm}^2$.
+		\item Calculer l'aire du disque, arrondie au centième.
+	\end{enumerate}
+	
+\emph{Rappel} : l'aire du disque est égale à $\pi \times R^2$, où $R$ est le rayon du disque. 
+\item Quel pourcentage de l'aire du disque représente l'aire du triangle ABD ?
+\end{enumerate}
+
+\bigskip\newpage
+\textbf{Exercice 4 (DNB Asie 2022)}\par
+\medskip
+Lors des Jeux paralympiques de 2021, les médias ont proposé un classement des pays en
+fonction de la répartition des médailles obtenues. Voici le classement obtenu pour les 15 premiers pays :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|m{2.75cm}|*{5}{>{\centering \arraybackslash}X|}}\hline
+%\begin{tblr} {colspec={Q[c,gray9,font={\sffamily}]cc*{4}{X[c]}},hlines,vlines}
+%	\SetRow{gray9,font={\sffamily}}   
+&A  &B  &C  &D  &E  &F\\ \hline
+	1  & Nations &Classement &Or &Argent &Bronze &Total\\ \hline
+%	\SetCell{gray7}
+	2  & Chine      &1  &96 &60 &51 &207 \\ \hline
+	3  & Grande-Bretagne           &2  &41 &38 &45 &124 \\ \hline
+	4  & Etats-Unis                &3  &37 &36 &31 &104 \\ \hline
+	5  & Comité paralympique Russe &4  &36 &33 &49 &118 \\ \hline
+	6  & Pays-Bas                  &5  &25 &17 &17 &59 \\ \hline
+	7  & Ukraine                   &6  &24 &47 &27 &98 \\ \hline
+	8  & Brésil                    &7  &22 &20 &30 &72 \\ \hline
+	9  & Australie                 &8  &21 &29 &30 &80 \\ \hline
+	10 & Italie                    &9  &14 &29 &   &69 \\ \hline
+	11 & Azerbaïdjan               &10 &14 &1  &4  &19 \\ \hline
+	12 & Japon                     &11 &13 &15 &23 &51 \\ \hline
+	13 & Allemagne                 &12 &13 &12 &18 &43 \\ \hline
+	14 & Iran                      &13 &12 &11 &1  &24 \\ \hline
+	15 & France                    &14 &11 &15 &28 &54 \\ \hline
+	16 & Espagne                   &15 &9  &15 &12 &36 \\ \hline
+%\end{tblr}
+\end{tabularx}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+	\item Combien de médailles d'argent l'Australie a-t-elle obtenues ?
+	\item Calculer le nombre de médailles de bronze obtenues par l'Italie.
+	\item Quelle formule a pu être saisie en \textsf{F2} avant d'être étirée vers le bas ?
+	\item Pour chacune des deux affirmations suivantes, indiquer si elle est vraie ou fausse.
+
+	\emph{On rappelle que les réponses doivent être justifiées.}
+
+	\textbf{Affirmation 1:}
+
+	\guillemets{20\,\% des médailles obtenues par l'équipe de France sont en or.}
+
+	\smallskip
+
+	\textbf{Affirmation 2:}
+
+	\guillemets{La médiane du nombre de médailles d'argent obtenues par ces 15 pays est 29.}
+
+	\item Aux Jeux paralympiques de Rio en 2016, la prime pour une médaille d'or française était de \np{50000} euros. Pour ceux de Tokyo en 2021, cette prime était de \np{65000} euros.
+
+Quel est le pourcentage d'augmentation de cette prime entre 2016 et 2021~?
+
+\end{enumerate}
+
+\newpage
+\begin{center}\LARGE
+    CORRECTION DES EXERCICES
+\end{center}
+
+\textbf{Exercice 1}
+
+\medskip
+
+\begin{enumerate}
+\item Le circuit 1, c'est quand on enchaîne cinq fois de suite 40 secondes d'exercice et 16 secondes de repos, soit 5 fois  $40 + 16 = 56$ secondes.
+
+On a donc bien besoin de  :\quad $5 \times 56 = 280$ secondes pour effectuer le circuit 1.
+
+Pour le circuit 2 : même principe, on enchaîne dix fois 30 secondes d'exercice et 5 secondes de repos :
+
+$10 \times (30 + 5 ) = 10\times 35 = 350$
+
+Il faut bien 350 secondes pour effectuer le circuit 2.
+
+\item Donnons la décomposition en produit de facteurs premiers de $280$ et de $350$.
+
+\begin{multicols}{2}
+$\aligned[t] 280 &= 4 \times 7 \times 10\\
+&= 2 \times 2 \times 7 \times 2 \times 5\\
+&= 2^3 \times 5 \times 7 \\\endaligned$
+
+$\aligned[t] 350 &= 5 \times 7 \times 10\\
+&= 5 \times 7 \times 2 \times 5\\
+&= 2 \times 5^2 \times 7 \\\endaligned$
+\end{multicols}
+
+La décomposition de 280 en produit de facteurs premiers est : \quad $280= 2^3 \times 5 \times 7$.
+
+Celle de 350 est :\phantom{sition de 280 en produit de facteurs premiers} \quad $350= 2 \times 5^2 \times 7$
+\item \begin{enumerate}
+		\item Lorsque \np{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1 car $\np{2800} = 10 \times 280$, donc comme 10 est un nombre entier, cela signifie que Camille a effectué 10 fois le circuit 1 complètement, et n'a pas encore commencé la 11$^\text{e}$ répétition : Camille est donc à nouveau au départ du circuit 1.
+
+On a :\quad $\dfrac{\np{2800}}{350 } = 8$.
+
+\emph{Rem. } Ou encore $\np{2800} = 7 \times 4 \times 100 = 7 \times 4 \times 10 \times 10 =  7 \times 2^2 \times 2^2 \times 5^2 = 2^4 \times 5^2 \times 7 = 2^3 \times (2 \times 5^2 \times 7) = 8 \times 350$.
+
+Au bout de ces \np{2800}, Dominique a donc parcouru exactement 8 parcours 2  : elle est donc au départ.
+	\item Après le coup de sifflet, la première fois où Camille et Dominique se retrouvent en même temps au départ de leur circuit est pour un nombre de secondes qui est le multiple commun à 280 et à 350 le plus petit possible.
+
+Les facteurs premiers de 280 et de 350 sont les mêmes : 2, 5 et 7.
+
+Pour qu'un nombre soit divisible par 280, il faut au moins trois facteurs 2, au moins un facteur 5 et au moins une fois le facteur 7 au moins une fois.
+
+Pour qu'un nombre soit divisible par 350, il faut au moins un facteur 2, au moins deux facteurs 5 et au moins une fois le facteur 7.
+
+En réunissant ces critères, il faut donc $2^3 \times 5^2 \times 7 = \np{1400}$ secondes pour que Camille et Dominique se retrouvent pour la première en même temps au départ de leur circuit.
+
+Comme $\np{1400} = \np{1200} + 200 = 20 \times 60 + 180 = 20 \times 60 + 3 \times 60 + 20 = 23 \times ,60 + 20$, on a \np{1400}(s) = 23 (min 20~(s).
+
+(C'est logique : après \np[s]{2800} les deux avaient fait un nombre pair de tours complets, donc en divisant le temps par 2, ils ont encore fait un nombre entier de tours complets chacun, et donc se retrouvent au début du circuit).
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\textbf{Exercice 2}
+
+\smallskip
+
+\begin{enumerate}
+	\item En choisissant 5 comme nombre de départ, les deux résultats intermédiaires sont : 
+	$5 - 2 = 3 $ (à gauche) \quad et \quad$5 + 1 = 6$ (à droite).
+
+Le résultat final est donc le produit de ces deux résultats intermédiaires :\quad $3\times 6 = 18$.
+
+On a bien 18 comme résultat final.
+
+	\item Si le nombre de départ choisi est $-\dfrac{3}{2}$, alors les deux résultats intermédiaires sont : \quad $-\dfrac{3}{2} - 2 = -\dfrac{7}{2}$  (à gauche)\quad et \quad $-\dfrac{3}{2} + 1 = -\dfrac{1}{2}$ (à droite).
+
+Le résultat final est alors : \quad $-\dfrac{7}{2}\times \dfrac{-1}{2} = \dfrac{7}{4}$
+
+	\item Le script complété est :
+	\begin{center}
+		\begin{scratch}[num blocks]
+			\blockinit{Quand \greenflag est cliqué}
+			\blocksensing{demander \ovalnum{choisir un nombre} et attendre}
+			\blockvariable{mettre \selectmenu{a} à \ovaloperator{\ovalvariable{réponse} - \ovalnum{2}}}
+			\blockvariable{mettre \selectmenu{b} à \ovaloperator{\ovalvariable{réponse} + \ovalnum{1}}}
+			\blocklook{dire \ovalnum{a}*\ovalnum{b} pendant \ovalnum{2} secondes}
+		\end{scratch}
+	\end{center}
+
+\end{enumerate}
+
+\medskip
+\textbf{Exercice 3}
+\begin{enumerate}
+    \item %Justifier que le diamètre [AB] mesure 9 cm.
+    
+    %On sait que le triangle ABD inscrit dans un cercle admettant l'un de ces côtés comme diamètre d'un cercle est rectangle ; ce diamètre [AB] est l'hypoténuse et il est donc rectangle en D.
+    %Le théorème de Pythagore s'écrit alors :
+    %
+    %AB$^2 = \text{BD}^2 + \text{DA}^2 = 5,4^2 + 7,2^2 = (0,9 \times 6)^2 + (0,9 \times 8)^2 = 0,9^2 \times 6^2 + 0,9^2 \times 8^2 = 0,9^2\left(6^2 + 8^2 \right) = 0,9^2 \times (36 + 64) = 0,9^2 \times 100 = 0,9^2 \times 10^2 = (0,9 \times 10)^2 =  9^2$
+    %
+    %Conclusion AB $ = 9$~(cm).
+    On a AB $ = 2R = 2 \times 4,5 = 9$~(cm).
+    \item %Démontrer que le triangle ABD est rectangle en D.
+    On a AD$^2 = 7,2^2$ et DB$^2 = 5,4^2$, d'où AD$^2 + \text{DB}^2 = 7,2^2 + 5,4^2 = 51,84 + 29,16 = 81 = 9^2 = \text{AB}^2$.
+    
+    Donc AD$^2 + \text{DB}^2  = \text{AB}^2$ : d'après la réciproque du théorème de Pythagore le triangle ABD est rectangle en D ; [AB] est l'hypoténuse.
+    \item %Calculer AF{}.
+    Comme les points B, E, A sont alignés, ainsi que les points D, F{}, A et
+    que les droites (BD) et (EF) sont parallèles on est dans une situation de Thalès et on a donc les égalités :
+    
+    $\dfrac{\text{AE}}{\text{AB}} = \dfrac{\text{AF}}{\text{AD}} = \dfrac{\text{EF}}{\text{BD}}$.
+    
+    En particulier $\dfrac{\text{AE}}{\text{AB}} = \dfrac{\text{AF}}{\text{AD}}$ ou $\dfrac{2,7}{9} = \dfrac{\text{AF}}{7,2}$ soit $0,3 = \dfrac{\text{AF}}{7,2}$, d'où AF $ = 0,3 \times 7,2 = 2,16$~(cm).
+    \item 
+        \begin{enumerate}
+            \item %Justifier que l'aire du triangle ABD est égale à $19,44~\text{cm}^2$.
+            Si $\mathcal{A}$ est l'aire du triangle ABD, on sait que $\mathcal{A} = \dfrac{\text{BD} \times \text{AD}}{2} = \dfrac{5,4 \times 7,2}{2} = 5,4 \times 3,6 = 19,44~\text{cm}^2$.
+            \item %Calculer l'aire du disque, arrondie au centième.
+            
+    L'aire du disque est égale à $\pi \times R^2 = \pi \times 4,5^2 = \left(\dfrac92 \right)^2 \times \pi  = \dfrac{81}{4}\pi \approx 63,617$, soit 63,62 au centième de cm$^2$.
+        \end{enumerate}
+        
+    %\emph{Rappel} : l'aire du disque est égale à $\pi \times R^2$, où $R$ est le rayon du disque. 
+    \item Quel pourcentage de l'aire du disque représente l'aire du triangle ABD ?
+    L'aire du triangle ABD représente pour l'aire du disque un pourcentage égal à environ :
+    
+    $\dfrac{19,44}{63,62} \times 100$ soit environ 30,6\,\%.
+    \end{enumerate}
+    
+    \bigskip
+    \newpage
+    \textbf{Exercice 4}
+
+    \medskip
+    
+    \begin{enumerate}
+    \item L'Australie a obtenu $29$ médailles d'argent.
+    \item On a $69 - 29 - 14 = 40 - 14 = 26$.
+    
+    L'Italie a obtenu 26 médailles de bronze.
+    \item La formule à insérer est : = somme(C2 : E2).
+    
+    \item ~
+    
+    \textbf{Affirmation 1} Le pourcentage est : $\dfrac{11}{54} \times 100 \approx 20,4$ soit à l'unité près 20\,\%.
+    
+    L'affirmation 1 est donc vraie à l'arrondi près.
+    
+    \medskip
+    
+    \textbf{Affirmation 2} Il y a 15 données, la médiane est donc la 8$^\text{e}$ donnée de la série rangée dans l'ordre croissant, (1\:11 \:12 \:15 \:15 \:15 \:17 \:20 \:29) à savoir 20.
+    
+    L'affirmation 2 est donc fausse.
+    \item  On calcule $\dfrac{\np{65000}}{\np{50000}} = 1,30$.
+    
+    La prime a augmenté de 30\,\% entre 2016 et 2021.
+    
+    \end{enumerate}
+    
+    \bigskip 
+    
+
+\end{document}

@@ -1,0 +1,102 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Rappels}
+    \subpart{Multiplication par un entier}
+    \propriete{multiplication_fraction_par_entier}
+    \noindent{\bfseries Exemple~:}
+    $$8\times\dfrac47=\dfrac{8\times4}7=\dfrac{32}7$$\vskip10pt
+    \subpart{Addition de fractions de même dénominateur}
+    \propriete{addition_fractions_meme_denominateur}
+    \noindent{\bfseries Exemple~:}
+    $$\dfrac13+\dfrac43=\dfrac{1+4}3=\dfrac53$$\vskip10pt
+    \noindent{\bfseries Remarque~:}
+    Cette formule fonctionne avec la soustraction~:
+    $$\dfrac37-\dfrac17=\dfrac{3-1}7=\dfrac27$$
+    \newpage
+    \bigpart{Additions de deux fractions}
+    \subpart{Mise au même dénominateur}\noindent
+    Écriture d'une même fraction avec un dénominateur
+    supérieur~:\vskip10pt
+    {\centering\noindent\fraction2/3,scale=1,color=black;
+    \def\lenght{1.5}
+    \def\col{crimson}
+    \begin{tblr}{ccc}
+        &\color{vscode-\col}\Large$\times4$&\\
+        \SetCell[c=3]{l,m}\newuparrow[line width=1.2pt]{1.5}&&\\
+        $\dfrac23$&$=$&$\dfrac8{12}$\\
+        \SetCell[c=3]{l,m}\newdownarrow[line width=1.2pt]{1.5}&&\\
+        &\color{vscode-\col}\Large$\times4$&\\
+    \end{tblr}
+    \fraction8/12,scale=1,color=black;\par}\vskip10pt\noindent Écriture d'une même fraction avec un dénominateur inférieur
+    (simplification)~:\vskip10pt
+    {\centering
+    \noindent\fraction6/8,scale=1,color=black;
+    \def\lenght{1.5}
+    \def\col{crimson}
+    \begin{tblr}{ccc}
+        &\color{vscode-\col}\Large$\div2$&\\
+        \SetCell[c=3]{l,m}\newuparrow[line width=1.2pt]{1.5}&&\\
+        $\dfrac68$&$=$&$\dfrac34$\\
+        \SetCell[c=3]{l,m}\newdownarrow[line width=1.2pt]{1.5}&&\\
+        &\color{vscode-\col}\Large$\div2$&\\
+    \end{tblr}
+    \fraction3/4,scale=1,color=black;\par}
+    \propriete{egalite_de_fractions}
+    \noindent{\bfseries Exemple~:}\par\noindent
+    Cela permet de simplifier des fractions~:
+    $$\dfrac{110}{120}=\dfrac{10\times11}{10\times12}=\dfrac{11}{12}~;$$
+    ou de modifier le dénominateur d'une fraction~:
+    $$\dfrac34=\dfrac{5\times3}{5\times4}=\dfrac{15}{20}.$$
+    \definition{fraction_irreductible}
+    \noindent{\bfseries Exemple~:}\par\noindent
+    La fraction $\dfrac68$ n'est pas irréductible puisque l'on peut la simplifier en
+    $\dfrac34$. En revanche, $\dfrac34$ est irréductible puisque l'on ne peut pas
+    la simplifier.\vskip5pt
+    \subpart{Dénominateurs multiples}
+    Si un des dénominateur est multiple de l'autre, il suffit de transformer la
+    fraction qui a le plus petit dénominateur.
+    \noindent{\bfseries Exemple~:}\vskip10pt\noindent\begingroup\renewcommand{\arraystretch}{2}
+    $\begin{array}{cccc}
+        &\dfrac37&+&\dfrac{13}{14}\\
+        =&\dfrac{{\color{vscode-crimson}2\times}3}{{\color{vscode-crimson}2\times}7}&+&\dfrac{13}{14}\\
+        =&\dfrac6{14}&+&\dfrac{13}{14}\\
+        =&&\dfrac{6+13}{14}&\\
+        =&&\dfrac{19}{14}&\\
+    \end{array}$\hfil
+    $\begin{array}{cccc}
+        &\dfrac{22}{35}&-&\dfrac{2}{5}\\
+        =&\dfrac{22}{35}&-&\dfrac{{\color{vscode-crimson}7\times}2}{{\color{vscode-crimson}7\times}5}\\
+        =&\dfrac{22}{35}&-&\dfrac{14}{35}\\
+        =&&\dfrac{22-14}{35}&\\
+        =&&\dfrac{8}{35}&\\
+    \end{array}$
+    \endgroup\vskip10pt
+    \subpart{Dénominateur quelconque}
+    Dans le cas où aucun dénominateur n'est multiple de l'autre, il faut modifier les
+    deux fractions. Dans certain cas, on peut trouver un dénominateur commun plus simple.
+    \vskip5pt\noindent{\bfseries Exemple~:} On remarque que 4 et 6 sont des diviseurs de 12 !\vskip10pt\noindent\begingroup\renewcommand{\arraystretch}{2}
+    $\begin{array}{cccc}
+        &\dfrac14&+&\dfrac56\\
+        =&\dfrac{{\color{vscode-crimson}3\times}1}{{\color{vscode-crimson}3\times}4}&+&\dfrac{{\color{vscode-crimson}2\times}5}{{\color{vscode-crimson}2\times}6}\\
+        =&\dfrac{3}{12}&+&\dfrac{10}{12}\\
+        =&&\dfrac{13}{12}&
+    \end{array}$\endgroup
+    \newpage\noindent
+    La méthode qui fonctionne toujours consiste à multiplier les dénominateurs entre eux.\vskip5pt
+    \noindent{\bfseries Exemple~:}\vskip10pt\noindent\begingroup\renewcommand{\arraystretch}{2}
+    $\begin{array}{cccc}
+        &\dfrac72&+&\dfrac53\\
+        =&\dfrac{{\color{vscode-crimson}3\times}7}{{\color{vscode-crimson}3\times}2}&+&\dfrac{{\color{vscode-crimson}2\times}5}{{\color{vscode-crimson}2\times}3}\\
+        =&\dfrac{21}6&+&\dfrac{10}6\\
+        =&&\dfrac{21+10}{6}&\\
+        =&&\dfrac{31}{6}&\\
+    \end{array}$\hfil
+    $\begin{array}{cccc}
+        &\dfrac{7}{8}&-&\dfrac{2}{5}\\
+        =&\dfrac{{\color{vscode-crimson}5\times}7}{{\color{vscode-crimson}5\times}8}&-&\dfrac{{\color{vscode-crimson}8\times}2}{{\color{vscode-crimson}8\times}5}\\
+        =&\dfrac{35}{40}&-&\dfrac{16}{40}\\
+        =&&\dfrac{35-16}{35}&\\
+        =&&\dfrac{19}{35}&\\
+    \end{array}$\endgroup
+    \bigpart{Résolutions de problèmes}
+\end{document}

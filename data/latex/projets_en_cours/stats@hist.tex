@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage{tikz}
+
+\makeatletter
+
+\def\@xfirst[#1,#2]{#1}
+\def\@xlast[#1,#2]{#2}
+
+\pgfkeys
+{
+    /stats/.cd,
+    name/.store in=\stats@hist@name,
+    name = name,
+    varName/.store in=\stats@hist@varname,
+    varName = variable,
+    serie/.store in=\stats@hist@serie,
+    serie = {a,b,c},
+    bar width/.store in=\stats@hist@barwidth,
+    bar width=0.5,
+    xrange/.store in=\stats@hist@xrange,
+    xrange = [0,4]%
+}
+
+\edef\stats@hist@xfirst{\@xfirst[0,5]}
+\edef\stats@hist@xlast{\expandafter\@xlast[0,5]}
+
+\def\stats@hist#1{%
+\pgfkeys{/stats/.cd,#1}
+BONJOUR \stats@hist@name BONJOUR
+}
+\def\StatsHist#1{\stats@hist{#1}}
+% \makeatother
+
+\begin{document}
+
+\StatsHist{name=GRAPHIQUE, varName=Notes, serie={a,b,c}}
+
+\begin{tikzpicture}
+    \newcount\barspace
+    \barspace=0
+    \foreach[count=\xi]\var in \stats@hist@serie%
+    {
+        \draw(\xi,0.1)--(\xi,-0.1);
+        \draw node[anchor=base] at(\xi,-0.5){\var};
+    }
+    \draw node at(0,\stats@hist@xlast){laijd};
+\end{tikzpicture}
+
+\end{document}

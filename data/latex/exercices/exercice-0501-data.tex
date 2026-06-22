@@ -1,0 +1,33 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{inconnue}
+\cycle{4}
+\competencesDuSocle{RA}
+\connaissancesRequises{D2b5}
+\competencesTravaillees{D2d*,D2e*}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{.32\linewidth}
+    Sur la figure ci-contre, les points A, B et L sont alignés et
+    $\text{AB}=\text{KB}$.
+\end{minipage}\hskip30pt minus 20pt
+\begin{tikzpicture}[scale=1.5, baseline=(current bounding box.center)]
+    \coordinate[label=below left:A](A)at(0,0);
+    \coordinate[label=below:B](B)at(1,0);
+    \coordinate[label=above:C](C)at(1,2);
+    \coordinate[label=below right:L](L)at(3,0);
+    \coordinate[label=left:K](K)at(1,1);
+    \tkzMarkAngle[mark=|,size=0.2](B,A,C)
+    \tkzMarkAngle[mark=|,size=0.2](B,K,L)
+    \tkzMarkRightAngle[size=0.2](C,B,A)
+    \draw(A)--(L)--(K)--(C)--cycle;
+    \draw(B)--(K);
+\end{tikzpicture}
+\begin{enumerate}
+    \item Les triangles ABC et BKL sont-ils égaux~? Justifier.
+    \item Donner une longueur égale a AC.
+    \item Donner une longueur égal à BC.
+    \item Donner un angle de même mesure que $\widehat{\text{ACB}}$.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,171 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+    \part{Périmètre et unités de longueurs}
+    \definition{perimetre_figure_plane}
+    \definition{unite_de_longueur}
+    \begin{exemple}Convertir les unités de longueur suivantes:
+        \begin{enumerate}[a), font=\bfseries]
+            \begin{multicols}{2}
+                \item 4,5 m = \textcolor{red}{450} cm
+                \item 103 mm = \textcolor{red}{10,3} m
+                \columnbreak
+                \item 3960 km = \textcolor{red}{3,960} m
+                \item 36 cm = \textcolor{red}{0,00036} hm
+            \end{multicols}
+        \end{enumerate}
+        \begin{center}
+            \exported[scale=1,lmargin=30,vmargins=30]%
+            <<
+                \begin{tblr}{
+                    colspec={Q[c,m]Q[c,m]Q[c,m]Q[c,m]Q[c,m]Q[c,m]Q[c,m]},
+                    vlines,
+                    columns={wd=50pt},
+                    rows={ht=25pt}%
+                }
+                \hline
+                \toComplete{km}&\toComplete{hm}&\toComplete{dam}&\toComplete{m}&\toComplete{dm}&\toComplete{cm}&\toComplete{mm}\\\hline
+                &&&&&&\\ &&&&&&\\ &&&&&&\\ &&&&&&\\ &&&&&&\\ &&&&&&\\\hline
+                \end{tblr}
+            >>
+        \end{center}
+    \end{exemple}
+    
+    \newpage
+    \part{Périmètre des figures planes usuelles}
+        \subpart{Périmètre d'un polygone}
+            \methode{perimetre_polygone}
+            \begin{exemple}\par\noindent
+                \begin{center}
+                    \exported[scale=0.8,lmargin=30,vmargins=30]%
+                    <<
+                        \begin{tblr}{%
+                                colspec={Q[c,m]Q[c,m]},
+                                hlines,vlines,
+                                row{1} = {font=\bfseries},
+                                row{odd} = {bg=Rainbow1-rouge!40!white},
+                                row{even} = {bg=Rainbow1-rouge!70!white},
+                                column{2} = {wd=200pt}%
+                            }
+                            Polygone&Périmètre du polygone\\
+                            \begin{tikzpicture}[baseline=(O.base)]
+                                \coordinate(O)at(0,1.5);
+                                \coordinate[label=below left:A](A)at(-2,0);
+                                \coordinate[label=below right:B](B)at(2,0);
+                                \coordinate[label=above:C](C)at(1,3);
+                                \draw(A)--(B)--(C)--cycle;
+                                \path(A)--(B)node[pos=0.5,below]{5 cm};
+                                \path(A)--(C)node[pos=0.5,above,sloped]{6 cm};
+                                \path(C)--(B)node[pos=0.5,above,sloped]{3,5 cm};
+                            \end{tikzpicture}
+                            &\toComplete{\begingroup\renewcommand{\arraystretch}{1.3}
+                            $\begin{array}{cccccc}
+                                &AB&+&BC&+&AC\\
+                                =&5&+&3,5&+&6\\
+                                =&14,5&&&&
+                            \end{array}$\endgroup\\\vspace{20pt}
+                            Le périmètre du triangle \textsf{ABC} vaut 14,5~cm.}
+                            \\
+                            \begin{tikzpicture}[baseline=(O.base)]
+                                \coordinate(O)at(0,-0.5);
+                                \coordinate[label=below right:E](E)at(2,-1);
+                                \coordinate[label=above right:F](F)at(2,1);
+                                \coordinate[label=above left:G](G)at(-2,1);
+                                \coordinate[label=below left:H](H)at(-2,-1);
+                                \draw(E)--(F)--(G)--(H)--cycle;
+                                \path(G)--(F)node[pos=0.5,sloped]{||};
+                                \path(H)--(E)
+                                    node[pos=0.5,sloped]{||}
+                                    node[pos=0.5,shift={(0,-0.5)}]{4,5 cm};
+                                \path(G)--(H)node[pos=0.5,sloped]{|};
+                                \path(F)--(E)
+                                    node[pos=0.5,sloped]{|}
+                                    node[pos=0.5,sloped,shift={(0,0.5)}]{3 cm};
+                            \end{tikzpicture} &\toComplete{\begingroup\renewcommand{\arraystretch}{1.3}
+                            $\begin{array}{cccccccc}
+                                &EF&+&FG&+&GH&+&HE\\
+                                =&3&+&4,5&+&3&+&4,5\\
+                                =&15&&&&
+                            \end{array}$\endgroup\\\vspace{20pt}
+                            Le périmètre du rectangle \textsf{EFGH} vaut 15~cm.}
+                            \\
+                            \begin{tikzpicture}[baseline=(O.base)]
+                                \coordinate(O)at(0,-0.7);
+                                \coordinate[label=right:I](I)at(0:1.5);
+                                \coordinate[label=above:J](J)at(90:1);
+                                \coordinate[label=left:K](K)at(180:1.5);
+                                \coordinate[label=below:L](L)at(-90:1);
+                                \draw(I)--(J)--(K)--(L)--cycle;
+                                \path(I)--(J)node[pos=0.5,sloped]{||};
+                                \path(J)--(K)node[pos=0.5,sloped]{||};
+                                \path(K)--(L)node[pos=0.5,sloped]{||};
+                                \path(L)--(I)
+                                    node[pos=0.5,sloped]{||}
+                                    node[pos=0.5,sloped,shift={(-90:0.4)}]{3 cm};
+                            \end{tikzpicture} &\toComplete{\begingroup\renewcommand{\arraystretch}{1.3}
+                            $\begin{array}{cccccccc}
+                                &IJ&+&JK&+&KL&+&LI\\
+                                =&3&+&3&+&3&+&3\\
+                                =&4&\times&3&&\\
+                                =&&12&&&
+                            \end{array}$\endgroup\\\vspace{20pt}
+                            Le périmètre du losange \textsf{IJKL} vaut 12~cm.}\\
+                            \begin{tikzpicture}[baseline=(X.base)]
+                                \coordinate(X)at(0,-0.5);
+                                \coordinate[label=right:M](M)at(0:1);
+                                \coordinate[label=above left:N](N)at(120:1);
+                                \coordinate[label=below left:O](O)at(-120:1);
+                                \draw(M)--(N)--(O)--cycle;
+                                \path(M)--(N)
+                                    node[pos=0.5,sloped]{||}
+                                    node[pos=0.5,sloped,shift={(90:0.4)}]{7 cm};
+                                \path(N)--(O)node[pos=0.5,sloped]{||};
+                                \path(O)--(M)node[pos=0.5,sloped]{||};
+                            \end{tikzpicture} &\toComplete{\begingroup\renewcommand{\arraystretch}{1.3}
+                            $\begin{array}{cccccc}
+                                &MN&+&NO&+&OP\\
+                                =&7&+&7&+&7\\
+                                =&3&\times&7&&\\
+                                =&&21&&&
+                            \end{array}$\endgroup\\\vspace{10pt}
+                            Le périmètre du triangle \textsf{MNO} vaut 21~cm.}
+                        \end{tblr}
+                    >>
+                \end{center}
+            \end{exemple}
+
+        \newpage
+        \subpart{Périmètre d'un cercle}
+            \propriete{perimetre_cercle}
+            \begin{remarque}
+                Le nombre $\pi$ (prononcé \guillemets{pi}) est défini par la
+                formule ci-dessus. Il vaut environ 3,14.
+            \end{remarque}
+            \begin{exemple}
+                \exported[scale=1,lmargin=30,vmargins=30]%
+                    <<
+                        \par\noindent
+                        \begin{minipage}[c]{.45\linewidth}
+                            \begin{tikzpicture}
+                                \coordinate[label=below left:O](O)at(0,0);
+                                \draw(O)circle(2.6);
+                                \coordinate[label=above right:A](A)at(30:2.6);
+                                \node at(A){$\times$};
+                                \node at(O){$\times$};
+                                \path(O)--(A)node[pos=0.5,sloped,above]{2,6 cm};
+                                \draw(O)--(A);
+                                \node at(0,3){\phantom{a}};
+                            \end{tikzpicture}
+                        \end{minipage}\hspace{.08\linewidth}
+                        \begin{minipage}[c]{.45\linewidth}
+                            \toComplete{Le rayon de ce cercle vaut 2,6 cm. Donc son diamètre vaut 5,2~cm.
+                            \vspace{20pt}
+                            \begingroup\renewcommand{\arraystretch}{1.3}$\begin{array}{ccccc}
+                                \textsf{périmètre cercle}&=&\textsf{diamètre}&\times&\pi\\
+                                &=&5,2&\times&\pi\\
+                                &\approx&16,34&
+                            \end{array}$\endgroup\vspace{10pt}
+                            Le périmètre du cercle vaut environ 16,34~cm.}
+                        \end{minipage}
+                    >>
+            \end{exemple}
+\end{document}

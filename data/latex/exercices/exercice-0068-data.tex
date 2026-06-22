@@ -1,0 +1,43 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularray}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!scale=1;%
+\begin{minipage}[c]{.45\linewidth}
+    Trois élèves ont observés le dessin et écrit les phrases suivantes
+    dans leur cahier.
+\end{minipage}\hspace{.05\linewidth}
+\begin{minipage}[c]{.45\linewidth}
+    \begin{tikzpicture}[scale=\<scale;,baseline=(O.base),rotate=50]
+        \coordinate(O)at(0,0);
+        \coordinate[label=below left:\<S1;](S1)at(-1,0);
+        \coordinate[label=above right:\<S2;](S2)at(1,0);
+        \coordinate[label=above right:\<S4;](S3)at(0,-1.5);
+        \coordinate[label=above right:\<S3;](S4)at(0,0.8);
+        \path(O)--(S3)coordinate[pos=1.2](d1);
+        \path(O)--(S4)coordinate[pos=1.8](d0);
+        \draw[|-|](S1)--(S2);
+        \draw[red](d0)--(d1);
+        \node at(S3){$\times$};
+        \node at(S4){$\times$};
+        \tkzMarkRightAngle(S2,O,S4)
+        \tkzMarkSegments[mark=s||](S1,O O,S2)
+    \end{tikzpicture}
+\end{minipage}\smallskip\par\noindent
+    \begin{tblr}{%
+            colspec={Q[c,m,wd=70pt]Q[c,m,wd=120pt]},
+            column{1}={font=\bfseries}
+        }
+        Oscar :&\<S4; est la médiatrice de [\<S1;\<S2;].\\
+        Rachida :&(\<S3;\<S4;) est la médiatrice de [\<S1;\<S2;].\\
+        Quentin :&[\<S1;\<S2;] est la médiatrice de (\<S3;\<S4;).
+    \end{tblr}\smallskip\par\noindent
+Deux de ces phrases ne sont pas correctes. Lesquelles~? Pourquoi~?
+\end{document}

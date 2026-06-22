@@ -1,0 +1,155 @@
+\documentclass[A4]{dnbqcm}
+
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\startdatakeys
+    \source{25GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{}
+    \automatismes{}
+    \objectifsApprentissage{}
+\enddatakeys
+\begin{document}
+{\centering\bfseries\Large Entraînement au DNB~: QCM\par}\bigskip\noindent
+Cet exercice est un questionnaire à choix multiple (QCM).
+
+\noindent
+Pour chaque question, quatre réponses sont proposées. \textbf{Une seule réponse est exacte}.
+
+\noindent
+Recopier sur la copie le numéro de la question et la réponse choisie. Aucune justification
+n'est demandée.
+
+\medskip
+
+\textbf{Question 1}
+
+La décomposition en produit de facteurs premiers de 120 est:
+
+\begin{center}
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+    \textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+    $2~\times~3~\times~4~\times~5$& $15~\times~2~\times~2~\times~2$& $2^3 ~\times~3~\times~5$& $53 + 67$\\ \hline
+    \end{tabularx}
+\end{center}
+\medskip
+
+\textbf{Question 2}
+
+\begin{minipage}{0.5\linewidth}
+    Dans la cellule A2, la formule \og = $-$ 4 * A1 - 12 \fg{} a été saisie.
+
+    On l'étire jusqu'à la cellule B2.
+
+    La valeur obtenue dans la cellule B2 est .:
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tabularx}{\linewidth}{|c|*{2}{>{\centering \arraybackslash}X|}}\hline
+    &A &B\\ \hline
+    1&2&5\\ \hline
+    2& $-20$& \\ \hline
+    \end{tabularx}
+\end{minipage}
+
+    \begin{center}
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+    \textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+    $- 32$& $- 20$& $8$& $68$\\ \hline
+    \end{tabularx}
+\end{center}
+
+\medskip
+
+\textbf{Question 3}
+
+\begin{minipage}{0.67\linewidth}
+    Sur la figure ci-contre, le rapport de l'homothétie de centre O qui transforme
+    le carré A en le carré B est:
+\end{minipage}\hfill
+\begin{minipage}{0.31\linewidth}
+    \begin{tikzpicture}[x=1cm,y=1cm]
+      \useasboundingbox (-0.5,-1) rectangle (4,1);
+      % Subgrid at 0.5 cm (gray), main grid at 1 cm (black), no labels
+      \draw[step=0.5cm, gray, line width=0.2pt] (-0.5,-1) grid (4,1);
+      \draw[step=1cm,  black, line width=0.2pt] (-0.5,-1) grid (4,1);
+      % Dot at O: dotstyle=+, dotangle=45 -> X shape (arms ±5pt)
+      \draw[line width=0.6pt] (-45:5pt)--(135:5pt)  (45:5pt)--(-135:5pt);
+      % Hexagonal polygon (the two squares)
+      \draw[line width=1.25pt]
+        (1,0)--(1.5,-0.5)--(3,1)--(4,0)--(3,-1)--(1.5,0.5)--cycle;
+      % Labels
+      \node at (1.5,0) {A};
+      \node at (3,0)   {B};
+      \node[below] at (0,0) {O};
+    \end{tikzpicture}
+\end{minipage}
+
+\begin{center}
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+    \textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+    $-2$&$-0,5$&0,5&2\\ \hline
+    \end{tabularx}
+\end{center}
+
+\medskip
+
+\textbf{Question 4}
+
+Une écriture factorisée de $4x^2 - 1$ est :
+
+\begin{center}
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+    \textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+    $(2x - 1)(2x + 1)$&$(4x - 1)(4x + 1)$&$4(x - 1)(x + 1)$&$(2x - 1)^2$\\ \hline
+    \end{tabularx}
+\end{center}
+
+\medskip
+
+\textbf{Question 5}
+
+\begin{minipage}{0.5\linewidth}
+    Dans le triangle TER ci-contre, la mesure de la longueur RE 
+    arrondie au centième de cm est :
+\end{minipage}\hfill
+\begin{minipage}{0.47\linewidth}
+    \begin{tikzpicture}[x=1cm,y=1cm,>=Stealth]
+      \useasboundingbox (-2.4,-0.3) rectangle (3.5,3.3);
+      % Triangle TER  (polar -> Cartesian)
+      % R=(0,0)  E=(4.1*cos39°,4.1*sin39°)  T=(3.3*cos129°,3.3*sin129°)
+      \draw (0,0)
+            -- ({4.1*cos(39)},{4.1*sin(39)})
+            -- ({3.3*cos(129)},{3.3*sin(129)})
+            -- cycle;
+      % Right-angle mark at R rotated 39° (0.3×0.3 cm square)
+      \draw[rotate=39] (0,0) rectangle (0.3,0.3);
+      % Double-headed measurement arrow
+      \draw[line width=0.8pt,<->] (-2.1,2.9) -- (3.2,2.9);
+      \node[above] at (0.6,2.9) {7,4 cm};
+      % Arc at E: centre=(4.1;39°), radius=0.5, from 180° to 219°
+      % (180° = direction E->T,  219° = direction E->R,  arc = angle TER = 39°)
+      \draw ({4.1*cos(39)},{4.1*sin(39)}) ++(180:0.5cm)
+            arc (180:219:0.5cm);
+      % Vertex labels
+      \node[left]       at ({3.3*cos(129)},{3.3*sin(129)}) {T};
+      \node[right]      at ({4.1*cos(39)}, {4.1*sin(39)})  {E};
+      \node[below]      at (0,0)     {R};
+      \node[below left] at (2.6,2.45) {$39^\circ$};
+    \end{tikzpicture}
+\end{minipage}
+
+\begin{center}
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+    \textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+    4,66 cm&5,75 cm&9,52 cm&11,76 cm\\ \hline
+    \end{tabularx}
+\end{center}
+\showthesource
+
+\end{document}

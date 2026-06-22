@@ -1,0 +1,34 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\def\size{0.8}%
+Reproduire la figure suivante en vraie grandeur.\par\centering
+\begin{tikzpicture}[scale=0.8,rotate=-10]
+    \coordinate[label=above:A](A)at(0,0);
+    \coordinate[label=above right:B](B)at(4.1,0);
+    \path(A)--(B)([turn]-75:2.2)coordinate[label=below right:C](C);
+    \path(B)--(C)([turn]-70:2.2)coordinate[label=below right:D](D);
+    \path(B)--(A)([turn]125:4.1)coordinate[label=below left:E](E);
+    \tkzFillAngle[fill=Rainbow1-bleu,size=\size](E,A,B)
+    \tkzMarkAngle[Rainbow1-bleu!50!black,size=\size,mark=none](E,A,B)
+    \tkzLabelAngle[Rainbow1-bleu!50!black,pos=1.2](E,A,B){$65^\circ$}
+    \tkzFillAngle[fill=Rainbow1-rouge,size=\size](A,B,C)
+    \tkzMarkAngle[Rainbow1-rouge!50!black,size=\size,mark=none](A,B,C)
+    \tkzLabelAngle[Rainbow1-rouge!50!black,pos=1.2](A,B,C){$105^\circ$}
+    \tkzFillAngle[fill=Rainbow1-orange,size=\size](B,C,D)
+    \tkzMarkAngle[Rainbow1-orange!50!black,size=\size,mark=none](B,C,D)
+    \tkzLabelAngle[Rainbow1-orange!50!black,pos=1.2](B,C,D){$110^\circ$}
+    \path(A)--(B)node[pos=0.5,above,sloped,rotate=-10]{4,1 cm};
+    \path(B)--(C)node[pos=0.5,above,sloped,rotate=-10]{2,2 cm};
+    \tkzMarkSegments[mark=s|,color=red](A,B A,E)
+    \tkzMarkSegments[mark=s||,color=red](B,C D,C)
+    \draw(A)--(B)--(C)--(D)--(E)--cycle;
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,30 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{tkz-euclide}
+
+\begin{document}
+
+Quelle est la valeur de l'aire du rectangle ci-dessous~?
+\begin{center}
+    \begin{tikzpicture}
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(3,0);
+        \coordinate(C)at(3,2);
+        \coordinate(D)at(0,2);
+        \tkzMarkRightAngle(B,A,D)
+        \tkzMarkRightAngle(A,D,C)
+        \tkzMarkRightAngle(D,C,B)
+        \tkzMarkRightAngle(C,B,A)
+        \draw(A)rectangle(C);
+        \path(A)--(B)node[midway, below]{$\dfrac34$ cm};
+        \path(C)--(B)node[midway, right]{$\dfrac12$ cm};
+    \end{tikzpicture}
+\end{center}
+\par\noindent
+A : $\dfrac46$ cm$^2$\par\noindent
+B : $\dfrac38$ cm$^2$\par\noindent
+C : $3,5$ cm$^2$
+
+
+\end{document}

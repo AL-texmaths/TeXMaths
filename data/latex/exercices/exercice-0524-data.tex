@@ -1,0 +1,29 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+    Les droites (d$_1$) et (d$_2$) sont parallèles.\par\noindent
+    Donner toutes les mesures d'angles que l'on peut trouver en justifiant
+    les réponses. (utiliser des couleurs pour marquer les angles de même mesure).
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate(A)at(0,0);
+            \coordinate(A0)at(-1,0);
+            \coordinate[label=below right:(d$_2$)](A1)at(3,0);
+            \coordinate(B)at(2,2);
+            \coordinate[label=above right:(d$_1$)](B0)at(-0.5,2);
+            \coordinate(B1)at(3.5,2);
+            \path(B)--(A)coordinate[pos=1.2](C);
+            \tkzFillAngle[fill=\currentcolor,size=0.6](A0,A,C)
+            \tkzLabelAngle(A0,A,C){55$^\circ$}
+            \tkzDrawLine[add=0.6 and 0.6,line width=1pt](A,B)
+            \tkzDrawLines[line width=1pt](A0,A1 B0,B1)
+        \end{tikzpicture}
+    \end{center}
+\end{document}

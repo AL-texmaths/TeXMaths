@@ -1,0 +1,30 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Trouver un chemin qui mène de {\sf\bfseries D} à {\sf\bfseries A} dont la somme des
+nombres rencontré est égale à 0.
+\begin{center}
+    \begin{tikzpicture}[scale=0.75]
+        \NodeD
+        \TheNode(1.5,0){2}
+        \TheNode(3,0){-4}
+        \TheNode(4.5,0){-2}
+        \TheNode(6,0){-1}
+        \NumberLine -4,0,-1,-2,-2(-1.5)
+        \NumberLine 1,2,4,4,-2(-3)
+        \NumberLine -5,-1,-2,5,-3(-4.5)
+        \TheNode(0,-6){4}
+        \TheNode(1.5,-6){3}
+        \TheNode(3,-6){0}
+        \TheNode(4.5,-6){-1}
+        \NodeA
+    \end{tikzpicture}
+\end{center}
+\end{document}

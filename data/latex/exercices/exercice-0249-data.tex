@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{enumerate}
+    \item En utilisant la règle et le compas, effectuer le programme de tracé suivant :
+    \begin{enumerate}
+        \item Tracer le cercle de centre \<S1; de rayon \<S2;\<S3;.
+        \item Placer un point D sur le cercle.
+        \item Tracer (\<S4;\<S1;).
+        \item Placer E à l'intersection du cercle et de [\<S4;\<S1;).
+    \end{enumerate}
+    \item Comparer \<S2;\<S3;, \<S4;\<S1; et \<S1;\<S5;. Justifier la réponse.
+\end{enumerate}\vskip15pt
+\begin{tikzpicture}[scale=1]
+    \coordinate[label=above right:\<S2;](A)at(70:1);
+    \coordinate[label=below left:\<S3;](B)at(190:1);
+    \coordinate(C)at(310:1);
+    \draw[white](A)--(B)--(C)--cycle;
+    \draw(A)--(B);
+\end{tikzpicture}
+\vskip150pt
+\end{document}

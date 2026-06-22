@@ -1,0 +1,26 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+    Nommer les angles ci-dessous de deux manières différentes.
+    \vskip10pt\noindent
+    \begin{tikzpicture}[scale=0.7, line width=1pt]
+        \coordinate[label={[label distance=1.2]0:O}](O)at(0,0);
+        \coordinate[label=above left:A](A)at(150:2);
+        \coordinate[label=above right:B](B)at(35:1.5);
+        \coordinate[label=below right:C](C)at(-30:3.5);
+        \coordinate[label=below left:D](D)at(-145:4);
+        \tkzFillAngle[fill=Rainbow1-rouge,size=0.6](B,O,A)
+        \tkzFillAngle[fill=Rainbow1-vert,size=0.6](D,O,C)
+        \tkzFillAngle[fill=Rainbow1-orange](B,C,O)
+        \tkzFillAngle[fill=Rainbow1-bleu](O,D,A)
+        \draw(A)--(B)--(C)--(D)--cycle;
+        \draw(A)--(C);\draw(D)--(B);
+    \end{tikzpicture}
+\end{document}

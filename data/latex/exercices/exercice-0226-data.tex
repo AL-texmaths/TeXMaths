@@ -1,0 +1,25 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{tikzpicture}[scale=2,rotate=-15]
+    \coordinate[label=above left:A](A)at(0,0);
+    \coordinate[label=below left:D](D)at(2,0);
+    \coordinate[label=above right:B](B)at(2,1);
+    \tkzDrawLine[add=0 and 0.5](A,D)
+    \tkzDrawLine[add=0 and 0.3](B,D)
+    \tkzMarkRightAngle[size=0.1](B,D,A)
+    \draw(A)--(B);
+\end{tikzpicture}
+\begin{enumerate}
+    \item Quelle est la nature du triangle ABD ?
+    \item En utilisant uniquement le compas, placer C tel que C $\in$ [AD)
+    et ABC est isocèle en A.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,102 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-variables}[08/03/2026]
+% ========
+% PACKAGES
+% ========
+\RequirePackage{texmaths-tools}
+% ===========================================================
+% Inclusion des énoncés d'exercices dans les autres documents
+% ===========================================================
+\makeatletter
+\def\path@from@exercices{}
+\def\path@from@data{exercices/}
+\def\read@enonce#1{%
+    \begingroup
+      \let\documentclass\eat@until@source
+      \renewenvironment{document}{\begingroup}{\endgroup}%
+      \input{\path@to@exercices exercice-#1-data.tex}%
+    \endgroup
+}
+\def\read@exercice#1{%
+    \begingroup
+      \def\gobone{\@ifnextchar[{\@gobone@opt}{\@gobone}}%
+      \let\documentclass\gobone
+      \let\usepackage\gobone
+      \let\nodata\relax
+      \renewenvironment{document}{\begingroup}{\endgroup}%
+      \input{\path@to@exercices exercice-#1.tex}%
+    \endgroup
+}
+\def\read@enonce@from@exercices#1{%
+  \begingroup
+    \let\path@to@exercices\path@from@exercices\read@enonce{#1}%
+  \endgroup
+}
+\def\read@enonce@from@data#1{%
+  \begingroup
+    \let\path@to@exercices\path@from@data\read@enonce{#1}%
+  \endgroup
+}
+\def\read@exercice@from@data#1{%
+    \begingroup
+      \let\path@to@exercices\path@from@data\read@exercice{#1}%
+    \endgroup
+}
+% ===========================================
+% utilisation de variables dans les documents
+% ===========================================
+\def\main@showvar#1{{\tt#1}}
+\def\>#1=#2;{%
+  \expandafter\def\csname var@#1\endcsname{#2}%
+}
+\def\<#1;{%
+  \ifcsname var@#1\endcsname
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+  {\csname var@#1\endcsname}{\main@showvar{#1}}%
+}
+\def\*#1;{%
+  \ifcsname var@#1\endcsname
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+  {\csname var@#1\endcsname}{#1}%
+}
+\newif\ifincatalogue
+\def\desactivatedvariable#1=#2;{}
+\def\!{\ifincatalogue\>\else\expandafter\desactivatedvariable\fi}
+% Macro qui permet de tester la définition de la variable
+\def\main@defined#1{#1}
+\def\main@undefined#1{#1}
+\def\ifVarDefined#1#2#3{\expandafter\ifx\csname var@#1\endcsname\relax\main@undefined{#3}\else\main@defined{#2}\fi}
+% Création d'une liste enumerate "infinie"
+\def\exercices@torepeat{%
+    \advance\exercices@enumerate@item1
+    \expandafter\nextitem\the\exercices@enumerate@item
+    }
+
+\def\@nexitem#1{%
+    \ifVarDefined{#1}{%
+        \item \<#1;\exercices@torepeat
+    }{}%
+}
+\def\nextitem#1{\@nexitem{expr#1}}
+\newcount\exercices@enumerate@item
+\exercices@enumerate@item=1
+
+\def\define@expr#1{%
+    \advance\exercices@enumerate@item1\relax
+    \>expr\the\exercices@enumerate@item=#1;%
+    }
+
+\def\simpleCalcList{%
+    \exercices@enumerate@item=1%
+    \begin{enumerate}\item \<expr1;\exercices@torepeat\end{enumerate}%
+    \exercices@enumerate@item=1%
+}
+\def\startexpr{\begingroup\let\+\define@expr}
+\def\endexpr{\endgroup}
+\makeatother

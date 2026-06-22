@@ -1,0 +1,36 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+Le plan ci-dessous représente trois villes : ville {\sf A}, ville {\sf B} et ville {\sf C}.
+    \begin{center}
+        \begin{tikzpicture}[scale=0.8]
+            \draw[dotted](0,0)rectangle(8,6);
+            \coordinate(A)at(1,2);
+            \coordinate(B)at(6,3);
+            \coordinate(C)at(5,5);
+            \foreach\X in{B,C}{
+                \draw node at(\X){$\times$};
+                \draw node[above right]at(\X){\strut\X};
+            }
+            \draw node at(A){$\times$};
+            \draw node[below left]at(A){\strut A};
+        \end{tikzpicture}
+    \end{center}
+    Pour aller de {\sf A} à {\sf B}, Yoan décide de passer par {\sf C} et Irène
+    va en ligne droite de {\sf A}~à~{\sf B}.
+    \begin{enumerate}
+        \item Tracer en vert le chemin d'Irène et en rouge le chemin de Yoan.
+        \item Quel est le plus court des deux chemins~?
+        \dotedline\dotedline
+        \item Quel inégalité peut on écrire ?
+        \dotedline
+        \item Écrire deux inégalités similaires.
+        \dotedline\dotedline
+    \end{enumerate}
+\end{document}

@@ -1,0 +1,9 @@
+Start Compilation Test/2026-02-21 13:12:52
+5e-calcul_litteral.tex
+5e-symetrie_centrale.tex
+End Compilation Test/2
+Start Compilation Test/2026-02-21 13:16:48
+5e-symetrie_centrale.tex
+End Compilation Test/1
+Start Compilation Test/2026-02-21 13:36:53
+End Compilation Test/0

@@ -1,0 +1,66 @@
+\documentclass{thecours}
+\begin{document}
+
+\bigpart{Règles de calculs}
+
+\regle{priorites_de_calculs}
+
+\vskip5pt\par\noindent{\bfseries Exemple :}\vskip10pt\par\noindent
+\twocolscalc\calcD A = 3*(6-2),\calcG D = 6*4-3*5;\par\bigskip\noindent
+\twocolscalc\calcH C = 20/5+5,\calcI E = 1+6-4+3;\par\bigskip
+
+\noindent{\bfseries Exemple :}\vskip10pt\par\noindent
+Calcul ne comportant que des additions, que des multiplications,
+des multiplications séparées, des parenthèses séparées ou imbriquées.
+
+\bigpart{Vocabulaire}
+
+\definition{expression_numerique}
+
+\vskip5pt\par\noindent{\bfseries Exemple :}\vskip10pt\par\noindent
+\begin{minipage}{.25\linewidth}
+    $4+17=21$\par\noindent$21-6=15$\par\noindent$15\times3=45$
+\end{minipage}%
+\begin{minipage}{.65\linewidth}
+    S'écrira plutôt\hfil \calcJ A=(2+3-5)*7\relax
+\end{minipage}
+\bigskip
+\vskip5pt\par\noindent{\bfseries Exemple :}\vskip5pt\par\noindent
+
+\begin{tblr}{colspec={Q[m]*2{Q[c,m]}},row{1}={font=\bfseries}}
+ Phrase en français&Expression numérique&Valeur\\
+ La somme des termes 5 et 3,8.&$5+3,8$&8,8\\
+ La différence des termes 6,1 et 2,1.&$6,1-2,1$&4\\
+ Le produit des facteurs 0,5 et 12.&$0,5\times12$&18\\
+ Le quotient de 35 par 7.&$35\div7$&5
+\end{tblr}
+
+\bigpart{Resolution de problèmes}
+
+\vskip5pt\par\noindent{\bfseries Exemple :}\vskip5pt\par\noindent
+Voici un programme de calcul :\par\noindent
+\program{A}{\item Multiplier le résultat par 5\item Ajouter 8\item Diviser le résultat par 2}
+
+\vskip5pt\par\noindent{\bfseries Exemple :}\vskip5pt\par\noindent
+\hskip30pt\begin{tikzpicture}[scale=1.5]
+    \tkzDefPoint(0,0){E}
+    \tkzDefPoint(3,0){B}
+    \tkzDefPoint(3,2){C}
+    \tkzDefPoint(0,2){F}
+    \tkzDefPoint(1,0){A}
+    \tkzDefPoint(1,2){D}
+    \tkzLabelPoints[below left](E,A)
+    \tkzLabelPoints[below right](B)
+    \tkzLabelPoints[above right](C)
+    \tkzLabelPoints[above left](D,F)
+    \tkzDrawPolygon[line width=1pt](E,B,C,F)
+    \tkzDrawSegment[line width=1pt](A,D)
+    \tkzMarkRightAngles(E,B,C B,C,F C,F,E F,E,B E,A,D A,D,F)
+\end{tikzpicture}\vskip10pt
+\hskip30pt $AE=2,5$ m
+\hskip30pt $EB=12$ m
+\hskip30pt $CB=4,5$ m
+\vskip10pt
+Calculer l'aire de $ABCD$.
+
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}%
+\usepackage{texmaths-colors}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Compléter les tableaux ci-dessous en utilisant les tables de multiplication de 1 à 10.\medskip\par\noindent
+\begin{tblr}{colspec=*{4}{Q[c,m,wd=20pt]},
+    row{1}={bg=\maintblrbgcolor,font=\bfseries},
+    column{1}={bg=\maintblrbgcolor,font=\bfseries},
+    vlines,hlines%
+    }
+    $\times$&\<T1n1;&\<T1n2;&\<T1n3;\\
+    \<T1n4;&&&\\
+    \<T1n5;&&&\\
+    \<T1n6;&&&
+\end{tblr}\hskip20pt
+\begin{tblr}{colspec=*{4}{Q[c,m,wd=20pt]},
+    row{1}={bg=\maintblrbgcolor,font=\bfseries},
+    column{1}={bg=\maintblrbgcolor,font=\bfseries},
+    vlines,hlines%
+    }
+    $\times$&&\<T2n1;&\\
+    \<T2n2;&\<T2n3;&&\\
+    &&\<T2n4;&\\
+    \<T2n5;&&&\<T2n6;
+\end{tblr}\hskip20pt
+\begin{tblr}{colspec=*{4}{Q[c,m,wd=20pt]},
+    row{1}={bg=\maintblrbgcolor,font=\bfseries},
+    column{1}={bg=\maintblrbgcolor,font=\bfseries},
+    vlines,hlines%
+    }
+    $\times$&&&\\
+    &\<T3n1;&&\<T3n2;\\
+    &&\<T3n3;&\\
+    &\<T3n4;&&
+\end{tblr}\par
+\end{document}

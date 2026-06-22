@@ -1,0 +1,50 @@
+\documentclass{thecours}
+\begin{document}
+    \bigpart{Démontrer en mathématiques}
+    \definition{demontrer}
+    \exported[scale=1, ]<<%
+        \begin{center}
+            \begin{tikzpicture}[scale=0.85]
+                \coordinate[label=below left:O](O)at(0,0);
+                \coordinate[label=above left:A](A)at(120:3);
+                \coordinate[label=above right:B](B)at(60:3);
+                \draw node at (O){+};
+                \path(A)--(B)node[below,midway]{4,5 cm};
+                \path(O)--(B)node[below right,midway]{4,5 cm};
+                \draw(A)--(B)--(O)--cycle;
+                \draw(O)circle(3);
+            \end{tikzpicture}
+        \end{center}\vskip10pt
+        \TableauRaisonnement scale=130pt;
+    >>
+    \newpage
+    \bigpart{Cas d'égalité des triangles}
+    \subpart{Introduction}
+    \definition{triangles_egaux}
+    \noindent{\bfseries Remarque :}\vskip10pt
+    Dans une figure, savoir que deux triangles sont égaux est utile
+    pour démontrer de nombreuses propriétés de la figure. En effet,
+    permet de démontrer des égalités de côtés ou des égalités d'angle.
+    \propriete{triangles_egaux}
+    Préparer figure géogébra + capture d'écran
+    \par\noindent{\bfseries Remarque~:}
+    Connaître trois mesures dans un triangle me permet de connaître les
+    six mesures totales (trois longueurs et trois angles).\bigbreak
+    \subpart{Trois mêmes côtés}
+    \propriete{cas_d_egalites_des_triangles_CCC}
+    \par\noindent{\bfseries Exemple~:}
+    Démonstration de la propriété suivante~:\par\medskip\noindent
+    \medskip\par\noindent{\bfseries Remarque :}
+    La propriété CCC est très utile pour démontrer que des angles sont égaux.
+    \newpage
+    \subpart{Deux mêmes côtés et un même angle}
+    \propriete{cas_d_egalites_des_triangles_CAC}
+    \medskip\par\noindent{\bfseries Remarque :}
+    La propriété CAC peut être utile pour démontrer
+    des égalités de longueurs et d'angles.
+    \subpart{Deux mêmes angles et un même côté}
+    \propriete{cas_d_egalites_des_triangles_ACA}
+    \medskip\par\noindent{\bfseries Remarque :}
+    La propriété CAC peut être utile pour démontrer
+    des égalités de longueurs et d'angles.
+\end{document}

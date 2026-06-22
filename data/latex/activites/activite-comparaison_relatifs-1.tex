@@ -1,0 +1,47 @@
+\documentclass[activite]{thedocument}
+\usepackage{tkz-euclide}
+\usepackage{texmaths-spacing}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+{\centering \begin{tikzpicture}\sf
+    \tkzDefPoint(0,0){O}
+    \tkzDefPoint(1,0){A}
+    \tkzDefPoint(2,0){B}
+    \tkzDefPoint(3,0){C}
+    \tkzDefPoint(4,0){D}
+    \tkzDefPoint(2.5,0){E}
+    \tkzDefPoint(5,0){O1}
+    \tkzDefPoint(-5,0){O2}
+    \draw[-Latex](O2)--(O1);
+    \draw[dotted](-6,-1.5)rectangle(6,1.5);
+    \foreach \x in {-4,...,4} {
+        \draw[line width=1pt] (\x,0.1cm) -- (\x,-0.1cm);
+        \draw (\x+0.5,0.05cm)--(\x+0.5,-0.05cm);
+        }
+    \draw node[below] at(O){0\strut};
+    \draw node[below] at(A){1\strut};
+\end{tikzpicture}}\vskip15pt\noindent{\centering\bfseries Première partie (avec la droite graduée):}\par
+\begin{enumerate}
+    \item Placer les points A(+2,5), B(-4) et C(-1,5).\answerspace{1em}
+    \item Comparer les nombres (-4) et (-1,5).\answerspace{1em}
+    \item Comparer les nombres (-3) et (-2,5).\answerspace{1em}
+    \item Comparer les nombres (+3) et (-3).\answerspace{1em}
+\end{enumerate}
+\vskip10pt\noindent{\centering\bfseries Deuxième partie (sans la droite graduée):}\par
+\begin{enumerate}
+    \item Comparer les nombres (-2) et (+0,5).
+    \item Écrire une méthode permettant de comparer un nombre positif et un
+    nombre négatif sans utiliser la droite graduée~:
+    \answerspace{2em}
+    \item Comparer les nombres (-3) et (-1,5).
+    \item Écrire une méthode permettant de comparer deux nombres négatifs
+    sans la droite graduée~:
+    \answerspace{2em}
+\end{enumerate}
+\end{document}

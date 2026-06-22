@@ -1,0 +1,70 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+Pour chaque figure, dire si les deux angles marqués sont correspondants,
+alterne-internes ou alterne-externes.\vskip20pt
+\>scale=0.5;%
+\begin{tikzpicture}[rotate=30, scale=\<scale;]
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(2,0);
+    \path(A)++(40:3)coordinate(A1);
+    \path(A)++(220:3)coordinate(A2);
+    \path(B)++(40:3)coordinate(B1);
+    \path(B)++(220:3)coordinate(B2);
+    \coordinate(C)at(-1,0);
+    \coordinate(D)at(3,0);
+    \tkzFillAngle[mark=none,fill=\currentcolor,size=0.75](B,A,A1)
+    \tkzFillAngle[mark=none,fill=\currentcolor,size=0.75](A,B,B2)
+    \tkzDrawLines[add=.5 and 0](A,A1 B,B1)
+    \tkzDrawLines[add=0.85 and 0.65](A,B)
+\end{tikzpicture}
+\begin{tikzpicture}[rotate=10, scale=\<scale;]
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(2,0);
+    \path(A)++(40:3)coordinate(A1);
+    \path(A)++(220:3)coordinate(A2);
+    \path(B)++(40:3)coordinate(B1);
+    \path(B)++(220:3)coordinate(B2);
+    \coordinate(C)at(-1,0);
+    \coordinate(D)at(3,0);
+    \tkzFillAngle[mark=none,fill=\currentcolor,size=0.75](B,A,A1)
+    \tkzFillAngle[mark=none,fill=\currentcolor,size=0.75](D,B,B1)
+    \tkzDrawLines[add=.5 and 0](A,A1 B,B1)
+    \tkzDrawLines[add=0.85 and 0.65](A,B)
+\end{tikzpicture}
+\begin{tikzpicture}[rotate=15, scale=\<scale;]
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(2,0);
+    \path(A)++(40:3)coordinate(A1);
+    \path(A)++(220:3)coordinate(A2);
+    \path(B)++(40:3)coordinate(B1);
+    \path(B)++(220:3)coordinate(B2);
+    \coordinate(C)at(-1,0);
+    \coordinate(D)at(3,0);
+    \tkzFillAngle[mark=none,fill=\currentcolor,size=0.75](C,A,A2)
+    \tkzFillAngle[mark=none,fill=\currentcolor,size=0.75](D,B,B1)
+    \tkzDrawLines[add=.5 and 0](A,A1 B,B1)
+    \tkzDrawLines[add=0.85 and 0.65](A,B)
+\end{tikzpicture}
+\begin{tikzpicture}[rotate=-20, scale=0.3]
+    \coordinate(A)at(0,0);
+    \coordinate(B)at(2,0);
+    \path(A)++(90:3)coordinate(A1);
+    \path(A)++(270:3)coordinate(A2);
+    \path(B)++(90:3)coordinate(B1);
+    \path(B)++(270:3)coordinate(B2);
+    \coordinate(C)at(-1,0);
+    \coordinate(D)at(3,0);
+    \tkzMarkRightAngle[mark=none,fill=\currentcolor,size=0.75](B,A,A1)
+    \tkzMarkRightAngle[mark=none,fill=\currentcolor,size=0.75](A,B,B2)
+    \tkzDrawLines[add=.5 and 0](A,A1 B,B1)
+    \tkzDrawLines[add=0.85 and 0.65](A,B)
+\end{tikzpicture}
+\end{document}

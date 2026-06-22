@@ -1,0 +1,39 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\small La figure ci-dessous n'est pas à l'échelle.
+\begin{itemize}
+    \item les points M, A et S sont alignés
+    \item les points M, T et H sont alignés
+    \item MH = 5 cm
+    \item MS = 13 cm
+    \item MT = 7 cm
+\end{itemize}
+\begin{tikzpicture}[scale=0.2]
+    \coordinate[label=below left:A](A)at(0,0);
+    \coordinate[label=below right:T](T)at(16.8,0);
+    \coordinate[label=above left:H](H)at(16.8,12);
+    \coordinate[label=right:S](S)at(28.8,12);
+    \path(16.8,7)node[anchor=south east]{M};
+    \draw[fill=\currentcolor!50](A)--(T)--(H)--(S)--cycle;
+    \tkzMarkRightAngle[size=1,colored](H,T,A)
+    \tkzMarkRightAngle[size=1,colored](T,H,S)
+\end{tikzpicture}
+\begin{enumerate}
+    \item Démontrer que la longueur HS est égale à 12 cm.
+    \item Calculer la longueur AT.
+    \item Calculer la mesure de l'angle $\widehat{\text{HMS}}$.
+    \item Sachant que la longueur MT est 1,4 fois plus grande que la longueur
+    HM, un élève affirme : \guillemets{L'aire du triangle MAT est 1,4 fois
+    plus grande que l'aire du triangle MHS.}\vskip1pt
+    Cette affirmation est-elle vraie ? On rappelle que la réponse doit être
+    justifiée.
+\end{enumerate}
+\end{document}

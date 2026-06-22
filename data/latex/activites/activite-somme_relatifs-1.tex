@@ -1,0 +1,49 @@
+\documentclass[activite]{thedocument}
+\usepackage{tkz-euclide}
+\usepackage{enumitem}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    {\centering \begin{tikzpicture}\sf
+        \tkzDefPoint(0,0){O}
+        \tkzDefPoint(1,0){A}
+        \tkzDefPoint(-1,0){-A}
+        \tkzDefPoint(2,0){B}
+        \tkzDefPoint(-2,0){-B}
+        \tkzDefPoint(3,0){C}
+        \tkzDefPoint(-3,0){-C}
+        \tkzDefPoint(4,0){D}
+        \tkzDefPoint(-4,0){-D}
+        \tkzDefPoint(2.5,0){E}
+        \tkzDefPoint(5,0){O1}
+        \tkzDefPoint(-5,0){O2}
+        \draw[-latex](O2)--(O1);
+        \draw[dotted](-6,-3)rectangle(6,3);
+        \foreach \x in {-5,...,4} {
+            \draw[line width=1pt] (\x,0.1cm) -- (\x,-0.1cm);
+            \draw (\x+0.5,0.05cm)--(\x+0.5,-0.05cm);
+            }
+        \draw node[below] at(O){0\strut};
+        \draw node[below] at(A){1\strut};
+        \draw node[below] at(-A){-1\strut};
+    \end{tikzpicture}}\vskip20pt
+    Pour calculer avec les nombres relatifs, on considère que~:
+    \begin{itemize}[label=$-$]
+        \item les nombres {\bfseries positifs} représentent \doted{100pt}.
+        \item les nombres {\bfseries négatifs} représentent \doted{100pt}.
+    \end{itemize}
+    \noindent{\bfseries Exemple~:}
+    \begin{itemize}[label=$-$]
+        \item Un gain de 37 euros est représenté par le nombre \doted{40pt}.
+        \item Un perte de 12 euros est représenté par le nombre \doted{40pt}.
+    \end{itemize}
+    \noindent{\bfseries Exemple~:}\vskip10pt
+    \hbox{\hbox to.5\linewidth{$(+12)+(+9)=$\hfil}\hbox to.5\linewidth{$(-7)+(-16)=$\hfil}}\vskip15pt
+    \hbox{\hbox to.5\linewidth{$(+30)+(-5)=$\hfil}\hbox to.5\linewidth{$(+12)+(-18)=$\hfil}}\vskip15pt
+    \hbox{\hbox to.5\linewidth{$(-4)+(+7)=$\hfil}\hbox to.5\linewidth{$(-10)+(+9)=$\hfil}}
+\end{document}

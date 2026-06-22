@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-pytools}[08/03/2026]
+
+\RequirePackage{luacode}
+
+\makeatletter
+% run python module with args in a given directory
+% #1 : relative path to project root
+% #2 : module and args
+\def\run@python#1#2{
+    \directlua{
+        local lfs = require("lfs")
+
+        local old = lfs.currentdir()
+        lfs.chdir("#1")
+
+        local is_windows = package.config:sub(1,1) == "\\"
+
+        local python = is_windows
+            and "texmaths\\Scripts\\python.exe"
+            or "texmaths/bin/python3"
+
+        os.execute(python .. " -m src.#2")
+
+        lfs.chdir(old)
+    }
+}
+\makeatother

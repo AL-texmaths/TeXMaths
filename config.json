@@ -1,0 +1,97 @@
+{
+    "parameters":{
+        "year": "2025-2026",
+        "logiciel":"pronote",
+        "printers": [
+            "HP Deskjet F4200 series",
+            "EPSON4EF3F8 (ET-4750 Series)",
+            "TOSHIBA 3528A",
+            "Microsoft XPS Document Writer"
+        ],
+        "index documents": {
+            "exercice": {
+                "folder name": "exercices",
+                "name pattern": "-(\\d{4})-(data|[a-z])\\.([A-Za-z\\.]+)$"
+            },
+            "activite": {
+                "folder name": "activites",
+                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+            },
+            "flash": {
+                "folder name": "flash",
+                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+            },
+            "diapo": {
+                "folder name": "diapo",
+                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+            },
+            "dnbqcm": {
+                "folder name": "dnbqcm",
+                "name pattern": "-(\\d{4})\\.([A-Za-z\\.]+)$"
+            }
+        },
+        "string check order": [
+            "\\documentclass",
+            "\\startdatakeys",
+            "\\enddatakeys",
+            "\\begin{document}",
+            "\\end{document}"
+        ],
+        "tex non optionnal keys": [
+            "source",
+            "BO",
+            "cycle",
+            "objectifsApprentissage"
+        ]
+    },
+    "executables": {
+        "code": [
+            "code",
+            "\\Root\\Programmes\\VSCode\\Code.exe"
+        ],
+        "sumatrapdf": [
+            "SumatraPDF",
+            "sumatrapdf",
+            "\\Root\\Programmes\\SumatraPDF\\sumatrapdf.exe"
+        ],
+        "magick": [
+            "magick",
+            "\\Root\\Programmes\\Imagemagick\\magick.exe"
+        ],
+        "ghostscript": [
+            "gs",
+            "gswin64c",
+            "gswin32c",
+            "\\Root\\Programmes\\Ghostscript\\bin\\gswin64c.exe"
+        ],
+        "pdf_xchange": [
+            "PDFXEdit",
+            "\\Root\\Programmes\\PDF-XChange\\PDFXEdit.exe"
+        ],
+        "adobe": [
+            "Acrobat",
+            "AcroRd32"
+        ],
+        "okular": [
+            "okular"
+        ],
+        "lualatex": [
+            "lualatex",
+            "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\lualatex.exe"
+        ],
+        "pdflatex": [
+            "pdflatex",
+            "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\pdflatex.exe"
+        ],
+        "latexmk": [
+            "latexmk",
+            "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\latexmk.exe"
+        ]
+    },
+    "pathes": {
+        "katex": [
+            "./data/katex/",
+            "\\Root\\Datas\\katex\\"
+        ]
+    }
+}

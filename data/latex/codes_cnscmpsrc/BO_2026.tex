@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{iftex}
+\ifLuaTeX
+    \usepackage{fontenc}
+\else
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+\fi
+\usepackage{pgffor}
+\usepackage[a5paper]{geometry}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{texmaths-cycle4-BO_2026}
+\usepackage{texmaths-cycle3-BO_2026}
+\usepackage{texmaths-colors}
+\usepackage{tcolorbox}
+
+% Make internal links in the PDF clickable
+\usepackage[hidelinks]{hyperref}
+
+\makeatletter
+\newcommand\l@cycle[2]{\addvspace{4pt}\@dottedtocline{0}{0em}{2.3em}{#1}{#2}}
+\newcommand\l@theme[2]{\addvspace{2pt}\@dottedtocline{0}{0em}{2.3em}{#1}{#2}}
+\newcommand\l@level[2]{\@dottedtocline{1}{1.5em}{3.2em}{#1}{#2}}
+
+\providecommand*\toclevel@cycle{0}
+\providecommand*\toclevel@theme{1}
+\providecommand*\toclevel@level{2}
+
+\def\fourthcyclenum{4}
+\def\thirdcyclenum{3}
+\def\setCycle#1{%
+    \ifnum#1=\fourthcyclenum\relax
+        \def\CYCLENUM{4}
+        \let\cycle@total\fourthcycle@total
+        \let\cycle@level\fourthcycle@level
+        \let\cycle@theme\fourthcycle@theme
+        \let\cycle@subtheme\fourthcycle@subtheme
+        \let\cycle@aut\fourthcycle@aut
+        \let\cycle@obj\fourthcycle@obj
+        \let\cycle@pro\fourthcycle@pro
+    \else
+        \ifnum#1=\thirdcyclenum\relax
+            \def\CYCLENUM{3}
+            \let\cycle@total\thirdcycle@total
+            \let\cycle@level\thirdcycle@level
+            \let\cycle@theme\thirdcycle@theme
+            \let\cycle@subtheme\thirdcycle@subtheme
+            \let\cycle@aut\thirdcycle@aut
+            \let\cycle@obj\thirdcycle@obj
+            \let\cycle@pro\thirdcycle@pro
+        \fi
+    \fi
+}
+
+
+\edef\scolaryear{\expandafter\ifnum\the\month>6\relax
+    \the\year-\number\numexpr\the\year+1\relax
+    \else
+    \number\numexpr\the\year-1\relax-\the\year
+    \fi
+    }
+
+\def\preventof#1{%
+    \global\emergencystretch = #1\hsize
+}
+
+\geometry{hmargin=30pt,headsep=20pt,top=50pt,textheight=490pt}
+
+\fancypagestyle{style1}{
+    \fancyhf{}% reinitialisation des paramètres
+    \fancyhead[L]{Cycle \CYCLENUM}% en-tête gauche
+    \fancyhead[R]{}% en-tête droit
+    \fancyfoot[L]{\small Collège Victor Hugo, Sarcelles}% pied gauche
+    \fancyfoot[R]{\small\scolaryear}% pied droit
+    \fancyfoot[C]{\small\thepage/\pageref{LastPage}}% pied central
+    \renewcommand{\headrulewidth}{0.5pt}% épaisseur ligne séparation en tête
+    \renewcommand{\footrulewidth}{0.5pt}% épaisseur ligne séparation pied
+}
+
+\def\write@key@value#1#2{%
+    {\textcolor{\getColor\levelfor!60!black}{\ttfamily #1}\hskip10pt}#2\vskip8pt
+}
+
+\newcommand{\getColor}[1]{%
+    \ifcase#1\relax
+        black\or
+        Rainbow1-bleu\or
+        Rainbow1-vert\or
+        Rainbow1-orange%
+    \else
+        black%
+    \fi
+}
+
+\def\showtitle#1{%
+    \begin{tcolorbox}[
+            colback=\getColor\levelfor!25!white,
+            colframe=\getColor\levelfor!75!black
+            ]
+        \texttt{#1}
+    \end{tcolorbox}
+}
+
+\def\showitems{%
+    \foreach\themefor in{1,...,\cycle@total[themes]}
+    {%
+        \newpage
+        \def\themekey{\nbtoAlph\themefor}
+        % register theme in ToC (only themes will be added)
+        \phantomsection
+        \addcontentsline{toc}{theme}{Thème \themekey\ : \cycle@theme[\themekey]}
+        {\par\centering\LARGE\bfseries Thème \themekey\ : \cycle@theme[\themekey]\centering
+            \par}\vskip8pt
+        \foreach\levelfor in{1,...,\cycle@total[\nbtoAlph\themefor]}
+        {%
+            \def\levelkey{\nbtoAlph\themefor\levelfor}
+            \phantomsection
+            \addcontentsline{toc}{level}{\protect\hspace*{2em}\small\cycle@level[\levelkey]}
+            \tcbox[colback=\getColor\levelfor!25!white]{\ttfamily\cycle@level[\levelkey]}
+            \foreach\subthemefor in{1,...,\cycle@total[\nbtoAlph\themefor\levelfor]}
+            {%
+                \def\subthemekey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor}%
+                \noindent\textbf{Sous-thème \subthemefor~: \cycle@subtheme[\subthemekey]}\par\medskip\noindent
+            \edef\cycle@total@aut{\cycle@total[\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor AUT]}%
+            \ifnum\cycle@total@aut>0\relax
+                \showtitle{Automatismes}
+                \foreach\autfor in{1,...,\cycle@total@aut}{%
+                    \def\autkey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor\nbtoalph\autfor}%
+                    \write@key@value{\autkey}{\cycle@aut[\autkey]}
+                }%
+            \fi
+            \edef\cycle@total@obj{\cycle@total[\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor OBJ]}%
+            \ifnum\cycle@total@obj>0\relax
+                \showtitle{Objectifs d'aprentissages}
+                \foreach\objfor in{1,...,\cycle@total@obj}{%
+                    \def\objkey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor\nbtoalph\objfor}%
+                    \write@key@value{\objkey}{\cycle@obj[\objkey]}
+                }%
+            \fi
+            \edef\cycle@total@pro{\cycle@total[\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor PRO]}%
+            \ifnum\cycle@total@pro>0\relax
+                \showtitle{Prolongements}
+                \foreach\profor in{1,...,\cycle@total@pro}{%
+                    \def\prokey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor\nbtoalph\profor}%
+                    \write@key@value{\prokey}{\cycle@pro[\prokey]}
+                }%
+            \fi
+            }%
+        }%
+    }%
+    \vskip0pt plus 3fill\begingroup\large\tt
+    D'après le BO n$^\circ$ \boNum\endgroup
+    \vskip0pt plus 1fill
+}
+
+\begin{document}
+    \parindent=0pt\pagestyle{style1}\preventof{1}
+    \setCycle{3}
+    \tableofcontents\clearpage
+    \phantomsection
+    \addcontentsline{toc}{cycle}{\large\textbf{Cycle 3}}
+    \def\boNum{16 du 17 avril 2025}
+    \showitems
+    \setCycle{4}
+    \tableofcontents\clearpage
+    \phantomsection
+    \addcontentsline{toc}{cycle}{\large\textbf{Cycle 4}}
+    \showitems
+\end{document}

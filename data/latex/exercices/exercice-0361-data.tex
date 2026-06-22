@@ -1,0 +1,32 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tkz-euclide}%
+\startdatakeys
+\source{}%
+\cycle{}%
+\competencesDuSocle{}%
+\connaissancesRequises{}%
+\competencesTravaillees{}%
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{.5\linewidth}
+    En utilisant des lettres de la figure, nommer de trois façons~:
+    \begin{enumerate}
+        \item la droite $(d)$ ;
+        \item la droite $(d')$.
+    \end{enumerate}
+\end{minipage}\hskip 5pt
+\begin{tikzpicture}[rotate=15,scale=0.4, baseline=(current bounding box.center)]
+    \coordinate[label=below right:A](A)at(0,0);
+    \coordinate[label=above right:B](B)at(4.5,0);
+    \coordinate[label=left:C](C)at(4.5,3);
+    \coordinate[label=below:D](D)at(3,0);
+    \coordinate[label=left:E](E)at(4.5,4);
+    \coordinate[label=$(d)$](d)at(7,0);
+    \coordinate[label=right:$(d')$](d')at(4.5,-1.5);
+    \tkzDrawLines[add=0.2 and .3](A,C)
+    \tkzDrawLines[add=0.2 and 0](E,d')
+    \tkzDrawLines[add=0.2 and .2](A,d)
+    \draw node at(E){$\times$};
+    \draw node at(D){$\times$};
+\end{tikzpicture}
+\end{document}

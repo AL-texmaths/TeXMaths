@@ -1,0 +1,45 @@
+\documentclass[17pt]{flash}
+\usepackage{tkz-euclide}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{0pt}
+\FlashSetVtop{-5em}
+\FlashSetTitle{Calcul posé}
+
+\FlashShowConsignes{%
+        \item Pour chaque question écrire la grandeur associée à la valeur.
+}
+\def\docfontsize{\small}
+\flash{180}{\docfontsize
+        \begin{minipage}{.6\linewidth}
+        \begin{tikzpicture}[scale=1]
+            \coordinate[label=left:A](A)at(0,0);
+            \coordinate[label=above:B](B)at(2,1);
+            \coordinate[label=below:C](C)at(2.5,-1.5);
+            \draw(A)--(B)--(C)--cycle;
+            \tkzMarkAngle[size=0.4](A,B,C)
+            \tkzLabelAngle[pos=0.75](A,B,C){\docfontsize 35$^\circ$}
+            \path(A)--(B)node[midway,above,sloped]{2 cm};
+            \path(B)--(C)node[midway,above right]{3,5 cm};
+            \path(A)--(C)node[midway,below left]{3 cm};
+        \end{tikzpicture}
+    \end{minipage}%
+    \begin{minipage}{.4\linewidth}
+        \begin{enumerate}
+            \item 3 cm
+            \item 2 cm
+            \item 35$^\circ$
+            \item 8,5 cm
+        \end{enumerate}
+    \end{minipage}
+}
+\def\docfontsize{\footnotesize}
+\FlashCorrection
+
+\end{document}

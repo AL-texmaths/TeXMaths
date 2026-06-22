@@ -1,0 +1,369 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{userpackages}
+% --------------------------------------------------
+% all commands needed to compile exercices and cours
+% --------------------------------------------------
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage[framemethod=tikz]{mdframed}% rounded color box
+\RequirePackage{etoolbox}
+\RequirePackage{eurosym}%                    signe euro
+\RequirePackage{xlop}%                       poser opérations
+\RequirePackage{tikz}
+\RequirePackage{tkz-euclide}
+\RequirePackage{dashrule}
+\RequirePackage{textcomp}
+\RequirePackage{gensymb}%                    degree symbol
+\RequirePackage{colortbl}%                   color tabular cells
+\RequirePackage{tabularray}%                 tblr environment
+\RequirePackage{ninecolors}%                 color shades
+\RequirePackage{colorpack}
+\RequirePackage{pathpack}
+
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.18}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{frcursive}
+\usepackage{calligra}
+\newcommand{\setfont}[2]{{\fontfamily{#1}\selectfont #2}}
+
+\usetikzlibrary{calc,decorations.pathmorphing,patterns,,patterns.meta}
+
+\tikzset{mark scale/.store in=\markscale,mark scale=1}
+
+\tikzset{every picture/.style={%
+        % /utils/exec={\sffamily},
+        line width=1pt},
+        || mark/.style={
+            postaction=decorate,decoration={
+            markings,
+            mark=at position #1 with {
+                \draw[line cap=round,mark segment,scale=\markscale]
+                    (-1pt,-2pt)--(1pt,2pt);
+                \draw[line cap=round,mark segment,scale=\markscale]
+                    (1pt,-2pt)--(3pt,2pt);
+                }
+            }
+        },
+        mark segment/.style={thick}%
+    }
+\tikzset{
+  fullrotate/.style={rotate=#1,nodes={rotate=#1}}
+}
+\newmdenv[roundcorner=4pt]{simplebox}
+
+\makeatletter
+\newcommand\ifnumber[1]{%
+        \begingroup
+        \edef\temp{#1}%
+        \expandafter\ifstrempty\expandafter{\temp}
+                {\endgroup\@secondoftwo}
+                {\expandafter\ifnumber@i\temp\@nnil}%
+}
+\def\ifnumber@i#1#2\@nnil{%
+        \if-#1%
+                \ifstrempty{#2}
+                        {\def\temp{X}}
+                        {\def\temp{#2}}%
+        \else
+                \def\temp{#1#2}%
+        \fi
+        \afterassignment\ifnumhelper
+        \count@0\temp\relax\@nnil
+        \endgroup
+}
+
+\def\numrelax{\relax}%
+\def\ifnumhelper#1\@nnil{%
+        \def\temp{#1}%
+        \ifx\temp\numrelax
+                \aftergroup\@firstoftwo
+        \else
+                \aftergroup\@secondoftwo
+        \fi
+}
+\def\relatif#1{%
+\ifnum#1<0\relax
+    (#1)
+\else
+    #1
+\fi}
+
+\makeatother
+
+\def\carreentier#1{%
+    \begin{calculs}{cccc}
+        =&&#1^2&\\
+        =&#1&\times&#1\\
+        =&&\number\numexpr#1*#1\relax&
+    \end{calculs}
+}
+
+\def\novirgules#1,#2;{#1#2}
+\def\addvirgule#1#2#3#4{#1#2,#3#4}
+
+\def\carre#1{%
+    \begin{calculs}{cccc}
+        &&#1^2&\\
+        =&#1&\times&#1\\
+        =&&\expandafter\addvirgule\number\numexpr\novirgules#1;*\novirgules#1;\relax&
+    \end{calculs}
+}
+
+\def\num#1{\ifnumber{#1}{\makeatletter\relatif{#1}\makeatother}{\textbf{#1}}}
+
+\pgfkeys{%
+    /calculs/.cd,%
+    vstretch/.store in=\vstretch,%
+    vstretch=1.5%
+    }
+\newenvironment{calculs}[2][]
+    {%
+        \pgfkeys{/calculs/.cd,#1}
+        \begingroup\renewcommand{\arraystretch}{\vstretch}$$\begin{array}{#2}
+        }
+    {\end{array}$$\endgroup}
+
+\newlength{\dotedlength}
+\def\doted#1{%
+    \settowidth{\dotedlength}{#1}
+    \hdashrule{2\dotedlength}{.5pt}{2pt}
+}
+\newcommand{\dotedline}{\par\vspace{10pt}\hdashrule{\linewidth}{.5pt}{2pt}}
+
+\newcount\ii
+\makeatletter
+\def\ncar#1#2{%
+    \ii=0 % initialise le compteur à 0
+    \def\val@max{#1}% stocke la valeur maximale
+    \def\car@save{#2}% stocke le caractère à afficher
+    \ncar@i% appelle la macro récursive
+}
+\def\ncar@i{%
+    \ifnum\ii<\val@max% si la valeur maxi n’est pas atteinte
+    \car@save% afficher le caractère
+    \advance\ii 1 % incrémenter le compteur
+    \ncar@i% recommencer
+    \fi
+}
+\makeatother
+
+% \newcommand{\circled}[1]{\textcircled{\scalebox{0.7}{#1}}}
+\newcommand*\circled[1]{%
+  \begin{tikzpicture}
+    \node[draw,circle,inner sep=1pt] {#1};
+  \end{tikzpicture}}
+
+\def\guillemets#1{{\guillemotleft} #1 {\guillemotright}}
+
+\def\convertdec#1.#2{#1#2}
+
+\makeatletter
+\pgfkeys{%
+    /tableau/.cd,%
+    vstretch/.store in=\tableau@vstretch,%
+    vstretch=0.0,%
+    hspace/.store in=\tableau@hspace,%
+    hspace=0,%
+    rule width/.store in=\tableau@rulewidth,%
+    rule width=0,%
+    cell color/.store in=\tableau@cellcolor,%
+    cell color=white,%
+    }
+
+\def\colored{\relax}
+
+\newenvironment{tableau}[2][]
+{
+    \begingroup
+    \pgfkeys{/tableau/.cd,#1}
+    \def\colored{\begingroup\cellcolor{\tableau@cellcolor}\endgroup}
+    \ifnum\expandafter\convertdec\tableau@vstretch=0
+        \relax
+    \else
+        \renewcommand\arraystretch{\tableau@vstretch}
+    \fi
+    \ifnum\tableau@hspace=0
+        \relax
+    \else
+        \setlength\tabcolsep{\tableau@hspace pt}
+    \fi
+    \ifnum\expandafter\convertdec\tableau@rulewidth=0
+        \relax
+    \else
+        \setlength{\arrayrulewidth}{\tableau@rulewidth pt}
+    \fi
+    \begin{tabular}{#2}
+}
+{
+    \end{tabular}
+    \endgroup
+}
+
+\def\toComplete@version{1}
+\def\setCompleteVersion#1{\def\toComplete@version{#1}}
+\def\toComplete#1{\ifnum\toComplete@version=0\relax\phantom{#1}\else#1\fi}
+
+\makeatother
+
+\newcommand{\drawTikzOnPic}[3][]{%
+    \begin{tikzpicture}[#1]
+        \node[anchor=south west,inner sep=0] (image) at (0,0) {#2};
+        \begin{scope}[x={(image.south east)},y={(image.north west)}]
+            #3
+        \end{scope}
+    \end{tikzpicture}
+}
+
+\makeatletter
+\pgfkeys{
+    /tikzSegment/.cd,
+    sommets/.store in=\tikzSegment@sommets,
+    sommets=AB,
+    lenght/.store in=\tikzSegment@lenght,
+    lenght=4,
+    angle/.store in=\tikzSegment@angle,
+    angle=0,
+    midpos/.store in=\tikzSegment@midpos,
+    midpos={0,0}%
+}
+\newcommand{\tikzSegment}[1][]{%
+    \makeatletter
+    \pgfkeys{/tikzSegment/.cd,#1}
+    \coordinate(O1)at(\tikzSegment@midpos);
+    \path(O1)--+(\tikzSegment@angle:\tikzSegment@lenght/2)%
+        coordinate[label={[label distance=2pt]\tikzSegment@angle:%
+            \expandafter\firstof\tikzSegment@sommets}](A1);
+    \path(O1)--+(180+\tikzSegment@angle:\tikzSegment@lenght/2)%
+        coordinate[label={[label distance=2pt]180+\tikzSegment@angle:%
+            \expandafter\secondof\tikzSegment@sommets}](A2);
+    \draw[|-|](A1)--(A2);
+    \makeatother
+}
+\makeatother
+
+\pgfdeclaredecoration{penciline}{initial}{
+    \state{initial}[width=+\pgfdecoratedinputsegmentremainingdistance,
+    auto corner on length=1mm,]{
+        \pgfpathcurveto%
+        {% From
+            \pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}
+                      {\pgfdecorationsegmentamplitude}
+        }
+        {%  Control 1
+        \pgfmathrand
+        \pgfpointadd{\pgfqpoint{\pgfdecoratedinputsegmentremainingdistance}{0pt}}
+                    {\pgfqpoint{-\pgfdecorationsegmentaspect
+                     \pgfdecoratedinputsegmentremainingdistance}%
+                               {\pgfmathresult\pgfdecorationsegmentamplitude}
+                    }
+        }
+        {%TO 
+        \pgfpointadd{\pgfpointdecoratedinputsegmentlast}{\pgfpoint{1pt}{1pt}}
+        }
+    }
+    \state{final}{}
+}
+
+\def\gobone#1{}
+\def\firstof#1#2{#1}
+\def\secondof#1#2{#2}
+
+\def\firstofthree#1#2#3{#1}
+\def\secondofthree#1#2#3{#2}
+\def\thirdofthree#1#2#3{#3}
+
+\def\puissance#1#2{%
+    $#1\expandafter\ncar\number\numexpr#2-1{\times #1}$
+}
+
+\newmdenv[backgroundcolor=green1!25!, roundcorner=4pt]{greenbox}
+\newmdenv[backgroundcolor=magenta1!25!, roundcorner=4pt]{magentabox}
+\newmdenv[backgroundcolor=rose1!25!, roundcorner=4pt]{rosebox}
+\newmdenv[backgroundcolor=rose1!25!, roundcorner=4pt]{graybox}
+\newmdenv[backgroundcolor=Palette3-bleu!10!, roundcorner=4pt]{bluebox}
+\newmdenv[backgroundcolor=Rainbow1-vert!50!white, roundcorner=4pt]{rainbowvert}
+\newmdenv[backgroundcolor=Rainbow1-bleu!50!white, roundcorner=4pt]{rainbowbleu}
+\newmdenv[backgroundcolor=Rainbow1-rouge!50!white, roundcorner=4pt]{rainbowrouge}
+\newmdenv[backgroundcolor=Rainbow1-jaune!70!white, roundcorner=4pt]{rainbowjaune}
+\newmdenv[backgroundcolor=Rainbow1-orange!50, roundcorner=4pt]{rainboworange}
+\newmdenv[backgroundcolor=Rainbow1-violet!50, roundcorner=4pt]{rainbowviolet}
+\newmdenv[backgroundcolor=PaletteIndigo-gris, roundcorner=4pt]{rainbowgris}
+\newmdenv[backgroundcolor=CalmSerenity-6, roundcorner=4pt]{vertsapin}
+
+\newmdenv[roundcorner=4pt]{programme}
+
+\newcounter{programme}
+
+\def\programmeDef#1#2#3{%
+    \stepcounter{programme}
+    \begin{minipage}[t]{.45\linewidth}
+        \begin{programme}
+            \textbf{\color{#1!40!black}Programme \arabic{programme}:}
+            \begin{enumerate}[label=\textcolor{#1!40!black}{$\bullet$}, leftmargin=*]
+                \item Choisir un nombre.
+                \item #2
+                \item #3
+            \end{enumerate}
+        \end{programme}
+    \end{minipage}
+}
+
+\def\simpleprgm#1#2{%
+    \begin{minipage}[t]{.45\linewidth}
+        \begin{programme}
+            \textbf{\color{#1!40!black}Programme :}
+            \begin{enumerate}[label=\textcolor{#1!40!black}{$\bullet$}, leftmargin=*]
+                \item Choisir un nombre.
+                #2
+            \end{enumerate}
+        \end{programme}
+    \end{minipage}
+}
+
+\def\programDef#1#2{%
+    \stepcounter{programme}
+    \begin{minipage}[t]{.45\linewidth}
+        \begin{programme}
+            \textbf{\color{#1!40!black}Programme \arabic{programme}:}
+            \begin{enumerate}[label=\textcolor{#1!40!black}{$\bullet$}, leftmargin=*]
+                \item Choisir un nombre.
+                #2
+            \end{enumerate}
+        \end{programme}
+    \end{minipage}
+}
+\newcommand{\prgrm}[2][]{%
+    \renewmdenv[roundcorner=4pt,backgroundcolor=#2,#1]{programme}
+    \programDef{#2}%
+}
+
+\newcommand{\program}[2][]{%
+    \renewmdenv[roundcorner=4pt,backgroundcolor=#2,#1]{programme}
+    \programmeDef{#2}%
+}
+
+\newenvironment{programs}{\setcounter{programme}{0}\medskip\par}{}
+
+\newcommand{\colbox}[2][]{%
+    \tikz[baseline=-0.6ex]
+    \node[#1, draw, rounded corners]{#2};}
+
+% \newcommand{\colbox}[2][]{%
+%     \tikz[baseline=-0.6ex]
+%     \node[#1, draw, rounded corners]{#2};}%
+
+\newlength{\magicsquaresize}
+\setlength{\magicsquaresize}{25pt}
+
+\makeatletter
+\newcommand{\newparallel}{\mathrel{\mathpalette\new@parallel\relax}}
+\newcommand{\new@parallel}[2]{%
+  \begingroup
+\sbox\z@{$#1A$}% get the height of an uppercase letter
+  \resizebox{!}{\ht\z@}{\raisebox{\depth}{$\m@th#1/\mkern-5mu/$}}%
+  \endgroup
+}
+\makeatother
+

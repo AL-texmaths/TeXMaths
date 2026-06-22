@@ -1,0 +1,807 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-cycle3-BO_2026}[19/06/2022]
+\RequirePackage{amsmath}
+
+\makeatletter
+\def\nbtoalph#1{\@alph{#1}}
+\def\nbtoAlph#1{\@Alph{#1}}
+
+\def\write@oe{oe}
+\def\write@protect{}
+\def\write@mapstochar{}
+\def\write@rightarrow{ fleche }
+\def\write@sqrt#1{racine de #1}
+\def\thirdcycle@activate@writing{%
+    \let\oe\write@oe
+    \let\protect\write@protect
+    \let\mapstochar\write@mapstochar
+    \let\rightarrow\write@rightarrow
+    \let\sqrt\write@sqrt
+}
+
+\def\deftoks#1{\expandafter\newtoks\csname#1\endcsname}
+\def\settoks#1#2{\csname#1\endcsname={#2}}
+\def\thetoks#1{\the\csname#1\endcsname}
+\def\step#1{#1=\expandafter{\expandafter!\the#1}}
+\def\steptoks#1{\expandafter\step\csname#1\endcsname}
+
+\def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
+\def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
+\def\edefunivar#1[#2]{\expandafter\edef\csname\string#1[#2]\endcsname}
+% ========================
+% CONSTRUCTION DES PARTIES
+% ========================
+\newunivar\thirdcycle@theme
+\newunivar\thirdcycle@level
+\newunivar\thirdcycle@subtheme
+\newunivar\thirdcycle@aut
+\newunivar\thirdcycle@obj
+\newunivar\thirdcycle@pro
+\newunivar\thirdcycle@total
+
+\newcounter{thirdcycle@boB@theme}
+\newcounter{thirdcycle@boB@level}
+\newcounter{thirdcycle@boB@subtheme}
+\newcounter{thirdcycle@boB@aut}
+\newcounter{thirdcycle@boB@obj}
+\newcounter{thirdcycle@boB@pro}
+
+\counterwithin{thirdcycle@boB@level}{thirdcycle@boB@theme}
+\counterwithin{thirdcycle@boB@subtheme}{thirdcycle@boB@level}
+\counterwithin{thirdcycle@boB@aut}{thirdcycle@boB@subtheme}
+\counterwithin{thirdcycle@boB@obj}{thirdcycle@boB@subtheme}
+\counterwithin{thirdcycle@boB@pro}{thirdcycle@boB@subtheme}
+
+\def\endthemes{\edefunivar\thirdcycle@total[themes]{\arabic{thirdcycle@boB@theme}}}
+\def\endlevels{\edefunivar\thirdcycle@total[\Alph{thirdcycle@boB@theme}]{\arabic{thirdcycle@boB@level}}}
+\def\endsubthemes{\edefunivar\thirdcycle@total[\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}]{\arabic{thirdcycle@boB@subtheme}}}
+\def\endaut{\edefunivar\thirdcycle@total[\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}AUT]{\arabic{thirdcycle@boB@aut}}}
+\def\endobj{\edefunivar\thirdcycle@total[\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}OBJ]{\arabic{thirdcycle@boB@obj}}}
+\def\endpro{\edefunivar\thirdcycle@total[\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}PRO]{\arabic{thirdcycle@boB@pro}}}
+
+\def\endsubtheme{\endaut\endobj\endpro}
+
+\def\newtheme#1{\stepcounter{thirdcycle@boB@theme}\defunivar\thirdcycle@theme[\Alph{thirdcycle@boB@theme}]{#1}}
+\def\newlevel#1{\stepcounter{thirdcycle@boB@level}\defunivar\thirdcycle@level
+    [\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}]{#1}}
+\def\newsubtheme#1{\stepcounter{thirdcycle@boB@subtheme}\defunivar\thirdcycle@subtheme
+    [\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}]{#1}}
+\def\newaut#1{
+    \stepcounter{thirdcycle@boB@aut}
+    \deftoks{AUT\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@aut}occ}
+    \settoks{AUT\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@aut}occ}{}
+    \edef\tmpkey{\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@aut}}
+    \defunivar\thirdcycle@aut[\tmpkey]{#1}%
+	\immediate\write\datafile{aut|:|\tmpkey|:|\unexpanded{#1}}%
+    }
+\def\newobj#1{
+    \stepcounter{thirdcycle@boB@obj}
+    \deftoks{OBJ\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@obj}occ}
+    \settoks{OBJ\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@obj}occ}{}
+    \edef\tmpkey{\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@obj}}
+    \defunivar\thirdcycle@obj[\tmpkey]{#1}%
+	\immediate\write\datafile{obj|:|\tmpkey|:|\unexpanded{#1}}%
+    }
+\def\newpro#1{
+    \stepcounter{thirdcycle@boB@pro}
+    \deftoks{PRO\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@pro}occ}
+    \settoks{PRO\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@pro}occ}{}
+    \edef\tmpkey{\Alph{thirdcycle@boB@theme}\arabic{thirdcycle@boB@level}\alph{thirdcycle@boB@subtheme}\alph{thirdcycle@boB@pro}}
+    \defunivar\thirdcycle@pro[\tmpkey]{#1}%
+	\immediate\write\datafile{pro|:|\tmpkey|:|\unexpanded{#1}}%
+    }
+
+\global\def\useaut[#1]{\steptoks{AUT#1occ}\thirdcycle@aut[#1]}
+\global\def\useobj[#1]{\steptoks{OBJ#1occ}\thirdcycle@obj[#1]}
+\global\def\usepro[#1]{\steptoks{PRO#1occ}\thirdcycle@pro[#1]}
+
+\newcounter{thirdcycle@boB@occ}
+
+\def\gobone#1{}
+
+\def\catalogue@loop#1{%
+    \ifnum#1=0
+    \else
+    \edef\tempa{\expandafter\gobone#1}%
+    \stepcounter{thirdcycle@boB@occ}\catalogue@loop\tempa\fi
+}
+\def\@countthirdcycle@boB@occ#1{\setcounter{thirdcycle@boB@occ}{0}\catalogue@loop#1\thethirdcycle@boB@occ}
+\def\countocc#1{\begingroup\edef\temp{\thetoks{#1thirdcycle@boB@occ}}\@countthirdcycle@boB@occ\temp\endgroup}
+\makeatother
+% ========================================
+% DEFINITION DES CONNAISSANCES/COMPETENCES
+% ========================================
+\newwrite\datafile
+\immediate\openout\datafile=\jobname-cycle3-data.txt\relax
+% ---- THÈME A : Nombres et calculs ----
+\newtheme{Nombres, calcul et résolution de problèmes}
+
+\newlevel{Cours moyen première année}
+
+\newsubtheme{Les nombres entiers}
+\newobj{Comparer et dénombrer des collections en les organisant}
+\newobj{Construire des collections de cardinal donné}
+\newobj{Connaître et utiliser les relations entre les unités de numération}
+\newobj{Connaître la suite écrite et la suite orale des nombres jusqu’à 999
+	999}
+\newobj{Connaître la valeur des chiffres en fonction de leur position dans
+	un nombre}
+\newobj{Connaître et utiliser diverses représentations d’un nombre et passer
+	de l’une à l’autre}
+\newobj{Comprendre et savoir utiliser les expressions « égal à », « supérieur
+	à », « inférieur à », « compris entre … et … »}
+\newobj{Comparer, encadrer, intercaler des nombres entiers en utilisant les
+	symboles =, < et >}
+\newobj{Ordonner des nombres dans l’ordre croissant ou décroissant}
+\newobj{Savoir placer des nombres et repérer des points sur une demi-droite
+	graduée}
+\newobj{Savoir reconnaître les multiples de 2, de 5 et de 10 à partir de leur
+	écriture chiffrée}
+\newobj{Savoir déterminer si un nombre entier donné est un multiple d’un nombre
+	entier inférieur ou égal à 10}
+\newobj{Savoir déterminer si un nombre entier inférieur ou égal à 10 est un
+	diviseur d’un nombre entier donné}
+\endsubtheme
+
+\newsubtheme{Les fractions}
+\newobj{Savoir interpréter, représenter, écrire et lire des fractions}
+\newobj{Savoir écrire une fraction supérieure à 1 comme la somme d’un entier et
+	d’une fraction inférieure à 1}
+\newobj{Savoir écrire la somme d’un entier et d’une fraction inférieure à 1
+	comme une unique fraction}
+\newobj{Savoir encadrer une fraction par deux nombres entiers consécutifs}
+\newobj{Savoir placer une fraction ou la somme d’un nombre entier et d’une
+	fraction inférieure à un sur une demi-droite graduée}
+\newobj{Savoir repérer un point d’une demi-droite graduée par une fraction ou
+	par la somme d’un nombre entier et d’une fraction}
+\newobj{Comparer des fractions}
+\newobj{Additionner et soustraire des fractions}
+\newobj{Déterminer une fraction d’une quantité ou d’une grandeur}
+\endsubtheme
+
+\newsubtheme{Les nombres décimaux}
+\newobj{Interpréter, représenter, écrire et lire des fractions décimales}
+\newobj{Connaître et utiliser les relations entre unités simples, dixièmes
+	et centièmes}
+\newobj{Placer une fraction décimale sur une demi-droite graduée et repérer
+	un point d’une demi-droite graduée par une fraction}
+\newobj{Écrire une fraction décimale supérieure à 1 comme la somme d’un
+	nombre entier et d’une fraction décimale inférieure à 1}
+\newobj{Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre
+	entier et de fractions décimales ayant un numérateur}
+\newobj{Comparer, encadrer, intercaler des fractions décimales en utilisant
+	les symboles =, < et >}
+\newobj{Ordonner des fractions décimales dans l’ordre croissant ou décroissant}
+\newobj{Passer d’une écriture sous forme d’une fraction décimale ou d’une somme
+	de fractions décimales à une écriture à virgule et réciproquement}
+\newobj{Interpréter, représenter, écrire et lire des nombres décimaux (écriture
+	à virgule)}
+\newobj{Placer un nombre décimal en écriture à virgule sur une demi-droite
+	graduée et repérer un point d’une demi-droite graduée par}
+\newobj{Savoir donner la partie entière et l’arrondi à l’entier d’un nombre
+	décimal}
+\newobj{Comparer, encadrer, intercaler, ordonner, par ordre croissant ou
+	décroissant, des nombres décimaux donnés par leur écriture à}
+\endsubtheme
+
+\newsubtheme{Le calcul mental}
+\newobj{Connaître des faits numériques usuels relatifs aux nombres entiers}
+\newobj{Connaître quelques relations entre des fractions usuelles}
+\newobj{Connaître l’écriture décimale de fractions usuelles}
+\newobj{Utiliser ses connaissances en numération pour calculer mentalement}
+\newobj{Ajouter ou soustraire un nombre entier inférieur à 10, d’unités, de
+	dizaines, de centaines, de dixièmes ou de centièmes à un nombre décimal,
+	lorsqu’il n’y a pas de retenue}
+\newobj{Multiplier un nombre entier par 10, 100 ou 1 000}
+\newobj{Multiplier un nombre décimal par 10}
+\newobj{Diviser un nombre décimal par 10}
+\newobj{Ajouter ou soustraire 8, 9, 18, 19, 28, 29, 38 ou 39, à un nombre}
+\newobj{Multiplier un nombre entier inférieur à 10 par un nombre entier
+	de dizaines ou de centaines}
+\newobj{Multiplier un nombre entier par 4 ou par 8}
+\newobj{Multiplier un nombre entier par 5}
+\newobj{Utiliser la distributivité de la multiplication par rapport à l’addition
+	dans des cas simples}
+\endsubtheme
+
+\newsubtheme{Les quatre opérations}
+\newobj{Estimer le résultat d’une opération}
+\newobj{Savoir effectuer un calcul contenant des parenthèses}
+\newobj{Poser en colonnes et effectuer des additions et des soustractions de
+	nombres décimaux}
+\newobj{Poser et effectuer des multiplications de deux nombres entiers}
+\newobj{Poser et effectuer des multiplications d’un nombre décimal par un
+	nombre entier inférieur à 10}
+\newobj{Poser et effectuer des divisions euclidiennes avec un diviseur à un
+	chiffre}
+\endsubtheme
+
+\newsubtheme{La résolution de problèmes}
+\newobj{Résoudre des problèmes additifs en une étape des types « parties-tout
+	» et « comparaison »}
+\newobj{Résoudre des problèmes additifs en deux ou trois étapes}
+\newobj{Résoudre des problèmes multiplicatifs de type « parties-tout » en une
+	étape}
+\newobj{Résoudre des problèmes de comparaison multiplicative}
+\newobj{Résoudre des problèmes mixtes en deux ou trois étapes}
+\newobj{Résoudre des problèmes de dénombrement}
+\newobj{Résoudre des problèmes d’optimisation}
+\endsubtheme
+
+\newsubtheme{Algèbre}
+\newobj{Trouver le nombre manquant dans une égalité à trous}
+\newobj{Déterminer la valeur d’un nombre inconnu en utilisant un symbole ou une
+	lettre pour le représenter}
+\newobj{Résoudre des problèmes algébriques}
+\newobj{Exécuter un programme de calcul}
+\newobj{Identifier et formuler une règle de calcul pour poursuivre une suite
+	de nombres}
+\newobj{Identifier des régularités et poursuivre une suite de motifs évolutive}
+\endsubtheme
+
+\endsubthemes
+\newlevel{Cours moyen deuxième année}
+
+\newsubtheme{Les nombres entiers}
+\newobj{Connaître et utiliser les relations entre les unités de numération}
+\newobj{Connaître la suite écrite et la suite orale des nombres jusqu’à 999
+	999 999}
+\newobj{Connaître et utiliser diverses représentations d’un nombre et passer
+	de l’une à l’autre}
+\newobj{Connaître la valeur des chiffres en fonction de leur position dans un
+	nombre}
+\newobj{Comparer, encadrer, intercaler des nombres entiers en utilisant les
+	symboles =, < et >}
+\newobj{Ordonner des nombres dans l’ordre croissant ou décroissant}
+\newobj{Placer des nombres et repérer des points sur une demi-droite graduée}
+\newobj{Déterminer si un nombre entier inférieur ou égal à 10 est un diviseur
+	d’un nombre entier donné ou si un nombre entier donné est un multiple d’un
+	nombre entier inférieur ou égal à 10}
+\newobj{Déterminer des diviseurs d’un nombre entier inférieur ou égal à 100}
+\newobj{Déterminer tous les diviseurs d’un nombre entier inférieur ou égal à 30}
+\newobj{Déterminer les diviseurs communs à deux nombres entiers inférieurs ou
+égaux à 30}
+\newobj{Déterminer des multiples communs à deux nombres entiers inférieurs à 15}
+\endsubtheme
+
+\newsubtheme{Les fractions}
+\newobj{Interpréter, représenter, écrire et lire des fractions}
+\newobj{Écrire une fraction supérieure à 1 comme la somme d’un entier et d’une
+	fraction inférieure à 1}
+\newobj{Écrire la somme d’un entier et d’une fraction inférieure à 1 comme
+	une unique fraction}
+\newobj{Encadrer une fraction entre deux nombres entiers consécutifs}
+\newobj{Placer une fraction ou la somme d’un nombre entier et d’une fraction
+	inférieure à un sur une demi-droite graduée}
+\newobj{Repérer un point d’une demi-droite graduée par une fraction ou par
+	la somme d’un nombre entier et d’une fraction}
+\newobj{Comparer des fractions}
+\newobj{Additionner et soustraire des fractions}
+\newobj{Calculer le produit d’un entier et d’une fraction}
+\newobj{Déterminer une fraction d’une quantité ou d’une grandeur}
+\endsubtheme
+
+\newsubtheme{Les nombres décimaux}
+\newobj{Interpréter, représenter, écrire et lire des fractions décimales}
+\newobj{Connaître et utiliser les relations entre unités simples, dixièmes
+	et centièmes}
+\newobj{Placer une fraction décimale sur une demi-droite graduée et
+	repérer un point d’une demi-droite graduée par une fraction}
+\newobj{Écrire une fraction décimale supérieure à 1 comme la somme d’un
+	nombre entier et d’une fraction décimale inférieure à 1}
+\newobj{Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre
+	entier et de fractions décimales ayant un numérateur}
+\newobj{Comparer, encadrer, intercaler des fractions décimales en utilisant
+	les symboles =, < et >}
+\newobj{Ordonner des fractions décimales dans l’ordre croissant ou décroissant}
+\newobj{Passer d’une écriture sous forme d’une fraction décimale ou d’une somme
+	de fractions décimales à une écriture à virgule et}
+\newobj{Interpréter, représenter, écrire et lire des nombres décimaux (écriture
+	à virgule)}
+\newobj{Placer un nombre décimal en écriture à virgule sur une demi-droite
+	graduée et repérer un point d’une demi-droite graduée par}
+\newobj{Savoir donner la partie entière et l’arrondi à l’entier d’un nombre
+	décimal}
+\newobj{Comparer, encadrer, intercaler, ordonner, par ordre croissant ou
+	décroissant, des nombres décimaux donnés par leur écriture à}
+\endsubtheme
+
+\newsubtheme{Le calcul mental}
+\newobj{Connaître des faits numériques usuels avec des entiers}
+\newobj{Connaître la moitié des nombres impairs jusqu’à 15}
+\newobj{Connaître quelques relations entre des fractions usuelles}
+\newobj{Connaître l’écriture décimale de fractions usuelles}
+\newobj{Ajouter ou soustraire un nombre entier à un nombre décimal lorsqu’il
+	n’y a pas de retenue}
+\newobj{Ajouter un nombre entier à un nombre décimal lorsqu’il y a une retenue}
+\newobj{Multiplier un nombre décimal par 10, 100 ou 1 000}
+\newobj{Diviser un nombre décimal par 10, 100 ou 1 000}
+\newobj{Ajouter deux nombres décimaux inférieurs à 10, s’écrivant avec au plus
+	un chiffre après la virgule}
+\newobj{Ajouter ou soustraire 8, 9, 18, 19, 28, 29, …, 98 ou 99 à un nombre}
+\newobj{Multiplier un nombre entier, inférieur à 10, de dizaines, de centaines
+	ou de milliers par un nombre entier, inférieur à 10, de}
+\newobj{dizaines, de centaines ou de milliers}
+\newobj{Utiliser la distributivité de la multiplication par rapport à
+	l’addition dans des cas simples}
+\newobj{Calculer le double d’un nombre décimal dans des cas simples}
+\newobj{Calculer la moitié d’un nombre décimal dans des cas simples}
+\newobj{Diviser un nombre entier par 4 ou par 8}
+\newobj{Multiplier un nombre décimal par 5}
+\newobj{Multiplier un nombre décimal par 50}
+\endsubtheme
+
+\newsubtheme{Les quatre opérations}
+\newobj{Estimer le résultat d’une opération} 
+\newobj{Savoir réaliser un calcul contenant une ou deux paires de parenthèses} 
+\newobj{Poser et effectuer la multiplication d’un nombre décimal par un nombre
+	entier} 
+\newobj{Poser et effectuer des divisions décimales avec un dividende entier et
+	un diviseur à un chiffre} 
+\newobj{Poser et effectuer des divisions décimales avec un dividende décimal et
+	un diviseur à un chiffre} 
+\endsubtheme
+
+\newsubtheme{La résolution de problèmes}
+\newobj{Résoudre des problèmes additifs en une ou plusieurs étapes }
+\newobj{Résoudre des problèmes multiplicatifs de type « parties-tout » en une
+	étape }
+\newobj{Résoudre des problèmes mixtes en plusieurs étapes }
+\newobj{Résoudre des problèmes de comparaison multiplicative }
+\newobj{Résoudre des problèmes de dénombrement }
+\newobj{Résoudre des problèmes d’optimisation }
+\newobj{Résoudre des problèmes préparant à l’utilisation d’algorithmes }
+\endsubtheme
+
+\newsubtheme{Algèbre}
+\newobj{Trouver le nombre manquant dans une égalité à trous}
+\newobj{Résoudre des problèmes algébriques}
+\newobj{Exécuter ou produire un programme de calcul}
+\newobj{Identifier et formuler une règle de calcul pour poursuivre une suite
+	de nombres}
+\newobj{Identifier des régularités et poursuivre une suite de motifs évolutive}
+\newobj{Trouver le nombre d’éléments pour une étape donnée dans une suite de
+	motifs évolutive}
+\endsubtheme
+
+\endsubthemes
+\newlevel{Sixième}
+\newsubtheme{Les nombres entiers et décimaux}
+\newobj{Connaître et utiliser la valeur des chiffres selon leur rang dans
+	l’écriture d’un nombre}
+\newobj{Connaître les liens entre les unités de numération unité, dizaine,
+	centaine, millier, dixième, centième, millième}
+\newobj{Connaître des grands nombres entiers}
+\newobj{Reconnaître un nombre décimal}
+\newobj{Connaître la définition d’un pourcentage}
+\newobj{Associer et utiliser différentes écritures d’un nombre décimal~:
+	écriture à virgule, fraction, nombre mixte, pourcentage}
+\newobj{Placer sur une demi-droite graduée un point dont l’abscisse est un
+	nombre décimal}
+\newobj{Repérer un nombre décimal sur une demi-droite graduée}
+\newobj{Comparer deux nombres décimaux}
+\newobj{Ordonner une liste de nombres décimaux}
+\newobj{Donner la valeur arrondie à l’unité, au dixième ou au centième,
+	d’un nombre décimal}
+\newobj{Déterminer ou connaître la valeur arrondie de certains nombres non
+	décimaux}
+\newobj{Encadrer un nombre décimal par deux nombres décimaux, intercaler un
+	nombre décimal entre deux nombres décimaux}
+\newobj{Additionner et soustraire des nombres décimaux}
+\newobj{Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01,
+	et par 0,001}
+\newobj{Connaître le lien avec la division par 10, 100 et par 1 000}
+\newobj{Comprendre le sens de la multiplication de deux nombres décimaux}
+\newobj{Calculer le produit de deux nombres décimaux}
+\newobj{Contrôler les résultats à l’aide d’ordres de grandeur}
+\newobj{Résoudre des problèmes mettant en jeu des multiplications entre des
+	nombres décimaux}
+\newobj{Diviser un nombre décimal par un nombre entier non nul inférieur à 10}
+\newobj{Résoudre des problèmes mettant en jeu des divisions décimales}
+\newobj{Effectuer la division euclidienne d’un nombre entier par un nombre
+	entier inférieur à 100}
+\newobj{Résoudre des problèmes mettant en jeu des divisions euclidiennes}
+\newpro{Découverte d'écritures des nombres à partir de lettres ou de dessins~:
+	numérations acrophoniques grecque, romaine, hiéroglyphique égyptienne}
+\newpro{Découverte d'algorithmes opératoires, développés dans plusieurs
+	traditions mathématiques, comme la multiplication par jalousies ou en tableau}
+\newpro{Manipulation d'abaques à jetons ou de bouliers pour remobiliser le
+	principe de la numération et la notion de « base de numération »}
+\newpro{Découverte de la numération sexagésimale paléo-babylonienne, qui repose
+	sur les mêmes principes mathématiques que le système utilisé pour exprimer
+	des durées en heures, minutes et secondes}
+\newpro{Le passage de ce système de numération au système décimal (et vice versa)
+	est un autre contexte que celui des durées pour travailler la division
+	euclidienne}
+\newpro{Découverte de l'écriture des nombres décimaux utilisée par Simon Stevin
+	de Bruges pour illustrer le lien entre numération décimale et fractions
+	décimales}
+\endsubtheme
+\newsubtheme{Les fractions}
+\newobj{Relier une fraction au résultat exact de la division de son numérateur
+	par son dénominateur}
+\newobj{Comprendre et connaître la définition du quotient d’un entier a par
+	un entier b non nul}
+\newobj{Compléter des égalités à trous multiplicatives}
+\newobj{Placer une fraction sur une demi-droite graduée dans des cas simples}
+\newobj{Graduer un segment de longueur donnée}
+\newobj{Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier,
+	un nombre décimal non entier ou un nombre non décimal}
+\newobj{Utiliser une multiplication pour appliquer une fraction à un nombre
+	entier}
+\newobj{Établir des égalités de fractions}
+\newobj{Comparer et encadrer des fractions}
+\newobj{Ordonner une liste de nombres écrits sous forme de fractions ou de
+	nombres mixtes}
+\newobj{Effectuer des opérations sur les fractions}
+\newobj{Additionner et soustraire des fractions}
+\newobj{Multiplier une fraction par un nombre entier}
+\newobj{Résoudre des problèmes mettant en jeu des fractions}
+\newobj{Inventer des problèmes mettant en jeu des fractions}
+\newobj{Comprendre le sens d’un pourcentage}
+\newobj{Calculer une proportion (rapport entre une partie et le tout) et
+	l’exprimer sous forme de pourcentage dans des cas simples}
+\newobj{Appliquer un pourcentage à une grandeur ou à un nombre}
+\endsubtheme
+\newsubtheme{Algèbre}
+\newobj{Utiliser des modèles pré-algébriques pour résoudre des problèmes
+	algébriques}
+\newobj{Identifier la structure d’un motif évolutif en repérant une régularité
+	et en identifiant une structure }
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+\newtheme{Grandeurs et mesures}
+\newlevel{Cours moyen première année}
+\newsubtheme{Les longueurs}
+\newobj{Connaître et utiliser les unités de longueur du millimètre au kilomètre
+	et les symboles associés}
+\newobj{Connaître les relations entre les unités de longueur}
+\newobj{Choisir une unité adaptée pour exprimer une longueur}
+\newobj{Comparer des longueurs}
+\newobj{Disposer de quelques longueurs de référence}
+\newobj{Estimer la longueur d’un objet ou d’une distance}
+\newobj{Savoir ce qu’est le périmètre d’une figure plane}
+\newobj{Déterminer le périmètre d’un polygone en utilisant une règle graduée}
+\newobj{Résoudre des problèmes mettant en jeu les longueurs des côtés d’un
+	polygone et son périmètre}
+\endsubtheme
+
+\newsubtheme{Les masses}
+\newobj{Connaître et utiliser les unités de masse du gramme à la tonne et les
+	symboles associés}
+\newobj{Connaître les relations entre les unités de masse}
+\newobj{Choisir une unité adaptée pour exprimer une masse}
+\newobj{Comparer des masses}
+\newobj{Disposer de quelques masses de référence}
+\newobj{Estimer la masse d’un objet}
+\endsubtheme
+\newsubtheme{Les contenances}
+\newobj{Connaître et utiliser les unités de contenance du millilitre à
+	l’hectolitre et les symboles associés}
+\newobj{Connaître les relations entre les unités de contenance}
+\newobj{Choisir une unité adaptée pour exprimer une contenance}
+\newobj{Comparer des contenances}
+\endsubtheme
+\newsubtheme{Les aires}
+\newobj{Comparer les aires de différentes figures planes}
+\newobj{Déterminer des aires}
+\newobj{Connaître et utiliser les centimètres carrés pour exprimer des aires}
+\endsubtheme
+
+\newsubtheme{Les angles}
+\newobj{Utiliser le lexique spécifique associé aux angles}
+\newobj{Comprendre et utiliser les notations des angles}
+\newobj{Comparer des angles}
+\endsubtheme
+
+\newsubtheme{Le repérage dans le temps et les durées}
+\newobj{Lire l’heure sur une horloge à aiguilles}
+\newobj{Positionner les aiguilles d’une horloge correspondant à une heure
+	donnée en heure et minute}
+\newobj{Comparer et mesurer des durées écoulées entre deux instants affichés
+	sur une horloge (instants et durées sont exprimés en heure et minute)}
+\newobj{Résoudre des problèmes à une ou deux étapes impliquant des durées}
+\endsubtheme
+
+\endsubthemes
+\newlevel{Cours moyen deuxième année}
+\newsubtheme{Les aires}
+\newobj{Comparer les aires de différentes figures planes}
+\newobj{Déterminer des aires}
+\newobj{Connaître et utiliser les unités centimètre carré, décimètre carré et mètre carré pour exprimer des aires}
+\newobj{Convertir des aires entre différentes unités}
+\newobj{Déterminer l’aire d’un carré ou d’un rectangle}
+\endsubtheme
+\newsubtheme{Les angles}
+\newobj{Utiliser le lexique spécifique associé aux angles}
+\newobj{Comprendre et utiliser les notations des angles}
+\newobj{Comparer des angles}
+\newobj{Construire un angle égal à la somme de deux angles donnés ou un angle multiple d’un angle donné}
+\newobj{Construire par pliage la moitié d’un angle donné}
+\newobj{Savoir qu’un angle droit mesure 90°}
+\endsubtheme
+\newsubtheme{Le repérage dans le temps et les durées}
+\newobj{Lire l’heure sur une horloge à aiguilles}
+\newobj{Positionner les aiguilles d’une horloge correspondant à une heure donnée en heure, minute et seconde}
+\newobj{Comparer et mesurer des durées écoulées entre deux instants affichés
+	sur une horloge (instants et durées sont exprimés en heure, minute et
+	seconde)}
+\newobj{Résoudre des problèmes à une ou plusieurs étapes impliquant des durées}
+\endsubtheme
+\endsubthemes
+
+\newlevel{Sixième}
+\newsubtheme{Les longueurs}
+\newaut{L’élève connaît les significations des préfixes allant du kilo- au milli-,
+	ainsi que les relations entre le mètre, ses multiples et ses sous-multiples,
+	et fait le lien avec les unités de numération du système décimal. }
+\newaut{L’élève connaît les relations entre deux unités successives du système
+	décimal, par exemple : 1 dm = 10 cm et 1 cm = $\dfrac{1}{10}$ dm = 0,1 dm.}
+\newaut{L’élève sait convertir en mètre une longueur donnée dans une autre unité,
+	multiple ou sous-multiple du mètre. Inversement, l’élève sait convertir dans
+	une unité donnée une longueur exprimée en mètre. }
+\newaut{L’élève sait utiliser le compas comme outil de report de longueurs.}
+\newaut{Il sait que le périmètre d’une figure plane est la longueur de son
+contour. L’élève sait calculer le périmètre d’un carré et d’un rectangle.}
+\newobj{Savoir que le périmètre du disque est proportionnel à son diamètre.}
+\newobj{Connaître la formule du périmètre d’un disque.}
+\newobj{Calculer le périmètre d’un disque.}
+\newobj{Calculer des périmètres de figures composées.}
+\newobj{Résoudre des problèmes impliquant des longueurs.}
+\endsubtheme
+\newsubtheme{Les aires}
+\newaut{L’élève sait comparer des aires sans avoir recours à la mesure, par
+	superposition ou par découpage et recollement de surfaces.}
+\newaut{L’élève sait que 1 cm$^2$ est l’aire d’un carré de 1 cm de côté, que
+	1 m$^2$ est l’aire d’un carré de 1 m de côté, que 1 dm$^2$ est l’aire d’un 
+	carré de 1 dm de côté.}
+\newaut{Dans des cas simples, l’élève sait déterminer l’aire d’une surface en
+	s’appuyant sur un quadrillage composé de carreaux dont les côtés mesurent
+	1 cm.} 
+\newaut{L’élève sait que : 1 m$^2$ = 1 m $\times$ 1 m = 10 dm $\times$ 10 dm = 10
+	$\times$ 10 dm$^2$ = 100 dm$^2$ ; 1 dm$^2$ = 1 dm $\times$ 1 dm = 10 cm
+	$\times$ 10 cm = 10 $\times$ 10 cm$^2$ = 100 cm$^2$.}
+\newaut{L’élève mémorise que 1 cm$^2$ est égal à un centième de 1 dm$^2$, qu’il écrit 1
+	cm$^2=\dfrac{1}{100}$}
+\newaut{L’élève mémorise que 1 dm$^2$ est égal à un centième de 1 m$^2$, qu’il écrit
+1 dm$^2=\dfrac{1}{100}$ m$^2$ ou 1 dm$^2=0,001$ m$^2$.}
+
+\newobj{Effectuer des conversions d’aire}
+\newobj{Connaître la formule de l’aire d’un carré ou d’un rectangle}
+\newobj{Calculer l’aire d’un carré ou d’un rectangle}
+\endsubtheme
+\newsubtheme{Les volumes}
+\newobj{L’élève connaît l’unité centimètre cube.}
+\newobj{L’élève sait comparer des volumes.}
+\newobj{L’élève sait déterminer un volume.}
+\endsubtheme
+\newsubtheme{Le repérage dans le temps et les durées}
+\newaut{L’élève lit l’heure sur un cadran à aiguilles ou sur un affichage
+	digital (heures, minutes et secondes).}
+\newaut{L’élève place les aiguilles pour qu’une horloge indique une heure
+	donnée.}
+\newaut{L’élève connaît les unités de mesure de durées jour, heure, minute
+	et seconde et les relations qui les lient.}
+\newaut{L’élève sait combien de jours il y a dans une année (bissextile ou
+	non), combien d’années il y a dans un siècle, et dans un millénaire.}
+\newaut{L’élève sait qu’une demi-heure c’est 30 minutes, qu’un quart d’heure
+	c’est 15 minutes, que trois quarts d’heure c’est 45 minutes.}
+\newobj{Effectuer des calculs sur des horaires et des durées}
+\newobj{Résoudre des problèmes impliquant des horaires et des durées}
+\newobj{Convertir des durées}
+\newpro{L’élève découvre l’histoire et le fonctionnement de différents types
+	de calendriers : solaires, lunaires ou luni-solaires. Il comprend le lien
+	entre les calendriers julien et grégorien et les différentes approximations
+	de la valeur de l’année tropique. }
+\newpro{Selon ses intérêts et ses besoins, l’élève peut également s’interroger
+	sur les moyens de partager le temps, découvrir les clepsydres (horloges à
+	eau) ou d’autres instruments historiques et interculturels (grecs, arabes,
+	chinois).}
+\endsubtheme
+\endsubthemes
+\endlevels
+% ---- THÈME C : Espace et géométrie ----
+\newtheme{Espace et géométrie}
+\newlevel{Cours moyen première année}
+\newsubtheme{La géométrie plane}
+\newobj{Utiliser le vocabulaire géométrique approprié dans le contexte
+	d’apprentissage des notions correspondantes}
+\newobj{Utiliser les outils géométriques usuels : règle, règle graduée, équerre
+	et compas}
+\newobj{Connaître les codes usuels utilisés en géométrie}
+\newobj{Décrire et reconnaître un cercle et un disque comme un ensemble de
+	points caractérisés par leur distance à un point donné}
+\newobj{Reconnaître et utiliser la notion de perpendicularité}
+\newobj{Reconnaître et utiliser la notion de parallélisme}
+\newobj{Reconnaître et nommer les figures suivantes en faisant référence à leur
+	définition : triangle, triangle rectangle, triangle isocèle, triangle
+	équilatéral, quadrilatère, carré, rectangle, losange, trapèze, trapèze
+	rectangle, pentagone et hexagone}
+\newobj{Connaître les propriétés de parallélisme des côtés opposés, des égalités
+	de longueurs et d’angles pour les figures usuelles~: triangle rectangle,
+	triangle isocèle, triangle équilatéral, carré, rectangle, losange, trapèze
+	et trapèze rectangle }
+\newobj{Reproduire ou construire un carré, un rectangle, un triangle, un triangle
+	rectangle ou un cercle ou des assemblages de ces figures sur tout support
+	(papier quadrillé, pointé ou uni), avec une règle graduée, une équerre ou un
+	compas. }
+\newobj{Construire une figure géométrique composée de segments, de droites, de
+	polygones usuels et de cercles}
+\newobj{Reconnaître si une figure possède un ou plusieurs axes de symétrie}
+\newobj{Compléter une figure pour la rendre symétrique par rapport à une droite
+	donnée, horizontale ou verticale}
+\newobj{Construire, sur papier quadrillé, la figure symétrique d’une figure
+	donnée par rapport à une droite horizontale ou verticale}
+\endsubtheme
+\newsubtheme{Les solides}
+\newobj{Nommer un cube, une boule, un pavé, un cône, une pyramide, un cylindre
+ou un prisme droit}
+\newobj{Décrire un cube, un pavé, une pyramide ou un prisme droit en faisant
+	référence à des propriétés et en utilisant le vocabulaire approprié}
+\newobj{Reconnaître un patron d’un cube}
+\newobj{Construire un patron d’un cube}
+\newobj{Reconnaître un patron d’un pavé}
+\endsubtheme
+\newsubtheme{Le repérage dans l'espace}
+\newobj{Connaître et utiliser le vocabulaire lié aux déplacements}
+\newobj{Comprendre, utiliser et produire une suite d’instructions qui décrivent
+	un déplacement en utilisant un vocabulaire spatial précis}
+\newobj{Résoudre des problèmes portant sur des assemblages de cubes}
+\endsubtheme
+\endsubthemes
+
+\newlevel{Sixième}
+
+\newsubtheme{Étude de configurations planes}
+\newaut{L’élève connaît le lexique et le codage des objets de base de la
+	géométrie plane : angle droit, égalité de longueurs, égalité d’angles.}
+\newaut{Il reconnaît un carré, un rectangle, un triangle.}
+\newaut{Il reconnaît si une figure possède un ou plusieurs axes de symétrie.}
+\newaut{Il sait coder des angles droits et des longueurs égales}
+\newobj{Connaître et utiliser la définition de la distance entre deux points}
+\newobj{Connaître et utiliser la définition du milieu d’un segment}
+\newobj{Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un
+	diamètre, d’une corde}
+\newobj{Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points}
+\newobj{Résoudre des problèmes mettant en jeu des distances à un point}
+\newobj{Connaître la définition de la médiatrice d’un segment}
+\newobj{Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment}
+\newobj{Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice}
+\newobj{Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle 
+nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires}
+\newobj{Mesurer un angle}
+\newobj{Construire un angle de mesure donnée}
+\newobj{Connaître la définition de la bissectrice d’un angle saillant}
+\newobj{Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes}
+\newobj{Construire des triangles}
+\newobj{Connaître et utiliser les propriétés angulaires des triangles particuliers : triangle rectangle, triangle isocèle, triangle équilatéral}
+\newobj{Connaître la valeur de la somme des mesures des angles d’un triangle}
+\newobj{L’utiliser pour calculer des angles, effectuer des constructions et résoudre des problèmes}
+\newobj{Savoir que les médiatrices d’un triangle sont concourantes}
+\newobj{Connaître et construire le cercle circonscrit à un triangle}
+\newobj{Connaître la définition du symétrique d’un point par rapport à une droite}
+\newobj{Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions}
+\endsubtheme
+
+\newsubtheme{La vision dans l'espace}
+\newobj{Voir dans l’espace des assemblages de cubes}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+% ---- THÈME D : Organisation et gestion de données et probabilités ----
+\newtheme{Organisation et gestion de données et probabilités}
+\newlevel{Cours moyen première année}
+\newsubtheme{Organisation et gestion de données}
+\newobj{Recueillir des données et produire un tableau, un diagramme en barres ou un ensemble de points dans un repère pour présenter}
+\newobj{Lire et interpréter les données d’un tableau à simple ou double entrée, d’un diagramme en barres ou d’une courbe}
+\newobj{Résoudre des problèmes en une ou plusieurs étapes en utilisant les données d’un tableau à simple ou double entrée, d’un}
+\endsubtheme
+\newsubtheme{Les probabilités}
+\newobj{Identifier des expériences aléatoires}
+\newobj{Identifier toutes les issues possibles lors d’une expérience aléatoire simple}
+\newobj{Comprendre et utiliser le vocabulaire approprié : « impossible », « possible », « certain », « probable », « peu probable », « une}
+\newobj{Comparer des issues d’expériences aléatoires ou des évènements selon leur probabilité de réalisation}
+\newobj{Comprendre que ce n’est pas parce qu’il y a deux issues possibles que chacune a une chance sur deux de se réaliser}
+\newobj{Reconnaître des situations d’équiprobabilité}
+\endsubtheme
+
+\endsubthemes
+\newlevel{Cours moyen deuxième année}
+\newsubtheme{Organisation et gestion de données}
+\newobj{Recueillir des données et produire un tableau, un diagramme en barres ou un ensemble de points dans un repère pour présenter 
+des données recueillies}
+\newobj{Lire et interpréter les données d’un tableau, d’un diagramme en barres, d’un diagramme circulaire ou d’une courbe}
+\newobj{Résoudre des problèmes en une ou deux étapes en utilisant les données d’un tableau, d’un diagramme en barres, d’un 
+diagramme circulaire ou d’une courbe}
+\endsubtheme
+\newsubtheme{Les probabilités}
+\newobj{Identifier toutes les issues possibles lors d’une expérience aléatoire simple}
+\newobj{Identifier toutes les issues réalisant un évènement dans une expérience aléatoire simple}
+\newobj{Dans une situation d’équiprobabilité, lors d’une expérience aléatoire simple, exprimer la probabilité d’un évènement sous la
+forme « a chances sur b »}
+\newobj{Comparer des probabilités dans des cas simples}
+\newobj{Comprendre la notion d’indépendance lors de la répétition de la même expérience aléatoire}
+\newobj{Dans des situations d’équiprobabilité, recenser toutes les issues possibles d’une expérience aléatoire en deux étapes dans un 
+tableau ou dans un arbre afin de déterminer des probabilités}
+\endsubtheme
+
+\endsubthemes
+\newlevel{Sixième}
+\newsubtheme{Organisation et gestion de données}
+\newobj{Planifier une enquête et recueillir des données}
+\newobj{Réaliser des mesures et les consigner dans un tableau}
+\newobj{Construire un tableau simple pour présenter des données (observations, caractères)}
+\newobj{Faire un choix en filtrant les données d’un tableau selon un critère}
+\endsubtheme
+\newsubtheme{Les probabilités}
+\newobj{Savoir que la probabilité d’un évènement est un nombre compris entre 0 et 1}
+\newobj{Calculer des probabilités dans des situations simples d’équiprobabilité}
+\newobj{Comparer des résultats d’une expérience aléatoire répétée à une probabilité calculée}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+% ---- THÈME E : La proportionnalité ----
+\newtheme{La proportionnalité}
+\newlevel{Cours moyen première année}
+\newsubtheme{La proportionnalité}
+\newobj{Identifier une situation de proportionnalité}
+\newobj{Savoir résoudre un problème de proportionnalité}
+\endsubtheme
+
+\endsubthemes
+\newlevel{Cours moyen deuxième année}
+\newsubtheme{La proportionnalité}
+\newobj{Identifier une situation de proportionnalité}
+\newobj{Savoir résoudre un problème de proportionnalité}
+\endsubtheme
+
+\endsubthemes
+\newlevel{Sixième}
+\newsubtheme{La proportionnalité}
+\newaut{L’élève sait repérer des relations multiplicatives simples entre des
+	nombres (double, quadruple, moitié, tiers, quart).}
+\newaut{Il associe de manière automatique les expressions du type : « 4 fois
+	plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une
+	multiplication ou à une division.}
+\newobj{Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante}
+\newobj{Identifier si une situation relève du « modèle » de la proportionnalité}
+\newobj{Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication}
+\newobj{ou l’addition, retour à l’unité}
+\newobj{Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques}
+\newobj{S’initier à la résolution de problèmes d’échelles}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+% ---- THÈME F : Initiation à la pensée informatique ----
+\newtheme{Initiation à la pensée informatique}
+\newlevel{Cours moyen première année}
+\newsubtheme{Initiation à la pensée informatique}
+\endsubtheme
+\endsubthemes
+
+\newlevel{Cours moyen deuxième année}
+\newsubtheme{Initiation à la pensée informatique}
+\endsubtheme
+\endsubthemes
+
+\newlevel{Sixième}
+\newsubtheme{Initiation à la pensée informatique}
+\newobj{Identifier une instruction ou une séquence d’instructions}
+\newobj{Produire et exécuter une séquence d’instructions}
+\newobj{Répéter à la main une séquence d’instructions pour accomplir une tâche imposée}
+\newobj{Programmer la construction d’un chemin simple}
+\endsubtheme
+
+\endsubthemes
+\endlevels
+
+\endthemes

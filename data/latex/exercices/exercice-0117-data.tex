@@ -1,0 +1,28 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[c]{.55\linewidth}
+    \vskip5pt
+    Démontrer que les droites $\mathspoint{(\<S1;\<S4;)}$ et $\mathspoint{(\<S2;\<S3;)}$
+    sont parallèles entre elles.
+\end{minipage}\hspace{.1\linewidth}
+\begin{minipage}[c]{.3\linewidth}
+    \begin{tikzpicture}[rotate=40,scale=0.7]\bfseries
+        \tikzset{every pic/.style={linewidth=.4pt}}
+        \coordinate[label=below:\mathspoint{\<S1;}](A)at(0,0);
+        \coordinate[label=right:\mathspoint{\<S2;}](B)at(3,0);
+        \coordinate[label=\mathspoint{\<S3;}](C)at(3,4);
+        \coordinate[label=left:\mathspoint{\<S4;}](D)at(0,2);
+        \tkzMarkRightAngle[colored](B,A,D)
+        \tkzMarkRightAngle[colored](C,B,A)
+        \draw(A)--(B)--(C)--(D)--cycle;
+    \end{tikzpicture}
+\end{minipage}
+\end{document}

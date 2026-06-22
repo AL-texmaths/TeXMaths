@@ -1,0 +1,90 @@
+\documentclass{article}
+\usepackage{iftex}
+\ifLuaTeX
+    \usepackage{fontenc}
+\else
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+\fi
+\usepackage{pgffor}
+\usepackage[tikz]{mdframed}
+\usepackage[a5paper]{geometry}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{texmaths-cycle4-BO_2020}
+\makeatletter
+\edef\scolaryear{\expandafter\ifnum\the\month>6\relax
+    \the\year-\number\numexpr\the\year+1\relax
+    \else
+    \number\numexpr\the\year-1\relax-\the\year
+    \fi
+    }
+
+\def\preventof#1{%
+    \global\emergencystretch = #1\hsize
+}
+
+\geometry{hmargin=30pt,headsep=20pt,top=50pt,textheight=490pt}
+
+\newcounter{fancytheme}
+
+\fancypagestyle{style1}{
+    \fancyhf{}% reinitialisation des paramètres
+    \fancyhead[L]{Cycle 4}% en-tête gauche
+    \fancyhead[R]{\fourthcycle@theme[\Alph{fancytheme}]}% en-tête droit
+    \fancyfoot[L]{\small Collège Victor Hugo, Sarcelles}% pied gauche
+    \fancyfoot[R]{\small\scolaryear}% pied droit
+    \fancyfoot[C]{\small\thepage/\pageref{LastPage}}% pied central
+    \renewcommand{\headrulewidth}{0.5pt}% épaisseur ligne séparation en tête
+    \renewcommand{\footrulewidth}{0.5pt}% épaisseur ligne séparation pied
+}
+
+\mdfsetup{roundcorner=6pt}
+
+\begin{document}\parindent=0pt\pagestyle{style1}\preventof{1}
+
+\foreach\themefor in{1,...,\fourthcycle@total[themes]}
+{%
+    \newpage
+    \stepcounter{fancytheme}%
+    \def\themecode{\nbtoAlph\themefor}
+    {\par\centering\LARGE\bfseries Thème \themecode\ : \fourthcycle@theme[\themecode]\centering
+        \par}\vskip8pt
+    \foreach\attendufor in{1,...,\fourthcycle@total[\nbtoAlph\themefor]}
+    {%
+        \def\attenducode{\nbtoAlph\themefor\attendufor}
+        \begin{mdframed}\itshape\fourthcycle@attendu[\attenducode]\hbadness=500\end{mdframed}
+        {\bfseries Connaissances}\vskip8pt
+        \foreach\cnsfor in{1,...,\fourthcycle@total[\nbtoAlph\themefor\attendufor CNS]}
+            {\def\cnscode{\nbtoAlph\themefor\attendufor\nbtoalph\cnsfor}%
+            {\tt\cnscode\hskip10pt}\fourthcycle@cns[\cnscode*]\vskip8pt
+            \begingroup\setlength{\leftskip}{10pt}
+            \ifnum\subcnstotal>0
+                \foreach\subcnsfor in{1,...,\subcnstotal}{
+                    {\itshape\subcnsfor)}\hskip5pt\fourthcycle@cns[\nbtoAlph\themefor\attendufor
+                        \nbtoalph\cnsfor
+                        \subcnsfor]\vskip5pt
+                }%
+            \fi\par\endgroup
+        }%
+        {\bfseries Compétences}\vskip8pt
+        \foreach\cmpfor in{1,...,\fourthcycle@total[\nbtoAlph\themefor\attendufor CMP]}
+        {%
+            \def\cmpcode{\nbtoAlph\themefor\attendufor\nbtoalph\cmpfor}%
+            {\tt\cmpcode\hskip10pt}\fourthcycle@cmp[\cmpcode*]\vskip8pt
+            \begingroup\setlength{\leftskip}{10pt}
+            \ifnum\subcmptotal>0
+                \foreach\subcmpfor in{1,...,\subcmptotal}
+                {%
+                {\itshape\subcmpfor)}\hskip5pt\fourthcycle@cmp[\nbtoAlph\themefor\attendufor
+                    \nbtoalph\cmpfor\subcmpfor]\vskip5pt
+                }%
+            \fi\par\endgroup
+        }%
+    }%
+}%
+\vskip0pt plus 3fill\begingroup\large\tt
+D'après le BOEN n$^\circ$ 31 du 30 juillet 2020\endgroup
+\vskip0pt plus 1fill
+\makeatother
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{enumerate}
+    \item Voici la représentation graphique d'une fonction $f$ :\par\noindent
+    \begin{tikzpicture}[baseline=(O.base),scale=0.45]
+        \coordinate(O)at(0,5);
+        \simpleFunc xmin=-5,xmax=5,ymin=-2,ymax=9,gridstep=1,func=f=x^2/4;
+    \end{tikzpicture}\par\noindent
+    Par lecture graphique :
+    \begin{enumerate}
+        \item donner la valeur de $f(2)$.
+        \item quelle est l'images de -4 par la fonction $f$~?
+        \item donner un maximum d'antécédents de 4 par $f$.
+    \end{enumerate}
+    \item L'expression algébrique de cette fonction est\par\noindent
+    {\centering$f(x)=\dfrac{x^2}4$.\par}\noindent
+    Calculer $f(3)$ puis déterminer les antécédents de~5~par~$f$.
+\end{enumerate}
+\end{document}

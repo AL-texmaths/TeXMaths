@@ -1,0 +1,84 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}%
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\!angle1=xBy;%
+\!angle2=DEF;%
+\!angle3=dHf;%
+\!angle4=JKL;%
+\edef\angleA{\*angle1;}%
+\edef\angleB{\*angle2;}%
+\edef\angleC{\*angle3;}%
+\edef\angleD{\*angle4;}%
+\edef\sommetA{\expandafter\secondofthree\angleA}%
+\edef\leftsideA{\expandafter\firstofthree\angleA}%
+\edef\rightsideA{\expandafter\thirdofthree\angleA}%
+\edef\sommetB{\expandafter\secondofthree\angleB}%
+\edef\leftsideB{\expandafter\firstofthree\angleB}%
+\edef\rightsideB{\expandafter\thirdofthree\angleB}%
+\edef\sommetC{\expandafter\secondofthree\angleC}%
+\edef\leftsideC{\expandafter\firstofthree\angleC}%
+\edef\rightsideC{\expandafter\thirdofthree\angleC}%
+\edef\sommetD{\expandafter\secondofthree\angleD}%
+\edef\leftsideD{\expandafter\firstofthree\angleD}%
+\edef\rightsideD{\expandafter\thirdofthree\angleD}%
+Pour chaque angle ci dessous, préciser son sommet et ses côtés.\vskip5pt\par\noindent
+\begin{tikzpicture}[rotate=10]
+    \AnglexOy[
+        angle = 30,
+        color=Rainbow1-rouge,
+        right side len=1.3,
+        left side len=2.7,
+        angle size=0.75,
+        sommet name=\sommetA,
+        left side name=\leftsideA,
+        right side name=\rightsideA%
+    ]
+    \tkzLabelAngle[pos=1.2](B,A,C){(1)}
+\end{tikzpicture}\hskip30pt
+\begin{tikzpicture}[rotate=-30]
+    \AngleAOB[
+        sommet name=\sommetB,
+        left side name=\leftsideB,
+        right side name=\rightsideB,
+        angle=100,
+        color=Rainbow1-orange,
+        right side len=1.5,
+        left side len=2.7%
+    ]
+    \tkzLabelAngle[pos=1.4](B,A,C){(2)}
+\end{tikzpicture}\vskip10pt
+\begin{tikzpicture}[rotate=55]
+    \AnglexOy[
+        sommet name=\sommetC,
+        left side name=\leftsideC,
+        right side name=\rightsideC,
+        right side pos=below right,
+        angle=55,
+        color=Rainbow1-violet,
+        right side len=1.3,
+        left side len=2.5%
+    ]
+    \tkzLabelAngle[pos=1.3](B,A,C){(3)}
+\end{tikzpicture}\hskip30pt
+\begin{tikzpicture}[rotate=-30]
+    \AngleAOB[
+        sommet name=\sommetD,
+        left side name=\leftsideD,
+        right side name=\rightsideD,
+        left side pos=above right,
+        right side pos=below left,
+        angle=40,
+        color=Rainbow1-vert,
+        right side len=1.5,
+        left side len=2.7%
+    ]
+    \tkzLabelAngle[pos=1.4](B,A,C){(4)}
+\end{tikzpicture}
+\end{document}

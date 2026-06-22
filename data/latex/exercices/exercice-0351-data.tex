@@ -1,0 +1,38 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+\source{}
+\cycle{}
+\competencesDuSocle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}%
+\begin{enumerate}
+    \item En utilisant le codage de la figure ci-dessous, que peut-on dire
+    des cinq triangles OAB, OBC, OCD, ODE et OEA~?
+    \item Déterminer la mesure de l'angle $\widehat{\text{ABC}}$.
+\end{enumerate}
+{\centering
+\begin{tikzpicture}[scale=2,line width=1pt]
+    \sf
+    \coordinate[label=above right:O](O)at(0:0);
+    \coordinate[label=above:A](A)at(90:1);
+    \coordinate[label=above left:B](B)at(162:1);
+    \coordinate[label=below left:C](C)at(234:1);
+    \coordinate[label=below right:D](D)at(304:1);
+    \coordinate[label=above right:E](E)at(376:1);
+    \tkzFillAngle[fill=green!50!black,size=0.3](C,B,A)
+    \tkzMarkAngle[green!25!black,size=0.3](C,B,A)
+    \draw(A)--(B)--(C)--(D)--(E)--cycle;
+    \draw(O)--(A);
+    \draw(O)--(B);
+    \draw(O)--(C);
+    \draw(O)--(D);
+    \draw(O)--(E);
+    \draw(O)circle(1);
+    \tkzMarkSegments[color=red!50!black,mark=s||](O,A O,B O,C O,D O,E)
+    \tkzMarkSegments[color=red!50!black,mark=s|](A,B B,C C,D D,E E,A)
+\end{tikzpicture}\par}\vskip10pt
+{\hfill\textit{D'après DNB Métropole, 2013}\par}
+\end{document}

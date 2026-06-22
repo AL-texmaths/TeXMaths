@@ -1,0 +1,37 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{boxpack}[26/01/2021]
+% --------
+% PACKAGES
+% --------
+\RequirePackage{colorpack}
+\RequirePackage[framemethod=tikz]{mdframed}
+\RequirePackage{tcolorbox}
+% --------------
+% MDFRAMED BOXES
+% --------------
+\newmdenv
+[
+    frametitleaboveskip=100pt,
+    frametitlebelowskip=100pt,
+    frametitlerule=true,
+    backgroundcolor=orange1!25!,
+    roundcorner=4pt
+]{orangebox}
+\newmdenv[backgroundcolor=green1!25!, roundcorner=4pt]{greenbox}
+\newmdenv[backgroundcolor=magenta1!25!, roundcorner=4pt]{magentabox}
+\newmdenv[backgroundcolor=rose1!25!, roundcorner=4pt]{rosebox}
+\newmdenv[backgroundcolor=rose1!25!, roundcorner=4pt]{graybox}
+\newmdenv[backgroundcolor=Palette3-bleu!10!, roundcorner=4pt]{bluebox}
+\newmdenv[backgroundcolor=Rainbow1-vert!50!white, roundcorner=4pt]{rainbowvert}
+\newmdenv[backgroundcolor=Rainbow1-bleu!50!white, roundcorner=4pt]{rainbowbleu}
+\newmdenv[backgroundcolor=Rainbow1-rouge!50!white, roundcorner=4pt]{rainbowrouge}
+\newmdenv[backgroundcolor=Rainbow1-jaune!70!white, roundcorner=4pt]{rainbowjaune}
+\newmdenv[backgroundcolor=Rainbow1-orange!50, roundcorner=4pt]{rainboworange}
+\newmdenv[backgroundcolor=Rainbow1-violet!50, roundcorner=4pt]{rainbowviolet}
+\newmdenv[backgroundcolor=PaletteIndigo-gris, roundcorner=4pt]{rainbowgris}
+\newmdenv[roundcorner=4pt]{simplebox}
+\newmdenv[backgroundcolor=CalmSerenity-6, roundcorner=4pt]{vertsapin}
+% ------------
+% TCOLOR BOXES
+% ------------
+\newtcolorbox{graybox1}{colback=gray!5!, colframe=black, rounded corners}

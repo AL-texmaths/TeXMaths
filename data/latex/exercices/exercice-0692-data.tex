@@ -1,0 +1,77 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}
+\usepackage{mdframed}
+\startdatakeys
+\source{25GENMATNC1}
+\cycle{4}
+\competencesDuSocle{}
+\connaissancesRequises{D2f*,D2e*}
+\competencesTravaillees{D2e*,B3e*}
+\enddatakeys
+\begin{document}%
+    Thomas souhaite construire le cerf-volant représenté par la figure ci-dessous~:\par\noindent
+    \begingroup\centering
+    \begin{tikzpicture}[baseline=(current bounding box.center)]
+        \coordinate[label=above right:\mathspoint{E}](E)at(0,0);
+        \coordinate[label=below:\mathspoint{B}](B)at(0,-3.46);
+        \coordinate[label=above:\mathspoint{A}](A)at(0,1.54);
+        \coordinate[label=right:\mathspoint{D}](D)at(2,0);
+        \coordinate[label=left:\mathspoint{C}](C)at(-2,0);
+        \fill[\currentcolor!50](A)--(C)--(B)--(D)--cycle;
+        \tkzMarkRightAngle[size=0.5, colored](D,E,B)
+        \tkzMarkSegments[mark=s||,colored](C,E E,D)
+        \tkzFillAngle[\markscolor](D,B,E)
+        \tkzLabelAngle[pos=1.25](D,B,E){30$^\circ$}
+        \draw(A)--(C)--(B)--(D)--cycle;
+        \draw(A)--(B);\draw(C)--(D);
+    \end{tikzpicture}\hskip30pt
+    \begin{minipage}{.2\linewidth}
+        \begin{mdframed}
+            On donne~:\par\vskip20pt\noindent
+            $\widehat{\mathspoint{DEB}}=90^\circ$\par\noindent
+            $\widehat{\mathspoint{EBD}}=30^\circ$\par\noindent
+            $\mathspoint{AB}=50$ cm\par\noindent
+            $\mathspoint{CD}=40$ cm\par\noindent
+            $\mathspoint{ED}=\mathspoint{EC}$
+        \end{mdframed}
+    \end{minipage}\par\endgroup
+    \begin{enumerate}
+        \item Calculer \mathspoint{BE}. On donnera une valeur arrondie au
+        millimètre.\par\noindent
+        \begingroup\leavevmode\hspace*{-\leftmargin}%
+        \begin{minipage}[c]{.6\linewidth}
+            Lorsque Thomas a essayé son cerf-volant, il s'est demandé à quelle
+            altitude il volait.\par\noindent Il a attaché sa corde à un piquet
+            planté dans le sol (point \mathspoint{S}) puis est allé se placer
+            (point \mathspoint{T}) parfaitement à la verticale sous son
+            cerf-volant (point \mathspoint{H}).\par\noindent Il a alors mesuré
+            certaines longueurs et a réalisé le schéma ci-contre.
+        \end{minipage}\endgroup\hskip20pt
+        \begin{tikzpicture}[scale=1.25, line width=1pt, baseline=(current bounding box.center)]
+            \coordinate[label=below left:\mathspoint{S}](S)at(0,0);
+            \coordinate[label=below right:\mathspoint{T}](T)at(7.60/4,0);
+            \coordinate[label=above:\mathspoint{H}](H)at(7.60/4,19.04/4);
+            \draw[fill=\currentcolor!50](S)--(T)--(H)--cycle;
+            \path(S)++(158.23:0.4)coordinate(S1);
+            \path(H)++(158.23:0.4)coordinate(H1);
+            \draw[latex-latex](S1)--(H1);
+            \path(S1)--(H1)node[midway,fill=white]{20,50 m};
+            \path(S)++(0,-0.4)coordinate(S2);
+            \path(T)++(0,-0.4)coordinate(T2);
+            \draw[latex-latex](S2)--(T2);
+            \path(S2)--(T2)node[midway,fill=white]{7,60 m};
+        \end{tikzpicture}
+        \item Calculer \mathspoint{HT}, altitude à laquelle volait son cerf-volant.
+        \par\noindent On donnera une valeur arrondie au mètre.\par\bigskip
+        \begingroup\leavevmode\hspace*{-\leftmargin}%
+        \begin{minipage}{.6\linewidth}
+            Il est conseillé de ne pas utiliser ce cerf-volant lorsque  le vent dépasse
+            20 km/h.\par
+            La météo annonce un vent ne dépassant pas 15 n\oe uds.\par\noindent
+            On donne 1 n\oe ud = 0,514 m/s.
+        \end{minipage}\endgroup
+        \item Thomas peut-il faire voler son cerf-volant sans risque dans ces
+        conditions~?
+    \end{enumerate}
+    \showthesource
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass[activite]{thedocument}
+\startdatakeys
+    \source{}
+    \cycle{}
+    \competencesDuSocle{}
+    \connaissancesRequises{}
+    \competencesTravaillees{}
+\enddatakeys
+\begin{document}
+    \begin{center}
+        \begin{tikzpicture}
+            \coordinate(A)at(2,0);
+            \coordinate(B)at(6,1);
+            \coordinate(C)at(8,5);
+            \draw[line width=1pt,color=red](0,3)--(9,6);\draw[color=red]node[above]at(0,3){\large$(d)$};
+            \draw[line width=1pt, color=blue](A)--(B)--(C)--cycle;
+            \draw[color=white]node at(0,10){a};
+            \draw node[left]at(A){\Large A};
+            \draw node[below right]at(B){\Large B};
+            \draw node[right]at(C){\Large C};
+        \end{tikzpicture}
+    \end{center}
+    Sur la figure si dessus:
+    \begin{enumerate}
+        \item Construire le symétrique $A'B'C'$ du triangle $ABC$ par rapport à la droite $(d)$.
+        \item Comparer les longueurs $AB$ et $A'B'$
+        \item Comparer l'angle $\widehat{BAC}$ et l'angle $\widehat{C'A'B'}$.
+    \end{enumerate}
+\end{document}

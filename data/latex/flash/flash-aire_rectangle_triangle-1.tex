@@ -1,0 +1,89 @@
+\documentclass[17pt]{flash}
+\usepackage{tkz-euclide}
+\def\markscolor{Rainbow1-bleu}
+
+\def\figureA{%
+    \begin{tikzpicture}[font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(5,0);
+        \coordinate(C)at(5,2);
+        \coordinate(D)at(0,2);
+        \draw(A)rectangle(C);
+        \tkzMarkRightAngle(A,B,C)
+        \tkzMarkRightAngle(B,C,D)
+        \tkzMarkRightAngle(C,D,A)
+        \tkzMarkRightAngle(D,A,B)
+        \path(D)--(C)node[above,pos=0.5]{\strut 5 cm};
+        \path(C)--(B)node[right,pos=0.5]{\strut 4 cm};
+    \end{tikzpicture}
+}
+
+\def\figureB{%
+    \begin{tikzpicture}[rotate=-20,font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(B)at(3,0);
+        \coordinate(C)at(3,3);
+        \coordinate(D)at(0,3);
+        \draw(A)rectangle(C);
+        \tkzMarkRightAngle(A,B,C)
+        \tkzMarkRightAngle(B,C,D)
+        \tkzMarkRightAngle(C,D,A)
+        \tkzMarkRightAngle(D,A,B)
+        \path(D)--(C)node[above right,pos=0.5]{\strut 6 cm};
+        \tkzMarkSegments[mark=s||,color=vscode-yellow](A,B B,C C,D D,A)
+    \end{tikzpicture}
+}
+
+\def\figureC{%
+    \begin{tikzpicture}[font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \def\rectScale{2.5}
+        \coordinate(O)at(0,0);
+        \coordinate(S0)at(30:2.5);
+        \coordinate(S1)at(150:2.5);
+        \coordinate(S2)at(-150:2.5);
+        \coordinate(S3)at(-30:2.5);
+        \draw(S2)rectangle(S0);
+        \tkzMarkRightAngle(S0,S1,S2)
+        \tkzMarkRightAngle(S1,S2,S3)
+        \tkzMarkRightAngle(S2,S3,S0)
+        \tkzMarkRightAngle(S3,S0,S1)
+        \path(S2)--(S3)node[below, midway, sloped]{12 dm};
+        \path(S0)--(S3)node[above, midway, sloped]{0,2 m};
+    \end{tikzpicture}
+}
+
+\def\figureD{%
+    \begin{tikzpicture}[rotate=-45,font=\sf,scale=\figScale, baseline=(current bounding box.center)]
+        \coordinate(A)at(0,0);
+        \coordinate(C)at(3,3);
+        \coordinate(D)at(0,3);
+        \draw(A)--(C)--(D)--cycle;
+        \tkzMarkRightAngle(C,D,A)
+        \path(D)--(C)node[above right,pos=0.5]{\strut 20 km};
+        \tkzMarkSegments[mark=s||,color=vscode-yellow](C,D D,A)
+    \end{tikzpicture}
+}
+\startdatakeys
+\cycle{}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+\flashvisibletimertrue
+\FlashSetItemSep{25pt}
+\FlashSetVtop{0em}
+\FlashSetTitle{Calcul mental : aire d'un rectangle}
+\FlashShowConsignes{%
+        \item Calculer mentalement l'aire des rectangles suivants.
+        \item Écrire le résultat.
+}
+\def\figScale{1}
+\AtCorrection{\def\figScale{0.5}}
+\flashlist{
+    \flashitem{15}{\figureA}
+    \flashitem{15}{\figureB}
+    \flashitem{15}{\figureC}
+    \flashitem{15}{\figureD}
+}
+
+\end{document}
