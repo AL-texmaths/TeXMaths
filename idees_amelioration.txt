@@ -7,12 +7,13 @@
 ===============================================================================
 					Python
 ===============================================================================
---> erreur dans le décompte des warnings/errors de check database
-L'erreur missing pdf doit mener à un test de compilation pour le fichier en question.
+>>> erreur dans le décompte des warnings/errors de check database
+--> intégrer les erreurs de update_data_index dans le calcul des warnings/errors
+>>> l'erreur missing pdf doit mener à un test de compilation pour le fichier en question.
 Vérouiller les cases "ouvrir avec adobe" ou "ouvrir avec pdfxchange" si
 les executables ne sont pas trouvés
 USBSave --> vérifier l'existence des chemins avant l'execution du programme
-Checker la possibilité native e linux pour remplacer sumatrapdf (commande lp)
+Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 Checker la possibilité de connecter linux a une imprimante via wifi
 ===============================================================================
 					Java / html
@@ -29,7 +30,6 @@ genialy
 ===============================================================================
 					LaTeX
 ===============================================================================
---> erreur dans BO source (B3ac apparaît plusieurs fois !)
 --> revoir la macro \videoManim de texmaths-path
 --> revoir le code avec lualatex/Expl3 pour amélioration
 % --------------------------
