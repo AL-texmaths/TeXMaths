@@ -75,6 +75,14 @@ class MainWindow(QWidget):
         ) as f:
             self.data = json.load(f)
 
+        with open(
+            "config.json",
+            encoding="utf-8",
+        ) as f:
+            self.config = json.load(f)
+
+        self.code_labels = self.config["codes"]
+
         self.entries = []
         self.build_index()
 
@@ -127,6 +135,23 @@ class MainWindow(QWidget):
 
         self.search.setFocus()
 
+    def display_name(self, code):
+
+        return self.code_labels.get(
+            code,
+            code
+        )
+
+
+    def internal_name(self, display):
+
+        for code, label in self.code_labels.items():
+
+            if label == display:
+                return code
+
+        return display
+
     def build_index(self):
 
         for catalogue, catalogue_data in self.data.items():
@@ -155,7 +180,10 @@ class MainWindow(QWidget):
         self.catalogue_combo.addItem("Tous")
 
         for catalogue in sorted(self.data.keys()):
-            self.catalogue_combo.addItem(catalogue)
+
+            self.catalogue_combo.addItem(
+                self.display_name(catalogue)
+            )
 
     def catalogue_changed(self):
 
@@ -164,7 +192,7 @@ class MainWindow(QWidget):
 
     def update_type_filter(self):
 
-        current_catalogue = (
+        current_catalogue = self.internal_name(
             self.catalogue_combo.currentText()
         )
 
@@ -191,7 +219,10 @@ class MainWindow(QWidget):
                     types.add(entry["type"])
 
         for t in sorted(types):
-            self.type_combo.addItem(t)
+
+            self.type_combo.addItem(
+                self.display_name(t)
+            )
 
         self.type_combo.blockSignals(False)
 
@@ -201,11 +232,11 @@ class MainWindow(QWidget):
 
         regex_text = self.search.text()
 
-        selected_catalogue = (
+        selected_catalogue = self.internal_name(
             self.catalogue_combo.currentText()
         )
 
-        selected_type = (
+        selected_type = self.internal_name(
             self.type_combo.currentText()
         )
 
@@ -298,8 +329,8 @@ class MainWindow(QWidget):
         html = self.make_html(
             code=entry["code"],
             content=entry["text"],
-            catalogue=entry["catalogue"],
-            source_type=entry["type"],
+            catalogue=self.display_name(entry["catalogue"]),
+            source_type=self.display_name(entry["type"]),
         )
 
         self.preview.setHtml(
