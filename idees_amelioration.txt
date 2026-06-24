@@ -15,6 +15,10 @@ les executables ne sont pas trouvés
 USBSave --> vérifier l'existence des chemins avant l'execution du programme
 Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 Checker la possibilité de connecter linux a une imprimante via wifi
+>>>> Coder l'équivalent de la "recherche regex pdf" pour les sources
+du bo afin de naviguer plus facilement dans les sources pour trouver
+le code
+--> régler le warning source inconnue alors qu'elle a ete définie
 ===============================================================================
 					Java / html
 ===============================================================================

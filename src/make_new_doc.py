@@ -104,11 +104,14 @@ def make_new_and_open():
 
     if doc_type == 'dnbqcm':
         new_dnbqcm_path = make_new_dnbqcm()
+        print(f'Le fichier {new_dnbqcm_path} a été créé {new_dnbqcm_path.exists()}.')
         if CODE_EXE_PATH is not None:
-            subprocess.Popen(
-                str(CODE_EXE_PATH),
-                "-r",
-                str(new_dnbqcm_path)
+            subprocess.run(
+                [
+                    str(CODE_EXE_PATH),
+                    "-r",
+                    str(new_dnbqcm_path)
+                ]
             )
         return
 
@@ -146,10 +149,12 @@ def make_new_and_open():
     else:
         make_new(doc_type, new_doc_path)
     if CODE_EXE_PATH is not None:
-        subprocess.Popen(
-            str(CODE_EXE_PATH),
-            "-r",
-            str(new_doc_path)
+        subprocess.run(
+            [
+                str(CODE_EXE_PATH),
+                "-r",
+                str(new_doc_path)
+            ]
         )
 
 if __name__ == '__main__':

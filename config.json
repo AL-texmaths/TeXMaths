@@ -51,6 +51,16 @@
             "objectifsApprentissage"
         ]
     },
+    "codes": {
+        "cmpsocle": "Compétences du socle",
+        "cycle 3 BO 2020": "Cycle 3 BO 2020",
+        "cycle 4 BO 2020": "Cycle 4 BO 2020",
+        "cycle 3 BO 2026": "Cycle 3 BO 2026",
+        "cycle 4 BO 2026": "Cycle 4 BO 2026",
+        "aut": "Automatismes",
+        "obj": "Objectifs d'apprentissage",
+        "pro": "Prolongements"
+    },
     "executables": {
         "code": [
             "code",

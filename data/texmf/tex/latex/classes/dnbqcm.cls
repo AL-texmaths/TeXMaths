@@ -24,3 +24,7 @@
 \setlist[enumerate,1]{font=\bfseries, label=\arabic*)}
 
 \pagestyle{empty}
+
+\AtBeginDocument{
+    {\centering\bfseries\Large Entraînement au DNB~: QCM\par}\bigskip\noindent
+}

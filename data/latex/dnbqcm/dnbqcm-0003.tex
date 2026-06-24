@@ -1,0 +1,147 @@
+\documentclass{dnbqcm}
+\usepackage{texmaths-main}
+\startdatakeys
+    \source{26GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{}
+    \automatismes{D3af, C3ab}
+    \objectifsApprentissage{A3bc, A3eb, B1bc, A1aj, D2aa, C2bc, B3cb, C3aa}
+\enddatakeys
+\begin{document}
+    Pour chaque question, recopier sur la copie son numéro et la réponse correspondante.
+
+    Pour cette partie, aucune justification n'est demandée.
+
+    Pour les questions à choix multiple, une seule réponse est exacte.
+
+    \qcmquestion{Question 1}
+    L'écriture scientifique du nombre \np{45310} est :
+
+    \begin{qcm}
+        $45,31 \times 10^{3}$ & $4,531 \times 10^{4}$ & $4,531 \times 10^{-4}$ & $4531 \times 10^{1}$
+    \end{qcm}
+
+    \qcmquestion{Question 2}
+    Une forme développée de l'expression $(4x-3)(4x+3)$ est :
+
+    \begin{qcm}
+        $4x^2 - 9$ & $16x^2+9$ & $16x^2-9$ & $8x^2-6$
+    \end{qcm}
+
+    \qcmquestion{Question 3}
+    Un pavé droit a pour dimensions : 4,5 cm de long, 4 cm de large, 10 cm de haut. Le volume de ce pavé est de :
+
+    \begin{qcm}
+        $180~\text{cm}^3$ & $170~\text{cm}^3$ & $160,5~\text{cm}^3$ & $18,5~\text{cm}^3$
+    \end{qcm}
+
+    \qcmquestion{Question 4}
+    On considère les nombres suivants et on s'intéresse à leur divisibilité par 9.
+
+    \[N = \np{2025} \quad \text{et} \quad P = \np{2026}.\]
+
+    \begin{qcm}
+        \small $N$ et $P$ sont tous les deux divisibles par 9 & $N$ est divisible
+        par 9 mais $P$ ne l'est pas & $P$ est divisible par 9 mais $N$ ne l'est pas &
+        Aucun des deux n'est divisible par 9
+    \end{qcm}
+
+    \qcmquestion{Question 5}
+    Une personne a couru 9~km en 45~minutes.
+
+    Quelle est sa vitesse moyenne en km/h ?
+
+    \qcmquestion{Question 6}
+
+    \begin{minipage}{0.68\textwidth}
+        Une roue de la fortune est utilisée pour faire gagner des cadeaux.
+        La roue est divisée en 10 secteurs de tailles égales, avec les gains
+        suivants : des stylos, des porte-clés, des casques audios ou un
+        smartphone.
+
+        Un joueur tourne la roue une seule fois.
+
+        Quelle est la probabilité que le joueur gagne un casque audio ?
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.28\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=1.1]
+            \foreach \i in {0,...,9} {
+            \draw (0,0) -- (90+36*\i:1.6);
+            }
+            \draw (0,0) circle (1.6);
+            \node at (108:1.1) {\tiny stylo};
+            \node at (72:1.1) {\tiny casque};
+            \node at (36:1.1) {\tiny porte-clé};
+            \node at (0:1.1) {\tiny smartphone};
+            \node at (-36:1.1) {\tiny porte-clé};
+            \node at (-72:1.1) {\tiny stylo};
+            \node at (-108:1.1) {\tiny stylo};
+            \node at (-144:1.1) {\tiny casque};
+            \node at (180:1.1) {\tiny porte-clé};
+            \node at (144:1.1) {\tiny stylo};
+        \end{tikzpicture}
+    \end{minipage}
+
+    \qcmquestion{Question 7}
+    Un article coûte 60 \euro. Calculer son nouveau prix après une baisse de 10\,\%.
+
+    \qcmquestion{Question 8}
+
+    \begin{minipage}{0.62\textwidth}
+        Quelle est la mesure de l'angle $\widehat{\text{BAC}}$ ?
+    \end{minipage}%
+    \hfill
+    \begin{minipage}{0.34\textwidth}
+        \centering
+        \begin{tikzpicture}[scale=0.8]
+            \coordinate (C) at (0,0);
+            \coordinate (A) at (3,0);
+            \coordinate (B) at (0,3.5);
+            \draw (B) -- (C) -- (A) -- (B);
+            \draw (0,0.3) -- (0.3,0.3) -- (0.3,0);
+            \node at (-0.3,3.7) {$B$};
+            \node[below left] at (C) {$C$};
+            \node[below right] at (A) {$A$};
+            \pic[draw, angle radius=0.6cm, "$40^\circ$",
+                angle eccentricity=1.5] {angle = C--B--A};
+        \end{tikzpicture}
+    \end{minipage}
+
+    \qcmquestion{Question 9}
+    Le diagramme en barres ci-dessous donne les notes des élèves d'une classe au
+    dernier contrôle de mathématiques.
+
+    \begin{enumerate}
+        \item Combien d'élèves ont participé à ce contrôle ?
+        \item Quelle est la note médiane ?
+    \end{enumerate}
+
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[
+                ybar,
+                width=10cm,
+                height=6cm,
+                bar width=12pt,
+                xlabel={notes},
+                ylabel={effectif},
+                symbolic x coords={7,8,9,10,11,12,13,14,15,16,17,18},
+                xtick=data,
+                ymin=0, ymax=6,
+                ytick={0,1,2,3,4,5,6},
+                clip=false,
+                axis lines=left,
+                nodes near coords,
+                enlarge x limits=0.1,
+            ]
+                \addplot coordinates {(7,3) (8,4) (10,4) (11,5)
+                    (12,5) (15,3) (17,2) (18,1)};
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    \showthesource
+
+\end{document}

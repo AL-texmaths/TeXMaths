@@ -127,4 +127,21 @@
     #7&#8&#9\\
 \end{tblr}
 }
+% ---------------------
+% Tableaux de QCM (DNB)
+% ---------------------
+\newenvironment{qcm}{%
+    \begin{center}\renewcommand\arraystretch{1.4}
+    \begin{tabular}{|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}p{3.2cm}|>{\centering\arraybackslash}p{3.2cm}|}
+    \hline
+    \textbf{Réponse A} & \textbf{Réponse B} & \textbf{Réponse C} & \textbf{Réponse D} \\
+    \hline
+    }{%
+    \\ \hline
+    \end{tabular}
+    \renewcommand\arraystretch{1}
+    \end{center}
+}
+\newcommand{\qcmquestion}[1]{\par\noindent\textbf{#1}\par\vspace{0.2em}}
+
 \makeatother
