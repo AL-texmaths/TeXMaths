@@ -92,6 +92,13 @@ class MainWindow(QWidget):
 
         self.populate_filters()
 
+        default_code = "cycle 4 BO 2026"
+        default_label = self.display_name(default_code)
+
+        index = self.catalogue_combo.findText(default_label)
+        if index >= 0:
+            self.catalogue_combo.setCurrentIndex(index)
+
         left = QVBoxLayout()
         left.addWidget(self.catalogue_combo)
         left.addWidget(self.type_combo)
@@ -117,27 +124,11 @@ class MainWindow(QWidget):
 
         self.search.setFocus()
 
-        # THEMES
-        self.themes = {
-            "VSCode Dark": {
-                "bg": "#1e1e1e",
-                "fg": "#d4d4d4",
-                "panel": "#252526",
-                "accent": "#007acc",
-                "border": "#3c3c3c",
-                "font": "Latin Modern Roman",
-            },
-            "Soothing": {
-                "bg": "#f4f1ee",
-                "fg": "#2b2b2b",
-                "panel": "#ffffff",
-                "accent": "#6b8f71",
-                "border": "#d6d2cc",
-                "font": "Latin Modern Roman",
-            },
-        }
-
-        self.current_theme = "VSCode Dark"
+        self.themes = self.config["themes"]
+        self.current_theme = self.config.get(
+            "default_theme",
+            next(iter(self.themes))
+        )
 
         menu_bar = QMenuBar(self)
         edit_menu = QMenu("Édition", self)
@@ -186,8 +177,6 @@ class MainWindow(QWidget):
         css = "katex.min.css"
         js = "katex.min.js"
         render = "contrib/auto-render.min.js"
-
-        # content = escape(content)
 
         return f"""
 <!DOCTYPE html>

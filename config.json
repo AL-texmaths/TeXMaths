@@ -63,6 +63,41 @@
         "obj": "Objectifs d'apprentissage",
         "pro": "Prolongements"
     },
+    "themes": {
+            "VSCode Dark": {
+                "bg": "#1e1e1e",
+                "fg": "#d4d4d4",
+                "panel": "#252526",
+                "accent": "#007acc",
+                "border": "#3c3c3c",
+                "font": "Latin Modern Roman"
+            },
+            "Soothing": {
+                "bg": "#f4f1ee",
+                "fg": "#2b2b2b",
+                "panel": "#ffffff",
+                "accent": "#6b8f71",
+                "border": "#d6d2cc",
+                "font": "Latin Modern Roman"
+            },
+           "Obsidian Dark": {
+                "bg": "#202225",
+                "fg": "#dcddde",
+                "panel": "#2b2d31",
+                "accent": "#7c6df2",
+                "border": "#3a3d41",
+                "font": "Latin Modern Roman"
+            },
+            "Nord Dark": {
+                "bg": "#2e3440",
+                "fg": "#d8dee9",
+                "panel": "#3b4252",
+                "accent": "#88c0d0",
+                "border": "#4c566a",
+                "font": "Latin Modern Roman"
+            }
+        },
+    "default_theme": "VSCode Dark",
     "executables": {
         "code": [
             "code",
