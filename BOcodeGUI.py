@@ -4,6 +4,7 @@ import re
 from html import escape
 
 from PySide6.QtCore import Qt, QUrl
+from PySide6.QtGui import QAction
 
 from PySide6.QtWidgets import (
     QApplication,
@@ -13,6 +14,8 @@ from PySide6.QtWidgets import (
     QLineEdit,
     QListWidget,
     QComboBox,
+    QMenuBar,
+    QMenu,
 )
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -134,6 +137,76 @@ class MainWindow(QWidget):
         self.update_search()
 
         self.search.setFocus()
+    
+        self.themes = {
+            "VSCode Dark": {
+                "bg": "#1e1e1e",
+                "fg": "#d4d4d4",
+                "panel": "#252526",
+                "accent": "#007acc",
+                "border": "#3c3c3c",
+                "font": "Latin Modern Roman",
+            },
+            "Soothing": {
+                "bg": "#f4f1ee",
+                "fg": "#2b2b2b",
+                "panel": "#ffffff",
+                "accent": "#6b8f71",
+                "border": "#d6d2cc",
+                "font": "Latin Modern Roman",
+            },
+        }
+
+        self.current_theme = "VSCode Dark"
+
+        menu_bar = QMenuBar(self)
+        edit_menu = QMenu("Édition", self)
+
+        theme_menu = QMenu("Thème", self)
+
+        for theme_name in self.themes.keys():
+            action = QAction(theme_name, self)
+            action.triggered.connect(
+                lambda checked, name=theme_name: self.set_theme(name)
+            )
+            theme_menu.addAction(action)
+
+        edit_menu.addMenu(theme_menu)
+        menu_bar.addMenu(edit_menu)
+
+        layout.setMenuBar(menu_bar)
+
+        self.apply_theme()
+
+    def set_theme(self, name):
+        self.current_theme = name
+        self.apply_theme()
+
+    def apply_theme(self):
+        t = self.themes[self.current_theme]
+
+        self.setStyleSheet(f"""
+            QWidget {{
+                background-color: {t['bg']};
+                color: {t['fg']};
+                font-family: "{t['font']}";
+            }}
+
+            QLineEdit, QListWidget, QComboBox {{
+                background-color: {t['panel']};
+                border: 1px solid {t['border']};
+                padding: 4px;
+            }}
+
+            QListWidget::item:selected {{
+                background-color: {t['accent']};
+                color: white;
+            }}
+
+            QComboBox {{
+                selection-background-color: {t['accent']};
+            }}
+        """)
 
     def display_name(self, code):
 
@@ -406,7 +479,7 @@ window.onload = function() {{
 <style>
 
 body {{
-    font-family: sans-serif;
+    font-family: "Latin Modern Roman", serif;
     padding: 20px;
     font-size: 18px;
 }}
