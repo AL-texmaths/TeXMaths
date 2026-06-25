@@ -2,11 +2,12 @@
 \usepackage{texmaths-tikz}
 \usepackage{texmaths-spacing}
 \startdatakeys
-\source{}
-\cycle{4}
-\competencesDuSocle{}
-\connaissancesRequises{}
-\competencesTravaillees{}
+    \source{inconnue}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{}
+    \objectifsApprentissage{B3cb, D3bb, D3bd, A3ee, A3ed}
+    \automatismes{C3ab, C2aa, B1ea}
 \enddatakeys
 \begin{document}
 \noindent Dans cet exercice, les questions sont indépendantes.\par\noindent
@@ -58,8 +59,8 @@
         Le triangle \mathspoint{DEF} est-il rectangle~?
     \end{minipage}\hskip30pt
     \begin{tikzpicture}[scale=1, baseline=(current bounding box.center)]
-        \coordinate[label=above:A](A)at(0,0);
-        \coordinate[label=above:B](B)at(4,0);
+        \coordinate[label=below left:A](A)at(0,0);
+        \coordinate[label=below right:B](B)at(4,0);
         \coordinate[label=above:C](C)at(4,3);
         \draw(A)--(B)--(C)--cycle;
     \end{tikzpicture}

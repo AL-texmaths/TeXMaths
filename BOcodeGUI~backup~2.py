@@ -18,7 +18,6 @@ from PySide6.QtWidgets import (
     QComboBox,
     QMenuBar,
     QMenu,
-    QSplitter
 )
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -268,37 +267,14 @@ class MainWindow(QWidget):
 
         # ---------------- LAYOUT PRINCIPAL ----------------
 
-        # --- widgets conteneurs ---
-        left_widget = QWidget()
-        left_widget.setLayout(left)
-
-        right_widget = QWidget()
-        right_widget.setLayout(right)
-
-        self.left_widget = left_widget
-        self.right_widget = right_widget
-        self.preview_widget = self.preview
-
-        # --- SPLITTER ---
-        self.splitter = QSplitter(Qt.Horizontal)
-
-        self.splitter.addWidget(self.left_widget)
-        self.splitter.addWidget(self.preview_widget)
-        self.splitter.addWidget(self.right_widget)
-
-        self.splitter.setSizes([400, 800, 300])
-
         main_layout = QHBoxLayout(self)
-        main_layout.addWidget(self.splitter)
+
+        main_layout.addLayout(left, 1)
+        main_layout.addWidget(self.preview, 3)
+        main_layout.addLayout(right, 2)
+
         main_layout.setMenuBar(menu_bar)
 
-        self.progression_visible = True
-
-        toggle_action = QAction(self)
-        toggle_action.setShortcut("Ctrl+B")
-        toggle_action.triggered.connect(self.toggle_progression_panel)
-
-        self.addAction(toggle_action)
 
         # ---------------- SIGNALS ----------------
 
@@ -363,30 +339,6 @@ class MainWindow(QWidget):
         self.apply_theme()
 
     # ---------------- VIEW SWITCH ----------------
-
-    def toggle_progression_panel(self):
-        if self.progression_visible:
-            # mémorise la taille actuelle du splitter
-            self._saved_sizes = self.splitter.sizes()
-
-            # cache panneau droit
-            self.right_widget.setVisible(False)
-
-            # redistribue l'espace vers centre + gauche
-            self.splitter.setSizes([400, 1000, 0])
-
-            self.progression_visible = False
-
-        else:
-            self.right_widget.setVisible(True)
-
-            # restaure tailles si possible
-            if hasattr(self, "_saved_sizes"):
-                self.splitter.setSizes(self._saved_sizes)
-            else:
-                self.splitter.setSizes([400, 800, 300])
-
-            self.progression_visible = True
 
     def add_chapter(self):
 

@@ -22,18 +22,21 @@ Checker la possibilité de connecter linux a une imprimante via wifi
 --------- BO Code Regex -------------
 Volet progression:
 
-- les boutons charger/sauvegarder doivent être dans un menu déroulant intitulé
-"fichier". Il faut ajouter un boutons sauvegarder sous.
-- ajouter les raccourcis clavier classiques : ctrl+s, ctrl+o, ctrl+shift+s
-- utiliser des raccourcis clavier pour la création des chapitres /niveaux
-- le tree doit être e la forme :
-|--- niveau
-    |--- chapitre
-	    |--- nom personnalisable (aut, cns, cmp, ...): [list des items sélectionnés]
-- la selection des items de chaque chapitres doit afficher dans un cadre le display
-latex correspondant au code
->>> possibilité de cacher le volet progression
->>> possibilité de copier le code dans le presse papier
+- utiliser des raccourcis clavier :
+--> ajouter item sélectionné ("ctrl+i")
+--> raccourcis "suppr" pour le bouton supprimer item
+--> en utilisant les raccourcis "ctrl+fleches haut/bas" il doit
+être possible d'interchanger les items de la progressions
+(niveaux, chapitres et items)
+--> accélerer l'afficahe des tooltips
+--> le bouton ajouter l'item sélectionné ne doit être
+cliquable que si c'est nu chapitre qui est sélectionné
+dans la progression
+--> possibilité de cacher le volet progression
+BUG 
+----> \textit {Essais d'arithmétique politique} n'est pas recconu par
+katex
+----> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques)
 
 ===============================================================================
 					Java / html
