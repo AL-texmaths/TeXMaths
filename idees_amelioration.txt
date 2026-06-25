@@ -28,14 +28,12 @@ Volet progression:
 --> en utilisant les raccourcis "ctrl+fleches haut/bas" il doit
 être possible d'interchanger les items de la progressions
 (niveaux, chapitres et items)
---> accélerer l'afficahe des tooltips
+--> accélerer l'affichage des tooltips
 --> le bouton ajouter l'item sélectionné ne doit être
-cliquable que si c'est nu chapitre qui est sélectionné
+cliquable que si c'est un chapitre qui est sélectionné
 dans la progression
---> possibilité de cacher le volet progression
-BUG 
-----> \textit {Essais d'arithmétique politique} n'est pas recconu par
-katex
+----> \textit {Essais d'arithmétique politique} n'est pas
+recconu par katex
 ----> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques)
 
 ===============================================================================
