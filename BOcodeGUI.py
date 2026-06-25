@@ -883,15 +883,11 @@ body {{
 
             else:
 
-                result.setdefault(
-                    "items",
-                    []
-                ).append(
-                    child.data(
-                        0,
+                result[child.text(0)] = child.data(
+                        1,
                         Qt.UserRole
                     )
-                )
+                
 
         return result
 

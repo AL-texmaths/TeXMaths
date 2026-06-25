@@ -26,7 +26,12 @@ Volet progression:
 "fichier". Il faut ajouter un boutons sauvegarder sous.
 - ajouter les raccourcis clavier classiques : ctrl+s, ctrl+o, ctrl+shift+s
 - utiliser des raccourcis clavier pour la création des chapitres /niveaux
-
+- le tree doit être e la forme :
+|--- niveau
+    |--- chapitre
+	    |--- nom personnalisable (aut, cns, cmp, ...): [list des items sélectionnés]
+- la selection des items de chaque chapitres doit afficher dans un cadre le display
+latex correspondant au code
 
 ===============================================================================
 					Java / html
