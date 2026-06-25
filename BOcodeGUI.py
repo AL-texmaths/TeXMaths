@@ -4,9 +4,7 @@ import re
 from html import escape
 
 from PySide6.QtCore import Qt, QUrl
-from PySide6.QtGui import QAction, QKeySequence
-from PySide6.QtWidgets import (QTreeWidget,
-QTreeWidgetItem, QPushButton, QFileDialog)
+from PySide6.QtGui import QAction, QKeySequence, QShortcut
 
 from PySide6.QtWidgets import (
     QApplication,
@@ -18,7 +16,11 @@ from PySide6.QtWidgets import (
     QComboBox,
     QMenuBar,
     QMenu,
-    QSplitter
+    QSplitter,
+    QTreeWidget,
+    QTreeWidgetItem,
+    QPushButton,
+    QFileDialog
 )
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -233,38 +235,26 @@ class MainWindow(QWidget):
         self.add_button = QPushButton(
             "Ajouter l'item sélectionné"
         )
+        self.add_button.setToolTip("Ajouter un item (Ctrl+I)")
 
         self.delete_button = QPushButton(
             "Supprimer"
         )
+        self.delete_button.setToolTip("Supprimer l'item sélectionné (Ctrl+D)")
 
         self.unused_button = QPushButton(
             "Afficher les items non utilisés"
         )
+        self.unused_button.setToolTip("Afficher les items non utilisés (Ctrl+U)")
 
         right = QVBoxLayout()
 
         right.addWidget(self.progression)
-
-        right.addWidget(
-            self.add_level_button
-        )
-
-        right.addWidget(
-            self.add_chapter_button
-        )
-
-        right.addWidget(
-            self.add_button
-        )
-
-        right.addWidget(
-            self.delete_button
-        )
-
-        right.addWidget(
-            self.unused_button
-        )
+        right.addWidget(self.add_level_button)
+        right.addWidget(self.add_chapter_button)
+        right.addWidget(self.add_button)
+        right.addWidget(self.delete_button)
+        right.addWidget(self.unused_button)
 
         # ---------------- LAYOUT PRINCIPAL ----------------
 
@@ -330,10 +320,22 @@ class MainWindow(QWidget):
         self.add_button.clicked.connect(
             self.add_selected_item
         )
+        add_button_action = QAction(self)
+        add_button_action.setShortcut("Ctrl+i")
+        add_button_action.triggered.connect(
+            self.add_selected_item
+        )
+        self.addAction(add_button_action)
 
         self.delete_button.clicked.connect(
             self.delete_progression_item
         )
+        delete_button_action = QAction(self)
+        delete_button_action.setShortcut("Ctrl+D")
+        delete_button_action.triggered.connect(
+            self.delete_progression_item
+        )
+        self.addAction(delete_button_action)
 
         self.unused_button.clicked.connect(
             self.show_unused_items
@@ -352,6 +354,12 @@ class MainWindow(QWidget):
         )
 
         self.update_buttons_state()
+
+        QShortcut(QKeySequence("Ctrl+Up"), self,
+          activated=lambda: self.move_current_item(-1))
+
+        QShortcut(QKeySequence("Ctrl+Down"), self,
+                activated=lambda: self.move_current_item(+1))
 
         self.current_matches = []
 
@@ -574,6 +582,37 @@ class MainWindow(QWidget):
 
 
         selected.addChild(item)
+
+    def move_current_item(self, delta):
+        item = self.progression.currentItem()
+        if item is None:
+            return
+
+        parent = item.parent()
+
+        if parent is None:
+            count = self.progression.topLevelItemCount()
+            index = self.progression.indexOfTopLevelItem(item)
+            new = index + delta
+
+            if not (0 <= new < count):
+                return
+
+            item = self.progression.takeTopLevelItem(index)
+            self.progression.insertTopLevelItem(new, item)
+
+        else:
+            count = parent.childCount()
+            index = parent.indexOfChild(item)
+            new = index + delta
+
+            if not (0 <= new < count):
+                return
+
+            item = parent.takeChild(index)
+            parent.insertChild(new, item)
+
+        self.progression.setCurrentItem(item)
 
     def is_chapter(self, item):
 

@@ -10,6 +10,7 @@
 \usepackage{texmaths-cycle4-BO_2020}
 \usepackage{texmaths-sources}
 \usepackage{texmaths-cmpeval}
+\usepackage{texmaths-pytools}
 \begin{document}
     test
     \makeatletter
@@ -22,4 +23,6 @@
         "cmpsocle":{\full@cmpeval}%
         }}
     \immediate\closeout\jsonfile
+    \makeatletter
+    \run@python{../../../}{update_code_index}
 \end{document}

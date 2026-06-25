@@ -253,7 +253,7 @@ obj|:|B3bb|:|Définir les grands cercles, le diamètre.
 obj|:|B3bc|:|Visualiser et réaliser des sections de pavé parallèlement à une face, de cylindre parallèlement ou perpendiculairement à son axe, d'une boule.
 obj|:|B3bd|:|Connaitre et utiliser la formule du volume d'une boule de rayon donné.
 pro|:|B3ba|:|La formule du volume, trouvée au III$^\text {e}$ siècle avant J.-C., d'après une intuition d'Archimède comme étant $\dfrac {2}{3}$ du cylindre qui contient la boule.
-pro|:|B3bb|:|Les cinq polyèdres réguliers de l'espace et les illustrations de Léonard de Vinci pour le traité mathématique \textit {De divina proportione} de Luca Pacioli.
+pro|:|B3bb|:|Les cinq polyèdres réguliers de l'espace et les illustrations de Léonard de Vinci pour le traité mathématique $\textit {De divina proportione}$ de Luca Pacioli.
 aut|:|B3ca|:|Utiliser la propriété du triangle rectangle et de son cercle circonscrit.
 aut|:|B3cb|:|Écrire l'égalité de Pythagore dans un triangle rectangle.
 aut|:|B3cc|:|Utiliser la droite des milieux pour prouver que des droites sont parallèles, pour calculer une longueur, pour prouver qu'un point est le milieu d'un côté.
@@ -292,7 +292,7 @@ obj|:|C2ad|:|Comprendre l'évolution de la médiane et de la moyenne quand on aj
 obj|:|C2ae|:|Résoudre des problèmes faisant intervenir les différents indicateurs.
 obj|:|C2af|:|Résoudre des problèmes de comparaison de séries statistiques.
 obj|:|C2ag|:|Utiliser le tableur pour calculer une moyenne, une médiane et l'étendue d'une série statistique.
-pro|:|C2aa|:|Le premier traité des \textit {Essais d'arithmétique politique} de Willem Kersseboom (XVIII$^\text {e}$ s.).
+pro|:|C2aa|:|Le premier traité des $\textit {Essais d'arithmétique politique}$ de Willem Kersseboom (XVIII$^\text {e}$ s.).
 obj|:|C2ba|:|Utiliser le vocabulaire et les notations ensemblistes pour décrire une expérience aléatoire dans des cas simples et définir la notion d'évènement.
 obj|:|C2bb|:|Définir : complémentaire, réunion, intersection, ensemble vide (évènement impossible).
 obj|:|C2bc|:|Calculer la probabilité d'un évènement et de l'évènement contraire.

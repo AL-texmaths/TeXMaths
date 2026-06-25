@@ -8,6 +8,8 @@ un fichier plus lisible code_index.json.
 import json
 from src.tools import LATEX_DIR, compile_latex
 
+print('BONJOUR')
+
 TEX_FILE_NAME = LATEX_DIR / "catalogues" / 'update_code_index.tex'
 TEX_FILE_DIR_PATH = TEX_FILE_NAME.parent
 BO_2026_TEX_PATH = LATEX_DIR / "codes_cnscmpsrc" / 'BO_2026.tex'

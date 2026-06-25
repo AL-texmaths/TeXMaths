@@ -23,18 +23,12 @@ Checker la possibilité de connecter linux a une imprimante via wifi
 Volet progression:
 
 - utiliser des raccourcis clavier :
---> ajouter item sélectionné ("ctrl+i")
---> raccourcis "suppr" pour le bouton supprimer item
+--> ajouter un undo/redo pour chaque actions liées à la progression
 --> en utilisant les raccourcis "ctrl+fleches haut/bas" il doit
 être possible d'interchanger les items de la progressions
 (niveaux, chapitres et items)
---> accélerer l'affichage des tooltips
---> le bouton ajouter l'item sélectionné ne doit être
-cliquable que si c'est un chapitre qui est sélectionné
-dans la progression
-----> \textit {Essais d'arithmétique politique} n'est pas
-recconu par katex
-----> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques)
+----> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
+officiel sur disque dur externe
 
 ===============================================================================
 					Java / html
