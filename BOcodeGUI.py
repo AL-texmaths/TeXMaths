@@ -5,6 +5,8 @@ from html import escape
 
 from PySide6.QtCore import Qt, QUrl
 from PySide6.QtGui import QAction
+from PySide6.QtWidgets import (QTreeWidget,
+QTreeWidgetItem, QPushButton, QFileDialog)
 
 from PySide6.QtWidgets import (
     QApplication,
@@ -68,6 +70,13 @@ class MainWindow(QWidget):
         with open("config.json", encoding="utf-8") as f:
             self.config = json.load(f)
 
+        self.themes = self.config["themes"]
+
+        self.current_theme = self.config.get(
+            "default_theme",
+            next(iter(self.themes))
+        )
+
         self.code_labels = self.config["codes"]
 
         self.entries = []
@@ -100,22 +109,172 @@ class MainWindow(QWidget):
             self.catalogue_combo.setCurrentIndex(index)
 
         left = QVBoxLayout()
+
         left.addWidget(self.catalogue_combo)
         left.addWidget(self.type_combo)
-        left.addWidget(self.view_mode_combo)   # <-- AJOUT ICI
+        left.addWidget(self.view_mode_combo)
         left.addWidget(self.search)
         left.addWidget(self.list_widget)
 
-        layout = QHBoxLayout(self)
-        layout.addLayout(left, 1)
-        layout.addWidget(self.preview, 3)
 
-        self.search.textChanged.connect(lambda _: self.update_search())
-        self.catalogue_combo.currentTextChanged.connect(self.catalogue_changed)
-        self.type_combo.currentTextChanged.connect(lambda _: self.update_search())
-        self.view_mode_combo.currentTextChanged.connect(lambda _: self.refresh_view())
+        # ---------------- MENU ----------------
 
-        self.list_widget.currentRowChanged.connect(self.show_entry)
+        menu_bar = QMenuBar(self)
+
+        edit_menu = QMenu("Édition", self)
+        theme_menu = QMenu("Thème", self)
+
+        for theme_name in self.themes.keys():
+            action = QAction(theme_name, self)
+            action.triggered.connect(
+                lambda checked, name=theme_name:
+                self.set_theme(name)
+            )
+            theme_menu.addAction(action)
+
+        edit_menu.addMenu(theme_menu)
+        menu_bar.addMenu(edit_menu)
+
+
+        # ---------------- PROGRESSION ----------------
+
+        self.progression = QTreeWidget()
+
+        self.progression.setStyleSheet("""
+            QTreeWidget::item {
+                height: 28px;
+            }
+            """)
+
+        self.progression.setHeaderLabel(
+            "Progression annuelle"
+        )
+
+
+        self.add_level_button = QPushButton(
+            "Ajouter un niveau"
+        )
+
+        self.add_chapter_button = QPushButton(
+            "Ajouter un chapitre"
+        )
+
+        self.add_button = QPushButton(
+            "Ajouter l'item sélectionné"
+        )
+
+        self.delete_button = QPushButton(
+            "Supprimer"
+        )
+
+        self.unused_button = QPushButton(
+            "Afficher les items non utilisés"
+        )
+
+        self.save_button = QPushButton(
+            "Sauvegarder la progression"
+        )
+
+        self.load_button = QPushButton(
+            "Charger une progression"
+        )
+        right = QVBoxLayout()
+
+        right.addWidget(self.progression)
+
+        right.addWidget(
+            self.add_level_button
+        )
+
+        right.addWidget(
+            self.add_chapter_button
+        )
+
+        right.addWidget(
+            self.add_button
+        )
+
+        right.addWidget(
+            self.delete_button
+        )
+
+        right.addWidget(
+            self.unused_button
+        )
+
+        right.addWidget(
+            self.save_button
+        )
+
+        right.addWidget(
+            self.load_button
+        )
+
+        # ---------------- LAYOUT PRINCIPAL ----------------
+
+        main_layout = QHBoxLayout(self)
+
+        main_layout.addLayout(left, 1)
+        main_layout.addWidget(self.preview, 3)
+        main_layout.addLayout(right, 2)
+
+        main_layout.setMenuBar(menu_bar)
+
+
+        # ---------------- SIGNALS ----------------
+
+        self.search.textChanged.connect(
+            lambda _: self.update_search()
+        )
+
+        self.catalogue_combo.currentTextChanged.connect(
+            self.catalogue_changed
+        )
+
+        self.type_combo.currentTextChanged.connect(
+            lambda _: self.update_search()
+        )
+
+        self.view_mode_combo.currentTextChanged.connect(
+            lambda _: self.refresh_view()
+        )
+
+        self.list_widget.currentRowChanged.connect(
+            self.show_entry
+        )
+
+        self.progression.itemClicked.connect(
+            self.show_usage
+        )
+
+
+        self.add_button.clicked.connect(
+            self.add_selected_item
+        )
+
+        self.delete_button.clicked.connect(
+            self.delete_progression_item
+        )
+
+        self.unused_button.clicked.connect(
+            self.show_unused_items
+        )
+
+        self.add_level_button.clicked.connect(
+            self.add_level
+        )
+
+        self.add_chapter_button.clicked.connect(
+            self.add_chapter
+        )
+
+        self.save_button.clicked.connect(
+            self.save_progression
+        )
+
+        self.load_button.clicked.connect(
+            self.load_progression
+        )
 
         self.current_matches = []
 
@@ -124,29 +283,265 @@ class MainWindow(QWidget):
 
         self.search.setFocus()
 
-        self.themes = self.config["themes"]
-        self.current_theme = self.config.get(
-            "default_theme",
-            next(iter(self.themes))
-        )
-
-        menu_bar = QMenuBar(self)
-        edit_menu = QMenu("Édition", self)
-        theme_menu = QMenu("Thème", self)
-
-        for theme_name in self.themes.keys():
-            action = QAction(theme_name, self)
-            action.triggered.connect(lambda checked, name=theme_name: self.set_theme(name))
-            theme_menu.addAction(action)
-
-        edit_menu.addMenu(theme_menu)
-        menu_bar.addMenu(edit_menu)
-
-        layout.setMenuBar(menu_bar)
 
         self.apply_theme()
 
     # ---------------- VIEW SWITCH ----------------
+
+    def add_chapter(self):
+
+        parent = self.progression.currentItem()
+
+        if parent is None:
+            return
+
+        # Si on clique sur un chapitre,
+        # on ajoute au niveau supérieur
+        if parent.parent() is not None:
+            parent = parent.parent()
+
+
+        item = QTreeWidgetItem([
+            "Nouveau chapitre"
+        ])
+
+        parent.addChild(item)
+
+        self.progression.setCurrentItem(item)
+
+        item.setFlags(
+            item.flags() |
+            Qt.ItemIsEditable
+        )
+
+        self.progression.editItem(
+            item,
+            0
+        )
+
+    def add_level(self):
+
+        item = QTreeWidgetItem([
+            "Nouveau niveau"
+        ])
+
+        self.progression.addTopLevelItem(item)
+
+        self.progression.setCurrentItem(item)
+
+        item.setFlags(
+            item.flags() |
+            Qt.ItemIsEditable
+        )
+
+        self.progression.editItem(
+            item,
+            0
+        )
+
+    def show_unused_items(self):
+
+        unused = self.get_unused_entries()
+
+
+        dialog = QWidget()
+
+        dialog.setWindowTitle(
+            "Items non utilisés"
+        )
+
+        dialog.resize(
+            700,
+            800
+        )
+
+
+        dialog_layout = QVBoxLayout()
+
+
+        liste = QListWidget()
+
+
+        for entry in unused:
+
+            texte = (
+                f'{entry["code"]} '
+                f'[{entry["type"]}] '
+                f'- {entry["text"]}'
+            )
+
+            liste.addItem(texte)
+
+
+        dialog_layout.addWidget(liste)
+
+        dialog.setLayout(dialog_layout)
+
+
+        dialog.show()
+
+
+        # indispensable sinon Qt détruit la fenêtre
+        self.unused_window = dialog
+
+    def get_unused_entries(self):
+
+        used = self.get_used_codes()
+
+
+        selected_catalogue = self.internal_name(
+            self.catalogue_combo.currentText()
+        )
+
+
+        unused = []
+
+
+        for entry in self.entries:
+
+            # filtre catalogue
+            if selected_catalogue != "Tous":
+                if entry["catalogue"] != selected_catalogue:
+                    continue
+
+
+            # filtre utilisation
+            if entry["code"] not in used:
+                unused.append(entry)
+
+
+        return unused
+
+    def get_used_codes(self):
+
+        used = set()
+
+        def scan(item):
+
+            for i in range(item.childCount()):
+
+                child = item.child(i)
+
+                code = child.data(
+                    0,
+                    Qt.UserRole
+                )
+
+                if code:
+                    used.add(code)
+
+                scan(child)
+
+
+        for i in range(self.progression.topLevelItemCount()):
+
+            root = self.progression.topLevelItem(i)
+
+            scan(root)
+
+        return used
+
+    def add_selected_item(self):
+
+        row = self.list_widget.currentRow()
+
+        if row < 0:
+            return
+
+        entry = self.current_matches[row]
+
+
+        selected = self.progression.currentItem()
+
+        if selected is None:
+            return
+
+
+        item = QTreeWidgetItem([
+            entry["code"]
+        ])
+
+        item.setData(
+            0,
+            Qt.UserRole,
+            entry["code"]
+        )
+
+
+        selected.addChild(item)
+
+    def delete_progression_item(self):
+
+        item = self.progression.currentItem()
+
+        if item is None:
+            return
+
+
+        parent = item.parent()
+
+        if parent:
+            parent.removeChild(item)
+
+        else:
+            index = self.progression.indexOfTopLevelItem(item)
+            self.progression.takeTopLevelItem(index)
+
+    def show_usage(self,item):
+
+        code = item.data(
+            0,
+            Qt.UserRole
+        )
+
+        if not code:
+            return
+
+
+        locations=[]
+
+        def scan(node,path):
+
+            for i in range(node.childCount()):
+
+                child=node.child(i)
+
+                if child.data(0,Qt.UserRole)==code:
+                    locations.append(path)
+
+                scan(
+                    child,
+                    path+"/"+child.text(0)
+                )
+
+
+        for i in range(self.progression.topLevelItemCount()):
+
+            root=self.progression.topLevelItem(i)
+
+            scan(
+                root,
+                root.text(0)
+            )
+
+
+        html="""
+
+    <h3>Utilisé dans :</h3>
+
+    <ul>
+    """
+
+        for x in locations:
+            html+=f"<li>{x}</li>"
+
+
+        html+="</ul>"
+
+
+        self.preview.page().runJavaScript(
+            ...
+        )
 
     def refresh_view(self):
         mode = self.view_mode_combo.currentText()
@@ -474,6 +869,131 @@ body {{
 </body>
 </html>
 """
+    def tree_to_dict(self,item):
+
+        result={}
+
+        for i in range(item.childCount()):
+
+            child=item.child(i)
+
+            if child.childCount():
+
+                result[child.text(0)] = self.tree_to_dict(child)
+
+            else:
+
+                result.setdefault(
+                    "items",
+                    []
+                ).append(
+                    child.data(
+                        0,
+                        Qt.UserRole
+                    )
+                )
+
+        return result
+
+    def load_progression(self):
+
+        filename, _ = QFileDialog.getOpenFileName(
+            self,
+            "Charger une progression",
+            "",
+            "JSON (*.json)"
+        )
+
+        if not filename:
+            return
+
+
+        with open(
+            filename,
+            encoding="utf8"
+        ) as f:
+
+            data = json.load(f)
+
+
+        self.progression.clear()
+
+
+        def build(parent, obj):
+
+            for key, value in obj.items():
+
+                item = QTreeWidgetItem(
+                    [key]
+                )
+
+                parent.addChild(item)
+
+
+                if isinstance(value, dict):
+
+                    build(item, value)
+
+
+                elif isinstance(value, list):
+
+                    for code in value:
+
+                        child = QTreeWidgetItem(
+                            [code]
+                        )
+
+                        child.setData(
+                            0,
+                            Qt.UserRole,
+                            code
+                        )
+
+                        item.addChild(child)
+
+
+
+        for key, value in data.items():
+
+            root = QTreeWidgetItem(
+                [key]
+            )
+
+            self.progression.addTopLevelItem(
+                root
+            )
+
+            build(
+                root,
+                value
+            )
+
+    def save_progression(self):
+
+        data={}
+
+
+        for i in range(
+            self.progression.topLevelItemCount()
+        ):
+
+            root=self.progression.topLevelItem(i)
+
+            data[root.text(0)] = self.tree_to_dict(root)
+
+
+        with open(
+            "progression.json",
+            "w",
+            encoding="utf8"
+        ) as f:
+
+            json.dump(
+                data,
+                f,
+                indent=4,
+                ensure_ascii=False
+            )
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
