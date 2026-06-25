@@ -162,7 +162,7 @@ class MainWindow(QWidget):
 
         for e in self.current_matches:
             html_items.append(
-                f"{e['code']} ({self.display_name(e['catalogue'])})  {e['text']}"
+                f"<b>{e['code']}</b> (<i>{self.display_name(e['catalogue'])}</i>)  {e['text']}"
             )
 
         html = "<br>".join(html_items)
@@ -438,7 +438,6 @@ body {{
 </body>
 </html>
 """
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

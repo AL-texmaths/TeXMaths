@@ -1,6 +1,9 @@
 =============================================
                     Github
 =============================================
+>>> trouver une solution pour le stokage et la
+synchronisation du dossier data/graphics (environ 3Go)
+--> Nextcloud ?
 =============================================
                     VSCode
 =============================================
@@ -15,10 +18,41 @@ les executables ne sont pas trouvés
 USBSave --> vérifier l'existence des chemins avant l'execution du programme
 Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 Checker la possibilité de connecter linux a une imprimante via wifi
->>>> Coder l'équivalent de la "recherche regex pdf" pour les sources
-du bo afin de naviguer plus facilement dans les sources pour trouver
-le code
 --> régler le warning source inconnue alors qu'elle a ete définie
+--------- BO Code Regex -------------
+--> !! les "src" et "cmpsocle" ne sont pas intégré au gui !!
+Dans le duexième panneau :
+--> permettre de copier le code/texte d'un item.
+--> le code doit apparaître en gras
+--> créer un troisième panneau qui correspond à une visualisation d'un fichier json
+qui représente nue progression annuelle. Ce panneau est censé permettre à
+l'utilisateur d'organiser des items choisi sous la forme d'nue progression.
+|--- sixieme
+        |--- Chapitre 1: Fractions
+		    |--- item1
+			|--- item2
+		|--- Chapitre 2: Décimaux
+		|--- Chapitre 3: etc ...
+|--- cinquième
+
+Dans lequel les niveaux, chapitres et items sont crées dynamiquement par l'utilisateur
+dans le panneau. L'ajout d'un item pourra se faire
+via la recherche regex : par exemple ("je" représente l'utilisateur)
+1 - je cherche les item correspondants à "Pythagore"
+2 - je navique dans les items du panneau de droite
+3 - en cliquant sur un bouton j'ajoute l'item à la partie
+sélectionnée du troisième panneau
+
+L'utilisateur doit pouvoir facilement supprimer un item du panneau de droite
+
+Dans le deuxième panneau (affichage katex), il faut un cadre dans lequel sont
+notés les parties du troisième volet qui utililisent cet item.
+
+Enfin il faut la possibilité à l'utilisateur d'afficher la liste des items qui ne sont
+pas utilisés, ou alors de les afficher surligner en rouge.
+
+Le panneau de droite devra pourvoir être sauvegardé/chargé via le fichier json.
+
 ===============================================================================
 					Java / html
 ===============================================================================
