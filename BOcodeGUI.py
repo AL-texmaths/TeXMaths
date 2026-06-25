@@ -1,6 +1,8 @@
+from fileinput import filename
 import sys
 import json
 import re
+import copy
 from html import escape
 
 from PySide6.QtCore import Qt, QUrl
@@ -361,7 +363,21 @@ class MainWindow(QWidget):
         QShortcut(QKeySequence("Ctrl+Down"), self,
                 activated=lambda: self.move_current_item(+1))
 
+        QShortcut(
+            QKeySequence.Undo,
+            self,
+            activated=self.undo
+        )
+
+        QShortcut(
+            QKeySequence.Redo,
+            self,
+            activated=self.redo
+        )
+
         self.current_matches = []
+        self.undo_stack = []
+        self.redo_stack = []
 
         self.update_type_filter()
         self.update_search()
@@ -398,6 +414,8 @@ class MainWindow(QWidget):
 
     def add_chapter(self):
 
+        self.push_undo()
+
         parent = self.progression.currentItem()
 
         if parent is None:
@@ -428,6 +446,8 @@ class MainWindow(QWidget):
         )
 
     def add_level(self):
+
+        self.push_undo()
 
         item = QTreeWidgetItem([
             "Nouveau niveau"
@@ -551,6 +571,8 @@ class MainWindow(QWidget):
 
     def add_selected_item(self):
 
+        self.push_undo()
+
         selected = self.progression.currentItem()
 
         if not self.is_chapter(selected):
@@ -584,6 +606,9 @@ class MainWindow(QWidget):
         selected.addChild(item)
 
     def move_current_item(self, delta):
+
+        self.push_undo()
+
         item = self.progression.currentItem()
         if item is None:
             return
@@ -642,6 +667,8 @@ class MainWindow(QWidget):
         )
 
     def delete_progression_item(self):
+
+        self.push_undo()
 
         item = self.progression.currentItem()
 
@@ -1062,6 +1089,91 @@ body {{
 
         return result
 
+    def expanded_paths(self):
+
+        expanded = set()
+
+        def walk(item, path):
+
+            path = path + (item.text(0),)
+
+            if item.isExpanded():
+                expanded.add(path)
+
+            for i in range(item.childCount()):
+                walk(item.child(i), path)
+
+        for i in range(self.progression.topLevelItemCount()):
+            walk(self.progression.topLevelItem(i), ())
+
+        return expanded
+
+    def restore_expanded(self, expanded):
+
+        def walk(item, path):
+
+            path = path + (item.text(0),)
+
+            item.setExpanded(path in expanded)
+
+            for i in range(item.childCount()):
+                walk(item.child(i), path)
+
+        for i in range(self.progression.topLevelItemCount()):
+            walk(self.progression.topLevelItem(i), ())
+
+    def restore_progression(self, data):
+
+        expanded = self.expanded_paths()
+
+        self.progression.clear()
+
+        def build(parent, obj):
+
+            for key, value in obj.items():
+
+                item = QTreeWidgetItem([key])
+                parent.addChild(item)
+
+                if isinstance(value, dict):
+                    build(item, value)
+
+                elif isinstance(value, list):
+
+                    for code in value:
+
+                        child = QTreeWidgetItem([code])
+
+                        child.setData(
+                            0,
+                            Qt.UserRole,
+                            code
+                        )
+
+                        item.addChild(child)
+
+        for key, value in data.items():
+
+            root = QTreeWidgetItem([key])
+
+            self.progression.addTopLevelItem(root)
+
+            build(root, value)
+        
+        self.restore_expanded(expanded)
+
+    def snapshot_progression(self):
+
+        data = {}
+
+        for i in range(self.progression.topLevelItemCount()):
+
+            root = self.progression.topLevelItem(i)
+
+            data[root.text(0)] = self.tree_to_dict(root)
+
+        return data
+
     def load_progression(self):
 
         filename, _ = QFileDialog.getOpenFileName(
@@ -1074,80 +1186,17 @@ body {{
         if not filename:
             return
 
-
-        with open(
-            filename,
-            encoding="utf8"
-        ) as f:
-
+        with open(filename, encoding="utf8") as f:
             data = json.load(f)
 
+        self.restore_progression(data)
 
-        self.progression.clear()
-
-
-        def build(parent, obj):
-
-            for key, value in obj.items():
-
-                item = QTreeWidgetItem(
-                    [key]
-                )
-
-                parent.addChild(item)
-
-
-                if isinstance(value, dict):
-
-                    build(item, value)
-
-
-                elif isinstance(value, list):
-
-                    for code in value:
-
-                        child = QTreeWidgetItem(
-                            [code]
-                        )
-
-                        child.setData(
-                            0,
-                            Qt.UserRole,
-                            code
-                        )
-
-                        item.addChild(child)
-
-
-
-        for key, value in data.items():
-
-            root = QTreeWidgetItem(
-                [key]
-            )
-
-            self.progression.addTopLevelItem(
-                root
-            )
-
-            build(
-                root,
-                value
-            )
+        self.undo_stack.clear()
+        self.redo_stack.clear()
 
     def save_progression(self):
 
-        data={}
-
-
-        for i in range(
-            self.progression.topLevelItemCount()
-        ):
-
-            root=self.progression.topLevelItem(i)
-
-            data[root.text(0)] = self.tree_to_dict(root)
-
+        data=self.snapshot_progression()
 
         with open(
             "progression.json",
@@ -1175,12 +1224,7 @@ body {{
         if not fileName:
             return  # User cancelled the dialog
 
-        data = {}
-
-        for i in range(
-                self.progression.topLevelItemCount()):
-            root = self.progression.topLevelItem(i)
-            data[root.text(0)] = self.tree_to_dict(root)
+        data = self.snapshot_progression()
 
         with open(
                 fileName,
@@ -1193,6 +1237,46 @@ body {{
                 indent=4,
                 ensure_ascii=False
             )
+
+    def push_undo(self):
+
+        self.undo_stack.append(
+            copy.deepcopy(
+                self.snapshot_progression()
+            )
+        )
+
+        self.redo_stack.clear()
+
+    def undo(self):
+
+        if not self.undo_stack:
+            return
+
+        self.redo_stack.append(
+            copy.deepcopy(
+                self.snapshot_progression()
+            )
+        )
+
+        state = self.undo_stack.pop()
+
+        self.restore_progression(state)
+
+    def redo(self):
+
+        if not self.redo_stack:
+            return
+
+        self.undo_stack.append(
+            copy.deepcopy(
+                self.snapshot_progression()
+            )
+        )
+
+        state = self.redo_stack.pop()
+
+        self.restore_progression(state)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
