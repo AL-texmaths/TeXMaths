@@ -61,7 +61,8 @@
         "cycle 4 BO 2026": "Cycle 4 BO 2026",
         "aut": "Automatismes",
         "obj": "Objectifs d'apprentissage",
-        "pro": "Prolongements"
+        "pro": "Prolongements",
+        "src": "Source"
     },
     "themes": {
             "VSCode Dark": {
@@ -70,6 +71,8 @@
                 "panel": "#252526",
                 "accent": "#007acc",
                 "border": "#3c3c3c",
+                "focus_bg": "#303033",
+                "focus_border": "#4fc1ff",
                 "font": "Latin Modern Roman"
             },
             "Soothing": {
@@ -78,6 +81,8 @@
                 "panel": "#ffffff",
                 "accent": "#6b8f71",
                 "border": "#d6d2cc",
+                "focus_bg": "#eef7ef",
+                "focus_border": "#4f8c57",
                 "font": "Latin Modern Roman"
             },
            "Obsidian Dark": {
@@ -86,6 +91,8 @@
                 "panel": "#2b2d31",
                 "accent": "#7c6df2",
                 "border": "#3a3d41",
+                "focus_bg": "#303033",
+                "focus_border": "#4fc1ff",
                 "font": "Latin Modern Roman"
             },
             "Nord Dark": {
@@ -94,6 +101,8 @@
                 "panel": "#3b4252",
                 "accent": "#88c0d0",
                 "border": "#4c566a",
+                "focus_bg": "#434c5e",
+                "focus_border": "#81a1c1",
                 "font": "Latin Modern Roman"
             }
         },

@@ -20,12 +20,10 @@ Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 Checker la possibilité de connecter linux a une imprimante via wifi
 --> régler le warning source inconnue alors qu'elle a ete définie
 --------- BO Code Regex -------------
---> !! les "src" et "cmpsocle" ne sont pas intégré au gui !!
-Dans le duexième panneau :
+Dans le deuxième panneau :
 --> permettre de copier le code/texte d'un item.
---> le code doit apparaître en gras
 --> créer un troisième panneau qui correspond à une visualisation d'un fichier json
-qui représente nue progression annuelle. Ce panneau est censé permettre à
+qui représente une progression annuelle. Ce panneau est censé permettre à
 l'utilisateur d'organiser des items choisi sous la forme d'nue progression.
 |--- sixieme
         |--- Chapitre 1: Fractions

@@ -230,6 +230,9 @@ body {{
     def apply_theme(self):
         t = self.themes[self.current_theme]
 
+        focus_bg = t.get("focus_bg", t["panel"])
+        focus_border = t.get("focus_border", t["accent"])
+
         self.setStyleSheet(f"""
             QWidget {{
                 background-color: {t['bg']};
@@ -237,10 +240,22 @@ body {{
                 font-family: "{t['font']}";
             }}
 
-            QLineEdit, QListWidget, QComboBox {{
+            QLineEdit,
+            QListWidget,
+            QComboBox {{
                 background-color: {t['panel']};
                 border: 1px solid {t['border']};
                 padding: 4px;
+            }}
+
+            QLineEdit:focus,
+            QListWidget:focus,
+            QComboBox:focus {{
+                border: 3px solid {focus_border};
+            }}
+
+            QComboBox::drop-down {{
+                border: none;
             }}
 
             QListWidget::item:selected {{
@@ -259,21 +274,42 @@ body {{
         return display
 
     def build_index(self):
+
         for catalogue, catalogue_data in self.data.items():
+
             if not isinstance(catalogue_data, dict):
                 continue
 
-            for source_type, source_data in catalogue_data.items():
-                if not isinstance(source_data, dict):
-                    continue
+            # Structure plate :
+            # "src": { code: texte }
+            if all(isinstance(v, str) for v in catalogue_data.values()):
 
-                for code, text in source_data.items():
+                for code, text in catalogue_data.items():
+
                     self.entries.append({
                         "catalogue": catalogue,
-                        "type": source_type,
+                        "type": catalogue,
                         "code": code,
                         "text": text,
                     })
+
+            # Structure classique :
+            # "cycle 3": { "cns": { code: texte } }
+            else:
+
+                for source_type, source_data in catalogue_data.items():
+
+                    if not isinstance(source_data, dict):
+                        continue
+
+                    for code, text in source_data.items():
+
+                        self.entries.append({
+                            "catalogue": catalogue,
+                            "type": source_type,
+                            "code": code,
+                            "text": text,
+                        })
 
     def populate_filters(self):
         self.catalogue_combo.addItem("Tous")
