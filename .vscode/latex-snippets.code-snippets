@@ -32,10 +32,9 @@
 		"body": "\\answerspace{${TM_SELECTED_TEXT:${1}}}",
 		"description" : "use texmaths package"
 	},
-	"text maths":{
-		"prefix": "MP",
-		"body": "\\mathspoint{${TM_SELECTED_TEXT:${1}}}$0",
-		"description" : "unified maths notations for points labels"
+	"text maths": {
+    "prefix": "MP",
+    "body": "\\mathspoint{${TM_SELECTED_TEXT:$1}}$0"
 	},
 	"current color":{
 		"prefix": "CC",

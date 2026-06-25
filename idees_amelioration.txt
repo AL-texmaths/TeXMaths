@@ -32,6 +32,8 @@ Volet progression:
 	    |--- nom personnalisable (aut, cns, cmp, ...): [list des items sélectionnés]
 - la selection des items de chaque chapitres doit afficher dans un cadre le display
 latex correspondant au code
+>>> possibilité de cacher le volet progression
+>>> possibilité de copier le code dans le presse papier
 
 ===============================================================================
 					Java / html

@@ -1,0 +1,112 @@
+\documentclass[exercice, a4]{thedocument}%
+\usepackage{tkz-euclide}
+\startdatakeys
+    \source{26GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA1, CO2, RA3}
+    \objectifsApprentissage{B2eb, B1da, B3ca, B2cc}
+\enddatakeys
+\begin{document}%
+    \emph{La figure ci-dessous n'est pas à l'échelle.}
+
+    \begin{minipage}{0.48\linewidth}
+        \begin{itemize}
+            \item \mathspoint{O}, \mathspoint{A} et \mathspoint{B} sont alignés.
+            \item \mathspoint{M}, \mathspoint{P}, \mathspoint{D} et \mathspoint{C} sont alignés.
+            \item \mathspoint{OD} $= 8,2$ cm
+            \item \mathspoint{AD} $= 1,8$ cm
+            \item \mathspoint{BC} $= 4,5$ cm
+        \end{itemize}
+    \end{minipage}\hfill
+    \def\showsymbs{%
+        % right angle marks
+        \tkzMarkRightAngle[size=0.4](C,B,A)
+        \tkzMarkRightAngle[size=0.4](D,A,O)
+
+        \node[left] at (O) {\mathspoint{O}};
+        \node[left] at (A) {\mathspoint{A}};
+        \node[right] at (D) {\mathspoint{D}};
+        \node[above left] at (B) {\mathspoint{B}};
+        \node[above right] at (C) {\mathspoint{C}};
+    }
+    \begin{minipage}{0.48\linewidth}
+        \begin{tikzpicture}[scale=1]
+            % Points based on description: O at bottom, A,B aligned ; D,C aligned
+            \coordinate (O) at (0, 0);
+            \coordinate (B) at (0, 4);
+            \coordinate (C) at (2, 4);
+            \path(O)--(B)coordinate[pos=0.55](A);
+            \path(O)--(C)coordinate[pos=0.55](D);
+            \draw (O) -- (B);
+            \draw (O) -- (C);
+            \draw (A) -- (D);
+            \draw (B) -- (C);
+            \showsymbs
+        \end{tikzpicture}
+    \end{minipage}
+
+    \medskip
+
+    \begin{enumerate}
+        \item Montrer que la longueur du segment [\mathspoint{OA}] est égale à 8 cm.
+        \item Justifier que les droites (\mathspoint{BC}) et (\mathspoint{AD}) sont parallèles.
+        \item Calculer la longueur du segment [\mathspoint{OB}].
+        \item Une entreprise souhaite fabriquer des gobelets. Un gobelet (grisé sur le schéma ci-dessous) a la forme d'un tronc de cône (cône coupé par un plan parallèle à sa base).
+
+    \medskip
+
+    \begin{minipage}{0.48\linewidth}
+    On reprend les données précédentes~:
+
+    \begin{itemize}
+        \item \mathspoint{O}, \mathspoint{A}, \mathspoint{B} sont alignés
+        \item \mathspoint{O}, \mathspoint{D}, \mathspoint{C} sont alignés
+        \item \mathspoint{OD} $= 8,2$ cm
+        \item \mathspoint{AD} $= 1,8$ cm
+        \item \mathspoint{BC} $= 4,5$ cm
+    \end{itemize}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\linewidth}
+        \emph{La figure ci-dessous n'est pas à l'échelle.}
+
+        \medskip
+
+        \begin{center}
+            \begin{tikzpicture}[scale=1]
+                \draw(B)ellipse(2 and 0.2);
+                \draw(A)ellipse(1.1 and 0.2);
+                \draw[dashed]
+                    let \p1=(C) in
+                    (O)--(-\x1,\y1)--(C)--cycle;
+                \draw[dashed](O)--(B);
+                \draw
+                    let \p1=(C) in
+                    let \p2=(D) in
+                    (-\x1,\y1) -- (-\x2,\y2);
+                \draw[dashed]
+                    let \p2=(D) in
+                    (-\x2,\y2) -- (D);
+                \draw(D)--(C);
+                \showsymbs
+            \end{tikzpicture}
+        \end{center}
+    \end{minipage}
+
+    \medskip
+
+    \fbox{
+        \parbox{0.9\textwidth}{
+            \textbf{Rappel :}\\
+                Volume d'un cône de révolution $V = \pi \times R^2 \times H \div 3$
+                \\ où $R$ est le rayon de la base et $H$ est la hauteur du cône.
+            }
+        }
+
+        \begin{enumerate}
+        \item Calculer le volume du grand cône de hauteur [\mathspoint{OB}] en cm$^3$, arrondi à l'unité.
+        \item Calculer le volume du gobelet, en cm$^3$, arrondi à l'unité.
+        \end{enumerate}
+    \end{enumerate}
+    \showthesource
+\end{document}

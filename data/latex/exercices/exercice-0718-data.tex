@@ -1,0 +1,112 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\usepackage{enumitem}
+\startdatakeys
+    \source{26GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA1, CA3, CO2}
+    \objectifsApprentissage{A1ae, D2ba}
+\enddatakeys
+\begin{document}%
+    On considère le \textbf{programme A} suivant :
+
+    \begin{center}
+        \begin{tikzpicture}[
+            box/.style={draw, rounded corners, align=center, minimum width=3.6cm, minimum height=0.9cm},
+            >={Stealth[length=2.5mm]}
+            ]
+            \node[box] (start) at (3,6) {Choisir un nombre};
+            \node[box] (carre) at (0,4.5) {Calculer son carré};
+            \node[box] (mult7) at (6,4.5) {Multiplier par 7};
+            \node[box] (mult3) at (0,3) {Multiplier par 3};
+            \node[box] (add) at (3,1.5) {Additionner les deux nombres};
+            \node[box] (sous) at (3,0) {Soustraire 6};
+
+            \draw[->] (start) -- (carre);
+            \draw[->] (start) -- (mult7);
+            \draw[->] (carre) -- (mult3);
+            \draw[->] (mult3) -- (add);
+            \draw[->] (mult7) -- (add);
+            \draw[->] (add) -- (sous);
+        \end{tikzpicture}
+    \end{center}
+
+    \begin{enumerate}
+        \item Appliquer le \textbf{programme A} au nombre 5.
+
+        \item On utilise un tableur pour trouver les résultats correspondants à quelques nombres comme l'indique le tableau ci-contre.
+
+        Parmi les quatre formules ci-dessous, recopier celle qui a été saisie dans la cellule B2, puis étirée vers le bas afin de calculer les résultats donnés par le programme A.
+
+        \emph{Aucune justification n'est attendue.}
+
+        \begin{center}
+            \begin{tabular}{|l|l|}\hline
+            \texttt{= 3*A2*2+7*A2-6} & \texttt{= 3*1*1+7*1-6} \\\hline
+            \texttt{= 3*A2*A2+7*A2-6} & \texttt{= 3*A2*2-7*A2+6} \\\hline
+            \end{tabular}
+        \end{center}
+
+        \begin{center}
+            \begin{tabular}{|c|c|c|}
+                \hline
+                & \textbf{A} & \textbf{B} \\
+                \hline
+                \textbf{1} & Nombre de départ & Résultat du programme A \\
+                \hline
+                2 & $-3,5$ & 6,25 \\
+                3 & $-3$ & 0 \\
+                4 & $-2,5$ & $-4,75$ \\
+                5 & $-2$ & $-8$ \\
+                6 & $-1,5$ & $-9,75$ \\
+                7 & $-1$ & $-10$ \\
+                8 & $-0,5$ & $-8,75$ \\
+                9 & $0$ & $-6$ \\
+                10 & $0,5$ & $-1,75$ \\
+                11 & $1$ & $4$ \\
+                12 & $1,5$ & $11,25$ \\
+                13 & $2$ & $20$ \\
+                \hline
+            \end{tabular}
+        \end{center}
+
+        \item \`A l'aide du tableur, donner une valeur pour laquelle le \textbf{programme A} donne 0. \textit{Aucune justification n'est attendue.}
+
+        \item Si on note $x$ le nombre de départ, donner une expression littérale du programme A en fonction de $x$.
+    \end{enumerate}
+
+    On considère maintenant le \textbf{programme B} suivant :
+
+    \begin{center}
+        \begin{tikzpicture}[
+        box/.style={draw, rounded corners, align=center, minimum width=3.6cm, minimum height=0.9cm},
+        >={Stealth[length=2.5mm]}
+        ]
+            \node[box] (start) at (3,5) {Choisir un nombre};
+            \node[box] (mult3) at (0,3.5) {Multiplier par 3};
+            \node[box] (add3) at (6,3.5) {Additionner 3};
+            \node[box] (sous2) at (0,2) {Soustraire 2};
+            \node[box] (multdeux) at (3,0.5) {Multiplier les deux nombres};
+
+            \draw[->] (start) -- (mult3);
+            \draw[->] (start) -- (add3);
+            \draw[->] (mult3) -- (sous2);
+            \draw[->] (sous2) -- (multdeux);
+            \draw[->] (add3) -- (multdeux);
+        \end{tikzpicture}
+    \end{center}
+
+    \begin{enumerate}[resume]
+        \item Appliquer le \textbf{programme B} au nombre 5.
+
+        \item Si on note $x$ le nombre de départ, donner une expression littérale du \textbf{programme B} en fonction de $x$.
+
+        \item Mathis affirme que, quel que soit le nombre qu'il choisit, il trouvera le même résultat avec le \textbf{programme A} et le \textbf{programme B}. A-t-il raison ? Justifier.
+
+        \item Résoudre l'équation $(3x-2)(x+3) = 0$.
+
+        En déduire les valeurs de $x$ pour lesquelles les programmes A et B donnent 0.
+    \end{enumerate}
+    \showthesource
+\end{document}
