@@ -3,6 +3,7 @@ from assistant_progression.services.catalogue_service import CatalogueService
 from assistant_progression.services.persistence_service import PersistenceService
 from assistant_progression.services.export_service import ExportService
 from assistant_progression.services.undo_redo_service import UndoRedoService
+from assistant_progression.services.theme_service import ThemeService
 
 def record_undo(method):
     def wrapper(self, *args, **kwargs):
@@ -98,7 +99,12 @@ class MainWindow(QWidget):
         self.main_layout = QHBoxLayout(self)
 
         self.init_window_and_settings()
-        self.init_gui()
+        self.theme_service = ThemeService(
+        themes=self.settings["themes"],
+            default_theme=self.config.get("default", {"theme": next(iter(self.settings["themes"]))})["theme"]
+        )
+
+        self.theme_service.apply(self)
         self.init_menu()
         self.init_regex_pannel()
         self.init_preview_pannel()
@@ -109,7 +115,7 @@ class MainWindow(QWidget):
         self.update_type_filter()
         self.update_search()
         self.search.setFocus()
-        self.apply_theme()
+
 
         self.currentFile = None
 
@@ -240,14 +246,6 @@ class MainWindow(QWidget):
         shortcut = QShortcut(QKeySequence("Ctrl+Q"), self)
         shortcut.activated.connect(self.close)
 
-    def init_gui(self):
-        self.themes = self.settings["themes"]
-
-        self.current_theme = self.config.get(
-            "default",
-            {"theme": next(iter(self.themes))}
-        )["theme"]
-
     def init_splitters(self):
         self.splitter = QSplitter(Qt.Horizontal)
 
@@ -337,10 +335,10 @@ class MainWindow(QWidget):
         file_menu.addSeparator()
         file_menu.addAction(export_progression_action)
 
-        for theme_name in self.themes.keys():
+        for theme_name in self.theme_service.get_theme_names():
             action = QAction(theme_name, self)
             action.triggered.connect(
-                lambda checked, name=theme_name:
+                lambda checked=False, name=theme_name:
                 self.set_theme(name)
             )
             theme_menu.addAction(action)
@@ -825,8 +823,8 @@ class MainWindow(QWidget):
         )
 
     def set_theme(self, name):
-        self.current_theme = name
-        self.apply_theme()
+        self.theme_service.set_theme(name)
+        self.theme_service.apply(self)
 
     def apply_theme(self):
         t = self.themes[self.current_theme]

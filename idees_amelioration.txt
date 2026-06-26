@@ -41,6 +41,8 @@ que le raccourci ctrl+O
 >> lien vers la leçon/exemple etc.
 >> système de niveau, la réussite de plusieurs exercices d'affilés
 permet le passage au niveau suivant
+>>> le theme vscode dark a des tailles de box plus élevée
+(ancien bug) mais les autres themes n'ont pas cette correction
 -------
 genialy
 -------
