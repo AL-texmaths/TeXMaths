@@ -1,5 +1,5 @@
 # models/entry.py
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 @dataclass(frozen=True)
 class Entry:

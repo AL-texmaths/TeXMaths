@@ -1,4 +1,5 @@
 from assistant_progression.services.html_service import HtmlService
+from assistant_progression.services.catalogue_service import CatalogueService
 
 import re
 import sys
@@ -254,10 +255,11 @@ class MainWindow(QWidget):
         self.main_layout.addWidget(self.splitter)
 
     def init_regex_pannel(self):
-        self.code_labels = self.config["codes"]
 
-        self.entries = []
-        self.build_index()
+        self.catalogue_service = CatalogueService(
+            self.data,
+            self.config["codes"]
+        )
 
         self.catalogue_combo = QComboBox()
         self.type_combo = QComboBox()
@@ -276,7 +278,7 @@ class MainWindow(QWidget):
         self.populate_filters()
 
         default_code = self.settings["default"]["code"]
-        default_label = self.display_name(default_code)
+        default_label =self.catalogue_service.display_name(default_code)
 
         index = self.catalogue_combo.findText(default_label)
         if index >= 0:
@@ -439,7 +441,10 @@ class MainWindow(QWidget):
             self.progression_visible = True
 
     def selected_catalogue(self):
-        return self.internal_name(self.catalogue_combo.currentText())
+
+        return self.catalogue_service.internal_name(
+            self.catalogue_combo.currentText()
+        )
 
     def is_selected_catalogue_aut_obj_pro(self):
         selected_catalogue = self.selected_catalogue()
@@ -462,10 +467,10 @@ class MainWindow(QWidget):
         
         if self.is_selected_catalogue_aut_obj_pro():
             for titre in (
-                self.code_labels['aut'],
-                self.code_labels['obj'],
-                self.code_labels['pro'],
-                self.code_labels['sea']
+                self.catalogue_service.code_label('aut'),
+                self.catalogue_service.code_label('obj'),
+                self.catalogue_service.code_label('pro'),
+                self.catalogue_service.code_label('sea')
             ):
                 item.addChild(QTreeWidgetItem([titre]))
 
@@ -526,9 +531,9 @@ class MainWindow(QWidget):
         for entry in unused:
 
             texte = (
-                f'{entry["code"]} '
-                f'[{entry["type"]}] '
-                f'- {entry["text"]}'
+                f'{entry.code} '
+                f'[{entry.type}] '
+                f'- {entry.text}'
             )
 
             liste.addItem(texte)
@@ -555,16 +560,16 @@ class MainWindow(QWidget):
         unused = []
 
 
-        for entry in self.entries:
+        for entry in self.catalogue_service.entries:
 
             # filtre catalogue
             if selected_catalogue != "Tous":
-                if entry["catalogue"] != selected_catalogue:
+                if entry.catalogue != selected_catalogue:
                     continue
 
 
             # filtre utilisation
-            if entry["code"] not in used:
+            if entry.code not in used:
                 unused.append(entry)
 
 
@@ -619,22 +624,22 @@ class MainWindow(QWidget):
         entry = self.get_selected_code()
 
         if self.is_selected_catalogue_aut_obj_pro():
-            item_type = entry["type"]
+            item_type = entry.type
 
         parent = self.progression.currentItem()
 
         target = None
         for i in range(parent.childCount()):
             child = parent.child(i)
-            if child.text(0) == self.code_labels.get(item_type):
+            if child.text(0) == self.catalogue_service.code_label(item_type):
                 target = child
                 break
 
         if target is None:
             return
 
-        item = QTreeWidgetItem([entry["code"]])
-        item.setData(0, Qt.UserRole, entry["code"])
+        item = QTreeWidgetItem([entry.code])
+        item.setData(0, Qt.UserRole, entry.code)
 
         target.addChild(item)
     
@@ -808,7 +813,7 @@ class MainWindow(QWidget):
 
         for e in self.current_matches:
             html_items.append(
-                f"<b>{e['code']}</b> (<i>{self.display_name(e['catalogue'])}</i>)  {e['text']}"
+                f"<b>{e['code']}</b> (<i>{self.catalogue_service.display_name(e['catalogue'])}</i>)  {e['text']}"
             )
 
         html = "<br>".join(html_items)
@@ -910,57 +915,64 @@ class MainWindow(QWidget):
             }}
         """)
 
-    def display_name(self, code):
-        return self.code_labels.get(code, code)
+    # def display_name(self, code):
+    #     return self.code_labels.get(code, code)
 
-    def internal_name(self, display):
-        for code, label in self.code_labels.items():
-            if label == display:
-                return code
-        return display
+    # def internal_name(self, display):
+    #     for code, label in self.code_labels.items():
+    #         if label == display:
+    #             return code
+    #     return display
 
-    def build_index(self):
+    # def build_index(self):
 
-        for catalogue, catalogue_data in self.data.items():
+    #     for catalogue, catalogue_data in self.data.items():
 
-            if not isinstance(catalogue_data, dict):
-                continue
+    #         if not isinstance(catalogue_data, dict):
+    #             continue
 
-            # Structure plate :
-            # "src": { code: texte }
-            if all(isinstance(v, str) for v in catalogue_data.values()):
+    #         # Structure plate :
+    #         # "src": { code: texte }
+    #         if all(isinstance(v, str) for v in catalogue_data.values()):
 
-                for code, text in catalogue_data.items():
+    #             for code, text in catalogue_data.items():
 
-                    self.entries.append({
-                        "catalogue": catalogue,
-                        "type": catalogue,
-                        "code": code,
-                        "text": text,
-                    })
+    #                 self.entries.append({
+    #                     "catalogue": catalogue,
+    #                     "type": catalogue,
+    #                     "code": code,
+    #                     "text": text,
+    #                 })
 
-            # Structure classique :
-            # "cycle 3": { "cns": { code: texte } }
-            else:
+    #         # Structure classique :
+    #         # "cycle 3": { "cns": { code: texte } }
+    #         else:
 
-                for source_type, source_data in catalogue_data.items():
+    #             for source_type, source_data in catalogue_data.items():
 
-                    if not isinstance(source_data, dict):
-                        continue
+    #                 if not isinstance(source_data, dict):
+    #                     continue
 
-                    for code, text in source_data.items():
+    #                 for code, text in source_data.items():
 
-                        self.entries.append({
-                            "catalogue": catalogue,
-                            "type": source_type,
-                            "code": code,
-                            "text": text,
-                        })
+    #                     self.entries.append({
+    #                         "catalogue": catalogue,
+    #                         "type": source_type,
+    #                         "code": code,
+    #                         "text": text,
+    #                     })
 
     def populate_filters(self):
+
         self.catalogue_combo.addItem("Tous")
-        for catalogue in sorted(self.data.keys()):
-            self.catalogue_combo.addItem(self.display_name(catalogue))
+
+        for catalogue in self.catalogue_service.get_catalogues():
+
+            self.catalogue_combo.addItem(
+                self.catalogue_service.display_name(
+                    catalogue
+                )
+            )
 
     def catalogue_changed(self):
         self.update_type_filter()
@@ -968,20 +980,23 @@ class MainWindow(QWidget):
 
     def update_type_filter(self):
 
-        current_catalogue = self.internal_name(self.catalogue_combo.currentText())
+        current_catalogue = self.selected_catalogue()
 
         self.type_combo.blockSignals(True)
+
         self.type_combo.clear()
+
         self.type_combo.addItem("Tous")
 
-        types = set()
+        for source_type in self.catalogue_service.get_types(
+            current_catalogue
+        ):
 
-        for entry in self.entries:
-            if current_catalogue == "Tous" or entry["catalogue"] == current_catalogue:
-                types.add(entry["type"])
-
-        for t in sorted(types):
-            self.type_combo.addItem(self.display_name(t))
+            self.type_combo.addItem(
+                self.catalogue_service.display_name(
+                    source_type
+                )
+            )
 
         self.type_combo.blockSignals(False)
 
@@ -990,40 +1005,43 @@ class MainWindow(QWidget):
         regex_text = self.search.text()
 
         selected_catalogue = self.selected_catalogue()
-        selected_type = self.internal_name(self.type_combo.currentText())
 
-        entries = self.entries
+        selected_type = (
+            self.catalogue_service.internal_name(
+                self.type_combo.currentText()
+            )
+        )
 
-        if selected_catalogue != "Tous":
-            entries = [e for e in entries if e["catalogue"] == selected_catalogue]
+        try:
 
-        if selected_type != "Tous":
-            entries = [e for e in entries if e["type"] == selected_type]
+            entries = self.catalogue_service.search(
+                catalogue=selected_catalogue,
+                source_type=selected_type,
+                regex_text=regex_text
+            )
 
-        if regex_text:
-            try:
-                regex = re.compile(regex_text, re.IGNORECASE)
-            except re.error:
-                return
+        except re.error:
 
-            entries = [
-                e for e in entries
-                if regex.search(e["code"]) or regex.search(e["text"])
-            ]
-
-        entries.sort(key=lambda e: (e["catalogue"], e["type"], e["code"]))
+            return
 
         self.current_matches = entries
 
         self.list_widget.clear()
 
         for entry in entries:
-            self.list_widget.addItem(f'{entry["code"]} [{entry["type"]}]')
+
+            self.list_widget.addItem(
+                f"{entry.code} [{entry.type}]"
+            )
 
         if entries:
+
             self.list_widget.setCurrentRow(0)
+
             self.refresh_view()
+
         else:
+
             self.preview.setHtml("")
 
     def show_entry(self, row):
@@ -1037,10 +1055,10 @@ class MainWindow(QWidget):
         entry = self.current_matches[row]
 
         html = self.html_service.render_entry(
-            code=entry["code"],
-            content=entry["text"],
-            catalogue=self.display_name(entry["catalogue"]),
-            source_type=self.display_name(entry["type"]),
+            code=entry.code,
+            content=entry.text,
+            catalogue=self.catalogue_service.display_name(entry.catalogue),
+            source_type=self.catalogue_service.display_name(entry.type),
         )
 
         self.preview.setHtml(
@@ -1345,9 +1363,9 @@ class MainWindow(QWidget):
                 for chapter, content in chapters.items():
                     f.write(f"\\sequence{{{chapter}}}\n")
 
-                    automatismes = ",".join(content.get(self.code_labels.get('aut'), []))
-                    objectifs = ",".join(content.get(self.code_labels.get('obj'), []))
-                    prolongements = ",".join(content.get(self.code_labels.get('pro'), []))
+                    automatismes = ",".join(content.get(self.catalogue_service.code_labels.get('aut'), []))
+                    objectifs = ",".join(content.get(self.catalogue_service.code_labels.get('obj'), []))
+                    prolongements = ",".join(content.get(self.catalogue_service.code_labels.get('pro'), []))
 
                     f.write(
                         f"    \\BoItems{{{automatismes}}}"
@@ -1355,7 +1373,7 @@ class MainWindow(QWidget):
                         f"{{{prolongements}}}\n"
                     )
 
-                    for seance in content.get(self.code_labels.get('sea'), []):
+                    for seance in content.get(self.catalogue_service.code_labels.get('sea'), []):
                         f.write(f"    \\seance{{{seance}}}\n")
 
                     f.write("\\endsequence\n")

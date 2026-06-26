@@ -26,6 +26,8 @@ de chapitre qui est sélectionné, cela fonctionne aussi et lajout se fasse sur 
 chapitre parent
 >>> cliquer sur un code de compétence/objectif dans la progression affiche le texte
 complet lié au code
+>>> revoir le comportement de save_progression lorsqu'aucun fichier
+n'a été chargé (li faut fallback sur save_on_progressoin)
 ===============================================================================
 					Java / html
 ===============================================================================

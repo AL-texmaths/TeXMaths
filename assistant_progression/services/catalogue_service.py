@@ -1,22 +1,163 @@
-# services/catalogue_service.py
+import re
+
 from assistant_progression.models.entry import Entry
-from pathlib import Path
-import json
 
-def get_catalogue_data(catalogue_path):
-    with open(catalogue_path, encoding="utf-8") as f:
-        return json.load(f)
 
-def build_entries(data, catalogue_name=None):
-    entries = []
-    for catalogue, catalogue_data in data.items():
-        if catalogue_name and catalogue != catalogue_name:
-            continue
-        if isinstance(list(catalogue_data.values())[0], dict):
-            for source_type, source_data in catalogue_data.items():
-                for code, text in source_data.items():
-                    entries.append(Entry(catalogue=catalogue, type=source_type, code=code, text=text))
-        else:
-            for source_type, source_code in catalogue_data.items():
-                entries.append(Entry(catalogue=catalogue, type=source_type, code=source_code, text=""))
-    return entries
+class CatalogueService:
+
+    def __init__(self, data, code_labels):
+
+        self.data = data
+        self.code_labels = code_labels
+
+        self.entries = []
+
+        self.build_index()
+
+    def display_name(self, code):
+
+        return self.code_labels.get(
+            code,
+            code
+        )
+
+    def internal_name(self, display):
+
+        for code, label in self.code_labels.items():
+
+            if label == display:
+                return code
+
+        return display
+
+    def build_index(self):
+
+        self.entries.clear()
+
+        for catalogue, catalogue_data in self.data.items():
+
+            if not isinstance(
+                catalogue_data,
+                dict
+            ):
+                continue
+
+            # structure plate
+            if all(
+                isinstance(v, str)
+                for v in catalogue_data.values()
+            ):
+
+                for code, text in catalogue_data.items():
+
+                    self.entries.append(
+                        Entry(
+                            catalogue=catalogue,
+                            type=catalogue,
+                            code=code,
+                            text=text
+                        )
+                    )
+
+            else:
+
+                for source_type, source_data in catalogue_data.items():
+
+                    if not isinstance(
+                        source_data,
+                        dict
+                    ):
+                        continue
+
+                    for code, text in source_data.items():
+
+                        self.entries.append(
+                            Entry(
+                                catalogue=catalogue,
+                                type=source_type,
+                                code=code,
+                                text=text
+                            )
+                        )
+    
+    def code_label(self, code: str) -> str:
+        return self.code_labels.get(code, code)
+
+    @property
+    def labels(self):
+        return self.code_labels
+
+    def get_catalogues(self):
+
+        return sorted(
+            self.data.keys()
+        )
+
+    def get_types(
+        self,
+        catalogue
+    ):
+
+        types = set()
+
+        for entry in self.entries:
+
+            if (
+                catalogue == "Tous"
+                or entry.catalogue == catalogue
+            ):
+                types.add(entry.type)
+
+        return sorted(types)
+
+    def search(
+        self,
+        catalogue="Tous",
+        source_type="Tous",
+        regex_text=""
+    ):
+
+        entries = self.entries
+
+        if catalogue != "Tous":
+
+            entries = [
+                e
+                for e in entries
+                if e.catalogue == catalogue
+            ]
+
+        if source_type != "Tous":
+
+            entries = [
+                e
+                for e in entries
+                if e.type == source_type
+            ]
+
+        if regex_text:
+
+            regex = re.compile(
+                regex_text,
+                re.IGNORECASE
+            )
+
+            entries = [
+                e
+                for e in entries
+                if (
+                    regex.search(e.code)
+                    or regex.search(e.text)
+                )
+            ]
+
+        entries = sorted(
+            entries,
+            key=lambda e: (
+                e.catalogue,
+                e.type,
+                e.code
+            )
+        )
+
+        return entries
