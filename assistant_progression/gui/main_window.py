@@ -43,7 +43,6 @@ from PySide6.QtWidgets import (
     QMenu,
     QSplitter,
     QTreeWidget,
-    QTreeWidgetItem,
     QPushButton,
     QFileDialog,
     QMessageBox,

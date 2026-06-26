@@ -32,6 +32,7 @@ n'a été chargé (li faut fallback sur save_on_progressoin)
 s'ouvrir pour afficher l'item ajouté
 >>> sauvegarder sous un progression ouvre le même dossier
 que le raccourci ctrl+O
+>>> tester sur windows nue version executable avec pyinstaller
 ===============================================================================
 					Java / html
 ===============================================================================
