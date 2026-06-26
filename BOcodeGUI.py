@@ -29,7 +29,8 @@ from PySide6.QtWidgets import (
     QTreeWidgetItem,
     QPushButton,
     QFileDialog,
-    QMessageBox
+    QMessageBox,
+    QDialog
 )
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -146,6 +147,12 @@ class MainWindow(QWidget):
         self.unused_button.clicked.connect(
             self.show_unused_items
         )
+        unused_button_action = QAction(self)
+        unused_button_action.setShortcut("Ctrl+U")
+        unused_button_action.triggered.connect(
+            self.show_unused_items
+        )
+        self.addAction(unused_button_action)
 
         self.add_level_button.clicked.connect(
             self.add_level
@@ -217,6 +224,10 @@ class MainWindow(QWidget):
 
         self.config = CONFIG[title]
         self.settings = self.config.get("settings")
+
+        # Ctrl+Q ferme la fenêtre principale
+        shortcut = QShortcut(QKeySequence("Ctrl+Q"), self)
+        shortcut.activated.connect(self.close)
 
     def init_gui(self):
         self.themes = self.settings["themes"]
@@ -493,7 +504,7 @@ class MainWindow(QWidget):
         unused = self.get_unused_entries()
 
 
-        dialog = QWidget()
+        dialog = QDialog()
 
         dialog.setWindowTitle(
             "Items non utilisés"
@@ -503,7 +514,6 @@ class MainWindow(QWidget):
             700,
             800
         )
-
 
         dialog_layout = QVBoxLayout()
 
