@@ -2,6 +2,13 @@ from assistant_progression.services.html_service import HtmlService
 from assistant_progression.services.catalogue_service import CatalogueService
 from assistant_progression.services.persistence_service import PersistenceService
 from assistant_progression.services.export_service import ExportService
+from assistant_progression.services.undo_redo_service import UndoRedoService
+
+def record_undo(method):
+    def wrapper(self, *args, **kwargs):
+        self.undo_redo.record(self.snapshot_progression())
+        return method(self, *args, **kwargs)
+    return wrapper
 
 import re
 import sys
@@ -35,8 +42,7 @@ from PySide6.QtWidgets import (
     QPushButton,
     QFileDialog,
     QMessageBox,
-    QDialog,
-    QListWidgetItem
+    QDialog
 )
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -87,6 +93,8 @@ class MainWindow(QWidget):
         self.html_service = HtmlService()
         self.persistence_service = PersistenceService()
         self.export_service = ExportService()
+        self.undo_redo = UndoRedoService()
+
         self.main_layout = QHBoxLayout(self)
 
         self.init_window_and_settings()
@@ -218,10 +226,6 @@ class MainWindow(QWidget):
             self,
             activated=self.redo
         )
-
-        self.current_matches = []
-        self.undo_stack = []
-        self.redo_stack = []
 
     def init_window_and_settings(self):
         self.setWindowTitle(title)
@@ -453,9 +457,8 @@ class MainWindow(QWidget):
         selected_catalogue = self.selected_catalogue()
         return selected_catalogue in self.config.get("aut obj pro catalogues")
 
+    @record_undo
     def add_chapter(self):
-
-        self.push_undo()
 
         parent = self.progression.currentItem()
 
@@ -487,9 +490,8 @@ class MainWindow(QWidget):
 
         self.progression.editItem(item, 0)
 
+    @record_undo
     def add_level(self):
-
-        self.push_undo()
 
         item = QTreeWidgetItem([
             "Nouveau niveau"
@@ -615,9 +617,8 @@ class MainWindow(QWidget):
 
         return self.current_matches[row]
 
+    @record_undo
     def add_selected_item(self):
-
-        self.push_undo()
 
         selected = self.progression.currentItem()
 
@@ -646,8 +647,8 @@ class MainWindow(QWidget):
 
         target.addChild(item)
     
+    @record_undo
     def add_seance(self):
-        self.push_undo()
         
         parent = self.progression.currentItem()
         if parent is None or parent.text(0) != 'Séances':
@@ -665,10 +666,8 @@ class MainWindow(QWidget):
 
         self.progression.editItem(item, 0)
 
-
+    @record_undo
     def move_current_item(self, delta):
-
-        self.push_undo()
 
         item = self.progression.currentItem()
         if item is None:
@@ -727,9 +726,8 @@ class MainWindow(QWidget):
             self.is_chapter(item)
         )
 
+    @record_undo
     def delete_progression_item(self):
-
-        self.push_undo()
 
         item = self.progression.currentItem()
 
@@ -1083,8 +1081,7 @@ class MainWindow(QWidget):
         self.restore_progression(data)
         self.currentFile = Path(filename)
 
-        self.undo_stack.clear()
-        self.redo_stack.clear()
+        self.undo_redo.clear()
 
     def save_progression(self):
 
@@ -1130,42 +1127,19 @@ class MainWindow(QWidget):
         self.currentFile = Path(filename)
 
     def push_undo(self):
-
-        self.undo_stack.append(
-            copy.deepcopy(
-                self.snapshot_progression()
-            )
-        )
-
-        self.redo_stack.clear()
+        self.undo_redo.record(self.snapshot_progression())
 
     def undo(self):
-
-        if not self.undo_stack:
+        state = self.undo_redo.undo(self.snapshot_progression())
+        if state is None:
             return
-
-        self.redo_stack.append(
-            copy.deepcopy(
-                self.snapshot_progression()
-            )
-        )
-
-        state = self.undo_stack.pop()
 
         self.restore_progression(state)
 
     def redo(self):
-
-        if not self.redo_stack:
+        state = self.undo_redo.redo(self.snapshot_progression())
+        if state is None:
             return
-
-        self.undo_stack.append(
-            copy.deepcopy(
-                self.snapshot_progression()
-            )
-        )
-
-        state = self.redo_stack.pop()
 
         self.restore_progression(state)
 
