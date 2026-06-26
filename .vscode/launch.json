@@ -17,6 +17,24 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}"
-        }
+        },
+        {
+        "name": "Run models.file",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "models.${fileBasenameNoExtension}",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "justMyCode": true
+        },
+        {
+        "name": "Rnu gui.file",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "assistant_progression.gui.${fileBasenameNoExtension}",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "justMyCode": true
+        },
     ]
 }

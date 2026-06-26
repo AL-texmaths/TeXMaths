@@ -1,3 +1,5 @@
+from assistant_progression.services.html_service import HtmlService
+
 import re
 import sys
 import json
@@ -30,7 +32,8 @@ from PySide6.QtWidgets import (
     QPushButton,
     QFileDialog,
     QMessageBox,
-    QDialog
+    QDialog,
+    QListWidgetItem
 )
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -73,11 +76,12 @@ class SearchLineEdit(QLineEdit):
 
         super().keyPressEvent(event)
 
-
 class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
+
+        self.html_service = HtmlService()
 
         self.main_layout = QHBoxLayout(self)
 
@@ -810,58 +814,58 @@ class MainWindow(QWidget):
         html = "<br>".join(html_items)
 
         self.preview.setHtml(
-            self.make_list_html(html),
+            self.html_service.render_list(html),
             QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
         )
 
-    def make_list_html(self, content):
+#     def make_list_html(self, content):
 
-        css = "katex.min.css"
-        js = "katex.min.js"
-        render = "contrib/auto-render.min.js"
+#         css = "katex.min.css"
+#         js = "katex.min.js"
+#         render = "contrib/auto-render.min.js"
 
-        return f"""
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
+#         return f"""
+# <!DOCTYPE html>
+# <html>
+# <head>
+# <meta charset="utf-8">
 
-<link rel="stylesheet" href="{css}">
-<script src="{js}"></script>
-<script src="{render}"></script>
+# <link rel="stylesheet" href="{css}">
+# <script src="{js}"></script>
+# <script src="{render}"></script>
 
-<script>
-window.onload = function() {{
-    renderMathInElement(document.body, {{
-        delimiters: [
-            {{ left: "$$", right: "$$", display: true }},
-            {{ left: "$", right: "$", display: false }},
-            {{ left: "\\\\(", right: "\\\\)", display: false }},
-            {{ left: "\\\\[", right: "\\\\]", display: true }}
-        ]
-    }});
-}};
-</script>
+# <script>
+# window.onload = function() {{
+#     renderMathInElement(document.body, {{
+#         delimiters: [
+#             {{ left: "$$", right: "$$", display: true }},
+#             {{ left: "$", right: "$", display: false }},
+#             {{ left: "\\\\(", right: "\\\\)", display: false }},
+#             {{ left: "\\\\[", right: "\\\\]", display: true }}
+#         ]
+#     }});
+# }};
+# </script>
 
-<style>
-body {{
-    font-family: "Latin Modern Roman", serif;
-    padding: 20px;
-    font-size: 18px;
-}}
+# <style>
+# body {{
+#     font-family: "Latin Modern Roman", serif;
+#     padding: 20px;
+#     font-size: 18px;
+# }}
 
-.item {{
-    margin-bottom: 10px;
-}}
-</style>
+# .item {{
+#     margin-bottom: 10px;
+# }}
+# </style>
 
-</head>
+# </head>
 
-<body>
-<div class="item">{content}</div>
-</body>
-</html>
-"""
+# <body>
+# <div class="item">{content}</div>
+# </body>
+# </html>
+# """
 
     # ---------------- EXISTANT ----------------
 
@@ -1032,7 +1036,7 @@ body {{
 
         entry = self.current_matches[row]
 
-        html = self.make_html(
+        html = self.html_service.render_entry(
             code=entry["code"],
             content=entry["text"],
             catalogue=self.display_name(entry["catalogue"]),
@@ -1044,78 +1048,78 @@ body {{
             QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
         )
 
-    def make_html(self, code, content, catalogue, source_type):
+#     def make_html(self, code, content, catalogue, source_type):
 
-        css = "katex.min.css"
-        js = "katex.min.js"
-        render = "contrib/auto-render.min.js"
+#         css = "katex.min.css"
+#         js = "katex.min.js"
+#         render = "contrib/auto-render.min.js"
 
-        content = escape(content)
+#         content = escape(content)
 
-        return f"""
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
+#         return f"""
+# <!DOCTYPE html>
+# <html>
+# <head>
+# <meta charset="utf-8">
 
-<link rel="stylesheet" href="{css}">
-<script src="{js}"></script>
-<script src="{render}"></script>
+# <link rel="stylesheet" href="{css}">
+# <script src="{js}"></script>
+# <script src="{render}"></script>
 
-<script>
-window.onload = function() {{
-    renderMathInElement(document.body, {{
-        delimiters: [
-            {{ left: "$$", right: "$$", display: true }},
-            {{ left: "$", right: "$", display: false }},
-            {{ left: "\\\\(", right: "\\\\)", display: false }},
-            {{ left: "\\\\[", right: "\\\\]", display: true }}
-        ]
-    }});
-}};
-</script>
+# <script>
+# window.onload = function() {{
+#     renderMathInElement(document.body, {{
+#         delimiters: [
+#             {{ left: "$$", right: "$$", display: true }},
+#             {{ left: "$", right: "$", display: false }},
+#             {{ left: "\\\\(", right: "\\\\)", display: false }},
+#             {{ left: "\\\\[", right: "\\\\]", display: true }}
+#         ]
+#     }});
+# }};
+# </script>
 
-<style>
-body {{
-    font-family: "Latin Modern Roman", serif;
-    padding: 20px;
-    font-size: 18px;
-}}
+# <style>
+# body {{
+#     font-family: "Latin Modern Roman", serif;
+#     padding: 20px;
+#     font-size: 18px;
+# }}
 
-.code {{
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}}
+# .code {{
+#     font-size: 28px;
+#     font-weight: bold;
+#     margin-bottom: 10px;
+# }}
 
-.meta {{
-    color: #666;
-    margin-bottom: 20px;
-}}
+# .meta {{
+#     color: #666;
+#     margin-bottom: 20px;
+# }}
 
-.content {{
-    line-height: 1.6;
-}}
-</style>
+# .content {{
+#     line-height: 1.6;
+# }}
+# </style>
 
-</head>
+# </head>
 
-<body>
+# <body>
 
-<div class="code">{code}</div>
+# <div class="code">{code}</div>
 
-<div class="meta">
-<b>Catalogue :</b> {catalogue}<br>
-<b>Type :</b> {source_type}
-</div>
+# <div class="meta">
+# <b>Catalogue :</b> {catalogue}<br>
+# <b>Type :</b> {source_type}
+# </div>
 
-<hr>
+# <hr>
 
-<div class="content">{content}</div>
+# <div class="content">{content}</div>
 
-</body>
-</html>
-"""
+# </body>
+# </html>
+# """
     def tree_to_dict(self, item, depth=0):
         if depth == 2:
             return [item.child(i).text(0) for i in range(item.childCount())]

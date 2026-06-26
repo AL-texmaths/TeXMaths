@@ -7,7 +7,7 @@
 ===============================================================================
 					Python
 ===============================================================================
---------- Assistant de naviagtion -------------
+--------- Assistant de navigation -------------
 >>> erreur dans le décompte des warnings/errors de check database
 --> intégrer les erreurs de update_data_index dans le calcul des warnings/errors
 >>> l'erreur missing pdf doit mener à un test de compilation pour le fichier en question.
@@ -19,6 +19,13 @@ Checker la possibilité de connecter linux a une imprimante via wifi
 --> régler le warning source inconnue alors qu'elle a ete définie
 --> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
 officiel sur disque dur externe
+--------- Assitant de progression ---------------
+>>> l'ajout dde code d'item a un chapitre ne fonctionne que si un chapitre
+est sélectionné dans la progression. Il serait plus souple que si c'est un enfant
+de chapitre qui est sélectionné, cela fonctionne aussi et lajout se fasse sur le
+chapitre parent
+>>> cliquer sur un code de compétence/objectif dans la progression affiche le texte
+complet lié au code
 ===============================================================================
 					Java / html
 ===============================================================================
