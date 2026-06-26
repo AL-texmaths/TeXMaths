@@ -21,9 +21,9 @@ Checker la possibilité de connecter linux a une imprimante via wifi
 officiel sur disque dur externe
 
 --------- Assistant de progression ------------
->>> à partir du fichier progression.json, générer un fichier
-LaTeX correspondant au séquençage de l'année.
-
+BUG : Si le chapitre est vide, c'est une liste
+--> mettre une alerte pour l'utilisation des raccourci suivants :
+ctrl+s, ctrl+e
 ===============================================================================
 					Java / html
 ===============================================================================

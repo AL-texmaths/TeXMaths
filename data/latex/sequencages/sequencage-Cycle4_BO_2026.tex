@@ -11,6 +11,7 @@
 \usepackage{enumitem}
 \usepackage[tikz]{mdframed}
 \usepackage{texmaths-cycle4-BO_2026}
+\def\PROGRESSION{progression-cycle4-26\_27}
 % --------
 % GEOMETRY
 % --------
@@ -127,9 +128,8 @@
     \immediate\openout\seqcanal=\jobname-structure.txt%
     \pagestyle{sequencage}
 
-    \input{sequencageCycle4_BO_2026-structure.tex}
+    \input{sequencage-Cycle_4_BO_2026-\PROGRESSION-structure.tex}
     \BoDescription
-    \showtotalseance
 
     \immediate\closeout\seqcanal
 

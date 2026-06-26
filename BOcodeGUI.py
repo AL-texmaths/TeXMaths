@@ -3,6 +3,7 @@ import sys
 import json
 import copy
 from html import escape
+from pathlib import Path
 
 from PySide6.QtCore import (
     Qt,
@@ -27,7 +28,8 @@ from PySide6.QtWidgets import (
     QTreeWidget,
     QTreeWidgetItem,
     QPushButton,
-    QFileDialog
+    QFileDialog,
+    QMessageBox
 )
 
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -1107,26 +1109,14 @@ body {{
 </body>
 </html>
 """
-    def tree_to_dict(self, item):
+    def tree_to_dict(self, item, depth=0):
+        if depth == 2:
+            return [item.child(i).text(0) for i in range(item.childCount())]
 
-        # Si tous les enfants sont des feuilles, on renvoie une liste
-        if (
-            item.childCount() > 0
-            and all(item.child(i).childCount() == 0
-                    for i in range(item.childCount()))
-        ):
-            return [
-                item.child(i).text(0)
-                for i in range(item.childCount())
-            ]
-
-        result = {}
-
-        for i in range(item.childCount()):
-            child = item.child(i)
-            result[child.text(0)] = self.tree_to_dict(child)
-
-        return result
+        return {
+            item.child(i).text(0): self.tree_to_dict(item.child(i), depth + 1)
+            for i in range(item.childCount())
+        }
 
     def expanded_paths(self):
 
@@ -1229,7 +1219,7 @@ body {{
             data = json.load(f)
 
         self.restore_progression(data)
-        self.currentFile = filename
+        self.currentFile = Path(filename)
 
         self.undo_stack.clear()
         self.redo_stack.clear()
@@ -1250,6 +1240,8 @@ body {{
                 indent=4,
                 ensure_ascii=False
             )
+        
+        QMessageBox.information(self, "Info", f"File save at {str(self.currentFile)}")
 
     def save_on_progression(self):
         # Open a file dialog to select the save location and name
@@ -1277,7 +1269,7 @@ body {{
                 indent=4,
                 ensure_ascii=False
             )
-        self.currentFile = fileName
+        self.currentFile = Path(fileName)
 
     def push_undo(self):
 
@@ -1323,13 +1315,20 @@ body {{
         with open(self.currentFile, encoding="utf-8") as f:
             data = json.load(f)
         
-        tex_path = f'./data/latex/sequencages/sequencage-{
-                self.catalogue_combo().currentText().replace(" ", "_")
-            }-structure.tex'
+        text_path = './data/latex/sequencages/sequencage-{}-{}-structure.tex'
+        tex_path = text_path.format(
+                self.catalogue_combo.currentText().replace(" ", "_"),
+                self.currentFile.stem
+        )
 
         with open(tex_path, "w", encoding="utf-8") as f:
 
+            level_num = 0
             for level, chapters in data.items():
+                
+                if level_num > 0:
+                    f.write(f"\\showtotalseance\n")
+                level_num += 1
                 f.write(f"\\level{{{level}}}\n")
 
                 for chapter, content in chapters.items():
@@ -1349,6 +1348,9 @@ body {{
                         f.write(f"    \\seance{{{seance}}}\n")
 
                     f.write("\\endsequence\n")
+            f.write(f"\\showtotalseance\n")
+
+        QMessageBox.information(self, "Info", f"Progression exported {tex_path}")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
