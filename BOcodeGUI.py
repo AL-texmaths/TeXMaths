@@ -614,7 +614,6 @@ class MainWindow(QWidget):
         target = None
         for i in range(parent.childCount()):
             child = parent.child(i)
-            print(f'{child.text(0)} == {self.code_labels.get(item_type)}')
             if child.text(0) == self.code_labels.get(item_type):
                 target = child
                 break
@@ -1208,7 +1207,7 @@ body {{
         filename, _ = QFileDialog.getOpenFileName(
             self,
             "Charger une progression",
-            "",
+            str(get_path("progression import path")),
             "JSON (*.json)"
         )
 
@@ -1315,8 +1314,8 @@ body {{
         with open(self.currentFile, encoding="utf-8") as f:
             data = json.load(f)
         
-        text_path = './data/latex/sequencages/sequencage-{}-{}-structure.tex'
-        tex_path = text_path.format(
+        tex_path = get_path("progression export path")
+        tex_path = tex_path / 'sequencage-{}-{}-structure.tex'.format(
                 self.catalogue_combo.currentText().replace(" ", "_"),
                 self.currentFile.stem
         )

@@ -1,6 +1,6 @@
 {
     "parameters":{
-        "year": "2025-2026",
+        "year": "2026-2027",
         "logiciel":"pronote",
         "printers": [
             "HP Deskjet F4200 series",
@@ -98,11 +98,19 @@
     "pathes": {
         "katex": [
             "./data/katex/",
-            "\\Root\\Datas\\katex\\"
+            ".\\data\\katex\\"
         ],
         "code index": [
             "./data/latex/catalogues/code_index.json",
-            "\\Root\\Datas\\latex\\catalogues\\code_index.json"
+            ".\\data\\latex\\catalogues\\code_index.json"
+        ],
+        "progression export path": [
+            "./data/latex/sequencages/",
+            ".\\data\\latex\\sequencages\\"
+        ],
+        "progression import path": [
+            "./data/progressions/",
+            ".\\data\\progressions\\"
         ]
     },
     "Assistant de progression":{

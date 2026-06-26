@@ -19,11 +19,6 @@ Checker la possibilité de connecter linux a une imprimante via wifi
 --> régler le warning source inconnue alors qu'elle a ete définie
 --> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
 officiel sur disque dur externe
-
---------- Assistant de progression ------------
-BUG : Si le chapitre est vide, c'est une liste
---> mettre une alerte pour l'utilisation des raccourci suivants :
-ctrl+s, ctrl+e
 ===============================================================================
 					Java / html
 ===============================================================================
