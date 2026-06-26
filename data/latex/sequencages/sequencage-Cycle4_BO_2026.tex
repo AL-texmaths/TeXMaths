@@ -123,24 +123,14 @@
 \def\hideseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
 % \let\seance\hideseance
 \begin{document}
+    \newwrite\seqcanal
+    \immediate\openout\seqcanal=\jobname-structure.txt%
+    \pagestyle{sequencage}
 
-\newwrite\seqcanal
-\immediate\openout\seqcanal=\jobname-structure.txt%
+    \input{sequencageCycle4_BO_2026-structure.tex}
+    \BoDescription
+    \showtotalseance
 
-Les connaissances et compétences liées au thème E (algorithmique et
-programmation) sont à travailler tout au long du cycle 4, en salle informatique
-ou en exercice en classe, en lien avec d'autres notions.
-
-\pagestyle{sequencage}
-
-\level{5eme}
-
-\sequence{Expressions numériques}
-    \BoItems{}{B3bc}{}
-    \seance{Résolution de problèmes}
-\endsequence
-\BoDescription
-\showtotalseance
-\immediate\closeout\seqcanal
+    \immediate\closeout\seqcanal
 
 \end{document}

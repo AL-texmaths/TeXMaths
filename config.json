@@ -117,8 +117,13 @@
             "aut": "Automatismes",
             "obj": "Objectifs d'apprentissage",
             "pro": "Prolongements",
-            "src": "Source"
+            "src": "Source",
+            "sea": "Séances"
         },
+        "aut obj pro catalogues": [
+            "cycle 4 BO 2026",
+            "cycle 3 BO 2026"
+        ],
         "settings": {
             "themes": {
                 "VSCode Dark": {

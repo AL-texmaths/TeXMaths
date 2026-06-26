@@ -92,6 +92,8 @@ class MainWindow(QWidget):
         self.search.setFocus()
         self.apply_theme()
 
+        self.currentFile = "progression.json"
+
     def init_connect_signals(self):
 
         self.search.textChanged.connect(
@@ -151,11 +153,35 @@ class MainWindow(QWidget):
             self.add_chapter
         )
 
+        self.add_seance_button.clicked.connect(
+            self.add_seance
+        )
+
         self.progression.currentItemChanged.connect(
             self.update_buttons_state
         )
 
         self.update_buttons_state()
+
+        set_left_focus_action = QAction(self)
+        set_left_focus_action.setShortcut("Ctrl+Left")
+        set_left_focus_action.triggered.connect(
+            lambda: self.set_focus('left')
+        )
+        self.addAction(set_left_focus_action)
+
+        set_right_focus_action = QAction(self)
+        set_right_focus_action.setShortcut("Ctrl+Right")
+        set_right_focus_action.triggered.connect(
+            lambda: self.set_focus('right')
+        )
+        self.addAction(set_right_focus_action)
+
+    def set_focus(self, side):
+        if side == 'left':
+            self.list_widget.setFocus()
+        if side == 'right':
+            self.progression.setFocus()
 
     def init_undo_redo(self): 
         QShortcut(QKeySequence("Ctrl+Up"), self,
@@ -267,19 +293,24 @@ class MainWindow(QWidget):
         load_action = QAction("Charger une progression", self)
         save_action = QAction("Sauvegarder", self)
         save_under_action = QAction("Sauvegarder sous", self)
+        export_progression_action = QAction("Exporter la progression", self)
 
         load_action.setShortcut(QKeySequence.Open)
         save_action.setShortcut(QKeySequence.Save)
         save_under_action.setShortcut(QKeySequence.SaveAs)
+        export_progression_action.setShortcut("Ctrl+E")
 
         load_action.triggered.connect(self.load_progression)
         save_action.triggered.connect(self.save_progression)
         save_under_action.triggered.connect(self.save_on_progression)
+        export_progression_action.triggered.connect(self.export_progression)
 
         file_menu.addAction(load_action)
         file_menu.addSeparator()
         file_menu.addAction(save_action)
         file_menu.addAction(save_under_action)
+        file_menu.addSeparator()
+        file_menu.addAction(export_progression_action)
 
         for theme_name in self.themes.keys():
             action = QAction(theme_name, self)
@@ -321,10 +352,18 @@ class MainWindow(QWidget):
         add_chapter_action.setShortcut("Ctrl+K")
         add_chapter_action.triggered.connect(self.add_chapter)
 
+        self.add_seance_button = QPushButton("Ajouter une séance")
+
+        add_seance_action = QAction(self)
+        add_seance_action.setShortcut("Ctrl+M")
+        add_seance_action.triggered.connect(self.add_seance)
+
         self.add_level_button.setToolTip("Ajouter un niveau (Ctrl+L)")
         self.add_chapter_button.setToolTip("Ajouter un chapitre (Ctrl+K)")
+        self.add_seance_button.setToolTip("Ajouter une séance (Ctrl+M)")
 
         self.addAction(add_chapter_action)
+        self.addAction(add_seance_action)
 
         self.add_button = QPushButton("Ajouter l'item sélectionné")
         self.add_button.setToolTip("Ajouter un item (Ctrl+I)")
@@ -340,6 +379,7 @@ class MainWindow(QWidget):
         right.addWidget(self.progression)
         right.addWidget(self.add_level_button)
         right.addWidget(self.add_chapter_button)
+        right.addWidget(self.add_seance_button)
         right.addWidget(self.add_button)
         right.addWidget(self.delete_button)
         right.addWidget(self.unused_button)
@@ -382,6 +422,13 @@ class MainWindow(QWidget):
 
             self.progression_visible = True
 
+    def selected_catalogue(self):
+        return self.internal_name(self.catalogue_combo.currentText())
+
+    def is_selected_catalogue_aut_obj_pro(self):
+        selected_catalogue = self.selected_catalogue()
+        return selected_catalogue in self.config.get("aut obj pro catalogues")
+
     def add_chapter(self):
 
         self.push_undo()
@@ -396,24 +443,26 @@ class MainWindow(QWidget):
         if parent.parent() is not None:
             parent = parent.parent()
 
-
-        item = QTreeWidgetItem([
-            "Nouveau chapitre"
-        ])
+        item = QTreeWidgetItem(["Nouveau chapitre"])
+        
+        if self.is_selected_catalogue_aut_obj_pro():
+            for titre in (
+                self.code_labels['aut'],
+                self.code_labels['obj'],
+                self.code_labels['pro'],
+                self.code_labels['sea']
+            ):
+                item.addChild(QTreeWidgetItem([titre]))
 
         parent.addChild(item)
 
         self.progression.setCurrentItem(item)
 
         item.setFlags(
-            item.flags() |
-            Qt.ItemIsEditable
+            item.flags() | Qt.ItemIsEditable
         )
 
-        self.progression.editItem(
-            item,
-            0
-        )
+        self.progression.editItem(item, 0)
 
     def add_level(self):
 
@@ -487,10 +536,7 @@ class MainWindow(QWidget):
         used = self.get_used_codes()
 
 
-        selected_catalogue = self.internal_name(
-            self.catalogue_combo.currentText()
-        )
-
+        selected_catalogue = self.selected_catalogue()
 
         unused = []
 
@@ -539,6 +585,14 @@ class MainWindow(QWidget):
 
         return used
 
+    def get_selected_code(self):
+        row = self.list_widget.currentRow()
+
+        if row < 0:
+            return
+
+        return self.current_matches[row]
+
     def add_selected_item(self):
 
         self.push_undo()
@@ -548,32 +602,48 @@ class MainWindow(QWidget):
         if not self.is_chapter(selected):
             return
 
-        row = self.list_widget.currentRow()
+        entry = self.get_selected_code()
 
-        if row < 0:
+        if self.is_selected_catalogue_aut_obj_pro():
+            item_type = entry["type"]
+
+        parent = self.progression.currentItem()
+
+        target = None
+        for i in range(parent.childCount()):
+            child = parent.child(i)
+            print(f'{child.text(0)} == {self.code_labels.get(item_type)}')
+            if child.text(0) == self.code_labels.get(item_type):
+                target = child
+                break
+
+        if target is None:
             return
 
-        entry = self.current_matches[row]
+        item = QTreeWidgetItem([entry["code"]])
+        item.setData(0, Qt.UserRole, entry["code"])
 
-
-        selected = self.progression.currentItem()
-
-        if selected is None:
+        target.addChild(item)
+    
+    def add_seance(self):
+        self.push_undo()
+        
+        parent = self.progression.currentItem()
+        if not parent.text(0) == 'Séances' or parent is None:
             return
 
+        item = QTreeWidgetItem(["Nouvelle séance"])
+        
+        parent.addChild(item)
 
-        item = QTreeWidgetItem([
-            entry["code"]
-        ])
+        self.progression.setCurrentItem(item)
 
-        item.setData(
-            0,
-            Qt.UserRole,
-            entry["code"]
+        item.setFlags(
+            item.flags() | Qt.ItemIsEditable
         )
 
+        self.progression.editItem(item, 0)
 
-        selected.addChild(item)
 
     def move_current_item(self, delta):
 
@@ -906,7 +976,7 @@ body {{
 
         regex_text = self.search.text()
 
-        selected_catalogue = self.internal_name(self.catalogue_combo.currentText())
+        selected_catalogue = self.selected_catalogue()
         selected_type = self.internal_name(self.type_combo.currentText())
 
         entries = self.entries
@@ -1037,25 +1107,24 @@ body {{
 </body>
 </html>
 """
-    def tree_to_dict(self,item):
+    def tree_to_dict(self, item):
 
-        result={}
+        # Si tous les enfants sont des feuilles, on renvoie une liste
+        if (
+            item.childCount() > 0
+            and all(item.child(i).childCount() == 0
+                    for i in range(item.childCount()))
+        ):
+            return [
+                item.child(i).text(0)
+                for i in range(item.childCount())
+            ]
+
+        result = {}
 
         for i in range(item.childCount()):
-
-            child=item.child(i)
-
-            if child.childCount():
-
-                result[child.text(0)] = self.tree_to_dict(child)
-
-            else:
-
-                result[child.text(0)] = child.data(
-                        1,
-                        Qt.UserRole
-                    )
-                
+            child = item.child(i)
+            result[child.text(0)] = self.tree_to_dict(child)
 
         return result
 
@@ -1160,6 +1229,7 @@ body {{
             data = json.load(f)
 
         self.restore_progression(data)
+        self.currentFile = filename
 
         self.undo_stack.clear()
         self.redo_stack.clear()
@@ -1169,7 +1239,7 @@ body {{
         data=self.snapshot_progression()
 
         with open(
-            "progression.json",
+            self.currentFile,
             "w",
             encoding="utf8"
         ) as f:
@@ -1207,6 +1277,7 @@ body {{
                 indent=4,
                 ensure_ascii=False
             )
+        self.currentFile = fileName
 
     def push_undo(self):
 
@@ -1247,6 +1318,37 @@ body {{
         state = self.redo_stack.pop()
 
         self.restore_progression(state)
+
+    def export_progression(self):
+        with open(self.currentFile, encoding="utf-8") as f:
+            data = json.load(f)
+        
+        tex_path = f'./data/latex/sequencages/sequencage-{
+                self.catalogue_combo().currentText().replace(" ", "_")
+            }-structure.tex'
+
+        with open(tex_path, "w", encoding="utf-8") as f:
+
+            for level, chapters in data.items():
+                f.write(f"\\level{{{level}}}\n")
+
+                for chapter, content in chapters.items():
+                    f.write(f"\\sequence{{{chapter}}}\n")
+
+                    automatismes = ",".join(content.get(self.code_labels.get('aut'), []))
+                    objectifs = ",".join(content.get(self.code_labels.get('obj'), []))
+                    prolongements = ",".join(content.get(self.code_labels.get('pro'), []))
+
+                    f.write(
+                        f"    \\BoItems{{{automatismes}}}"
+                        f"{{{objectifs}}}"
+                        f"{{{prolongements}}}\n"
+                    )
+
+                    for seance in content.get(self.code_labels.get('sea'), []):
+                        f.write(f"    \\seance{{{seance}}}\n")
+
+                    f.write("\\endsequence\n")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
