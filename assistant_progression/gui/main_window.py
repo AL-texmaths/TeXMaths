@@ -1,5 +1,6 @@
 from assistant_progression.services.html_service import HtmlService
 from assistant_progression.services.catalogue_service import CatalogueService
+from assistant_progression.services.persistence_service import PersistenceService
 
 import re
 import sys
@@ -83,6 +84,7 @@ class MainWindow(QWidget):
         super().__init__()
 
         self.html_service = HtmlService()
+        self.persistence_service = PersistenceService()
 
         self.main_layout = QHBoxLayout(self)
 
@@ -1275,30 +1277,23 @@ class MainWindow(QWidget):
     def save_on_progression(self):
         # Open a file dialog to select the save location and name
         options = QFileDialog.Options()
-        fileName, _ = QFileDialog.getSaveFileName(
+        filename, _ = QFileDialog.getSaveFileName(
             self,
             "Sauvegarder la progression",
             "",
             "JSON Files (*.json);;All Files (*)",
             options=options)
         
-        if not fileName:
+        if not filename:
             return  # User cancelled the dialog
 
         data = self.snapshot_progression()
 
-        with open(
-                fileName,
-                "w",
-                encoding="utf8"
-        ) as f:
-            json.dump(
-                data,
-                f,
-                indent=4,
-                ensure_ascii=False
-            )
-        self.currentFile = Path(fileName)
+        self.persistence_service.save_progression(
+            filename,
+            data
+        )
+        self.currentFile = Path(filename)
 
     def push_undo(self):
 
@@ -1341,8 +1336,12 @@ class MainWindow(QWidget):
         self.restore_progression(state)
 
     def export_progression(self):
-        with open(self.currentFile, encoding="utf-8") as f:
-            data = json.load(f)
+        data = self.persistence_service.load_progression(
+            self.currentFile
+        )
+
+        if data is None:
+            return
         
         tex_path = get_path("progression export path")
         tex_path = tex_path / 'sequencage-{}-{}-structure.tex'.format(

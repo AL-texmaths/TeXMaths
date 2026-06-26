@@ -28,6 +28,8 @@ chapitre parent
 complet lié au code
 >>> revoir le comportement de save_progression lorsqu'aucun fichier
 n'a été chargé (li faut fallback sur save_on_progressoin)
+>>> lors de l'utilisation de ctrl+i, le tree progression devrait
+s'ouvrir pour afficher l'item ajouté
 ===============================================================================
 					Java / html
 ===============================================================================
