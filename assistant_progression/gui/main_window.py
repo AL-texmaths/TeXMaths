@@ -6,6 +6,7 @@ from assistant_progression.services.undo_redo_service import UndoRedoService
 from assistant_progression.services.theme_service import ThemeService
 from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
 from assistant_progression.services.progression_service import ProgressionService
+from assistant_progression.services.search_service import SearchService
 
 def record_undo(method):
     def wrapper(self, *args, **kwargs):
@@ -94,40 +95,120 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.html_service = HtmlService()
-        self.persistence_service = PersistenceService()
-        self.export_service = ExportService()
-        self.undo_redo = UndoRedoService()
+        self.currentFile = None
+
+        # --------------------------------------------------
+        # Configuration
+        # --------------------------------------------------
+
+        self.init_window_and_settings()
+
+        # --------------------------------------------------
+        # Services
+        # --------------------------------------------------
+
+        self.init_services()
+
+        # --------------------------------------------------
+        # Layout principal
+        # --------------------------------------------------
 
         self.main_layout = QHBoxLayout(self)
 
-        self.init_window_and_settings()
-        self.theme_service = ThemeService(
-        themes=self.settings["themes"],
-            default_theme=self.config.get("default", {"theme": next(iter(self.settings["themes"]))})["theme"]
-        )
+        # --------------------------------------------------
+        # Thème
+        # --------------------------------------------------
 
         self.theme_service.apply(self)
-        self.init_menu()
+
+        # --------------------------------------------------
+        # Widgets
+        # --------------------------------------------------
+
         self.init_regex_pannel()
-        self.analysis_service = ProgressionAnalysisService(self.catalogue_service)
+        self.init_preview_pannel()
+        self.init_progression_pannel()
+
+        # --------------------------------------------------
+        # Menu
+        # --------------------------------------------------
+
+        self.init_menu()
+
+        # --------------------------------------------------
+        # Splitters
+        # --------------------------------------------------
+
+        self.init_splitters()
+
+        # --------------------------------------------------
+        # Signaux et raccourcis
+        # --------------------------------------------------
+
+        self.init_connect_signals()
+        self.init_undo_redo()
+
+        # --------------------------------------------------
+        # Etat initial
+        # --------------------------------------------------
+
+        self.update_type_filter()
+        self.update_search()
+
+        self.search.setFocus()
+
+    def init_services(self):
+
+        # Services génériques
+
+        self.html_service = HtmlService()
+
+        self.persistence_service = PersistenceService()
+
+        self.export_service = ExportService()
+
+        self.undo_redo = UndoRedoService()
+
+        # Catalogue
+
+        self.catalogue_service = CatalogueService(
+            self.data,
+            self.config["codes"]
+        )
+
+        # Recherche
+
+        self.search_service = SearchService(
+            self.catalogue_service
+        )
+
+        # Analyse progression
+
+        self.analysis_service = ProgressionAnalysisService(
+            self.catalogue_service
+        )
+
+        # Progression
+
         self.progression_service = ProgressionService(
             self.catalogue_service,
             self.analysis_service,
             self.config
         )
-        self.init_preview_pannel()
-        self.init_progression_pannel()
-        self.init_splitters()
-        self.init_connect_signals()
-        self.init_undo_redo()
-        self.update_type_filter()
-        self.update_search()
-        self.search.setFocus()
 
+        # Thèmes
 
-        self.currentFile = None
-
+        self.theme_service = ThemeService(
+            themes=self.settings["themes"],
+            default_theme=self.config.get(
+                "default",
+                {
+                    "theme": next(
+                        iter(self.settings["themes"])
+                    )
+                }
+            )["theme"]
+        )
     def init_connect_signals(self):
 
         self.search.textChanged.connect(
@@ -270,11 +351,6 @@ class MainWindow(QWidget):
 
     def init_regex_pannel(self):
 
-        self.catalogue_service = CatalogueService(
-            self.data,
-            self.config["codes"]
-        )
-
         self.catalogue_combo = QComboBox()
         self.type_combo = QComboBox()
 
@@ -289,7 +365,9 @@ class MainWindow(QWidget):
 
         self.search.setPlaceholderText("Regex sur code ou contenu")
 
-        self.populate_filters()
+        self.search_service.populate_filters(
+            self.catalogue_combo
+        )
 
         default_code = self.settings["default"]["code"]
         default_label =self.catalogue_service.display_name(default_code)
@@ -455,9 +533,8 @@ class MainWindow(QWidget):
             self.progression_visible = True
 
     def selected_catalogue(self):
-
-        return self.catalogue_service.internal_name(
-            self.catalogue_combo.currentText()
+        return self.search_service.selected_catalogue(
+            self.catalogue_combo
         )
 
     def is_selected_catalogue_aut_obj_pro(self):
@@ -632,62 +709,26 @@ class MainWindow(QWidget):
         self.theme_service.set_theme(name)
         self.theme_service.apply(self)
 
-    def populate_filters(self):
+    def update_type_filter(self):
 
-        self.catalogue_combo.addItem("Tous")
-
-        for catalogue in self.catalogue_service.get_catalogues():
-
-            self.catalogue_combo.addItem(
-                self.catalogue_service.display_name(
-                    catalogue
-                )
-            )
+        self.search_service.update_type_filter(
+            self.catalogue_combo,
+            self.type_combo
+        )
 
     def catalogue_changed(self):
         self.update_type_filter()
         self.update_search()
 
-    def update_type_filter(self):
-
-        current_catalogue = self.selected_catalogue()
-
-        self.type_combo.blockSignals(True)
-
-        self.type_combo.clear()
-
-        self.type_combo.addItem("Tous")
-
-        for source_type in self.catalogue_service.get_types(
-            current_catalogue
-        ):
-
-            self.type_combo.addItem(
-                self.catalogue_service.display_name(
-                    source_type
-                )
-            )
-
-        self.type_combo.blockSignals(False)
-
     def update_search(self):
 
         regex_text = self.search.text()
 
-        selected_catalogue = self.selected_catalogue()
-
-        selected_type = (
-            self.catalogue_service.internal_name(
-                self.type_combo.currentText()
-            )
-        )
-
         try:
-
-            entries = self.catalogue_service.search(
-                catalogue=selected_catalogue,
-                source_type=selected_type,
-                regex_text=regex_text
+            entries = self.search_service.search(
+                self.catalogue_combo,
+                self.type_combo,
+                regex_text
             )
 
         except re.error:
