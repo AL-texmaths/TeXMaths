@@ -4,6 +4,7 @@ from assistant_progression.services.persistence_service import PersistenceServic
 from assistant_progression.services.export_service import ExportService
 from assistant_progression.services.undo_redo_service import UndoRedoService
 from assistant_progression.services.theme_service import ThemeService
+from assistant_progression.services.progression_service import ProgressionAnalysisService 
 
 def record_undo(method):
     def wrapper(self, *args, **kwargs):
@@ -107,6 +108,7 @@ class MainWindow(QWidget):
         self.theme_service.apply(self)
         self.init_menu()
         self.init_regex_pannel()
+        self.analysis_service = ProgressionAnalysisService(self.catalogue_service)
         self.init_preview_pannel()
         self.init_progression_pannel()
         self.init_splitters()
@@ -554,58 +556,10 @@ class MainWindow(QWidget):
         self.unused_window = dialog
 
     def get_unused_entries(self):
-
-        used = self.get_used_codes()
-
-
-        selected_catalogue = self.selected_catalogue()
-
-        unused = []
-
-
-        for entry in self.catalogue_service.entries:
-
-            # filtre catalogue
-            if selected_catalogue != "Tous":
-                if entry.catalogue != selected_catalogue:
-                    continue
-
-
-            # filtre utilisation
-            if entry.code not in used:
-                unused.append(entry)
-
-
-        return unused
-
-    def get_used_codes(self):
-
-        used = set()
-
-        def scan(item):
-
-            for i in range(item.childCount()):
-
-                child = item.child(i)
-
-                code = child.data(
-                    0,
-                    Qt.UserRole
-                )
-
-                if code:
-                    used.add(code)
-
-                scan(child)
-
-
-        for i in range(self.progression.topLevelItemCount()):
-
-            root = self.progression.topLevelItem(i)
-
-            scan(root)
-
-        return used
+        return self.analysis_service.get_unused_entries(
+            self.progression,
+            self.selected_catalogue()
+        )
 
     def get_selected_code(self):
         row = self.list_widget.currentRow()
@@ -742,18 +696,16 @@ class MainWindow(QWidget):
             index = self.progression.indexOfTopLevelItem(item)
             self.progression.takeTopLevelItem(index)
 
-    def show_usage(self,item):
+    def show_usage(self, item):
 
-        code = item.data(
-            0,
-            Qt.UserRole
-        )
-
+        code = item.data(0, Qt.UserRole)
         if not code:
             return
 
-
-        locations=[]
+        locations = self.analysis_service.find_usage_locations(
+            self.progression,
+            code
+        )
 
         def scan(node,path):
 
