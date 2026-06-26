@@ -4,19 +4,21 @@ from assistant_progression.services.persistence_service import PersistenceServic
 from assistant_progression.services.export_service import ExportService
 from assistant_progression.services.undo_redo_service import UndoRedoService
 from assistant_progression.services.theme_service import ThemeService
-from assistant_progression.services.progression_service import ProgressionAnalysisService 
+from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
+from assistant_progression.services.progression_service import ProgressionService
 
 def record_undo(method):
     def wrapper(self, *args, **kwargs):
-        self.undo_redo.record(self.snapshot_progression())
+        self.undo_redo.record(self.progression_service.snapshot(
+                self.progression
+            )
+        )
         return method(self, *args, **kwargs)
     return wrapper
 
 import re
 import sys
 import json
-import copy
-from html import escape
 from pathlib import Path
 
 from PySide6.QtCore import (
@@ -109,6 +111,11 @@ class MainWindow(QWidget):
         self.init_menu()
         self.init_regex_pannel()
         self.analysis_service = ProgressionAnalysisService(self.catalogue_service)
+        self.progression_service = ProgressionService(
+            self.catalogue_service,
+            self.analysis_service,
+            self.config
+        )
         self.init_preview_pannel()
         self.init_progression_pannel()
         self.init_splitters()
@@ -460,56 +467,24 @@ class MainWindow(QWidget):
     @record_undo
     def add_chapter(self):
 
-        parent = self.progression.currentItem()
-
-        if parent is None:
-            return
-
-        if parent.parent() is not None:
-            parent = parent.parent()
-        # on ajoute au niveau supérieur
-
-        item = QTreeWidgetItem(["Nouveau chapitre"])
-        
-        if self.is_selected_catalogue_aut_obj_pro():
-            for titre in (
-                self.catalogue_service.code_label('aut'),
-                self.catalogue_service.code_label('obj'),
-                self.catalogue_service.code_label('pro'),
-                self.catalogue_service.code_label('sea')
-            ):
-                item.addChild(QTreeWidgetItem([titre]))
-
-        parent.addChild(item)
-
-        self.progression.setCurrentItem(item)
-
-        item.setFlags(
-            item.flags() | Qt.ItemIsEditable
+        item = self.progression_service.add_chapter(
+            self.progression,
+            self.selected_catalogue(),
+            self.progression.currentItem()
         )
 
-        self.progression.editItem(item, 0)
+        if item:
+            self.progression.editItem(item, 0)
 
     @record_undo
     def add_level(self):
 
-        item = QTreeWidgetItem([
-            "Nouveau niveau"
-        ])
-
-        self.progression.addTopLevelItem(item)
-
-        self.progression.setCurrentItem(item)
-
-        item.setFlags(
-            item.flags() |
-            Qt.ItemIsEditable
+        item = self.progression_service.add_level(
+            self.progression
         )
 
-        self.progression.editItem(
-            item,
-            0
-        )
+        if item:
+            self.progression.editItem(item, 0)
 
     def show_unused_items(self):
 
@@ -572,84 +547,28 @@ class MainWindow(QWidget):
     @record_undo
     def add_selected_item(self):
 
-        selected = self.progression.currentItem()
-
-        if not self.is_chapter(selected):
-            return
-
         entry = self.get_selected_code()
-
-        if self.is_selected_catalogue_aut_obj_pro():
-            item_type = entry.type
-
-        parent = self.progression.currentItem()
-
-        target = None
-        for i in range(parent.childCount()):
-            child = parent.child(i)
-            if child.text(0) == self.catalogue_service.code_label(item_type):
-                target = child
-                break
-
-        if target is None:
+        if not entry:
             return
 
-        item = QTreeWidgetItem([entry.code])
-        item.setData(0, Qt.UserRole, entry.code)
-
-        target.addChild(item)
+        self.progression_service.add_selected_item(
+            self.progression,
+            entry,
+        )
     
     @record_undo
     def add_seance(self):
-        
-        parent = self.progression.currentItem()
-        if parent is None or parent.text(0) != 'Séances':
-            return
 
-        item = QTreeWidgetItem(["Nouvelle séance"])
-        
-        parent.addChild(item)
-
-        self.progression.setCurrentItem(item)
-
-        item.setFlags(
-            item.flags() | Qt.ItemIsEditable
+        item = self.progression_service.add_seance(
+            self.progression
         )
 
-        self.progression.editItem(item, 0)
+        if item:
+            self.progression.editItem(item, 0)
 
     @record_undo
     def move_current_item(self, delta):
-
-        item = self.progression.currentItem()
-        if item is None:
-            return
-
-        parent = item.parent()
-
-        if parent is None:
-            count = self.progression.topLevelItemCount()
-            index = self.progression.indexOfTopLevelItem(item)
-            new = index + delta
-
-            if not (0 <= new < count):
-                return
-
-            item = self.progression.takeTopLevelItem(index)
-            self.progression.insertTopLevelItem(new, item)
-
-        else:
-            count = parent.childCount()
-            index = parent.indexOfChild(item)
-            new = index + delta
-
-            if not (0 <= new < count):
-                return
-
-            item = parent.takeChild(index)
-            parent.insertChild(new, item)
-
-        self.progression.setCurrentItem(item)
+        self.progression_service.move_item(self.progression, delta)
 
     def is_chapter(self, item):
 
@@ -660,14 +579,6 @@ class MainWindow(QWidget):
         return (
             item.parent() is not None
             and item.data(0, Qt.UserRole) is None
-        )
-
-    def update_buttons_state(self):
-
-        item = self.progression.currentItem()
-
-        self.add_button.setEnabled(
-            self.is_chapter(item)
         )
     
     def update_buttons_state(self):
@@ -680,21 +591,7 @@ class MainWindow(QWidget):
 
     @record_undo
     def delete_progression_item(self):
-
-        item = self.progression.currentItem()
-
-        if item is None:
-            return
-
-
-        parent = item.parent()
-
-        if parent:
-            parent.removeChild(item)
-
-        else:
-            index = self.progression.indexOfTopLevelItem(item)
-            self.progression.takeTopLevelItem(index)
+        self.progression_service.delete_item(self.progression)
 
     def show_usage(self, item):
 
@@ -705,49 +602,6 @@ class MainWindow(QWidget):
         locations = self.analysis_service.find_usage_locations(
             self.progression,
             code
-        )
-
-        def scan(node,path):
-
-            for i in range(node.childCount()):
-
-                child=node.child(i)
-
-                if child.data(0,Qt.UserRole)==code:
-                    locations.append(path)
-
-                scan(
-                    child,
-                    path+"/"+child.text(0)
-                )
-
-
-        for i in range(self.progression.topLevelItemCount()):
-
-            root=self.progression.topLevelItem(i)
-
-            scan(
-                root,
-                root.text(0)
-            )
-
-
-        html="""
-
-    <h3>Utilisé dans :</h3>
-
-    <ul>
-    """
-
-        for x in locations:
-            html+=f"<li>{x}</li>"
-
-
-        html+="</ul>"
-
-
-        self.preview.page().runJavaScript(
-            ...
         )
 
     def refresh_view(self):
@@ -777,43 +631,6 @@ class MainWindow(QWidget):
     def set_theme(self, name):
         self.theme_service.set_theme(name)
         self.theme_service.apply(self)
-
-    def apply_theme(self):
-        t = self.themes[self.current_theme]
-
-        focus_bg = t.get("focus_bg", t["panel"])
-        focus_border = t.get("focus_border", t["accent"])
-
-        self.setStyleSheet(f"""
-            QWidget {{
-                background-color: {t['bg']};
-                color: {t['fg']};
-                font-family: "{t['font']}";
-            }}
-
-            QLineEdit,
-            QListWidget,
-            QComboBox {{
-                background-color: {t['panel']};
-                border: 1px solid {t['border']};
-                padding: 4px;
-            }}
-
-            QLineEdit:focus,
-            QListWidget:focus,
-            QComboBox:focus {{
-                border: 3px solid {focus_border};
-            }}
-
-            QComboBox::drop-down {{
-                border: none;
-            }}
-
-            QListWidget::item:selected {{
-                background-color: {t['accent']};
-                color: white;
-            }}
-        """)
 
     def populate_filters(self):
 
@@ -919,100 +736,6 @@ class MainWindow(QWidget):
             QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
         )
 
-    def tree_to_dict(self, item, depth=0):
-        if depth == 2:
-            return [item.child(i).text(0) for i in range(item.childCount())]
-
-        return {
-            item.child(i).text(0): self.tree_to_dict(item.child(i), depth + 1)
-            for i in range(item.childCount())
-        }
-
-    def expanded_paths(self):
-
-        expanded = set()
-
-        def walk(item, path):
-
-            path = path + (item.text(0),)
-
-            if item.isExpanded():
-                expanded.add(path)
-
-            for i in range(item.childCount()):
-                walk(item.child(i), path)
-
-        for i in range(self.progression.topLevelItemCount()):
-            walk(self.progression.topLevelItem(i), ())
-
-        return expanded
-
-    def restore_expanded(self, expanded):
-
-        def walk(item, path):
-
-            path = path + (item.text(0),)
-
-            item.setExpanded(path in expanded)
-
-            for i in range(item.childCount()):
-                walk(item.child(i), path)
-
-        for i in range(self.progression.topLevelItemCount()):
-            walk(self.progression.topLevelItem(i), ())
-
-    def restore_progression(self, data):
-
-        expanded = self.expanded_paths()
-
-        self.progression.clear()
-
-        def build(parent, obj):
-
-            for key, value in obj.items():
-
-                item = QTreeWidgetItem([key])
-                parent.addChild(item)
-
-                if isinstance(value, dict):
-                    build(item, value)
-
-                elif isinstance(value, list):
-
-                    for code in value:
-
-                        child = QTreeWidgetItem([code])
-
-                        child.setData(
-                            0,
-                            Qt.UserRole,
-                            code
-                        )
-
-                        item.addChild(child)
-
-        for key, value in data.items():
-
-            root = QTreeWidgetItem([key])
-
-            self.progression.addTopLevelItem(root)
-
-            build(root, value)
-        
-        self.restore_expanded(expanded)
-
-    def snapshot_progression(self):
-
-        data = {}
-
-        for i in range(self.progression.topLevelItemCount()):
-
-            root = self.progression.topLevelItem(i)
-
-            data[root.text(0)] = self.tree_to_dict(root)
-
-        return data
-
     def load_progression(self):
 
         filename, _ = QFileDialog.getOpenFileName(
@@ -1028,7 +751,10 @@ class MainWindow(QWidget):
         with open(filename, encoding="utf8") as f:
             data = json.load(f)
 
-        self.restore_progression(data)
+        self.progression_service.restore(
+            self.progression,
+            data
+        )
         self.currentFile = Path(filename)
 
         self.undo_redo.clear()
@@ -1038,7 +764,9 @@ class MainWindow(QWidget):
         if self.currentFile is None:
             return self.save_on_progression()
 
-        data=self.snapshot_progression()
+        data=self.progression_service.snapshot(
+            self.progression
+        )
 
         with open(
             self.currentFile,
@@ -1068,7 +796,9 @@ class MainWindow(QWidget):
         if not filename:
             return  # User cancelled the dialog
 
-        data = self.snapshot_progression()
+        data = self.progression_service.snapshot(
+            self.progression
+        )
 
         self.persistence_service.save_progression(
             filename,
@@ -1076,22 +806,29 @@ class MainWindow(QWidget):
         )
         self.currentFile = Path(filename)
 
-    def push_undo(self):
-        self.undo_redo.record(self.snapshot_progression())
-
     def undo(self):
-        state = self.undo_redo.undo(self.snapshot_progression())
+        state = self.undo_redo.undo(self.progression_service.snapshot(
+                self.progression
+                ))
         if state is None:
             return
 
-        self.restore_progression(state)
+        self.progression_service.restore(
+            self.progression,
+            state
+        )
 
     def redo(self):
-        state = self.undo_redo.redo(self.snapshot_progression())
+        state = self.undo_redo.redo(self.progression_service.snapshot(
+                self.progression
+            ))
         if state is None:
             return
 
-        self.restore_progression(state)
+        self.progression_service.restore(
+           self.progression,
+            state
+        )
 
     def export_progression(self):
 
