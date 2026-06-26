@@ -7,6 +7,7 @@
 ===============================================================================
 					Python
 ===============================================================================
+--------- Assistant de naviagtion -------------
 >>> erreur dans le décompte des warnings/errors de check database
 --> intégrer les erreurs de update_data_index dans le calcul des warnings/errors
 >>> l'erreur missing pdf doit mener à un test de compilation pour le fichier en question.
@@ -16,13 +17,12 @@ USBSave --> vérifier l'existence des chemins avant l'execution du programme
 Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 Checker la possibilité de connecter linux a une imprimante via wifi
 --> régler le warning source inconnue alors qu'elle a ete définie
---------- BO Code Regex -------------
-Volet progression:
-
-- utiliser des raccourcis clavier :
---> ajouter un undo/redo pour chaque actions liées à la progression
-----> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
+--> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
 officiel sur disque dur externe
+
+--------- Assistant de progression ------------
+>>> à partir du fichier progression.json, générer un fichier
+LaTeX correspondant au séquençage de l'année.
 
 ===============================================================================
 					Java / html

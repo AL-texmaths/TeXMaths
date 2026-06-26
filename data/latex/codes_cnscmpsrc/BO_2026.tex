@@ -53,7 +53,6 @@
     \fi
 }
 
-
 \edef\scolaryear{\expandafter\ifnum\the\month>6\relax
     \the\year-\number\numexpr\the\year+1\relax
     \else
@@ -149,9 +148,7 @@
             }%
         }%
     }%
-    \vskip0pt plus 3fill\begingroup\large\tt
-    D'après le BO n$^\circ$ \boNum\endgroup
-    \vskip0pt plus 1fill
+\BoDescription
 }
 
 \begin{document}
@@ -160,7 +157,6 @@
     \tableofcontents\clearpage
     \phantomsection
     \addcontentsline{toc}{cycle}{\large\textbf{Cycle 3}}
-    \def\boNum{16 du 17 avril 2025}
     \showitems
     \setCycle{4}
     \tableofcontents\clearpage

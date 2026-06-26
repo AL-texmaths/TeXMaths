@@ -108,6 +108,12 @@
 \def\@countthirdcycle@boB@occ#1{\setcounter{thirdcycle@boB@occ}{0}\catalogue@loop#1\thethirdcycle@boB@occ}
 \def\countocc#1{\begingroup\edef\temp{\thetoks{#1thirdcycle@boB@occ}}\@countthirdcycle@boB@occ\temp\endgroup}
 \makeatother
+%----------------------------------------------
+\def\BoDescription{%
+    \vskip0pt plus 3fill\begingroup\large\tt
+    D'après le BO n$^\circ$ 16 du 17 avril 2025\endgroup
+    \vskip0pt plus 1fill%
+    }
 % ========================================
 % DEFINITION DES CONNAISSANCES/COMPETENCES
 % ========================================

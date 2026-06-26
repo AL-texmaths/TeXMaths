@@ -1,0 +1,146 @@
+\documentclass{article}
+% --------
+% PACKAGES
+% --------
+\usepackage{texmaths-symbols}
+\usepackage{refcount}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[a5paper]{geometry}
+\usepackage{tabularray}
+\usepackage{enumitem}
+\usepackage[tikz]{mdframed}
+\usepackage{texmaths-cycle4-BO_2026}
+% --------
+% GEOMETRY
+% --------
+\geometry{
+    hmargin=18pt,
+    top=50pt,
+    headheight=20pt,
+    headsep=25pt,
+    textheight=500pt,
+    footskip=20pt
+}
+% -------------------
+% HEADERS AND FOOTERS
+% -------------------
+\makeatletter
+\def\level#1{\def\@level@name{#1}%
+    \setcounter{totalseances}0
+    \setcounter{sequence}0}
+\fancypagestyle{sequencage}
+    {
+        \fancyhf{}
+        \fancyhead[L]{\small Séquençage Cycle 4 \@level@name}
+        \fancyhead[R]{\small D'après le BOEN 2026}
+        \fancyfoot[C]{\thepage/\pageref{LastPage}}
+    }
+
+% --------
+% COUNTERS
+% --------
+\newcounter{totalseances}
+\newcounter{seancenumber}
+\newcounter{sequence}
+% ------
+% MACROS
+% ------
+\def\storecounter#1#2{%
+    \addtocounter{#1}{-1}\refstepcounter{#1}\label{#2}}
+\def\seancenumberseq#1{%
+    \getrefnumber{ref:seancenumber\@level@name#1}}
+\long\def\seance#1{%
+    \par\noindent
+    \stepcounter{seancenumber}\stepcounter{totalseances}%
+    {\bfseries Séance \theseancenumber : }#1
+    }
+\long\def\dontshowseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
+\def\sequence#1{%
+    \begingroup
+        \let\'\@firstofone
+        \let\`\@firstofone
+        \let\ \@underscore
+        \xdef\sequence@key{#1}
+    \endgroup
+    \stepcounter{sequence}\vskip5pt
+    \begin{mdframed}[roundcorner=5pt]
+        \begin{tblr}{colspec={X[1,l]X[2,c]X[1,r]}}%{colspec={X[1,l]X[2,l]X[1,r]}}
+            \bfseries Séquence \arabic{sequence}&
+            \footnotesize#1&
+            (\seancenumberseq\thesequence\ séances)
+        \end{tblr}
+    \end{mdframed}\vskip8pt
+}
+\def\endsequence{%
+    \storecounter{seancenumber}{ref:seancenumber\@level@name\thesequence}%
+    \setcounter{seancenumber}0%
+}
+\setlist{label=$-$}
+
+% \def\cnsandcmp#1#2{%
+%     {\itshape Connaissances}\vskip8pt
+%     \@for\ii:=#1\do{%
+%         \par\noindent$-$\hskip2ex\usecns[\ii]%
+%         \immediate\write\seqcanal{CNS\ii:\@level@name:\sequence@key:}%
+%     }\vskip5pt\noindent\nopagebreak
+%     {\itshape Compétences}\vskip8pt
+%     \@for\jj:=#2\do{%
+%     \par\noindent$-$\hskip2ex\usecmp[\jj]%
+%     % \immediate\write\seqcanal{CMP\jj:\@level@name:\sequence@key}%
+%     }\par\kern20pt\noindent
+% }
+\def\BoItems#1#2#3{%
+    {\itshape Automatismes}\vskip8pt
+    \@for\ii:=#1\do{%
+        \par\noindent$-$\hskip2ex\useaut[\ii]%
+        \immediate\write\seqcanal{AUT\ii:\@level@name:\sequence@key:}%
+    }\vskip5pt\noindent\nopagebreak
+    % -----------------------------
+    {\itshape Objectifs d'apprentissage}\vskip8pt
+    \@for\ii:=#2\do{%
+        \par\noindent$-$\hskip2ex\useobj[\ii]%
+        \immediate\write\seqcanal{OBJ\ii:\@level@name:\sequence@key:}%
+    }\vskip5pt\noindent\nopagebreak
+    % -----------------------------
+    {\itshape Prolongements}\vskip8pt
+    \@for\ii:=#3\do{%
+        \par\noindent$-$\hskip2ex\usepro[\ii]%
+        \immediate\write\seqcanal{PRO\ii:\@level@name:\sequence@key:}%
+    }\vskip5pt\noindent\nopagebreak
+    \par\kern20pt\noindent
+}
+
+\def\showtotalseance{\vskip0pt plus 1fill\noindent
+{\large Nombre total de séances en \@level@name: {\bfseries\thetotalseances}}
+\vskip0pt plus 3fill}
+
+\def\@underscore{\string_}
+
+\def\sequence@key{undefined}
+
+\makeatother
+\def\hideseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
+% \let\seance\hideseance
+\begin{document}
+
+\newwrite\seqcanal
+\immediate\openout\seqcanal=\jobname-structure.txt%
+
+Les connaissances et compétences liées au thème E (algorithmique et
+programmation) sont à travailler tout au long du cycle 4, en salle informatique
+ou en exercice en classe, en lien avec d'autres notions.
+
+\pagestyle{sequencage}
+
+\level{5eme}
+
+\sequence{Expressions numériques}
+    \BoItems{}{B3bc}{}
+    \seance{Résolution de problèmes}
+\endsequence
+\BoDescription
+\showtotalseance
+\immediate\closeout\seqcanal
+
+\end{document}
