@@ -1,6 +1,7 @@
 from assistant_progression.services.html_service import HtmlService
 from assistant_progression.services.catalogue_service import CatalogueService
 from assistant_progression.services.persistence_service import PersistenceService
+from assistant_progression.services.export_service import ExportService
 
 import re
 import sys
@@ -85,7 +86,7 @@ class MainWindow(QWidget):
 
         self.html_service = HtmlService()
         self.persistence_service = PersistenceService()
-
+        self.export_service = ExportService()
         self.main_layout = QHBoxLayout(self)
 
         self.init_window_and_settings()
@@ -102,7 +103,7 @@ class MainWindow(QWidget):
         self.search.setFocus()
         self.apply_theme()
 
-        self.currentFile = "progression.json"
+        self.currentFile = None
 
     def init_connect_signals(self):
 
@@ -825,57 +826,6 @@ class MainWindow(QWidget):
             QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
         )
 
-#     def make_list_html(self, content):
-
-#         css = "katex.min.css"
-#         js = "katex.min.js"
-#         render = "contrib/auto-render.min.js"
-
-#         return f"""
-# <!DOCTYPE html>
-# <html>
-# <head>
-# <meta charset="utf-8">
-
-# <link rel="stylesheet" href="{css}">
-# <script src="{js}"></script>
-# <script src="{render}"></script>
-
-# <script>
-# window.onload = function() {{
-#     renderMathInElement(document.body, {{
-#         delimiters: [
-#             {{ left: "$$", right: "$$", display: true }},
-#             {{ left: "$", right: "$", display: false }},
-#             {{ left: "\\\\(", right: "\\\\)", display: false }},
-#             {{ left: "\\\\[", right: "\\\\]", display: true }}
-#         ]
-#     }});
-# }};
-# </script>
-
-# <style>
-# body {{
-#     font-family: "Latin Modern Roman", serif;
-#     padding: 20px;
-#     font-size: 18px;
-# }}
-
-# .item {{
-#     margin-bottom: 10px;
-# }}
-# </style>
-
-# </head>
-
-# <body>
-# <div class="item">{content}</div>
-# </body>
-# </html>
-# """
-
-    # ---------------- EXISTANT ----------------
-
     def set_theme(self, name):
         self.current_theme = name
         self.apply_theme()
@@ -916,53 +866,6 @@ class MainWindow(QWidget):
                 color: white;
             }}
         """)
-
-    # def display_name(self, code):
-    #     return self.code_labels.get(code, code)
-
-    # def internal_name(self, display):
-    #     for code, label in self.code_labels.items():
-    #         if label == display:
-    #             return code
-    #     return display
-
-    # def build_index(self):
-
-    #     for catalogue, catalogue_data in self.data.items():
-
-    #         if not isinstance(catalogue_data, dict):
-    #             continue
-
-    #         # Structure plate :
-    #         # "src": { code: texte }
-    #         if all(isinstance(v, str) for v in catalogue_data.values()):
-
-    #             for code, text in catalogue_data.items():
-
-    #                 self.entries.append({
-    #                     "catalogue": catalogue,
-    #                     "type": catalogue,
-    #                     "code": code,
-    #                     "text": text,
-    #                 })
-
-    #         # Structure classique :
-    #         # "cycle 3": { "cns": { code: texte } }
-    #         else:
-
-    #             for source_type, source_data in catalogue_data.items():
-
-    #                 if not isinstance(source_data, dict):
-    #                     continue
-
-    #                 for code, text in source_data.items():
-
-    #                     self.entries.append({
-    #                         "catalogue": catalogue,
-    #                         "type": source_type,
-    #                         "code": code,
-    #                         "text": text,
-    #                     })
 
     def populate_filters(self):
 
@@ -1068,78 +971,6 @@ class MainWindow(QWidget):
             QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
         )
 
-#     def make_html(self, code, content, catalogue, source_type):
-
-#         css = "katex.min.css"
-#         js = "katex.min.js"
-#         render = "contrib/auto-render.min.js"
-
-#         content = escape(content)
-
-#         return f"""
-# <!DOCTYPE html>
-# <html>
-# <head>
-# <meta charset="utf-8">
-
-# <link rel="stylesheet" href="{css}">
-# <script src="{js}"></script>
-# <script src="{render}"></script>
-
-# <script>
-# window.onload = function() {{
-#     renderMathInElement(document.body, {{
-#         delimiters: [
-#             {{ left: "$$", right: "$$", display: true }},
-#             {{ left: "$", right: "$", display: false }},
-#             {{ left: "\\\\(", right: "\\\\)", display: false }},
-#             {{ left: "\\\\[", right: "\\\\]", display: true }}
-#         ]
-#     }});
-# }};
-# </script>
-
-# <style>
-# body {{
-#     font-family: "Latin Modern Roman", serif;
-#     padding: 20px;
-#     font-size: 18px;
-# }}
-
-# .code {{
-#     font-size: 28px;
-#     font-weight: bold;
-#     margin-bottom: 10px;
-# }}
-
-# .meta {{
-#     color: #666;
-#     margin-bottom: 20px;
-# }}
-
-# .content {{
-#     line-height: 1.6;
-# }}
-# </style>
-
-# </head>
-
-# <body>
-
-# <div class="code">{code}</div>
-
-# <div class="meta">
-# <b>Catalogue :</b> {catalogue}<br>
-# <b>Type :</b> {source_type}
-# </div>
-
-# <hr>
-
-# <div class="content">{content}</div>
-
-# </body>
-# </html>
-# """
     def tree_to_dict(self, item, depth=0):
         if depth == 2:
             return [item.child(i).text(0) for i in range(item.childCount())]
@@ -1257,6 +1088,9 @@ class MainWindow(QWidget):
 
     def save_progression(self):
 
+        if self.currentFile is None:
+            return self.save_on_progression()
+
         data=self.snapshot_progression()
 
         with open(
@@ -1336,49 +1170,42 @@ class MainWindow(QWidget):
         self.restore_progression(state)
 
     def export_progression(self):
+
+        if self.currentFile is None:
+            QMessageBox.warning(
+                self,
+                "Warning",
+                "Please save the progression before exporting."
+            )
+            return
+
         data = self.persistence_service.load_progression(
             self.currentFile
         )
 
         if data is None:
             return
-        
-        tex_path = get_path("progression export path")
-        tex_path = tex_path / 'sequencage-{}-{}-structure.tex'.format(
-                self.catalogue_combo.currentText().replace(" ", "_"),
-                self.currentFile.stem
+
+        tex_path = get_path(
+            "progression export path"
         )
 
-        with open(tex_path, "w", encoding="utf-8") as f:
+        tex_path = (
+            tex_path
+            / f"sequencage-{self.catalogue_combo.currentText().replace(' ', '_')}-{self.currentFile.stem}-structure.tex"
+        )
 
-            level_num = 0
-            for level, chapters in data.items():
-                
-                if level_num > 0:
-                    f.write(f"\\showtotalseance\n")
-                level_num += 1
-                f.write(f"\\level{{{level}}}\n")
+        self.export_service.export_progression(
+            tex_path,
+            data,
+            self.catalogue_service.labels
+        )
 
-                for chapter, content in chapters.items():
-                    f.write(f"\\sequence{{{chapter}}}\n")
-
-                    automatismes = ",".join(content.get(self.catalogue_service.code_labels.get('aut'), []))
-                    objectifs = ",".join(content.get(self.catalogue_service.code_labels.get('obj'), []))
-                    prolongements = ",".join(content.get(self.catalogue_service.code_labels.get('pro'), []))
-
-                    f.write(
-                        f"    \\BoItems{{{automatismes}}}"
-                        f"{{{objectifs}}}"
-                        f"{{{prolongements}}}\n"
-                    )
-
-                    for seance in content.get(self.catalogue_service.code_labels.get('sea'), []):
-                        f.write(f"    \\seance{{{seance}}}\n")
-
-                    f.write("\\endsequence\n")
-            f.write(f"\\showtotalseance\n")
-
-        QMessageBox.information(self, "Info", f"Progression exported {tex_path}")
+        QMessageBox.information(
+            self,
+            "Info",
+            f"Progression exported {tex_path}"
+        )
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

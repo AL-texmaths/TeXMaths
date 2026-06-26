@@ -30,6 +30,8 @@ complet lié au code
 n'a été chargé (li faut fallback sur save_on_progressoin)
 >>> lors de l'utilisation de ctrl+i, le tree progression devrait
 s'ouvrir pour afficher l'item ajouté
+>>> sauvegarder sous un progression ouvre le même dossier
+que le raccourci ctrl+O
 ===============================================================================
 					Java / html
 ===============================================================================
