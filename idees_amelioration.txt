@@ -19,6 +19,7 @@ les executables ne sont pas trouvés
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assitant de progression ---------------
+>>> Possibilité d'ajouter une séance dans un child de "Séances"
 >>> tester sur windows une version executable avec pyinstaller
 --> s'assurer de la compatibilité windows, notamment au niveaux des chemins
 --> Github Action pour créer l'executable

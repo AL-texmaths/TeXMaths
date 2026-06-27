@@ -1,6 +1,4 @@
-# assistant_progression/services/progression_service.py
-
-from PySide6.QtWidgets import QMessageBox, QTreeWidgetItem
+from PySide6.QtWidgets import QTreeWidgetItem
 from PySide6.QtCore import Qt
 
 
@@ -145,8 +143,6 @@ class ProgressionService:
 
         return item
 
-        return item
-    
     def add_seance(self, tree):
 
             parent = tree.currentItem()

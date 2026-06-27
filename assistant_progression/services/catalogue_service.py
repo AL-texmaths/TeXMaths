@@ -205,6 +205,12 @@ class CatalogueService:
                 e.code
             )
         )
+    
+    def get_entry_by_code(self, code):
+        for entry in self.entries:
+            if entry.code == code:
+                return entry
+        return None
 
     def update_code_label(self):
         

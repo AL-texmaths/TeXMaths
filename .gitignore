@@ -17,3 +17,5 @@ src/__pycache__
 output
 dist
 build
+texmaths
+py3.12venv
