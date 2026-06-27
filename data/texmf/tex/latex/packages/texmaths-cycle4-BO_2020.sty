@@ -67,6 +67,7 @@
     \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}*}
     \defunivar\fourthcycle@cns[\tmpkey]{#1}%
     \begingroup\fourthcycle@activate@writing\global\addtofull@cns@fourthcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cns|:|\tmpkey|:|\unexpanded{#1}}%
     }
 \def\new@cmp#1{
     \stepcounter{fourthcycle@cmp}
@@ -75,6 +76,7 @@
     \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}*}
     \defunivar\fourthcycle@cmp[\tmpkey]{#1}%
     \begingroup\fourthcycle@activate@writing\global\addtofull@cmp@fourthcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cmp|:|\tmpkey|:|\unexpanded{#1}}%
     }
 \def\newsubcns#1{
     \stepcounter{fourthcycle@subcns}
@@ -83,6 +85,7 @@
     \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cns}\arabic{fourthcycle@subcns}}
     \defunivar\fourthcycle@cns[\tmpkey]{#1}%
     \begingroup\fourthcycle@activate@writing\global\addtofull@cns@fourthcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cns|:|\tmpkey|:|\unexpanded{#1}}%
     }
 \def\newsubcmp#1{
     \stepcounter{fourthcycle@subcmp}
@@ -91,6 +94,7 @@
     \edef\tmpkey{\Alph{fourthcycle@theme}\arabic{fourthcycle@attendu}\alph{fourthcycle@cmp}\arabic{fourthcycle@subcmp}}
     \defunivar\fourthcycle@cmp[\tmpkey]{#1}%
     \begingroup\fourthcycle@activate@writing\global\addtofull@cmp@fourthcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cmp|:|\tmpkey|:|\unexpanded{#1}}%
     }
 
 \def\addtofull@cns@fourthcycle#1#2{%
@@ -128,6 +132,9 @@
 % ========================================
 % DEFINITION DES CONNAISSANCES/COMPETENCES
 % ========================================
+\newwrite\datafile
+\immediate\openout\datafile=\jobname-data.txt\relax
+\def\currentcycle{cycle 4 BO 2020}
 \newtheme{Nombres et calculs}
 \newattendu{Utiliser les nombres pour comparer, calculer et résoudre des
     problèmes}
@@ -523,3 +530,5 @@
 \endcmp
 \endattendus
 \endthemes
+
+\immediate\closeout\datafile

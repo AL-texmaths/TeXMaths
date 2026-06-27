@@ -162,7 +162,7 @@ class CatalogueService:
 
         return entries
 
-    def update_code_label(self, catalogue):
+    def update_code_label(self):
         
-        tex_path = resolve_path(self.internal_name(catalogue), config=True)
-        print(tex_path)
+        update_code_path = resolve_path("latex") / "catalogues" / "update_code_index.tex"
+        compile_latex(update_code_path)

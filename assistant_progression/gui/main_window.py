@@ -8,6 +8,9 @@ from assistant_progression.services.progression_analysis_service import Progress
 from assistant_progression.services.progression_service import ProgressionService
 from assistant_progression.services.search_service import SearchService
 from assistant_progression.services.regex_service import SearchLineEdit
+from assistant_progression.utils.resolve import CONFIG, resolve_path
+from assistant_progression.utils.textools import update_code_index
+
 
 import re
 import sys
@@ -41,7 +44,6 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
-from assistant_progression.utils.textools import CONFIG, resolve_path
 
 KATEX_DIR = resolve_path('katex')
 CODE_INDEX_DIR = resolve_path('code index')
@@ -280,15 +282,36 @@ class MainWindow(QWidget):
             activated=self.redo
         )
 
+    def reload_data(self):
+        with open(CODE_INDEX_DIR / "code_index.json", encoding="utf-8") as f:
+            self.data = json.load(f)
+
+        self.catalogue_service = CatalogueService(
+            self.data,
+            self.config["codes"]
+        )
+
+        self.search_service = SearchService(
+            self.catalogue_service
+        )
+
+        self.analysis_service = ProgressionAnalysisService(
+            self.catalogue_service
+        )
+
+        self.progression_service = ProgressionService(
+            self.catalogue_service,
+            self.analysis_service,
+            self.config
+        )
+
     def init_window_and_settings(self):
         self.config = CONFIG
         self.settings = self.config.get("settings")
         self.setWindowTitle(self.settings.get("main window title", "Assistant de progression"))
         self.resize(1400, 800)
 
-        with open(CODE_INDEX_DIR, encoding="utf-8") as f:
-            self.data = json.load(f)
-
+        self.reload_data()
 
         shortcut = QShortcut(QKeySequence("Ctrl+Q"), self)
         shortcut.activated.connect(self.close)
@@ -365,7 +388,7 @@ class MainWindow(QWidget):
 
         update_code_index_action = QAction("Mettre à jour l'index des codes", self)
         update_menu.addAction(update_code_index_action)
-        update_code_index_action.triggered.connect(self.update_code_index)
+        update_code_index_action.triggered.connect(self.update_code_labels)
 
         load_action.setShortcut(QKeySequence.Open)
         save_action.setShortcut(QKeySequence.Save)
@@ -504,9 +527,17 @@ class MainWindow(QWidget):
         selected_catalogue = self.selected_catalogue()
         return selected_catalogue in self.config.get("aut obj pro catalogues")
 
-    def update_code_index(self):
-        self.catalogue_service.update_code_label(
-            self.selected_catalogue()
+    def update_code_labels(self):
+        update_code_index()
+        self.reload_data()
+
+        self.update_type_filter()
+        self.update_search()
+
+        QMessageBox.information(
+            self,
+            "Info",
+            f"Updated code index at {CODE_INDEX_DIR / 'code_index.json'}"
         )
 
     @record_undo
@@ -856,7 +887,7 @@ class MainWindow(QWidget):
         if data is None:
             return
 
-        tex_path = get_path(
+        tex_path = resolve_path(
             "progression export path"
         )
 

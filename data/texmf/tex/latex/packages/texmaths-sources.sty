@@ -20,11 +20,19 @@
         \edef\keys@src{\keys@src,#1}
     \fi
 }
-\def\newsrc[#1]#2{\defunivar\src[#1]{#2}\addtofull@src{#1}{#2}\addtokeys@src{#1}}
+\def\newsrc[#1]#2{%
+    \defunivar\src[#1]{#2}%
+    \addtofull@src{#1}{#2}%
+    \addtokeys@src{#1}%
+    \immediate\write\datafile{src|:|#1|:|\unexpanded{#2}}%
+    }
 \makeatother
+\newwrite\datafile
+\immediate\openout\datafile=\jobname-data.txt\relax
 % Codage des sources
 \newsrc[originale]{exercice original}
 \newsrc[inconnue]{inconnue}
+\newsrc[TEST]{source test}
 % Codage des sources DNB
 \newsrc[26GENMATAA1]{DNB Série Générale, Asie, Juin 2026}
 \newsrc[26GENMATAN1]{DNB Série Générale, Amérique du Nord, Juin 2026}
@@ -113,3 +121,5 @@
 % Source issues de manuels
 \newsrc[MYR2016C4]{Myriade Cycle 4, Programmes 2016}
 \newsrc[SESAMATHS2016C4]{Sesamaths Cycle 4, Programmes 2016}
+
+\immediate\closeout\datafile

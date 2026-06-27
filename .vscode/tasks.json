@@ -154,7 +154,7 @@
             "command": "code",
             "args": [
                 "-r", 
-                "${workspaceFolder}/data/latex/codes_cnscmpsrc/BO_2026.pdf"
+                "${workspaceFolder}/data/latex/codes_labels/BO_2026.pdf"
             ],
             "windows": {
                 "command": "\\Root\\Programmes\\VSCode\\code.exe"
@@ -196,7 +196,7 @@
             "command": "code",
             "args": [
                 "-r", 
-                "${workspaceFolder}/data/latex/codes_cnscmpsrc/Sources.pdf"
+                "${workspaceFolder}/data/latex/codes_labels/Sources.pdf"
             ],
             "windows": {
                 "command": "\\Root\\Programmes\\VSCode\\code.exe"

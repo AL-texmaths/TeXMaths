@@ -8,7 +8,7 @@ DISTPATH = sys.argv[1]
 DirToCopy = [
     "activites",
     "catalogues",
-    "codes_cnscmpsrc",
+    "codes_labels",
     "diapo",
     "exercices",
     "flash",

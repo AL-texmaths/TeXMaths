@@ -1,160 +1,34 @@
 from __future__ import annotations
 
-import sys
-import shutil
 import json
 import subprocess
 from pathlib import Path
 
-def get_config() -> dict:
-    """
-    Load the configuration from the config.json file.
-
-    Returns:
-        A dictionary containing the configuration.
-    """
-    config_path = Path("assistant_progression") / "config.json"
-
-    with open(config_path, "r", encoding="utf-8") as f:
-        return json.load(f)
+from assistant_progression.utils.resolve import resolve_executable, resolve_path, get_config
 
 CONFIG = get_config()
-
-def resolve_executable(executable: str) -> Path:
-    """
-    Resolve the first available executable.
-
-    Search order:
-    1. Next to the application bundle (PyInstaller support).
-    2. In the current executable directory.
-    3. In the system PATH.
-
-    Args:
-        executable: Name of the executable to resolve.
-
-    Returns:
-        Absolute path to the resolved executable.
-
-    Raises:
-        FileNotFoundError: If no executable could be found.
-        ValueError: If the executable list is empty.
-    """
-    config = get_config()
-    executables = config.get("executables", {}).get(executable, [])
-    #1. Search in PATH
-    resolved = shutil.which(executable)
-    if resolved:
-        return Path(resolved).absolute()
-    # Future-proof PyInstaller support
-    candidates_dirs: list[Path] = []
-    if getattr(sys, "frozen", False):
-        meipass = getattr(sys, "_MEIPASS", None)
-        if meipass:
-            candidates_dirs.append(Path(meipass))
-
-        candidates_dirs.append(Path(sys.executable).parent)
-
-    # Search near the current script/module
-    try:
-        candidates_dirs.append(Path(__file__).absolute().parent)
-    except NameError:
-        pass
-
-    # 1. Search in local candidate directories
-    for executable in executables:
-        for directory in candidates_dirs:
-            candidate = directory / executable
-            if candidate.is_file():
-                return candidate.absolute()
-
-    # 2. Search in PATH
-    for executable in executables:
-        resolved = shutil.which(executable)
-        if resolved:
-            return Path(resolved).absolute()
-    
-    raise FileNotFoundError(
-        f"Could not resolve any executable from: {', '.join(executables)}"
-    )
-
-def resolve_path(candidates: Path | str | list[str], config=True) -> Path:
-    """
-    Resolve the first existing path among the candidates.
-
-    Search order:
-    1. Absolute path as-is.
-    2. Relative to current working directory.
-    3. Relative to this module directory.
-    4. Relative to PyInstaller executable directory.
-    5. Relative to PyInstaller _MEIPASS directory.
-
-    Args:
-        candidates: Candidate paths ordered by preference.
-
-    Returns:
-        Absolute resolved path.
-
-    Raises:
-        ValueError: If candidates is empty.
-        FileNotFoundError: If no candidate can be resolved.
-    """
-    if not candidates:
-        raise ValueError("candidates must not be empty")
-
-    if config and isinstance(candidates, str):
-        return resolve_path(CONFIG.get("paths").get(candidates), config=False)
-
-    if isinstance(candidates, (str, Path)):
-        candidates = [Path(candidates)]
-
-    search_roots: list[Path] = [
-        Path.cwd(),
-    ]
-
-    try:
-        search_roots.append(Path(__file__).resolve().parent)
-    except NameError:
-        pass
-
-    if getattr(sys, "frozen", False):
-        search_roots.append(Path(sys.executable).parent)
-
-        meipass = getattr(sys, "_MEIPASS", None)
-        if meipass:
-            search_roots.append(Path(meipass))
-
-    for candidate in candidates:
-        path = Path(candidate)
-
-        # Absolute path
-        if path.is_absolute():
-            if path.exists():
-                return path.resolve()
-            continue
-
-        # Relative path
-        for root in search_roots:
-            resolved = root / path
-            if resolved.exists():
-                return resolved.resolve()
-
-    raise FileNotFoundError(
-        "Could not resolve any path from: "
-        + ", ".join(map(str, candidates))
-    )
+TEX_PACKAGES_DIR = resolve_path('texmf') / "tex" / "latex" / "packages"
 
 def compile_latex(
     tex_file: str | Path,
     args: list[str] = [
         "-interaction=nonstopmode",
         "-file-line-error",
+        "-lualatex",
+        "-shell-escape",
         ],
-    motor: str = "latexmk"
+    motor: str = "latexmk",
+    outputdir: str | Path | None = None,
     ):
     """
     Compile a LaTeX file using the specified engine and arguments.
     """
-    tex_file = Path(tex_file)
+    if outputdir is None:
+        outputdir = tex_file.parent
+        tex_file = Path(tex_file)
+    else:
+        outputdir = Path(outputdir)
+        tex_file = outputdir / Path(tex_file)
     if not tex_file.exists():
         raise FileNotFoundError(f"The specified LaTeX file does not exist: {tex_file}")
 
@@ -162,8 +36,8 @@ def compile_latex(
         executable_path = resolve_executable(motor)
     except KeyError:
         raise ValueError(f"No executable configuration found for motor: {motor}")
-    
-    cmd = [str(executable_path), *args, str(tex_file)]
+
+    cmd = [str(executable_path), *args, f"-output-directory={outputdir}", str(tex_file)]
     print(f"Running command: {' '.join(cmd)}")
 
     print("motor =", motor)
@@ -183,4 +57,65 @@ def compile_latex(
     print("STDERR:")
     print(result.stderr)
 
-print(resolve_path("cycle 4 BO 2026"))
+    return result
+
+def check_code_index_data():
+    #1 - Se placer dans data/latex/codes_labels
+    #2- pour chaque fichier tex, vérifier s'il existe un fichier data.txt correspondant
+    #3- si le fichier data.txt n'existe pas, compiler le fichier tex correspondant
+    #4 si le fichier data existe mais est plus ancien que le fichier tex, recompiler le fichier tex correspondant
+    #5 si les packages sont plus anciens recompiler
+    cwd = resolve_path("code labels")
+    for tex_file in cwd.glob("*.tex"):
+        compile = False
+        data_path = tex_file.with_name(tex_file.stem + "-data.txt")
+        if not data_path.exists():
+            print(f"File {data_path} does not exist. Compiling {tex_file}.")
+            compile = True
+        elif data_path.stat().st_mtime < tex_file.stat().st_mtime:
+            print(f"File {data_path} is older than {tex_file}. Recompiling.")
+            compile = True
+        elif CONFIG["packages to check"].get(tex_file.name) is not None:
+            packages = CONFIG["packages to check"][tex_file.name]
+            for package in packages:
+                package_path = TEX_PACKAGES_DIR / package
+                if data_path.stat().st_mtime < package_path.stat().st_mtime:
+                    print(f"File {data_path} is older than package {package_path}. Recompiling.")
+                    compile = True
+                    break
+
+        if compile:
+            result = compile_latex(tex_file)
+            if result.returncode != 0:
+                print(f"Compilation of {tex_file} failed. Please check the LaTeX file.")
+                continue
+
+def insert_nested(d, codes_values):
+    *keys, value = codes_values
+
+    current = d
+    for key in keys[:-1]:
+        current = current.setdefault(key, {})
+
+    current[keys[-1]] = value
+
+def update_code_index():
+    #5- extraire les données du fichier data.txt dans un dict puis ecrire le dict dans un fichier json
+    check_code_index_data()
+    cwd = resolve_path("code labels")
+    code_index_parent = resolve_path("code index")
+
+    code_index_data = {}
+    for data_file in cwd.glob("*-data.txt"):
+        with open(data_file, "r", encoding="utf-8") as f:
+            for line in f:
+                codes_values = line.strip().split('|:|')
+                insert_nested(code_index_data, codes_values)
+
+    code_index_file = code_index_parent / "code_index.json"
+    with open(code_index_file, "w", encoding="utf-8") as f:
+            json.dump(code_index_data, f, ensure_ascii=False, indent=4)
+
+if __name__ == "__main__":
+    # Example usage
+    update_code_index()

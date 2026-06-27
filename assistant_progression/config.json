@@ -8,15 +8,23 @@
         ]
     },
     "paths": {
-        "cycle 3 BO 2026": ["data/latex/codes_cnscmpsrc/BO_2026.tex"],
-        "cycle 4 BO 2026": ["data/latex/codes_cnscmpsrc/BO_2026.tex"],
+        "cycle 3 BO 2026": ["data/latex/codes_labels/BO_2026.tex"],
+        "cycle 4 BO 2026": ["data/latex/codes_labels/BO_2026.tex"],
         "katex": [
             "./data/katex/",
             ".\\data\\katex\\"
         ],
+        "latex": [
+            "./data/latex/",
+            ".\\data\\latex\\"
+        ],
         "code index": [
-            "./data/latex/catalogues/code_index.json",
-            ".\\data\\latex\\catalogues\\code_index.json"
+            "./data/latex/catalogues/",
+            ".\\data\\latex\\catalogues\\"
+        ],
+        "code labels": [
+            "./data/latex/codes_labels/",
+            ".\\data\\latex\\codes_labels\\"
         ],
         "progression export path": [
             "./data/latex/sequencages/",
@@ -25,8 +33,19 @@
         "progression import path": [
             "./data/progressions/",
             ".\\data\\progressions\\"
+        ],
+        "texmf": [
+            "./data/texmf/",
+            ".\\data\\texmf\\"
         ]
     },
+    "packages to check": {
+            "BO_2026.tex": ["texmaths-BO_2026.sty"],
+            "BO_competences_evaluees.tex": ["texmaths-cmpeval.sty"],
+            "BO_competences-cycle3-BO_2020.tex": ["texmaths-cycle3-BO_2020.sty"],
+            "BO_competences-cycle4-BO_2020.tex": ["texmaths-cycle4-BO_2020.sty"],
+            "Sources.tex": ["texmaths-sources.sty"]
+        },
     "codes": {
             "cmpsocle": "Compétences du socle",
             "cycle 3 BO 2020": "Cycle 3 BO 2020",

@@ -73,6 +73,7 @@
     \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cns}*}
     \defunivar\cns[\tmpkey]{#1}
     \begingroup\thirdcycle@activate@writing\global\addtofull@cns@thirdcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cns|:|\tmpkey|:|\unexpanded{#1}}%
     }
 \def\newcmp#1{
     \stepcounter{cmp}
@@ -81,6 +82,7 @@
     \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cmp}*}
     \defunivar\cmp[\tmpkey]{#1}
     \begingroup\thirdcycle@activate@writing\global\addtofull@cmp@thirdcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cmp|:|\tmpkey|:|\unexpanded{#1}}%
     }
 \def\newsubcns#1{
     \stepcounter{subcns}
@@ -89,6 +91,7 @@
     \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cns}\arabic{subcns}}
     \defunivar\cns[\tmpkey]{#1}
     \begingroup\thirdcycle@activate@writing\global\addtofull@cns@thirdcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cns|:|\tmpkey|:|\unexpanded{#1}}%
     }
 \def\newsubcmp#1{
     \stepcounter{subcmp}
@@ -97,6 +100,7 @@
     \edef\tmpkey{\Alph{theme}\arabic{attendu}\alph{cmp}\arabic{subcmp}}
     \defunivar\cmp[\tmpkey]{#1}
     \begingroup\thirdcycle@activate@writing\global\addtofull@cmp@thirdcycle{\tmpkey}{#1}\endgroup
+    \immediate\write\datafile{\currentcycle|:|cmp|:|\tmpkey|:|\unexpanded{#1}}%
     }
 
 \global\def\usecns[#1]{\steptoks{CNS#1occ}\cns[#1]}
@@ -119,6 +123,9 @@
 % ========================================
 % DEFINITION DES CONNAISSANCES/COMPETENCES
 % ========================================
+\newwrite\datafile
+\immediate\openout\datafile=\jobname-data.txt\relax
+\def\currentcycle{cycle 3 BO 2020}
 \newtheme{Nombres et calculs}
 \newattendu{Utiliser et représenter les grands nombres entiers, des fractions
 simples, les nombres décimaux}
@@ -358,6 +365,8 @@ rapport à un axe donné}\endsubcmp
 \endcmp
 \endattendus
 \endthemes
+
+\immediate\closeout\datafile
 
 % \newunivar\cmpeval
 % \defunivar\cmpeval[CH]{Chercher}
