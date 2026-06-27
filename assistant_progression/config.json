@@ -57,7 +57,7 @@
             "aut": "Automatismes",
             "obj": "Objectifs d'apprentissage",
             "pro": "Prolongements",
-            "src": "Source",
+            "src": "Sources",
             "sea": "Séances"
         },
         "aut obj pro catalogues": [
@@ -106,11 +106,31 @@
                     "focus_bg": "#434c5e",
                     "focus_border": "#81a1c1",
                     "font": "Latin Modern Roman"
+                },
+                "Fusion": {
+                    "bg": "#353535",
+                    "fg": "#f0f0f0",
+                    "panel": "#424242",
+                    "accent": "#2a82da",
+                    "border": "#5a5a5a",
+                    "focus_bg": "#4a4a4a",
+                    "focus_border": "#2a82da",
+                    "font": "Sans Serif"
+                },
+                "Fusion Crimson": {
+                    "bg": "#353535",
+                    "fg": "#f0f0f0",
+                    "panel": "#424242",
+                    "accent": "#b04a4a",
+                    "border": "#5a5a5a",
+                    "focus_bg": "#4a4a4a",
+                    "focus_border": "#c75b5b",
+                    "font": "Latin Modern Roman"
                 }
             },
             "default": {
-                "theme": "VSCode Dark",
-                "code": "cycle 4 BO 2026"
+                "theme": "Fusion Crimson",
+                "code": "Sources"
             }
         }
 }

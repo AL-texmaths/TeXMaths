@@ -25,7 +25,6 @@ from PySide6.QtGui import (
     QShortcut
 )
 from PySide6.QtWidgets import (
-    QApplication,
     QWidget,
     QVBoxLayout,
     QHBoxLayout,
@@ -157,7 +156,7 @@ class MainWindow(QWidget):
 
         self.theme_service = ThemeService(
             themes=self.settings["themes"],
-            default_theme=self.config.get(
+            default_theme=self.settings.get(
                 "default",
                 {
                     "theme": next(
@@ -423,11 +422,24 @@ class MainWindow(QWidget):
 
         self.progression = QTreeWidget()
 
-        self.progression.setStyleSheet("""
-            QTreeWidget::item {
-                height: 28px;
-            }
-            """)
+        # self.progression.setStyleSheet("""
+        # QTreeWidget {
+        #     background: #252526;
+        #     color: #d4d4d4;
+        #     border: 1px solid #3c3c3c;
+        # }
+
+        # QHeaderView::section {
+        #     background: #2d2d30;
+        #     color: white;
+        #     padding: 4px;
+        #     border: 1px solid #3c3c3c;
+        # }
+
+        # QTreeWidget::item {
+        #     height: 28px;
+        # }
+        # """)
 
         self.progression.setHeaderLabel("Progression annuelle")
         self.add_level_button = QPushButton("Ajouter un niveau")
@@ -709,13 +721,14 @@ class MainWindow(QWidget):
         html = "<br>".join(html_items)
 
         self.preview.setHtml(
-            self.html_service.render_list(html),
+            self.html_service.render_list(html, self.theme_service.get_current_theme()),
             QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
         )
 
     def set_theme(self, name):
         self.theme_service.set_theme(name)
         self.theme_service.apply(self)
+        self.refresh_view()
 
     def update_type_filter(self):
 
@@ -778,6 +791,7 @@ class MainWindow(QWidget):
             content=entry.text,
             catalogue=self.catalogue_service.display_name(entry.catalogue),
             source_type=self.catalogue_service.display_name(entry.type),
+            theme=self.theme_service.get_current_theme(),
         )
 
         self.preview.setHtml(

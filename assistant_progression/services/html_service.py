@@ -11,14 +11,17 @@ class HtmlService:
         code: str,
         content: str,
         catalogue: str,
-        source_type: str
+        source_type: str,
+        theme: dict
     ) -> str:
-
+        
         css = "katex.min.css"
         js = "katex.min.js"
         render = "contrib/auto-render.min.js"
 
         content = escape(content)
+
+        t = theme
 
         return f"""
 <!DOCTYPE html>
@@ -45,24 +48,32 @@ window.onload = function() {{
 
 <style>
 body {{
+    background: {t['bg']};
+    color: {t['fg']};
     font-family: "Latin Modern Roman", serif;
     padding: 20px;
     font-size: 18px;
 }}
 
 .code {{
+    color: {t['accent']};
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
 }}
 
 .meta {{
-    color: #666;
+    color: {t['fg']};
     margin-bottom: 20px;
 }}
 
 .content {{
     line-height: 1.6;
+}}
+hr {{
+    border: none;
+    border-top: 1px solid {t["border"]};
+    margin: 20px 0;
 }}
 </style>
 
@@ -86,11 +97,16 @@ body {{
 """
 
     @staticmethod
-    def render_list(content: str) -> str:
+    def render_list(
+        content: str,
+        theme: dict
+    ) -> str:
 
         css = "katex.min.css"
         js = "katex.min.js"
         render = "contrib/auto-render.min.js"
+
+        t = theme
 
         return f"""
 <!DOCTYPE html>
@@ -117,13 +133,25 @@ window.onload = function() {{
 
 <style>
 body {{
-    font-family: "Latin Modern Roman", serif;
+    background: {t['bg']};
+    color: {t['fg']};
+    font-family: "{t['font']}", serif;
     padding: 20px;
     font-size: 18px;
 }}
 
 .item {{
-    margin-bottom: 10px;
+    line-height: 1.6;
+}}
+
+b {{
+    color: {t['accent']};
+}}
+
+hr {{
+    border: none;
+    border-top: 1px solid {t["border"]};
+    margin: 10px 0;
 }}
 </style>
 
