@@ -28,10 +28,28 @@
         "justMyCode": true
         },
         {
-        "name": "Rnu gui.file",
+        "name": "Run gui.file",
         "type": "debugpy",
         "request": "launch",
         "module": "assistant_progression.gui.${fileBasenameNoExtension}",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "justMyCode": true
+        },
+        {
+        "name": "Run services.file",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "assistant_progression.services.${fileBasenameNoExtension}",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "justMyCode": true
+        },
+        {
+        "name": "Run utils.file",
+        "type": "debugpy",
+        "request": "launch",
+        "module": "assistant_progression.utils.${fileBasenameNoExtension}",
         "cwd": "${workspaceFolder}",
         "console": "integratedTerminal",
         "justMyCode": true

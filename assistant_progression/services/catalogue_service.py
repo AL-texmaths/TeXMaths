@@ -1,7 +1,7 @@
 import re
 
 from assistant_progression.models.entry import Entry
-
+from assistant_progression.utils.textools import compile_latex, resolve_path
 
 class CatalogueService:
 
@@ -161,3 +161,8 @@ class CatalogueService:
         )
 
         return entries
+
+    def update_code_label(self, catalogue):
+        
+        tex_path = resolve_path(self.internal_name(catalogue), config=True)
+        print(tex_path)

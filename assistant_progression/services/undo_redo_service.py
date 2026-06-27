@@ -1,6 +1,13 @@
-# assistant_progression/services/undo_redo_service.py
-
 import copy
+
+def record_undo(method):
+    def wrapper(self, *args, **kwargs):
+        self.undo_redo.record(self.progression_service.snapshot(
+                self.progression
+            )
+        )
+        return method(self, *args, **kwargs)
+    return wrapper
 
 class UndoRedoService:
     def __init__(self):

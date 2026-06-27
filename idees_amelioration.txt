@@ -8,31 +8,37 @@
 					Python
 ===============================================================================
 --------- Assistant de navigation -------------
+>>> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
+officiel sur disque dur externe
+>>> régler le warning source inconnue alors qu'elle a ete définie
 >>> erreur dans le décompte des warnings/errors de check database
 --> intégrer les erreurs de update_data_index dans le calcul des warnings/errors
 >>> l'erreur missing pdf doit mener à un test de compilation pour le fichier en question.
-Vérouiller les cases "ouvrir avec adobe" ou "ouvrir avec pdfxchange" si
+>>> Vérouiller les cases "ouvrir avec adobe" ou "ouvrir avec pdfxchange" si
 les executables ne sont pas trouvés
-USBSave --> vérifier l'existence des chemins avant l'execution du programme
-Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
-Checker la possibilité de connecter linux a une imprimante via wifi
---> régler le warning source inconnue alors qu'elle a ete définie
---> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
-officiel sur disque dur externe
+>>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
+>>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assitant de progression ---------------
->>> l'ajout dde code d'item a un chapitre ne fonctionne que si un chapitre
+>>> possibilité via le menu de mettre à jour le code_index
+    ---> l'utilisateur modifie texmaths-*-BO*.sty
+	---> la mise a jour compile le BO correspondant et run update_code_index
+>>> l'ajout de code d'item a un chapitre ne fonctionne que si un chapitre
 est sélectionné dans la progression. Il serait plus souple que si c'est un enfant
 de chapitre qui est sélectionné, cela fonctionne aussi et lajout se fasse sur le
 chapitre parent
+>>> message box lorsqu'une compétence est ajouté à un chapitre.
+>>> message d'alerte si un niveau est sélectionné (veuillez sélectionner un
+chapitre)
 >>> cliquer sur un code de compétence/objectif dans la progression affiche le texte
 complet lié au code
->>> revoir le comportement de save_progression lorsqu'aucun fichier
-n'a été chargé (li faut fallback sur save_on_progressoin)
 >>> lors de l'utilisation de ctrl+i, le tree progression devrait
 s'ouvrir pour afficher l'item ajouté
->>> sauvegarder sous un progression ouvre le même dossier
+>>> sauvegarder sous un progression doit ouvrir le même dossier
 que le raccourci ctrl+O
->>> tester sur windows nue version executable avec pyinstaller
+>>> tester sur windows une version executable avec pyinstaller
+--> s'assurer de la compatibilité windows, notamment au niveaux des chemins
+--> Github Action pour créer l'executable
+--> Wine pour tester l'executable
 ===============================================================================
 					Java / html
 ===============================================================================
@@ -50,8 +56,8 @@ genialy
 ===============================================================================
 					LaTeX
 ===============================================================================
---> revoir la macro \videoManim de texmaths-path
---> revoir le code avec lualatex/Expl3 pour amélioration
+>>> revoir la macro \videoManim de texmaths-path
+>>> revoir le code avec lualatex/Expl3 pour amélioration
 % --------------------------
 % mise a jour de la database (fichiers latex)
 - identifier les packages nécéssaires a mettre dans le préambule

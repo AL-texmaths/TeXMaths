@@ -2,20 +2,12 @@ from assistant_progression.services.html_service import HtmlService
 from assistant_progression.services.catalogue_service import CatalogueService
 from assistant_progression.services.persistence_service import PersistenceService
 from assistant_progression.services.export_service import ExportService
-from assistant_progression.services.undo_redo_service import UndoRedoService
+from assistant_progression.services.undo_redo_service import UndoRedoService, record_undo
 from assistant_progression.services.theme_service import ThemeService
 from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
 from assistant_progression.services.progression_service import ProgressionService
 from assistant_progression.services.search_service import SearchService
-
-def record_undo(method):
-    def wrapper(self, *args, **kwargs):
-        self.undo_redo.record(self.progression_service.snapshot(
-                self.progression
-            )
-        )
-        return method(self, *args, **kwargs)
-    return wrapper
+from assistant_progression.services.regex_service import SearchLineEdit
 
 import re
 import sys
@@ -36,7 +28,6 @@ from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
     QHBoxLayout,
-    QLineEdit,
     QListWidget,
     QComboBox,
     QMenuBar,
@@ -48,46 +39,13 @@ from PySide6.QtWidgets import (
     QMessageBox,
     QDialog
 )
-
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
-from src.tools import CONFIG, get_path
+from assistant_progression.utils.textools import CONFIG, resolve_path
 
-title = "Assistant de progression"
-
-KATEX_DIR = get_path('katex')
-CODE_INDEX_DIR = get_path('code index')
-
-
-class SearchLineEdit(QLineEdit):
-
-    def __init__(self, list_widget):
-        super().__init__()
-        self.list_widget = list_widget
-
-    def keyPressEvent(self, event):
-
-        row = self.list_widget.currentRow()
-
-        if event.key() == Qt.Key_Down:
-            if self.list_widget.count():
-                self.list_widget.setFocus()
-                if row < self.list_widget.count() - 1:
-                    self.list_widget.setCurrentRow(row + 1)
-            return
-
-        if event.key() == Qt.Key_Up:
-            if self.list_widget.count():
-                self.list_widget.setFocus()
-                if row > 0:
-                    self.list_widget.setCurrentRow(row - 1)
-            return
-
-        if event.key() in (Qt.Key_Return, Qt.Key_Enter):
-            self.list_widget.setFocus()
-            return
-
-        super().keyPressEvent(event)
+KATEX_DIR = resolve_path('katex')
+CODE_INDEX_DIR = resolve_path('code index')
+DEFAULT_PROG_DIR = resolve_path('progression import path')
 
 class MainWindow(QWidget):
 
@@ -304,10 +262,10 @@ class MainWindow(QWidget):
             self.progression.setFocus()
 
     def init_undo_redo(self): 
-        QShortcut(QKeySequence("Ctrl+Up"), self,
+        QShortcut(QKeySequence("Alt+Up"), self,
           activated=lambda: self.move_current_item(-1))
 
-        QShortcut(QKeySequence("Ctrl+Down"), self,
+        QShortcut(QKeySequence("Alt+Down"), self,
                 activated=lambda: self.move_current_item(+1))
     
         QShortcut(
@@ -323,14 +281,14 @@ class MainWindow(QWidget):
         )
 
     def init_window_and_settings(self):
-        self.setWindowTitle(title)
+        self.config = CONFIG
+        self.settings = self.config.get("settings")
+        self.setWindowTitle(self.settings.get("main window title", "Assistant de progression"))
         self.resize(1400, 800)
 
         with open(CODE_INDEX_DIR, encoding="utf-8") as f:
             self.data = json.load(f)
 
-        self.config = CONFIG[title]
-        self.settings = self.config.get("settings")
 
         shortcut = QShortcut(QKeySequence("Ctrl+Q"), self)
         shortcut.activated.connect(self.close)
@@ -398,11 +356,16 @@ class MainWindow(QWidget):
         edit_menu = QMenu("Édition", self)
         theme_menu = QMenu("Thème", self)
         file_menu = QMenu("Fichier", self)
+        update_menu = QMenu("Mise à jour", self)
 
         load_action = QAction("Charger une progression", self)
         save_action = QAction("Sauvegarder", self)
         save_under_action = QAction("Sauvegarder sous", self)
         export_progression_action = QAction("Exporter la progression", self)
+
+        update_code_index_action = QAction("Mettre à jour l'index des codes", self)
+        update_menu.addAction(update_code_index_action)
+        update_code_index_action.triggered.connect(self.update_code_index)
 
         load_action.setShortcut(QKeySequence.Open)
         save_action.setShortcut(QKeySequence.Save)
@@ -432,6 +395,7 @@ class MainWindow(QWidget):
         edit_menu.addMenu(theme_menu)
         menu_bar.addMenu(file_menu)
         menu_bar.addMenu(edit_menu)
+        menu_bar.addMenu(update_menu)
         self.main_layout.setMenuBar(menu_bar)
 
     def init_progression_pannel(self):
@@ -539,6 +503,11 @@ class MainWindow(QWidget):
     def is_selected_catalogue_aut_obj_pro(self):
         selected_catalogue = self.selected_catalogue()
         return selected_catalogue in self.config.get("aut obj pro catalogues")
+
+    def update_code_index(self):
+        self.catalogue_service.update_code_label(
+            self.selected_catalogue()
+        )
 
     @record_undo
     def add_chapter(self):
@@ -781,7 +750,7 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getOpenFileName(
             self,
             "Charger une progression",
-            str(get_path("progression import path")),
+            str(DEFAULT_PROG_DIR.resolve()),
             "JSON (*.json)"
         )
 
@@ -829,7 +798,7 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getSaveFileName(
             self,
             "Sauvegarder la progression",
-            "",
+            str(DEFAULT_PROG_DIR.resolve()),
             "JSON Files (*.json);;All Files (*)",
             options=options)
         
