@@ -19,7 +19,11 @@ les executables ne sont pas trouvés
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assitant de progression ---------------
-identifier les fichiers externes nécessaires (les dossiers sont déjà identifiés)
+>>> identifier les fichiers externes nécessaires (les dossiers sont déjà identifiés)
+--> l'identification devrait se faire par morceau
+------> morceaux absolument nécessaires
+------> morceaux non indispensable (par exemple pas de possibilité d'export)
+------> faire un affiche info avec désactivation plutôt qu'une erreur
 ===============================================================================
 					Java / html
 ===============================================================================
