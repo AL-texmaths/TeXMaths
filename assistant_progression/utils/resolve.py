@@ -3,6 +3,41 @@ import json
 import shutil
 from pathlib import Path
 
+from pathlib import Path
+
+def check_project_layout(Base_dir: Path):
+
+    REQUIRED_FILES = [
+    Base_dir / "config.json",
+    ]
+
+    DATA_DIR = Base_dir / "data"
+
+    REQUIRED_DIRS = [
+        DATA_DIR / "latex" / "catalogues",
+        DATA_DIR / "katex",
+        DATA_DIR / "progressions",
+        DATA_DIR / "texmf",
+        DATA_DIR / "latex" / "codes_labels",
+        DATA_DIR / "latex" / "sequencage",
+    ]
+
+    missing = []
+
+    for f in REQUIRED_FILES:
+        if not f.exists():
+            missing.append(f)
+
+    for d in REQUIRED_DIRS:
+        if not d.exists():
+            missing.append(d)
+
+    if missing:
+        raise RuntimeError(
+            "Missing required project files:\n" +
+            "\n".join(str(m) for m in missing)
+        )
+
 def get_config() -> dict:
     """
     Load the configuration from the config.json file.
