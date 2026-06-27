@@ -19,7 +19,7 @@ def check_project_layout(Base_dir: Path):
         DATA_DIR / "progressions",
         DATA_DIR / "texmf",
         DATA_DIR / "latex" / "codes_labels",
-        DATA_DIR / "latex" / "sequencage",
+        DATA_DIR / "latex" / "sequencages",
     ]
 
     missing = []
