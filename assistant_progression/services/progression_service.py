@@ -86,28 +86,57 @@ class ProgressionService:
 
         tree.setCurrentItem(item)
 
-    def add_selected_item(self, tree, entry):
+    def can_add_level(self, tree):
+        return True
 
-        selected = tree.currentItem()
-        if selected is None or selected.parent() is None:
+    def can_add_chapter(self, tree, selected_catalogue):
+
+        if not selected_catalogue:
+            return False
+
+        if tree.topLevelItemCount() == 0:
+            return False
+
+        return True
+
+    def can_add_seance(self, tree):
+        chapter = self.get_selected_chapter(tree)
+        if chapter is None:
+            return False
+
+        for i in range(chapter.childCount()):
+            if chapter.child(i).text(0) == "Séances":
+                return True
+
+        return False
+
+    def get_selected_chapter(self, tree):
+        item = tree.currentItem()
+        if item is None:
             return None
 
-        selected_chapter = tree.currentItem()
+        # remonter jusqu'au niveau 1 (chapitre)
+        while item.parent() is not None and item.parent().parent() is not None:
+            item = item.parent()
 
-        while selected_chapter.parent() is not None:
-            if selected_chapter.parent().parent() is None:
-                break
-            selected_chapter = selected_chapter.parent()
+        # vérifier que c'est bien un chapitre (niveau 1)
+        if item.parent() is None:
+            return None
 
-        target_label = self.catalogue_service.code_label(
-            entry.type
-        )
+        return item
+
+    def add_selected_item(self, tree, entry):
+
+        chapter = self.get_selected_chapter(tree)
+        if chapter is None:
+            return None
+
+        target_label = self.catalogue_service.code_label(entry.type)
 
         target = None
 
-        for i in range(selected_chapter.childCount()):
-
-            child = selected_chapter.child(i)
+        for i in range(chapter.childCount()):
+            child = chapter.child(i)
 
             if child.text(0) == target_label:
                 target = child
@@ -126,14 +155,14 @@ class ProgressionService:
 
         item.setToolTip(
             0,
-            f"Catalogue: {self.catalogue_service.display_name(entry.catalogue)}"
-            f"{entry.text}\n\n"
+            f"Catalogue: {self.catalogue_service.display_name(entry.catalogue)}\n"
+            f"{entry.text}\n"
         )
 
         target.addChild(item)
 
+        # expand proprement tout le chemin
         parent = item.parent()
-
         while parent is not None:
             parent.setExpanded(True)
             parent = parent.parent()
@@ -145,25 +174,30 @@ class ProgressionService:
 
     def add_seance(self, tree):
 
-            parent = tree.currentItem()
+        chapter = self.get_selected_chapter(tree)
+        if chapter is None:
+            return None
 
-            if parent is None:
-                return None
+        # chercher le noeud "Séances"
+        target = None
 
-            if parent.text(0) != "Séances":
-                return None
+        for i in range(chapter.childCount()):
+            child = chapter.child(i)
+            if child.text(0) == "Séances":
+                target = child
+                break
 
-            item = QTreeWidgetItem(["Nouvelle séance"])
+        if target is None:
+            return None
 
-            item.setFlags(
-                item.flags() | Qt.ItemIsEditable
-            )
+        item = QTreeWidgetItem(["Nouvelle séance"])
+        item.setFlags(item.flags() | Qt.ItemIsEditable)
 
-            parent.addChild(item)
+        target.addChild(item)
 
-            tree.setCurrentItem(item)
+        tree.setCurrentItem(item)
 
-            return item
+        return item
 
     def tree_to_dict(self, item, depth=0):
 

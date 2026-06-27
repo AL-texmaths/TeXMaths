@@ -561,6 +561,8 @@ class MainWindow(QWidget):
 
         if item:
             self.progression.editItem(item, 0)
+        
+        self.update_buttons_state()
 
     @record_undo
     def add_level(self):
@@ -571,6 +573,8 @@ class MainWindow(QWidget):
 
         if item:
             self.progression.editItem(item, 0)
+        
+        self.update_buttons_state()
 
     def show_unused_items(self):
 
@@ -657,6 +661,8 @@ class MainWindow(QWidget):
 
         if item:
             self.progression.editItem(item, 0)
+        
+        self.update_buttons_state()
 
     @record_undo
     def move_current_item(self, delta):
@@ -675,7 +681,24 @@ class MainWindow(QWidget):
     
     def update_buttons_state(self):
 
-        item = self.progression.currentItem()
+        tree = self.progression
+
+        self.add_level_button.setEnabled(
+            self.progression_service.can_add_level(tree)
+        )
+
+        self.add_chapter_button.setEnabled(
+            self.progression_service.can_add_chapter(
+                tree,
+                self.selected_catalogue()
+            )
+        )
+
+        self.add_seance_button.setEnabled(
+            self.progression_service.can_add_seance(tree)
+        )
+
+        item = tree.currentItem()
 
         self.add_button.setEnabled(
             self.is_chapter(item)
@@ -684,7 +707,7 @@ class MainWindow(QWidget):
     @record_undo
     def delete_progression_item(self):
         self.progression_service.delete_item(self.progression)
-
+        self.update_buttons_state()
     def show_usage(self, item):
 
         code = item.data(0, Qt.UserRole)
@@ -740,6 +763,7 @@ class MainWindow(QWidget):
     def catalogue_changed(self):
         self.update_type_filter()
         self.update_search()
+        self.update_buttons_state()
 
     def update_search(self):
 
@@ -880,6 +904,7 @@ class MainWindow(QWidget):
             self.progression,
             state
         )
+        self.update_buttons_state()
 
     def redo(self):
         state = self.undo_redo.redo(self.progression_service.snapshot(
@@ -892,6 +917,7 @@ class MainWindow(QWidget):
            self.progression,
             state
         )
+        self.update_buttons_state()
 
     def export_progression(self):
 
