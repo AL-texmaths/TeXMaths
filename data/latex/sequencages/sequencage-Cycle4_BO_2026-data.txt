@@ -1,0 +1,730 @@
+cycle 4 BO 2026|:|aut|:|A1aa|:|Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2.
+cycle 4 BO 2026|:|aut|:|A1ab|:|Déterminer le quotient et le reste dans une division euclidienne, par exemple, savoir que $17 = 3 \times 5 + 2$.
+cycle 4 BO 2026|:|aut|:|A1ac|:|Utiliser les tables de multiplication pour factoriser des nombres entiers décomposables en produit de deux nombres différents de 1, par exemple, $21 = 3 \times 7$.
+cycle 4 BO 2026|:|aut|:|A1ad|:|Savoir calculer des produits en lien avec les tables : $0,6 \times 7$ ; $40 \times 0,03$.
+cycle 4 BO 2026|:|aut|:|A1ae|:|Multiplier et diviser par 10, 100, 1~000.
+cycle 4 BO 2026|:|aut|:|A1af|:|Additionner et soustraire des décimaux, par exemple, $2{,}7 + 1{,}4$ ; $3{,}4 - 0{,}8$.
+cycle 4 BO 2026|:|obj|:|A1aa|:|Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.
+cycle 4 BO 2026|:|obj|:|A1ab|:|Connaitre le sens et les situations d'emploi de ces opérations.
+cycle 4 BO 2026|:|obj|:|A1ac|:|Diviser par un nombre décimal.
+cycle 4 BO 2026|:|obj|:|A1ad|:|Enchainer des opérations.
+cycle 4 BO 2026|:|obj|:|A1ae|:|Traduire un problème, une succession donnée d'opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses.
+cycle 4 BO 2026|:|obj|:|A1af|:|Nommer un calcul, distinguer sommes et produits, termes et facteurs.
+cycle 4 BO 2026|:|obj|:|A1ag|:|Connaitre et utiliser les priorités opératoires.
+cycle 4 BO 2026|:|obj|:|A1ah|:|Connaitre et utiliser la distributivité simple sur des exemples numériques.
+cycle 4 BO 2026|:|obj|:|A1ai|:|Utiliser les notions de multiples et diviseurs.
+cycle 4 BO 2026|:|obj|:|A1aj|:|Connaitre les critères de divisibilité par 3 et par 9.
+cycle 4 BO 2026|:|obj|:|A1ak|:|Mobiliser un algorithme dans le cadre du calcul numérique.
+cycle 4 BO 2026|:|pro|:|A1aa|:|Notion de nombre premier et développements sur ce thème (existence d'un nombre infini de nombres premiers, crible d'Ératosthène, etc.).
+cycle 4 BO 2026|:|aut|:|A1ba|:|Additionner, soustraire, multiplier des nombres décimaux à une ou deux décimales.
+cycle 4 BO 2026|:|aut|:|A1bb|:|Savoir que pour compléter une addition à trou, on utilise une soustraction : $2 + ... = 7$ se complète en calculant $7 - 2$.
+cycle 4 BO 2026|:|obj|:|A1ba|:|Définir les nombres relatifs.
+cycle 4 BO 2026|:|obj|:|A1bb|:|Définir l'opposé et la valeur absolue d'un nombre.
+cycle 4 BO 2026|:|obj|:|A1bc|:|Définir la notion de nombre positif, strictement positif, négatif, strictement négatif.
+cycle 4 BO 2026|:|obj|:|A1bd|:|Utiliser les nombres relatifs pour représenter des grandeurs observables qui peuvent prendre des valeurs inférieures à zéro (température, temps, altitude, etc.), en particulier dans le cadre de la résolution de problèmes.
+cycle 4 BO 2026|:|obj|:|A1be|:|Lire l'abscisse d'un nombre relatif sur une droite graduée et placer un nombre relatif d'abscisse donnée.
+cycle 4 BO 2026|:|obj|:|A1bf|:|Comparer et ranger dans l'ordre croissant et décroissant des nombres décimaux relatifs.
+cycle 4 BO 2026|:|obj|:|A1bg|:|Additionner deux nombres décimaux relatifs.
+cycle 4 BO 2026|:|obj|:|A1bh|:|Additionner plusieurs nombres décimaux relatifs.
+cycle 4 BO 2026|:|obj|:|A1bi|:|Soustraire deux nombres décimaux relatifs.
+cycle 4 BO 2026|:|obj|:|A1bj|:|Connaitre et justifier les situations dans lesquelles des parenthèses sont indispensables au sens des écritures.
+cycle 4 BO 2026|:|obj|:|A1bk|:|Simplifier l'écriture de sommes comportant des parenthèses.
+cycle 4 BO 2026|:|obj|:|A1bl|:|Enchainer additions et soustractions de décimaux relatifs.
+cycle 4 BO 2026|:|obj|:|A1bm|:|Résoudre des problèmes mobilisant addition et soustraction de nombres décimaux relatifs.
+cycle 4 BO 2026|:|pro|:|A1ba|:|Premières apparitions des nombres négatifs avec Brahmagupta (600), dont l'existence était toujours niée au XVII$^\text {e}$ siècle.
+cycle 4 BO 2026|:|aut|:|A1ca|:|Entretenir la connaissance et l'utilisation des tables de multiplication.
+cycle 4 BO 2026|:|aut|:|A1cb|:|Entretenir l'écriture décimale des fractions simples comme $\frac {1}{2}$ ; $\frac {1}{4}$ ; $\frac {3}{4}$ ; $\frac {3}{2}$ ; $\frac {4}{2}$ ; $\frac {5}{2}$ ; $\frac {1}{10}$ ; $\frac {100}{100}$ ; $\frac {7}{1}$.
+cycle 4 BO 2026|:|aut|:|A1cc|:|Faire vivre la notion de nombre quotient en complétant des multiplications à trou : $3 \times \ldots = 7$ puis $3 \times \frac {7}{3} = \ldots $
+cycle 4 BO 2026|:|aut|:|A1cd|:|Lire l'abscisse d'un point sur une droite graduée en tiers, en quarts, en moitiés, en dixièmes.
+cycle 4 BO 2026|:|aut|:|A1ce|:|Reconnaitre des fractions égales : $\frac {2}{3} = \frac {\ldots }{15}$ ; $\frac {4}{7} = \frac {\ldots }{14}$.
+cycle 4 BO 2026|:|aut|:|A1cf|:|Comparer deux fractions : $\frac {2}{7}$ et $\frac {5}{7}$ ; $\frac {8}{12}$ et $\frac {8}{21}$ ; $\frac {3}{4}$ et $\frac {7}{18}$ ; $\frac {8}{3}$ et $\frac {6}{7}$.
+cycle 4 BO 2026|:|aut|:|A1cg|:|Écrire une fraction sous la forme d'une somme d'un nombre entier et d'une fraction inférieure à 1 : $\frac {17}{5} = 3 + \frac {2}{5}$.
+cycle 4 BO 2026|:|aut|:|A1ch|:|Addition et soustraction de fractions simples : $\frac {3}{5} + \frac {4}{5}$ ; $1 - \frac {2}{3}$ ; $\frac {4}{7} - \frac {2}{21}$ ; $3 + \frac {2}{5}$ ; $\frac {2}{5} + \frac {1}{4}$.
+cycle 4 BO 2026|:|aut|:|A1ci|:|Prendre une fraction simple d'un nombre : le $\frac {1}{3}$ de 18 ; le $\frac {1}{4}$ de 12.
+cycle 4 BO 2026|:|aut|:|A1cj|:|Prendre 1~\%, 10~\% ou 50~\% d'un nombre, en lien avec la proportionnalité.
+cycle 4 BO 2026|:|aut|:|A1ck|:|Écrire un même nombre sous de multiples formes, par exemple dire que $1{,}2 = \frac {12}{10} = \frac {6}{5} = 1 + \frac {1}{5} = 120~\% = \frac {120}{100}$ etc.
+cycle 4 BO 2026|:|obj|:|A1ca|:|Comparer des fractions.
+cycle 4 BO 2026|:|obj|:|A1cb|:|Additionner et soustraire des fractions de dénominateurs quelconques.
+cycle 4 BO 2026|:|obj|:|A1cc|:|Résoudre des problèmes avec des additions et soustractions de fractions.
+cycle 4 BO 2026|:|aut|:|A1da|:|Entretenir les tables de multiplications.
+cycle 4 BO 2026|:|aut|:|A1db|:|Connaître les unités d'aire.
+cycle 4 BO 2026|:|aut|:|A1dc|:|Connaître les unités de volume.
+cycle 4 BO 2026|:|obj|:|A1da|:|Découvrir la notion de puissance d'un nombre et sa notation dans le cas du carré et du cube.
+cycle 4 BO 2026|:|obj|:|A1db|:|Connaitre les carrés des entiers de 0 à 12.
+cycle 4 BO 2026|:|obj|:|A1dc|:|Connaitre le cube de 10.
+cycle 4 BO 2026|:|obj|:|A1dd|:|Savoir écrire un nombre sous la forme d'une puissance 2 ou 3.
+cycle 4 BO 2026|:|obj|:|A1de|:|Calculer la valeur numérique d'expressions contenant des puissances simples, additions, soustractions et produits.
+cycle 4 BO 2026|:|obj|:|A1df|:|Calculer la valeur d'une expression littérale contenant une puissance simple.
+cycle 4 BO 2026|:|aut|:|A1ea|:|Identifier des régularités et poursuivre une suite de motifs évolutive.
+cycle 4 BO 2026|:|aut|:|A1eb|:|Trouver le nombre d'éléments pour une étape donnée dans une suite de motifs évolutive.
+cycle 4 BO 2026|:|aut|:|A1ec|:|Identifier la structure d'un motif évolutif en repérant une régularité.
+cycle 4 BO 2026|:|aut|:|A1ed|:|Nombre quotient.
+cycle 4 BO 2026|:|obj|:|A1ea|:|Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.).
+cycle 4 BO 2026|:|obj|:|A1eb|:|Calculer la valeur d'une expression littérale par substitution.
+cycle 4 BO 2026|:|obj|:|A1ec|:|Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.
+cycle 4 BO 2026|:|obj|:|A1ed|:|Déterminer si une expression littérale est une somme ou un produit.
+cycle 4 BO 2026|:|obj|:|A1ee|:|Exploiter les relations $k(a + b) = ka + kb$ ou $k(a - b) = ka - kb$ pour factoriser, ou développer une expression littérale.
+cycle 4 BO 2026|:|obj|:|A1ef|:|Réduire une expression littérale de la forme $ax + b$, où $a$ et $b$ sont des nombres décimaux.
+cycle 4 BO 2026|:|obj|:|A1eg|:|Démontrer une propriété générale par le calcul littéral.
+cycle 4 BO 2026|:|obj|:|A1eh|:|Utiliser un contre-exemple pour démontrer qu'une assertion est fausse.
+cycle 4 BO 2026|:|obj|:|A1ei|:|Formuler des conjectures en s'appuyant sur un langage algorithmique ou un tableur.
+cycle 4 BO 2026|:|obj|:|A1ej|:|Donner à la lettre le statut d'inconnue.
+cycle 4 BO 2026|:|obj|:|A1ek|:|Modéliser des problèmes relevant des opérations à trous par des équations du type $ax = c$ ou $x + b = c$.
+cycle 4 BO 2026|:|obj|:|A1el|:|Résoudre des équations du type $ax = c$ ou $x + b = c$ par des méthodes arithmétiques s'appuyant sur les opérations inverses.
+cycle 4 BO 2026|:|pro|:|A1ea|:|Lien avec Al-Khwarizmi pour qui la résolution des problèmes fait appel à la « chose » qu'on cherche.
+cycle 4 BO 2026|:|pro|:|A1eb|:|Spécificité de la résolution des équations du type $x + b = c$ (« Al-jabr ») et du type $ax = c$ (« Al-hatt ») chez Al-Khwarizmi.
+cycle 4 BO 2026|:|aut|:|A2aa|:|Manipulation de sommes et différences de nombres relatifs.
+cycle 4 BO 2026|:|aut|:|A2ab|:|Opposé d'un nombre, somme des opposés.
+cycle 4 BO 2026|:|aut|:|A2ac|:|Entretien des tables de multiplication.
+cycle 4 BO 2026|:|aut|:|A2ad|:|Multiplier et diviser par 10, 100, 1~000.
+cycle 4 BO 2026|:|aut|:|A2ae|:|Compléter des multiplications à trou : $5 \times \ldots = 3$ ; faire le lien entre multiplication et division.
+cycle 4 BO 2026|:|aut|:|A2af|:|Multiplication comme addition itérée : $3 + 3 + 3 + 3 = 4 \times 3$.
+cycle 4 BO 2026|:|obj|:|A2aa|:|Multiplier deux nombres relatifs : d'abord dans le cas où un seul des facteurs est négatif, puis, grâce à la distributivité, dans le cas où les deux facteurs sont négatifs.
+cycle 4 BO 2026|:|obj|:|A2ab|:|Diviser deux nombres relatifs.
+cycle 4 BO 2026|:|obj|:|A2ac|:|Savoir calculer un enchainement d'opérations avec des nombres relatifs.
+cycle 4 BO 2026|:|obj|:|A2ad|:|Utiliser le vocabulaire (somme, quotient, etc.) à partir d'un enchainement d'opérations dans un programme de calcul et inversement.
+cycle 4 BO 2026|:|aut|:|A2ba|:|Addition et soustraction de fractions de dénominateurs quelconques mais simples.
+cycle 4 BO 2026|:|aut|:|A2bb|:|Comparaison de fractions.
+cycle 4 BO 2026|:|aut|:|A2bc|:|Savoir qu'une fraction est aussi le quotient : $\frac {3}{7}$ (le nombre qui, multiplié par 7, donne 3, donc savoir que $7 \times \frac {3}{7} = 3$).
+cycle 4 BO 2026|:|aut|:|A2bd|:|Savoir que prendre la fraction d'un nombre revient à multiplier la fraction par ce nombre.
+cycle 4 BO 2026|:|obj|:|A2ba|:|Simplifier une fraction.
+cycle 4 BO 2026|:|obj|:|A2bb|:|Définir la notion de nombre rationnel : le quotient de deux nombres entiers relatifs.
+cycle 4 BO 2026|:|obj|:|A2bc|:|Exprimer l'opposé d'un nombre rationnel.
+cycle 4 BO 2026|:|obj|:|A2bd|:|Calculer le produit de nombres rationnels.
+cycle 4 BO 2026|:|obj|:|A2be|:|Calculer et représenter la fraction d'une fraction, d'un nombre, d'une quantité.
+cycle 4 BO 2026|:|obj|:|A2bf|:|Définir l'inverse d'un nombre et connaitre sa notation.
+cycle 4 BO 2026|:|obj|:|A2bg|:|Déterminer l'inverse d'une fraction.
+cycle 4 BO 2026|:|obj|:|A2bh|:|Diviser des fractions.
+cycle 4 BO 2026|:|obj|:|A2bi|:|Calculer la valeur d'expressions comportant plusieurs opérations avec des fractions.
+cycle 4 BO 2026|:|obj|:|A2bj|:|Résoudre des problèmes mobilisant les opérations sur les fractions : addition, soustraction, multiplication, division, inverse.
+cycle 4 BO 2026|:|aut|:|A2ca|:|Connaitre et reconnaitre les carrés parfaits des entiers de 0 à 12.
+cycle 4 BO 2026|:|aut|:|A2cb|:|Multiplier et diviser par 10, 100, 1~000 ; savoir compléter $1~200 = 1{,}2 \times \ldots $
+cycle 4 BO 2026|:|aut|:|A2cc|:|Puissances simples : $2^2 = 4$ ; $2^3 = 8$ ; $3^3 = 27$.
+cycle 4 BO 2026|:|aut|:|A2cd|:|$10^2 = 100$ ; $10^3 = 1~000$.
+cycle 4 BO 2026|:|obj|:|A2ca|:|Définir les puissances d'exposant positif d'un nombre $a$.
+cycle 4 BO 2026|:|obj|:|A2cb|:|Multiplier des puissances d'exposant entier naturel d'un même nombre entre elles.
+cycle 4 BO 2026|:|obj|:|A2cc|:|Multiplier des puissances d'un même exposant entier naturel de deux nombres entre elles.
+cycle 4 BO 2026|:|obj|:|A2cd|:|Résoudre des problèmes faisant intervenir des puissances.
+cycle 4 BO 2026|:|aut|:|A2da|:|Donner les carrés des nombres entiers compris entre 0 et 12.
+cycle 4 BO 2026|:|obj|:|A2da|:|Comprendre et connaitre la définition de la racine carrée d'un nombre positif.
+cycle 4 BO 2026|:|obj|:|A2db|:|Encadrer la racine carrée d'un entier par deux nombres entiers consécutifs.
+cycle 4 BO 2026|:|pro|:|A2da|:|Découverte de l'existence de nombres irrationnels (lien entre l'aire d'un carré et la longueur d'un de ses côtés).
+cycle 4 BO 2026|:|pro|:|A2db|:|$\sqrt {2}$ n'est pas décimal (démonstration par l'absurde en considérant le chiffre des unités).
+cycle 4 BO 2026|:|aut|:|A2ea|:|Donner la valeur d'expressions numériques simples.
+cycle 4 BO 2026|:|aut|:|A2eb|:|Résoudre des équations du type $ax = c$ et $x + b = c$, où $a$, $b$ et $c$ sont des nombres.
+cycle 4 BO 2026|:|aut|:|A2ec|:|Écrire $3 \times x$ sous la forme $3x$ et savoir que $3x$ c'est $3 \times x$.
+cycle 4 BO 2026|:|aut|:|A2ed|:|Connaitre et utiliser : $1 \times x = x$ ; $x + x = 2x$ ; $x \times x = x^2$ ; $3x + 2x = 5x$ ; $3x \times 2x = 6x^2$.
+cycle 4 BO 2026|:|aut|:|A2ee|:|Donner le double, le triple, la moitié, le prédécesseur, le successeur, le carré d'un nombre.
+cycle 4 BO 2026|:|aut|:|A2ef|:|Tester si un nombre vérifie une égalité.
+cycle 4 BO 2026|:|obj|:|A2ea|:|Produire des formules et tester leur vraisemblance : aires de formes géométriques simples, nombres pairs/impairs, etc.
+cycle 4 BO 2026|:|obj|:|A2eb|:|Connaitre et utiliser la distributivité simple pour développer et factoriser une expression algébrique.
+cycle 4 BO 2026|:|obj|:|A2ec|:|Utiliser le calcul algébrique pour produire des démonstrations.
+cycle 4 BO 2026|:|obj|:|A2ed|:|Résoudre une équation du premier degré du type $ax + b = c$.
+cycle 4 BO 2026|:|obj|:|A2ee|:|Mettre en équation un problème et le résoudre à l'aide d'une équation du premier degré du type $ax + b = cx + d$.
+cycle 4 BO 2026|:|obj|:|A2ef|:|Formuler des conjectures à l'aide d'un algorithme ou d'un tableur pour résoudre de manière exacte ou approchée une équation.
+cycle 4 BO 2026|:|aut|:|A3aa|:|Additionner, soustraire, multiplier et diviser des fractions.
+cycle 4 BO 2026|:|obj|:|A3aa|:|Mettre une fraction sous forme irréductible.
+cycle 4 BO 2026|:|obj|:|A3ab|:|Rendre irréductible une fraction.
+cycle 4 BO 2026|:|obj|:|A3ac|:|Résoudre des problèmes faisant appel à des fractions.
+cycle 4 BO 2026|:|pro|:|A3aa|:|Notation des ensembles des entiers naturels, des entiers relatifs, des décimaux, des rationnels.
+cycle 4 BO 2026|:|aut|:|A3ba|:|Puissance comme multiplication itérée : $3 \times 3 \times 3 \times 3 = 3^4$.
+cycle 4 BO 2026|:|aut|:|A3bb|:|Multiplication de puissances d'exposant positif d'un nombre.
+cycle 4 BO 2026|:|aut|:|A3bc|:|Multiplication de puissances de même exposant positif de deux nombres.
+cycle 4 BO 2026|:|obj|:|A3ba|:|Définir les puissances d'exposant négatif d'un nombre.
+cycle 4 BO 2026|:|obj|:|A3bb|:|Multiplier et diviser des puissances.
+cycle 4 BO 2026|:|obj|:|A3bc|:|Déterminer la notation scientifique d'un nombre.
+cycle 4 BO 2026|:|obj|:|A3bd|:|Résoudre des problèmes notamment en utilisant la notation scientifique.
+cycle 4 BO 2026|:|pro|:|A3ba|:|L'échiquier de Sissa.
+cycle 4 BO 2026|:|pro|:|A3bb|:|Le papyrus de Rhind.
+cycle 4 BO 2026|:|aut|:|A3ca|:|Donner les carrés des nombres entiers compris entre 0 et 12.
+cycle 4 BO 2026|:|obj|:|A3ca|:|Résoudre analytiquement et graphiquement des équations de la forme $x^2 = a$.
+cycle 4 BO 2026|:|obj|:|A3cb|:|Résoudre des problèmes utilisant la racine carrée.
+cycle 4 BO 2026|:|pro|:|A3ca|:|Notion de parabole et de faisceaux convergents vers son foyer. Lien avec les paraboles pour capter les chaînes de télévision.
+cycle 4 BO 2026|:|pro|:|A3cb|:|Algorithmes d'extraction de racines carrées.
+cycle 4 BO 2026|:|aut|:|A3da|:|Factoriser un nombre entier positif : $60 = 2^2 \times 3 \times 5$.
+cycle 4 BO 2026|:|aut|:|A3db|:|Simplifier une fraction dont le numérateur et le dénominateur sont dans une même table de multiplication, par exemple $\frac {15}{35}$ et $\frac {63}{14}$.
+cycle 4 BO 2026|:|aut|:|A3dc|:|Trouver un dénominateur commun à deux fractions pour les additionner, les soustraire ou les comparer.
+cycle 4 BO 2026|:|aut|:|A3dd|:|Appliquer les critères de divisibilité par 2, 3, 5, 9.
+cycle 4 BO 2026|:|aut|:|A3ea|:|Résoudre des équations du type $ax = c$, $x + b = c$, $ax + b = c$.
+cycle 4 BO 2026|:|aut|:|A3eb|:|Simplifier des expressions littérales.
+cycle 4 BO 2026|:|aut|:|A3ec|:|Calculer la valeur d'une expression algébrique avec des puissances ou non.
+cycle 4 BO 2026|:|aut|:|A3ed|:|Donner la nature d'une expression littérale : $3x + 2$ est une somme, $5(x + 4)$ est un produit.
+cycle 4 BO 2026|:|aut|:|A3ee|:|Développer et factoriser une expression simple.
+cycle 4 BO 2026|:|aut|:|A3ef|:|Donner l'expression générique d'un nombre pair, d'un nombre impair.
+cycle 4 BO 2026|:|aut|:|A3eg|:|Prendre l'opposé d'une expression : savoir que $-(5 - 4x) = -5 + 4x$.
+cycle 4 BO 2026|:|obj|:|A3ea|:|Simplifier des expressions produits ou des rapports comportant des facteurs communs.
+cycle 4 BO 2026|:|obj|:|A3eb|:|Utiliser la double distributivité pour développer et factoriser des expressions dont le facteur est apparent.
+cycle 4 BO 2026|:|obj|:|A3ec|:|Résoudre analytiquement et graphiquement une inéquation du premier degré du type $ax \geq b$.
+cycle 4 BO 2026|:|obj|:|A3ed|:|Résoudre une équation produit nul.
+cycle 4 BO 2026|:|obj|:|A3ee|:|Manipuler les trois identités remarquables pour développer et factoriser : $a^2 + 2ab + b^2 = (a+b)^2$ ; $a^2 - 2ab + b^2 = (a-b)^2$ ; $a^2 - b^2 = (a-b)(a+b)$.
+cycle 4 BO 2026|:|obj|:|A3ef|:|Pratiquer un raisonnement par analyse-synthèse dans le cadre d'une résolution d'équation.
+cycle 4 BO 2026|:|pro|:|A3ea|:|Étude de l'identité de Sophie Germain.
+cycle 4 BO 2026|:|aut|:|B1aa|:|Placer sur une demi-droite graduée un point dont l'abscisse est un nombre décimal.
+cycle 4 BO 2026|:|aut|:|B1ab|:|Repérer un nombre décimal sur une demi-droite graduée.
+cycle 4 BO 2026|:|obj|:|B1aa|:|Sur une droite graduée : lire l'abscisse d'un point donné ; placer un point d'abscisse donnée.
+cycle 4 BO 2026|:|obj|:|B1ab|:|Dans le plan muni d'un repère orthogonal : lire les coordonnées d'un point donné ; placer un point de coordonnées données.
+cycle 4 BO 2026|:|aut|:|B1ba|:|Reconnaitre des vues (de dessus, dessous, etc.) d'empilements de cubes.
+cycle 4 BO 2026|:|aut|:|B1bb|:|Dénombrer des cubes dans des empilements.
+cycle 4 BO 2026|:|aut|:|B1bc|:|Reconnaitre un cube, un pavé représenté en perspective cavalière.
+cycle 4 BO 2026|:|aut|:|B1bd|:|Reconnaitre un patron d'un cube.
+cycle 4 BO 2026|:|obj|:|B1ba|:|Construire et mettre en relation différentes représentations en perspectives cavalières des solides suivants : pavé droit, cube, cylindre de révolution, prisme droit.
+cycle 4 BO 2026|:|obj|:|B1bb|:|Savoir mettre en relation une représentation en perspective cavalière et un patron d'un pavé, d'un prisme droit ou d'un cylindre de révolution.
+cycle 4 BO 2026|:|obj|:|B1bc|:|Calculer le volume du cube, du pavé droit, du prisme droit.
+cycle 4 BO 2026|:|obj|:|B1bd|:|Connaitre et convertir des unités usuelles (volume et capacité).
+cycle 4 BO 2026|:|obj|:|B1be|:|Calculer l'aire du disque, le volume du cylindre de révolution.
+cycle 4 BO 2026|:|pro|:|B1ba|:|Solides de Platon, formule d'Euler.
+cycle 4 BO 2026|:|pro|:|B1bb|:|Tableaux d'Escher pour jouer sur la perception de l'espace et des volumes.
+cycle 4 BO 2026|:|aut|:|B1ca|:|Reconnaitre et construire le symétrique d'une figure par symétrie axiale, dont l'axe est vertical, horizontal, ou en diagonale sur quadrillage.
+cycle 4 BO 2026|:|aut|:|B1cb|:|Construire le symétrique, par rapport à un axe, d'un point, d'une figure, sur feuille blanche.
+cycle 4 BO 2026|:|obj|:|B1ca|:|Définir le demi-tour, ou symétrie centrale.
+cycle 4 BO 2026|:|obj|:|B1cb|:|Connaitre les propriétés du demi-tour.
+cycle 4 BO 2026|:|pro|:|B1ca|:|Rosaces et pavages dans l'art du Moyen Âge.
+cycle 4 BO 2026|:|pro|:|B1cb|:|Lien avec les formes vues dans la nature : flocon, alvéoles d'abeilles, fleurs.
+cycle 4 BO 2026|:|aut|:|B1da|:|Reconnaitre et citer sur une configuration géométrique des angles : angle plein, plat, nul, droit ; angles opposés par le sommet, adjacents, supplémentaires, aigus, obtus.
+cycle 4 BO 2026|:|aut|:|B1db|:|Savoir qu'un angle droit mesure $90^\circ $, qu'un angle plat mesure $180^\circ $.
+cycle 4 BO 2026|:|aut|:|B1dc|:|Reconnaitre une bissectrice.
+cycle 4 BO 2026|:|aut|:|B1dd|:|Connaitre les mesures des angles de l'équerre dont dispose l'élève ($30^\circ $, $60^\circ $, $90^\circ $ ou $45^\circ $, $45^\circ $, $90^\circ $).
+cycle 4 BO 2026|:|obj|:|B1da|:|Caractériser le parallélisme par les angles : angles alternes-internes, angles correspondants.
+cycle 4 BO 2026|:|pro|:|B1da|:|Éléments d'Euclide (Livre I, proposition 27 ou 28).
+cycle 4 BO 2026|:|aut|:|B1ea|:|Reconnaitre un triangle isocèle, équilatéral ou rectangle à partir d'un schéma codé.
+cycle 4 BO 2026|:|aut|:|B1eb|:|Connaitre la somme des angles d'un triangle, calculer le $3^\text {e}$ angle d'un triangle connaissant les mesures des deux autres.
+cycle 4 BO 2026|:|aut|:|B1ec|:|Connaitre la notion de médiatrice, de cercle circonscrit.
+cycle 4 BO 2026|:|obj|:|B1ea|:|Connaitre la somme des angles d'un triangle et savoir la démontrer.
+cycle 4 BO 2026|:|obj|:|B1eb|:|Construire des triangles à partir de données partielles.
+cycle 4 BO 2026|:|obj|:|B1ec|:|Connaitre les propriétés des médiatrices et du cercle circonscrit dans le cas de triangles particuliers.
+cycle 4 BO 2026|:|obj|:|B1ed|:|Calculer l'aire d'un triangle.
+cycle 4 BO 2026|:|obj|:|B1ee|:|Définir et tracer les hauteurs dans un triangle.
+cycle 4 BO 2026|:|obj|:|B1ef|:|Savoir que les hauteurs d'un triangle sont concourantes.
+cycle 4 BO 2026|:|obj|:|B1eg|:|Définir et tracer les médianes dans un triangle.
+cycle 4 BO 2026|:|obj|:|B1eh|:|Démontrer qu'une médiane partage un triangle en deux triangles d'aires égales.
+cycle 4 BO 2026|:|obj|:|B1ei|:|Utiliser ces propriétés dans le cas de triangles particuliers.
+cycle 4 BO 2026|:|pro|:|B1ea|:|Droite d'Euler, cercle des neuf points.
+cycle 4 BO 2026|:|pro|:|B1eb|:|En suivant un programme de construction donné, l'élève construit, à la règle et au compas, un pentagone régulier.
+cycle 4 BO 2026|:|pro|:|B1ec|:|Construction d'ogives en lien avec l'art gothique.
+cycle 4 BO 2026|:|pro|:|B1ed|:|Construction de rosaces trilobées, du triangle de Reuleaux.
+cycle 4 BO 2026|:|pro|:|B1ee|:|Différents instruments de mesure.
+cycle 4 BO 2026|:|aut|:|B1fa|:|Reconnaitre en justifiant un quadrilatère, un parallélogramme, un rectangle, un losange, un carré, un trapèze, un pentagone, un hexagone dans des figures complexes.
+cycle 4 BO 2026|:|aut|:|B1fb|:|Exploiter le codage d'une figure pour identifier des parallélogrammes particuliers.
+cycle 4 BO 2026|:|obj|:|B1fa|:|Définir le parallélogramme.
+cycle 4 BO 2026|:|obj|:|B1fb|:|Construire des parallélogrammes.
+cycle 4 BO 2026|:|obj|:|B1fc|:|Connaitre les propriétés caractéristiques des côtés opposés et des diagonales.
+cycle 4 BO 2026|:|obj|:|B1fd|:|Utiliser une propriété caractéristique sur les diagonales ou les côtés pour les construire ou donner la nature du quadrilatère.
+cycle 4 BO 2026|:|obj|:|B1fe|:|Définir les parallélogrammes particuliers (rectangle, losange, carré).
+cycle 4 BO 2026|:|obj|:|B1ff|:|Connaitre les propriétés caractéristiques.
+cycle 4 BO 2026|:|obj|:|B1fg|:|Savoir calculer l'aire d'un parallélogramme et de figures complexes.
+cycle 4 BO 2026|:|obj|:|B1fh|:|Résoudre des problèmes faisant appel à des conversions d'unités de longueur et d'unités d'aires.
+cycle 4 BO 2026|:|aut|:|B2aa|:|Construire le symétrique d'un point par demi-tour.
+cycle 4 BO 2026|:|aut|:|B2ba|:|Placer sur une droite graduée un point dont l'abscisse est un nombre relatif.
+cycle 4 BO 2026|:|aut|:|B2bb|:|Repérer un nombre relatif sur une droite graduée.
+cycle 4 BO 2026|:|aut|:|B2bc|:|Dans le plan muni d'un repère orthogonal : lire les coordonnées d'un point donné ; placer un point de coordonnées données.
+cycle 4 BO 2026|:|aut|:|B2ca|:|Reconnaitre les solides : cube, pavé, cylindre, prisme droit.
+cycle 4 BO 2026|:|aut|:|B2cb|:|Connaitre et utiliser les formules du volume d'un cube, d'un pavé, d'un prisme, d'un cylindre.
+cycle 4 BO 2026|:|aut|:|B2cc|:|Reconnaitre la base d'un prisme donné en perspective cavalière.
+cycle 4 BO 2026|:|aut|:|B2cd|:|Savoir calculer l'aire des figures planes usuelles : triangle, rectangle, disque.
+cycle 4 BO 2026|:|obj|:|B2ca|:|Reconnaitre des solides (pyramide, cône de révolution).
+cycle 4 BO 2026|:|obj|:|B2cb|:|Construire et mettre en relation différentes représentations des solides (pavé droit, cube, cylindre de révolution, prisme droit, pyramides et cônes de révolution).
+cycle 4 BO 2026|:|obj|:|B2cc|:|Connaitre le volume de la pyramide et du cône de révolution.
+cycle 4 BO 2026|:|pro|:|B2ca|:|Lien avec la pyramide du Louvre, les pyramides égyptiennes.
+cycle 4 BO 2026|:|aut|:|B2da|:|Dire si des figures planes sont images l'une de l'autre par une symétrie axiale (dont on identifie l'axe) ou par un demi-tour (dont on identifie le centre).
+cycle 4 BO 2026|:|aut|:|B2db|:|Dans une configuration donnée, déterminer les images de figures, de droites, de segments, de points par une symétrie axiale ou un demi-tour.
+cycle 4 BO 2026|:|aut|:|B2dc|:|Reconnaitre un parallélogramme à l'aide de sa définition ou d'une propriété caractéristique grâce aux codages.
+cycle 4 BO 2026|:|aut|:|B2dd|:|Reconnaitre un parallélogramme particulier à partir de ses propriétés caractéristiques, notamment à partir des propriétés de ses diagonales.
+cycle 4 BO 2026|:|obj|:|B2da|:|Comprendre l'effet d'une translation.
+cycle 4 BO 2026|:|obj|:|B2db|:|Faire le lien avec les parallélogrammes, les angles.
+cycle 4 BO 2026|:|obj|:|B2dc|:|Connaitre et utiliser les propriétés de conservation des translations.
+cycle 4 BO 2026|:|pro|:|B2da|:|Pavage d'Escher ou de l'Alhambra.
+cycle 4 BO 2026|:|aut|:|B2ea|:|Reconnaitre des droites remarquables, y compris dans les triangles particuliers (médiatrices, médianes, hauteurs, bissectrices).
+cycle 4 BO 2026|:|obj|:|B2ea|:|Connaitre les trois théorèmes relatifs à la droite des milieux dans un triangle.
+cycle 4 BO 2026|:|obj|:|B2eb|:|Connaitre le théorème de Pythagore, sa réciproque, sa contraposée.
+cycle 4 BO 2026|:|obj|:|B2ec|:|Mener un travail de logique sur la réciproque et la contraposée.
+cycle 4 BO 2026|:|obj|:|B2ed|:|Caractériser un triangle rectangle à l'aide de son cercle circonscrit, par son inscription dans un demi-cercle dont le diamètre est un côté du triangle.
+cycle 4 BO 2026|:|obj|:|B2ee|:|Déterminer le centre du cercle circonscrit d'un triangle rectangle.
+cycle 4 BO 2026|:|obj|:|B2ef|:|Construire des rectangles sans équerre.
+cycle 4 BO 2026|:|pro|:|B2ea|:|Théorème de Varignon : l'élève étudie la démonstration historique d'Euclide basée sur les aires.
+cycle 4 BO 2026|:|pro|:|B2eb|:|Quelques repères historiques autour de Pythagore et son œuvre.
+cycle 4 BO 2026|:|aut|:|B3aa|:|Placer sur une droite graduée un point dont l'abscisse est un nombre relatif.
+cycle 4 BO 2026|:|aut|:|B3ab|:|Repérer un nombre relatif sur une droite graduée.
+cycle 4 BO 2026|:|aut|:|B3ac|:|Dans le plan muni d'un repère orthogonal : lire les coordonnées d'un point donné ; placer un point de coordonnées données.
+cycle 4 BO 2026|:|aut|:|B3ba|:|Reconnaitre des solides (pavé droit, cube, prisme droit, cylindre, pyramide, cône).
+cycle 4 BO 2026|:|aut|:|B3bb|:|Connaitre et utiliser les formules du volume d'une pyramide ou d'un cône.
+cycle 4 BO 2026|:|aut|:|B3bc|:|Donner la nature d'une face d'une pyramide représentée en perspective cavalière.
+cycle 4 BO 2026|:|aut|:|B3bd|:|Identifier les patrons de pyramides données (par exemple inscrites dans un cube).
+cycle 4 BO 2026|:|obj|:|B3ba|:|Définir la boule et la sphère.
+cycle 4 BO 2026|:|obj|:|B3bb|:|Définir les grands cercles, le diamètre.
+cycle 4 BO 2026|:|obj|:|B3bc|:|Visualiser et réaliser des sections de pavé parallèlement à une face, de cylindre parallèlement ou perpendiculairement à son axe, d'une boule.
+cycle 4 BO 2026|:|obj|:|B3bd|:|Connaitre et utiliser la formule du volume d'une boule de rayon donné.
+cycle 4 BO 2026|:|pro|:|B3ba|:|La formule du volume, trouvée au III$^\text {e}$ siècle avant J.-C., d'après une intuition d'Archimède comme étant $\dfrac {2}{3}$ du cylindre qui contient la boule.
+cycle 4 BO 2026|:|pro|:|B3bb|:|Les cinq polyèdres réguliers de l'espace et les illustrations de Léonard de Vinci pour le traité mathématique $\textit {De divina proportione}$ de Luca Pacioli.
+cycle 4 BO 2026|:|aut|:|B3ca|:|Utiliser la propriété du triangle rectangle et de son cercle circonscrit.
+cycle 4 BO 2026|:|aut|:|B3cb|:|Écrire l'égalité de Pythagore dans un triangle rectangle.
+cycle 4 BO 2026|:|aut|:|B3cc|:|Utiliser la droite des milieux pour prouver que des droites sont parallèles, pour calculer une longueur, pour prouver qu'un point est le milieu d'un côté.
+cycle 4 BO 2026|:|obj|:|B3ca|:|Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon).
+cycle 4 BO 2026|:|obj|:|B3cb|:|Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente.
+cycle 4 BO 2026|:|pro|:|B3ca|:|Repères historiques autour du théorème de Thalès, qui n'est pas appelé comme cela dans les autres pays.
+cycle 4 BO 2026|:|pro|:|B3cb|:|Construction des polygones réguliers à la règle et au compas.
+cycle 4 BO 2026|:|aut|:|B3da|:|Mobiliser les connaissances sur la symétrie axiale, le demi-tour, la translation.
+cycle 4 BO 2026|:|obj|:|B3da|:|Définir et utiliser la translation : définition ponctuelle avec parallélogramme.
+cycle 4 BO 2026|:|obj|:|B3db|:|Définir et utiliser les notions de vecteur, de vecteurs égaux, de vecteur nul, d'opposé d'un vecteur.
+cycle 4 BO 2026|:|obj|:|B3dc|:|Définir et utiliser la somme de deux vecteurs par enchainement de deux translations.
+cycle 4 BO 2026|:|obj|:|B3dd|:|Découvrir et utiliser la relation de Chasles.
+cycle 4 BO 2026|:|pro|:|B3da|:|Savoir qu'un hexagone est obtenu à partir de triangles équilatéraux.
+cycle 4 BO 2026|:|pro|:|B3db|:|Lien avec les fractales comme les flocons de Von Koch ou les triangles de Sierpinski.
+cycle 4 BO 2026|:|obj|:|C1aa|:|Recueillir et organiser des données.
+cycle 4 BO 2026|:|obj|:|C1ab|:|Calculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage).
+cycle 4 BO 2026|:|obj|:|C1ac|:|Lire et interpréter des informations présentées sous forme de tableaux, de diagrammes et de graphiques.
+cycle 4 BO 2026|:|obj|:|C1ad|:|Représenter, sur papier ou à l'aide d'un tableur-grapheur, des données sous la forme d'un tableau, d'un diagramme (diagramme en barres, diagramme circulaire) ou d'un graphique cartésien.
+cycle 4 BO 2026|:|obj|:|C1ae|:|Choisir une représentation adaptée à ce qu'il convient de mettre en avant.
+cycle 4 BO 2026|:|obj|:|C1af|:|Calculer et interpréter la moyenne simple d'une série de données.
+cycle 4 BO 2026|:|pro|:|C1aa|:|Étude des diagrammes de Florence Nightingale.
+cycle 4 BO 2026|:|aut|:|C1ba|:|Positionner sur une échelle de probabilité des évènements : évènement impossible ; évènement certain ; obtenir pile en lançant une pièce équilibrée ; obtenir une valeur donnée en lançant un dé équilibré ; obtenir une couleur d'une boule lors du tirage dans une urne.
+cycle 4 BO 2026|:|aut|:|C1bb|:|Donner la probabilité sous diverses formes (fraction, décimale, pourcentage) pour des évènements simples.
+cycle 4 BO 2026|:|aut|:|C1bc|:|Lier l'expression « une chance sur quatre » (par exemple) et la probabilité $\frac {1}{4}$.
+cycle 4 BO 2026|:|obj|:|C1ba|:|Aborder les questions relatives au hasard à partir de problèmes simples.
+cycle 4 BO 2026|:|obj|:|C1bb|:|Utiliser le vocabulaire des probabilités dans des contextes concrets : expérience aléatoire, issue, évènement.
+cycle 4 BO 2026|:|obj|:|C1bc|:|Attribuer des probabilités dans des cas simples (équiprobabilité).
+cycle 4 BO 2026|:|obj|:|C1bd|:|Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d'effectifs et de fréquences.
+cycle 4 BO 2026|:|aut|:|C2aa|:|Calculer une moyenne pour un très petit nombre de valeurs.
+cycle 4 BO 2026|:|aut|:|C2ab|:|Calculer un effectif manquant dans un tableau pour un petit nombre de valeurs.
+cycle 4 BO 2026|:|aut|:|C2ac|:|Calculer une fréquence simple.
+cycle 4 BO 2026|:|obj|:|C2aa|:|Calculer une moyenne pondérée dans le cas d'une série discrète de petits effectifs présentée sous forme de données brutes, d'un tableau ou d'un diagramme en barres.
+cycle 4 BO 2026|:|obj|:|C2ab|:|Déterminer une médiane et l'interpréter dans le cas d'une série de petit effectif présentée sous forme de données brutes.
+cycle 4 BO 2026|:|obj|:|C2ac|:|Calculer et interpréter l'étendue d'une série présentée sous forme de données brutes, d'un tableau, d'un diagramme en barres, d'un diagramme circulaire.
+cycle 4 BO 2026|:|obj|:|C2ad|:|Comprendre l'évolution de la médiane et de la moyenne quand on ajoute une valeur extrême.
+cycle 4 BO 2026|:|obj|:|C2ae|:|Résoudre des problèmes faisant intervenir les différents indicateurs.
+cycle 4 BO 2026|:|obj|:|C2af|:|Résoudre des problèmes de comparaison de séries statistiques.
+cycle 4 BO 2026|:|obj|:|C2ag|:|Utiliser le tableur pour calculer une moyenne, une médiane et l'étendue d'une série statistique.
+cycle 4 BO 2026|:|pro|:|C2aa|:|Le premier traité des $\textit {Essais d'arithmétique politique}$ de Willem Kersseboom (XVIII$^\text {e}$ s.).
+cycle 4 BO 2026|:|obj|:|C2ba|:|Utiliser le vocabulaire et les notations ensemblistes pour décrire une expérience aléatoire dans des cas simples et définir la notion d'évènement.
+cycle 4 BO 2026|:|obj|:|C2bb|:|Définir : complémentaire, réunion, intersection, ensemble vide (évènement impossible).
+cycle 4 BO 2026|:|obj|:|C2bc|:|Calculer la probabilité d'un évènement et de l'évènement contraire.
+cycle 4 BO 2026|:|obj|:|C2bd|:|Exemples simples d'expériences aléatoires à deux épreuves (par exemple, lancer de deux pièces, d'une pièce et d'un dé, de deux dés, etc.).
+cycle 4 BO 2026|:|obj|:|C2be|:|À partir de la répétition d'une expérience aléatoire, réalisée matériellement ou simulée, comparer des graphiques de distributions (fréquentielle et probabiliste).
+cycle 4 BO 2026|:|obj|:|C2bf|:|Observer la fluctuation des fréquences pour un nombre de répétitions fixé de l'expérience aléatoire.
+cycle 4 BO 2026|:|aut|:|C3aa|:|Calculer une moyenne.
+cycle 4 BO 2026|:|aut|:|C3ab|:|Donner une médiane pour une série comportant un petit nombre de valeurs.
+cycle 4 BO 2026|:|aut|:|C3ac|:|Calculer l'étendue d'une série.
+cycle 4 BO 2026|:|obj|:|C3aa|:|Calculer des effectifs cumulés croissants.
+cycle 4 BO 2026|:|obj|:|C3ab|:|Donner les quartiles et la médiane d'une série donnée sous forme de tableau d'effectifs ou de diagramme en barres.
+cycle 4 BO 2026|:|obj|:|C3ac|:|Construire et utiliser des boîtes à moustache pour représenter les valeurs de position d'une série statistique.
+cycle 4 BO 2026|:|obj|:|C3ad|:|Comprendre et interpréter des données statistiques.
+cycle 4 BO 2026|:|obj|:|C3ae|:|Utiliser le tableur pour calculer une moyenne, une médiane et l'étendue d'une série statistique.
+cycle 4 BO 2026|:|obj|:|C3ba|:|Connaitre et savoir appliquer la relation $P(A \cup B) + P(A \cap B) = P(A) + P(B)$.
+cycle 4 BO 2026|:|obj|:|C3bb|:|Simuler des expériences aléatoires indépendantes.
+cycle 4 BO 2026|:|obj|:|C3bc|:|Observer la stabilisation des fréquences lorsqu'on augmente le nombre de répétitions de l'expérience aléatoire, faire le lien entre fréquence et probabilité selon le nombre de répétitions.
+cycle 4 BO 2026|:|pro|:|C3ba|:|Problème de l'erreur de D'Alembert.
+cycle 4 BO 2026|:|aut|:|D1aa|:|Reconnaitre si une situation donnée entre dans le cadre de la proportionnalité ou non.
+cycle 4 BO 2026|:|aut|:|D1ab|:|Dans des situations simples, mobiliser une procédure adaptée (propriété de linéarité pour la multiplication ou l'addition, retour à l'unité) pour résoudre un problème lié à la proportionnalité.
+cycle 4 BO 2026|:|obj|:|D1aa|:|Utiliser des proportions, des pourcentages.
+cycle 4 BO 2026|:|obj|:|D1ab|:|Calculer, appliquer des proportions, des pourcentages.
+cycle 4 BO 2026|:|obj|:|D1ac|:|Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).
+cycle 4 BO 2026|:|obj|:|D1ad|:|Représenter une situation de proportionnalité par un tableau ou un graphique.
+cycle 4 BO 2026|:|obj|:|D1ae|:|Reconnaitre une situation de proportionnalité à partir d'un tableau ou d'un graphique.
+cycle 4 BO 2026|:|obj|:|D1af|:|Reconnaitre graphiquement qu'un nuage de points est ou n'est pas associé à une situation de proportionnalité entre données discrètes.
+cycle 4 BO 2026|:|obj|:|D1ba|:|Introduire l'expression : « en fonction de » dans des contextes concrets ou mathématiques.
+cycle 4 BO 2026|:|obj|:|D1bb|:|Produire un tableau de valeurs.
+cycle 4 BO 2026|:|obj|:|D1bc|:|Lire et interpréter un tableau de valeurs.
+cycle 4 BO 2026|:|obj|:|D1bd|:|Placer dans un repère orthogonal donné des points correspondant à un tableau de valeurs.
+cycle 4 BO 2026|:|obj|:|D1be|:|Lire et interpréter un graphique cartésien donné par une courbe ou un nuage de points.
+cycle 4 BO 2026|:|obj|:|D1bf|:|Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d'une formule.
+cycle 4 BO 2026|:|obj|:|D1bg|:|Produire une formule simple représentant la dépendance de deux grandeurs.
+cycle 4 BO 2026|:|obj|:|D1bh|:|Caractériser graphiquement la proportionnalité.
+cycle 4 BO 2026|:|aut|:|D2aa|:|Déterminer $a$~\% de $c$ quand $a$ vaut 100, 50, 25, 10 ou 1.
+cycle 4 BO 2026|:|aut|:|D2ab|:|Compléter : 20~\% de 120 = $\ldots $ ; $30 = \frac {\ldots }{100} \times 1~000$.
+cycle 4 BO 2026|:|obj|:|D2aa|:|Utiliser des grandeurs quotients, avec ou sans unités.
+cycle 4 BO 2026|:|obj|:|D2ab|:|Comparer deux nombres ou deux grandeurs à l'aide de leur rapport ou ratio.
+cycle 4 BO 2026|:|obj|:|D2ac|:|Exprimer la proportionnalité entre deux suites de nombres par des égalités de rapports ou sous forme de ratio.
+cycle 4 BO 2026|:|obj|:|D2ad|:|Déterminer une quatrième proportionnelle.
+cycle 4 BO 2026|:|obj|:|D2ae|:|Calculer avec des pourcentages.
+cycle 4 BO 2026|:|obj|:|D2af|:|Rendre compte d'une augmentation ou d'une diminution exprimée en pourcentages au moyen d'un coefficient multiplicateur.
+cycle 4 BO 2026|:|obj|:|D2ag|:|Définir le coefficient multiplicateur.
+cycle 4 BO 2026|:|obj|:|D2ah|:|Résoudre des problèmes de partage proportionnel.
+cycle 4 BO 2026|:|obj|:|D2ba|:|Savoir appliquer un programme de calcul à deux (plusieurs) étapes à un nombre simple puis à une variable.
+cycle 4 BO 2026|:|obj|:|D2bb|:|Savoir retrouver le nombre de départ après avoir remonté un programme de calcul simple.
+cycle 4 BO 2026|:|obj|:|D2bc|:|Produire une formule littérale représentant la dépendance d'une grandeur en fonction d'une autre.
+cycle 4 BO 2026|:|obj|:|D2bd|:|Représenter l'expression d'une grandeur en fonction d'une autre par un graphique.
+cycle 4 BO 2026|:|obj|:|D2be|:|Comprendre la dépendance d'une grandeur en fonction d'une autre.
+cycle 4 BO 2026|:|aut|:|D3aa|:|Partager une somme en deux parts selon un certain ratio.
+cycle 4 BO 2026|:|aut|:|D3ab|:|Partager une masse en trois parts selon un certain ratio.
+cycle 4 BO 2026|:|aut|:|D3ac|:|Partager une somme entre deux personnes proportionnellement à leur âge.
+cycle 4 BO 2026|:|aut|:|D3ad|:|Calculer le pourcentage d'une quantité.
+cycle 4 BO 2026|:|aut|:|D3ae|:|Calculer la distance réelle entre deux villes, connaissant la distance sur une carte dont l'échelle est connue.
+cycle 4 BO 2026|:|aut|:|D3af|:|Appliquer, dans des cas simples, une augmentation ou une diminution exprimée en pourcentages, en utilisant ou non le coefficient multiplicateur.
+cycle 4 BO 2026|:|obj|:|D3aa|:|Traduire une augmentation ou une diminution en pourcentages.
+cycle 4 BO 2026|:|obj|:|D3ab|:|Relier la représentation graphique d'une situation de proportionnalité avec le théorème de Thalès.
+cycle 4 BO 2026|:|obj|:|D3ac|:|Connaitre et utiliser les fonctions linéaires.
+cycle 4 BO 2026|:|obj|:|D3ba|:|Utiliser les différentes représentations d'une fonction.
+cycle 4 BO 2026|:|obj|:|D3bb|:|Définir et connaitre le vocabulaire : image, antécédents.
+cycle 4 BO 2026|:|obj|:|D3bc|:|Définir et utiliser les fonctions linéaires.
+cycle 4 BO 2026|:|obj|:|D3bd|:|Résoudre graphiquement des équations et des inéquations linéaires.
+cycle 4 BO 2026|:|obj|:|D3be|:|Relier fonctions linéaires et proportionnalité.
+cycle 4 BO 2026|:|obj|:|D3bf|:|Définir et utiliser les fonctions affines.
+cycle 4 BO 2026|:|obj|:|D3bg|:|Déterminer graphiquement les coefficients d'une fonction affine.
+cycle 4 BO 2026|:|obj|:|D3bh|:|Représenter la fonction carré.
+cycle 4 BO 2026|:|pro|:|D3ba|:|Méthode de simple fausse position (pour les problèmes du type $y = ax$).
+cycle 4 BO 2026|:|obj|:|E1aa|:|Manipuler des instructions simples et les séquencer.
+cycle 4 BO 2026|:|obj|:|E1ab|:|Identifier les entrées et sorties d'un programme.
+cycle 4 BO 2026|:|obj|:|E1ac|:|Représenter des formules sous la forme d'une expression informatique dans un langage de programmation par blocs.
+cycle 4 BO 2026|:|obj|:|E1ad|:|Calculer la valeur de formules à l'aide d'une suite d'instructions dans un langage de programmation par blocs.
+cycle 4 BO 2026|:|obj|:|E1ae|:|Prévoir la valeur d'une expression informatique avant son exécution.
+cycle 4 BO 2026|:|obj|:|E1af|:|Analyser un programme simple donné et modifier ses paramètres.
+cycle 4 BO 2026|:|obj|:|E1ag|:|Effectuer une boucle inconditionnelle simple permettant de répéter une séquence linéaire d'instructions un nombre précis de fois.
+cycle 4 BO 2026|:|obj|:|E2aa|:|Représenter des conditions simples.
+cycle 4 BO 2026|:|obj|:|E2ab|:|Écrire des instructions conditionnelles.
+cycle 4 BO 2026|:|obj|:|E2ac|:|Manipuler une variable.
+cycle 4 BO 2026|:|obj|:|E2ad|:|Écrire un programme simple donné pour réaliser un objectif ou résoudre un problème.
+cycle 4 BO 2026|:|obj|:|E2ae|:|Modifier un programme donné pour changer son comportement.
+cycle 4 BO 2026|:|obj|:|E3aa|:|Approfondir la notion de variables.
+cycle 4 BO 2026|:|obj|:|E3ab|:|Utiliser des conditions composées.
+cycle 4 BO 2026|:|obj|:|E3ac|:|Utiliser une boucle conditionnelle.
+cycle 4 BO 2026|:|obj|:|E3ad|:|Structurer des programmes.
+cycle 4 BO 2026|:|obj|:|E3ae|:|Écrire un programme donné pour réaliser un objectif ou résoudre un problème.
+cycle 3 BO 2026|:|obj|:|A1aa|:|Comparer et dénombrer des collections en les organisant
+cycle 3 BO 2026|:|obj|:|A1ab|:|Construire des collections de cardinal donné
+cycle 3 BO 2026|:|obj|:|A1ac|:|Connaître et utiliser les relations entre les unités de numération
+cycle 3 BO 2026|:|obj|:|A1ad|:|Connaître la suite écrite et la suite orale des nombres jusqu’à 999 999
+cycle 3 BO 2026|:|obj|:|A1ae|:|Connaître la valeur des chiffres en fonction de leur position dans un nombre
+cycle 3 BO 2026|:|obj|:|A1af|:|Connaître et utiliser diverses représentations d’un nombre et passer de l’une à l’autre
+cycle 3 BO 2026|:|obj|:|A1ag|:|Comprendre et savoir utiliser les expressions « égal à », « supérieur à », « inférieur à », « compris entre … et … »
+cycle 3 BO 2026|:|obj|:|A1ah|:|Comparer, encadrer, intercaler des nombres entiers en utilisant les symboles =, < et >
+cycle 3 BO 2026|:|obj|:|A1ai|:|Ordonner des nombres dans l’ordre croissant ou décroissant
+cycle 3 BO 2026|:|obj|:|A1aj|:|Savoir placer des nombres et repérer des points sur une demi-droite graduée
+cycle 3 BO 2026|:|obj|:|A1ak|:|Savoir reconnaître les multiples de 2, de 5 et de 10 à partir de leur écriture chiffrée
+cycle 3 BO 2026|:|obj|:|A1al|:|Savoir déterminer si un nombre entier donné est un multiple d’un nombre entier inférieur ou égal à 10
+cycle 3 BO 2026|:|obj|:|A1am|:|Savoir déterminer si un nombre entier inférieur ou égal à 10 est un diviseur d’un nombre entier donné
+cycle 3 BO 2026|:|obj|:|A1ba|:|Savoir interpréter, représenter, écrire et lire des fractions
+cycle 3 BO 2026|:|obj|:|A1bb|:|Savoir écrire une fraction supérieure à 1 comme la somme d’un entier et d’une fraction inférieure à 1
+cycle 3 BO 2026|:|obj|:|A1bc|:|Savoir écrire la somme d’un entier et d’une fraction inférieure à 1 comme une unique fraction
+cycle 3 BO 2026|:|obj|:|A1bd|:|Savoir encadrer une fraction par deux nombres entiers consécutifs
+cycle 3 BO 2026|:|obj|:|A1be|:|Savoir placer une fraction ou la somme d’un nombre entier et d’une fraction inférieure à un sur une demi-droite graduée
+cycle 3 BO 2026|:|obj|:|A1bf|:|Savoir repérer un point d’une demi-droite graduée par une fraction ou par la somme d’un nombre entier et d’une fraction
+cycle 3 BO 2026|:|obj|:|A1bg|:|Comparer des fractions
+cycle 3 BO 2026|:|obj|:|A1bh|:|Additionner et soustraire des fractions
+cycle 3 BO 2026|:|obj|:|A1bi|:|Déterminer une fraction d’une quantité ou d’une grandeur
+cycle 3 BO 2026|:|obj|:|A1ca|:|Interpréter, représenter, écrire et lire des fractions décimales
+cycle 3 BO 2026|:|obj|:|A1cb|:|Connaître et utiliser les relations entre unités simples, dixièmes et centièmes
+cycle 3 BO 2026|:|obj|:|A1cc|:|Placer une fraction décimale sur une demi-droite graduée et repérer un point d’une demi-droite graduée par une fraction
+cycle 3 BO 2026|:|obj|:|A1cd|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et d’une fraction décimale inférieure à 1
+cycle 3 BO 2026|:|obj|:|A1ce|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et de fractions décimales ayant un numérateur
+cycle 3 BO 2026|:|obj|:|A1cf|:|Comparer, encadrer, intercaler des fractions décimales en utilisant les symboles =, < et >
+cycle 3 BO 2026|:|obj|:|A1cg|:|Ordonner des fractions décimales dans l’ordre croissant ou décroissant
+cycle 3 BO 2026|:|obj|:|A1ch|:|Passer d’une écriture sous forme d’une fraction décimale ou d’une somme de fractions décimales à une écriture à virgule et réciproquement
+cycle 3 BO 2026|:|obj|:|A1ci|:|Interpréter, représenter, écrire et lire des nombres décimaux (écriture à virgule)
+cycle 3 BO 2026|:|obj|:|A1cj|:|Placer un nombre décimal en écriture à virgule sur une demi-droite graduée et repérer un point d’une demi-droite graduée par
+cycle 3 BO 2026|:|obj|:|A1ck|:|Savoir donner la partie entière et l’arrondi à l’entier d’un nombre décimal
+cycle 3 BO 2026|:|obj|:|A1cl|:|Comparer, encadrer, intercaler, ordonner, par ordre croissant ou décroissant, des nombres décimaux donnés par leur écriture à
+cycle 3 BO 2026|:|obj|:|A1da|:|Connaître des faits numériques usuels relatifs aux nombres entiers
+cycle 3 BO 2026|:|obj|:|A1db|:|Connaître quelques relations entre des fractions usuelles
+cycle 3 BO 2026|:|obj|:|A1dc|:|Connaître l’écriture décimale de fractions usuelles
+cycle 3 BO 2026|:|obj|:|A1dd|:|Utiliser ses connaissances en numération pour calculer mentalement
+cycle 3 BO 2026|:|obj|:|A1de|:|Ajouter ou soustraire un nombre entier inférieur à 10, d’unités, de dizaines, de centaines, de dixièmes ou de centièmes à un nombre décimal, lorsqu’il n’y a pas de retenue
+cycle 3 BO 2026|:|obj|:|A1df|:|Multiplier un nombre entier par 10, 100 ou 1 000
+cycle 3 BO 2026|:|obj|:|A1dg|:|Multiplier un nombre décimal par 10
+cycle 3 BO 2026|:|obj|:|A1dh|:|Diviser un nombre décimal par 10
+cycle 3 BO 2026|:|obj|:|A1di|:|Ajouter ou soustraire 8, 9, 18, 19, 28, 29, 38 ou 39, à un nombre
+cycle 3 BO 2026|:|obj|:|A1dj|:|Multiplier un nombre entier inférieur à 10 par un nombre entier de dizaines ou de centaines
+cycle 3 BO 2026|:|obj|:|A1dk|:|Multiplier un nombre entier par 4 ou par 8
+cycle 3 BO 2026|:|obj|:|A1dl|:|Multiplier un nombre entier par 5
+cycle 3 BO 2026|:|obj|:|A1dm|:|Utiliser la distributivité de la multiplication par rapport à l’addition dans des cas simples
+cycle 3 BO 2026|:|obj|:|A1ea|:|Estimer le résultat d’une opération
+cycle 3 BO 2026|:|obj|:|A1eb|:|Savoir effectuer un calcul contenant des parenthèses
+cycle 3 BO 2026|:|obj|:|A1ec|:|Poser en colonnes et effectuer des additions et des soustractions de nombres décimaux
+cycle 3 BO 2026|:|obj|:|A1ed|:|Poser et effectuer des multiplications de deux nombres entiers
+cycle 3 BO 2026|:|obj|:|A1ee|:|Poser et effectuer des multiplications d’un nombre décimal par un nombre entier inférieur à 10
+cycle 3 BO 2026|:|obj|:|A1ef|:|Poser et effectuer des divisions euclidiennes avec un diviseur à un chiffre
+cycle 3 BO 2026|:|obj|:|A1fa|:|Résoudre des problèmes additifs en une étape des types « parties-tout » et « comparaison »
+cycle 3 BO 2026|:|obj|:|A1fb|:|Résoudre des problèmes additifs en deux ou trois étapes
+cycle 3 BO 2026|:|obj|:|A1fc|:|Résoudre des problèmes multiplicatifs de type « parties-tout » en une étape
+cycle 3 BO 2026|:|obj|:|A1fd|:|Résoudre des problèmes de comparaison multiplicative
+cycle 3 BO 2026|:|obj|:|A1fe|:|Résoudre des problèmes mixtes en deux ou trois étapes
+cycle 3 BO 2026|:|obj|:|A1ff|:|Résoudre des problèmes de dénombrement
+cycle 3 BO 2026|:|obj|:|A1fg|:|Résoudre des problèmes d’optimisation
+cycle 3 BO 2026|:|obj|:|A1ga|:|Trouver le nombre manquant dans une égalité à trous
+cycle 3 BO 2026|:|obj|:|A1gb|:|Déterminer la valeur d’un nombre inconnu en utilisant un symbole ou une lettre pour le représenter
+cycle 3 BO 2026|:|obj|:|A1gc|:|Résoudre des problèmes algébriques
+cycle 3 BO 2026|:|obj|:|A1gd|:|Exécuter un programme de calcul
+cycle 3 BO 2026|:|obj|:|A1ge|:|Identifier et formuler une règle de calcul pour poursuivre une suite de nombres
+cycle 3 BO 2026|:|obj|:|A1gf|:|Identifier des régularités et poursuivre une suite de motifs évolutive
+cycle 3 BO 2026|:|obj|:|A2aa|:|Connaître et utiliser les relations entre les unités de numération
+cycle 3 BO 2026|:|obj|:|A2ab|:|Connaître la suite écrite et la suite orale des nombres jusqu’à 999 999 999
+cycle 3 BO 2026|:|obj|:|A2ac|:|Connaître et utiliser diverses représentations d’un nombre et passer de l’une à l’autre
+cycle 3 BO 2026|:|obj|:|A2ad|:|Connaître la valeur des chiffres en fonction de leur position dans un nombre
+cycle 3 BO 2026|:|obj|:|A2ae|:|Comparer, encadrer, intercaler des nombres entiers en utilisant les symboles =, < et >
+cycle 3 BO 2026|:|obj|:|A2af|:|Ordonner des nombres dans l’ordre croissant ou décroissant
+cycle 3 BO 2026|:|obj|:|A2ag|:|Placer des nombres et repérer des points sur une demi-droite graduée
+cycle 3 BO 2026|:|obj|:|A2ah|:|Déterminer si un nombre entier inférieur ou égal à 10 est un diviseur d’un nombre entier donné ou si un nombre entier donné est un multiple d’un nombre entier inférieur ou égal à 10
+cycle 3 BO 2026|:|obj|:|A2ai|:|Déterminer des diviseurs d’un nombre entier inférieur ou égal à 100
+cycle 3 BO 2026|:|obj|:|A2aj|:|Déterminer tous les diviseurs d’un nombre entier inférieur ou égal à 30
+cycle 3 BO 2026|:|obj|:|A2ak|:|Déterminer les diviseurs communs à deux nombres entiers inférieurs ou égaux à 30
+cycle 3 BO 2026|:|obj|:|A2al|:|Déterminer des multiples communs à deux nombres entiers inférieurs à 15
+cycle 3 BO 2026|:|obj|:|A2ba|:|Interpréter, représenter, écrire et lire des fractions
+cycle 3 BO 2026|:|obj|:|A2bb|:|Écrire une fraction supérieure à 1 comme la somme d’un entier et d’une fraction inférieure à 1
+cycle 3 BO 2026|:|obj|:|A2bc|:|Écrire la somme d’un entier et d’une fraction inférieure à 1 comme une unique fraction
+cycle 3 BO 2026|:|obj|:|A2bd|:|Encadrer une fraction entre deux nombres entiers consécutifs
+cycle 3 BO 2026|:|obj|:|A2be|:|Placer une fraction ou la somme d’un nombre entier et d’une fraction inférieure à un sur une demi-droite graduée
+cycle 3 BO 2026|:|obj|:|A2bf|:|Repérer un point d’une demi-droite graduée par une fraction ou par la somme d’un nombre entier et d’une fraction
+cycle 3 BO 2026|:|obj|:|A2bg|:|Comparer des fractions
+cycle 3 BO 2026|:|obj|:|A2bh|:|Additionner et soustraire des fractions
+cycle 3 BO 2026|:|obj|:|A2bi|:|Calculer le produit d’un entier et d’une fraction
+cycle 3 BO 2026|:|obj|:|A2bj|:|Déterminer une fraction d’une quantité ou d’une grandeur
+cycle 3 BO 2026|:|obj|:|A2ca|:|Interpréter, représenter, écrire et lire des fractions décimales
+cycle 3 BO 2026|:|obj|:|A2cb|:|Connaître et utiliser les relations entre unités simples, dixièmes et centièmes
+cycle 3 BO 2026|:|obj|:|A2cc|:|Placer une fraction décimale sur une demi-droite graduée et repérer un point d’une demi-droite graduée par une fraction
+cycle 3 BO 2026|:|obj|:|A2cd|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et d’une fraction décimale inférieure à 1
+cycle 3 BO 2026|:|obj|:|A2ce|:|Écrire une fraction décimale supérieure à 1 comme la somme d’un nombre entier et de fractions décimales ayant un numérateur
+cycle 3 BO 2026|:|obj|:|A2cf|:|Comparer, encadrer, intercaler des fractions décimales en utilisant les symboles =, < et >
+cycle 3 BO 2026|:|obj|:|A2cg|:|Ordonner des fractions décimales dans l’ordre croissant ou décroissant
+cycle 3 BO 2026|:|obj|:|A2ch|:|Passer d’une écriture sous forme d’une fraction décimale ou d’une somme de fractions décimales à une écriture à virgule et
+cycle 3 BO 2026|:|obj|:|A2ci|:|Interpréter, représenter, écrire et lire des nombres décimaux (écriture à virgule)
+cycle 3 BO 2026|:|obj|:|A2cj|:|Placer un nombre décimal en écriture à virgule sur une demi-droite graduée et repérer un point d’une demi-droite graduée par
+cycle 3 BO 2026|:|obj|:|A2ck|:|Savoir donner la partie entière et l’arrondi à l’entier d’un nombre décimal
+cycle 3 BO 2026|:|obj|:|A2cl|:|Comparer, encadrer, intercaler, ordonner, par ordre croissant ou décroissant, des nombres décimaux donnés par leur écriture à
+cycle 3 BO 2026|:|obj|:|A2da|:|Connaître des faits numériques usuels avec des entiers
+cycle 3 BO 2026|:|obj|:|A2db|:|Connaître la moitié des nombres impairs jusqu’à 15
+cycle 3 BO 2026|:|obj|:|A2dc|:|Connaître quelques relations entre des fractions usuelles
+cycle 3 BO 2026|:|obj|:|A2dd|:|Connaître l’écriture décimale de fractions usuelles
+cycle 3 BO 2026|:|obj|:|A2de|:|Ajouter ou soustraire un nombre entier à un nombre décimal lorsqu’il n’y a pas de retenue
+cycle 3 BO 2026|:|obj|:|A2df|:|Ajouter un nombre entier à un nombre décimal lorsqu’il y a une retenue
+cycle 3 BO 2026|:|obj|:|A2dg|:|Multiplier un nombre décimal par 10, 100 ou 1 000
+cycle 3 BO 2026|:|obj|:|A2dh|:|Diviser un nombre décimal par 10, 100 ou 1 000
+cycle 3 BO 2026|:|obj|:|A2di|:|Ajouter deux nombres décimaux inférieurs à 10, s’écrivant avec au plus un chiffre après la virgule
+cycle 3 BO 2026|:|obj|:|A2dj|:|Ajouter ou soustraire 8, 9, 18, 19, 28, 29, …, 98 ou 99 à un nombre
+cycle 3 BO 2026|:|obj|:|A2dk|:|Multiplier un nombre entier, inférieur à 10, de dizaines, de centaines ou de milliers par un nombre entier, inférieur à 10, de
+cycle 3 BO 2026|:|obj|:|A2dl|:|dizaines, de centaines ou de milliers
+cycle 3 BO 2026|:|obj|:|A2dm|:|Utiliser la distributivité de la multiplication par rapport à l’addition dans des cas simples
+cycle 3 BO 2026|:|obj|:|A2dn|:|Calculer le double d’un nombre décimal dans des cas simples
+cycle 3 BO 2026|:|obj|:|A2do|:|Calculer la moitié d’un nombre décimal dans des cas simples
+cycle 3 BO 2026|:|obj|:|A2dp|:|Diviser un nombre entier par 4 ou par 8
+cycle 3 BO 2026|:|obj|:|A2dq|:|Multiplier un nombre décimal par 5
+cycle 3 BO 2026|:|obj|:|A2dr|:|Multiplier un nombre décimal par 50
+cycle 3 BO 2026|:|obj|:|A2ea|:|Estimer le résultat d’une opération
+cycle 3 BO 2026|:|obj|:|A2eb|:|Savoir réaliser un calcul contenant une ou deux paires de parenthèses
+cycle 3 BO 2026|:|obj|:|A2ec|:|Poser et effectuer la multiplication d’un nombre décimal par un nombre entier
+cycle 3 BO 2026|:|obj|:|A2ed|:|Poser et effectuer des divisions décimales avec un dividende entier et un diviseur à un chiffre
+cycle 3 BO 2026|:|obj|:|A2ee|:|Poser et effectuer des divisions décimales avec un dividende décimal et un diviseur à un chiffre
+cycle 3 BO 2026|:|obj|:|A2fa|:|Résoudre des problèmes additifs en une ou plusieurs étapes 
+cycle 3 BO 2026|:|obj|:|A2fb|:|Résoudre des problèmes multiplicatifs de type « parties-tout » en une étape 
+cycle 3 BO 2026|:|obj|:|A2fc|:|Résoudre des problèmes mixtes en plusieurs étapes 
+cycle 3 BO 2026|:|obj|:|A2fd|:|Résoudre des problèmes de comparaison multiplicative 
+cycle 3 BO 2026|:|obj|:|A2fe|:|Résoudre des problèmes de dénombrement 
+cycle 3 BO 2026|:|obj|:|A2ff|:|Résoudre des problèmes d’optimisation 
+cycle 3 BO 2026|:|obj|:|A2fg|:|Résoudre des problèmes préparant à l’utilisation d’algorithmes 
+cycle 3 BO 2026|:|obj|:|A2ga|:|Trouver le nombre manquant dans une égalité à trous
+cycle 3 BO 2026|:|obj|:|A2gb|:|Résoudre des problèmes algébriques
+cycle 3 BO 2026|:|obj|:|A2gc|:|Exécuter ou produire un programme de calcul
+cycle 3 BO 2026|:|obj|:|A2gd|:|Identifier et formuler une règle de calcul pour poursuivre une suite de nombres
+cycle 3 BO 2026|:|obj|:|A2ge|:|Identifier des régularités et poursuivre une suite de motifs évolutive
+cycle 3 BO 2026|:|obj|:|A2gf|:|Trouver le nombre d’éléments pour une étape donnée dans une suite de motifs évolutive
+cycle 3 BO 2026|:|obj|:|A3aa|:|Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+cycle 3 BO 2026|:|obj|:|A3ab|:|Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+cycle 3 BO 2026|:|obj|:|A3ac|:|Connaître des grands nombres entiers
+cycle 3 BO 2026|:|obj|:|A3ad|:|Reconnaître un nombre décimal
+cycle 3 BO 2026|:|obj|:|A3ae|:|Connaître la définition d’un pourcentage
+cycle 3 BO 2026|:|obj|:|A3af|:|Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+cycle 3 BO 2026|:|obj|:|A3ag|:|Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+cycle 3 BO 2026|:|obj|:|A3ah|:|Repérer un nombre décimal sur une demi-droite graduée
+cycle 3 BO 2026|:|obj|:|A3ai|:|Comparer deux nombres décimaux
+cycle 3 BO 2026|:|obj|:|A3aj|:|Ordonner une liste de nombres décimaux
+cycle 3 BO 2026|:|obj|:|A3ak|:|Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+cycle 3 BO 2026|:|obj|:|A3al|:|Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
+cycle 3 BO 2026|:|obj|:|A3am|:|Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+cycle 3 BO 2026|:|obj|:|A3an|:|Additionner et soustraire des nombres décimaux
+cycle 3 BO 2026|:|obj|:|A3ao|:|Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
+cycle 3 BO 2026|:|obj|:|A3ap|:|Connaître le lien avec la division par 10, 100 et par 1 000
+cycle 3 BO 2026|:|obj|:|A3aq|:|Comprendre le sens de la multiplication de deux nombres décimaux
+cycle 3 BO 2026|:|obj|:|A3ar|:|Calculer le produit de deux nombres décimaux
+cycle 3 BO 2026|:|obj|:|A3as|:|Contrôler les résultats à l’aide d’ordres de grandeur
+cycle 3 BO 2026|:|obj|:|A3at|:|Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
+cycle 3 BO 2026|:|obj|:|A3au|:|Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+cycle 3 BO 2026|:|obj|:|A3av|:|Résoudre des problèmes mettant en jeu des divisions décimales
+cycle 3 BO 2026|:|obj|:|A3aw|:|Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+cycle 3 BO 2026|:|obj|:|A3ax|:|Résoudre des problèmes mettant en jeu des divisions euclidiennes
+cycle 3 BO 2026|:|pro|:|A3aa|:|Découverte d'écritures des nombres à partir de lettres ou de dessins~: numérations acrophoniques grecque, romaine, hiéroglyphique égyptienne
+cycle 3 BO 2026|:|pro|:|A3ab|:|Découverte d'algorithmes opératoires, développés dans plusieurs traditions mathématiques, comme la multiplication par jalousies ou en tableau
+cycle 3 BO 2026|:|pro|:|A3ac|:|Manipulation d'abaques à jetons ou de bouliers pour remobiliser le principe de la numération et la notion de « base de numération »
+cycle 3 BO 2026|:|pro|:|A3ad|:|Découverte de la numération sexagésimale paléo-babylonienne, qui repose sur les mêmes principes mathématiques que le système utilisé pour exprimer des durées en heures, minutes et secondes
+cycle 3 BO 2026|:|pro|:|A3ae|:|Le passage de ce système de numération au système décimal (et vice versa) est un autre contexte que celui des durées pour travailler la division euclidienne
+cycle 3 BO 2026|:|pro|:|A3af|:|Découverte de l'écriture des nombres décimaux utilisée par Simon Stevin de Bruges pour illustrer le lien entre numération décimale et fractions décimales
+cycle 3 BO 2026|:|obj|:|A3ba|:|Relier une fraction au résultat exact de la division de son numérateur par son dénominateur
+cycle 3 BO 2026|:|obj|:|A3bb|:|Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+cycle 3 BO 2026|:|obj|:|A3bc|:|Compléter des égalités à trous multiplicatives
+cycle 3 BO 2026|:|obj|:|A3bd|:|Placer une fraction sur une demi-droite graduée dans des cas simples
+cycle 3 BO 2026|:|obj|:|A3be|:|Graduer un segment de longueur donnée
+cycle 3 BO 2026|:|obj|:|A3bf|:|Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal
+cycle 3 BO 2026|:|obj|:|A3bg|:|Utiliser une multiplication pour appliquer une fraction à un nombre entier
+cycle 3 BO 2026|:|obj|:|A3bh|:|Établir des égalités de fractions
+cycle 3 BO 2026|:|obj|:|A3bi|:|Comparer et encadrer des fractions
+cycle 3 BO 2026|:|obj|:|A3bj|:|Ordonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes
+cycle 3 BO 2026|:|obj|:|A3bk|:|Effectuer des opérations sur les fractions
+cycle 3 BO 2026|:|obj|:|A3bl|:|Additionner et soustraire des fractions
+cycle 3 BO 2026|:|obj|:|A3bm|:|Multiplier une fraction par un nombre entier
+cycle 3 BO 2026|:|obj|:|A3bn|:|Résoudre des problèmes mettant en jeu des fractions
+cycle 3 BO 2026|:|obj|:|A3bo|:|Inventer des problèmes mettant en jeu des fractions
+cycle 3 BO 2026|:|obj|:|A3bp|:|Comprendre le sens d’un pourcentage
+cycle 3 BO 2026|:|obj|:|A3bq|:|Calculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples
+cycle 3 BO 2026|:|obj|:|A3br|:|Appliquer un pourcentage à une grandeur ou à un nombre
+cycle 3 BO 2026|:|obj|:|A3ca|:|Utiliser des modèles pré-algébriques pour résoudre des problèmes algébriques
+cycle 3 BO 2026|:|obj|:|A3cb|:|Identifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure 
+cycle 3 BO 2026|:|obj|:|B1aa|:|Connaître et utiliser les unités de longueur du millimètre au kilomètre et les symboles associés
+cycle 3 BO 2026|:|obj|:|B1ab|:|Connaître les relations entre les unités de longueur
+cycle 3 BO 2026|:|obj|:|B1ac|:|Choisir une unité adaptée pour exprimer une longueur
+cycle 3 BO 2026|:|obj|:|B1ad|:|Comparer des longueurs
+cycle 3 BO 2026|:|obj|:|B1ae|:|Disposer de quelques longueurs de référence
+cycle 3 BO 2026|:|obj|:|B1af|:|Estimer la longueur d’un objet ou d’une distance
+cycle 3 BO 2026|:|obj|:|B1ag|:|Savoir ce qu’est le périmètre d’une figure plane
+cycle 3 BO 2026|:|obj|:|B1ah|:|Déterminer le périmètre d’un polygone en utilisant une règle graduée
+cycle 3 BO 2026|:|obj|:|B1ai|:|Résoudre des problèmes mettant en jeu les longueurs des côtés d’un polygone et son périmètre
+cycle 3 BO 2026|:|obj|:|B1ba|:|Connaître et utiliser les unités de masse du gramme à la tonne et les symboles associés
+cycle 3 BO 2026|:|obj|:|B1bb|:|Connaître les relations entre les unités de masse
+cycle 3 BO 2026|:|obj|:|B1bc|:|Choisir une unité adaptée pour exprimer une masse
+cycle 3 BO 2026|:|obj|:|B1bd|:|Comparer des masses
+cycle 3 BO 2026|:|obj|:|B1be|:|Disposer de quelques masses de référence
+cycle 3 BO 2026|:|obj|:|B1bf|:|Estimer la masse d’un objet
+cycle 3 BO 2026|:|obj|:|B1ca|:|Connaître et utiliser les unités de contenance du millilitre à l’hectolitre et les symboles associés
+cycle 3 BO 2026|:|obj|:|B1cb|:|Connaître les relations entre les unités de contenance
+cycle 3 BO 2026|:|obj|:|B1cc|:|Choisir une unité adaptée pour exprimer une contenance
+cycle 3 BO 2026|:|obj|:|B1cd|:|Comparer des contenances
+cycle 3 BO 2026|:|obj|:|B1da|:|Comparer les aires de différentes figures planes
+cycle 3 BO 2026|:|obj|:|B1db|:|Déterminer des aires
+cycle 3 BO 2026|:|obj|:|B1dc|:|Connaître et utiliser les centimètres carrés pour exprimer des aires
+cycle 3 BO 2026|:|obj|:|B1ea|:|Utiliser le lexique spécifique associé aux angles
+cycle 3 BO 2026|:|obj|:|B1eb|:|Comprendre et utiliser les notations des angles
+cycle 3 BO 2026|:|obj|:|B1ec|:|Comparer des angles
+cycle 3 BO 2026|:|obj|:|B1fa|:|Lire l’heure sur une horloge à aiguilles
+cycle 3 BO 2026|:|obj|:|B1fb|:|Positionner les aiguilles d’une horloge correspondant à une heure donnée en heure et minute
+cycle 3 BO 2026|:|obj|:|B1fc|:|Comparer et mesurer des durées écoulées entre deux instants affichés sur une horloge (instants et durées sont exprimés en heure et minute)
+cycle 3 BO 2026|:|obj|:|B1fd|:|Résoudre des problèmes à une ou deux étapes impliquant des durées
+cycle 3 BO 2026|:|obj|:|B2aa|:|Comparer les aires de différentes figures planes
+cycle 3 BO 2026|:|obj|:|B2ab|:|Déterminer des aires
+cycle 3 BO 2026|:|obj|:|B2ac|:|Connaître et utiliser les unités centimètre carré, décimètre carré et mètre carré pour exprimer des aires
+cycle 3 BO 2026|:|obj|:|B2ad|:|Convertir des aires entre différentes unités
+cycle 3 BO 2026|:|obj|:|B2ae|:|Déterminer l’aire d’un carré ou d’un rectangle
+cycle 3 BO 2026|:|obj|:|B2ba|:|Utiliser le lexique spécifique associé aux angles
+cycle 3 BO 2026|:|obj|:|B2bb|:|Comprendre et utiliser les notations des angles
+cycle 3 BO 2026|:|obj|:|B2bc|:|Comparer des angles
+cycle 3 BO 2026|:|obj|:|B2bd|:|Construire un angle égal à la somme de deux angles donnés ou un angle multiple d’un angle donné
+cycle 3 BO 2026|:|obj|:|B2be|:|Construire par pliage la moitié d’un angle donné
+cycle 3 BO 2026|:|obj|:|B2bf|:|Savoir qu’un angle droit mesure 90°
+cycle 3 BO 2026|:|obj|:|B2ca|:|Lire l’heure sur une horloge à aiguilles
+cycle 3 BO 2026|:|obj|:|B2cb|:|Positionner les aiguilles d’une horloge correspondant à une heure donnée en heure, minute et seconde
+cycle 3 BO 2026|:|obj|:|B2cc|:|Comparer et mesurer des durées écoulées entre deux instants affichés sur une horloge (instants et durées sont exprimés en heure, minute et seconde)
+cycle 3 BO 2026|:|obj|:|B2cd|:|Résoudre des problèmes à une ou plusieurs étapes impliquant des durées
+cycle 3 BO 2026|:|aut|:|B3aa|:|L’élève connaît les significations des préfixes allant du kilo- au milli-, ainsi que les relations entre le mètre, ses multiples et ses sous-multiples, et fait le lien avec les unités de numération du système décimal. 
+cycle 3 BO 2026|:|aut|:|B3ab|:|L’élève connaît les relations entre deux unités successives du système décimal, par exemple : 1 dm = 10 cm et 1 cm = $\dfrac {1}{10}$ dm = 0,1 dm.
+cycle 3 BO 2026|:|aut|:|B3ac|:|L’élève sait convertir en mètre une longueur donnée dans une autre unité, multiple ou sous-multiple du mètre. Inversement, l’élève sait convertir dans une unité donnée une longueur exprimée en mètre. 
+cycle 3 BO 2026|:|aut|:|B3ad|:|L’élève sait utiliser le compas comme outil de report de longueurs.
+cycle 3 BO 2026|:|aut|:|B3ae|:|Il sait que le périmètre d’une figure plane est la longueur de son contour. L’élève sait calculer le périmètre d’un carré et d’un rectangle.
+cycle 3 BO 2026|:|obj|:|B3aa|:|Savoir que le périmètre du disque est proportionnel à son diamètre.
+cycle 3 BO 2026|:|obj|:|B3ab|:|Connaître la formule du périmètre d’un disque.
+cycle 3 BO 2026|:|obj|:|B3ac|:|Calculer le périmètre d’un disque.
+cycle 3 BO 2026|:|obj|:|B3ad|:|Calculer des périmètres de figures composées.
+cycle 3 BO 2026|:|obj|:|B3ae|:|Résoudre des problèmes impliquant des longueurs.
+cycle 3 BO 2026|:|aut|:|B3ba|:|L’élève sait comparer des aires sans avoir recours à la mesure, par superposition ou par découpage et recollement de surfaces.
+cycle 3 BO 2026|:|aut|:|B3bb|:|L’élève sait que 1 cm$^2$ est l’aire d’un carré de 1 cm de côté, que 1 m$^2$ est l’aire d’un carré de 1 m de côté, que 1 dm$^2$ est l’aire d’un carré de 1 dm de côté.
+cycle 3 BO 2026|:|aut|:|B3bc|:|Dans des cas simples, l’élève sait déterminer l’aire d’une surface en s’appuyant sur un quadrillage composé de carreaux dont les côtés mesurent 1 cm.
+cycle 3 BO 2026|:|aut|:|B3bd|:|L’élève sait que : 1 m$^2$ = 1 m $\times $ 1 m = 10 dm $\times $ 10 dm = 10 $\times $ 10 dm$^2$ = 100 dm$^2$ ; 1 dm$^2$ = 1 dm $\times $ 1 dm = 10 cm $\times $ 10 cm = 10 $\times $ 10 cm$^2$ = 100 cm$^2$.
+cycle 3 BO 2026|:|aut|:|B3be|:|L’élève mémorise que 1 cm$^2$ est égal à un centième de 1 dm$^2$, qu’il écrit 1 cm$^2=\dfrac {1}{100}$
+cycle 3 BO 2026|:|aut|:|B3bf|:|L’élève mémorise que 1 dm$^2$ est égal à un centième de 1 m$^2$, qu’il écrit 1 dm$^2=\dfrac {1}{100}$ m$^2$ ou 1 dm$^2=0,001$ m$^2$.
+cycle 3 BO 2026|:|obj|:|B3ba|:|Effectuer des conversions d’aire
+cycle 3 BO 2026|:|obj|:|B3bb|:|Connaître la formule de l’aire d’un carré ou d’un rectangle
+cycle 3 BO 2026|:|obj|:|B3bc|:|Calculer l’aire d’un carré ou d’un rectangle
+cycle 3 BO 2026|:|obj|:|B3ca|:|L’élève connaît l’unité centimètre cube.
+cycle 3 BO 2026|:|obj|:|B3cb|:|L’élève sait comparer des volumes.
+cycle 3 BO 2026|:|obj|:|B3cc|:|L’élève sait déterminer un volume.
+cycle 3 BO 2026|:|aut|:|B3da|:|L’élève lit l’heure sur un cadran à aiguilles ou sur un affichage digital (heures, minutes et secondes).
+cycle 3 BO 2026|:|aut|:|B3db|:|L’élève place les aiguilles pour qu’une horloge indique une heure donnée.
+cycle 3 BO 2026|:|aut|:|B3dc|:|L’élève connaît les unités de mesure de durées jour, heure, minute et seconde et les relations qui les lient.
+cycle 3 BO 2026|:|aut|:|B3dd|:|L’élève sait combien de jours il y a dans une année (bissextile ou non), combien d’années il y a dans un siècle, et dans un millénaire.
+cycle 3 BO 2026|:|aut|:|B3de|:|L’élève sait qu’une demi-heure c’est 30 minutes, qu’un quart d’heure c’est 15 minutes, que trois quarts d’heure c’est 45 minutes.
+cycle 3 BO 2026|:|obj|:|B3da|:|Effectuer des calculs sur des horaires et des durées
+cycle 3 BO 2026|:|obj|:|B3db|:|Résoudre des problèmes impliquant des horaires et des durées
+cycle 3 BO 2026|:|obj|:|B3dc|:|Convertir des durées
+cycle 3 BO 2026|:|pro|:|B3da|:|L’élève découvre l’histoire et le fonctionnement de différents types de calendriers : solaires, lunaires ou luni-solaires. Il comprend le lien entre les calendriers julien et grégorien et les différentes approximations de la valeur de l’année tropique. 
+cycle 3 BO 2026|:|pro|:|B3db|:|Selon ses intérêts et ses besoins, l’élève peut également s’interroger sur les moyens de partager le temps, découvrir les clepsydres (horloges à eau) ou d’autres instruments historiques et interculturels (grecs, arabes, chinois).
+cycle 3 BO 2026|:|obj|:|C1aa|:|Utiliser le vocabulaire géométrique approprié dans le contexte d’apprentissage des notions correspondantes
+cycle 3 BO 2026|:|obj|:|C1ab|:|Utiliser les outils géométriques usuels : règle, règle graduée, équerre et compas
+cycle 3 BO 2026|:|obj|:|C1ac|:|Connaître les codes usuels utilisés en géométrie
+cycle 3 BO 2026|:|obj|:|C1ad|:|Décrire et reconnaître un cercle et un disque comme un ensemble de points caractérisés par leur distance à un point donné
+cycle 3 BO 2026|:|obj|:|C1ae|:|Reconnaître et utiliser la notion de perpendicularité
+cycle 3 BO 2026|:|obj|:|C1af|:|Reconnaître et utiliser la notion de parallélisme
+cycle 3 BO 2026|:|obj|:|C1ag|:|Reconnaître et nommer les figures suivantes en faisant référence à leur définition : triangle, triangle rectangle, triangle isocèle, triangle équilatéral, quadrilatère, carré, rectangle, losange, trapèze, trapèze rectangle, pentagone et hexagone
+cycle 3 BO 2026|:|obj|:|C1ah|:|Connaître les propriétés de parallélisme des côtés opposés, des égalités de longueurs et d’angles pour les figures usuelles~: triangle rectangle, triangle isocèle, triangle équilatéral, carré, rectangle, losange, trapèze et trapèze rectangle 
+cycle 3 BO 2026|:|obj|:|C1ai|:|Reproduire ou construire un carré, un rectangle, un triangle, un triangle rectangle ou un cercle ou des assemblages de ces figures sur tout support (papier quadrillé, pointé ou uni), avec une règle graduée, une équerre ou un compas. 
+cycle 3 BO 2026|:|obj|:|C1aj|:|Construire une figure géométrique composée de segments, de droites, de polygones usuels et de cercles
+cycle 3 BO 2026|:|obj|:|C1ak|:|Reconnaître si une figure possède un ou plusieurs axes de symétrie
+cycle 3 BO 2026|:|obj|:|C1al|:|Compléter une figure pour la rendre symétrique par rapport à une droite donnée, horizontale ou verticale
+cycle 3 BO 2026|:|obj|:|C1am|:|Construire, sur papier quadrillé, la figure symétrique d’une figure donnée par rapport à une droite horizontale ou verticale
+cycle 3 BO 2026|:|obj|:|C1ba|:|Nommer un cube, une boule, un pavé, un cône, une pyramide, un cylindre ou un prisme droit
+cycle 3 BO 2026|:|obj|:|C1bb|:|Décrire un cube, un pavé, une pyramide ou un prisme droit en faisant référence à des propriétés et en utilisant le vocabulaire approprié
+cycle 3 BO 2026|:|obj|:|C1bc|:|Reconnaître un patron d’un cube
+cycle 3 BO 2026|:|obj|:|C1bd|:|Construire un patron d’un cube
+cycle 3 BO 2026|:|obj|:|C1be|:|Reconnaître un patron d’un pavé
+cycle 3 BO 2026|:|obj|:|C1ca|:|Connaître et utiliser le vocabulaire lié aux déplacements
+cycle 3 BO 2026|:|obj|:|C1cb|:|Comprendre, utiliser et produire une suite d’instructions qui décrivent un déplacement en utilisant un vocabulaire spatial précis
+cycle 3 BO 2026|:|obj|:|C1cc|:|Résoudre des problèmes portant sur des assemblages de cubes
+cycle 3 BO 2026|:|aut|:|C2aa|:|L’élève connaît le lexique et le codage des objets de base de la géométrie plane : angle droit, égalité de longueurs, égalité d’angles.
+cycle 3 BO 2026|:|aut|:|C2ab|:|Il reconnaît un carré, un rectangle, un triangle.
+cycle 3 BO 2026|:|aut|:|C2ac|:|Il reconnaît si une figure possède un ou plusieurs axes de symétrie.
+cycle 3 BO 2026|:|aut|:|C2ad|:|Il sait coder des angles droits et des longueurs égales
+cycle 3 BO 2026|:|obj|:|C2aa|:|Connaître et utiliser la définition de la distance entre deux points
+cycle 3 BO 2026|:|obj|:|C2ab|:|Connaître et utiliser la définition du milieu d’un segment
+cycle 3 BO 2026|:|obj|:|C2ac|:|Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+cycle 3 BO 2026|:|obj|:|C2ad|:|Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+cycle 3 BO 2026|:|obj|:|C2ae|:|Résoudre des problèmes mettant en jeu des distances à un point
+cycle 3 BO 2026|:|obj|:|C2af|:|Connaître la définition de la médiatrice d’un segment
+cycle 3 BO 2026|:|obj|:|C2ag|:|Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment
+cycle 3 BO 2026|:|obj|:|C2ah|:|Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice
+cycle 3 BO 2026|:|obj|:|C2ai|:|Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+cycle 3 BO 2026|:|obj|:|C2aj|:|Mesurer un angle
+cycle 3 BO 2026|:|obj|:|C2ak|:|Construire un angle de mesure donnée
+cycle 3 BO 2026|:|obj|:|C2al|:|Connaître la définition de la bissectrice d’un angle saillant
+cycle 3 BO 2026|:|obj|:|C2am|:|Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes
+cycle 3 BO 2026|:|obj|:|C2an|:|Construire des triangles
+cycle 3 BO 2026|:|obj|:|C2ao|:|Connaître et utiliser les propriétés angulaires des triangles particuliers : triangle rectangle, triangle isocèle, triangle équilatéral
+cycle 3 BO 2026|:|obj|:|C2ap|:|Connaître la valeur de la somme des mesures des angles d’un triangle
+cycle 3 BO 2026|:|obj|:|C2aq|:|L’utiliser pour calculer des angles, effectuer des constructions et résoudre des problèmes
+cycle 3 BO 2026|:|obj|:|C2ar|:|Savoir que les médiatrices d’un triangle sont concourantes
+cycle 3 BO 2026|:|obj|:|C2as|:|Connaître et construire le cercle circonscrit à un triangle
+cycle 3 BO 2026|:|obj|:|C2at|:|Connaître la définition du symétrique d’un point par rapport à une droite
+cycle 3 BO 2026|:|obj|:|C2au|:|Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions
+cycle 3 BO 2026|:|obj|:|C2ba|:|Voir dans l’espace des assemblages de cubes
+cycle 3 BO 2026|:|obj|:|D1aa|:|Recueillir des données et produire un tableau, un diagramme en barres ou un ensemble de points dans un repère pour présenter
+cycle 3 BO 2026|:|obj|:|D1ab|:|Lire et interpréter les données d’un tableau à simple ou double entrée, d’un diagramme en barres ou d’une courbe
+cycle 3 BO 2026|:|obj|:|D1ac|:|Résoudre des problèmes en une ou plusieurs étapes en utilisant les données d’un tableau à simple ou double entrée, d’un
+cycle 3 BO 2026|:|obj|:|D1ba|:|Identifier des expériences aléatoires
+cycle 3 BO 2026|:|obj|:|D1bb|:|Identifier toutes les issues possibles lors d’une expérience aléatoire simple
+cycle 3 BO 2026|:|obj|:|D1bc|:|Comprendre et utiliser le vocabulaire approprié : « impossible », « possible », « certain », « probable », « peu probable », « une
+cycle 3 BO 2026|:|obj|:|D1bd|:|Comparer des issues d’expériences aléatoires ou des évènements selon leur probabilité de réalisation
+cycle 3 BO 2026|:|obj|:|D1be|:|Comprendre que ce n’est pas parce qu’il y a deux issues possibles que chacune a une chance sur deux de se réaliser
+cycle 3 BO 2026|:|obj|:|D1bf|:|Reconnaître des situations d’équiprobabilité
+cycle 3 BO 2026|:|obj|:|D2aa|:|Recueillir des données et produire un tableau, un diagramme en barres ou un ensemble de points dans un repère pour présenter des données recueillies
+cycle 3 BO 2026|:|obj|:|D2ab|:|Lire et interpréter les données d’un tableau, d’un diagramme en barres, d’un diagramme circulaire ou d’une courbe
+cycle 3 BO 2026|:|obj|:|D2ac|:|Résoudre des problèmes en une ou deux étapes en utilisant les données d’un tableau, d’un diagramme en barres, d’un diagramme circulaire ou d’une courbe
+cycle 3 BO 2026|:|obj|:|D2ba|:|Identifier toutes les issues possibles lors d’une expérience aléatoire simple
+cycle 3 BO 2026|:|obj|:|D2bb|:|Identifier toutes les issues réalisant un évènement dans une expérience aléatoire simple
+cycle 3 BO 2026|:|obj|:|D2bc|:|Dans une situation d’équiprobabilité, lors d’une expérience aléatoire simple, exprimer la probabilité d’un évènement sous la forme « a chances sur b »
+cycle 3 BO 2026|:|obj|:|D2bd|:|Comparer des probabilités dans des cas simples
+cycle 3 BO 2026|:|obj|:|D2be|:|Comprendre la notion d’indépendance lors de la répétition de la même expérience aléatoire
+cycle 3 BO 2026|:|obj|:|D2bf|:|Dans des situations d’équiprobabilité, recenser toutes les issues possibles d’une expérience aléatoire en deux étapes dans un tableau ou dans un arbre afin de déterminer des probabilités
+cycle 3 BO 2026|:|obj|:|D3aa|:|Planifier une enquête et recueillir des données
+cycle 3 BO 2026|:|obj|:|D3ab|:|Réaliser des mesures et les consigner dans un tableau
+cycle 3 BO 2026|:|obj|:|D3ac|:|Construire un tableau simple pour présenter des données (observations, caractères)
+cycle 3 BO 2026|:|obj|:|D3ad|:|Faire un choix en filtrant les données d’un tableau selon un critère
+cycle 3 BO 2026|:|obj|:|D3ba|:|Savoir que la probabilité d’un évènement est un nombre compris entre 0 et 1
+cycle 3 BO 2026|:|obj|:|D3bb|:|Calculer des probabilités dans des situations simples d’équiprobabilité
+cycle 3 BO 2026|:|obj|:|D3bc|:|Comparer des résultats d’une expérience aléatoire répétée à une probabilité calculée
+cycle 3 BO 2026|:|obj|:|E1aa|:|Identifier une situation de proportionnalité
+cycle 3 BO 2026|:|obj|:|E1ab|:|Savoir résoudre un problème de proportionnalité
+cycle 3 BO 2026|:|obj|:|E2aa|:|Identifier une situation de proportionnalité
+cycle 3 BO 2026|:|obj|:|E2ab|:|Savoir résoudre un problème de proportionnalité
+cycle 3 BO 2026|:|aut|:|E3aa|:|L’élève sait repérer des relations multiplicatives simples entre des nombres (double, quadruple, moitié, tiers, quart).
+cycle 3 BO 2026|:|aut|:|E3ab|:|Il associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.
+cycle 3 BO 2026|:|obj|:|E3aa|:|Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante
+cycle 3 BO 2026|:|obj|:|E3ab|:|Identifier si une situation relève du « modèle » de la proportionnalité
+cycle 3 BO 2026|:|obj|:|E3ac|:|Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication
+cycle 3 BO 2026|:|obj|:|E3ad|:|ou l’addition, retour à l’unité
+cycle 3 BO 2026|:|obj|:|E3ae|:|Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques
+cycle 3 BO 2026|:|obj|:|E3af|:|S’initier à la résolution de problèmes d’échelles
+cycle 3 BO 2026|:|obj|:|F3aa|:|Identifier une instruction ou une séquence d’instructions
+cycle 3 BO 2026|:|obj|:|F3ab|:|Produire et exécuter une séquence d’instructions
+cycle 3 BO 2026|:|obj|:|F3ac|:|Répéter à la main une séquence d’instructions pour accomplir une tâche imposée
+cycle 3 BO 2026|:|obj|:|F3ad|:|Programmer la construction d’un chemin simple

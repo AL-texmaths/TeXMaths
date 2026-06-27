@@ -7,7 +7,7 @@ import html
 from pathlib import Path
 from src.tools import (
     CONFIG, LATEX_DIR, ADOBE_PATH, KATEX_DIR, PDF_XCHANGE_PATH,
-    camel_to_sentence, get_exe, get_path
+    camel_to_sentence, get_exe
     )
 from src.qss import soothing, vscode_dark
 
@@ -15,7 +15,8 @@ THEMES = {
     "VS Code Dark": vscode_dark,
     "Soothing": soothing,
 }
-from src.update_code_index import update_code_index
+# from src.update_code_index import update_code_index
+from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
 from src.check_database import check_database
 from src.extract_preview import update_previews

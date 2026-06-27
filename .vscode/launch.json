@@ -54,5 +54,13 @@
         "console": "integratedTerminal",
         "justMyCode": true
         },
+        {
+            "name": "Run assistant de progression",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/assistant_progression.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
     ]
 }

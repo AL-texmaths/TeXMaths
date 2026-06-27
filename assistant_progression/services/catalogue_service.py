@@ -119,6 +119,7 @@ class CatalogueService:
 
         entries = self.entries
 
+        # Filtre catalogue
         if catalogue != "Tous":
 
             entries = [
@@ -127,6 +128,7 @@ class CatalogueService:
                 if e.catalogue == catalogue
             ]
 
+        # Filtre type
         if source_type != "Tous":
 
             entries = [
@@ -135,23 +137,67 @@ class CatalogueService:
                 if e.type == source_type
             ]
 
+        # Recherche
         if regex_text:
 
-            regex = re.compile(
+            code_match = re.search(
+                r"code:(\S+)",
                 regex_text,
                 re.IGNORECASE
             )
 
-            entries = [
-                e
-                for e in entries
-                if (
-                    regex.search(e.code)
-                    or regex.search(e.text)
-                )
-            ]
+            text_match = re.search(
+                r"text:(.+?)(?=\s+\w+:|$)",
+                regex_text,
+                re.IGNORECASE
+            )
 
-        entries = sorted(
+            # Recherche ciblée sur le code
+            if code_match:
+
+                code_regex = re.compile(
+                    code_match.group(1),
+                    re.IGNORECASE
+                )
+
+                entries = [
+                    e
+                    for e in entries
+                    if code_regex.search(e.code)
+                ]
+
+            # Recherche ciblée sur le texte
+            if text_match:
+
+                text_regex = re.compile(
+                    text_match.group(1).strip(),
+                    re.IGNORECASE
+                )
+
+                entries = [
+                    e
+                    for e in entries
+                    if text_regex.search(e.text)
+                ]
+
+            # Recherche classique si aucun filtre spécial
+            if not code_match and not text_match:
+
+                regex = re.compile(
+                    regex_text,
+                    re.IGNORECASE
+                )
+
+                entries = [
+                    e
+                    for e in entries
+                    if (
+                        regex.search(e.code)
+                        or regex.search(e.text)
+                    )
+                ]
+
+        return sorted(
             entries,
             key=lambda e: (
                 e.catalogue,
@@ -159,8 +205,6 @@ class CatalogueService:
                 e.code
             )
         )
-
-        return entries
 
     def update_code_label(self):
         

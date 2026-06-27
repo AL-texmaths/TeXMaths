@@ -15,3 +15,5 @@ data/graphics/pdf
 data/tmp
 src/__pycache__
 output
+dist
+build

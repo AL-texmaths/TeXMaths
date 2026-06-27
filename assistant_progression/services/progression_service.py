@@ -1,6 +1,6 @@
 # assistant_progression/services/progression_service.py
 
-from PySide6.QtWidgets import QTreeWidgetItem
+from PySide6.QtWidgets import QMessageBox, QTreeWidgetItem
 from PySide6.QtCore import Qt
 
 
@@ -91,16 +91,15 @@ class ProgressionService:
     def add_selected_item(self, tree, entry):
 
         selected = tree.currentItem()
-
-        if selected is None:
+        if selected is None or selected.parent() is None:
             return None
 
-        # équivalent de l'ancien is_chapter()
-        if (
-            selected.parent() is None
-            or selected.data(0, Qt.UserRole) is not None
-        ):
-            return None
+        selected_chapter = tree.currentItem()
+
+        while selected_chapter.parent() is not None:
+            if selected_chapter.parent().parent() is None:
+                break
+            selected_chapter = selected_chapter.parent()
 
         target_label = self.catalogue_service.code_label(
             entry.type
@@ -108,9 +107,9 @@ class ProgressionService:
 
         target = None
 
-        for i in range(selected.childCount()):
+        for i in range(selected_chapter.childCount()):
 
-            child = selected.child(i)
+            child = selected_chapter.child(i)
 
             if child.text(0) == target_label:
                 target = child
@@ -127,7 +126,24 @@ class ProgressionService:
             entry.code
         )
 
+        item.setToolTip(
+            0,
+            f"Catalogue: {self.catalogue_service.display_name(entry.catalogue)}"
+            f"{entry.text}\n\n"
+        )
+
         target.addChild(item)
+
+        parent = item.parent()
+
+        while parent is not None:
+            parent.setExpanded(True)
+            parent = parent.parent()
+
+        tree.setCurrentItem(item)
+        tree.scrollToItem(item)
+
+        return item
 
         return item
     
@@ -255,6 +271,14 @@ class ProgressionService:
                             Qt.UserRole,
                             code
                         )
+                        entry = self.catalogue_service.get_entry_by_code(code)
+
+                        if entry is not None:
+
+                            child.setToolTip(
+                                0,
+                                entry.text
+                            )
 
                         item.addChild(child)
 

@@ -11,9 +11,7 @@ from assistant_progression.services.regex_service import SearchLineEdit
 from assistant_progression.utils.resolve import CONFIG, resolve_path
 from assistant_progression.utils.textools import update_code_index
 
-
 import re
-import sys
 import json
 from pathlib import Path
 
@@ -627,10 +625,16 @@ class MainWindow(QWidget):
         if not entry:
             return
 
-        self.progression_service.add_selected_item(
+        item = self.progression_service.add_selected_item(
             self.progression,
             entry,
         )
+
+        if item is None:
+            QMessageBox.warning(self, "Warning", "Please select a chapter to add the item.")
+        
+        else:
+            QMessageBox.information(self, "Info", f"Item {entry.code} added to the progression.")
     
     @record_undo
     def add_seance(self):
@@ -692,9 +696,14 @@ class MainWindow(QWidget):
 
         html_items = []
 
-        for e in self.current_matches:
+        for entry in self.current_matches:
+
             html_items.append(
-                f"<b>{e['code']}</b> (<i>{self.catalogue_service.display_name(e['catalogue'])}</i>)  {e['text']}"
+                (
+                    f"<b>{entry.code}</b> "
+                    f"(<i>{self.catalogue_service.display_name(entry.catalogue)}</i>) "
+                    f"{entry.text}"
+                )
             )
 
         html = "<br>".join(html_items)
@@ -907,9 +916,3 @@ class MainWindow(QWidget):
             "Info",
             f"Progression exported {tex_path}"
         )
-
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    w = MainWindow()
-    w.show()
-    sys.exit(app.exec())

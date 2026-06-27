@@ -19,6 +19,7 @@ def compile_latex(
         ],
     motor: str = "latexmk",
     outputdir: str | Path | None = None,
+    logger=print
     ):
     """
     Compile a LaTeX file using the specified engine and arguments.
@@ -38,11 +39,11 @@ def compile_latex(
         raise ValueError(f"No executable configuration found for motor: {motor}")
 
     cmd = [str(executable_path), *args, f"-output-directory={outputdir}", str(tex_file)]
-    print(f"Running command: {' '.join(cmd)}")
+    logger(f"Running command: {' '.join(cmd)}")
 
-    print("motor =", motor)
-    print("executable_path =", executable_path)
-    print("cmd =", cmd)
+    logger(f"motor = {motor}")
+    logger(f"executable_path = {executable_path}")
+    logger(f"cmd = {cmd}")
 
     result = subprocess.run(
         cmd,
@@ -50,16 +51,16 @@ def compile_latex(
         text=True,
     )
 
-    print("Command    :", result.args)
-    print("Return code:", result.returncode)
-    print("STDOUT:")
-    print(result.stdout)
-    print("STDERR:")
-    print(result.stderr)
+    logger(f"Command    : {result.args}")
+    logger(f"Return code: {result.returncode}")
+    logger("STDOUT:")
+    logger(result.stdout)
+    logger("STDERR:")
+    logger(result.stderr)
 
     return result
 
-def check_code_index_data():
+def check_code_index_data(logger=print):
     #1 - Se placer dans data/latex/codes_labels
     #2- pour chaque fichier tex, vérifier s'il existe un fichier data.txt correspondant
     #3- si le fichier data.txt n'existe pas, compiler le fichier tex correspondant
@@ -70,24 +71,24 @@ def check_code_index_data():
         compile = False
         data_path = tex_file.with_name(tex_file.stem + "-data.txt")
         if not data_path.exists():
-            print(f"File {data_path} does not exist. Compiling {tex_file}.")
+            logger(f"File {data_path} does not exist. Compiling {tex_file}.")
             compile = True
         elif data_path.stat().st_mtime < tex_file.stat().st_mtime:
-            print(f"File {data_path} is older than {tex_file}. Recompiling.")
+            logger(f"File {data_path} is older than {tex_file}. Recompiling.")
             compile = True
         elif CONFIG["packages to check"].get(tex_file.name) is not None:
             packages = CONFIG["packages to check"][tex_file.name]
             for package in packages:
                 package_path = TEX_PACKAGES_DIR / package
                 if data_path.stat().st_mtime < package_path.stat().st_mtime:
-                    print(f"File {data_path} is older than package {package_path}. Recompiling.")
+                    logger(f"File {data_path} is older than package {package_path}. Recompiling.")
                     compile = True
                     break
 
         if compile:
-            result = compile_latex(tex_file)
+            result = compile_latex(tex_file, logger=logger)
             if result.returncode != 0:
-                print(f"Compilation of {tex_file} failed. Please check the LaTeX file.")
+                logger(f"Compilation of {tex_file} failed. Please check the LaTeX file.")
                 continue
 
 def insert_nested(d, codes_values):
@@ -99,9 +100,8 @@ def insert_nested(d, codes_values):
 
     current[keys[-1]] = value
 
-def update_code_index():
-    #5- extraire les données du fichier data.txt dans un dict puis ecrire le dict dans un fichier json
-    check_code_index_data()
+def update_code_index(logger=print):
+    check_code_index_data(logger=logger)
     cwd = resolve_path("code labels")
     code_index_parent = resolve_path("code index")
 
@@ -117,5 +117,4 @@ def update_code_index():
             json.dump(code_index_data, f, ensure_ascii=False, indent=4)
 
 if __name__ == "__main__":
-    # Example usage
     update_code_index()

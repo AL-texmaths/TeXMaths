@@ -19,22 +19,6 @@ les executables ne sont pas trouvés
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assitant de progression ---------------
->>> possibilité via le menu de mettre à jour le code_index
-    ---> l'utilisateur modifie texmaths-*-BO*.sty
-	---> la mise a jour compile le BO correspondant et run update_code_index
->>> l'ajout de code d'item a un chapitre ne fonctionne que si un chapitre
-est sélectionné dans la progression. Il serait plus souple que si c'est un enfant
-de chapitre qui est sélectionné, cela fonctionne aussi et lajout se fasse sur le
-chapitre parent
->>> message box lorsqu'une compétence est ajouté à un chapitre.
->>> message d'alerte si un niveau est sélectionné (veuillez sélectionner un
-chapitre)
->>> cliquer sur un code de compétence/objectif dans la progression affiche le texte
-complet lié au code
->>> lors de l'utilisation de ctrl+i, le tree progression devrait
-s'ouvrir pour afficher l'item ajouté
->>> sauvegarder sous un progression doit ouvrir le même dossier
-que le raccourci ctrl+O
 >>> tester sur windows une version executable avec pyinstaller
 --> s'assurer de la compatibilité windows, notamment au niveaux des chemins
 --> Github Action pour créer l'executable

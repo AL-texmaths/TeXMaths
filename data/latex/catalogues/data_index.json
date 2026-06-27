@@ -168,7 +168,7 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Écrire un enchaînement d'opérations sous la forme d'une expression numérique",
@@ -614,7 +614,7 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Écrire un enchaînement d'opérations sous la forme d'une expression numérique",
@@ -876,7 +876,7 @@
         ],
         "connaissancesRequises": [
             "variable, fonction, antécédent, image",
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction",
@@ -1928,7 +1928,7 @@
         "connaissancesRequises": [
             "Notions d'inconnue, d'équation, d'indéterminée, d'identité",
             "Propriété de distributivité simple",
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Développer des expressions algébriques",
@@ -2326,7 +2326,7 @@
             "Notion de grandeur produit, grandeur quotient",
             "variable, fonction, antécédent, image",
             "Différent modes de représentation d'une fonction",
-            "Notations $f(x)$ et $x fleche f(x)$",
+            "Notations $f(x)$ et $x\\mapsto f(x)$",
             "Fonction linéaire, affine"
         ],
         "competencesTravaillees": [
@@ -3765,7 +3765,7 @@
             "Cas d'égalité des triangles"
         ],
         "competencesTravaillees": [
-            "Mettre en oeuvre ou écrire un protocole de construction d'une figure géométrique",
+            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
             "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
             "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
         ]
@@ -5018,7 +5018,7 @@
             "Cas d'égalité des triangles"
         ],
         "competencesTravaillees": [
-            "Mettre en oeuvre ou écrire un protocole de construction d'une figure géométrique",
+            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
             "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
         ]
     },
@@ -5565,7 +5565,7 @@
             "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
         ],
         "competencesTravaillees": [
-            "Mettre en oeuvre ou écrire un protocole de construction d'une figure géométrique",
+            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
             "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
             "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
         ]
@@ -6631,7 +6631,7 @@
             "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
         ],
         "competencesTravaillees": [
-            "Mettre en oeuvre ou écrire un protocole de construction d'une figure géométrique",
+            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
             "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
             "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
         ],
@@ -6728,7 +6728,7 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Écrire un enchaînement d'opérations sous la forme d'une expression numérique",
@@ -7547,7 +7547,7 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Écrire un enchaînement d'opérations sous la forme d'une expression numérique"
@@ -8949,7 +8949,7 @@
             "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
         ],
         "competencesTravaillees": [
-            "Mettre en oeuvre ou écrire un protocole de construction d'une figure géométrique",
+            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
             "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
             "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations",
             "Utiliser une formule liant deux grandeurs dans une situation de proportionnalité"
@@ -8985,7 +8985,7 @@
             "Cas d'égalité des triangles"
         ],
         "competencesTravaillees": [
-            "Mettre en oeuvre ou écrire un protocole de construction d'une figure géométrique",
+            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
             "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
         ]
     },
@@ -9310,7 +9310,7 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Écrire un enchaînement d'opérations sous la forme d'une expression numérique"
@@ -10744,7 +10744,7 @@
         ],
         "connaissancesRequises": [
             "variable, fonction, antécédent, image",
-            "Notations $f(x)$ et $x fleche f(x)$"
+            "Notations $f(x)$ et $x\\mapsto f(x)$"
         ],
         "competencesTravaillees": [
             "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
