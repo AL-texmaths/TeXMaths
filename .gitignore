@@ -11,11 +11,10 @@ data/latex/**/*.fls
 
 data/graphics/gif/data
 data/graphics/pdf
-
 data/tmp
-src/__pycache__
+
 output
 dist
 build
-texmaths
-py3.12venv
+.venv
+src/__pycache__

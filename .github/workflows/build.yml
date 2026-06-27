@@ -28,7 +28,7 @@ jobs:
 
       - name: Construire l'exécutable
         run: |
-          pyinstaller --onefile --windowed assistant_progression.py
+          pyinstaller --onedir --windowed --collect-all PySide6 assistant_progression.py
 
       - name: Sauvegarder le .exe
         uses: actions/upload-artifact@v4
