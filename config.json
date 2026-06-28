@@ -1,7 +1,7 @@
 {
-    "parameters":{
+    "parameters": {
         "year": "2026-2027",
-        "logiciel":"pronote",
+        "logiciel": "pronote",
         "printers": [
             "HP Deskjet F4200 series",
             "EPSON4EF3F8 (ET-4750 Series)",
@@ -49,7 +49,8 @@
             "BO",
             "cycle",
             "objectifsApprentissage"
-        ]
+        ],
+        "theme": "VS Code Dark"
     },
     "executables": {
         "code": [

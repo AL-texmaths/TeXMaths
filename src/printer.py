@@ -1,4 +1,4 @@
-from src.tools import CONFIG, YEAR_DIR, get_cours_file_path
+from src.tools import get_config, YEAR_DIR, get_cours_file_path
 from src.impress import print_pdf,write_impress_datas
 
 MESSAGES = {
@@ -8,7 +8,7 @@ MESSAGES = {
     "file":    "File name ? ",
     "files":   "Files name ? (</> separator) "
     }
-PRINTERS = CONFIG["parameters"]["printers"]
+PRINTERS = get_config()["parameters"]["printers"]
 
 def show_printers():
     """

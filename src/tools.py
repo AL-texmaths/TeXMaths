@@ -41,15 +41,17 @@ if not TMP_DIR.exists():
 
 CONFIG_PATH = base_dir() / "config.json"
 
-if not CONFIG_PATH.exists():
-    raise FileNotFoundError(f"Config introuvable : {CONFIG_PATH}")
+def get_config():
+    if not CONFIG_PATH.exists():
+        raise FileNotFoundError(f"Config introuvable : {CONFIG_PATH}")
 
-with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-    CONFIG = json.load(f)
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
+        CONFIG = json.load(f)
+    return CONFIG
 
 def get_exe(exe_name):
     try:
-        exe_candidates = CONFIG['executables'][exe_name]
+        exe_candidates = get_config()['executables'][exe_name]
     except KeyError:
         print(f"Executable '{exe_name}' not found in config.")
         return None
@@ -59,7 +61,7 @@ def get_exe(exe_name):
 
 def get_path(path_name):
     try:
-        path_candidates = CONFIG['pathes'][path_name]
+        path_candidates = get_config()['pathes'][path_name]
     except KeyError:
         print(f"Path '{path_name}' not found in config.")
         return None
@@ -213,7 +215,7 @@ MESSAGES = {
 }
 
 
-YEAR_DIR = OUTPUT_DIR / CONFIG["parameters"]["year"]
+YEAR_DIR = OUTPUT_DIR / get_config()["parameters"]["year"]
 DEFAULT_DATA_LOG_DIR = DATA_DIR / "logs"
 
 
@@ -299,7 +301,7 @@ def show(message, sep='=', sup=2):
 
 
 def get_pattern(doc_type, extension=None):
-    DOC_DICT = CONFIG["parameters"]["index documents"][doc_type]
+    DOC_DICT = get_config()["parameters"]["index documents"][doc_type]
     if extension is None:
         return DOC_DICT['name pattern']
     return doc_type + DOC_DICT['name pattern'].replace('([A-Za-z\\.]+)$', f'{extension}$')

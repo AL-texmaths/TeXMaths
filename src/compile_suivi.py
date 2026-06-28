@@ -1,13 +1,13 @@
 import csv
 import sys
 from src.tools import (
-    CONFIG, DATA_DIR, LATEX_DIR, OUTPUT_DIR, TMP_DIR,
+    get_config, DATA_DIR, LATEX_DIR, OUTPUT_DIR, TMP_DIR,
     del_files_by_ext, getmodtime, compile_latex)
 
-LOGICIEL = CONFIG["parameters"]["logiciel"]
+LOGICIEL = get_config()["parameters"]["logiciel"]
 LISTPATH = DATA_DIR / "student_lists"
 TEMPLATES = LATEX_DIR / "templates"
-YEAR = CONFIG["parameters"]["year"]
+YEAR = get_config()["parameters"]["year"]
 OUTPUT_LIST_DIR = OUTPUT_DIR / YEAR / "suivi"
 
 classes = sys.argv[1:]

@@ -1,12 +1,12 @@
 import re
 import subprocess
 from src.tools import (
-    LATEX_DIR, CONFIG, DATA_DIR, TMP_DIR,
+    LATEX_DIR, get_config, DATA_DIR, TMP_DIR,
     compile_latex, analyse_log_pdflatex)
 
 EXERCICE_PATH = LATEX_DIR / "exercices"
 ALLEXERCICES_PATH = EXERCICE_PATH / "allexercices.tex"
-VSCODE_EXE = CONFIG['executables']['code']
+VSCODE_EXE = get_config()['executables']['code']
 
 tex_datalines = ['\\documentclass[exercice]{thedocument}', '\\begin{document}']
 for filename in EXERCICE_PATH.iterdir():

@@ -1,9 +1,9 @@
 import re
 from pypdf import PdfReader, PdfWriter
-from src.tools import LATEX_DIR, CONFIG, get_pattern
+from src.tools import LATEX_DIR, get_config, get_pattern
 
 DOC_TYPE = "flash"
-FLASH_DICT = CONFIG["parameters"]["index documents"][DOC_TYPE]
+FLASH_DICT = get_config()["parameters"]["index documents"][DOC_TYPE]
 
 FLASH_DIR = LATEX_DIR / FLASH_DICT['folder name']
 PREVIEW_DIR = FLASH_DIR / "previews"

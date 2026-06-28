@@ -1,6 +1,6 @@
 import re
 import subprocess
-from src.tools import LATEX_DIR, CONFIG, get_pattern, get_exe
+from src.tools import LATEX_DIR, get_config, get_pattern, get_exe
 
 TEMPLATE_DIR = LATEX_DIR / "templates"
 EXERCICES_DIR = LATEX_DIR / "exercices"
@@ -8,7 +8,7 @@ DNBQCM_DIR = LATEX_DIR / "dnbqcm"
 
 CODE_EXE_PATH = get_exe('code')
 
-DOC_TYPE = CONFIG['parameters']['index documents']
+DOC_TYPE = get_config()['parameters']['index documents']
 
 def make_new_exercice():
 

@@ -32,9 +32,9 @@ class LatexPreviewWidget(QWidget):
         # Résolution du chemin KaTeX (si non fourni, lire CONFIG au runtime)
         if katex_path is None:
             try:
-                from src.tools import CONFIG
+                from src.tools import get_config
 
-                katex_cfg = CONFIG.get("katex", "")
+                katex_cfg = get_config().get("katex", "")
             except Exception:
                 katex_cfg = ""
             katex_path = Path(katex_cfg)

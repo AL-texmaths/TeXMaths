@@ -5,7 +5,7 @@ import subprocess
 import html
 from pathlib import Path
 from src.tools import (
-    CONFIG, LATEX_DIR, ADOBE_PATH, KATEX_DIR, PDF_XCHANGE_PATH,
+    get_config, CONFIG_PATH, LATEX_DIR, ADOBE_PATH, KATEX_DIR, PDF_XCHANGE_PATH,
     camel_to_sentence, get_exe
     )
 from src.qss import THEMES
@@ -27,7 +27,7 @@ from PySide6.QtPdfWidgets import QPdfView
 from PySide6.QtGui import QWheelEvent, QGuiApplication, QAction, QPalette
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
-Executables =  CONFIG["executables"].keys()
+Executables =  get_config()["executables"].keys()
 Executables_found = {executable: True for executable in Executables}
 
 for executable in Executables:
@@ -346,7 +346,7 @@ class RegexPDFSearchApp(QWidget):
         button_layout.addWidget(self.reload_database_button)
 
         # Sélecteur de thème
-        self.initial_theme = "Fusion Modern Dark Red"
+        self.initial_theme = get_config()["parameters"]["theme"]
         theme_layout = QHBoxLayout()
         theme_label = QLabel("Thème :")
         self.theme_combo = QComboBox()
@@ -462,12 +462,19 @@ class RegexPDFSearchApp(QWidget):
             pass
 
     def apply_theme(self, name: str):
+        
         stylesheet = THEMES.get(name, "")
         app = QApplication.instance()
         if app is not None:
             app.setStyleSheet(stylesheet)
         # Régénérer le HTML après que Qt ait appliqué la nouvelle palette
         QTimer.singleShot(50, self._refresh_info_view)
+
+        config = get_config()
+        config["parameters"]["theme"] = name
+
+        with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+            json.dump(config, f, indent=4, ensure_ascii=False)
 
     def schedule_search(self):
         self.search_timer.start(300)  # délai en millisecondes
@@ -600,7 +607,7 @@ class RegexPDFSearchApp(QWidget):
         self.clear_layout(self.empty_keys_layout)
         self.empty_filters = {}
 
-        keys = CONFIG['parameters']['tex non optionnal keys']
+        keys = get_config()['parameters']['tex non optionnal keys']
         for key in keys:
             cb = QCheckBox(camel_to_sentence(key))
             cb.setChecked(False)

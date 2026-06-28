@@ -1,12 +1,12 @@
 import re
 import json
-from src.tools import CONFIG, LATEX_DIR, get_pattern
+from src.tools import get_config, LATEX_DIR, get_pattern
 """
 Lit les fichiers exercice-*-data.tex et stocke les
 données dans un fichier json
 """
 CATALOGUES = LATEX_DIR / "catalogues"
-DOC_DICT = CONFIG['parameters']['index documents']
+DOC_DICT = get_config()['parameters']['index documents']
 
 CYCLE_VALUE_DEFAUT = 'cycle 4'
 BO_VALUE_DEFAULT = 'BO 2020'

@@ -4,14 +4,14 @@ import time
 import pypdf
 import subprocess
 from pathlib import Path
-from src.tools import CONFIG, DEFAULT_DATA_LOG_DIR, TMP_DIR, get_cours_file_path, get_exe
+from src.tools import get_config, DEFAULT_DATA_LOG_DIR, TMP_DIR, get_cours_file_path, get_exe
 
 log_file_path = DEFAULT_DATA_LOG_DIR / 'impress.log'
-PRINTER = CONFIG['parameters']['printers'][2]
+PRINTER = get_config()['parameters']['printers'][2]
 
 GS_CMD = {
     "A5 Portrait": [
-    CONFIG["executables"]["ghostscript"],
+    get_config()["executables"]["ghostscript"],
     "-sDEVICE=pdfwrite",
     "-dCompatibilityLevel=1.4",
     "-dPDFFitPage",
@@ -24,7 +24,7 @@ GS_CMD = {
     "{}"
     ],
     "A5 Landscape": [
-    CONFIG["executables"]["ghostscript"],
+    get_config()["executables"]["ghostscript"],
     "-sDEVICE=pdfwrite",
     "-dCompatibilityLevel=1.4",
     "-dPDFFitPage",
