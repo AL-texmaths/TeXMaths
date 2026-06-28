@@ -895,8 +895,11 @@ class DatabaseWorker(QObject):
         update_code_index(logger=log)
         update_previews(logger=log)
         errors, warnings = check_database(logger=log)
+        errors_sup, warnings_sup = 0, 0
         if errors == 0:
-            update_json(logger=log)
+            errors_sup, warnings_sup = update_json(logger=log)
+        errors += errors_sup
+        warnings += warnings_sup
 
         self.finished.emit(errors, warnings)
 

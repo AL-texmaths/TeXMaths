@@ -16,23 +16,24 @@ with open(CATALOGUES / "code_index.json", 'r', encoding='utf-8') as codeindexfil
 
 # fonction de décodages des méta-données
 def identity(value, **kwargs):
-    return value
+    return value, 0
 
 def source(value, logger=print, **kwargs):
     if value == '':
-        return ''
+        return '', 0
     else:
         try:
             result = CODE_INDEX['src'][value]
         except KeyError:
             logger(f'WARNING : source invalide ({value})\n' + kwargs['tex_relpath'])
-            result = ''
-        return result
+            result = '', 1
+        return result, 0
 
-def cycle(value, **kwargs):
+def cycle(value, logger=print, **kwargs):
     if value == '':
-        return ''
-    return 'cycle ' + value
+        logger(f'WARNING : empty cycle value\n' + kwargs['tex_relpath'])
+        return '', 1
+    return 'cycle ' + value, 0
 
 def _decode_code_index_list(value, logger=print, *, top_key=None, subkey=None, top_label=None, **kwargs):
     """Decode a comma-separated list of codes from CODE_INDEX.
@@ -43,9 +44,11 @@ def _decode_code_index_list(value, logger=print, *, top_key=None, subkey=None, t
     """
     value = value.replace(' ', '')
     if value == '':
-        return ''
+        logger(f'WARNING : empty value for {top_label or subkey}\n' + kwargs.get('tex_relpath', ''))
+        return '', 1
     result = []
     cycle_key = None
+    warns = 0
     for token in value.split(','):
         try:
             if top_key is not None:
@@ -61,8 +64,9 @@ def _decode_code_index_list(value, logger=print, *, top_key=None, subkey=None, t
                 label_map = {'cns': 'connaissance', 'cmp': 'compétence', 'aut': 'automatisme'}
                 label = label_map.get(subkey, subkey)#type:ignore
                 logger(f'WARNING : {label} du {cycle_key} invalide ({token})\n' + kwargs.get('tex_relpath', ''))
+            warns += 1
             result.append('')
-    return result
+    return result, warns
 
 def competencesDuSocle(value, logger=print, **kwargs):
     return _decode_code_index_list(value, logger=logger, top_key='cmpsocle', top_label='competence du socle', **kwargs)
@@ -89,11 +93,13 @@ def update_doc_dict(doc_dict, logger=print):
         doc_dict['enonce'] = ex_enonce
     lines = iter(ex_enonce.splitlines())
     line = next(lines)
+    errors = 0
     while not line.startswith(f'\\startdatakeys'):
         try:
             line = next(lines)
         except StopIteration:
             logger(f'Error: Could not find \\startdatakeys in {tex_relpath}')
+            errors += 1
             break
     datakeys = ''
     cycle_value = CYCLE_VALUE_DEFAUT
@@ -103,6 +109,7 @@ def update_doc_dict(doc_dict, logger=print):
             line = next(lines)
         except StopIteration:
             logger(f'Error: Could not find \\enddatakeys in {tex_relpath}')
+            errors += 1
             break
         # ignorer les lignes commentées commençant par '%' (après espaces éventuels)
         if line.lstrip().startswith('%'):
@@ -124,13 +131,15 @@ def update_doc_dict(doc_dict, logger=print):
             decode_func = globals()[key]
         except KeyError:
             decode_func = identity
-        doc_dict[key] = decode_func(value, logger=logger, cycle=cycle_value, bo=bo_value, tex_relpath=tex_relpath)
+        doc_dict[key], warns = decode_func(value, logger=logger, cycle=cycle_value, bo=bo_value, tex_relpath=tex_relpath)
     while not line.startswith('\\begin{document}'):
         try:
             line = next(lines)
         except StopIteration:
             logger(f'Error: Could not find \\begin{{document}} in {tex_relpath}')
+            errors += 1
             break
+    return errors, warns
         
 
 def get_doc_dict(tex_relpath, str_id, doc_type, logger=print):
@@ -146,13 +155,14 @@ def get_doc_dict(tex_relpath, str_id, doc_type, logger=print):
         ex_dict['preview'] = preview_path.split(':')[1] if ':' in preview_path else preview_path
     else:
         ex_dict['preview'] = str(pdf_path).split(':')[1] if ':' in str(pdf_path) else str(pdf_path)
-    update_doc_dict(ex_dict, logger=logger)
-    return ex_dict
+    errors, warns = update_doc_dict(ex_dict, logger=logger)
+    return ex_dict, errors, warns
 
 def update_json(logger=print):
     """
     """
     Data_dict = {}
+    errors, warns = 0, 0
     for doc_type, doc_dict in DOC_DICT.items():
         foldername = doc_dict['folder name']
         dirpath = LATEX_DIR / foldername
@@ -165,10 +175,15 @@ def update_json(logger=print):
                 else:
                     str_id = matches[0]
                 doc_type = file_path.stem.split('-')[0]
-                Data_dict[foldername.capitalize() + ' ' + str_id] = get_doc_dict(dirpath / file_path, str_id, doc_type, logger=logger)
+                Data_dict[foldername.capitalize() + ' ' + str_id], errors_sup, warns_sup = get_doc_dict(dirpath / file_path, str_id, doc_type, logger=logger)
+                errors += errors_sup
+                warns += warns_sup
+        
     
     with open(CATALOGUES / "data_index.json", 'w', encoding='utf-8') as outfile:
             json.dump(Data_dict, outfile, indent=4, ensure_ascii=False)
+    
+    return errors, warns
 
 if __name__ == "__main__":
     print('UPDATING : data index ...')
