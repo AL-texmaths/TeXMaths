@@ -8,8 +8,6 @@
 					Python
 ===============================================================================
 --------- Assistant de navigation -------------
->>> Cycle 4 BO 2026 vérifier C2ag et C3ae (identiques) voir document
-officiel sur disque dur externe
 >>> régler le warning source inconnue alors qu'elle a ete définie
 >>> erreur dans le décompte des warnings/errors de check database
 --> intégrer les erreurs de update_data_index dans le calcul des warnings/errors
@@ -19,7 +17,6 @@ les executables ne sont pas trouvés
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assitant de progression ---------------
->>> onglet paramètres permettant de modifier config.json, notamment les chemins
 ===============================================================================
 					Java / html
 ===============================================================================

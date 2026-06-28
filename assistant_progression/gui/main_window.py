@@ -21,9 +21,6 @@ import json
 import subprocess
 from pathlib import Path
 
-from PySide6 import __version__
-print(__version__)
-
 from PySide6.QtCore import (
     Qt,
     QUrl
