@@ -8,7 +8,8 @@
         ],
         "blocnote": [
             "gedit",
-            "notepad"
+            "notepad",
+            "open"
         ]
     },
     "paths": {
@@ -135,7 +136,7 @@
                 "border": "#5a5a5a",
                 "focus_bg": "#4a4a4a",
                 "focus_border": "#2a82da",
-                "font": "Sans Serif"
+                "font": "Latin Modern Roman"
             },
             "Fusion Crimson": {
                 "bg": "#353535",
@@ -149,7 +150,7 @@
             }
         },
         "current": {
-            "theme": "Nord Dark",
+            "theme": "Fusion",
             "code": "Sources"
         }
     }
