@@ -8,9 +8,16 @@
 					Python
 ===============================================================================
 --------- Assistant de navigation -------------
->>> Vérouiller les cases "ouvrir avec adobe" ou "ouvrir avec pdfxchange" si
-les executables ne sont pas trouvés
+>>> refactorisation du script assistant de navigation
+>>> bug: Thème: VS Code Dark alors que c'est Fusion qui est chosi
+au départ
+>>> amélioration des choix des themes:
+----> création d'un menu edition-->theme similaire a l'assistant
+de progression.
+----> le theme choisi s'écrit dans config.json
 >>> raccourcis claviers + tooltips + menu edition fichier
+---> ctrl+1/ctrl+2 ouvrent les onglets 1 et 2
+---> ctrl+1 met le focus sur la barre de recherche
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assitant de progression ---------------

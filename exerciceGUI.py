@@ -11,7 +11,6 @@ from src.tools import (
     )
 from src.qss import THEMES
 
-# from src.update_code_index import update_code_index
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
 from src.check_database import check_database
@@ -112,22 +111,11 @@ class FlowLayout(QLayout):
 VSCODE_EXE = get_exe('code')
 WORKSPACE_PATH = Path(__file__).resolve().parent / "texmaths.code-workspace"
 
-def _path_to_uri(p):
-    p = Path(p)
+def _path_to_uri(path: str | Path) -> str | None:
     try:
-        return p.as_uri()
-    except Exception:
-        try:
-            p = p.resolve()
-            s = str(p)
-        except Exception:
-            s = str(p)
-        if os.name == 'nt':
-            s = s.replace('\\', '/')
-            if not s.startswith('/'):
-                s = '/' + s
-            return 'file://' + s
-
+        return Path(path).resolve().as_uri()
+    except OSError:
+        return None
 
 def _wrap_with_katex_html(body_html: str, bg_color=None, fg_color=None) -> str:
     katex_dir = Path(KATEX_DIR)
