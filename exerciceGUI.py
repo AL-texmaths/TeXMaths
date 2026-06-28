@@ -2,7 +2,6 @@ import re
 import sys
 import json
 import subprocess
-import os
 import html
 from pathlib import Path
 from src.tools import (
@@ -107,10 +106,6 @@ class FlowLayout(QLayout):
             lineHeight = max(lineHeight, itemSize.height())
         return y + lineHeight - rect.y()
 
-
-VSCODE_EXE = get_exe('code')
-WORKSPACE_PATH = Path(__file__).resolve().parent / "texmaths.code-workspace"
-
 def _path_to_uri(path: str | Path) -> str | None:
     try:
         return Path(path).resolve().as_uri()
@@ -181,7 +176,6 @@ b {{ color: {fg_color or 'inherit'}; }}
 </body>
 </html>"""
 
-
 def _escape_and_replace_latex(text: str) -> str:
     # Replace $$...$$ and $...$ with spans carrying data-expr and data-display
     parts = re.split(r'(\$\$.*?\$\$|\$.+?\$)', text, flags=re.DOTALL)
@@ -198,6 +192,9 @@ def _escape_and_replace_latex(text: str) -> str:
         else:
             out.append(html.escape(part).replace('\n', '<br/>'))
     return ''.join(out)
+
+VSCODE_EXE = get_exe('code')
+WORKSPACE_PATH = Path(__file__).resolve().parent / "texmaths.code-workspace"
 
 class ZoomablePdfView(QPdfView):
     def wheelEvent(self, event: QWheelEvent):
@@ -349,11 +346,15 @@ class RegexPDFSearchApp(QWidget):
         button_layout.addWidget(self.reload_database_button)
 
         # Sélecteur de thème
+        self.initial_theme = "Fusion Modern Dark Red"
         theme_layout = QHBoxLayout()
         theme_label = QLabel("Thème :")
         self.theme_combo = QComboBox()
         for name in THEMES:
             self.theme_combo.addItem(name)
+
+        self.theme_combo.setCurrentText(self.initial_theme)
+        self.apply_theme(self.initial_theme)
         self.theme_combo.currentTextChanged.connect(self.apply_theme)
         theme_layout.addWidget(theme_label)
         theme_layout.addWidget(self.theme_combo)
