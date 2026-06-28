@@ -9,8 +9,6 @@
 ===============================================================================
 --------- Assistant de navigation -------------
 >>> refactorisation du script assistant de navigation
->>> bug: Thème: VS Code Dark alors que c'est Fusion qui est chosi
-au départ
 >>> amélioration des choix des themes:
 ----> création d'un menu edition-->theme similaire a l'assistant
 de progression.

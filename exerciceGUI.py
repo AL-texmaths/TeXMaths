@@ -24,7 +24,10 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import Qt, QObject, QThread, Signal, QTimer, QUrl, QEvent, QSize, QRect, QPoint
 from PySide6.QtPdf import QPdfDocument
 from PySide6.QtPdfWidgets import QPdfView
-from PySide6.QtGui import QWheelEvent, QGuiApplication, QAction, QPalette
+from PySide6.QtGui import (
+    QWheelEvent, QGuiApplication, QAction, QPalette,
+    QShortcut, QKeySequence
+)
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
 Executables =  get_config()["executables"].keys()
@@ -436,6 +439,23 @@ class RegexPDFSearchApp(QWidget):
         self.sort_order_combo.setCurrentIndex(1)
         self.sort_order_combo.currentIndexChanged.connect(self.update_results)
         left_layout.addWidget(self.sort_order_combo)
+
+        # =========================
+        # SHORTCUTS ONGLETS
+        # =========================
+
+        self.shortcut_tab_1 = QShortcut(QKeySequence("Ctrl+&"), self)
+        self.shortcut_tab_1.activated.connect(self.go_tab_1)
+
+        self.shortcut_tab_2 = QShortcut(QKeySequence("Ctrl+é"), self)
+        self.shortcut_tab_2.activated.connect(self.go_tab_2)
+
+    def go_tab_1(self):
+        self.tabs.setCurrentIndex(0)
+        QTimer.singleShot(0, self.search_input.setFocus)
+    
+    def go_tab_2(self):
+        self.tabs.setCurrentIndex(1)
 
     def _refresh_info_view(self):
         """Re-génère le HTML de la zone info avec les couleurs courantes de la palette."""
