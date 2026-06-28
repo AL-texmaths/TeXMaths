@@ -3,6 +3,9 @@ class ThemeService:
         self.themes = themes
         self.current_theme = default_theme
 
+    def get_current_theme_name(self):
+        return self.current_theme
+
     def set_theme(self, name):
         if name in self.themes:
             self.current_theme = name

@@ -3,8 +3,6 @@ import json
 import shutil
 from pathlib import Path
 
-from pathlib import Path
-
 def check_project_layout(Base_dir: Path):
 
     REQUIRED_FILES = [
@@ -38,6 +36,8 @@ def check_project_layout(Base_dir: Path):
             "\n".join(str(m) for m in missing)
         )
 
+CONFIG_PATH = Path("assistant_progression") / "config.json"
+
 def get_config() -> dict:
     """
     Load the configuration from the config.json file.
@@ -45,9 +45,7 @@ def get_config() -> dict:
     Returns:
         A dictionary containing the configuration.
     """
-    config_path = Path("assistant_progression") / "config.json"
-
-    with open(config_path, "r", encoding="utf-8") as f:
+    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
         return json.load(f)
 
 CONFIG = get_config()

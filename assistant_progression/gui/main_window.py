@@ -10,7 +10,7 @@ from assistant_progression.services.search_service import SearchService
 from assistant_progression.services.regex_service import SearchLineEdit
 from assistant_progression.utils.textools import update_code_index
 from assistant_progression.utils.resolve import (
-    CONFIG, KATEX_DIR, CODE_INDEX_DIR,
+    KATEX_DIR, CODE_INDEX_DIR,
     DEFAULT_PROG_DIR, PROGRESSION_EXPORT_DIR,
     CODE_INDEX_FILE_PATH
 )
@@ -52,10 +52,17 @@ class MainWindow(QWidget):
 
         self.currentFile = None
 
+        self.persistence_service = PersistenceService()
+        self.config = self.persistence_service.load_config()
+        self.settings = self.config.get("settings", {})
         self.init_window_and_settings()
         self.init_services()
 
         self.main_layout = QHBoxLayout(self)
+
+        self._preview_theme = None
+        self._saved_theme = None
+        self._theme_committed = False
         self.theme_service.apply(self)
 
         self.init_regex_pannel()
@@ -75,8 +82,6 @@ class MainWindow(QWidget):
         # Services génériques
 
         self.html_service = HtmlService()
-
-        self.persistence_service = PersistenceService()
 
         self.export_service = ExportService()
 
@@ -110,18 +115,18 @@ class MainWindow(QWidget):
         )
 
         # Thèmes
+        theme_name = (
+            self.settings
+            .get("current", {})
+            .get("theme", "Fusion Crimson")
+        )
 
         self.theme_service = ThemeService(
             themes=self.settings["themes"],
-            default_theme=self.settings.get(
-                "default",
-                {
-                    "theme": next(
-                        iter(self.settings["themes"])
-                    )
-                }
-            )["theme"]
+            default_theme=theme_name,
         )
+
+        self.theme_service.apply(self)
     def init_connect_signals(self):
 
         self.search.textChanged.connect(
@@ -263,8 +268,6 @@ class MainWindow(QWidget):
         )
 
     def init_window_and_settings(self):
-        self.config = CONFIG
-        self.settings = self.config.get("settings")
         self.setWindowTitle(self.settings.get("main window title", "Assistant de progression"))
         self.resize(1400, 800)
 
@@ -306,7 +309,7 @@ class MainWindow(QWidget):
             self.catalogue_combo
         )
 
-        default_code = self.settings["default"]["code"]
+        default_code = self.settings["current"]["code"]
         default_label =self.catalogue_service.display_name(default_code)
 
         index = self.catalogue_combo.findText(default_label)
@@ -329,12 +332,63 @@ class MainWindow(QWidget):
         self.preview = QWebEngineView()
         self.preview_widget = self.preview
 
+    def begin_theme_preview(self):
+        self._saved_theme = self.theme_service.get_current_theme_name()
+        self._theme_committed = False
+        self._preview_theme = None
+    
+    def end_theme_preview(self):
+        if self._theme_committed:
+            return
+
+        if self._saved_theme:
+            self.theme_service.set_theme(self._saved_theme)
+            self.theme_service.apply(self)
+            self.refresh_view()
+
+    def preview_theme(self, name):
+        self.theme_service.set_theme(name)
+        self.theme_service.apply(self)
+        self.refresh_view()
+
+    def commit_theme(self, name):
+        self._theme_committed = True
+
+        # 1. runtime state
+        self.theme_service.set_theme(name)
+
+        # 2. apply immédiatement (IMPORTANT)
+        self.theme_service.apply(self)
+        self.refresh_view()
+
+        # 3. persist config.json
+        self.persistence_service.save_config_value(
+            "settings",
+            "current",
+            "theme",
+            value=name
+        )
+
+        # 4. sync local config memory
+        self.settings.setdefault("current", {})
+        self.settings["current"]["theme"] = name
+        print("THEME LOADED =", name)
+        print("SETTINGS =", self.settings)
+
+    def apply_current_theme(self):
+        self.theme_service.apply(self)
+        self.refresh_view()
+
     def init_menu(self):
 
         menu_bar = QMenuBar(self)
 
         edit_menu = QMenu("Édition", self)
+
         theme_menu = QMenu("Thème", self)
+        theme_menu.aboutToShow.connect(self.begin_theme_preview)
+        theme_menu.aboutToHide.connect(self.end_theme_preview)
+        
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
 
@@ -368,9 +422,14 @@ class MainWindow(QWidget):
             action = QAction(theme_name, self)
             action.triggered.connect(
                 lambda checked=False, name=theme_name:
-                self.set_theme(name)
+                self.commit_theme(name)
             )
             theme_menu.addAction(action)
+
+            action.hovered.connect(
+                lambda name=theme_name:
+                    self.preview_theme(name)
+            )
 
         edit_menu.addMenu(theme_menu)
         menu_bar.addMenu(file_menu)
@@ -693,8 +752,7 @@ class MainWindow(QWidget):
 
     def set_theme(self, name):
         self.theme_service.set_theme(name)
-        self.theme_service.apply(self)
-        self.refresh_view()
+        self.apply_current_theme()
 
     def update_type_filter(self):
 
