@@ -19,3 +19,197 @@ lines of the file is a keys:value as:
 - update the config json in the key "catalogue"
 --> to update the data the user must only modify the sty file and then click
 " Mise à jour" in the menu.
+
+## Structure du fichier JSON
+
+- executables
+  - lualatex
+    - [list]
+      - str
+  - latexmk
+    - [list]
+      - str
+- paths
+  - cycle 3 BO 2026
+    - [list]
+      - str
+  - cycle 4 BO 2026
+    - [list]
+      - str
+  - katex
+    - [list]
+      - str
+  - latex
+    - [list]
+      - str
+  - code index
+    - [list]
+      - str
+  - code labels
+    - [list]
+      - str
+  - progression export path
+    - [list]
+      - str
+  - progression import path
+    - [list]
+      - str
+  - texmf
+    - [list]
+      - str
+- catalogues
+  - packages to check
+    - BO_2026.tex
+      - [list]
+        - str
+    - BO_competences_evaluees.tex
+      - [list]
+        - str
+    - BO_competences-cycle3-BO_2020.tex
+      - [list]
+        - str
+    - BO_competences-cycle4-BO_2020.tex
+      - [list]
+        - str
+    - Sources.tex
+      - [list]
+        - str
+  - codes
+    - cmpsocle
+      - str
+    - cycle 3 BO 2020
+      - str
+    - cycle 4 BO 2020
+      - str
+    - cmp
+      - str
+    - cns
+      - str
+    - cycle 3 BO 2026
+      - str
+    - cycle 4 BO 2026
+      - str
+    - aut
+      - str
+    - obj
+      - str
+    - pro
+      - str
+    - src
+      - str
+    - sea
+      - str
+  - aut obj pro catalogues
+    - [list]
+      - str
+- settings
+  - main window title
+    - str
+  - themes
+    - VSCode Dark
+      - bg
+        - str
+      - fg
+        - str
+      - panel
+        - str
+      - accent
+        - str
+      - border
+        - str
+      - focus_bg
+        - str
+      - focus_border
+        - str
+      - font
+        - str
+    - Soothing
+      - bg
+        - str
+      - fg
+        - str
+      - panel
+        - str
+      - accent
+        - str
+      - border
+        - str
+      - focus_bg
+        - str
+      - focus_border
+        - str
+      - font
+        - str
+    - Obsidian Dark
+      - bg
+        - str
+      - fg
+        - str
+      - panel
+        - str
+      - accent
+        - str
+      - border
+        - str
+      - focus_bg
+        - str
+      - focus_border
+        - str
+      - font
+        - str
+    - Nord Dark
+      - bg
+        - str
+      - fg
+        - str
+      - panel
+        - str
+      - accent
+        - str
+      - border
+        - str
+      - focus_bg
+        - str
+      - focus_border
+        - str
+      - font
+        - str
+    - Fusion
+      - bg
+        - str
+      - fg
+        - str
+      - panel
+        - str
+      - accent
+        - str
+      - border
+        - str
+      - focus_bg
+        - str
+      - focus_border
+        - str
+      - font
+        - str
+    - Fusion Crimson
+      - bg
+        - str
+      - fg
+        - str
+      - panel
+        - str
+      - accent
+        - str
+      - border
+        - str
+      - focus_bg
+        - str
+      - focus_border
+        - str
+      - font
+        - str
+  - current
+    - theme
+      - str
+    - code
+      - str

@@ -36,7 +36,7 @@ def check_project_layout(Base_dir: Path):
             "\n".join(str(m) for m in missing)
         )
 
-CONFIG_PATH = Path("assistant_progression") / "config.json"
+CONFIG_PATH = (Path("assistant_progression") / "config.json").absolute()
 
 def get_config() -> dict:
     """

@@ -5,6 +5,10 @@
         ],
         "latexmk": [
             "\\Root\\Programmes\\MiKTeX\\miktex\\bin\\latexmk.exe"
+        ],
+        "blocnote": [
+            "gedit",
+            "notepad"
         ]
     },
     "paths": {
@@ -145,7 +149,7 @@
             }
         },
         "current": {
-            "theme": "Obsidian Dark",
+            "theme": "Nord Dark",
             "code": "Sources"
         }
     }

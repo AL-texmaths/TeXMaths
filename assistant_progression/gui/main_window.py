@@ -12,11 +12,13 @@ from assistant_progression.utils.textools import update_code_index
 from assistant_progression.utils.resolve import (
     KATEX_DIR, CODE_INDEX_DIR,
     DEFAULT_PROG_DIR, PROGRESSION_EXPORT_DIR,
-    CODE_INDEX_FILE_PATH
+    CODE_INDEX_FILE_PATH, CONFIG_PATH,
+    resolve_executable
 )
 
 import re
 import json
+import subprocess
 from pathlib import Path
 
 from PySide6.QtCore import (
@@ -388,6 +390,12 @@ class MainWindow(QWidget):
         theme_menu = QMenu("Thème", self)
         theme_menu.aboutToShow.connect(self.begin_theme_preview)
         theme_menu.aboutToHide.connect(self.end_theme_preview)
+
+        param_menu_action = QAction("Paramètres", self)
+        edit_menu.addAction(param_menu_action)
+        param_menu_action.triggered.connect(
+            self.open_config_file
+        )
         
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
@@ -436,6 +444,10 @@ class MainWindow(QWidget):
         menu_bar.addMenu(edit_menu)
         menu_bar.addMenu(update_menu)
         self.main_layout.setMenuBar(menu_bar)
+
+    def open_config_file(self):
+
+        subprocess.run([str(resolve_executable("blocnote")), str(CONFIG_PATH)], check=False)
 
     def init_progression_pannel(self):
 
