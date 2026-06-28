@@ -8,10 +8,10 @@
 					Python
 ===============================================================================
 --------- Assistant de navigation -------------
->>> régler le warning source inconnue alors qu'elle a ete définie
 >>> erreur dans le décompte des warnings/errors de check database
 --> intégrer les erreurs de update_data_index dans le calcul des warnings/errors
->>> l'erreur missing pdf doit mener à un test de compilation pour le fichier en question.
+>>> l'erreur missing pdf doit mener à un test de compilation pour le fichier en
+question.
 >>> Vérouiller les cases "ouvrir avec adobe" ou "ouvrir avec pdfxchange" si
 les executables ne sont pas trouvés
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
@@ -20,7 +20,9 @@ les executables ne sont pas trouvés
 ===============================================================================
 					Java / html
 ===============================================================================
--- exerciseur --
+------------------------------
+          exerciseur
+------------------------------
 >> feedback rapide
 >> indices en cas d'echecs répétés
 >> lien vers la leçon/exemple etc.
@@ -28,9 +30,9 @@ les executables ne sont pas trouvés
 permet le passage au niveau suivant
 >>> le theme vscode dark a des tailles de box plus élevée
 (ancien bug) mais les autres themes n'ont pas cette correction
--------
-genialy
--------
+------------------------------
+           genialy
+------------------------------
 ===============================================================================
 					LaTeX
 ===============================================================================

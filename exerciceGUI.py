@@ -9,12 +9,8 @@ from src.tools import (
     CONFIG, LATEX_DIR, ADOBE_PATH, KATEX_DIR, PDF_XCHANGE_PATH,
     camel_to_sentence, get_exe
     )
-from src.qss import soothing, vscode_dark
+from src.qss import THEMES
 
-THEMES = {
-    "VS Code Dark": vscode_dark,
-    "Soothing": soothing,
-}
 # from src.update_code_index import update_code_index
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -907,7 +903,7 @@ class DatabaseWorker(QObject):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
-    app.setStyleSheet(vscode_dark)  # thème par défaut
+    app.setStyleSheet(THEMES["Fusion Modern Dark Red"])  # thème par défaut
     window = RegexPDFSearchApp(LATEX_DIR / "catalogues" / "data_index.json")
     window.show()
     window.load_json_only()
