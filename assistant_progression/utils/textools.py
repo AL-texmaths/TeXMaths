@@ -4,10 +4,13 @@ import json
 import subprocess
 from pathlib import Path
 
-from assistant_progression.utils.resolve import resolve_executable, resolve_path, get_config
-
-CONFIG = get_config()
-TEX_PACKAGES_DIR = resolve_path('texmf') / "tex" / "latex" / "packages"
+from assistant_progression.utils.resolve import (
+    resolve_executable,
+    CODE_LABELS_DIR,
+    CODE_INDEX_DIR,
+    TEX_PACKAGES_DIR,
+    CONFIG
+    )
 
 def compile_latex(
     tex_file: str | Path,
@@ -61,12 +64,12 @@ def compile_latex(
     return result
 
 def check_code_index_data(logger=print):
-    #1 - Se placer dans data/latex/codes_labels
-    #2- pour chaque fichier tex, vérifier s'il existe un fichier data.txt correspondant
-    #3- si le fichier data.txt n'existe pas, compiler le fichier tex correspondant
-    #4 si le fichier data existe mais est plus ancien que le fichier tex, recompiler le fichier tex correspondant
-    #5 si les packages sont plus anciens recompiler
-    cwd = resolve_path("code labels")
+    """
+    Check if the code index data is up-to-date with the LaTeX
+    source files.
+    If not, recompile the LaTeX files to update the data.
+    """
+    cwd = CODE_LABELS_DIR
     for tex_file in cwd.glob("*.tex"):
         compile = False
         data_path = tex_file.with_name(tex_file.stem + "-data.txt")
@@ -76,10 +79,17 @@ def check_code_index_data(logger=print):
         elif data_path.stat().st_mtime < tex_file.stat().st_mtime:
             logger(f"File {data_path} is older than {tex_file}. Recompiling.")
             compile = True
-        elif CONFIG["packages to check"].get(tex_file.name) is not None:
-            packages = CONFIG["packages to check"][tex_file.name]
+        elif CONFIG["catalogues"]["packages to check"].get(tex_file.name) is not None:
+            packages = CONFIG["catalogues"]["packages to check"][tex_file.name]
             for package in packages:
-                package_path = TEX_PACKAGES_DIR / package
+                
+                package_path = next(TEX_PACKAGES_DIR.rglob(package), None)
+
+                if package_path is None:
+                    print(f"Fichier introuvable {package} dans {TEX_PACKAGES_DIR}")
+                else:
+                    print(package_path)
+
                 if data_path.stat().st_mtime < package_path.stat().st_mtime:
                     logger(f"File {data_path} is older than package {package_path}. Recompiling.")
                     compile = True
@@ -92,6 +102,9 @@ def check_code_index_data(logger=print):
                 continue
 
 def insert_nested(d, codes_values):
+    """
+    Insert a value into a nested dictionary based on a list of keys.
+    """
     *keys, value = codes_values
 
     current = d
@@ -101,9 +114,13 @@ def insert_nested(d, codes_values):
     current[keys[-1]] = value
 
 def update_code_index(logger=print):
+    """
+    Update the code index with the latest data from the LaTeX
+    source files
+    """
     check_code_index_data(logger=logger)
-    cwd = resolve_path("code labels")
-    code_index_parent = resolve_path("code index")
+    cwd = CODE_LABELS_DIR
+    code_index_parent = CODE_INDEX_DIR
 
     code_index_data = {}
     for data_file in cwd.glob("*-data.txt"):

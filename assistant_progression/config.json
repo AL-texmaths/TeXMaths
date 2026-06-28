@@ -39,14 +39,15 @@
             ".\\data\\texmf\\"
         ]
     },
-    "packages to check": {
+    "catalogues": {
+        "packages to check": {
             "BO_2026.tex": ["texmaths-BO_2026.sty"],
             "BO_competences_evaluees.tex": ["texmaths-cmpeval.sty"],
             "BO_competences-cycle3-BO_2020.tex": ["texmaths-cycle3-BO_2020.sty"],
             "BO_competences-cycle4-BO_2020.tex": ["texmaths-cycle4-BO_2020.sty"],
             "Sources.tex": ["texmaths-sources.sty"]
         },
-    "codes": {
+        "codes": {
             "cmpsocle": "Compétences du socle",
             "cycle 3 BO 2020": "Cycle 3 BO 2020",
             "cycle 4 BO 2020": "Cycle 4 BO 2020",
@@ -63,7 +64,8 @@
         "aut obj pro catalogues": [
             "cycle 4 BO 2026",
             "cycle 3 BO 2026"
-        ],
+        ]
+    },
         "settings": {
             "main window title": "Assistant de progression",
             "themes": {

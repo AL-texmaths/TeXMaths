@@ -10,7 +10,7 @@ class ProgressionService:
         self.config = config
 
     def is_aut_obj_pro_catalogue(self, catalogue):
-        return catalogue in self.config.get(
+        return catalogue in self.config["catalogues"].get(
             "aut obj pro catalogues",
             []
         )

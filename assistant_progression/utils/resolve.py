@@ -175,3 +175,50 @@ def resolve_path(candidates: Path | str | list[str], config=True) -> Path:
         "Could not resolve any path from: "
         + ", ".join(map(str, candidates))
     )
+
+try:
+    KATEX_DIR = resolve_path('katex')
+except FileNotFoundError:
+    print("Warning: KaTeX directory not found. Mathematical expressions may not render correctly.")
+    KATEX_DIR = Path()
+
+try:
+    CODE_INDEX_DIR = resolve_path('code index')
+except FileNotFoundError:
+    print("Warning: Code index directory not found. No datas imported.")
+    CODE_INDEX_DIR = Path()
+
+CODE_INDEX_FILE_PATH = CODE_INDEX_DIR / "code_index.json"
+
+if not CODE_INDEX_FILE_PATH.exists():
+    print(f"Warning: Code index file not found at {CODE_INDEX_FILE_PATH}.")
+    CODE_INDEX_FILE_PATH = Path()
+
+try:
+    DEFAULT_PROG_DIR = resolve_path('progression import path')
+except FileNotFoundError:
+    print("Warning: Progression import directory not found.")
+    DEFAULT_PROG_DIR = Path()
+
+try:
+    PROGRESSION_EXPORT_DIR = resolve_path('progression export path')
+except FileNotFoundError:
+    print("Warning: Progression export directory not found. Exporting progressions may not work.")
+    PROGRESSION_EXPORT_DIR = Path().cwd()
+
+try:
+    CODE_LABELS_DIR = resolve_path('code labels')
+except FileNotFoundError:
+    print("Warning: Code labels directory not found. Updating catalogue may not work.")
+    CODE_LABELS_DIR = Path()
+
+try:
+    TEX_PACKAGES_DIR = resolve_path('texmf')
+except FileNotFoundError:
+    print("Warning: tex tree 'texmf' directory not found.")
+    TEX_PACKAGES_DIR = Path()
+
+if TEX_PACKAGES_DIR.exists():
+    TEX_PACKAGES_DIR = TEX_PACKAGES_DIR / "tex" / "latex"
+    if not TEX_PACKAGES_DIR.exists():
+        print("Warning: texmf directory must contain a 'tex/latex' subdirectory.")

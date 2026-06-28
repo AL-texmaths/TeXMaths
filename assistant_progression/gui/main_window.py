@@ -8,8 +8,12 @@ from assistant_progression.services.progression_analysis_service import Progress
 from assistant_progression.services.progression_service import ProgressionService
 from assistant_progression.services.search_service import SearchService
 from assistant_progression.services.regex_service import SearchLineEdit
-from assistant_progression.utils.resolve import CONFIG, resolve_path
 from assistant_progression.utils.textools import update_code_index
+from assistant_progression.utils.resolve import (
+    CONFIG, KATEX_DIR, CODE_INDEX_DIR,
+    DEFAULT_PROG_DIR, PROGRESSION_EXPORT_DIR,
+    CODE_INDEX_FILE_PATH
+)
 
 import re
 import json
@@ -41,11 +45,6 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
-
-KATEX_DIR = resolve_path('katex')
-CODE_INDEX_DIR = resolve_path('code index')
-DEFAULT_PROG_DIR = resolve_path('progression import path')
-
 class MainWindow(QWidget):
 
     def __init__(self):
@@ -53,64 +52,22 @@ class MainWindow(QWidget):
 
         self.currentFile = None
 
-        # --------------------------------------------------
-        # Configuration
-        # --------------------------------------------------
-
         self.init_window_and_settings()
-
-        # --------------------------------------------------
-        # Services
-        # --------------------------------------------------
-
         self.init_services()
 
-        # --------------------------------------------------
-        # Layout principal
-        # --------------------------------------------------
-
         self.main_layout = QHBoxLayout(self)
-
-        # --------------------------------------------------
-        # Thème
-        # --------------------------------------------------
-
         self.theme_service.apply(self)
-
-        # --------------------------------------------------
-        # Widgets
-        # --------------------------------------------------
 
         self.init_regex_pannel()
         self.init_preview_pannel()
         self.init_progression_pannel()
-
-        # --------------------------------------------------
-        # Menu
-        # --------------------------------------------------
-
         self.init_menu()
-
-        # --------------------------------------------------
-        # Splitters
-        # --------------------------------------------------
-
         self.init_splitters()
-
-        # --------------------------------------------------
-        # Signaux et raccourcis
-        # --------------------------------------------------
-
         self.init_connect_signals()
         self.init_undo_redo()
 
-        # --------------------------------------------------
-        # Etat initial
-        # --------------------------------------------------
-
         self.update_type_filter()
         self.update_search()
-
         self.search.setFocus()
 
     def init_services(self):
@@ -129,7 +86,7 @@ class MainWindow(QWidget):
 
         self.catalogue_service = CatalogueService(
             self.data,
-            self.config["codes"]
+            self.config["catalogues"]["codes"]
         )
 
         # Recherche
@@ -280,12 +237,15 @@ class MainWindow(QWidget):
         )
 
     def reload_data(self):
-        with open(CODE_INDEX_DIR / "code_index.json", encoding="utf-8") as f:
-            self.data = json.load(f)
+        if CODE_INDEX_FILE_PATH == Path():
+            self.data = {}
+        else:
+            with open(CODE_INDEX_FILE_PATH, encoding="utf-8") as f:
+                self.data = json.load(f)
 
         self.catalogue_service = CatalogueService(
             self.data,
-            self.config["codes"]
+            self.config["catalogues"]["codes"]
         )
 
         self.search_service = SearchService(
@@ -422,25 +382,6 @@ class MainWindow(QWidget):
 
         self.progression = QTreeWidget()
 
-        # self.progression.setStyleSheet("""
-        # QTreeWidget {
-        #     background: #252526;
-        #     color: #d4d4d4;
-        #     border: 1px solid #3c3c3c;
-        # }
-
-        # QHeaderView::section {
-        #     background: #2d2d30;
-        #     color: white;
-        #     padding: 4px;
-        #     border: 1px solid #3c3c3c;
-        # }
-
-        # QTreeWidget::item {
-        #     height: 28px;
-        # }
-        # """)
-
         self.progression.setHeaderLabel("Progression annuelle")
         self.add_level_button = QPushButton("Ajouter un niveau")
 
@@ -535,7 +476,9 @@ class MainWindow(QWidget):
 
     def is_selected_catalogue_aut_obj_pro(self):
         selected_catalogue = self.selected_catalogue()
-        return selected_catalogue in self.config.get("aut obj pro catalogues")
+        return selected_catalogue in self.config["catalogues"].get(
+            "aut obj pro catalogues"
+            )
 
     def update_code_labels(self):
         update_code_index()
@@ -936,9 +879,7 @@ class MainWindow(QWidget):
         if data is None:
             return
 
-        tex_path = resolve_path(
-            "progression export path"
-        )
+        tex_path = PROGRESSION_EXPORT_DIR
 
         tex_path = (
             tex_path
