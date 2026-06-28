@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout,
     QLineEdit, QListWidget, QLabel, QMessageBox,
     QSplitter, QFrame, QPushButton, QPlainTextEdit,
-    QTabWidget, QCheckBox, QComboBox, QMenu, QLayout, QSizePolicy
+    QTabWidget, QCheckBox, QComboBox, QMenu, QLayout
 )
 from PySide6.QtCore import Qt, QObject, QThread, Signal, QTimer, QUrl, QEvent, QSize, QRect, QPoint
 from PySide6.QtPdf import QPdfDocument
@@ -29,6 +29,15 @@ from PySide6.QtPdfWidgets import QPdfView
 from PySide6.QtGui import QWheelEvent, QGuiApplication, QAction, QPalette
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
+Executables =  CONFIG["executables"].keys()
+Executables_found = {executable: True for executable in Executables}
+
+for executable in Executables:
+    try:
+        get_exe(executable)
+    except FileNotFoundError:
+        Executables_found[executable] = False
+        print(f'WARNING: Executable not found {executable}. Corresponding menu has been desactivated.')
 
 class FlowLayout(QLayout):
     """A wrapping flow layout for PySide6: places widgets horizontally and wraps to new lines."""
@@ -610,6 +619,22 @@ class RegexPDFSearchApp(QWidget):
             self.empty_keys_layout.addWidget(cb)
             self.empty_filters[key] = cb
 
+    def add_menu_action(
+            self,
+            menu: QMenu,
+            text: str,
+            callback,
+            item,
+            enabled: bool = True,
+        ):
+            action = QAction(text, self)
+            action.setEnabled(enabled)
+            action.triggered.connect(
+                lambda checked=False, cb=callback, it=item: cb(it)
+            )
+            menu.addAction(action)
+            return action
+
     def show_results_context_menu(self, position):
         item = self.results_list.itemAt(position)
         if item is None:
@@ -618,26 +643,46 @@ class RegexPDFSearchApp(QWidget):
         self.results_list.setCurrentItem(item)
 
         menu = QMenu(self)
-        menu.setStyleSheet(
-            "QMenu::item:selected {"
-            "background-color: rgba(0, 0, 0, 0.18);"
-            "}"
+
+        copy_enonce_action = self.add_menu_action(
+            menu,
+            "Copier l'exemple minimal LaTeX",
+            self.copy_enonce_for_item,
+            item,
+            True
         )
 
-        copy_enonce_action = QAction("Copier l'exemple minimal LaTeX", self)
-        copy_enonce_action.triggered.connect(lambda checked=False, selected_item=item: self.copy_enonce_for_item(selected_item))
+        open_tex_action = self.add_menu_action(
+            menu,
+            "Ouvrir le fichier .tex dans VS Code",
+            self.open_tex_in_vscode,
+            item,
+            Executables_found['code']
+        )
 
-        open_tex_action = QAction("Ouvrir le fichier .tex dans VS Code", self)
-        open_tex_action.triggered.connect(lambda checked=False, selected_item=item: self.open_tex_in_vscode(selected_item))
+        open_pdf_adobe_action = self.add_menu_action(
+            menu,
+            "Ouvrir le fichier PDF dans Adobe Reader",
+            self.open_pdf_with_adobe,
+            item,
+            Executables_found['adobe']
+        )
 
-        open_pdf_xchange_action = QAction("Ouvrir le fichier PDF dans PDF XChange", self)
-        open_pdf_xchange_action.triggered.connect(lambda checked=False, selected_item=item: self.open_pdf_with_pdfxchange(selected_item))
+        open_pdf_xchange_action = self.add_menu_action(
+            menu,
+            "Ouvrir le fichier PDF dans PDF XChange",
+            self.open_pdf_with_pdfxchange,
+            item,
+            Executables_found['pdf_xchange']
+        )
 
-        open_pdf_adobe_action = QAction("Ouvrir le fichier PDF dans Adobe Reader", self)
-        open_pdf_adobe_action.triggered.connect(lambda checked=False, selected_item=item: self.open_pdf_with_adobe(selected_item))
-
-        open_pdf_okular_action = QAction("Ouvrir le fichier PDF dans Okular", self)
-        open_pdf_okular_action.triggered.connect(lambda checked=False, selected_item=item: self.open_pdf_with_okular(selected_item))
+        open_pdf_okular_action = self.add_menu_action(
+            menu,
+            "Ouvrir le fichier PDF dans Okular",
+            self.open_pdf_with_okular,
+            item,
+            Executables_found['okular']
+        )
 
         menu.addAction(copy_enonce_action)
         menu.addAction(open_tex_action)

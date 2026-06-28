@@ -82,13 +82,13 @@ def check_code_index_data(logger=print):
         elif CONFIG["catalogues"]["packages to check"].get(tex_file.name) is not None:
             packages = CONFIG["catalogues"]["packages to check"][tex_file.name]
             for package in packages:
-                
+                logger(f"Checking package {package}")
                 package_path = next(TEX_PACKAGES_DIR.rglob(package), None)
 
                 if package_path is None:
-                    print(f"Fichier introuvable {package} dans {TEX_PACKAGES_DIR}")
+                    logger(f"Fichier introuvable {package} dans {TEX_PACKAGES_DIR}")
                 else:
-                    print(package_path)
+                    logger(f"Analysing package {package} at {package_path}")
 
                 if data_path.stat().st_mtime < package_path.stat().st_mtime:
                     logger(f"File {data_path} is older than package {package_path}. Recompiling.")

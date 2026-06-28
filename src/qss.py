@@ -279,6 +279,11 @@ QMenu::item:selected {
     color: white;
 }
 
+QMenu::item:disabled:selected {
+    background: transparent;
+    color: #777777;
+}
+
 /* ===========================
    Buttons
    =========================== */
@@ -464,11 +469,21 @@ QMenu {
 
 QMenu::item {
     padding: 6px 22px;
+    color: #ECECEC;
 }
 
-QMenu::item:selected {
+QMenu::item:disabled {
+    color: #777777;
+}
+
+QMenu::item:selected:enabled {
     background: #8E2A2A;
     color: white;
+}
+
+QMenu::item:selected:disabled {
+    background: transparent;
+    color: #777777;
 }
 
 /* ===========================

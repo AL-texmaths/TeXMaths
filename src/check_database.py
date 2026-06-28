@@ -124,11 +124,13 @@ def check_database(logger=print):
                 pdf_path = file_path.with_suffix('.pdf')
                 if not pdf_path.exists():
                     warn(f"\n=== Missing pdf ===\n{pdf_path}.")
-                    print(f"Trying to compile the LaTeX file {file_path}.")
-                    # compile_result = compile_latex(file_path, motor='lualatex', silent=False)
-                    # print(compile_result)
-                    # if compile_result.returncode != 0:
-                    #     warn(f"\n=== Compilation failed ===\n{file_path}\nPlease check the LaTeX file.")
+                    logger(f"Trying to compile the LaTeX file {file_path}.")
+                    compile_result = compile_latex(file_path, motor='lualatex', silent=False)
+                    if compile_result.returncode != 0:
+                        warn(f"\n=== Compilation failed ===\n{file_path}\nPlease check the LaTeX file.")
+                    else:
+                        logger(f"Compilation of {file_path} succeeded.")
+                        database_errors -=1
                 else:
                     log_path = file_path.with_suffix('.log')
                     if log_path.exists():

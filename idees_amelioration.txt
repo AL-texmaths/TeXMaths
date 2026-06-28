@@ -8,12 +8,9 @@
 					Python
 ===============================================================================
 --------- Assistant de navigation -------------
->>> erreur dans le décompte des warnings/errors de check database
---> intégrer les erreurs de update_data_index dans le calcul des warnings/errors
->>> l'erreur missing pdf doit mener à un test de compilation pour le fichier en
-question.
 >>> Vérouiller les cases "ouvrir avec adobe" ou "ouvrir avec pdfxchange" si
 les executables ne sont pas trouvés
+>>> raccourcis claviers + tooltips + menu edition fichier
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assitant de progression ---------------
