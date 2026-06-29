@@ -10,6 +10,7 @@ from src.qss import THEMES
 from src.services.katex_service import KatexService
 from src.app.startup import create_context
 from src.views.widgets.pdf_viewer import PdfViewerWidget
+from src.views.widgets.metadata_view import MetadataView
 
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -109,6 +110,9 @@ class RegexPDFSearchApp(QWidget):
         self.context = context
         self.pdf_viewer = PdfViewerWidget()
 
+        self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
+        self.metadata_view = MetadataView(self.context)
+
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
         self.search_timer.timeout.connect(self.update_results)
@@ -165,41 +169,13 @@ class RegexPDFSearchApp(QWidget):
         self.inner_splitter = QSplitter(Qt.Vertical)#type:ignore
         self.inner_splitter.addWidget(self.pdf_viewer.view)
 
-        info_frame = QFrame()
-        info_layout = QVBoxLayout(info_frame)
-        self.info_layout = info_layout
-        self.inner_splitter.addWidget(info_frame)
-
-        # Persistent QWebEngineView for the info panel (avoid recreating it)
-        try:
-            self.info_view = QWebEngineView()
-            self.last_info_html = None
-            self.info_view.loadFinished.connect(self._on_info_loaded)
-            self.info_layout.addWidget(self.info_view)
-        except Exception:
-            # Fallback: create a QLabel and a small wrapper that exposes `setHtml`
-            lbl = QLabel()
-            lbl.setWordWrap(True)
-            lbl.setText("(Aperçu HTML indisponible — affichage texte)")
-            self.info_layout.addWidget(lbl)
-
-            class _LabelWrapper:
-                def __init__(self, widget):
-                    self._widget = widget
-
-                def setHtml(self, html, base_url=None):
-                    # QLabel supports basic rich text; if that fails, strip tags
-                    try:
-                        self._widget.setText(html)
-                    except Exception:
-                        import re as _re
-                        self._widget.setText(_re.sub(r'<[^>]+>', '', html))
-
-            self.info_view = _LabelWrapper(lbl)
-
         # Give PDF more initial space than the info panel (stretch factors)
         self.inner_splitter.setStretchFactor(0, 3)
         self.inner_splitter.setStretchFactor(1, 1)
+
+        self.inner_splitter.addWidget(
+            self.metadata_view
+        )
 
         right_layout.addWidget(self.inner_splitter)
         # Apply initial sizes once the event loop runs so the window size is known
@@ -331,8 +307,6 @@ class RegexPDFSearchApp(QWidget):
         self.shortcut_tab_2 = QShortcut(QKeySequence("Ctrl+é"), self)
         self.shortcut_tab_2.activated.connect(self.go_tab_2)
 
-        # AJOUT DE FACTORISATION
-        self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
 
     def go_tab_1(self):
         self.tabs.setCurrentIndex(0)
@@ -341,30 +315,6 @@ class RegexPDFSearchApp(QWidget):
     def go_tab_2(self):
         self.tabs.setCurrentIndex(1)
 
-    def _refresh_info_view(self):
-        """Re-génère le HTML de la zone info avec les couleurs courantes de la palette."""
-        if not getattr(self, '_last_body_html', None):
-            return
-        info_widget = self.info_layout.parentWidget()
-        pal = info_widget.palette() if info_widget is not None else self.palette()
-        try:
-            bg_color = pal.color(QPalette.Window).name()  # type:ignore
-            fg_color = pal.color(QPalette.WindowText).name()  # type:ignore
-        except Exception:
-            bg_color = None
-            fg_color = None
-        full_html = self.katex_service.wrap_with_katex(self._last_body_html, bg_color, fg_color)
-        base = self.context.config.get_path_by_key("katex")
-        try:
-            base_url = QUrl.fromLocalFile(str(base.resolve()))
-        except Exception:
-            base_url = QUrl()
-        self.last_info_html = full_html
-        try:
-            self.info_view.setHtml(full_html, base_url)
-        except Exception:
-            pass
-
     def apply_theme(self, name: str):
         
         stylesheet = THEMES.get(name, "")
@@ -372,7 +322,7 @@ class RegexPDFSearchApp(QWidget):
         if app is not None:
             app.setStyleSheet(stylesheet)
         # Régénérer le HTML après que Qt ait appliqué la nouvelle palette
-        QTimer.singleShot(50, self._refresh_info_view)
+        QTimer.singleShot(50, self.metadata_view.refresh_theme)
 
         self.context.config.set("settings", "theme", value=name)
 
@@ -392,12 +342,6 @@ class RegexPDFSearchApp(QWidget):
                 self.inner_splitter.setSizes([top, bottom])
         except Exception:
             pass
-
-    def _on_info_loaded(self, ok: bool):
-        if not ok:
-            print("[exerciceGUI] QWebEngineView failed to load HTML. Snippet:")
-            if self.last_info_html:
-                print(self.last_info_html[:2000])
 
     def eventFilter(self, obj, event):
         """Intercept key presses on the results list so that Up/Down
@@ -718,74 +662,34 @@ class RegexPDFSearchApp(QWidget):
     # ======================================
     # PDF
     # ======================================
-
     def load_pdf(self, item):
+
         key = item.text()
-        pdf_path = Path(self.context.repository.get_doc_by_key(key).get("preview", ""))
+
+        pdf_path = Path(
+            self.context.repository
+            .get_doc_by_key(key)
+            .get("preview", "")
+        )
 
         if not pdf_path.exists():
-            QMessageBox.critical(self, f"Erreur", "Fichier PDF introuvable\n{pdf_path}")
+            QMessageBox.critical(
+                self,
+                "Erreur",
+                f"Fichier PDF introuvable\n{pdf_path}"
+            )
             return
 
         self.pdf_viewer.document.load(str(pdf_path))
 
-        datas = self.context.repository.get_doc_by_key(key)
+        document = self.context.repository.get_doc_by_key(key)
 
-        # Préparer le contenu HTML + KaTeX (le widget `self.info_view` est persistant)
-        html_parts = []
-        for label_key, label_value in datas.items():
-            if label_key in ['type', 'id', 'pdf', 'enonce', 'tex', 'preview']:
-                continue
-            title = f"<b>{camel_to_sentence(label_key)} :</b>"
-            if isinstance(label_value, str):
-                content = self.katex_service.escape_and_render(label_value)
-                html_parts.append(f"<p>{title} {content}</p>")
-            elif isinstance(label_value, list):
-                items = "".join(f"<li>{self.katex_service.escape_and_render(str(v))}</li>" for v in label_value)
-                html_parts.append(f"<p>{title}</p><ul>{items}</ul>")
-            else:
-                html_parts.append(f"<p>{title} {html.escape(str(label_value))}</p>")
+        self.metadata_view.show_document(document)
 
-        body_html = "\n".join(html_parts) if html_parts else "<p><i>Aucune information</i></p>"
-        self._last_body_html = body_html
-        # récupérer la couleur de fond du widget info (ou palette par défaut)
-        info_widget = self.info_layout.parentWidget()
-        if info_widget is not None:
-            pal = info_widget.palette()
-        else:
-            pal = self.palette()
-        try:
-            bg_color = pal.color(QPalette.Window).name()#type:ignore
-            fg_color = pal.color(QPalette.WindowText).name()#type:ignore
-        except Exception:
-            bg_color = None
-            fg_color = None
-
-        full_html = self.katex_service.wrap_with_katex(body_html, bg_color, fg_color)
-
-        # setHtml on persistent info_view to avoid re-creating the engine
-        base = self.context.config.get_path_by_key("katex")
-        try:
-            base_url = QUrl.fromLocalFile(str(base.resolve()))
-        except Exception:
-            base_url = QUrl()
-
-        self.last_info_html = full_html
-        if getattr(self, 'info_view', None):
-            try:
-                self.info_view.setHtml(full_html, base_url)
-            except Exception:
-                print("[exerciceGUI] failed to setHtml on info_view")
-        else:
-            # Fallback: show plain text in a QLabel if QWebEngineView is unavailable
-            fallback_label = QLabel()
-            fallback_label.setWordWrap(True)
-            # strip tags for a simple textual fallback
-            text_only = re.sub(r'<[^>]+>', '', body_html)
-            fallback_label.setText(text_only)
-            self.info_layout.addWidget(fallback_label)
-
-        self.current_enonce = datas.get("enonce", "")
+        self.current_enonce = document.get(
+            "enonce",
+            ""
+        )
 
     def copy_enonce_for_item(self, item):
         doc_dict = self.context.repository.get_doc_by_key(item.text())
