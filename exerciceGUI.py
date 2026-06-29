@@ -10,6 +10,8 @@ from src.tools import (
     )
 from src.qss import THEMES
 
+from src.services.katex_service import KatexService
+
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
 from src.check_database import check_database
@@ -108,93 +110,6 @@ class FlowLayout(QLayout):
             x = nextX
             lineHeight = max(lineHeight, itemSize.height())
         return y + lineHeight - rect.y()
-
-def _path_to_uri(path: str | Path) -> str | None:
-    try:
-        return Path(path).resolve().as_uri()
-    except OSError:
-        return None
-
-def _wrap_with_katex_html(body_html: str, bg_color=None, fg_color=None) -> str:
-    katex_dir = Path(KATEX_DIR)
-    css_local = katex_dir / "katex.min.css"
-    js_local = katex_dir / "katex.min.js"
-
-    if css_local.exists():
-        css_uri = _path_to_uri(css_local)
-    else:
-        css_uri = "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
-
-    if js_local.exists():
-        js_uri = _path_to_uri(js_local)
-    else:
-        js_uri = "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
-
-    bg_css = f"background-color: {bg_color};" if bg_color else ""
-    fg_css = f"color: {fg_color};" if fg_color else ""
-
-    return f"""<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="{css_uri}">
-<style>
-/* Prefer Latin Modern if available, otherwise fall back to common serif fonts */
-@font-face {{
-  font-family: 'Latin Modern';
-  src: local('Latin Modern Roman'), local('Latin Modern'), local('LM Roman');
-  font-style: normal;
-}}
-body {{ font-family: 'Latin Modern', 'Times New Roman', Times, serif; font-size:13px; line-height:1.25; margin:8px; {bg_css} {fg_css} }}
-b {{ color: {fg_color or 'inherit'}; }}
-.katex-raw {{ display: inline-block; vertical-align: middle; }}
-/* Make KaTeX rendered math follow surrounding font sizing */
-.katex {{ font-size: 1em; font-family: inherit !important; }}
-.katex * {{ font-family: inherit !important; }}
-</style>
-</head>
-<body>
-{body_html}
-<script src="{js_uri}"></script>
-<script>
-(function(){{
-    function renderAll(){{
-        document.querySelectorAll('.katex-raw').forEach(function(el){{
-            var expr = el.getAttribute('data-expr') || '';
-            var display = el.getAttribute('data-display') === '1';
-            try {{
-                el.innerHTML = katex.renderToString(expr, {{throwOnError:false, displayMode:display}});
-            }} catch(e) {{
-                el.textContent = expr;
-            }}
-        }});
-    }}
-    if (typeof katex !== 'undefined') {{
-        renderAll();
-    }} else {{
-        window.addEventListener('load', renderAll);
-    }}
-}})();
-</script>
-</body>
-</html>"""
-
-def _escape_and_replace_latex(text: str) -> str:
-    # Replace $$...$$ and $...$ with spans carrying data-expr and data-display
-    parts = re.split(r'(\$\$.*?\$\$|\$.+?\$)', text, flags=re.DOTALL)
-    out = []
-    for part in parts:
-        if not part:
-            continue
-        if part.startswith('$$') and part.endswith('$$') and len(part) >= 4:
-            expr = part[2:-2]
-            out.append(f'<span class="katex-raw" data-expr="{html.escape(expr, quote=True)}" data-display="1"></span>')
-        elif part.startswith('$') and part.endswith('$') and len(part) >= 2:
-            expr = part[1:-1]
-            out.append(f'<span class="katex-raw" data-expr="{html.escape(expr, quote=True)}" data-display="0"></span>')
-        else:
-            out.append(html.escape(part).replace('\n', '<br/>'))
-    return ''.join(out)
 
 VSCODE_EXE = get_exe('code')
 WORKSPACE_PATH = Path(__file__).resolve().parent / "texmaths.code-workspace"
@@ -450,6 +365,9 @@ class RegexPDFSearchApp(QWidget):
         self.shortcut_tab_2 = QShortcut(QKeySequence("Ctrl+é"), self)
         self.shortcut_tab_2.activated.connect(self.go_tab_2)
 
+        # AJOUT DE FACTORISATION
+        self.katex_service = KatexService()
+
     def go_tab_1(self):
         self.tabs.setCurrentIndex(0)
         QTimer.singleShot(0, self.search_input.setFocus)
@@ -469,7 +387,7 @@ class RegexPDFSearchApp(QWidget):
         except Exception:
             bg_color = None
             fg_color = None
-        full_html = _wrap_with_katex_html(self._last_body_html, bg_color, fg_color)
+        full_html = self.katex_service.wrap_with_katex(self._last_body_html, bg_color, fg_color)
         base = Path(KATEX_DIR)
         try:
             base_url = QUrl.fromLocalFile(str(base.resolve()))
@@ -859,10 +777,10 @@ class RegexPDFSearchApp(QWidget):
                 continue
             title = f"<b>{camel_to_sentence(label_key)} :</b>"
             if isinstance(label_value, str):
-                content = _escape_and_replace_latex(label_value)
+                content = self.katex_service.escape_and_render(label_value)
                 html_parts.append(f"<p>{title} {content}</p>")
             elif isinstance(label_value, list):
-                items = "".join(f"<li>{_escape_and_replace_latex(str(v))}</li>" for v in label_value)
+                items = "".join(f"<li>{self.katex_service.escape_and_render(str(v))}</li>" for v in label_value)
                 html_parts.append(f"<p>{title}</p><ul>{items}</ul>")
             else:
                 html_parts.append(f"<p>{title} {html.escape(str(label_value))}</p>")
@@ -882,7 +800,7 @@ class RegexPDFSearchApp(QWidget):
             bg_color = None
             fg_color = None
 
-        full_html = _wrap_with_katex_html(body_html, bg_color, fg_color)
+        full_html = self.katex_service.wrap_with_katex(body_html, bg_color, fg_color)
 
         # setHtml on persistent info_view to avoid re-creating the engine
         base = Path(KATEX_DIR)

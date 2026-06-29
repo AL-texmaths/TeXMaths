@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QApplication
 
-from app.startup import create_context
-from views.main_window import MainWindow
+from src.app.startup import create_context
+from src.views.main_window import MainWindow
 
 
 def main():
