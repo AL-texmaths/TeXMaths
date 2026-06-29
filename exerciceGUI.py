@@ -1,6 +1,4 @@
-import re
 import sys
-import html
 from pathlib import Path
 from src.tools import (
     camel_to_sentence,
@@ -11,6 +9,7 @@ from src.services.katex_service import KatexService
 from src.app.startup import create_context
 from src.views.widgets.pdf_viewer import PdfViewerWidget
 from src.views.widgets.metadata_view import MetadataView
+from src.services.search_service import SearchService
 
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -24,10 +23,8 @@ from PySide6.QtWidgets import (
     QTabWidget, QCheckBox, QComboBox, QMenu, QLayout
 )
 from PySide6.QtCore import Qt, QObject, QThread, Signal, QTimer, QUrl, QEvent, QSize, QRect, QPoint
-from PySide6.QtPdf import QPdfDocument
-from PySide6.QtPdfWidgets import QPdfView
 from PySide6.QtGui import (
-    QWheelEvent, QGuiApplication, QAction, QPalette,
+    QGuiApplication, QAction,
     QShortcut, QKeySequence
 )
 from PySide6.QtWebEngineWidgets import QWebEngineView
@@ -112,6 +109,8 @@ class RegexPDFSearchApp(QWidget):
 
         self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
         self.metadata_view = MetadataView(self.context)
+
+        self.search_service = SearchService(self.context.repository)
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
@@ -593,14 +592,6 @@ class RegexPDFSearchApp(QWidget):
         pattern = self.search_input.text().strip()
         self.results_list.clear()
 
-        if not pattern:
-            return
-
-        try:
-            regex = re.compile(pattern, re.IGNORECASE)
-        except re.error:
-            return
-
         active_prefixes = [
             prefix for prefix, cb in self.key_filter_actions.items()
             if cb.isChecked()
@@ -614,36 +605,12 @@ class RegexPDFSearchApp(QWidget):
             if cb.isChecked()
         ]
 
-        matching_items = []
-
-        for key, infos in self.context.repository.load().items():
-            prefix = key.split()[0]
-
-            if prefix not in active_prefixes:
-                continue
-
-            # Filtre champs vides
-            skip = False
-            for field, checkbox in self.empty_filters.items():
-                if checkbox.isChecked():
-                    value = infos.get(field, "")
-                    if value not in ["", None, []]:
-                        skip = True
-                        break
-            if skip:
-                continue
-
-            # Rassembler les parties recherchables selon les champs actifs
-            searchable_parts = []
-            for field in active_fields:
-                value = infos.get(field, "")
-                if isinstance(value, list):
-                    searchable_parts.extend(str(v) for v in value)
-                else:
-                    searchable_parts.append(str(value))
-
-            if regex.search(" ".join(searchable_parts)):
-                matching_items.append((key, infos))
+        matching_items = self.search_service.search(
+            pattern,
+            active_prefixes,
+            active_fields,
+            self.empty_filters
+        )
 
         # Trier les éléments selon l'ordre choisi
         sort_index = self.sort_order_combo.currentIndex()
