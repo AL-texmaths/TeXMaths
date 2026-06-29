@@ -3,6 +3,7 @@ from src.app.config import ConfigManager
 
 from src.services.document_repository import DocumentRepository
 from src.services.process_service import ProcessService
+from src.services.search_service import SearchService
 # from src.services.theme_service import ThemeService
 # from src.services.database_service import DatabaseService
 
@@ -16,7 +17,7 @@ def create_context():
     )
 
     process_service = ProcessService()
-
+    search_service = SearchService(repository)
     # theme_service = ThemeService(config)
 
     # database_service = DatabaseService(config)
@@ -25,6 +26,7 @@ def create_context():
         config=config,
         repository=repository,
         process_service=process_service,
+        search_service=search_service,
         # theme_service=theme_service,
         # database_service=database_service
     )

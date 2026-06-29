@@ -1,6 +1,7 @@
 from pathlib import Path
 import re
 
+from src.models.search_filters import SearchFilters
 
 class SearchService:
 
@@ -9,19 +10,15 @@ class SearchService:
     
     def search(
             self,
-            pattern,
-            active_prefixes,
-            active_fields,
-            active_empty_filters,
-            sort_mode
+            filters: SearchFilters,
         ):
-            if not pattern:
+            if not filters.pattern:
                 return []
             try:
-                regex = re.compile(pattern, re.IGNORECASE)
+                regex = re.compile(filters.pattern, re.IGNORECASE)
             except re.error:
                 return []
-            if not active_prefixes:
+            if not filters.active_prefixes:
                 return []
             
             matching_items = []
@@ -29,13 +26,13 @@ class SearchService:
             for key, infos in self.repository.load().items():
                 prefix = key.split()[0]
 
-                if prefix not in active_prefixes:
+                if prefix not in filters.active_prefixes:
                     continue
 
                 # Filtre champs vides
                 skip = False
 
-                for field in active_empty_filters:
+                for field in filters.empty_fields:
                     value = infos.get(field, "")
 
                     if value not in ["", None, []]:
@@ -46,7 +43,7 @@ class SearchService:
 
                 # Rassembler les parties recherchables selon les champs actifs
                 searchable_parts = []
-                for field in active_fields:
+                for field in filters.active_fields:
                     value = infos.get(field, "")
                     if isinstance(value, list):
                         searchable_parts.extend(str(v) for v in value)
@@ -56,10 +53,10 @@ class SearchService:
                 if regex.search(" ".join(searchable_parts)):
                     matching_items.append((key, infos))
                 
-            if sort_mode == 0:
+            if filters.sort_mode == 0:
                 # Tri par ordre alphabétique
                 matching_items.sort(key=lambda x: x[0].lower())  # Tri par nom
-            elif sort_mode == 1:
+            elif filters.sort_mode == 1:
                 # Tri par date de modification du fichier PDF
                 matching_items.sort(key=lambda x: Path(x[1]["pdf"]).stat().st_mtime, reverse=True)
 

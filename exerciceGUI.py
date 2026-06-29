@@ -9,7 +9,7 @@ from src.services.katex_service import KatexService
 from src.app.startup import create_context
 from src.views.widgets.pdf_viewer import PdfViewerWidget
 from src.views.widgets.metadata_view import MetadataView
-from src.services.search_service import SearchService
+from src.models.search_filters import SearchFilters
 
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -109,8 +109,6 @@ class RegexPDFSearchApp(QWidget):
 
         self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
         self.metadata_view = MetadataView(self.context)
-
-        self.search_service = SearchService(self.context.repository)
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
@@ -590,40 +588,32 @@ class RegexPDFSearchApp(QWidget):
 
     def update_results(self):
 
-        pattern = self.search_input.text().strip()
+        filters = SearchFilters(
+            pattern=self.search_input.text().strip(),
+            active_prefixes=[
+                prefix
+                for prefix, cb in self.key_filter_actions.items()
+                if cb.isChecked()
+            ],
+            active_fields=[
+                field
+                for field, cb in self.field_actions.items()
+                if cb.isChecked()
+            ],
+            empty_fields=[
+                field
+                for field, cb in self.empty_filters.items()
+                if cb.isChecked()
+            ],
+            sort_mode=self.sort_order_combo.currentIndex(),
+        )
+
+        results = self.context.search_service.search(filters)
 
         self.results_list.clear()
 
-        active_prefixes = [
-            prefix
-            for prefix, cb in self.key_filter_actions.items()
-            if cb.isChecked()
-        ]
-
-        active_fields = [
-            field
-            for field, cb in self.field_actions.items()
-            if cb.isChecked()
-        ]
-
-        active_empty_filters = [
-            field
-            for field, cb in self.empty_filters.items()
-            if cb.isChecked()
-        ]
-
-        sort_mode = self.sort_order_combo.currentIndex()
-
-        matching_items = self.search_service.search(
-            pattern,
-            active_prefixes,
-            active_fields,
-            active_empty_filters,
-            sort_mode,
-        )
-
-        for item, _ in matching_items:
-            self.results_list.addItem(item)
+        for key, _ in results:
+            self.results_list.addItem(key)
     # ======================================
     # PDF
     # ======================================
