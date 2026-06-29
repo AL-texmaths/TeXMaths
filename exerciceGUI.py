@@ -10,6 +10,7 @@ from src.app.startup import create_context
 from src.views.widgets.pdf_viewer import PdfViewerWidget
 from src.views.widgets.metadata_view import MetadataView
 from src.models.search_filters import SearchFilters
+from src.controllers.search_controller import SearchController
 
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -109,6 +110,7 @@ class RegexPDFSearchApp(QWidget):
 
         self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
         self.metadata_view = MetadataView(self.context)
+        self.search_controller = SearchController(self.context.search_service)
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
@@ -586,9 +588,9 @@ class RegexPDFSearchApp(QWidget):
         except OSError as error:
             QMessageBox.critical(self, "Erreur VS Code", str(error))
 
-    def update_results(self):
+    def build_search_filters(self) -> SearchFilters:
 
-        filters = SearchFilters(
+        return SearchFilters(
             pattern=self.search_input.text().strip(),
             active_prefixes=[
                 prefix
@@ -608,7 +610,11 @@ class RegexPDFSearchApp(QWidget):
             sort_mode=self.sort_order_combo.currentIndex(),
         )
 
-        results = self.context.search_service.search(filters)
+    def update_results(self):
+
+        filters = self.build_search_filters()
+
+        results = self.search_controller.search(filters)
 
         self.results_list.clear()
 
