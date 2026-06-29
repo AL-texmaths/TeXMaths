@@ -1,7 +1,5 @@
 import re
 import sys
-import json
-import subprocess
 import html
 from pathlib import Path
 from src.tools import (
@@ -608,22 +606,20 @@ class RegexPDFSearchApp(QWidget):
         menu.exec(self.results_list.viewport().mapToGlobal(position))
 
     def open_pdf_with_adobe(self, item):
-        adobe_path = self.context.config.get_exe_by_key("adobe")
+        adobe_exe_path = self.context.config.get_exe_by_key("adobe")
         doc_dict = self.context.repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict['pdf']).resolve()
-        cmd = 'cmd /c start "" "{}" "{}"'
         try:
-            subprocess.Popen(cmd.format(adobe_path, pdf_path), shell=True)
-            return
+            self.context.process_service.open_with(adobe_exe_path, pdf_path)
         except FileNotFoundError:
             QMessageBox.critical(
                 self,
                 "Erreur ouverture PDF",
-                f"Impossible d'ouvrir le PDF avec Adobe Reader.\nChemin attendu: {adobe_path}\nFichier: {pdf_path}"
+                f"Impossible d'ouvrir le PDF avec Adobe Reader.\nChemin attendu: {adobe_exe_path}\nFichier: {pdf_path}"
             )
-            return
 
     def open_pdf_with_pdfxchange(self, item):
+        pdf_xchange_exe_path = self.context.config.get_exe_by_key('pdf_xchange'),
         doc_dict = self.context.repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
@@ -632,15 +628,17 @@ class RegexPDFSearchApp(QWidget):
             return
 
         try:
-            subprocess.Popen([
-                self.context.config.get_exe_by_key('pdf_xchange'),
-                '/A', "page=1&fullscreen=yes=OpenParameters",
-                str(pdf_path)
-                ])
+            self.context.process_service.open_with(
+                str(pdf_xchange_exe_path),
+                str(pdf_path),
+                '/A',
+                "page=1&fullscreen=yes=OpenParameters"
+                )
         except OSError as error:
             QMessageBox.critical(self, "Erreur PDF XChange", str(error))
 
     def open_pdf_with_okular(self, item):
+        okular_exe_path = self.context.config.get_exe_by_key('okular')
         doc_dict = self.context.repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
@@ -649,12 +647,12 @@ class RegexPDFSearchApp(QWidget):
             return
 
         try:
-            subprocess.Popen([self.context.config.get_exe_by_key('okular'), str(pdf_path)])
+            self.context.process_service.open_with(okular_exe_path, pdf_path)
         except OSError as error:
             QMessageBox.critical(self, "Erreur Okular", str(error))
 
     def open_tex_in_vscode(self, item):
-        code_exe = self.context.config.get_exe_by_key("code")
+        code_path_exe = self.context.config.get_exe_by_key("code")
         doc_dict = self.context.repository.get_doc_by_key(item.text())
         tex_path = Path(doc_dict.get("tex", "")).resolve()
 
@@ -663,7 +661,7 @@ class RegexPDFSearchApp(QWidget):
             return
 
         try:
-            subprocess.Popen([str(code_exe), "-r", str(WORKSPACE_PATH), str(tex_path)])
+            self.context.process_service.open_with(code_path_exe, tex_path)
         except OSError as error:
             QMessageBox.critical(self, "Erreur VS Code", str(error))
 
