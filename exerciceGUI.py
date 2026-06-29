@@ -5,13 +5,12 @@ import subprocess
 import html
 from pathlib import Path
 from src.tools import (
-    LATEX_DIR, ADOBE_PATH, PDF_XCHANGE_PATH, KATEX_DIR,
-    camel_to_sentence, get_exe
+    camel_to_sentence,
     )
 from src.qss import THEMES
 
 from src.services.katex_service import KatexService
-from src.app.config import ConfigManager
+from src.app.startup import create_context
 
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -102,7 +101,6 @@ class FlowLayout(QLayout):
             lineHeight = max(lineHeight, itemSize.height())
         return y + lineHeight - rect.y()
 
-VSCODE_EXE = get_exe('code')
 WORKSPACE_PATH = Path(__file__).resolve().parent / "texmaths.code-workspace"
 
 class ZoomablePdfView(QPdfView):
@@ -121,20 +119,10 @@ class ZoomablePdfView(QPdfView):
             super().wheelEvent(event)
 
 class RegexPDFSearchApp(QWidget):
-    def __init__(self, json_path):
+    def __init__(self, context):
         super().__init__()
 
-        self.config = ConfigManager()
-
-        self.Executables =  self.config.get("executables").keys()
-        self.Executables_found = {executable: True for executable in self.Executables}
-
-        for executable in self.Executables:
-            try:
-                get_exe(executable)
-            except FileNotFoundError:
-                self.Executables_found[executable] = False
-                print(f'WARNING: Executable not found {executable}. Corresponding menu has been desactivated.')
+        self.context = context
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
@@ -143,7 +131,6 @@ class RegexPDFSearchApp(QWidget):
         self.setWindowTitle("Recherche Regex PDF")
         self.resize(1200, 700)
 
-        self.json_path = json_path
         self.data = {}
 
         # Gestion file d'attente scripts
@@ -267,7 +254,7 @@ class RegexPDFSearchApp(QWidget):
         button_layout.addWidget(self.reload_database_button)
 
         # Sélecteur de thème
-        self.initial_theme = self.config.get("parameters", "theme")
+        self.initial_theme = self.context.config.get("settings", "theme")
         theme_layout = QHBoxLayout()
         theme_label = QLabel("Thème :")
         self.theme_combo = QComboBox()
@@ -369,7 +356,7 @@ class RegexPDFSearchApp(QWidget):
         self.shortcut_tab_2.activated.connect(self.go_tab_2)
 
         # AJOUT DE FACTORISATION
-        self.katex_service = KatexService()
+        self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
 
     def go_tab_1(self):
         self.tabs.setCurrentIndex(0)
@@ -391,7 +378,7 @@ class RegexPDFSearchApp(QWidget):
             bg_color = None
             fg_color = None
         full_html = self.katex_service.wrap_with_katex(self._last_body_html, bg_color, fg_color)
-        base = Path(KATEX_DIR)
+        base = self.context.config.get_path_by_key("katex")
         try:
             base_url = QUrl.fromLocalFile(str(base.resolve()))
         except Exception:
@@ -411,7 +398,7 @@ class RegexPDFSearchApp(QWidget):
         # Régénérer le HTML après que Qt ait appliqué la nouvelle palette
         QTimer.singleShot(50, self._refresh_info_view)
 
-        self.config.set("parameters", "theme", value=name)
+        self.context.config.set("settings", "theme", value=name)
 
     def schedule_search(self):
         self.search_timer.start(300)  # délai en millisecondes
@@ -475,8 +462,9 @@ class RegexPDFSearchApp(QWidget):
     # ======================================
 
     def load_json_only(self):
+        data_index_path = self.context.config.get_path_by_key("data index")
         try:
-            with open(self.json_path, "r", encoding="utf-8") as f:
+            with open(data_index_path, "r", encoding="utf-8") as f:
                 self.data = json.load(f)
         except Exception as e:
             QMessageBox.critical(self, "Erreur JSON", str(e))
@@ -544,7 +532,7 @@ class RegexPDFSearchApp(QWidget):
         self.clear_layout(self.empty_keys_layout)
         self.empty_filters = {}
 
-        keys = self.config.get("parameters", "tex non optionnal keys")
+        keys = self.context.config.get("settings", "tex non optionnal keys")
         for key in keys:
             cb = QCheckBox(camel_to_sentence(key))
             cb.setChecked(False)
@@ -590,7 +578,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier .tex dans VS Code",
             self.open_tex_in_vscode,
             item,
-            self.Executables_found['code']
+            self.context.config.get_exe_by_key('code') is not Path()
         )
 
         open_pdf_adobe_action = self.add_menu_action(
@@ -598,7 +586,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier PDF dans Adobe Reader",
             self.open_pdf_with_adobe,
             item,
-            self.Executables_found['adobe']
+            self.context.config.get_exe_by_key('adobe') is not None
         )
 
         open_pdf_xchange_action = self.add_menu_action(
@@ -606,7 +594,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier PDF dans PDF XChange",
             self.open_pdf_with_pdfxchange,
             item,
-            self.Executables_found['pdf_xchange']
+            self.context.config.get_exe_by_key('pdf_xchange') is not None
         )
 
         open_pdf_okular_action = self.add_menu_action(
@@ -614,7 +602,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier PDF dans Okular",
             self.open_pdf_with_okular,
             item,
-            self.Executables_found['okular']
+            self.context.config.get_exe_by_key('okular') is not None
         )
 
         menu.addAction(copy_enonce_action)
@@ -625,17 +613,18 @@ class RegexPDFSearchApp(QWidget):
         menu.exec(self.results_list.viewport().mapToGlobal(position))
 
     def open_pdf_with_adobe(self, item):
+        adobe_path = self.context.config.get_exe_by_key("adobe")
         doc_dict = self.data[item.text()]
         pdf_path = Path(doc_dict['pdf']).resolve()
         cmd = 'cmd /c start "" "{}" "{}"'
         try:
-            subprocess.Popen(cmd.format(ADOBE_PATH, pdf_path), shell=True)
+            subprocess.Popen(cmd.format(adobe_path, pdf_path), shell=True)
             return
         except FileNotFoundError:
             QMessageBox.critical(
                 self,
                 "Erreur ouverture PDF",
-                f"Impossible d'ouvrir le PDF avec Adobe Reader.\nChemin attendu: {ADOBE_PATH}\nFichier: {pdf_path}"
+                f"Impossible d'ouvrir le PDF avec Adobe Reader.\nChemin attendu: {adobe_path}\nFichier: {pdf_path}"
             )
             return
 
@@ -649,7 +638,7 @@ class RegexPDFSearchApp(QWidget):
 
         try:
             subprocess.Popen([
-                PDF_XCHANGE_PATH,
+                self.context.config.get_exe_by_key('pdf_xchange'),
                 '/A', "page=1&fullscreen=yes=OpenParameters",
                 str(pdf_path)
                 ])
@@ -665,11 +654,12 @@ class RegexPDFSearchApp(QWidget):
             return
 
         try:
-            subprocess.Popen([get_exe("okular"), str(pdf_path)])
+            subprocess.Popen([self.context.config.get_exe_by_key('okular'), str(pdf_path)])
         except OSError as error:
             QMessageBox.critical(self, "Erreur Okular", str(error))
 
     def open_tex_in_vscode(self, item):
+        code_exe = self.context.config.get_exe_by_key("code")
         doc_dict = self.data.get(item.text(), {})
         tex_path = Path(doc_dict.get("tex", "")).resolve()
 
@@ -678,7 +668,7 @@ class RegexPDFSearchApp(QWidget):
             return
 
         try:
-            subprocess.Popen([str(VSCODE_EXE), "-r", str(WORKSPACE_PATH), str(tex_path)])
+            subprocess.Popen([str(code_exe), "-r", str(WORKSPACE_PATH), str(tex_path)])
         except OSError as error:
             QMessageBox.critical(self, "Erreur VS Code", str(error))
 
@@ -758,7 +748,7 @@ class RegexPDFSearchApp(QWidget):
 
     def load_pdf(self, item):
         key = item.text()
-        pdf_path = Path(self.data[key]["preview"])
+        pdf_path = Path(self.context.repository.get_doc_by_key(key).get("preview", ""))
 
         if not pdf_path.exists():
             QMessageBox.critical(self, f"Erreur", "Fichier PDF introuvable\n{pdf_path}")
@@ -802,7 +792,7 @@ class RegexPDFSearchApp(QWidget):
         full_html = self.katex_service.wrap_with_katex(body_html, bg_color, fg_color)
 
         # setHtml on persistent info_view to avoid re-creating the engine
-        base = Path(KATEX_DIR)
+        base = self.context.config.get_path_by_key("katex")
         try:
             base_url = QUrl.fromLocalFile(str(base.resolve()))
         except Exception:
@@ -885,7 +875,9 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setStyle("Fusion")
     app.setStyleSheet(THEMES["Fusion Modern Dark Red"])  # thème par défaut
-    window = RegexPDFSearchApp(LATEX_DIR / "catalogues" / "data_index.json")
+
+    context = create_context()
+    window = RegexPDFSearchApp(context)
     window.show()
     window.load_json_only()
     sys.exit(app.exec())

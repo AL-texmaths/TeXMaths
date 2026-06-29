@@ -8,7 +8,7 @@ DNBQCM_DIR = LATEX_DIR / "dnbqcm"
 
 CODE_EXE_PATH = get_exe('code')
 
-DOC_TYPE = get_config()['parameters']['index documents']
+DOC_TYPE = get_config()["settings"]['index documents']
 
 def make_new_exercice():
 

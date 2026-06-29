@@ -295,7 +295,7 @@ class RegexPDFSearchApp(QWidget):
 
         self.empty_filters = {}
 
-        keys = CONFIG['parameters']['tex non optionnal keys']
+        keys = CONFIG["settings"]['tex non optionnal keys']
 
         for key in keys:
             cb = QCheckBox(camel_to_sentence(key))
@@ -310,7 +310,7 @@ class RegexPDFSearchApp(QWidget):
     def on_item_double_clicked(self, item):
         doc_dict = self.data[item.text()]
         pdf_path = doc_dict['pdf']
-        if doc_dict['type'] in CONFIG['parameters']['open with adobe']:
+        if doc_dict['type'] in CONFIG["settings"]['open with adobe']:
             try:
                 adobe = get_exe_path('adobe')
                 cmd = f"{adobe} /F {pdf_path}"

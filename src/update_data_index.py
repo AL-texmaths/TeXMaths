@@ -6,7 +6,7 @@ Lit les fichiers exercice-*-data.tex et stocke les
 données dans un fichier json
 """
 CATALOGUES = LATEX_DIR / "catalogues"
-DOC_DICT = get_config()['parameters']['index documents']
+DOC_DICT = get_config()['settings']['index documents']
 
 CYCLE_VALUE_DEFAUT = 'cycle 4'
 BO_VALUE_DEFAULT = 'BO 2020'

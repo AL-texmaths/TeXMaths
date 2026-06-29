@@ -1,6 +1,7 @@
 import sys
 import json
 from pathlib import Path
+from src.app.resolve import resolve_executable, resolve_paths
 
 def base_dir():
     if getattr(sys, "frozen", False):
@@ -56,3 +57,20 @@ class ConfigManager:
             current = current[key]
         current[keys[-1]] = value
         self.save()
+    
+    def get_path_by_key(self, key: str):
+        """"""
+        candidates = self.get("paths", key)
+        if not candidates:
+            print(f"WARNING: Clé introuvable dans la config : paths.{key}")
+            return None
+        return resolve_paths(*candidates)
+
+    def get_exe_by_key(self, key: str):
+        """"""
+        candidates = [key]
+        candidates = candidates + self.get("executables", key)
+        if not candidates:
+            print(f"WARNING: Clé introuvable dans la config : executables.{key}")
+            return None
+        return resolve_executable(key)

@@ -3,7 +3,7 @@ from pypdf import PdfReader, PdfWriter
 from src.tools import LATEX_DIR, get_config, get_pattern
 
 DOC_TYPE = "flash"
-FLASH_DICT = get_config()["parameters"]["index documents"][DOC_TYPE]
+FLASH_DICT = get_config()["settings"]["index documents"][DOC_TYPE]
 
 FLASH_DIR = LATEX_DIR / FLASH_DICT['folder name']
 PREVIEW_DIR = FLASH_DIR / "previews"

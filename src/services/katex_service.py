@@ -2,8 +2,6 @@ import re
 import html
 from pathlib import Path
 
-from src.tools import KATEX_DIR
-
 def _path_to_uri(path: str | Path) -> str | None:
     try:
         return Path(path).resolve().as_uri()
@@ -11,7 +9,10 @@ def _path_to_uri(path: str | Path) -> str | None:
         return None
 
 class KatexService:
-    
+
+    def __init__(self, katex_path: str | Path):
+        self.katex_path = Path(katex_path)
+
     def escape_and_render(self, text: str):
         """"""
         parts = re.split(r'(\$\$.*?\$\$|\$.+?\$)', text, flags=re.DOTALL)
@@ -30,7 +31,8 @@ class KatexService:
         return ''.join(out)
 
     def wrap_with_katex(self, body_html: str, bg_color=None, fg_color=None) -> str:
-        katex_dir = Path(KATEX_DIR)
+        katex_dir = self.katex_path
+
         css_local = katex_dir / "katex.min.css"
         js_local = katex_dir / "katex.min.js"
 

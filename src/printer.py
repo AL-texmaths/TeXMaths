@@ -8,7 +8,7 @@ MESSAGES = {
     "file":    "File name ? ",
     "files":   "Files name ? (</> separator) "
     }
-PRINTERS = get_config()["parameters"]["printers"]
+PRINTERS = get_config()["settings"]["printers"]
 
 def show_printers():
     """

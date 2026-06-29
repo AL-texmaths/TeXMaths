@@ -1,5 +1,5 @@
 {
-    "parameters": {
+    "settings": {
         "year": "2026-2027",
         "logiciel": "pronote",
         "printers": [
@@ -50,20 +50,17 @@
             "cycle",
             "objectifsApprentissage"
         ],
-        "theme": "VS Code Dark"
+        "theme": "Fusion Modern Dark Red"
     },
     "executables": {
         "code": [
-            "code",
             "\\Root\\Programmes\\VSCode\\Code.exe"
         ],
         "sumatrapdf": [
             "SumatraPDF",
-            "sumatrapdf",
             "\\Root\\Programmes\\SumatraPDF\\sumatrapdf.exe"
         ],
         "magick": [
-            "magick",
             "\\Root\\Programmes\\Imagemagick\\magick.exe"
         ],
         "ghostscript": [
@@ -84,19 +81,16 @@
             "okular"
         ],
         "lualatex": [
-            "lualatex",
             "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\lualatex.exe"
         ],
         "pdflatex": [
-            "pdflatex",
             "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\pdflatex.exe"
         ],
         "latexmk": [
-            "latexmk",
             "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\latexmk.exe"
         ]
     },
-    "pathes": {
+    "paths": {
         "katex": [
             "./data/katex/",
             ".\\data\\katex\\"
@@ -112,6 +106,10 @@
         "progression import path": [
             "./data/progressions/",
             ".\\data\\progressions\\"
+        ],
+        "data index": [
+            "./data/latex/catalogues/data_index.json",
+            ".\\data\\latex\\catalogues\\data_index.json"
         ]
     }
 }

@@ -3,9 +3,9 @@ from src.tools import get_config, LATEX_DIR, compile_latex, get_pattern
 """
 Analyse la base de données et affiche les erreurs.
 """
-DOC_TYPES = get_config()['parameters']['index documents']
-STRING_CHECK_ORDER = get_config()['parameters']['string check order']
-IGNORED_EXT = get_config()['parameters']['ignored extensions']
+DOC_TYPES = get_config()["settings"]['index documents']
+STRING_CHECK_ORDER = get_config()["settings"]['string check order']
+IGNORED_EXT = get_config()["settings"]['ignored extensions']
 
 def show_warnings_latex(log_path, logger=print):
     """

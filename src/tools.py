@@ -61,7 +61,7 @@ def get_exe(exe_name):
 
 def get_path(path_name):
     try:
-        path_candidates = get_config()['pathes'][path_name]
+        path_candidates = get_config()['paths'][path_name]
     except KeyError:
         print(f"Path '{path_name}' not found in config.")
         return None
@@ -215,7 +215,7 @@ MESSAGES = {
 }
 
 
-YEAR_DIR = OUTPUT_DIR / get_config()["parameters"]["year"]
+YEAR_DIR = OUTPUT_DIR / get_config()["settings"]["year"]
 DEFAULT_DATA_LOG_DIR = DATA_DIR / "logs"
 
 
@@ -301,7 +301,7 @@ def show(message, sep='=', sup=2):
 
 
 def get_pattern(doc_type, extension=None):
-    DOC_DICT = get_config()["parameters"]["index documents"][doc_type]
+    DOC_DICT = get_config()["settings"]["index documents"][doc_type]
     if extension is None:
         return DOC_DICT['name pattern']
     return doc_type + DOC_DICT['name pattern'].replace('([A-Za-z\\.]+)$', f'{extension}$')
