@@ -589,43 +589,41 @@ class RegexPDFSearchApp(QWidget):
             QMessageBox.critical(self, "Erreur VS Code", str(error))
 
     def update_results(self):
+
         pattern = self.search_input.text().strip()
+
         self.results_list.clear()
 
         active_prefixes = [
-            prefix for prefix, cb in self.key_filter_actions.items()
+            prefix
+            for prefix, cb in self.key_filter_actions.items()
             if cb.isChecked()
         ]
-
-        if not active_prefixes:
-            return
 
         active_fields = [
-            key for key, cb in self.field_actions.items()
+            field
+            for field, cb in self.field_actions.items()
             if cb.isChecked()
         ]
+
+        active_empty_filters = [
+            field
+            for field, cb in self.empty_filters.items()
+            if cb.isChecked()
+        ]
+
+        sort_mode = self.sort_order_combo.currentIndex()
 
         matching_items = self.search_service.search(
             pattern,
             active_prefixes,
             active_fields,
-            self.empty_filters
+            active_empty_filters,
+            sort_mode,
         )
 
-        # Trier les éléments selon l'ordre choisi
-        sort_index = self.sort_order_combo.currentIndex()
-
-        if sort_index == 0:
-            # Tri par ordre alphabétique
-            matching_items.sort(key=lambda x: x[0].lower())  # Tri par nom
-        elif sort_index == 1:
-            # Tri par date de modification du fichier PDF
-            matching_items.sort(key=lambda x: Path(x[1]["pdf"]).stat().st_mtime, reverse=True)
-
-        # Ajouter les résultats triés dans la liste
         for item, _ in matching_items:
             self.results_list.addItem(item)
-
     # ======================================
     # PDF
     # ======================================

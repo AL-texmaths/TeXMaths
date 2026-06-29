@@ -12,13 +12,17 @@ class SearchService:
             pattern,
             active_prefixes,
             active_fields,
-            empty_filters):
+            active_empty_filters,
+            sort_mode
+        ):
             if not pattern:
                 return []
             try:
                 regex = re.compile(pattern, re.IGNORECASE)
             except re.error:
-                return
+                return []
+            if not active_prefixes:
+                return []
             
             matching_items = []
 
@@ -30,12 +34,13 @@ class SearchService:
 
                 # Filtre champs vides
                 skip = False
-                for field, checkbox in empty_filters.items():
-                    if checkbox.isChecked():
-                        value = infos.get(field, "")
-                        if value not in ["", None, []]:
-                            skip = True
-                            break
+
+                for field in active_empty_filters:
+                    value = infos.get(field, "")
+
+                    if value not in ["", None, []]:
+                        skip = True
+                        break
                 if skip:
                     continue
 
@@ -50,5 +55,12 @@ class SearchService:
 
                 if regex.search(" ".join(searchable_parts)):
                     matching_items.append((key, infos))
+                
+            if sort_mode == 0:
+                # Tri par ordre alphabétique
+                matching_items.sort(key=lambda x: x[0].lower())  # Tri par nom
+            elif sort_mode == 1:
+                # Tri par date de modification du fichier PDF
+                matching_items.sort(key=lambda x: Path(x[1]["pdf"]).stat().st_mtime, reverse=True)
 
             return matching_items
