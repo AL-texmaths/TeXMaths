@@ -5,12 +5,13 @@ import subprocess
 import html
 from pathlib import Path
 from src.tools import (
-    get_config, CONFIG_PATH, LATEX_DIR, ADOBE_PATH, KATEX_DIR, PDF_XCHANGE_PATH,
+    LATEX_DIR, ADOBE_PATH, PDF_XCHANGE_PATH, KATEX_DIR,
     camel_to_sentence, get_exe
     )
 from src.qss import THEMES
 
 from src.services.katex_service import KatexService
+from src.app.config import ConfigManager
 
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -31,16 +32,6 @@ from PySide6.QtGui import (
     QShortcut, QKeySequence
 )
 from PySide6.QtWebEngineWidgets import QWebEngineView
-
-Executables =  get_config()["executables"].keys()
-Executables_found = {executable: True for executable in Executables}
-
-for executable in Executables:
-    try:
-        get_exe(executable)
-    except FileNotFoundError:
-        Executables_found[executable] = False
-        print(f'WARNING: Executable not found {executable}. Corresponding menu has been desactivated.')
 
 class FlowLayout(QLayout):
     """A wrapping flow layout for PySide6: places widgets horizontally and wraps to new lines."""
@@ -132,6 +123,18 @@ class ZoomablePdfView(QPdfView):
 class RegexPDFSearchApp(QWidget):
     def __init__(self, json_path):
         super().__init__()
+
+        self.config = ConfigManager()
+
+        self.Executables =  self.config.get("executables").keys()
+        self.Executables_found = {executable: True for executable in self.Executables}
+
+        for executable in self.Executables:
+            try:
+                get_exe(executable)
+            except FileNotFoundError:
+                self.Executables_found[executable] = False
+                print(f'WARNING: Executable not found {executable}. Corresponding menu has been desactivated.')
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
@@ -264,7 +267,7 @@ class RegexPDFSearchApp(QWidget):
         button_layout.addWidget(self.reload_database_button)
 
         # Sélecteur de thème
-        self.initial_theme = get_config()["parameters"]["theme"]
+        self.initial_theme = self.config.get("parameters", "theme")
         theme_layout = QHBoxLayout()
         theme_label = QLabel("Thème :")
         self.theme_combo = QComboBox()
@@ -408,11 +411,7 @@ class RegexPDFSearchApp(QWidget):
         # Régénérer le HTML après que Qt ait appliqué la nouvelle palette
         QTimer.singleShot(50, self._refresh_info_view)
 
-        config = get_config()
-        config["parameters"]["theme"] = name
-
-        with open(CONFIG_PATH, "w", encoding="utf-8") as f:
-            json.dump(config, f, indent=4, ensure_ascii=False)
+        self.config.set("parameters", "theme", value=name)
 
     def schedule_search(self):
         self.search_timer.start(300)  # délai en millisecondes
@@ -545,7 +544,7 @@ class RegexPDFSearchApp(QWidget):
         self.clear_layout(self.empty_keys_layout)
         self.empty_filters = {}
 
-        keys = get_config()['parameters']['tex non optionnal keys']
+        keys = self.config.get("parameters", "tex non optionnal keys")
         for key in keys:
             cb = QCheckBox(camel_to_sentence(key))
             cb.setChecked(False)
@@ -591,7 +590,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier .tex dans VS Code",
             self.open_tex_in_vscode,
             item,
-            Executables_found['code']
+            self.Executables_found['code']
         )
 
         open_pdf_adobe_action = self.add_menu_action(
@@ -599,7 +598,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier PDF dans Adobe Reader",
             self.open_pdf_with_adobe,
             item,
-            Executables_found['adobe']
+            self.Executables_found['adobe']
         )
 
         open_pdf_xchange_action = self.add_menu_action(
@@ -607,7 +606,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier PDF dans PDF XChange",
             self.open_pdf_with_pdfxchange,
             item,
-            Executables_found['pdf_xchange']
+            self.Executables_found['pdf_xchange']
         )
 
         open_pdf_okular_action = self.add_menu_action(
@@ -615,7 +614,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier PDF dans Okular",
             self.open_pdf_with_okular,
             item,
-            Executables_found['okular']
+            self.Executables_found['okular']
         )
 
         menu.addAction(copy_enonce_action)
