@@ -131,8 +131,6 @@ class RegexPDFSearchApp(QWidget):
         self.setWindowTitle("Recherche Regex PDF")
         self.resize(1200, 700)
 
-        self.data = {}
-
         # Gestion file d'attente scripts
         self.script_queue = []
         self.current_process = None
@@ -462,17 +460,14 @@ class RegexPDFSearchApp(QWidget):
     # ======================================
 
     def load_json_only(self):
-        data_index_path = self.context.config.get_path_by_key("data index")
         try:
-            with open(data_index_path, "r", encoding="utf-8") as f:
-                self.data = json.load(f)
+            data = self.context.repository.load()
         except Exception as e:
             QMessageBox.critical(self, "Erreur JSON", str(e))
-            self.data = {}
-            return
+            data = {}
 
-        self.rebuild_types_menu()
-        self.rebuild_fields_menu()
+        self.rebuild_types_menu(data)
+        self.rebuild_fields_menu(data)
         self.rebuild_empty_keys_menu()
 
     # ======================================
@@ -497,12 +492,12 @@ class RegexPDFSearchApp(QWidget):
             if widget is not None:
                 widget.deleteLater()
 
-    def rebuild_types_menu(self):
+    def rebuild_types_menu(self, data):
         self.clear_layout(self.types_layout)
         self.key_filter_actions = {}
 
         prefixes = set()
-        for key in self.data.keys():
+        for key in data.keys():
             prefix = key.split()[0]
             prefixes.add(prefix)
 
@@ -513,12 +508,12 @@ class RegexPDFSearchApp(QWidget):
             self.types_layout.addWidget(cb)
             self.key_filter_actions[prefix] = cb
 
-    def rebuild_fields_menu(self):
+    def rebuild_fields_menu(self, data):
         self.clear_layout(self.fields_layout)
         self.field_actions = {}
 
         all_keys = set()
-        for infos in self.data.values():
+        for infos in data.values():
             all_keys.update(infos.keys())
 
         for key in sorted(all_keys):
@@ -614,7 +609,7 @@ class RegexPDFSearchApp(QWidget):
 
     def open_pdf_with_adobe(self, item):
         adobe_path = self.context.config.get_exe_by_key("adobe")
-        doc_dict = self.data[item.text()]
+        doc_dict = self.context.repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict['pdf']).resolve()
         cmd = 'cmd /c start "" "{}" "{}"'
         try:
@@ -629,7 +624,7 @@ class RegexPDFSearchApp(QWidget):
             return
 
     def open_pdf_with_pdfxchange(self, item):
-        doc_dict = self.data.get(item.text(), {})
+        doc_dict = self.context.repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
         if not pdf_path.exists():
@@ -646,7 +641,7 @@ class RegexPDFSearchApp(QWidget):
             QMessageBox.critical(self, "Erreur PDF XChange", str(error))
 
     def open_pdf_with_okular(self, item):
-        doc_dict = self.data.get(item.text(), {})
+        doc_dict = self.context.repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
         if not pdf_path.exists():
@@ -660,7 +655,7 @@ class RegexPDFSearchApp(QWidget):
 
     def open_tex_in_vscode(self, item):
         code_exe = self.context.config.get_exe_by_key("code")
-        doc_dict = self.data.get(item.text(), {})
+        doc_dict = self.context.repository.get_doc_by_key(item.text())
         tex_path = Path(doc_dict.get("tex", "")).resolve()
 
         if not tex_path.exists():
@@ -699,7 +694,7 @@ class RegexPDFSearchApp(QWidget):
 
         matching_items = []
 
-        for key, infos in self.data.items():
+        for key, infos in self.context.repository.load().items():
             prefix = key.split()[0]
 
             if prefix not in active_prefixes:
@@ -757,7 +752,7 @@ class RegexPDFSearchApp(QWidget):
         self.pdf_document.load(str(pdf_path))
         # self.pdf_view.pageNavigator().jump(0)
 
-        datas = self.data[key]
+        datas = self.context.repository.get_doc_by_key(key)
 
         # Préparer le contenu HTML + KaTeX (le widget `self.info_view` est persistant)
         html_parts = []
@@ -816,7 +811,7 @@ class RegexPDFSearchApp(QWidget):
         self.current_enonce = datas.get("enonce", "")
 
     def copy_enonce_for_item(self, item):
-        doc_dict = self.data.get(item.text(), {})
+        doc_dict = self.context.repository.get_doc_by_key(item.text())
         enonce = doc_dict.get("enonce", "")
 
         if not enonce:

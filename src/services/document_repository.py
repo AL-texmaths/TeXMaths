@@ -1,6 +1,5 @@
 import json
 from pathlib import Path
-
 class DocumentRepository:
 
     def __init__(self, data_index_path: str | Path):
