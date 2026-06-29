@@ -9,6 +9,7 @@ from src.qss import THEMES
 
 from src.services.katex_service import KatexService
 from src.app.startup import create_context
+from src.views.widgets.pdf_viewer import PdfViewerWidget
 
 from assistant_progression.utils.textools import update_code_index
 from src.update_data_index import update_json
@@ -101,26 +102,12 @@ class FlowLayout(QLayout):
 
 WORKSPACE_PATH = Path(__file__).resolve().parent / "texmaths.code-workspace"
 
-class ZoomablePdfView(QPdfView):
-    def wheelEvent(self, event: QWheelEvent):
-        if event.modifiers() == Qt.ControlModifier: # pyright: ignore[reportAttributeAccessIssue]
-            delta = event.angleDelta().y()
-            zoom_factor = self.zoomFactor()
-
-            zoom_factor = zoom_factor * 1.1 if delta > 0 else zoom_factor / 1.1
-            zoom_factor = max(0.2, min(zoom_factor, 5.0))
-
-            self.setZoomMode(QPdfView.ZoomMode.Custom)
-            self.setZoomFactor(zoom_factor)
-            event.accept()
-        else:
-            super().wheelEvent(event)
-
 class RegexPDFSearchApp(QWidget):
     def __init__(self, context):
         super().__init__()
 
         self.context = context
+        self.pdf_viewer = PdfViewerWidget()
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
@@ -173,17 +160,10 @@ class RegexPDFSearchApp(QWidget):
         right_widget = QWidget()
         right_layout = QVBoxLayout(right_widget)
 
-        self.pdf_document = QPdfDocument(self)
-        self.pdf_view = ZoomablePdfView(self)
-        self.pdf_view.setDocument(self.pdf_document)
-        # self.pdf_view.setZoomMode(QPdfView.ZoomMode.FitInView)
-        self.pdf_view.setPageMode(QPdfView.PageMode.MultiPage)
-        self.pdf_view.setZoomMode(QPdfView.ZoomMode.FitToWidth)
-
         # Use a vertical splitter so the PDF (top) and HTML info (bottom)
         # are separated by a draggable splitter the user can resize.
         self.inner_splitter = QSplitter(Qt.Vertical)#type:ignore
-        self.inner_splitter.addWidget(self.pdf_view)
+        self.inner_splitter.addWidget(self.pdf_viewer.view)
 
         info_frame = QFrame()
         info_layout = QVBoxLayout(info_frame)
@@ -747,8 +727,7 @@ class RegexPDFSearchApp(QWidget):
             QMessageBox.critical(self, f"Erreur", "Fichier PDF introuvable\n{pdf_path}")
             return
 
-        self.pdf_document.load(str(pdf_path))
-        # self.pdf_view.pageNavigator().jump(0)
+        self.pdf_viewer.document.load(str(pdf_path))
 
         datas = self.context.repository.get_doc_by_key(key)
 
