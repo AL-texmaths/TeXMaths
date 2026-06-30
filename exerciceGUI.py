@@ -1,8 +1,6 @@
 import sys
 from pathlib import Path
-from src.tools import (
-    camel_to_sentence,
-    )
+from src.tools import camel_to_sentence
 from src.qss import THEMES
 
 from src.services.katex_service import KatexService
@@ -23,12 +21,14 @@ from PySide6.QtWidgets import (
     QSplitter, QFrame, QPushButton, QPlainTextEdit,
     QTabWidget, QCheckBox, QComboBox, QMenu, QLayout
 )
-from PySide6.QtCore import Qt, QObject, QThread, Signal, QTimer, QUrl, QEvent, QSize, QRect, QPoint
+from PySide6.QtCore import (
+    Qt, QObject, QThread, Signal, QTimer,
+    QEvent, QSize, QRect, QPoint
+)
 from PySide6.QtGui import (
     QGuiApplication, QAction,
     QShortcut, QKeySequence
 )
-from PySide6.QtWebEngineWidgets import QWebEngineView
 
 class FlowLayout(QLayout):
     """A wrapping flow layout for PySide6: places widgets horizontally and wraps to new lines."""
@@ -56,7 +56,7 @@ class FlowLayout(QLayout):
         return None
 
     def expandingDirections(self):
-        return Qt.Orientations(0)#type:ignore[reportAttributeAccessIssue]
+        return Qt.Orientations(0)
 
     def hasHeightForWidth(self):
         return True
@@ -99,8 +99,6 @@ class FlowLayout(QLayout):
             lineHeight = max(lineHeight, itemSize.height())
         return y + lineHeight - rect.y()
 
-WORKSPACE_PATH = Path(__file__).resolve().parent / "texmaths.code-workspace"
-
 class RegexPDFSearchApp(QWidget):
     def __init__(self, context):
         super().__init__()
@@ -116,7 +114,7 @@ class RegexPDFSearchApp(QWidget):
         self.search_timer.setSingleShot(True)
         self.search_timer.timeout.connect(self.update_results)
 
-        self.setWindowTitle("Recherche Regex PDF")
+        self.setWindowTitle("Assistant de navigation")
         self.resize(1200, 700)
 
         # Gestion file d'attente scripts
@@ -376,10 +374,6 @@ class RegexPDFSearchApp(QWidget):
             except Exception:
                 pass
 
-    # ======================================
-    # JSON
-    # ======================================
-
     def load_json_only(self):
         try:
             data = self.context.repository.load()
@@ -390,10 +384,6 @@ class RegexPDFSearchApp(QWidget):
         self.rebuild_types_menu(data)
         self.rebuild_fields_menu(data)
         self.rebuild_empty_keys_menu()
-
-    # ======================================
-    # RECHERCHE
-    # ======================================
 
     def check_all_fields(self):
         for action in self.field_actions.values():
@@ -718,4 +708,3 @@ if __name__ == "__main__":
     window.show()
     window.load_json_only()
     sys.exit(app.exec())
-    

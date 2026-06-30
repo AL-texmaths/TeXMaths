@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+    
         {
             "name": "Launch Python File",
             "type": "debugpy",
@@ -21,9 +22,10 @@
             "name": "Run assistant de navigation",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/exerciceGUI.py",
+            "module": "src.views.main_window",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true
         },
         {
             "name": "Run src.tools module",

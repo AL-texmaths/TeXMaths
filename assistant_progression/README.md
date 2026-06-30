@@ -20,6 +20,70 @@ lines of the file is a keys:value as:
 --> to update the data the user must only modify the sty file and then click
 " Mise à jour" in the menu.
 
+## Architecture modulaire
+
+|-- app
+
+    |--- config.py
+
+    |--- context.py
+
+    |--- resolve.py
+
+    |--- startup.py
+
+|-- controllers
+
+    |--- document_controller.py
+
+    |--- search_controller.py
+
+|-- models
+
+    |--- document.py
+
+    |--- search_filters.py
+
+|-- services
+
+    |--- database_service.py
+
+    |--- document_repository.py
+
+    |--- katex_service.py
+
+    |--- preview_service.py
+
+    |--- process_service.py
+
+    |--- search_service.py
+
+    |--- theme_service.py
+
+|-- views
+
+    |--- tabs
+
+        |--- search_tab.py
+
+        |--- settings_tab.py
+
+    |--- widgets
+
+        |--- filters_pannel.py
+
+        |--- metadata_view.py
+
+        |--- pdf_viewer.py
+
+        |--- results_list.py
+
+        |--- search_bar.py
+
+|--workers
+
+    |--- database_workers.py
+
 ## Structure du fichier JSON
 
 - executables
