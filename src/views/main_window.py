@@ -10,7 +10,7 @@ from src.views.widgets.metadata_view import MetadataView
 from src.models.search_filters import SearchFilters
 from src.controllers.search_controller import SearchController
 from src.views.layouts.flow_layout import FlowLayout
-from src.workers.database_worker import DatabaseWorker
+from src.controllers.database_reload_controller import DatabaseReloadController
 
 from PySide6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout,
@@ -37,6 +37,19 @@ class RegexPDFSearchApp(QWidget):
         self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
         self.metadata_view = MetadataView(self.context)
         self.search_controller = SearchController(self.context.search_service)
+
+        self.console_output = QPlainTextEdit()
+        self.console_output.setReadOnly(True)
+
+        self.database_controller = DatabaseReloadController()
+
+        self.database_controller.message.connect(
+            self.console_output.appendPlainText
+        )
+
+        self.database_controller.finished.connect(
+            self.database_finished
+        )
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
@@ -118,13 +131,12 @@ class RegexPDFSearchApp(QWidget):
         tab2_layout = QVBoxLayout(tab2)
 
         self.clear_output_button = QPushButton("Clear output")
-        self.reload_database_button = QPushButton("Reload database")
-        self.console_output = QPlainTextEdit()
-        self.console_output.setReadOnly(True)
-
 
         self.clear_output_button.clicked.connect(self.console_output.clear)
-        self.reload_database_button.clicked.connect(self.reload_check_database)
+        self.reload_database_button = QPushButton("Reload database")
+        self.reload_database_button.clicked.connect(
+            self.database_controller.reload
+        )
 
         button_layout = QHBoxLayout()
         button_layout.addWidget(self.clear_output_button)
@@ -583,21 +595,7 @@ class RegexPDFSearchApp(QWidget):
         QMessageBox.information(self, "Exemple minimal", "Exemple minimal copié dans le presse papier")
     
     def reload_check_database(self):
-
-        self.thread = QThread() # pyright: ignore[reportAttributeAccessIssue]
-        self.worker = DatabaseWorker()
-
-        self.worker.moveToThread(self.thread) # pyright: ignore[reportArgumentType]
-
-        self.thread.started.connect(self.worker.run) # pyright: ignore[reportAttributeAccessIssue]
-        self.worker.message.connect(self.console_output.appendPlainText)
-        self.worker.finished.connect(self.database_finished)
-
-        self.worker.finished.connect(self.thread.quit) # pyright: ignore[reportAttributeAccessIssue]
-        self.worker.finished.connect(self.worker.deleteLater)
-        self.thread.finished.connect(self.thread.deleteLater) # pyright: ignore[reportAttributeAccessIssue]
-
-        self.thread.start() # pyright: ignore[reportAttributeAccessIssue]
+        self.database_controller.reload()
     
     def database_finished(self, errors, warnings):
         self.console_output.appendPlainText(f"\nFinished\nErrors: {errors}\nWarnings: {warnings}")
