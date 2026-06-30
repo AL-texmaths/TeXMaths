@@ -72,7 +72,7 @@ def resolve_executable(*candidates: str) -> str | None:
 
     return None
 
-def resolve_paths(*candidates: str) -> str | None:
+def resolve_paths(*candidates: str) -> Path | None:
     """
     Retourne le premier chemin existant trouvé parmi les candidats.
 
@@ -91,7 +91,7 @@ def resolve_paths(*candidates: str) -> str | None:
         )
 
     Retourne :
-        str : chemin absolu trouvé
+        Path : chemin absolu trouvé
         None : aucun chemin trouvé
     """
 
@@ -122,7 +122,7 @@ def resolve_paths(*candidates: str) -> str | None:
         # Chemin absolu
         if p.is_absolute():
             if p.exists():
-                return str(p.resolve())
+                return p.resolve()
             continue
 
         # Chemin relatif
@@ -130,6 +130,6 @@ def resolve_paths(*candidates: str) -> str | None:
             full = (base / p).resolve()
 
             if full.exists():
-                return str(full)
+                return full
 
     return None

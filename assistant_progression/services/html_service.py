@@ -19,6 +19,8 @@ class HtmlService:
         js = "katex.min.js"
         render = "contrib/auto-render.min.js"
 
+        print(f"content = {content}")
+
         content = escape(content)
 
         t = theme
@@ -80,7 +82,6 @@ hr {{
 </head>
 
 <body>
-
 <div class="code">{code}</div>
 
 <div class="meta">
@@ -91,7 +92,6 @@ hr {{
 <hr>
 
 <div class="content">{content}</div>
-
 </body>
 </html>
 """

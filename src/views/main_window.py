@@ -1,9 +1,7 @@
 import sys
-from pathlib import Path
 from src.tools import camel_to_sentence
 from src.qss import THEMES
 
-from src.services.katex_service import KatexService
 from src.app.startup import create_context
 from src.views.widgets.pdf_viewer import PdfViewerWidget
 from src.views.widgets.metadata_view import MetadataView
@@ -11,6 +9,7 @@ from src.models.search_filters import SearchFilters
 from src.controllers.search_controller import SearchController
 from src.views.layouts.flow_layout import FlowLayout
 from src.controllers.database_reload_controller import DatabaseReloadController
+from src.controllers.document_controller import DocumentController
 
 from PySide6.QtWidgets import (
     QApplication, QWidget, QVBoxLayout, QHBoxLayout,
@@ -18,10 +17,7 @@ from PySide6.QtWidgets import (
     QSplitter, QFrame, QPushButton, QPlainTextEdit,
     QTabWidget, QCheckBox, QComboBox, QMenu
 )
-from PySide6.QtCore import (
-    Qt,QThread,
-    QTimer, QEvent
-)
+from PySide6.QtCore import Qt, QTimer, QEvent
 from PySide6.QtGui import (
     QGuiApplication, QAction,
     QShortcut, QKeySequence
@@ -34,9 +30,9 @@ class RegexPDFSearchApp(QWidget):
         self.context = context
         self.pdf_viewer = PdfViewerWidget()
 
-        self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
         self.metadata_view = MetadataView(self.context)
         self.search_controller = SearchController(self.context.search_service)
+        self.document_controller = DocumentController(self.context)
 
         self.console_output = QPlainTextEdit()
         self.console_output.setReadOnly(True)
@@ -424,7 +420,7 @@ class RegexPDFSearchApp(QWidget):
             "Ouvrir le fichier .tex dans VS Code",
             self.open_tex_in_vscode,
             item,
-            self.context.config.get_exe_by_key('code') is not Path()
+            self.context.config.get_exe_by_key('code') is not None
         )
 
         open_pdf_adobe_action = self.add_menu_action(
@@ -460,8 +456,8 @@ class RegexPDFSearchApp(QWidget):
 
     def open_pdf_with_adobe(self, item):
         adobe_exe_path = self.context.config.get_exe_by_key("adobe")
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict['pdf']).resolve()
+        key = item.text()
+        pdf_path = self.document_controller.get_pdf_path(key)
         try:
             self.context.process_service.open_with(adobe_exe_path, pdf_path)
         except FileNotFoundError:
@@ -473,8 +469,8 @@ class RegexPDFSearchApp(QWidget):
 
     def open_pdf_with_pdfxchange(self, item):
         pdf_xchange_exe_path = self.context.config.get_exe_by_key('pdf_xchange'),
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict.get("pdf", "")).resolve()
+        key = item.text()
+        pdf_path = self.document_controller.get_pdf_path(key)
 
         if not pdf_path.exists():
             QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
@@ -492,8 +488,8 @@ class RegexPDFSearchApp(QWidget):
 
     def open_pdf_with_okular(self, item):
         okular_exe_path = self.context.config.get_exe_by_key('okular')
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict.get("pdf", "")).resolve()
+        key = item.text()
+        pdf_path = self.document_controller.get_pdf_path(key)
 
         if not pdf_path.exists():
             QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
@@ -506,8 +502,8 @@ class RegexPDFSearchApp(QWidget):
 
     def open_tex_in_vscode(self, item):
         code_path_exe = self.context.config.get_exe_by_key("code")
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        tex_path = Path(doc_dict.get("tex", "")).resolve()
+        key = item.text()
+        tex_path = self.document_controller.get_tex_path(key)
 
         if not tex_path.exists():
             QMessageBox.warning(self, "Fichier introuvable", f"Fichier .tex introuvable\n{tex_path}")
@@ -556,12 +552,7 @@ class RegexPDFSearchApp(QWidget):
     def load_pdf(self, item):
 
         key = item.text()
-
-        pdf_path = Path(
-            self.context.repository
-            .get_doc_by_key(key)
-            .get("preview", "")
-        )
+        pdf_path = self.document_controller.get_preview_path(key)
 
         if not pdf_path.exists():
             QMessageBox.critical(
@@ -573,26 +564,27 @@ class RegexPDFSearchApp(QWidget):
 
         self.pdf_viewer.document.load(str(pdf_path))
 
-        document = self.context.repository.get_doc_by_key(key)
+        document = self.document_controller.get_document_dict(key)
 
         self.metadata_view.show_document(document)
 
-        self.current_enonce = document.get(
-            "enonce",
-            ""
-        )
-
     def copy_enonce_for_item(self, item):
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        enonce = doc_dict.get("enonce", "")
+        key = item.text()
+        enonce = self.document_controller.get_enonce(key)
 
         if not enonce:
-            QMessageBox.information(self, "Exemple minimal", "Aucun énoncé LaTeX n'est disponible pour cet item")
+            QMessageBox.information(
+                self, "Exemple minimal",
+                "Aucun énoncé LaTeX n'est disponible pour cet item"
+                )
             return
 
         clipboard = QGuiApplication.clipboard()
         clipboard.setText(enonce)
-        QMessageBox.information(self, "Exemple minimal", "Exemple minimal copié dans le presse papier")
+        QMessageBox.information(
+            self, "Exemple minimal",
+            "Exemple minimal copié dans le presse papier"
+            )
     
     def reload_check_database(self):
         self.database_controller.reload()

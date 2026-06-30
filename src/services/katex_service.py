@@ -1,96 +1,82 @@
-import re
-import html
-from pathlib import Path
+from __future__ import annotations
 
-def _path_to_uri(path: str | Path) -> str | None:
-    try:
-        return Path(path).resolve().as_uri()
-    except OSError:
-        return None
+from html import escape
+import re
+
 
 class KatexService:
+    """
+    Service KaTeX basé sur auto-render (comme ton HtmlService).
+    """
 
-    def __init__(self, katex_path: str | Path):
-        self.katex_path = Path(katex_path)
+    _INLINE_PATTERN = re.compile(r"\$(.+?)\$", re.DOTALL)
 
-    def escape_and_render(self, text: str):
-        """"""
-        parts = re.split(r'(\$\$.*?\$\$|\$.+?\$)', text, flags=re.DOTALL)
-        out = []
-        for part in parts:
-            if not part:
-                continue
-            if part.startswith('$$') and part.endswith('$$') and len(part) >= 4:
-                expr = part[2:-2]
-                out.append(f'<span class="katex-raw" data-expr="{html.escape(expr, quote=True)}" data-display="1"></span>')
-            elif part.startswith('$') and part.endswith('$') and len(part) >= 2:
-                expr = part[1:-1]
-                out.append(f'<span class="katex-raw" data-expr="{html.escape(expr, quote=True)}" data-display="0"></span>')
-            else:
-                out.append(html.escape(part).replace('\n', '<br/>'))
-        return ''.join(out)
+    def __init__(self, katex_base_path):
+        self.base_path = katex_base_path
 
-    def wrap_with_katex(self, body_html: str, bg_color=None, fg_color=None) -> str:
-        katex_dir = self.katex_path
+    def wrap_with_katex(
+        self,
+        body_html: str,
+        bg_color=None,
+        fg_color=None
+    ) -> str:
 
-        css_local = katex_dir / "katex.min.css"
-        js_local = katex_dir / "katex.min.js"
+        css = "katex.min.css"
+        js = "katex.min.js"
+        render = "contrib/auto-render.min.js"
 
-        if css_local.exists():
-            css_uri = _path_to_uri(css_local)
-        else:
-            css_uri = "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+        bg = bg_color or "#ffffff"
+        fg = fg_color or "#000000"
 
-        if js_local.exists():
-            js_uri = _path_to_uri(js_local)
-        else:
-            js_uri = "https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"
+        return f"""
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
 
-        bg_css = f"background-color: {bg_color};" if bg_color else ""
-        fg_css = f"color: {fg_color};" if fg_color else ""
+<link rel="stylesheet" href="{css}">
+<script src="{js}"></script>
+<script src="{render}"></script>
 
-        return f"""<!doctype html>
-    <html>
-    <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="{css_uri}">
-    <style>
-    /* Prefer Latin Modern if available, otherwise fall back to common serif fonts */
-    @font-face {{
-    font-family: 'Latin Modern';
-    src: local('Latin Modern Roman'), local('Latin Modern'), local('LM Roman');
-    font-style: normal;
+<script>
+window.onload = function() {{
+    if (window.renderMathInElement) {{
+        renderMathInElement(document.body, {{
+            delimiters: [
+                {{ left: "$$", right: "$$", display: true }},
+                {{ left: "$", right: "$", display: false }},
+                {{ left: "\\\\(", right: "\\\\)", display: false }},
+                {{ left: "\\\\[", right: "\\\\]", display: true }}
+            ]
+        }});
+    }} else {{
+        console.error("KaTeX not loaded");
     }}
-    body {{ font-family: 'Latin Modern', 'Times New Roman', Times, serif; font-size:13px; line-height:1.25; margin:8px; {bg_css} {fg_css} }}
-    b {{ color: {fg_color or 'inherit'}; }}
-    .katex-raw {{ display: inline-block; vertical-align: middle; }}
-    /* Make KaTeX rendered math follow surrounding font sizing */
-    .katex {{ font-size: 1em; font-family: inherit !important; }}
-    .katex * {{ font-family: inherit !important; }}
-    </style>
-    </head>
-    <body>
-    {body_html}
-    <script src="{js_uri}"></script>
-    <script>
-    (function(){{
-        function renderAll(){{
-            document.querySelectorAll('.katex-raw').forEach(function(el){{
-                var expr = el.getAttribute('data-expr') || '';
-                var display = el.getAttribute('data-display') === '1';
-                try {{
-                    el.innerHTML = katex.renderToString(expr, {{throwOnError:false, displayMode:display}});
-                }} catch(e) {{
-                    el.textContent = expr;
-                }}
-            }});
-        }}
-        if (typeof katex !== 'undefined') {{
-            renderAll();
-        }} else {{
-            window.addEventListener('load', renderAll);
-        }}
-    }})();
-    </script>
-    </body>
-    </html>"""
+}};
+</script>
+
+<style>
+body {{
+    background: {bg};
+    color: {fg};
+    font-family: Latin Modern Roman;
+    padding: 12px;
+    font-size: 16px;
+}}
+
+.katex {{
+    font-size: 1.1em;
+}}
+
+.item {{
+    margin-bottom: 10px;
+}}
+</style>
+
+</head>
+
+<body>
+{body_html}
+</body>
+</html>
+"""

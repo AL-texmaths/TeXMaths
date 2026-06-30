@@ -249,7 +249,7 @@ class MainWindow(QWidget):
         else:
             with open(CODE_INDEX_FILE_PATH, encoding="utf-8") as f:
                 self.data = json.load(f)
-
+        
         self.catalogue_service = CatalogueService(
             self.data,
             self.config["catalogues"]["codes"]
@@ -830,11 +830,12 @@ class MainWindow(QWidget):
             source_type=self.catalogue_service.display_name(entry.type),
             theme=self.theme_service.get_current_theme(),
         )
+        base_path = QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
 
-        self.preview.setHtml(
-            html,
-            QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
-        )
+        with open('assistant_progression/log.html', 'w', encoding='utf-8') as f:
+            f.write(html)
+        print(base_path)
+        self.preview.setHtml(html, base_path)
 
     def load_progression(self):
 

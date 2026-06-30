@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="katex.min.css">
+<script src="katex.min.js"></script>
+<script src="contrib/auto-render.min.js"></script>
+
+<script>
+window.onload = function() {
+    renderMathInElement(document.body, {
+        delimiters: [
+            { left: "$$", right: "$$", display: true },
+            { left: "$", right: "$", display: false },
+            { left: "\\(", right: "\\)", display: false },
+            { left: "\\[", right: "\\]", display: true }
+        ]
+    });
+};
+</script>
+
+<style>
+body {
+    background: #2e3440;
+    color: #d8dee9;
+    font-family: "Latin Modern Roman", serif;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.code {
+    color: #88c0d0;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.meta {
+    color: #d8dee9;
+    margin-bottom: 20px;
+}
+
+.content {
+    line-height: 1.6;
+}
+hr {
+    border: none;
+    border-top: 1px solid #4c566a;
+    margin: 20px 0;
+}
+</style>
+
+</head>
+
+<body>
+<div class="code">A1aa</div>
+
+<div class="meta">
+<b>Catalogue :</b> Cycle 4 BO 2026<br>
+<b>Type :</b> Automatismes
+</div>
+
+<hr>
+
+<div class="content">Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2.</div>
+</body>
+</html>

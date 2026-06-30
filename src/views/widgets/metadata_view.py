@@ -29,9 +29,10 @@ class MetadataView(QWidget):
         super().__init__(parent)
 
         self.context = context
+        katex_dir = self.context.config.get_path_by_key("katex")
 
         self.katex_service = KatexService(
-            self.context.config.get_path_by_key("katex")
+            QUrl.fromLocalFile(str(katex_dir.resolve()) + "/")
         )
 
         self._last_body_html = None
@@ -40,6 +41,7 @@ class MetadataView(QWidget):
         layout = QVBoxLayout(self)
 
         if QWebEngineView is not None:
+            print('QWebEngineView is available')
             self.info_view = QWebEngineView()
             self.info_view.loadFinished.connect(self._on_info_loaded)
             layout.addWidget(self.info_view)
@@ -71,6 +73,7 @@ class MetadataView(QWidget):
         """
         Affiche les métadonnées d'un document.
         """
+        bg_color, fg_color = self._get_palette_colors()
 
         html_parts = []
 
@@ -90,7 +93,11 @@ class MetadataView(QWidget):
 
             if isinstance(value, str):
 
-                content = self.katex_service.escape_and_render(value)
+                content = self.katex_service.wrap_with_katex(
+                    value,
+                    bg_color=bg_color,
+                    fg_color=fg_color,
+                    )
 
                 html_parts.append(
                     f"<p>{title} {content}</p>"
@@ -99,7 +106,11 @@ class MetadataView(QWidget):
             elif isinstance(value, list):
 
                 items = "".join(
-                    f"<li>{self.katex_service.escape_and_render(str(v))}</li>"
+                    f"<li>{self.katex_service.wrap_with_katex(str(v), bg_color=bg_color, fg_color=fg_color)}</li>"
+                    for v in value
+                )
+                items = "".join(
+                    f"<li>{self.katex_service.wrap_with_katex(str(v), bg_color=bg_color, fg_color=fg_color)}</li>"
                     for v in value
                 )
 
@@ -110,9 +121,9 @@ class MetadataView(QWidget):
             else:
 
                 html_parts.append(
-                    f"<p>{title} {html.escape(str(value))}</p>"
+                    f"<p>{title} {value}</p>"
                 )
-
+        
         self._last_body_html = (
             "\n".join(html_parts)
             if html_parts
@@ -131,10 +142,7 @@ class MetadataView(QWidget):
     # INTERNE
     # ==========================================================
 
-    def _refresh_view(self):
-
-        if not self._last_body_html:
-            return
+    def _get_palette_colors(self):
 
         try:
             palette = self.palette()
@@ -151,6 +159,12 @@ class MetadataView(QWidget):
             bg_color = None
             fg_color = None
 
+        return bg_color, fg_color
+
+    def _refresh_view(self):
+
+        bg_color, fg_color = self._get_palette_colors()
+        
         full_html = self.katex_service.wrap_with_katex(
             self._last_body_html,
             bg_color,
@@ -159,22 +173,20 @@ class MetadataView(QWidget):
 
         base = self.context.config.get_path_by_key("katex")
 
-        try:
-            base_url = QUrl.fromLocalFile(
-                str(base.resolve())
-            )
-        except Exception:
-            base_url = QUrl()
+        base_url = QUrl.fromLocalFile(
+                str(base.resolve()) + "/"
+        )
 
         self.last_info_html = full_html
 
-        try:
-            self.info_view.setHtml(
-                full_html,
-                base_url,
-            )
-        except Exception:
-            pass
+        with open('log_src.html', 'w', encoding='utf-8') as f:
+            f.write(full_html)
+        print(f'base_url: {base_url}')
+
+        self.info_view.setHtml(
+            full_html,
+            base_url,
+        )
 
     def _on_info_loaded(self, ok: bool):
 

@@ -23,7 +23,7 @@ class ConfigManager:
         if not config_path.exists():
             raise FileNotFoundError(f"Config introuvable : {config_path}")
 
-        print(f"Chargement de la config depuis : {config_path}")
+        # print(f"Chargement de la config depuis : {config_path}")
         with open(config_path, "r", encoding="utf-8") as f:
             config = json.load(f)
         return config
@@ -31,7 +31,7 @@ class ConfigManager:
     def save(self):
         """"""
         config_path = self.config_path
-        print(f"Enregistrement de la config dans : {config_path}")
+        # print(f"Enregistrement de la config dans : {config_path}")
         with open(config_path, "w", encoding="utf-8") as f:
             json.dump(self.current_config, f, indent=4, ensure_ascii=False)
     
