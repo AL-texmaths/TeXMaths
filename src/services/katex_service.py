@@ -18,7 +18,8 @@ class KatexService:
         self,
         body_html: str,
         bg_color=None,
-        fg_color=None
+        fg_color=None,
+        font=None
     ) -> str:
 
         css = "katex.min.css"
@@ -27,6 +28,7 @@ class KatexService:
 
         bg = bg_color or "#ffffff"
         fg = fg_color or "#000000"
+        font_family = font.family if font else "Latin Modern Roman"
 
         return f"""
 <!DOCTYPE html>
@@ -59,7 +61,7 @@ window.onload = function() {{
 body {{
     background: {bg};
     color: {fg};
-    font-family: Latin Modern Roman;
+    font-family: {font_family};
     padding: 12px;
     font-size: 16px;
 }}

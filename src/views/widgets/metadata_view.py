@@ -69,6 +69,21 @@ class MetadataView(QWidget):
     # API PUBLIQUE
     # ==========================================================
 
+    def wrap_with_katex_and_style(self, body_html: str) -> str:
+        """
+        Retourne le HTML complet avec KaTeX pour l'affichage.
+        """
+        bg_color, fg_color = self._get_palette_colors()
+    
+        return self.katex_service.wrap_with_katex(
+            body_html,
+            bg_color=bg_color,
+            fg_color=fg_color,
+            font=self.font()
+        )
+        
+
+
     def show_document(self, document: dict):
         """
         Affiche les métadonnées d'un document.
@@ -93,12 +108,7 @@ class MetadataView(QWidget):
 
             if isinstance(value, str):
 
-                content = self.katex_service.wrap_with_katex(
-                    value,
-                    bg_color=bg_color,
-                    fg_color=fg_color,
-                    )
-
+                content = self.wrap_with_katex_and_style(value)
                 html_parts.append(
                     f"<p>{title} {content}</p>"
                 )
@@ -106,23 +116,19 @@ class MetadataView(QWidget):
             elif isinstance(value, list):
 
                 items = "".join(
-                    f"<li>{self.katex_service.wrap_with_katex(str(v), bg_color=bg_color, fg_color=fg_color)}</li>"
+                    f"<li>{self.wrap_with_katex_and_style(str(v))}</li>"
                     for v in value
                 )
                 items = "".join(
-                    f"<li>{self.katex_service.wrap_with_katex(str(v), bg_color=bg_color, fg_color=fg_color)}</li>"
+                    f"<li>{self.wrap_with_katex_and_style(str(v))}</li>"
                     for v in value
                 )
 
-                html_parts.append(
-                    f"<p>{title}</p><ul>{items}</ul>"
-                )
+                html_parts.append(f"<p>{title}</p><ul>{items}</ul>")
 
             else:
 
-                html_parts.append(
-                    f"<p>{title} {value}</p>"
-                )
+                html_parts.append(f"<p>{title} {value}</p>")
         
         self._last_body_html = (
             "\n".join(html_parts)
@@ -169,6 +175,7 @@ class MetadataView(QWidget):
             self._last_body_html,
             bg_color,
             fg_color,
+            font=self.font()
         )
 
         base = self.context.config.get_path_by_key("katex")
