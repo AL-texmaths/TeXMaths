@@ -1,0 +1,148 @@
+\documentclass[A5]{dnbqcm}
+\usepackage{tabularray}
+\usepackage{texmaths-boxes}
+\usepackage{texmaths-tikz}
+\startdatakeys
+    \source{26GENMATME1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \automatismes{A1cb}
+    \objectifsApprentissage{D2ad,C1bc,A2ed,A3bc,C2ac,D1ab,A1ea,B3bc,A1bg}
+\enddatakeys
+\begin{document}
+\qcmquestion
+    Donner une écriture du nombre 0,75 sous la forme d'une fraction.
+
+    \medskip\qcmquestion
+    Calculer la somme $-4,7+3,5$.
+
+    \medskip\qcmquestion
+    \begin{minipage}[c]{.6\linewidth}
+        On considère le tableau de proportionnalité ci
+        contre.\smallskip\par\noindent Combien vaut $a$~?
+    \end{minipage}\hskip10pt
+    \begin{minipage}[c]{.3\linewidth}
+        \begin{tblr}
+            {colspec={|X[c]|X[c]|}}
+            \hline
+            6 & 18\\
+            \hline
+            12 & $a$\\
+            \hline
+        \end{tblr}
+    \end{minipage}
+
+    \medskip\qcmquestion
+    Un sac contient 10 boules rouges, 4 boules bleues et 6 boules vertes.
+    On tire au hasard une boule dans le sac et on note sa couleur.
+    Sachant que toutes les boules ont la même probabilité d'être choisies,
+    quelle est la probabilité d'obtenir une boule bleue~?%
+    \begin{qcmquestions}
+        \qcmitem $\dfrac14$ \hskip20pt
+        \qcmitem $\dfrac4{20}$ \hskip20pt
+        \qcmitem $\dfrac4{16}$ \hskip20pt
+        \qcmitem $\dfrac13$ \hskip20pt
+    \end{qcmquestions}
+
+    \medskip\qcmquestion
+    Parmi les propositions suivantes, laquelle est la solution de
+    l'équation $10x+16=-64$~?
+    \begin{qcmquestions}
+        \qcmitem $8$ \hskip20pt
+        \qcmitem $-4,8$ \hskip20pt
+        \qcmitem $-8$ \hskip20pt
+        \qcmitem $-14$ \hskip20pt
+    \end{qcmquestions}
+
+    \medskip\qcmquestion
+    Parmi les propositions suivantes, laquelle est la notation
+    scientifique du nombre $0,00458$~?%
+    \begin{qcmquestions}
+        \qcmitem $458\times10^{-3}$ \hskip20pt
+        \qcmitem $4,58\times10^{3}$ \hskip20pt
+        \qcmitem $4,58\times10^{-3}$ \hskip20pt
+        \qcmitem $458\times10^{-5}$ \hskip20pt
+    \end{qcmquestions}
+    \newpage
+    \medskip\qcmquestion
+    \begin{minipage}[c]{.55\linewidth}
+        Le diagramme circulaire ci-contre représente la répartition
+        des réponses de 24 élèves à une question à choix multiples.
+        \par\smallskip\noindent
+        Quel est le nombre d'élèves ayant choisi la réponse B~?
+    \end{minipage}\hskip30pt
+    \begin{minipage}[c]{.4\linewidth}
+        \begin{tikzpicture}[scale=0.9]
+            \def\radius{2.1}
+            \coordinate(O)at(0,0);
+            \coordinate(A)at(0:\radius);
+            \coordinate(B)at(90:\radius);
+            \coordinate(C)at(170:\radius);
+            \coordinate(D)at(-100:\radius);
+            \draw(O)--(A);
+            \draw(O)--(B);
+            \draw(O)--(C);
+            \draw(O)--(D);
+            \tkzMarkRightAngle[fill=\markscolor!50](A,O,B)
+            \draw(O)circle(\radius);
+
+            \let\answfontsize\scriptsize
+            \draw node at(40:0.55*\radius){\answfontsize Réponse B};
+            \draw node at(142:0.55*\radius){\answfontsize Réponse C};
+            \draw node at(210:0.6*\radius){\answfontsize Réponse D};
+            \draw node at(-50:0.55*\radius){\answfontsize Réponse A};
+        \end{tikzpicture}
+    \end{minipage}
+
+    \medskip\qcmquestion
+    \begin{minipage}[c]{.5\linewidth}
+        Parmi les propositions suivantes, laquelle est le périmètre
+        de la figure ci-contre~?%
+        \begin{qcmquestions}
+            \qcmitem 30 mm\hskip20pt
+            \qcmitem 30 mm$^2$\par\smallskip\noindent
+            \qcmitem 50 mm\hskip20pt
+            \qcmitem 50 mm$^2$\hskip20pt
+        \end{qcmquestions}
+    \end{minipage}\hskip20pt
+    \begin{minipage}[c]{.4\linewidth}
+        \begin{tikzpicture}[scale=0.8]
+            \coordinate(A)at(0,0);
+            \coordinate(B)at(5,0);
+            \coordinate(C)at(5,2.5);
+            \coordinate(D)at(0,2.5);
+            \tkzMarkRightAngle[size=0.4, fill=\markscolor!50](B,A,D)
+            \tkzMarkRightAngle[size=0.4, fill=\markscolor!50](C,B,A)
+            \tkzMarkRightAngle[size=0.4, fill=\markscolor!50](D,C,B)
+            \tkzMarkRightAngle[size=0.4, fill=\markscolor!50](C,D,A)
+            \draw(A)--(B)--(C)--(D)--cycle;
+            \draw node at(2.5,2.8){10 mm};
+            \draw node at(5.8,1.25){5 mm};
+        \end{tikzpicture}
+    \end{minipage}\par
+
+    \medskip\qcmquestion
+    Parmi les propositions suivantes, laquelle donne le cosinus
+    e l'angle $\widehat{\mathspoint{EDF}}$ dans le triangle
+    rectangle ci-dessous~?%
+    \begin{qcmquestions}
+        \qcmitem$\dfrac45$\hskip20pt
+        \qcmitem$\dfrac{3}{5}$\hskip20pt
+        \qcmitem$\dfrac{5}{3}$\hskip20pt
+        \qcmitem$\dfrac{4}{3}$\hskip20pt
+    \end{qcmquestions}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.9]
+            \coordinate[label=below left:\mathspoint{F}](F)at(0,0);
+            \coordinate[label=below right:\mathspoint{E}](E)at(4,0);
+            \coordinate[label=above right:\mathspoint{D}](D)at(4,3);
+            \tkzMarkRightAngle[size=0.3, fill=\markscolor!50](D,E,F)
+            \draw(F)--(E)--(D)--cycle;
+            \path(F)--(E)node[midway,below]{8 cm};
+            \path(E)--(D)node[midway,right]{6 cm};
+            \path(F)--(D)node[midway,above left]{10 cm};
+        \end{tikzpicture}
+    \end{center}
+    \showthesource
+\end{document}

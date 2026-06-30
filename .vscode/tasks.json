@@ -3,7 +3,7 @@
         {
             "label": "split main",
             "type": "process",
-            "command": "${workspaceFolder}/texmaths/bin/python",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
                 "src.mainsplit"
@@ -16,7 +16,7 @@
         {
             "label": "export examples",
             "type": "process",
-            "command": "${workspaceFolder}/texmaths/bin/python",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
                 "src.export_exemple"
@@ -39,7 +39,7 @@
         {
             "label": "write enonces catalogue",
             "type": "process",
-            "command": "${workspaceFolder}/texmaths/bin/python",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
                 "src.enonces_catalogue"
@@ -55,7 +55,7 @@
         {
             "label": "compile feuilles de suivi",
             "type": "process",
-            "command": "${workspaceFolder}/texmaths/bin/python",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
                 "src.compile_suivi"
@@ -71,7 +71,7 @@
         {
             "label": "make new doc",
             "type": "process",
-            "command": "${workspaceFolder}/texmaths/bin/python",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
                 "src.make_new_doc"
@@ -87,7 +87,7 @@
         {
             "label": "test all exercices",
             "type": "process",
-            "command": "${workspaceFolder}/texmaths/bin/python",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
                 "src.test_all_exercices"
@@ -103,7 +103,7 @@
         {
             "label": "print pdf",
             "type": "process",
-            "command": "${workspaceFolder}/texmaths/bin/python",
+            "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
                 "src.printer"

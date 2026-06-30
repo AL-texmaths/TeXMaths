@@ -41,7 +41,6 @@ class MetadataView(QWidget):
         layout = QVBoxLayout(self)
 
         if QWebEngineView is not None:
-            print('QWebEngineView is available')
             self.info_view = QWebEngineView()
             self.info_view.loadFinished.connect(self._on_info_loaded)
             layout.addWidget(self.info_view)
@@ -188,7 +187,6 @@ class MetadataView(QWidget):
 
         with open('log_src.html', 'w', encoding='utf-8') as f:
             f.write(full_html)
-        print(f'base_url: {base_url}')
 
         self.info_view.setHtml(
             full_html,

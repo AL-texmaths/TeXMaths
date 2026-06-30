@@ -142,6 +142,16 @@
     \renewcommand\arraystretch{1}
     \end{center}
 }
-\newcommand{\qcmquestion}[1]{\par\noindent\textbf{#1}\par\vspace{0.2em}}
+\newcount\question@count
+\newcommand{\qcmquestion}{\advance\question@count by 1\relax\par\noindent\textbf{Question \the\question@count}\par\vspace{0.2em}}
+
+\newcounter{question@count@qcmB}
+\def\qcmitem{%
+    \stepcounter{question@count@qcmB}%
+    \textbf{\Alph{question@count@qcmB}.\ }%
+    }
+\newenvironment{qcmquestions}{%
+    \par\medskip\noindent\setcounter{question@count@qcmB}{0}\ignorespaces
+}{}
 
 \makeatother

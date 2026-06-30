@@ -7,6 +7,7 @@
 ===============================================================================
 					Python
 ===============================================================================
+>>> rendu katex : prbleme affichage Cycle 4 BO 2026 A1cj (\%)
 --------- Assistant de navigation -------------
 >>> tous les documents ne devrait pas nécessairement contenir de preview
 ce doit être une clée optionnelle : par defaut elle est ouverte par 
