@@ -3,7 +3,7 @@ src|:|inconnue|:|inconnue
 src|:|26GENMATAA1|:|DNB Série Générale, Asie, Juin 2026
 src|:|26GENMATAN1|:|DNB Série Générale, Amérique du Nord, Juin 2026
 src|:|26GENMATG11|:|DNB Série Générale, Centres étrangers, Juin 2026
-src|:|26GENMATME1|:|DNB Série Générale, Métropole, Juin 2026
+src|:|26GENMATME1|:|DNB Série Générale, France, Juin 2026
 src|:|25PROMATNC1|:|DNB Série Professionnelle, Nouvelle-Calédonie, Décembre 2025
 src|:|25GENMATNC1|:|DNB Série Générale, Nouvelle-Calédonie, Décembre 2025
 src|:|25GENMATPO3|:|DNB Série Générale, Polynésie, Septembre 2025

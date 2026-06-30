@@ -1,11 +1,48 @@
 \documentclass[exercice]{thedocument}%
 \startdatakeys
-    \source{}
+    \source{26GENMATME1}
     \BO{2026}
     \cycle{4}
-    \competencesDuSocle{}
-    \objectifsApprentissage{}
+    \competencesDuSocle{CA1,CO2,RA1}
+    \objectifsApprentissage{B3cb,B2eb,B1da,A1db,A1ea}
 \enddatakeys
 \begin{document}%
-    
+    Sur la figure ci-dessous~:
+    \begin{itemize}
+        \item les droites (\mathspoint{BD} et \mathspoint{CE}
+        sont sécantes en A~;
+        \item les droites (\mathspoint{BC}) et (\mathspoint{DE})
+        sont parallèles~;
+        \item $\mathspoint{AB} =6,4$ cm~; $\mathspoint{AC}=4,8$ cm~;
+        $\mathspoint{AD}=4,8$ cm~; $\mathspoint{BC}=8$ cm.
+    \end{itemize}
+    \begin{center}
+        \begin{tikzpicture}[scale=0.75]
+            \coordinate[label=below left:A](A) at (0,0);
+            \coordinate[label=right:B](B) at (6.4,0);
+            \coordinate[label=above:C](C) at (0,4.8);
+            \coordinate[label=left:D](D) at (-4.8,0);
+            \coordinate[label=below:E](E) at (0,-3.6);
+            \draw(B)--(C)--(D)--(E)--cycle;
+            \draw(E)--(C);
+            \draw(D)--(B);
+            \path(C)--(B)node[midway, above right]{$8$ cm};
+            \path(A)--(B)node[midway, below]{$6,4$ cm};
+            \path(A)--(C)node[midway, left]{$4,8$ cm};
+            \path(A)--(D)node[midway, below]{$4,8$ cm};
+        \end{tikzpicture}
+    \end{center}
+    \begin{enumerate}
+        \item Montrer que le triangle \mathspoint{ABC} est
+        rectangle en \mathspoint{A}.
+        \item Montrer que $\mathspoint{DE} = 6$ cm et
+        $\mathspoint{AE}=3,6$ cm.
+        \item Montrer que les angles $\widehat{\mathspoint{ABC}}$
+        et $\widehat{\mathspoint{ADE}}$ sont égaux.
+        \textbf{Détailler la réponse en précisant la démarche.}
+        \item Montrer que les triangles \mathspoint{ABC} et
+        \mathspoint{ADE} sont égaux.
+        \item Déterminer l'aire du quadrilatère \mathspoint{BCDE}.
+    \end{enumerate}
+    \showthesource
 \end{document}

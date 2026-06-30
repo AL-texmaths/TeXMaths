@@ -1,5 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{texmaths-sources}[2026/01/20]
+
+\newif\ifwrite
+\writefalse
+\DeclareOption{write}{%
+  \writetrue
+}
+\ProcessOptions\relax
+
 \makeatletter
 \def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
 \def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
@@ -24,11 +32,15 @@
     \defunivar\src[#1]{#2}%
     \addtofull@src{#1}{#2}%
     \addtokeys@src{#1}%
-    \immediate\write\datafile{src|:|#1|:|\unexpanded{#2}}%
+    \ifwrite
+        \immediate\write\datafile{src|:|#1|:|\unexpanded{#2}}%
+    \fi
     }
 \makeatother
-\newwrite\datafile
-\immediate\openout\datafile=\jobname-data.txt\relax
+\ifwrite
+    \newwrite\datafile
+    \immediate\openout\datafile=\jobname-data.txt\relax
+\fi
 % Codage des sources
 \newsrc[originale]{exercice original}
 \newsrc[inconnue]{inconnue}
@@ -36,7 +48,7 @@
 \newsrc[26GENMATAA1]{DNB Série Générale, Asie, Juin 2026}
 \newsrc[26GENMATAN1]{DNB Série Générale, Amérique du Nord, Juin 2026}
 \newsrc[26GENMATG11]{DNB Série Générale, Centres étrangers, Juin 2026}
-\newsrc[26GENMATME1]{DNB Série Générale, France, Juin 2026}
+\newsrc[26GENMATME1]{DNB Série Générale, Métropole, Juin 2026}
 % Année 2025
 \newsrc[25PROMATNC1]{DNB Série Professionnelle, Nouvelle-Calédonie, Décembre 2025}
 \newsrc[25GENMATNC1]{DNB Série Générale, Nouvelle-Calédonie, Décembre 2025}
@@ -122,4 +134,6 @@
 \newsrc[MYR2016C4]{Myriade Cycle 4, Programmes 2016}
 \newsrc[SESAMATHS2016C4]{Sesamaths Cycle 4, Programmes 2016}
 
-\immediate\closeout\datafile
+\ifwrite
+	\immediate\closeout\datafile
+\fi

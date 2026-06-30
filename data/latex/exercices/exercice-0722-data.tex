@@ -1,0 +1,75 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+    \source{26GENMATME1}
+    \BO{2020}
+    \cycle{4}
+    \competencesDuSocle{CA,RE}
+    \competencesTravaillees{B4b*,B3d*}
+\enddatakeys
+\begin{document}%
+    \textbf{Dans cet exercice, les parties A et B sont
+    indépendantes.}\par\noindent
+    \begin{minipage}{.5\linewidth}
+        \noindent\textbf{Partie A}\medskip\par\noindent
+        On a tracé ci-contre la courbe représentative de la fonction
+        qui donne le volume d'une boule en cm$^3$ en fonction de
+        son rayon en cm.
+        \begin{enumerate}
+            \item Déterminer graphiquement l'image de 3,6 par cette
+            fonction.
+            \item Le volume d'une boule est égal à 660 cm$^3$. Lire
+            graphiquement sont rayon.
+        \end{enumerate}
+    \end{minipage}
+    \begin{minipage}[c]{.45\linewidth}
+        \begin{tikzpicture}[scale=0.8]
+            \begin{axis}[
+                x=1cm, y=0.01cm,
+                axis lines=left,
+                axis lines=middle,
+                legend pos=outer north east,
+                xticklabel style={
+                    font=\small,
+                    },
+            xlabel={Rayon (en cm)},
+            ylabel={Volume (en cm$^3$)},
+            xmin=-0.01,xmax=8.21,
+            ymin=-0.01,ymax=860,
+            domain=0:5.9,
+            % Graduations principales
+            xtick={0,1,...,8},
+            ytick={0,100,...,800},
+            % Grille type papier millimétré
+            minor x tick num=4,
+            minor y tick num=4,
+            minor tick length=0pt,
+            grid=both,
+            major grid style={gray!60, line width=0.4pt},
+            minor grid style={gray!25, line width=0.2pt},
+            axis line style={thick},
+            clip=false
+        ]
+            \addplot [
+                thick
+                ]
+                {4*pi*x^3/3};
+            \end{axis}
+        \end{tikzpicture}
+    \end{minipage}\medskip\par\noindent
+    \textbf{Partie B}\medskip\par\noindent
+    On souhaite fabriquer avec une imprimante 3D, des boules
+    pleines en plastique, de rayon de 2,5 cm.
+    \begin{enumerate}
+        \item Montrer que le volume d'une boule, arrondi à l'unité,
+        est égal à 65 cm$^3$.\par\smallskip\noindent
+        \textit{On rappelle que le volume V d'une boule de rayon R
+        est donné par la formule~:}$$V=\dfrac43\times\pi\times R^3$$
+        \item Pour utiliser cette imprimante, on dispose d'une bobine
+        de \np{1000} cm$^3$ de plastique. Combien de boules peut-on
+        fabriquer au maximum~?
+        \item Sachant que la masse volumique de ce plastique est égal
+        à 0,9 g/cm$^3$, calculer la masse d'nue boule.
+    \end{enumerate}
+    \showthesource
+\end{document}

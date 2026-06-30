@@ -54,6 +54,9 @@ class RegexPDFSearchApp(QWidget):
         self.setWindowTitle("Assistant de navigation")
         self.resize(1200, 700)
 
+        shortcut = QShortcut(QKeySequence("Ctrl+Q"), self)
+        shortcut.activated.connect(self.close)
+
         # Gestion file d'attente scripts
         self.script_queue = []
         self.current_process = None

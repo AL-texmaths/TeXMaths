@@ -7,12 +7,11 @@
 ===============================================================================
 					Python
 ===============================================================================
->>> rendu katex : prbleme affichage Cycle 4 BO 2026 A1cj (\%)
+>>> rendu katex : probleme affichage Cycle 4 BO 2026 A1cj (\%)
 --------- Assistant de navigation -------------
 >>> tous les documents ne devrait pas nécessairement contenir de preview
 ce doit être une clée optionnelle : par defaut elle est ouverte par 
 "load pdf" mais s'il elle n'exsite pas, le document controller fallback sur "pdf"
->>> raccourcis clavier: ctrl+q pour fermer le fenetre (ou raccourcis tout os ??)
 >>> refactorisation du script assistant de navigation
 >>> amélioration des choix des themes:
 ----> création d'un menu edition-->theme similaire a l'assistant

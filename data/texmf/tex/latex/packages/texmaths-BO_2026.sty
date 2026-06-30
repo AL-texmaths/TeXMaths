@@ -2,6 +2,13 @@
 \ProvidesPackage{texmaths-BO_2026}[19/06/2022]
 \RequirePackage{amsmath}
 
+\newif\ifwrite
+\writefalse
+\DeclareOption{write}{%
+  \writetrue
+}
+\ProcessOptions\relax
+
 \makeatletter
 \def\nbtoalph#1{\@alph{#1}}
 \def\nbtoAlph#1{\@Alph{#1}}
@@ -77,7 +84,9 @@
     \settoks{AUT\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}occ}{}
     \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}}
     \defunivar\aut[\tmpkey]{#1}%
-	\immediate\write\datafile{\currentcycle BO 2026|:|aut|:|\tmpkey|:|\unexpanded{#1}}%
+	\ifwrite
+		\immediate\write\datafile{\currentcycle BO 2026|:|aut|:|\tmpkey|:|\unexpanded{#1}}%
+	\fi
     }
 \def\newobj#1{
     \stepcounter{boB@obj}
@@ -85,7 +94,9 @@
     \settoks{OBJ\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}occ}{}
     \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}}
     \defunivar\obj[\tmpkey]{#1}%
-	\immediate\write\datafile{\currentcycle BO 2026|:|obj|:|\tmpkey|:|\unexpanded{#1}}%
+	\ifwrite
+		\immediate\write\datafile{\currentcycle BO 2026|:|obj|:|\tmpkey|:|\unexpanded{#1}}%
+	\fi
     }
 \def\newpro#1{
     \stepcounter{boB@pro}
@@ -93,7 +104,9 @@
     \settoks{PRO\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}occ}{}
     \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}}
     \defunivar\pro[\tmpkey]{#1}%
-	\immediate\write\datafile{\currentcycle BO 2026|:|pro|:|\tmpkey|:|\unexpanded{#1}}%
+	\ifwrite
+		\immediate\write\datafile{\currentcycle BO 2026|:|pro|:|\tmpkey|:|\unexpanded{#1}}%
+	\fi
     }
 
 \global\def\useaut[#1]{\steptoks{AUT#1occ}\aut[#1]}
@@ -122,8 +135,10 @@
 % ========================================
 % DEFINITION DES CONNAISSANCES/COMPETENCES
 % ========================================
-\newwrite\datafile
-\immediate\openout\datafile=\jobname-data.txt\relax
+\ifwrite
+	\newwrite\datafile
+	\immediate\openout\datafile=\jobname-data.txt\relax
+\fi
 % --------------------
 % CYCLE 4
 % --------------------
@@ -1664,4 +1679,6 @@ tableau ou dans un arbre afin de déterminer des probabilités}
 
 \endthemes
 
-\immediate\closeout\datafile
+\ifwrite
+	\immediate\closeout\datafile
+\fi

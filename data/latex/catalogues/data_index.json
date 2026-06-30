@@ -2860,7 +2860,7 @@
         "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0004-data.tex",
         "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0004-data.pdf",
         "preview": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0004-data.pdf",
-        "enonce": "\\documentclass[exercice]{thedocument}%\n\\startdatakeys\n\\source{}\n\\cycle{}\n\\competencesDuSocle{}\n\\connaissancesRequises{}\n\\competencesTravaillees{}\n\\enddatakeys\n\\begin{document}%\nThomas mesure \\<taille; soit \\<difference; de plus que son frère Alexandre.\n\\begin{itemize}\n    \\item Combien Alexandre mesure-t-il ?\n\\end{itemize}\n\\end{document}\n",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\startdatakeys\n\\source{}\n\\cycle{}\n\\competencesDuSocle{}\n\\connaissancesRequises{}\n\\competencesTravaillees{}\n\\enddatakeys\n\\begin{document}%\n    Thomas mesure \\<taille; soit \\<difference; de plus que son frère Alexandre.\n    \\begin{itemize}\n        \\item Combien Alexandre mesure-t-il ?\n    \\end{itemize}\n\\end{document}\n",
         "source": "",
         "cycle": "",
         "competencesDuSocle": "",
@@ -4183,12 +4183,22 @@
         "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0720-data.tex",
         "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0720-data.pdf",
         "preview": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0720-data.pdf",
-        "enonce": "\\documentclass[exercice]{thedocument}%\n\\startdatakeys\n    \\source{}\n    \\BO{2026}\n    \\cycle{4}\n    \\competencesDuSocle{}\n    \\objectifsApprentissage{}\n\\enddatakeys\n\\begin{document}%\n    \n\\end{document}",
-        "source": "",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2026}\n    \\cycle{4}\n    \\competencesDuSocle{CA1,CO2,RA1}\n    \\objectifsApprentissage{B3cb,B2eb,B1da,A1db,A1ea}\n\\enddatakeys\n\\begin{document}%\n    Sur la figure ci-dessous~:\n    \\begin{itemize}\n        \\item les droites (\\mathspoint{BD} et \\mathspoint{CE}\n        sont sécantes en A~;\n        \\item les droites (\\mathspoint{BC}) et (\\mathspoint{DE})\n        sont parallèles~;\n        \\item $\\mathspoint{AB} =6,4$ cm~; $\\mathspoint{AC}=4,8$ cm~;\n        $\\mathspoint{AD}=4,8$ cm~; $\\mathspoint{BC}=8$ cm.\n    \\end{itemize}\n    \\begin{center}\n        \\begin{tikzpicture}[scale=0.75]\n            \\coordinate[label=below left:A](A) at (0,0);\n            \\coordinate[label=right:B](B) at (6.4,0);\n            \\coordinate[label=above:C](C) at (0,4.8);\n            \\coordinate[label=left:D](D) at (-4.8,0);\n            \\coordinate[label=below:E](E) at (0,-3.6);\n            \\draw(B)--(C)--(D)--(E)--cycle;\n            \\draw(E)--(C);\n            \\draw(D)--(B);\n            \\path(C)--(B)node[midway, above right]{$8$ cm};\n            \\path(A)--(B)node[midway, below]{$6,4$ cm};\n            \\path(A)--(C)node[midway, left]{$4,8$ cm};\n            \\path(A)--(D)node[midway, below]{$4,8$ cm};\n        \\end{tikzpicture}\n    \\end{center}\n    \\begin{enumerate}\n        \\item Montrer que le triangle \\mathspoint{ABC} est\n        rectangle en \\mathspoint{A}.\n        \\item Montrer que $\\mathspoint{DE} = 6$ cm et\n        $\\mathspoint{AE}=3,6$ cm.\n        \\item Montrer que les angles $\\widehat{\\mathspoint{ABC}}$\n        et $\\widehat{\\mathspoint{ADE}}$ sont égaux.\n        \\textbf{Détailler la réponse en précisant la démarche.}\n        \\item Montrer que les triangles \\mathspoint{ABC} et\n        \\mathspoint{ADE} sont égaux.\n        \\item Déterminer l'aire du quadrilatère \\mathspoint{BCDE}.\n    \\end{enumerate}\n    \\showthesource\n\\end{document}",
+        "source": "DNB Série Générale, Métropole, Juin 2026",
         "BO": "2026",
         "cycle": "cycle 4",
-        "competencesDuSocle": "",
-        "objectifsApprentissage": ""
+        "competencesDuSocle": [
+            "Calculer avec des nombres rationnels, de manière exacte ou approchée, en combinant de façon appropriée le calcul mental, le calcul posé et le calcul instrumenté (calculatrice ou logiciel)",
+            "Expliquer à l'oral ou à l'écrit (sa démarche, son raisonnement, un calcul, un protocole de construction géométrique, un algorithme), comprendre les explications d'un autre et argumenter dans l'échange",
+            "Résoudre des problèmes impliquant des grandeurs variées (géométriques, physiques, économiques) : mobiliser les connaissances nécessaires, analyser et exploiter ses erreurs, mettre à l'essai plusieurs solutions"
+        ],
+        "objectifsApprentissage": [
+            "Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente.",
+            "Connaitre le théorème de Pythagore, sa réciproque, sa contraposée.",
+            "Caractériser le parallélisme par les angles : angles alternes-internes, angles correspondants.",
+            "Connaitre les carrés des entiers de 0 à 12.",
+            "Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.)."
+        ]
     },
     "Exercices 0685": {
         "type": "exercice",
@@ -4223,6 +4233,28 @@
         "competencesDuSocle": "",
         "connaissancesRequises": "",
         "competencesTravaillees": ""
+    },
+    "Exercices 0721": {
+        "type": "exercice",
+        "id": "0721",
+        "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0721-data.tex",
+        "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0721-data.pdf",
+        "preview": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0721-data.pdf",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\usepackage{tabularray}\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{CA,MO}\n    \\connaissancesRequises{B1b*}\n    \\competencesTravaillees{B1b*,B3e*}\n\\enddatakeys\n\\begin{document}%\nLe tableau ci-dessous présente le nombre de médailles obtenues\npar 9 pays lors des Jeux Paralympiques de Paris 2024.\n\\begin{center}\n    \\begin{tblr}{%\n            colspec={X[2,l] X[1,c] X[1,c] X[1,c] X[1,c]},\n            hlines, vlines\n        }\n        Pays & Or & Argent & Bronze & Total \\\\\n        Chine & 94 & 76 & 50 & 220 \\\\\n        Grande-Bretagne & 49 & 44 & 31 & 124 \\\\\n        États-Unis & 36 & 42 & 27 & 105 \\\\\n        Pays-Bas & 27 & 17 & 12 & 56 \\\\\n        Brésil & 25 & 26 & 38 & 89 \\\\\n        Italie & 24 & 15 & 32 & 71 \\\\\n        Ukraine & 22 & 28 & 32 & 82 \\\\\n        France & 19 & 28 & 28 & 75 \\\\\n        Australie & ? & 17 & 28 & 63\n   \\end{tblr}\n\\end{center}\n\\begin{enumerate}\n    \\item Comben de médailles d'or ont été obtenues par les Pays-Bas~?\n    \\item Calculer le nombre de médailles d'or obtenues par l'Australie.\n    \\item Montrer que l'affirmation suivante est vraie.\\par\\noindent\n    \\guillemets{Plus de 20\\% des médailles obtenues par la Grande-Bretagne\n    sont en bronze.} \n    \\item \\begin{enumerate}\n        \\item Déterminer la médiane de la série des nombres de médailles\n        obtenues par ces 9 pays (colonne \\guillemets{Total} du tableau).\n        \\par\\noindent\\textbf{Détailler la réponse en précisant la démarche}\n        \\item Intepréter ce résultat dans le contexte de l'exercice.\n    \\end{enumerate}\n    \\item Aux Jeux Paralympiques de Tokyo en 2021, le Brésil avait\n    obtenu 20 médailles d'argent. Pour ceux de Paris en 2024, il a\n    obtenu 26 médailles d'argent.\\par\\noindent\n    Quel est le pourcentage d'augmentation du nombre de médailles\n    d'argent obtenues par le Brésil entre 2021 et 2024~?\n\\end{enumerate}\n\\showthesource\n\\end{document}",
+        "source": "DNB Série Générale, Métropole, Juin 2026",
+        "BO": "2020",
+        "cycle": "cycle 4",
+        "competencesDuSocle": [
+            "Calculer",
+            "Modéliser"
+        ],
+        "connaissancesRequises": [
+            "Indicateurs de position : moyenne, médiane"
+        ],
+        "competencesTravaillees": [
+            "Lire et interpréter des données sous forme de données brutes, de tableau, de diagramme (bâtons, circulaire ou histogramme)",
+            "Résoudre des problèmes utilisant la proportionnalité (pourcentages, échelles, agrandissement, réduction)"
+        ]
     },
     "Exercices 0510": {
         "type": "exercice",
@@ -6523,6 +6555,25 @@
         "competencesDuSocle": "",
         "connaissancesRequises": "",
         "competencesTravaillees": ""
+    },
+    "Exercices 0723": {
+        "type": "exercice",
+        "id": "0723",
+        "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0723-data.tex",
+        "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0723-data.pdf",
+        "preview": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0723-data.pdf",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{CA1,RE2}\n    \\competencesTravaillees{A2e2,A2d*}\n\\enddatakeys\n\\begin{document}%\n    On souhaite réaliser des sachets de bonbons.\\par\\medskip\\noindent\n    Pour cela, on dispose de 112 bonbons à la fraise et de 140\n    bonbons au caramel.\n    \\begin{itemize}\n        \\item Tous les sachets contiennent le même nombre\n        de bonbons à la fraise.\n        \\item Tous les sachets contiennent le même nombre\n        de bonbons au caramel.\n        \\item Tous les bonbons à la fraise et au caramel\n        sont utilisés.\n    \\end{itemize} \n    \\begin{enumerate}\n        \\item Peut-on constituer 16 sachets~?\n        \\item La décomposition en facteurs premier de 112\n        est $2^4\\times7$.\\medskip\\par\\noindent Quelle est\n        la décomposition en facteurs premiers de 140~?\n        \\item Quel nombre maximal de sachets pourra-t-on\n        constituer~?\\medskip\\par\\noindent\n        Quelle sera alors la composition de chaque sachet~?\n    \\end{enumerate}\n    \\showthesource\n\\end{document}",
+        "source": "DNB Série Générale, Métropole, Juin 2026",
+        "BO": "2020",
+        "cycle": "cycle 4",
+        "competencesDuSocle": [
+            "Calculer avec des nombres rationnels, de manière exacte ou approchée, en combinant de façon appropriée le calcul mental, le calcul posé et le calcul instrumenté (calculatrice ou logiciel)",
+            "Produire et utiliser plusieurs représentations des nombres."
+        ],
+        "competencesTravaillees": [
+            "Décomposer un nombre entier en un produit de facteurs premier à la calculatrice",
+            "Déterminer les diviseurs d'un nombre (à la main, à l'aide d'un tableur, d'une calculatrice)"
+        ]
     },
     "Exercices 0635": {
         "type": "exercice",
@@ -9898,6 +9949,25 @@
         "competencesDuSocle": "",
         "connaissancesRequises": "",
         "competencesTravaillees": ""
+    },
+    "Exercices 0722": {
+        "type": "exercice",
+        "id": "0722",
+        "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0722-data.tex",
+        "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0722-data.pdf",
+        "preview": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0722-data.pdf",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{CA,RE}\n    \\competencesTravaillees{B4b*,B3d*}\n\\enddatakeys\n\\begin{document}%\n    \\textbf{Dans cet exercice, les parties A et B sont\n    indépendantes.}\\par\\noindent\n    \\begin{minipage}{.5\\linewidth}\n        \\noindent\\textbf{Partie A}\\medskip\\par\\noindent\n        On a tracé ci-contre la courbe représentative de la fonction\n        qui donne le volume d'une boule en cm$^3$ en fonction de\n        son rayon en cm.\n        \\begin{enumerate}\n            \\item Déterminer graphiquement l'image de 3,6 par cette\n            fonction.\n            \\item Le volume d'une boule est égal à 660 cm$^3$. Lire\n            graphiquement sont rayon.\n        \\end{enumerate}\n    \\end{minipage}\n    \\begin{minipage}[c]{.45\\linewidth}\n        \\begin{tikzpicture}[scale=0.8]\n            \\begin{axis}[\n                x=1cm, y=0.01cm,\n                axis lines=left,\n                axis lines=middle,\n                legend pos=outer north east,\n                xticklabel style={\n                    font=\\small,\n                    },\n            xlabel={Rayon (en cm)},\n            ylabel={Volume (en cm$^3$)},\n            xmin=-0.01,xmax=8.21,\n            ymin=-0.01,ymax=860,\n            domain=0:5.9,\n            % Graduations principales\n            xtick={0,1,...,8},\n            ytick={0,100,...,800},\n            % Grille type papier millimétré\n            minor x tick num=4,\n            minor y tick num=4,\n            minor tick length=0pt,\n            grid=both,\n            major grid style={gray!60, line width=0.4pt},\n            minor grid style={gray!25, line width=0.2pt},\n            axis line style={thick},\n            clip=false\n        ]\n            \\addplot [\n                thick\n                ]\n                {4*pi*x^3/3};\n            \\end{axis}\n        \\end{tikzpicture}\n    \\end{minipage}\\medskip\\par\\noindent\n    \\textbf{Partie B}\\medskip\\par\\noindent\n    On souhaite fabriquer avec une imprimante 3D, des boules\n    pleines en plastique, de rayon de 2,5 cm.\n    \\begin{enumerate}\n        \\item Montrer que le volume d'une boule, arrondi à l'unité,\n        est égal à 65 cm$^3$.\\par\\smallskip\\noindent\n        \\textit{On rappelle que le volume V d'une boule de rayon R\n        est donné par la formule~:}$$V=\\dfrac43\\times\\pi\\times R^3$$\n        \\item Pour utiliser cette imprimante, on dispose d'une bobine\n        de \\np{1000} cm$^3$ de plastique. Combien de boules peut-on\n        fabriquer au maximum~?\n        \\item Sachant que la masse volumique de ce plastique est égal\n        à 0,9 g/cm$^3$, calculer la masse d'nue boule.\n    \\end{enumerate}\n    \\showthesource\n\\end{document}",
+        "source": "DNB Série Générale, Métropole, Juin 2026",
+        "BO": "2020",
+        "cycle": "cycle 4",
+        "competencesDuSocle": [
+            "Calculer",
+            "Représenter"
+        ],
+        "competencesTravaillees": [
+            "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction",
+            "Utiliser une formule liant deux grandeurs dans une situation de proportionnalité"
+        ]
     },
     "Exercices 0537": {
         "type": "exercice",
@@ -13563,8 +13633,8 @@
         "tex": "/home/antoine/Projects/TeXMaths/data/latex/dnbqcm/dnbqcm-0004.tex",
         "pdf": "/home/antoine/Projects/TeXMaths/data/latex/dnbqcm/dnbqcm-0004.pdf",
         "preview": "/home/antoine/Projects/TeXMaths/data/latex/dnbqcm/dnbqcm-0004.pdf",
-        "enonce": "\\documentclass[A5]{dnbqcm}\n\\usepackage{tabularray}\n\\usepackage{texmaths-boxes}\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2026}\n    \\cycle{4}\n    \\competencesDuSocle{CA,RA}\n    \\automatismes{A1cb,A1bg}\n    \\objectifsApprentissage{D2ad,C1bc,A2ed,A3bc,C2ac,D1ab,A1ea,B3bc}\n\\enddatakeys\n\\begin{document}\n\\qcmquestion\n    Donner une écriture du nombre 0,75 sous la forme d'une fraction.\n\n    \\medskip\\qcmquestion\n    Calculer la somme $-4,7+3,5$.\n\n    \\medskip\\qcmquestion\n    \\begin{minipage}[c]{.6\\linewidth}\n        On considère le tableau de proportionnalité ci\n        contre.\\smallskip\\par\\noindent Combien vaut $a$~?\n    \\end{minipage}\\hskip10pt\n    \\begin{minipage}[c]{.3\\linewidth}\n        \\begin{tblr}\n            {colspec={|X[c]|X[c]|}}\n            \\hline\n            6 & 18\\\\\n            \\hline\n            12 & $a$\\\\\n            \\hline\n        \\end{tblr}\n    \\end{minipage}\n\n    \\medskip\\qcmquestion\n    Un sac contient 10 boules rouges, 4 boules bleues et 6 boules vertes.\n    On tire au hasard une boule dans le sac et on note sa couleur.\n    Sachant que toutes les boules ont la même probabilité d'être choisies,\n    quelle est la probabilité d'obtenir une boule bleue~?%\n    \\begin{qcmquestions}\n        \\qcmitem $\\dfrac14$ \\hskip20pt\n        \\qcmitem $\\dfrac4{20}$ \\hskip20pt\n        \\qcmitem $\\dfrac4{16}$ \\hskip20pt\n        \\qcmitem $\\dfrac13$ \\hskip20pt\n    \\end{qcmquestions}\n\n    \\medskip\\qcmquestion\n    Parmi les propositions suivantes, laquelle est la solution de\n    l'équation $10x+16=-64$~?\n    \\begin{qcmquestions}\n        \\qcmitem $8$ \\hskip20pt\n        \\qcmitem $-4,8$ \\hskip20pt\n        \\qcmitem $-8$ \\hskip20pt\n        \\qcmitem $-14$ \\hskip20pt\n    \\end{qcmquestions}\n\n    \\medskip\\qcmquestion\n    Parmi les propositions suivantes, laquelle est la notation\n    scientifique du nombre $0,00458$~?%\n    \\begin{qcmquestions}\n        \\qcmitem $458\\times10^{-3}$ \\hskip20pt\n        \\qcmitem $4,58\\times10^{3}$ \\hskip20pt\n        \\qcmitem $4,58\\times10^{-3}$ \\hskip20pt\n        \\qcmitem $458\\times10^{-5}$ \\hskip20pt\n    \\end{qcmquestions}\n    \\newpage\n    \\medskip\\qcmquestion\n    \\begin{minipage}[c]{.55\\linewidth}\n        Le diagramme circulaire ci-contre représente la répartition\n        des réponses de 24 élèves à une question à choix multiples.\n        \\par\\smallskip\\noindent\n        Quel est le nombre d'élèves ayant choisi la réponse B~?\n    \\end{minipage}\\hskip30pt\n    \\begin{minipage}[c]{.4\\linewidth}\n        \\begin{tikzpicture}[scale=0.9]\n            \\def\\radius{2.1}\n            \\coordinate(O)at(0,0);\n            \\coordinate(A)at(0:\\radius);\n            \\coordinate(B)at(90:\\radius);\n            \\coordinate(C)at(170:\\radius);\n            \\coordinate(D)at(-100:\\radius);\n            \\draw(O)--(A);\n            \\draw(O)--(B);\n            \\draw(O)--(C);\n            \\draw(O)--(D);\n            \\tkzMarkRightAngle[fill=\\markscolor!50](A,O,B)\n            \\draw(O)circle(\\radius);\n\n            \\let\\answfontsize\\scriptsize\n            \\draw node at(40:0.55*\\radius){\\answfontsize Réponse B};\n            \\draw node at(142:0.55*\\radius){\\answfontsize Réponse C};\n            \\draw node at(210:0.6*\\radius){\\answfontsize Réponse D};\n            \\draw node at(-50:0.55*\\radius){\\answfontsize Réponse A};\n        \\end{tikzpicture}\n    \\end{minipage}\n\n    \\medskip\\qcmquestion\n    \\begin{minipage}[c]{.5\\linewidth}\n        Parmi les propositions suivantes, laquelle est le périmètre\n        de la figure ci-contre~?%\n        \\begin{qcmquestions}\n            \\qcmitem 30 mm\\hskip20pt\n            \\qcmitem 30 mm$^2$\\par\\smallskip\\noindent\n            \\qcmitem 50 mm\\hskip20pt\n            \\qcmitem 50 mm$^2$\\hskip20pt\n        \\end{qcmquestions}\n    \\end{minipage}\\hskip20pt\n    \\begin{minipage}[c]{.4\\linewidth}\n        \\begin{tikzpicture}[scale=0.8]\n            \\coordinate(A)at(0,0);\n            \\coordinate(B)at(5,0);\n            \\coordinate(C)at(5,2.5);\n            \\coordinate(D)at(0,2.5);\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](B,A,D)\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](C,B,A)\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](D,C,B)\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](C,D,A)\n            \\draw(A)--(B)--(C)--(D)--cycle;\n            \\draw node at(2.5,2.8){10 mm};\n            \\draw node at(5.8,1.25){5 mm};\n        \\end{tikzpicture}\n    \\end{minipage}\\par\n\n    \\medskip\\qcmquestion\n    Parmi les propositions suivantes, laquelle donne le cosinus\n    e l'angle $\\widehat{\\mathspoint{EDF}}$ dans le triangle\n    rectangle ci-dessous~?%\n    \\begin{qcmquestions}\n        \\qcmitem$\\dfrac45$\\hskip20pt\n        \\qcmitem$\\dfrac{3}{5}$\\hskip20pt\n        \\qcmitem$\\dfrac{5}{3}$\\hskip20pt\n        \\qcmitem$\\dfrac{4}{3}$\\hskip20pt\n    \\end{qcmquestions}\n    \\begin{center}\n        \\begin{tikzpicture}[scale=0.9]\n            \\coordinate[label=below left:\\mathspoint{F}](F)at(0,0);\n            \\coordinate[label=below right:\\mathspoint{E}](E)at(4,0);\n            \\coordinate[label=above right:\\mathspoint{D}](D)at(4,3);\n            \\tkzMarkRightAngle[size=0.3, fill=\\markscolor!50](D,E,F)\n            \\draw(F)--(E)--(D)--cycle;\n            \\path(F)--(E)node[midway,below]{8 cm};\n            \\path(E)--(D)node[midway,right]{6 cm};\n            \\path(F)--(D)node[midway,above left]{10 cm};\n        \\end{tikzpicture}\n    \\end{center}\n    \\showthesource\n\\end{document}",
-        "source": "DNB Série Générale, France, Juin 2026",
+        "enonce": "\\documentclass[A5]{dnbqcm}\n\\usepackage{tabularray}\n\\usepackage{texmaths-boxes}\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2026}\n    \\cycle{4}\n    \\competencesDuSocle{CA,RA}\n    \\automatismes{A1cb}\n    \\objectifsApprentissage{D2ad,C1bc,A2ed,A3bc,C2ac,D1ab,A1ea,B3bc,A1bg}\n\\enddatakeys\n\\begin{document}\n\\qcmquestion\n    Donner une écriture du nombre 0,75 sous la forme d'une fraction.\n\n    \\medskip\\qcmquestion\n    Calculer la somme $-4,7+3,5$.\n\n    \\medskip\\qcmquestion\n    \\begin{minipage}[c]{.6\\linewidth}\n        On considère le tableau de proportionnalité ci\n        contre.\\smallskip\\par\\noindent Combien vaut $a$~?\n    \\end{minipage}\\hskip10pt\n    \\begin{minipage}[c]{.3\\linewidth}\n        \\begin{tblr}\n            {colspec={|X[c]|X[c]|}}\n            \\hline\n            6 & 18\\\\\n            \\hline\n            12 & $a$\\\\\n            \\hline\n        \\end{tblr}\n    \\end{minipage}\n\n    \\medskip\\qcmquestion\n    Un sac contient 10 boules rouges, 4 boules bleues et 6 boules vertes.\n    On tire au hasard une boule dans le sac et on note sa couleur.\n    Sachant que toutes les boules ont la même probabilité d'être choisies,\n    quelle est la probabilité d'obtenir une boule bleue~?%\n    \\begin{qcmquestions}\n        \\qcmitem $\\dfrac14$ \\hskip20pt\n        \\qcmitem $\\dfrac4{20}$ \\hskip20pt\n        \\qcmitem $\\dfrac4{16}$ \\hskip20pt\n        \\qcmitem $\\dfrac13$ \\hskip20pt\n    \\end{qcmquestions}\n\n    \\medskip\\qcmquestion\n    Parmi les propositions suivantes, laquelle est la solution de\n    l'équation $10x+16=-64$~?\n    \\begin{qcmquestions}\n        \\qcmitem $8$ \\hskip20pt\n        \\qcmitem $-4,8$ \\hskip20pt\n        \\qcmitem $-8$ \\hskip20pt\n        \\qcmitem $-14$ \\hskip20pt\n    \\end{qcmquestions}\n\n    \\medskip\\qcmquestion\n    Parmi les propositions suivantes, laquelle est la notation\n    scientifique du nombre $0,00458$~?%\n    \\begin{qcmquestions}\n        \\qcmitem $458\\times10^{-3}$ \\hskip20pt\n        \\qcmitem $4,58\\times10^{3}$ \\hskip20pt\n        \\qcmitem $4,58\\times10^{-3}$ \\hskip20pt\n        \\qcmitem $458\\times10^{-5}$ \\hskip20pt\n    \\end{qcmquestions}\n    \\newpage\n    \\medskip\\qcmquestion\n    \\begin{minipage}[c]{.55\\linewidth}\n        Le diagramme circulaire ci-contre représente la répartition\n        des réponses de 24 élèves à une question à choix multiples.\n        \\par\\smallskip\\noindent\n        Quel est le nombre d'élèves ayant choisi la réponse B~?\n    \\end{minipage}\\hskip30pt\n    \\begin{minipage}[c]{.4\\linewidth}\n        \\begin{tikzpicture}[scale=0.9]\n            \\def\\radius{2.1}\n            \\coordinate(O)at(0,0);\n            \\coordinate(A)at(0:\\radius);\n            \\coordinate(B)at(90:\\radius);\n            \\coordinate(C)at(170:\\radius);\n            \\coordinate(D)at(-100:\\radius);\n            \\draw(O)--(A);\n            \\draw(O)--(B);\n            \\draw(O)--(C);\n            \\draw(O)--(D);\n            \\tkzMarkRightAngle[fill=\\markscolor!50](A,O,B)\n            \\draw(O)circle(\\radius);\n\n            \\let\\answfontsize\\scriptsize\n            \\draw node at(40:0.55*\\radius){\\answfontsize Réponse B};\n            \\draw node at(142:0.55*\\radius){\\answfontsize Réponse C};\n            \\draw node at(210:0.6*\\radius){\\answfontsize Réponse D};\n            \\draw node at(-50:0.55*\\radius){\\answfontsize Réponse A};\n        \\end{tikzpicture}\n    \\end{minipage}\n\n    \\medskip\\qcmquestion\n    \\begin{minipage}[c]{.5\\linewidth}\n        Parmi les propositions suivantes, laquelle est le périmètre\n        de la figure ci-contre~?%\n        \\begin{qcmquestions}\n            \\qcmitem 30 mm\\hskip20pt\n            \\qcmitem 30 mm$^2$\\par\\smallskip\\noindent\n            \\qcmitem 50 mm\\hskip20pt\n            \\qcmitem 50 mm$^2$\\hskip20pt\n        \\end{qcmquestions}\n    \\end{minipage}\\hskip20pt\n    \\begin{minipage}[c]{.4\\linewidth}\n        \\begin{tikzpicture}[scale=0.8]\n            \\coordinate(A)at(0,0);\n            \\coordinate(B)at(5,0);\n            \\coordinate(C)at(5,2.5);\n            \\coordinate(D)at(0,2.5);\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](B,A,D)\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](C,B,A)\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](D,C,B)\n            \\tkzMarkRightAngle[size=0.4, fill=\\markscolor!50](C,D,A)\n            \\draw(A)--(B)--(C)--(D)--cycle;\n            \\draw node at(2.5,2.8){10 mm};\n            \\draw node at(5.8,1.25){5 mm};\n        \\end{tikzpicture}\n    \\end{minipage}\\par\n\n    \\medskip\\qcmquestion\n    Parmi les propositions suivantes, laquelle donne le cosinus\n    e l'angle $\\widehat{\\mathspoint{EDF}}$ dans le triangle\n    rectangle ci-dessous~?%\n    \\begin{qcmquestions}\n        \\qcmitem$\\dfrac45$\\hskip20pt\n        \\qcmitem$\\dfrac{3}{5}$\\hskip20pt\n        \\qcmitem$\\dfrac{5}{3}$\\hskip20pt\n        \\qcmitem$\\dfrac{4}{3}$\\hskip20pt\n    \\end{qcmquestions}\n    \\begin{center}\n        \\begin{tikzpicture}[scale=0.9]\n            \\coordinate[label=below left:\\mathspoint{F}](F)at(0,0);\n            \\coordinate[label=below right:\\mathspoint{E}](E)at(4,0);\n            \\coordinate[label=above right:\\mathspoint{D}](D)at(4,3);\n            \\tkzMarkRightAngle[size=0.3, fill=\\markscolor!50](D,E,F)\n            \\draw(F)--(E)--(D)--cycle;\n            \\path(F)--(E)node[midway,below]{8 cm};\n            \\path(E)--(D)node[midway,right]{6 cm};\n            \\path(F)--(D)node[midway,above left]{10 cm};\n        \\end{tikzpicture}\n    \\end{center}\n    \\showthesource\n\\end{document}",
+        "source": "DNB Série Générale, Métropole, Juin 2026",
         "BO": "2026",
         "cycle": "cycle 4",
         "competencesDuSocle": [
@@ -13572,8 +13642,7 @@
             "Raisonner"
         ],
         "automatismes": [
-            "Entretenir l'écriture décimale des fractions simples comme $\\frac {1}{2}$ ; $\\frac {1}{4}$ ; $\\frac {3}{4}$ ; $\\frac {3}{2}$ ; $\\frac {4}{2}$ ; $\\frac {5}{2}$ ; $\\frac {1}{10}$ ; $\\frac {100}{100}$ ; $\\frac {7}{1}$.",
-            ""
+            "Entretenir l'écriture décimale des fractions simples comme $\\frac {1}{2}$ ; $\\frac {1}{4}$ ; $\\frac {3}{4}$ ; $\\frac {3}{2}$ ; $\\frac {4}{2}$ ; $\\frac {5}{2}$ ; $\\frac {1}{10}$ ; $\\frac {100}{100}$ ; $\\frac {7}{1}$."
         ],
         "objectifsApprentissage": [
             "Déterminer une quatrième proportionnelle.",
@@ -13583,7 +13652,8 @@
             "Calculer et interpréter l'étendue d'une série présentée sous forme de données brutes, d'un tableau, d'un diagramme en barres, d'un diagramme circulaire.",
             "Calculer, appliquer des proportions, des pourcentages.",
             "Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.).",
-            "Visualiser et réaliser des sections de pavé parallèlement à une face, de cylindre parallèlement ou perpendiculairement à son axe, d'une boule."
+            "Visualiser et réaliser des sections de pavé parallèlement à une face, de cylindre parallèlement ou perpendiculairement à son axe, d'une boule.",
+            "Additionner deux nombres décimaux relatifs."
         ]
     }
 }

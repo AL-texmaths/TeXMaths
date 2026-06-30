@@ -1,0 +1,50 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{tabularray}
+\startdatakeys
+    \source{26GENMATME1}
+    \BO{2020}
+    \cycle{4}
+    \competencesDuSocle{CA,MO}
+    \connaissancesRequises{B1b*}
+    \competencesTravaillees{B1b*,B3e*}
+\enddatakeys
+\begin{document}%
+Le tableau ci-dessous présente le nombre de médailles obtenues
+par 9 pays lors des Jeux Paralympiques de Paris 2024.
+\begin{center}
+    \begin{tblr}{%
+            colspec={X[2,l] X[1,c] X[1,c] X[1,c] X[1,c]},
+            hlines, vlines
+        }
+        Pays & Or & Argent & Bronze & Total \\
+        Chine & 94 & 76 & 50 & 220 \\
+        Grande-Bretagne & 49 & 44 & 31 & 124 \\
+        États-Unis & 36 & 42 & 27 & 105 \\
+        Pays-Bas & 27 & 17 & 12 & 56 \\
+        Brésil & 25 & 26 & 38 & 89 \\
+        Italie & 24 & 15 & 32 & 71 \\
+        Ukraine & 22 & 28 & 32 & 82 \\
+        France & 19 & 28 & 28 & 75 \\
+        Australie & ? & 17 & 28 & 63
+   \end{tblr}
+\end{center}
+\begin{enumerate}
+    \item Comben de médailles d'or ont été obtenues par les Pays-Bas~?
+    \item Calculer le nombre de médailles d'or obtenues par l'Australie.
+    \item Montrer que l'affirmation suivante est vraie.\par\noindent
+    \guillemets{Plus de 20\% des médailles obtenues par la Grande-Bretagne
+    sont en bronze.} 
+    \item \begin{enumerate}
+        \item Déterminer la médiane de la série des nombres de médailles
+        obtenues par ces 9 pays (colonne \guillemets{Total} du tableau).
+        \par\noindent\textbf{Détailler la réponse en précisant la démarche}
+        \item Intepréter ce résultat dans le contexte de l'exercice.
+    \end{enumerate}
+    \item Aux Jeux Paralympiques de Tokyo en 2021, le Brésil avait
+    obtenu 20 médailles d'argent. Pour ceux de Paris en 2024, il a
+    obtenu 26 médailles d'argent.\par\noindent
+    Quel est le pourcentage d'augmentation du nombre de médailles
+    d'argent obtenues par le Brésil entre 2021 et 2024~?
+\end{enumerate}
+\showthesource
+\end{document}
