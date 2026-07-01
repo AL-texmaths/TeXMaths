@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import html
 import re
 
 from PySide6.QtCore import QTimer, QUrl
@@ -182,9 +181,6 @@ class MetadataView(QWidget):
         )
 
         self.last_info_html = full_html
-
-        with open('log_src.html', 'w', encoding='utf-8') as f:
-            f.write(full_html)
 
         self.info_view.setHtml(
             full_html,

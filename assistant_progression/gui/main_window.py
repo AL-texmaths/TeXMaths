@@ -118,6 +118,7 @@ class MainWindow(QWidget):
 
         self.progression_service = ProgressionService(
             self.code_service,
+            self.catalogue_service,
             self.analysis_service,
             self.config
         )
@@ -276,6 +277,7 @@ class MainWindow(QWidget):
 
         self.progression_service = ProgressionService(
             self.code_service,
+            self.catalogue_service,
             self.analysis_service,
             self.config
         )
@@ -755,7 +757,7 @@ class MainWindow(QWidget):
             html_items.append(
                 (
                     f"<b>{entry.code}</b> "
-                    f"(<i>{self.code_service.display_name(entry.catalogue)}</i>) "
+                    f"(<i>{entry.catalogue}</i>) "
                     f"{entry.text}"
                 )
             )
@@ -805,7 +807,7 @@ class MainWindow(QWidget):
         for entry in entries:
 
             self.list_widget.addItem(
-                f"{entry.code} [{entry.type}]"
+                f"{entry.code} [{entry.type}]" if entry.type else f"{entry.code}"
             )
 
         if entries:
@@ -831,14 +833,12 @@ class MainWindow(QWidget):
         html = self.html_service.render_entry(
             code=entry.code,
             content=entry.text,
-            catalogue=self.code_service.display_name(entry.catalogue),
+            catalogue=entry.catalogue,
             source_type=self.code_service.display_name(entry.type),
             theme=self.theme_service.get_current_theme(),
         )
         base_path = QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
 
-        with open('assistant_progression/log.html', 'w', encoding='utf-8') as f:
-            f.write(html)
         self.preview.setHtml(html, base_path)
 
     def load_progression(self):

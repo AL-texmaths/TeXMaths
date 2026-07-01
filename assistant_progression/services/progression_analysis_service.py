@@ -28,8 +28,8 @@ class ProgressionAnalysisService:
 
         for entry in self.code_service.entries:
 
-            if selected_catalogue != "Tous":
-                if entry.catalogue != selected_catalogue:
+            if selected_catalogue.name != "Tous":
+                if entry.catalogue != selected_catalogue.name:
                     continue
 
             if entry.code not in used:

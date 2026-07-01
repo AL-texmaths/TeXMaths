@@ -14,5 +14,5 @@ class Catalogue:
     name: str = ""
     tex_file_name: str = ""
     sty_file_name: str = ""
-    childs: tuple = ()
+    types: tuple = ()
     data: dict = None

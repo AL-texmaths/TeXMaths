@@ -10,7 +10,7 @@ class SearchService:
 
     def selected_catalogue(self, catalogue_combo):
 
-        return self.code_service.internal_name(
+        return self.catalogue_service.get_catalogue_from_name(
             catalogue_combo.currentText()
         )
 
@@ -48,9 +48,7 @@ class SearchService:
 
         type_combo.addItem("Tous")
 
-        for source_type in self.catalogue_service.get_types(
-            current_catalogue
-        ):
+        for source_type in current_catalogue.types:
 
             type_combo.addItem(
                 self.code_service.display_name(
@@ -76,7 +74,7 @@ class SearchService:
         )
 
         return self.catalogue_service.search(
-            catalogue=selected_catalogue,
+            catalogue_name=selected_catalogue.name if selected_catalogue else "Tous",
             source_type=selected_type,
             regex_text=regex_text
         )

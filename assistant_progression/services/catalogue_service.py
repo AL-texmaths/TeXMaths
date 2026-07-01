@@ -1,8 +1,5 @@
 import re
 from assistant_progression.models.entry import Entry, Catalogue
-from assistant_progression.utils.textools import (
-    compile_latex, CODE_INDEX_DIR
-)
 
 class CatalogueService:
 
@@ -17,6 +14,7 @@ class CatalogueService:
                 data=self.data.get(catalogue_key, {}),
                 **catalogue_metadata
                 )
+            
             self.catalogues[catalogue_key] = catalogue
 
         self.entries = []
@@ -24,6 +22,12 @@ class CatalogueService:
 
     def get_catalogue(self, key:str) -> dict:
         return self.catalogues.get(key, {})
+    
+    def get_catalogue_from_name(self, name: str) -> Catalogue:
+        for catalogue in self.catalogues.values():
+            if catalogue.name == name:
+                return catalogue
+        return None
     
 
     def build_index(self):
@@ -39,14 +43,13 @@ class CatalogueService:
 
                 for code, text in catalogue_data.items():
 
-                    self.entries.append(
-                        Entry(
+                    entry = Entry(
                             catalogue=catalogue.name,
                             type="",
                             code=code,
                             text=text
                         )
-                    )
+                    self.entries.append(entry)
 
             else:
 
@@ -88,20 +91,22 @@ class CatalogueService:
 
     def search(
         self,
-        catalogue="Tous",
+        catalogue_name="Tous",
         source_type="Tous",
         regex_text=""
     ):
 
         entries = self.entries
 
+        print('Searching in catalogue name:', catalogue_name)
+
         # Filtre catalogue
-        if catalogue != "Tous":
+        if catalogue_name != "Tous":
 
             entries = [
                 e
                 for e in entries
-                if e.catalogue == catalogue
+                if e.catalogue == catalogue_name
             ]
 
         # Filtre type
@@ -187,8 +192,3 @@ class CatalogueService:
             if entry.code == code:
                 return entry
         return None
-
-    def update_code_label(self):
-        
-        update_code_path = CODE_INDEX_DIR / "update_code_index.tex"
-        compile_latex(update_code_path)
