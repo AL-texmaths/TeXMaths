@@ -182,5 +182,31 @@
             "theme": "Fusion Crimson",
             "code": "Cycle 4 BO 2026"
         }
+    },
+    "actions": {
+        "add_level": {
+            "text": "Ajouter un niveau",
+            "shortcut": "Ctrl+L"
+        },
+        "add_chapter": {
+            "text": "Ajouter un chapitre",
+            "shortcut": "Ctrl+K"
+        },
+        "add_seance": {
+            "text": "Ajouter une séance",
+            "shortcut": "Ctrl+M"
+        },
+        "add_selected_item": {
+            "text": "Ajouter l'item sélectionné",
+            "shortcut": "Ctrl+I"
+        },
+        "delete_selected_item": {
+            "text": "Supprimer l'item sélectionné",
+            "shortcut": "Ctrl+D"
+        },
+        "show_unused_items": {
+            "text": "Montrer les items non utilisés",
+            "shortcut": "Ctrl+U"
+        }
     }
 }

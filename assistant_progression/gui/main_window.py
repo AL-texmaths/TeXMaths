@@ -11,6 +11,8 @@ from assistant_progression.services.search_service import SearchService
 from assistant_progression.services.regex_service import SearchLineEdit
 from assistant_progression.utils.textools import update_code_index
 from assistant_progression.models.paths import Paths
+from assistant_progression.gui.action import ActionDefinition
+from assistant_progression.gui.actions_manager import ActionManager
 
 import re
 import json
@@ -35,6 +37,7 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
+
 class MainWindow(QWidget):
 
     def __init__(self):
@@ -46,6 +49,7 @@ class MainWindow(QWidget):
         self.config = self.persistence_service.load_config()
         self.paths = Paths(self.config)
         self.settings = self.config.settings
+        self.action_manager = ActionManager(self)
         self.init_window_and_settings()
         self.init_services()
 
@@ -59,6 +63,7 @@ class MainWindow(QWidget):
 
         self.init_regex_pannel()
         self.init_preview_pannel()
+        self.register_actions()
         self.init_progression_pannel()
         self.init_connect_signals()
         self.init_menu()
@@ -122,25 +127,31 @@ class MainWindow(QWidget):
 
         self.update_buttons_state()
 
-        set_left_focus_action = QAction("Déplacer le focus vers la gauche", self)
-        set_left_focus_action.setShortcut("Ctrl+Left")
-        set_left_focus_action.triggered.connect(
-            lambda: self.set_focus('left')
+        self.action_manager.register(
+            ActionDefinition(
+                id="set_left_focus",
+                text="Déplacer le focus vers la gauche",
+                shortcut="Ctrl+Left",
+                slot=self.set_left_focus,
+            )
         )
-        self.addAction(set_left_focus_action)
+        self.addAction(self.action_manager.action("set_left_focus"))
 
-        set_right_focus_action = QAction("Déplacer le focus vers la droite", self)
-        set_right_focus_action.setShortcut("Ctrl+Right")
-        set_right_focus_action.triggered.connect(
-            lambda: self.set_focus('right')
+        self.action_manager.register(
+            ActionDefinition(
+                id="set_right_focus",
+                text="Déplacer le focus vers la droite",
+                shortcut="Ctrl+Right",
+                slot=self.set_right_focus,
+            )
         )
-        self.addAction(set_right_focus_action)
+        self.addAction(self.action_manager.action("set_right_focus"))
 
-    def set_focus(self, side):
-        if side == 'left':
-            self.list_widget.setFocus()
-        if side == 'right':
-            self.progression.setFocus()
+    def set_left_focus(self):
+        self.list_widget.setFocus()
+    
+    def set_right_focus(self):
+        self.progression.setFocus()
 
     def init_undo_redo(self): 
         QShortcut(QKeySequence("Alt+Up"), self,
@@ -313,9 +324,9 @@ class MainWindow(QWidget):
             open_catalogue_menu.addAction(action)
         
         progression_menu = QMenu("Progression", self)
-        progression_menu.addAction(self.add_item_action)
-        progression_menu.addAction(self.delete_item_action)
-        progression_menu.addAction(self.unused_items_action)
+        progression_menu.addAction(self.action_manager.action("add_selected_item"))
+        progression_menu.addAction(self.action_manager.action("delete_selected_item"))
+        progression_menu.addAction(self.action_manager.action("show_unused_items"))
 
         param_menu_action = QAction("Ouvrir les paramètres", self)
         edit_menu.addAction(param_menu_action)
@@ -373,72 +384,50 @@ class MainWindow(QWidget):
         menu_bar.addMenu(update_menu)
         self.main_layout.setMenuBar(menu_bar)
 
+    def register_actions(self):
+        actions = self.config.actions
+        for id in actions.model_dump().keys():
+            action = getattr(actions, id)
+            self.action_manager.register(
+                ActionDefinition(
+                    id=id,
+                    text=action.text,
+                    shortcut=action.shortcut,
+                    slot=getattr(self, id),
+                )
+            )
+
     def init_progression_pannel(self):
 
         self.progression = QTreeWidget()
 
         self.progression.setHeaderLabel("Progression annuelle")
 
-        # ADD LEVEL ACTION
-        self.add_level_shortcut = "Ctrl+L"
-        self.add_level_description = "Ajouter un niveau"
-        add_level_action = QAction(self.add_level_description, self)
-        add_level_action.setShortcut(self.add_level_shortcut)
-        add_level_action.triggered.connect(self.add_level)
-        self.addAction(add_level_action)
-        # ADD CHAPTER ACTION
-        self.add_chapter_shortcut = "Ctrl+K"
-        self.add_chapter_description = "Ajouter un chapitre"
-        self.add_chapter_action = QAction(self.add_chapter_description, self)
-        self.add_chapter_action.setShortcut(self.add_chapter_shortcut)
-        self.add_chapter_action.triggered.connect(self.add_chapter)
-        self.addAction(self.add_chapter_action)
-        # ADD SEANCE ACTION
-        self.add_seance_shortcut = "Ctrl+M"
-        self.add_seance_description = "Ajouter une séance"
-        self.add_seance_action = QAction(self.add_seance_description, self)
-        self.add_seance_action.setShortcut(self.add_seance_shortcut)
-        self.add_seance_action.triggered.connect(self.add_seance)
-        self.addAction(self.add_seance_action)
-        # DELETE ITEM ACTION
-        self.delete_item_shortcut = "Ctrl+D"
-        self.delete_item_description = "Supprimer l'item sélectionné"
-        self.delete_item_action = QAction(self.delete_item_description, self)
-        self.delete_item_action.setShortcut(self.delete_item_shortcut)
-        self.delete_item_action.triggered.connect(self.delete_selected_item)
-        self.addAction(self.delete_item_action)
-        # ADD ITEM ACTION
-        self.add_item_shortcut = "Ctrl+I"
-        self.add_item_description = "Ajouter l'item sélectionné"
-        self.add_item_action = QAction(self.add_item_description, self)
-        self.add_item_action.setShortcut(self.add_item_shortcut)
-        self.add_item_action.triggered.connect(self.add_selected_item)
-        self.addAction(self.add_item_action)
-        # ADD UNUSED ACTION
-        self.unused_items_shortcut = "Ctrl+U"
-        self.unused_items_description = "Montrer les items non utilisés"
-        self.unused_items_action = QAction(self.unused_items_description, self)
-        self.unused_items_action.setShortcut(self.unused_items_shortcut)
-        self.unused_items_action.triggered.connect(self.show_unused_items)
-        self.addAction(self.unused_items_action)
+        
         # ADD LEVEL BUTTON
-        self.add_level_button = QPushButton(self.add_level_description, self)
-        self.add_level_button.setToolTip(self.add_level_shortcut)
+        self.add_level_button = QPushButton(self.action_manager.action("add_level").text(), self)
+        self.add_level_button.setToolTip(self.action_manager.action("add_level").shortcut().toString())
+        self.add_level_button.clicked.connect(self.action_manager.action("add_level").trigger)
         # ADD CHAPTER BUTTON
-        self.add_chapter_button = QPushButton(self.add_chapter_description, self)
-        self.add_chapter_button.setToolTip(self.add_chapter_shortcut)
+        self.add_chapter_button = QPushButton(self.action_manager.action("add_chapter").text(), self)
+        self.add_chapter_button.setToolTip(self.action_manager.action("add_chapter").shortcut().toString())
+        self.add_chapter_button.clicked.connect(self.action_manager.action("add_chapter").trigger)
         # ADD SEANCE BUTTON
-        self.add_seance_button = QPushButton(self.add_seance_description, self)
-        self.add_seance_button.setToolTip(self.add_seance_shortcut)
+        self.add_seance_button = QPushButton(self.action_manager.action("add_seance").text(), self)
+        self.add_seance_button.setToolTip(self.action_manager.action("add_seance").shortcut().toString())
+        self.add_seance_button.clicked.connect(self.action_manager.action("add_seance").trigger)
         # ADD ITEM BUTTON
-        self.add_button = QPushButton(self.add_item_description, self)
-        self.add_button.setToolTip(self.add_item_shortcut)
+        self.add_button = QPushButton(self.action_manager.action("add_selected_item").text(), self)
+        self.add_button.setToolTip(self.action_manager.action("add_selected_item").shortcut().toString())
+        self.add_button.clicked.connect(self.action_manager.action("add_selected_item").trigger)
         # ADD DELETE BUTTON
-        self.delete_button = QPushButton(self.delete_item_description, self)
-        self.delete_button.setToolTip(self.delete_item_shortcut)
+        self.delete_button = QPushButton(self.action_manager.action("delete_selected_item").text(), self)
+        self.delete_button.setToolTip(self.action_manager.action("delete_selected_item").shortcut().toString())
+        self.delete_button.clicked.connect(self.action_manager.action("delete_selected_item").trigger)
         # ADD UNUSED BUTTON
-        self.unused_button = QPushButton(self.unused_items_description, self)
-        self.unused_button.setToolTip(self.unused_items_shortcut)
+        self.unused_button = QPushButton(self.action_manager.action("show_unused_items").text(), self)
+        self.unused_button.setToolTip(self.action_manager.action("show_unused_items").shortcut().toString())
+        self.unused_button.clicked.connect(self.action_manager.action("show_unused_items").trigger)
 
         right = QVBoxLayout()
 
@@ -656,29 +645,26 @@ class MainWindow(QWidget):
 
         tree = self.progression
 
-        self.add_level_button.setEnabled(
-            self.progression_service.can_add_level(tree)
-        )
+        add_level_enabled = self.progression_service.can_add_level(tree)
+        self.add_level_button.setEnabled(add_level_enabled)
+        self.action_manager.action("add_level").setEnabled(add_level_enabled)
 
-        self.add_chapter_button.setEnabled(
-            self.progression_service.can_add_chapter(
+        add_chapter_enabled = self.progression_service.can_add_chapter(
                 tree,
                 self.selected_catalogue()
             )
-        )
+        self.add_chapter_button.setEnabled(add_chapter_enabled)
+        self.action_manager.action("add_chapter").setEnabled(add_chapter_enabled)
 
-        self.add_seance_button.setEnabled(
-            self.progression_service.can_add_seance(tree)
-        )
+        add_seance_enabled = self.progression_service.can_add_seance(tree)
+        self.add_seance_button.setEnabled(add_seance_enabled)
+        self.action_manager.action("add_seance").setEnabled(add_seance_enabled)
 
         item = tree.currentItem()
 
-        self.add_button.setEnabled(
-            self.is_chapter(item)
-        )
-        self.add_item_action.setEnabled(
-            self.is_chapter(item)
-        )
+        add_button_enabled = self.is_chapter(item)
+        self.add_button.setEnabled(add_button_enabled)
+        self.action_manager.action("add_selected_item").setEnabled(add_button_enabled)
 
     @record_undo
     def delete_selected_item(self):

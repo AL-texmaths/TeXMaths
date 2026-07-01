@@ -17,6 +17,19 @@ class CatalogueMetadata(BaseModel):
     sty_file_name: str
     types: list[str] = Field(default_factory=list)
 
+class ActionSettings(BaseModel):
+    text: str
+    shortcut: str
+    icon: str | None = None
+    checkable: bool = False
+
+class ActionsConfig(BaseModel):
+    add_level: ActionSettings
+    add_chapter: ActionSettings
+    add_seance: ActionSettings
+    add_selected_item: ActionSettings
+    delete_selected_item: ActionSettings
+    show_unused_items: ActionSettings
 
 class Config(BaseModel):
     executables: dict[str, list[str]]
@@ -24,3 +37,4 @@ class Config(BaseModel):
     catalogues: dict[str, CatalogueMetadata]
     codes: dict[str, str]
     settings: Settings
+    actions: ActionsConfig

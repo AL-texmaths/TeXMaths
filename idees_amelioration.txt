@@ -12,6 +12,8 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
+>>> Supprimer QAction de main_window en exploitant action_manager.py
+>>> Faire un button_manager ?
 >>> enregistrement dans config.json (boit current theme) de:
 -- catalogue précédemment sélectionné
 -- type précédemment sélectionné
