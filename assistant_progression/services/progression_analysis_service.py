@@ -2,8 +2,8 @@
 
 class ProgressionAnalysisService:
 
-    def __init__(self, code_service):
-        self.code_service = code_service
+    def __init__(self, catalogue_service):
+        self.catalogue_service = catalogue_service
 
     def get_used_codes(self, tree):
         used = set()
@@ -22,14 +22,19 @@ class ProgressionAnalysisService:
         return used
 
     def get_unused_entries(self, tree, selected_catalogue):
+
+        selected_catalogue_name = selected_catalogue.name if selected_catalogue else "Tous"
+
         used = self.get_used_codes(tree)
 
         unused = []
 
-        for entry in self.code_service.entries:
+        for entry in self.catalogue_service.entries:
 
-            if selected_catalogue.name != "Tous":
-                if entry.catalogue != selected_catalogue.name:
+            print(entry)
+
+            if selected_catalogue_name != "Tous":
+                if entry.catalogue != selected_catalogue_name:
                     continue
 
             if entry.code not in used:

@@ -111,7 +111,7 @@ class MainWindow(QWidget):
         # Analyse progression
 
         self.analysis_service = ProgressionAnalysisService(
-            self.code_service
+            self.catalogue_service
         )
 
         # Progression
@@ -272,7 +272,7 @@ class MainWindow(QWidget):
         )
 
         self.analysis_service = ProgressionAnalysisService(
-            self.code_service
+            self.catalogue_service
         )
 
         self.progression_service = ProgressionService(
