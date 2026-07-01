@@ -11,7 +11,8 @@ class ActionManager:
     def register(self, definition):
 
         action = QAction(definition.text, self.parent)
-        action.setShortcut(definition.shortcut)
+        if definition.shortcut is not None:
+            action.setShortcut(definition.shortcut)
         action.setCheckable(definition.checkable)
 
         action.triggered.connect(definition.slot)

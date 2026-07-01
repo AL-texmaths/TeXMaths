@@ -1,7 +1,9 @@
 {
     "5eme": {
         "test": {
-            "Automatismes": [],
+            "Automatismes": [
+                "A1ba"
+            ],
             "Objectifs d'apprentissage": [],
             "Prolongements": [],
             "Séances": [

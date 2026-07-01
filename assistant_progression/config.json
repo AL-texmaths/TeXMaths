@@ -207,6 +207,39 @@
         "show_unused_items": {
             "text": "Montrer les items non utilisés",
             "shortcut": "Ctrl+U"
+        },
+        "set_left_focus": {
+            "text": "Déplacer le focus sur la gauche",
+            "shortcut": "Ctrl+Left"
+        },
+        "set_right_focus": {
+            "text": "Déplacer le focus sur la droite",
+            "shortcut": "Ctrl+Right"
+        },
+        "open_config_file": {
+            "text": "Ouvrir le fichier de configuration",
+            "shortcut": "Ctrl+P"
+        },
+        "update_code_index_main": {
+            "text": "Mettre à jour l'index des codes",
+            "shortcut": "Ctrl+Alt+S"
+        },
+        "load_progression": {
+            "text": "Charger une progression"
+        },
+        "save_progression": {
+            "text": "Sauvegarder la progression"
+        },
+        "save_under_progression": {
+            "text": "Sauvegarder sous la progression"
+        },
+        "export_progression": {
+            "text": "Exporter la progression",
+            "shortcut": "Ctrl+E"
+        },
+        "toggle_progression_panel": {
+            "text": "Afficher / Masquer le panneau de progression",
+            "shortcut": "Ctrl+B"  
         }
     }
 }

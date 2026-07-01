@@ -19,7 +19,7 @@ class CatalogueMetadata(BaseModel):
 
 class ActionSettings(BaseModel):
     text: str
-    shortcut: str
+    shortcut: str | None = None
     icon: str | None = None
     checkable: bool = False
 
@@ -30,6 +30,15 @@ class ActionsConfig(BaseModel):
     add_selected_item: ActionSettings
     delete_selected_item: ActionSettings
     show_unused_items: ActionSettings
+    set_left_focus: ActionSettings
+    set_right_focus: ActionSettings
+    open_config_file: ActionSettings
+    update_code_index_main: ActionSettings
+    load_progression: ActionSettings
+    save_progression: ActionSettings
+    save_under_progression: ActionSettings
+    export_progression: ActionSettings
+    toggle_progression_panel: ActionSettings
 
 class Config(BaseModel):
     executables: dict[str, list[str]]

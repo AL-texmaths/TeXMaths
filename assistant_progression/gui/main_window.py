@@ -13,6 +13,7 @@ from assistant_progression.utils.textools import update_code_index
 from assistant_progression.models.paths import Paths
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
+from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
 
 import re
 import json
@@ -127,24 +128,7 @@ class MainWindow(QWidget):
 
         self.update_buttons_state()
 
-        self.action_manager.register(
-            ActionDefinition(
-                id="set_left_focus",
-                text="Déplacer le focus vers la gauche",
-                shortcut="Ctrl+Left",
-                slot=self.set_left_focus,
-            )
-        )
         self.addAction(self.action_manager.action("set_left_focus"))
-
-        self.action_manager.register(
-            ActionDefinition(
-                id="set_right_focus",
-                text="Déplacer le focus vers la droite",
-                shortcut="Ctrl+Right",
-                slot=self.set_right_focus,
-            )
-        )
         self.addAction(self.action_manager.action("set_right_focus"))
 
     def set_left_focus(self):
@@ -328,53 +312,33 @@ class MainWindow(QWidget):
         progression_menu.addAction(self.action_manager.action("delete_selected_item"))
         progression_menu.addAction(self.action_manager.action("show_unused_items"))
 
-        param_menu_action = QAction("Ouvrir les paramètres", self)
-        edit_menu.addAction(param_menu_action)
-        param_menu_action.triggered.connect(
-            self.persistence_service.open_config_file
-        )
-
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
 
-        load_action = QAction("Charger une progression", self)
-        save_action = QAction("Sauvegarder", self)
-        save_under_action = QAction("Sauvegarder sous", self)
-        export_progression_action = QAction("Exporter la progression", self)
+        update_code_index_main_action = self.action_manager.action("update_code_index_main")
+        update_menu.addAction(update_code_index_main_action)
+        update_code_index_main_action.setShortcut(QKeySequence("Ctrl+Alt+S"))
 
-        update_code_index_action = QAction("Mettre à jour l'index des codes", self)
-        update_menu.addAction(update_code_index_action)
-        update_code_index_action.triggered.connect(self.update_code_index_main)
+        load_progression_action = self.action_manager.action("load_progression")
+        load_progression_action.setShortcut(QKeySequence.Open)
+        save_progression_action = self.action_manager.action("save_progression")
+        save_progression_action.setShortcut(QKeySequence.Save)
+        save_under_progression_action = self.action_manager.action("save_under_progression")
+        save_under_progression_action.setShortcut(QKeySequence.SaveAs)
 
-        load_action.setShortcut(QKeySequence.Open)
-        save_action.setShortcut(QKeySequence.Save)
-        save_under_action.setShortcut(QKeySequence.SaveAs)
-        export_progression_action.setShortcut("Ctrl+E")
-
-        load_action.triggered.connect(self.load_progression)
-        save_action.triggered.connect(self.save_progression)
-        save_under_action.triggered.connect(self.save_on_progression)
-        export_progression_action.triggered.connect(self.export_progression)
-
-        file_menu.addAction(load_action)
+        file_menu.addAction(self.action_manager.action("load_progression"))
         file_menu.addSeparator()
-        file_menu.addAction(save_action)
-        file_menu.addAction(save_under_action)
+        file_menu.addAction(self.action_manager.action("save_progression"))
+        file_menu.addAction(self.action_manager.action("save_under_progression"))
         file_menu.addSeparator()
-        file_menu.addAction(export_progression_action)
+        file_menu.addAction(self.action_manager.action("export_progression"))
 
-        for theme_name in self.theme_service.get_theme_names():
-            action = QAction(theme_name, self)
-            action.triggered.connect(
-                lambda checked=False, name=theme_name:
-                self.commit_theme(name)
-            )
-            theme_menu.addAction(action)
-
-            action.hovered.connect(
-                lambda name=theme_name:
-                    self.preview_theme(name)
-            )
+        self.theme_menu_builder = ThemeMenuBuilder(
+            self.theme_service,
+            self.commit_theme,
+            self.preview_theme
+        )
+        self.theme_menu_builder.populate(theme_menu)
 
         edit_menu.addMenu(theme_menu)
         edit_menu.addMenu(open_catalogue_menu)
@@ -383,6 +347,9 @@ class MainWindow(QWidget):
         menu_bar.addMenu(progression_menu)
         menu_bar.addMenu(update_menu)
         self.main_layout.setMenuBar(menu_bar)
+
+    def open_config_file(self):
+        self.persistence_service.open_config_file()
 
     def register_actions(self):
         actions = self.config.actions
@@ -445,11 +412,7 @@ class MainWindow(QWidget):
 
         self.progression_visible = True
 
-        toggle_action = QAction(self)
-        toggle_action.setShortcut("Ctrl+B")
-        toggle_action.triggered.connect(self.toggle_progression_panel)
-
-        self.addAction(toggle_action)
+        self.addAction(self.action_manager.action("toggle_progression_panel"))
 
     # ---------------- VIEW SWITCH ----------------
 
@@ -809,7 +772,7 @@ class MainWindow(QWidget):
     def save_progression(self):
 
         if self.currentFile is None:
-            return self.save_on_progression()
+            return self.save_under_progression()
 
         data=self.progression_service.snapshot(
             self.progression
@@ -830,7 +793,7 @@ class MainWindow(QWidget):
         
         QMessageBox.information(self, "Info", f"File save at {str(self.currentFile)}")
 
-    def save_on_progression(self):
+    def save_under_progression(self):
         # Open a file dialog to select the save location and name
         options = QFileDialog.Options()
         filename, _ = QFileDialog.getSaveFileName(
