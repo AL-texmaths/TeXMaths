@@ -32,7 +32,7 @@ class ProgressionService:
 
             item.addChild(
                 QTreeWidgetItem([
-                    self.code_service.code_label(code)
+                    self.code_service.display_name(code)
                 ])
             )
 
@@ -124,7 +124,7 @@ class ProgressionService:
         if chapter is None:
             return None
 
-        target_label = self.code_service.code_label(entry.type)
+        target_label = self.code_service.display_name(entry.type)
 
         target = None
 
