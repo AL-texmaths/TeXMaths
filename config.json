@@ -50,7 +50,7 @@
             "cycle",
             "objectifsApprentissage"
         ],
-        "theme": "Fusion Modern Dark Red"
+        "theme": "VS Code Dark"
     },
     "executables": {
         "code": [

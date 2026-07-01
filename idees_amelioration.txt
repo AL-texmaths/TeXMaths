@@ -7,18 +7,23 @@
 ===============================================================================
 					Python
 ===============================================================================
->>> rendu katex : probleme affichage Cycle 4 BO 2026 A1cj (\%)
+>>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
+>>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant de navigation -------------
 >>> tous les documents ne devrait pas nécessairement contenir de preview
 ce doit être une clée optionnelle : par defaut elle est ouverte par 
 "load pdf" mais s'il elle n'exsite pas, le document controller fallback sur "pdf"
->>> refactorisation du script assistant de navigation
->>> amélioration des choix des themes:
-----> création d'un menu edition-->theme similaire a l'assistant
-de progression.
->>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
->>> Checker la possibilité de connecter linux a une imprimante via wifi
+>>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
+>>> chaque catalogue est à présent un dictionnaire, par exemple :
+"cycle 4 BO 2026" : {
+    "name": "Cycle 4 BO 2026",
+    "tex file": "BO_2026.tex",
+    "sty file": "texmaths-BO_2026.sty"
+}
+>>> nouvelle api: ouvrir le catalogue sélectionné avec vscode (pour modification)
+>>> enregistrement dans config.json du catalogue précédemment sélectionné
+>>> délégation des responsabilités du script assistant de progression
 ===============================================================================
 					Java / html
 ===============================================================================
@@ -38,6 +43,7 @@ permet le passage au niveau suivant
 ===============================================================================
 					LaTeX
 ===============================================================================
+>>> s'assurer de la compatibilité windows
 >>> revoir la macro \videoManim de texmaths-path
 >>> revoir le code avec lualatex/Expl3 pour amélioration
 % --------------------------

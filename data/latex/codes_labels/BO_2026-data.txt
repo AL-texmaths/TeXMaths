@@ -41,7 +41,7 @@ cycle 4 BO 2026|:|aut|:|A1cf|:|Comparer deux fractions : $\frac {2}{7}$ et $\fra
 cycle 4 BO 2026|:|aut|:|A1cg|:|Écrire une fraction sous la forme d'une somme d'un nombre entier et d'une fraction inférieure à 1 : $\frac {17}{5} = 3 + \frac {2}{5}$.
 cycle 4 BO 2026|:|aut|:|A1ch|:|Addition et soustraction de fractions simples : $\frac {3}{5} + \frac {4}{5}$ ; $1 - \frac {2}{3}$ ; $\frac {4}{7} - \frac {2}{21}$ ; $3 + \frac {2}{5}$ ; $\frac {2}{5} + \frac {1}{4}$.
 cycle 4 BO 2026|:|aut|:|A1ci|:|Prendre une fraction simple d'un nombre : le $\frac {1}{3}$ de 18 ; le $\frac {1}{4}$ de 12.
-cycle 4 BO 2026|:|aut|:|A1cj|:|Prendre 1~\%, 10~\% ou 50~\% d'un nombre, en lien avec la proportionnalité.
+cycle 4 BO 2026|:|aut|:|A1cj|:|Prendre $1~\%$, $10~\%$ ou $50~\%$ d'un nombre, en lien avec la proportionnalité.
 cycle 4 BO 2026|:|aut|:|A1ck|:|Écrire un même nombre sous de multiples formes, par exemple dire que $1{,}2 = \frac {12}{10} = \frac {6}{5} = 1 + \frac {1}{5} = 120~\% = \frac {120}{100}$ etc.
 cycle 4 BO 2026|:|obj|:|A1ca|:|Comparer des fractions.
 cycle 4 BO 2026|:|obj|:|A1cb|:|Additionner et soustraire des fractions de dénominateurs quelconques.
