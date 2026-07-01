@@ -7,6 +7,7 @@ class ActionDefinition:
     id: str
     text: str
     shortcut: str
+    button: bool
     slot: Callable
     icon: str | None = None
     checkable: bool = False

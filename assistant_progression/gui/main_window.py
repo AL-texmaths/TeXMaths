@@ -21,7 +21,6 @@ import json
 from pathlib import Path
 
 from PySide6.QtCore import Qt, QUrl
-from PySide6.QtGui import QKeySequence, QShortcut
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -32,7 +31,6 @@ from PySide6.QtWidgets import (
     QMenu,
     QSplitter,
     QTreeWidget,
-    QPushButton,
     QFileDialog,
     QMessageBox,
     QDialog,
@@ -70,7 +68,6 @@ class MainWindow(QWidget):
         self.init_connect_signals()
         self.init_menu()
         self.init_splitters()
-        self.init_undo_redo()
 
         self.update_type_filter()
         self.update_search()
@@ -86,8 +83,6 @@ class MainWindow(QWidget):
 
         self.undo_redo = UndoRedoService()
 
-        self.reload_data()
-
         # Thèmes
         theme_name = self.settings.current.theme
 
@@ -96,7 +91,7 @@ class MainWindow(QWidget):
             default_theme=theme_name,
         )
 
-        self.theme_service.apply(self)
+        # self.theme_service.apply(self)
     def init_connect_signals(self):
 
         self.search.textChanged.connect(
@@ -131,31 +126,17 @@ class MainWindow(QWidget):
 
         self.addAction(self.action_manager.action("set_left_focus"))
         self.addAction(self.action_manager.action("set_right_focus"))
+        self.addAction(self.action_manager.action("close"))
+        self.addAction(self.action_manager.action("undo"))
+        self.addAction(self.action_manager.action("redo"))
+        self.addAction(self.action_manager.action("move_item_up"))
+        self.addAction(self.action_manager.action("move_item_down"))
 
     def set_left_focus(self):
         self.list_widget.setFocus()
     
     def set_right_focus(self):
         self.progression.setFocus()
-
-    def init_undo_redo(self): 
-        QShortcut(QKeySequence("Alt+Up"), self,
-          activated=lambda: self.move_current_item(-1))
-
-        QShortcut(QKeySequence("Alt+Down"), self,
-                activated=lambda: self.move_current_item(+1))
-    
-        QShortcut(
-            QKeySequence.Undo,
-            self,
-            activated=self.undo
-        )
-
-        QShortcut(
-            QKeySequence.Redo,
-            self,
-            activated=self.redo
-        )
 
     def reload_data(self):
         code_index_file_path = self.paths.code_index_file
@@ -193,9 +174,6 @@ class MainWindow(QWidget):
         self.resize(1400, 800)
 
         self.reload_data()
-
-        shortcut = QShortcut(QKeySequence("Ctrl+Q"), self)
-        shortcut.activated.connect(self.close)
 
     def init_splitters(self):
         self.splitter = QSplitter(Qt.Horizontal)
@@ -313,21 +291,10 @@ class MainWindow(QWidget):
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
 
-        update_code_index_main_action = self.action_manager.action("update_code_index_main")
-        update_menu.addAction(update_code_index_main_action)
-        update_code_index_main_action.setShortcut(QKeySequence("Ctrl+Alt+S"))
-
-        load_progression_action = self.action_manager.action("load_progression")
-        load_progression_action.setShortcut(QKeySequence.Open)
-        save_progression_action = self.action_manager.action("save_progression")
-        save_progression_action.setShortcut(QKeySequence.Save)
-        save_under_progression_action = self.action_manager.action("save_under_progression")
-        save_under_progression_action.setShortcut(QKeySequence.SaveAs)
-
         file_menu.addAction(self.action_manager.action("load_progression"))
         file_menu.addSeparator()
         file_menu.addAction(self.action_manager.action("save_progression"))
-        file_menu.addAction(self.action_manager.action("save_under_progression"))
+        file_menu.addAction(self.action_manager.action("save_as_progression"))
         file_menu.addSeparator()
         file_menu.addAction(self.action_manager.action("export_progression"))
 
@@ -346,9 +313,6 @@ class MainWindow(QWidget):
         menu_bar.addMenu(update_menu)
         self.main_layout.setMenuBar(menu_bar)
 
-    def open_config_file(self):
-        self.persistence_service.open_config_file()
-
     def register_actions(self):
         actions = self.config.actions
         for id in actions.model_dump().keys():
@@ -358,9 +322,13 @@ class MainWindow(QWidget):
                     id=id,
                     text=action.text,
                     shortcut=action.shortcut,
+                    button=action.button,
                     slot=getattr(self, id),
                 )
             )
+
+    def open_config_file(self):
+        self.persistence_service.open_config_file()
 
     def init_progression_pannel(self):
 
@@ -368,41 +336,15 @@ class MainWindow(QWidget):
 
         self.progression.setHeaderLabel("Progression annuelle")
 
-        
-        # ADD LEVEL BUTTON
-        self.add_level_button = QPushButton(self.action_manager.action("add_level").text(), self)
-        self.add_level_button.setToolTip(self.action_manager.action("add_level").shortcut().toString())
-        self.add_level_button.clicked.connect(self.action_manager.action("add_level").trigger)
-        # ADD CHAPTER BUTTON
-        self.add_chapter_button = QPushButton(self.action_manager.action("add_chapter").text(), self)
-        self.add_chapter_button.setToolTip(self.action_manager.action("add_chapter").shortcut().toString())
-        self.add_chapter_button.clicked.connect(self.action_manager.action("add_chapter").trigger)
-        # ADD SEANCE BUTTON
-        self.add_seance_button = QPushButton(self.action_manager.action("add_seance").text(), self)
-        self.add_seance_button.setToolTip(self.action_manager.action("add_seance").shortcut().toString())
-        self.add_seance_button.clicked.connect(self.action_manager.action("add_seance").trigger)
-        # ADD ITEM BUTTON
-        self.add_button = QPushButton(self.action_manager.action("add_selected_item").text(), self)
-        self.add_button.setToolTip(self.action_manager.action("add_selected_item").shortcut().toString())
-        self.add_button.clicked.connect(self.action_manager.action("add_selected_item").trigger)
-        # ADD DELETE BUTTON
-        self.delete_button = QPushButton(self.action_manager.action("delete_selected_item").text(), self)
-        self.delete_button.setToolTip(self.action_manager.action("delete_selected_item").shortcut().toString())
-        self.delete_button.clicked.connect(self.action_manager.action("delete_selected_item").trigger)
-        # ADD UNUSED BUTTON
-        self.unused_button = QPushButton(self.action_manager.action("show_unused_items").text(), self)
-        self.unused_button.setToolTip(self.action_manager.action("show_unused_items").shortcut().toString())
-        self.unused_button.clicked.connect(self.action_manager.action("show_unused_items").trigger)
-
         right = QVBoxLayout()
 
         right.addWidget(self.progression)
-        right.addWidget(self.add_level_button)
-        right.addWidget(self.add_chapter_button)
-        right.addWidget(self.add_seance_button)
-        right.addWidget(self.add_button)
-        right.addWidget(self.delete_button)
-        right.addWidget(self.unused_button)
+        right.addWidget(self.action_manager.button("add_level"))
+        right.addWidget(self.action_manager.button("add_chapter"))
+        right.addWidget(self.action_manager.button("add_seance"))
+        right.addWidget(self.action_manager.button("add_selected_item"))
+        right.addWidget(self.action_manager.button("delete_selected_item"))
+        right.addWidget(self.action_manager.button("show_unused_items"))
 
         right_widget = QWidget()
         right_widget.setLayout(right)
@@ -463,7 +405,6 @@ class MainWindow(QWidget):
     
     def open_catalogue(self, name):
         catalogue = self.catalogue_service.get_catalogue_from_name(name)
-        # print(self.paths.texmf.catalogue.sty_file_name)
         if catalogue:
             self.catalogue_service.open_catalogue(catalogue.name)
         else:
@@ -587,9 +528,16 @@ class MainWindow(QWidget):
         
         self.update_buttons_state()
 
-    @record_undo
-    def move_current_item(self, delta):
+    def _move_current_item(self, delta):
         self.progression_service.move_item(self.progression, delta)
+
+    @record_undo
+    def move_item_up(self):
+        self._move_current_item(-1)
+
+    @record_undo
+    def move_item_down(self):
+        self._move_current_item(1)
 
     def is_chapter(self, item):
 
@@ -607,24 +555,24 @@ class MainWindow(QWidget):
         tree = self.progression
 
         add_level_enabled = self.progression_service.can_add_level(tree)
-        self.add_level_button.setEnabled(add_level_enabled)
+        self.action_manager.button("add_level").setEnabled(add_level_enabled)
         self.action_manager.action("add_level").setEnabled(add_level_enabled)
 
         add_chapter_enabled = self.progression_service.can_add_chapter(
                 tree,
                 self.selected_catalogue()
             )
-        self.add_chapter_button.setEnabled(add_chapter_enabled)
+        self.action_manager.button("add_chapter").setEnabled(add_chapter_enabled)
         self.action_manager.action("add_chapter").setEnabled(add_chapter_enabled)
 
         add_seance_enabled = self.progression_service.can_add_seance(tree)
-        self.add_seance_button.setEnabled(add_seance_enabled)
+        self.action_manager.button("add_seance").setEnabled(add_seance_enabled)
         self.action_manager.action("add_seance").setEnabled(add_seance_enabled)
 
         item = tree.currentItem()
 
         add_button_enabled = self.is_chapter(item)
-        self.add_button.setEnabled(add_button_enabled)
+        self.action_manager.button("add_selected_item").setEnabled(add_button_enabled)
         self.action_manager.action("add_selected_item").setEnabled(add_button_enabled)
 
     @record_undo
@@ -770,7 +718,7 @@ class MainWindow(QWidget):
     def save_progression(self):
 
         if self.currentFile is None:
-            return self.save_under_progression()
+            return self.save_as_progression()
 
         data=self.progression_service.snapshot(
             self.progression
@@ -791,7 +739,7 @@ class MainWindow(QWidget):
         
         QMessageBox.information(self, "Info", f"File save at {str(self.currentFile)}")
 
-    def save_under_progression(self):
+    def save_as_progression(self):
         # Open a file dialog to select the save location and name
         options = QFileDialog.Options()
         filename, _ = QFileDialog.getSaveFileName(

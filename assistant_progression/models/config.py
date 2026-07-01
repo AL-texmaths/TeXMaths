@@ -19,7 +19,8 @@ class CatalogueMetadata(BaseModel):
 
 class ActionSettings(BaseModel):
     text: str
-    shortcut: str | None = None
+    shortcut: str
+    button: bool = True
     icon: str | None = None
     checkable: bool = False
 
@@ -36,9 +37,14 @@ class ActionsConfig(BaseModel):
     update_code_index_main: ActionSettings
     load_progression: ActionSettings
     save_progression: ActionSettings
-    save_under_progression: ActionSettings
+    save_as_progression: ActionSettings
     export_progression: ActionSettings
     toggle_progression_panel: ActionSettings
+    close: ActionSettings
+    undo: ActionSettings
+    redo: ActionSettings
+    move_item_up: ActionSettings
+    move_item_down: ActionSettings
 
 class Config(BaseModel):
     executables: dict[str, list[str]]

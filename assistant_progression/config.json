@@ -179,67 +179,150 @@
             }
         },
         "current": {
-            "theme": "Fusion Crimson",
+            "theme": "Obsidian Dark",
             "code": "Cycle 4 BO 2026"
         }
     },
     "actions": {
         "add_level": {
             "text": "Ajouter un niveau",
-            "shortcut": "Ctrl+L"
+            "shortcut": "Ctrl+L",
+            "button": true,
+            "icon": null,
+            "checkable": false
         },
         "add_chapter": {
             "text": "Ajouter un chapitre",
-            "shortcut": "Ctrl+K"
+            "shortcut": "Ctrl+K",
+            "button": true,
+            "icon": null,
+            "checkable": false
         },
         "add_seance": {
             "text": "Ajouter une séance",
-            "shortcut": "Ctrl+M"
+            "shortcut": "Ctrl+M",
+            "button": true,
+            "icon": null,
+            "checkable": false
         },
         "add_selected_item": {
             "text": "Ajouter l'item sélectionné",
-            "shortcut": "Ctrl+I"
+            "shortcut": "Ctrl+I",
+            "button": true,
+            "icon": null,
+            "checkable": false
         },
         "delete_selected_item": {
             "text": "Supprimer l'item sélectionné",
-            "shortcut": "Ctrl+D"
+            "shortcut": "Ctrl+D",
+            "button": true,
+            "icon": null,
+            "checkable": false
         },
         "show_unused_items": {
             "text": "Montrer les items non utilisés",
-            "shortcut": "Ctrl+U"
+            "shortcut": "Ctrl+U",
+            "button": true,
+            "icon": null,
+            "checkable": false
         },
         "set_left_focus": {
             "text": "Déplacer le focus sur la gauche",
-            "shortcut": "Ctrl+Left"
+            "shortcut": "Ctrl+Left",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
         "set_right_focus": {
             "text": "Déplacer le focus sur la droite",
-            "shortcut": "Ctrl+Right"
+            "shortcut": "Ctrl+Right",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
         "open_config_file": {
             "text": "Ouvrir le fichier de configuration",
-            "shortcut": "Ctrl+P"
+            "shortcut": "Ctrl+P",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
         "update_code_index_main": {
             "text": "Mettre à jour l'index des codes",
-            "shortcut": "Ctrl+Alt+S"
+            "shortcut": "Ctrl+Alt+S",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
         "load_progression": {
-            "text": "Charger une progression"
+            "text": "Charger une progression",
+            "shortcut": "special:Open",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
         "save_progression": {
-            "text": "Sauvegarder la progression"
+            "text": "Sauvegarder la progression",
+            "shortcut": "special:Save",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
-        "save_under_progression": {
-            "text": "Sauvegarder sous la progression"
+        "save_as_progression": {
+            "text": "Sauvegarder sous la progression",
+            "shortcut": "special:SaveAs",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
         "export_progression": {
             "text": "Exporter la progression",
-            "shortcut": "Ctrl+E"
+            "shortcut": "Ctrl+E",
+            "button": false,
+            "icon": null,
+            "checkable": false
         },
         "toggle_progression_panel": {
             "text": "Afficher / Masquer le panneau de progression",
-            "shortcut": "Ctrl+B"  
+            "shortcut": "Ctrl+B",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "close": {
+            "text": "Quitter",
+            "shortcut": "special:Quit",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "undo": {
+            "text": "Annuler",
+            "shortcut": "special:Undo",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "redo": {
+            "text": "Rétablir",
+            "shortcut": "special:Redo",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "move_item_up": {
+            "text": "Déplacer l'item vers le haut",
+            "shortcut": "Alt+Up",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "move_item_down": {
+            "text": "Déplacer l'item vers le bas",
+            "shortcut": "Alt+Down",
+            "button": false,
+            "icon": null,
+            "checkable": false
         }
     }
 }
