@@ -60,9 +60,9 @@ class MainWindow(QWidget):
         self.init_regex_pannel()
         self.init_preview_pannel()
         self.init_progression_pannel()
+        self.init_connect_signals()
         self.init_menu()
         self.init_splitters()
-        self.init_connect_signals()
         self.init_undo_redo()
 
         self.update_type_filter()
@@ -116,63 +116,20 @@ class MainWindow(QWidget):
             self.show_usage
         )
 
-
-        self.add_button.clicked.connect(
-            self.add_selected_item
-        )
-        add_button_action = QAction(self)
-        add_button_action.setShortcut("Ctrl+i")
-        add_button_action.triggered.connect(
-            self.add_selected_item
-        )
-        self.addAction(add_button_action)
-
-        self.delete_button.clicked.connect(
-            self.delete_progression_item
-        )
-        delete_button_action = QAction(self)
-        delete_button_action.setShortcut("Ctrl+D")
-        delete_button_action.triggered.connect(
-            self.delete_progression_item
-        )
-        self.addAction(delete_button_action)
-
-        self.unused_button.clicked.connect(
-            self.show_unused_items
-        )
-        unused_button_action = QAction(self)
-        unused_button_action.setShortcut("Ctrl+U")
-        unused_button_action.triggered.connect(
-            self.show_unused_items
-        )
-        self.addAction(unused_button_action)
-
-        self.add_level_button.clicked.connect(
-            self.add_level
-        )
-
-        self.add_chapter_button.clicked.connect(
-            self.add_chapter
-        )
-
-        self.add_seance_button.clicked.connect(
-            self.add_seance
-        )
-
         self.progression.currentItemChanged.connect(
             self.update_buttons_state
         )
 
         self.update_buttons_state()
 
-        set_left_focus_action = QAction(self)
+        set_left_focus_action = QAction("Déplacer le focus vers la gauche", self)
         set_left_focus_action.setShortcut("Ctrl+Left")
         set_left_focus_action.triggered.connect(
             lambda: self.set_focus('left')
         )
         self.addAction(set_left_focus_action)
 
-        set_right_focus_action = QAction(self)
+        set_right_focus_action = QAction("Déplacer le focus vers la droite", self)
         set_right_focus_action.setShortcut("Ctrl+Right")
         set_right_focus_action.triggered.connect(
             lambda: self.set_focus('right')
@@ -354,8 +311,13 @@ class MainWindow(QWidget):
                     )
             )
             open_catalogue_menu.addAction(action)
+        
+        progression_menu = QMenu("Progression", self)
+        progression_menu.addAction(self.add_item_action)
+        progression_menu.addAction(self.delete_item_action)
+        progression_menu.addAction(self.unused_items_action)
 
-        param_menu_action = QAction("Paramètres", self)
+        param_menu_action = QAction("Ouvrir les paramètres", self)
         edit_menu.addAction(param_menu_action)
         param_menu_action.triggered.connect(
             self.persistence_service.open_config_file
@@ -407,6 +369,7 @@ class MainWindow(QWidget):
         edit_menu.addMenu(open_catalogue_menu)
         menu_bar.addMenu(file_menu)
         menu_bar.addMenu(edit_menu)
+        menu_bar.addMenu(progression_menu)
         menu_bar.addMenu(update_menu)
         self.main_layout.setMenuBar(menu_bar)
 
@@ -415,43 +378,67 @@ class MainWindow(QWidget):
         self.progression = QTreeWidget()
 
         self.progression.setHeaderLabel("Progression annuelle")
-        self.add_level_button = QPushButton("Ajouter un niveau")
 
-        add_level_action = QAction(self)
-        add_level_action.setShortcut("Ctrl+L")
-        add_level_action.triggered.connect(
-            self.add_level
-        )
-
+        # ADD LEVEL ACTION
+        self.add_level_shortcut = "Ctrl+L"
+        self.add_level_description = "Ajouter un niveau"
+        add_level_action = QAction(self.add_level_description, self)
+        add_level_action.setShortcut(self.add_level_shortcut)
+        add_level_action.triggered.connect(self.add_level)
         self.addAction(add_level_action)
-
-        self.add_chapter_button = QPushButton("Ajouter un chapitre")
-
-        add_chapter_action = QAction(self)
-        add_chapter_action.setShortcut("Ctrl+K")
-        add_chapter_action.triggered.connect(self.add_chapter)
-
-        self.add_seance_button = QPushButton("Ajouter une séance")
-
-        add_seance_action = QAction(self)
-        add_seance_action.setShortcut("Ctrl+M")
-        add_seance_action.triggered.connect(self.add_seance)
-
-        self.add_level_button.setToolTip("Ajouter un niveau (Ctrl+L)")
-        self.add_chapter_button.setToolTip("Ajouter un chapitre (Ctrl+K)")
-        self.add_seance_button.setToolTip("Ajouter une séance (Ctrl+M)")
-
-        self.addAction(add_chapter_action)
-        self.addAction(add_seance_action)
-
-        self.add_button = QPushButton("Ajouter l'item sélectionné")
-        self.add_button.setToolTip("Ajouter un item (Ctrl+I)")
-
-        self.delete_button = QPushButton("Supprimer")
-        self.delete_button.setToolTip("Supprimer l'item sélectionné (Ctrl+D)")
-
-        self.unused_button = QPushButton("Afficher les items non utilisés")
-        self.unused_button.setToolTip("Afficher les items non utilisés (Ctrl+U)")
+        # ADD CHAPTER ACTION
+        self.add_chapter_shortcut = "Ctrl+K"
+        self.add_chapter_description = "Ajouter un chapitre"
+        self.add_chapter_action = QAction(self.add_chapter_description, self)
+        self.add_chapter_action.setShortcut(self.add_chapter_shortcut)
+        self.add_chapter_action.triggered.connect(self.add_chapter)
+        self.addAction(self.add_chapter_action)
+        # ADD SEANCE ACTION
+        self.add_seance_shortcut = "Ctrl+M"
+        self.add_seance_description = "Ajouter une séance"
+        self.add_seance_action = QAction(self.add_seance_description, self)
+        self.add_seance_action.setShortcut(self.add_seance_shortcut)
+        self.add_seance_action.triggered.connect(self.add_seance)
+        self.addAction(self.add_seance_action)
+        # DELETE ITEM ACTION
+        self.delete_item_shortcut = "Ctrl+D"
+        self.delete_item_description = "Supprimer l'item sélectionné"
+        self.delete_item_action = QAction(self.delete_item_description, self)
+        self.delete_item_action.setShortcut(self.delete_item_shortcut)
+        self.delete_item_action.triggered.connect(self.delete_selected_item)
+        self.addAction(self.delete_item_action)
+        # ADD ITEM ACTION
+        self.add_item_shortcut = "Ctrl+I"
+        self.add_item_description = "Ajouter l'item sélectionné"
+        self.add_item_action = QAction(self.add_item_description, self)
+        self.add_item_action.setShortcut(self.add_item_shortcut)
+        self.add_item_action.triggered.connect(self.add_selected_item)
+        self.addAction(self.add_item_action)
+        # ADD UNUSED ACTION
+        self.unused_items_shortcut = "Ctrl+U"
+        self.unused_items_description = "Montrer les items non utilisés"
+        self.unused_items_action = QAction(self.unused_items_description, self)
+        self.unused_items_action.setShortcut(self.unused_items_shortcut)
+        self.unused_items_action.triggered.connect(self.show_unused_items)
+        self.addAction(self.unused_items_action)
+        # ADD LEVEL BUTTON
+        self.add_level_button = QPushButton(self.add_level_description, self)
+        self.add_level_button.setToolTip(self.add_level_shortcut)
+        # ADD CHAPTER BUTTON
+        self.add_chapter_button = QPushButton(self.add_chapter_description, self)
+        self.add_chapter_button.setToolTip(self.add_chapter_shortcut)
+        # ADD SEANCE BUTTON
+        self.add_seance_button = QPushButton(self.add_seance_description, self)
+        self.add_seance_button.setToolTip(self.add_seance_shortcut)
+        # ADD ITEM BUTTON
+        self.add_button = QPushButton(self.add_item_description, self)
+        self.add_button.setToolTip(self.add_item_shortcut)
+        # ADD DELETE BUTTON
+        self.delete_button = QPushButton(self.delete_item_description, self)
+        self.delete_button.setToolTip(self.delete_item_shortcut)
+        # ADD UNUSED BUTTON
+        self.unused_button = QPushButton(self.unused_items_description, self)
+        self.unused_button.setToolTip(self.unused_items_shortcut)
 
         right = QVBoxLayout()
 
@@ -689,11 +676,15 @@ class MainWindow(QWidget):
         self.add_button.setEnabled(
             self.is_chapter(item)
         )
+        self.add_item_action.setEnabled(
+            self.is_chapter(item)
+        )
 
     @record_undo
-    def delete_progression_item(self):
+    def delete_selected_item(self):
         self.progression_service.delete_item(self.progression)
         self.update_buttons_state()
+
     def show_usage(self, item):
 
         code = item.data(0, Qt.UserRole)

@@ -12,13 +12,13 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> nouvelle api: ouvrir le catalogue sélectionné avec vscode (pour modification)
 >>> enregistrement dans config.json (boit current theme) de:
 -- catalogue précédemment sélectionné
 -- type précédemment sélectionné
 -- progression ouverte
 >>> délégation des responsabilités du script assistant de progression
 >>> placer les raccourcis dans un menu "raccourcis"
+>>> placer les raccourcis dans settings
 ===============================================================================
 					Java / html
 ===============================================================================
