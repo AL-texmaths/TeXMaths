@@ -1,5 +1,6 @@
 from assistant_progression.services.html_service import HtmlService
 from assistant_progression.services.code_service import CodeService
+from assistant_progression.services.catalogue_service import CatalogueService
 from assistant_progression.services.persistence_service import PersistenceService
 from assistant_progression.services.export_service import ExportService
 from assistant_progression.services.undo_redo_service import UndoRedoService, record_undo
@@ -92,14 +93,19 @@ class MainWindow(QWidget):
         # Catalogue
 
         self.code_service = CodeService(
-            self.data,
             self.config["codes"]
+        )
+
+        self.catalogue_service = CatalogueService(
+            self.data,
+            self.config["catalogues"]
         )
 
         # Recherche
 
         self.search_service = SearchService(
-            self.code_service
+            self.code_service,
+            self.catalogue_service
         )
 
         # Analyse progression
@@ -251,12 +257,17 @@ class MainWindow(QWidget):
                 self.data = json.load(f)
         
         self.code_service = CodeService(
-            self.data,
             self.config["codes"]
         )
 
+        self.catalogue_service = CatalogueService(
+            self.data,
+            self.config["catalogues"]
+        )
+
         self.search_service = SearchService(
-            self.code_service
+            self.code_service,
+            self.catalogue_service
         )
 
         self.analysis_service = ProgressionAnalysisService(
@@ -816,8 +827,6 @@ class MainWindow(QWidget):
             return
 
         entry = self.current_matches[row]
-
-        print("entry.code = ", entry.code)
 
         html = self.html_service.render_entry(
             code=entry.code,

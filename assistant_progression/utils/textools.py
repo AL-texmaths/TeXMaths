@@ -81,7 +81,7 @@ def check_code_index_data(logger=print):
             compile = True
 
         sty_file_name = None
-        catalogues = CONFIG["cataloguesNEW"]
+        catalogues = CONFIG["catalogues"]
         for key in catalogues.keys():
             catalogue = catalogues[key]
             if tex_file.name == catalogue.get("tex file name"):

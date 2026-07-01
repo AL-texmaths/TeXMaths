@@ -1,10 +1,12 @@
 from assistant_progression.services.code_service import CodeService
+from assistant_progression.services.catalogue_service import CatalogueService
 
 
 class SearchService:
 
-    def __init__(self, code_service: CodeService):
+    def __init__(self, code_service: CodeService, catalogue_service: CatalogueService):
         self.code_service = code_service
+        self.catalogue_service = catalogue_service
 
     def selected_catalogue(self, catalogue_combo):
 
@@ -24,13 +26,11 @@ class SearchService:
 
         catalogue_combo.addItem("Tous")
 
-        for catalogue in self.code_service.get_catalogues():
+        for catalogue_key in self.catalogue_service.catalogues.keys():
 
-            catalogue_combo.addItem(
-                self.code_service.display_name(
-                    catalogue
-                )
-            )
+            catalogue = self.catalogue_service.get_catalogue(catalogue_key)
+
+            catalogue_combo.addItem(catalogue.name)
 
     def update_type_filter(
         self,
@@ -48,7 +48,7 @@ class SearchService:
 
         type_combo.addItem("Tous")
 
-        for source_type in self.code_service.get_types(
+        for source_type in self.catalogue_service.get_types(
             current_catalogue
         ):
 
@@ -75,7 +75,7 @@ class SearchService:
             type_combo
         )
 
-        return self.code_service.search(
+        return self.catalogue_service.search(
             catalogue=selected_catalogue,
             source_type=selected_type,
             regex_text=regex_text
