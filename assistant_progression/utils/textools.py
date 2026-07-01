@@ -100,8 +100,6 @@ def check_code_index_data(logger=print):
                 logger(f"File {data_path} is older than package {package_path}. Recompiling.")
                 compile = True
         
-        print(f'compile = {compile} ({sty_file_name})')
-
         if compile:
             result = compile_latex(tex_file, logger=logger)
             if result.returncode != 0:

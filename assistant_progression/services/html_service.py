@@ -19,8 +19,6 @@ class HtmlService:
         js = "katex.min.js"
         render = "contrib/auto-render.min.js"
 
-        print(f"content = {content}")
-
         content = escape(content)
 
         t = theme

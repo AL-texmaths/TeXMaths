@@ -1,20 +1,20 @@
-from assistant_progression.services.catalogue_service import CatalogueService
+from assistant_progression.services.code_service import CodeService
 
 
 class SearchService:
 
-    def __init__(self, catalogue_service: CatalogueService):
-        self.catalogue_service = catalogue_service
+    def __init__(self, code_service: CodeService):
+        self.code_service = code_service
 
     def selected_catalogue(self, catalogue_combo):
 
-        return self.catalogue_service.internal_name(
+        return self.code_service.internal_name(
             catalogue_combo.currentText()
         )
 
     def selected_type(self, type_combo):
 
-        return self.catalogue_service.internal_name(
+        return self.code_service.internal_name(
             type_combo.currentText()
         )
 
@@ -24,10 +24,10 @@ class SearchService:
 
         catalogue_combo.addItem("Tous")
 
-        for catalogue in self.catalogue_service.get_catalogues():
+        for catalogue in self.code_service.get_catalogues():
 
             catalogue_combo.addItem(
-                self.catalogue_service.display_name(
+                self.code_service.display_name(
                     catalogue
                 )
             )
@@ -48,12 +48,12 @@ class SearchService:
 
         type_combo.addItem("Tous")
 
-        for source_type in self.catalogue_service.get_types(
+        for source_type in self.code_service.get_types(
             current_catalogue
         ):
 
             type_combo.addItem(
-                self.catalogue_service.display_name(
+                self.code_service.display_name(
                     source_type
                 )
             )
@@ -75,7 +75,7 @@ class SearchService:
             type_combo
         )
 
-        return self.catalogue_service.search(
+        return self.code_service.search(
             catalogue=selected_catalogue,
             source_type=selected_type,
             regex_text=regex_text

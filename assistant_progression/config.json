@@ -50,72 +50,65 @@
     },
     "cataloguesNEW":{
         "cmpsocle":{
-            "name": "Compétences du socle",
             "tex file name": "BO_competences_evaluees.tex",
             "sty file name": "texmaths-cmpeval.sty"
         },
         "cycle 3 BO 2020":{
-            "name": "Cycle 3 BO 2020",
             "tex file name": "BO_competences-cycle3-BO_2020.tex",
-            "sty file name": "texmaths-cycle3-BO_2020.sty"
+            "sty file name": "texmaths-cycle3-BO_2020.sty",
+            "childs": [
+                "cns",
+                "cmp",
+                "sea"
+            ]
         },
         "cycle 4 BO 2020":{
-            "name": "Cycle 4 BO 2020",
             "tex file name": "BO_competences-cycle4-BO_2020.tex",
-            "sty file name": "texmaths-cycle4-BO_2020.sty"
+            "sty file name": "texmaths-cycle4-BO_2020.sty",
+            "childs": [
+                "cns",
+                "cmp",
+                "sea"
+            ]
         },
         "cycle 3 BO 2026":{
-            "name": "Cycle 3 BO 2026",
             "tex file name": "BO_2026.tex",
-            "sty file name": "texmaths-BO_2026.sty"
+            "sty file name": "texmaths-BO_2026.sty",
+            "childs": [
+                "aut",
+                "obj",
+                "pro",
+                "sea"
+            ]
         },
         "cycle 4 BO 2026":{
-            "name": "Cycle 4 BO 2026",
             "tex file name": "BO_2026.tex",
-            "sty file name": "texmaths-BO_2026.sty"
+            "sty file name": "texmaths-BO_2026.sty",
+            "childs": [
+                "aut",
+                "obj",
+                "pro",
+                "sea"
+            ]
         },
         "src": {
-            "name": "Sources",
             "tex file name": "Sources.tex",
             "sty file name": "texmaths-sources.sty"
         }
     },
-    "catalogues": {
-        "packages to check": {
-            "BO_2026.tex": [
-                "texmaths-BO_2026.sty"
-            ],
-            "BO_competences_evaluees.tex": [
-                "texmaths-cmpeval.sty"
-            ],
-            "BO_competences-cycle3-BO_2020.tex": [
-                "texmaths-cycle3-BO_2020.sty"
-            ],
-            "BO_competences-cycle4-BO_2020.tex": [
-                "texmaths-cycle4-BO_2020.sty"
-            ],
-            "Sources.tex": [
-                "texmaths-sources.sty"
-            ]
-        },
-        "codes": {
-            "cmpsocle": "Compétences du socle",
-            "cycle 3 BO 2020": "Cycle 3 BO 2020",
-            "cycle 4 BO 2020": "Cycle 4 BO 2020",
-            "cmp": "Compétences",
-            "cns": "Connaissances",
-            "cycle 3 BO 2026": "Cycle 3 BO 2026",
-            "cycle 4 BO 2026": "Cycle 4 BO 2026",
-            "aut": "Automatismes",
-            "obj": "Objectifs d'apprentissage",
-            "pro": "Prolongements",
-            "src": "Sources",
-            "sea": "Séances"
-        },
-        "aut obj pro catalogues": [
-            "cycle 4 BO 2026",
-            "cycle 3 BO 2026"
-        ]
+    "codes": {
+        "cmpsocle": "Compétences du socle",
+        "cycle 3 BO 2020": "Cycle 3 BO 2020",
+        "cycle 4 BO 2020": "Cycle 4 BO 2020",
+        "cmp": "Compétences",
+        "cns": "Connaissances",
+        "cycle 3 BO 2026": "Cycle 3 BO 2026",
+        "cycle 4 BO 2026": "Cycle 4 BO 2026",
+        "aut": "Automatismes",
+        "obj": "Objectifs d'apprentissage",
+        "pro": "Prolongements",
+        "src": "Sources",
+        "sea": "Séances"
     },
     "settings": {
         "main window title": "Assistant de progression",

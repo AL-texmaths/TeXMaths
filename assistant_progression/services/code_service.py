@@ -5,7 +5,7 @@ from assistant_progression.utils.textools import (
     compile_latex, CODE_INDEX_DIR
 )
 
-class CatalogueService:
+class CodeService:
 
     def __init__(self, data, code_labels):
 

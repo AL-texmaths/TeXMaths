@@ -4,16 +4,10 @@ from PySide6.QtCore import Qt
 
 class ProgressionService:
 
-    def __init__(self, catalogue_service, analysis_service, config):
-        self.catalogue_service = catalogue_service
+    def __init__(self, code_service, analysis_service, config):
+        self.code_service = code_service
         self.analysis_service = analysis_service
         self.config = config
-
-    def is_aut_obj_pro_catalogue(self, catalogue):
-        return catalogue in self.config["catalogues"].get(
-            "aut obj pro catalogues",
-            []
-        )
 
     def add_level(self, tree):
         item = QTreeWidgetItem(["Nouveau niveau"])
@@ -33,15 +27,13 @@ class ProgressionService:
         item = QTreeWidgetItem(["Nouveau chapitre"])
         item.setFlags(item.flags() | Qt.ItemIsEditable)
 
-        if self.is_aut_obj_pro_catalogue(selected_catalogue):
+        for code in selected_catalogue.get("childs"):
 
-            for code in ("aut", "obj", "pro", "sea"):
-
-                item.addChild(
-                    QTreeWidgetItem([
-                        self.catalogue_service.code_label(code)
-                    ])
-                )
+            item.addChild(
+                QTreeWidgetItem([
+                    self.code_service.code_label(code)
+                ])
+            )
 
         item.setFlags(item.flags() | Qt.ItemIsEditable)
         current_item.addChild(item)
@@ -131,7 +123,7 @@ class ProgressionService:
         if chapter is None:
             return None
 
-        target_label = self.catalogue_service.code_label(entry.type)
+        target_label = self.code_service.code_label(entry.type)
 
         target = None
 
@@ -155,7 +147,7 @@ class ProgressionService:
 
         item.setToolTip(
             0,
-            f"Catalogue: {self.catalogue_service.display_name(entry.catalogue)}\n"
+            f"Catalogue: {self.code_service.display_name(entry.catalogue)}\n"
             f"{entry.text}\n"
         )
 
@@ -301,7 +293,7 @@ class ProgressionService:
                             Qt.UserRole,
                             code
                         )
-                        entry = self.catalogue_service.get_entry_by_code(code)
+                        entry = self.code_service.get_entry_by_code(code)
 
                         if entry is not None:
 

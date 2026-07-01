@@ -1,5 +1,5 @@
 from assistant_progression.services.html_service import HtmlService
-from assistant_progression.services.catalogue_service import CatalogueService
+from assistant_progression.services.code_service import CodeService
 from assistant_progression.services.persistence_service import PersistenceService
 from assistant_progression.services.export_service import ExportService
 from assistant_progression.services.undo_redo_service import UndoRedoService, record_undo
@@ -91,27 +91,27 @@ class MainWindow(QWidget):
 
         # Catalogue
 
-        self.catalogue_service = CatalogueService(
+        self.code_service = CodeService(
             self.data,
-            self.config["catalogues"]["codes"]
+            self.config["codes"]
         )
 
         # Recherche
 
         self.search_service = SearchService(
-            self.catalogue_service
+            self.code_service
         )
 
         # Analyse progression
 
         self.analysis_service = ProgressionAnalysisService(
-            self.catalogue_service
+            self.code_service
         )
 
         # Progression
 
         self.progression_service = ProgressionService(
-            self.catalogue_service,
+            self.code_service,
             self.analysis_service,
             self.config
         )
@@ -250,21 +250,21 @@ class MainWindow(QWidget):
             with open(CODE_INDEX_FILE_PATH, encoding="utf-8") as f:
                 self.data = json.load(f)
         
-        self.catalogue_service = CatalogueService(
+        self.code_service = CodeService(
             self.data,
-            self.config["catalogues"]["codes"]
+            self.config["codes"]
         )
 
         self.search_service = SearchService(
-            self.catalogue_service
+            self.code_service
         )
 
         self.analysis_service = ProgressionAnalysisService(
-            self.catalogue_service
+            self.code_service
         )
 
         self.progression_service = ProgressionService(
-            self.catalogue_service,
+            self.code_service,
             self.analysis_service,
             self.config
         )
@@ -312,7 +312,7 @@ class MainWindow(QWidget):
         )
 
         default_code = self.settings["current"]["code"]
-        default_label =self.catalogue_service.display_name(default_code)
+        default_label =self.code_service.display_name(default_code)
 
         index = self.catalogue_combo.findText(default_label)
         if index >= 0:
@@ -545,12 +545,6 @@ class MainWindow(QWidget):
             self.catalogue_combo
         )
 
-    def is_selected_catalogue_aut_obj_pro(self):
-        selected_catalogue = self.selected_catalogue()
-        return selected_catalogue in self.config["catalogues"].get(
-            "aut obj pro catalogues"
-            )
-
     def update_code_labels(self):
         update_code_index()
         self.reload_data()
@@ -750,7 +744,7 @@ class MainWindow(QWidget):
             html_items.append(
                 (
                     f"<b>{entry.code}</b> "
-                    f"(<i>{self.catalogue_service.display_name(entry.catalogue)}</i>) "
+                    f"(<i>{self.code_service.display_name(entry.catalogue)}</i>) "
                     f"{entry.text}"
                 )
             )
@@ -823,18 +817,19 @@ class MainWindow(QWidget):
 
         entry = self.current_matches[row]
 
+        print("entry.code = ", entry.code)
+
         html = self.html_service.render_entry(
             code=entry.code,
             content=entry.text,
-            catalogue=self.catalogue_service.display_name(entry.catalogue),
-            source_type=self.catalogue_service.display_name(entry.type),
+            catalogue=self.code_service.display_name(entry.catalogue),
+            source_type=self.code_service.display_name(entry.type),
             theme=self.theme_service.get_current_theme(),
         )
         base_path = QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
 
         with open('assistant_progression/log.html', 'w', encoding='utf-8') as f:
             f.write(html)
-        print(base_path)
         self.preview.setHtml(html, base_path)
 
     def load_progression(self):
@@ -960,7 +955,7 @@ class MainWindow(QWidget):
         self.export_service.export_progression(
             tex_path,
             data,
-            self.catalogue_service.labels
+            self.code_service.labels
         )
 
         QMessageBox.information(
