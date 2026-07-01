@@ -14,13 +14,14 @@ from assistant_progression.models.paths import Paths
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
 from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
+from assistant_progression.gui.menus.catalogue_menu_builder import CatalogueMenuBuilder
 
 import re
 import json
 from pathlib import Path
 
 from PySide6.QtCore import Qt, QUrl
-from PySide6.QtGui import QAction, QKeySequence, QShortcut
+from PySide6.QtGui import QKeySequence, QShortcut
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -297,16 +298,13 @@ class MainWindow(QWidget):
         theme_menu.aboutToHide.connect(self.end_theme_preview)
 
         open_catalogue_menu = QMenu("Ouvrir un catalogue", self)
-        for catalogue in self.catalogue_service.get_catalogue_names():
-            action = QAction(catalogue, self)
-            action.triggered.connect(
-                lambda checked=False, name=catalogue:
-                self.catalogue_service.open_catalogue_package(
-                    name, self.paths.texmf, self.config
-                    )
-            )
-            open_catalogue_menu.addAction(action)
-        
+        self.catalogue_menu_builder = CatalogueMenuBuilder(
+            self.catalogue_service,
+            self.paths.texmf,
+            self.config
+        )
+        self.catalogue_menu_builder.populate(open_catalogue_menu)
+
         progression_menu = QMenu("Progression", self)
         progression_menu.addAction(self.action_manager.action("add_selected_item"))
         progression_menu.addAction(self.action_manager.action("delete_selected_item"))
