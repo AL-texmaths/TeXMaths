@@ -1,14 +1,35 @@
-from assistant_progression.utils.resolve import CONFIG_PATH
+import subprocess
+from assistant_progression.utils.resolve import CONFIG_PATH, resolve_executable
+from assistant_progression.models.config import Config
 from pathlib import Path
 import json
-
 
 class PersistenceService:
 
     @staticmethod
-    def load_config():
+    def load_config() -> Config:
         with open(CONFIG_PATH, encoding="utf8") as f:
-            return json.load(f)
+            config = Config.model_validate(json.load(f))
+        return config
+
+    @staticmethod
+    def save_config(config: Config) -> None:
+        with open(CONFIG_PATH, "w", encoding="utf8") as f:
+            json.dump(
+                config.model_dump(by_alias=True),
+                f,
+                indent=4,
+                ensure_ascii=False,
+            )
+    
+    def open_config_file(self):
+        subprocess.run(
+            [
+                str(resolve_executable("blocnote", self.load_config())),
+                str(CONFIG_PATH)
+            ],
+            check=False
+            )
 
     @staticmethod
     def load_progression(filename):
@@ -43,35 +64,4 @@ class PersistenceService:
                 f,
                 ensure_ascii=False,
                 indent=2
-            )
-        
-    def save_config_value(self, *keys, value):
-        """
-        Modifie une valeur dans config.json.
-
-        Exemple :
-            save_config_value(
-                "settings",
-                "current",
-                "theme",
-                value="Nord Dark"
-            )
-        """
-
-        with open(CONFIG_PATH, encoding="utf8") as f:
-            config = json.load(f)
-
-        node = config
-
-        for key in keys[:-1]:
-            node = node.setdefault(key, {})
-
-        node[keys[-1]] = value
-
-        with open(CONFIG_PATH, "w", encoding="utf8") as f:
-            json.dump(
-                config,
-                f,
-                indent=4,
-                ensure_ascii=False
             )

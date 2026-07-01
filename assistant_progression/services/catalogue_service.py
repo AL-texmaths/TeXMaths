@@ -8,11 +8,10 @@ class CatalogueService:
         self.catalogues = {}
 
         for catalogue_key, catalogue_metadata in catalogues_config.items():
-            catalogue_metadata = {k.replace(" ", "_"): v for k, v in catalogue_metadata.items()}
             catalogue = Catalogue(
                 key=catalogue_key,
                 data=self.data.get(catalogue_key, {}),
-                **catalogue_metadata
+                **catalogue_metadata.model_dump()
                 )
             
             self.catalogues[catalogue_key] = catalogue
@@ -97,8 +96,6 @@ class CatalogueService:
     ):
 
         entries = self.entries
-
-        print('Searching in catalogue name:', catalogue_name)
 
         # Filtre catalogue
         if catalogue_name != "Tous":

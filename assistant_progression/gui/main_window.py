@@ -10,27 +10,14 @@ from assistant_progression.services.progression_service import ProgressionServic
 from assistant_progression.services.search_service import SearchService
 from assistant_progression.services.regex_service import SearchLineEdit
 from assistant_progression.utils.textools import update_code_index
-from assistant_progression.utils.resolve import (
-    KATEX_DIR, CODE_INDEX_DIR,
-    DEFAULT_PROG_DIR, PROGRESSION_EXPORT_DIR,
-    CODE_INDEX_FILE_PATH, CONFIG_PATH,
-    resolve_executable
-)
+from assistant_progression.models.paths import Paths
 
 import re
 import json
-import subprocess
 from pathlib import Path
 
-from PySide6.QtCore import (
-    Qt,
-    QUrl
-)
-from PySide6.QtGui import (
-    QAction,
-    QKeySequence,
-    QShortcut
-)
+from PySide6.QtCore import Qt, QUrl
+from PySide6.QtGui import QAction, QKeySequence, QShortcut
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -57,9 +44,11 @@ class MainWindow(QWidget):
 
         self.persistence_service = PersistenceService()
         self.config = self.persistence_service.load_config()
-        self.settings = self.config.get("settings", {})
+        self.paths = Paths(self.config)
+        self.settings = self.config.settings
         self.init_window_and_settings()
         self.init_services()
+
 
         self.main_layout = QHBoxLayout(self)
 
@@ -90,48 +79,13 @@ class MainWindow(QWidget):
 
         self.undo_redo = UndoRedoService()
 
-        # Catalogue
-
-        self.code_service = CodeService(
-            self.config["codes"]
-        )
-
-        self.catalogue_service = CatalogueService(
-            self.data,
-            self.config["catalogues"]
-        )
-
-        # Recherche
-
-        self.search_service = SearchService(
-            self.code_service,
-            self.catalogue_service
-        )
-
-        # Analyse progression
-
-        self.analysis_service = ProgressionAnalysisService(
-            self.catalogue_service
-        )
-
-        # Progression
-
-        self.progression_service = ProgressionService(
-            self.code_service,
-            self.catalogue_service,
-            self.analysis_service,
-            self.config
-        )
+        self.reload_data()
 
         # Thèmes
-        theme_name = (
-            self.settings
-            .get("current", {})
-            .get("theme", "Fusion Crimson")
-        )
+        theme_name = self.settings.current.theme
 
         self.theme_service = ThemeService(
-            themes=self.settings["themes"],
+            themes=self.settings.themes,
             default_theme=theme_name,
         )
 
@@ -251,19 +205,18 @@ class MainWindow(QWidget):
         )
 
     def reload_data(self):
-        if CODE_INDEX_FILE_PATH == Path():
+        code_index_file_path = self.paths.code_index_file
+        if not code_index_file_path.exists():
             self.data = {}
         else:
-            with open(CODE_INDEX_FILE_PATH, encoding="utf-8") as f:
+            with open(code_index_file_path, encoding="utf-8") as f:
                 self.data = json.load(f)
         
-        self.code_service = CodeService(
-            self.config["codes"]
-        )
+        self.code_service = CodeService(self.config.codes)
 
         self.catalogue_service = CatalogueService(
             self.data,
-            self.config["catalogues"]
+            self.config.catalogues
         )
 
         self.search_service = SearchService(
@@ -283,7 +236,7 @@ class MainWindow(QWidget):
         )
 
     def init_window_and_settings(self):
-        self.setWindowTitle(self.settings.get("main window title", "Assistant de progression"))
+        self.setWindowTitle(self.settings.main_window_title)
         self.resize(1400, 800)
 
         self.reload_data()
@@ -324,7 +277,7 @@ class MainWindow(QWidget):
             self.catalogue_combo
         )
 
-        default_code = self.settings["current"]["code"]
+        default_code = self.settings.current.code
         default_label =self.code_service.display_name(default_code)
 
         index = self.catalogue_combo.findText(default_label)
@@ -369,26 +322,13 @@ class MainWindow(QWidget):
     def commit_theme(self, name):
         self._theme_committed = True
 
-        # 1. runtime state
         self.theme_service.set_theme(name)
 
-        # 2. apply immédiatement (IMPORTANT)
         self.theme_service.apply(self)
         self.refresh_view()
 
-        # 3. persist config.json
-        self.persistence_service.save_config_value(
-            "settings",
-            "current",
-            "theme",
-            value=name
-        )
-
-        # 4. sync local config memory
-        self.settings.setdefault("current", {})
-        self.settings["current"]["theme"] = name
-        print("THEME LOADED =", name)
-        print("SETTINGS =", self.settings)
+        self.config.settings.current.theme = name
+        self.persistence_service.save_config(self.config)
 
     def apply_current_theme(self):
         self.theme_service.apply(self)
@@ -407,7 +347,7 @@ class MainWindow(QWidget):
         param_menu_action = QAction("Paramètres", self)
         edit_menu.addAction(param_menu_action)
         param_menu_action.triggered.connect(
-            self.open_config_file
+            self.persistence_service.open_config_file
         )
         
         file_menu = QMenu("Fichier", self)
@@ -420,7 +360,7 @@ class MainWindow(QWidget):
 
         update_code_index_action = QAction("Mettre à jour l'index des codes", self)
         update_menu.addAction(update_code_index_action)
-        update_code_index_action.triggered.connect(self.update_code_labels)
+        update_code_index_action.triggered.connect(self.update_code_index_main)
 
         load_action.setShortcut(QKeySequence.Open)
         save_action.setShortcut(QKeySequence.Save)
@@ -457,10 +397,6 @@ class MainWindow(QWidget):
         menu_bar.addMenu(edit_menu)
         menu_bar.addMenu(update_menu)
         self.main_layout.setMenuBar(menu_bar)
-
-    def open_config_file(self):
-
-        subprocess.run([str(resolve_executable("blocnote")), str(CONFIG_PATH)], check=False)
 
     def init_progression_pannel(self):
 
@@ -558,8 +494,13 @@ class MainWindow(QWidget):
             self.catalogue_combo
         )
 
-    def update_code_labels(self):
-        update_code_index()
+    def update_code_index_main(self):
+        update_code_index(
+            self.paths.code_labels,
+            self.paths.code_index,
+            self.paths.texmf,
+            config=self.config
+        )
         self.reload_data()
 
         self.update_type_filter()
@@ -568,7 +509,7 @@ class MainWindow(QWidget):
         QMessageBox.information(
             self,
             "Info",
-            f"Updated code index at {CODE_INDEX_DIR / 'code_index.json'}"
+            f"Updated code index at {self.paths.code_index_file}"
         )
 
     @record_undo
@@ -766,7 +707,7 @@ class MainWindow(QWidget):
 
         self.preview.setHtml(
             self.html_service.render_list(html, self.theme_service.get_current_theme()),
-            QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
+            QUrl.fromLocalFile(str(self.paths.katex) + "/")
         )
 
     def set_theme(self, name):
@@ -837,7 +778,7 @@ class MainWindow(QWidget):
             source_type=self.code_service.display_name(entry.type),
             theme=self.theme_service.get_current_theme(),
         )
-        base_path = QUrl.fromLocalFile(str(KATEX_DIR.resolve()) + "/")
+        base_path = QUrl.fromLocalFile(str(self.paths.katex) + "/")
 
         self.preview.setHtml(html, base_path)
 
@@ -846,7 +787,7 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getOpenFileName(
             self,
             "Charger une progression",
-            str(DEFAULT_PROG_DIR.resolve()),
+            str(self.paths.progression),
             "JSON (*.json)"
         )
 
@@ -894,7 +835,7 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getSaveFileName(
             self,
             "Sauvegarder la progression",
-            str(DEFAULT_PROG_DIR.resolve()),
+            str(self.paths.progression),
             "JSON Files (*.json);;All Files (*)",
             options=options)
         
@@ -954,7 +895,7 @@ class MainWindow(QWidget):
         if data is None:
             return
 
-        tex_path = PROGRESSION_EXPORT_DIR
+        tex_path = self.paths.sequencages
 
         tex_path = (
             tex_path

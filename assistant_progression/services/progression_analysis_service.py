@@ -31,8 +31,6 @@ class ProgressionAnalysisService:
 
         for entry in self.catalogue_service.entries:
 
-            print(entry)
-
             if selected_catalogue_name != "Tous":
                 if entry.catalogue != selected_catalogue_name:
                     continue

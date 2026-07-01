@@ -1,5 +1,5 @@
 {
-    "cycle_3_BO_2020": {
+    "cycle 3 BO 2020": {
         "cns": {
             "A1a*": "Entiers naturels",
             "A1a1": "Connaître les unités de la numération décimale pour les nombres entiers (unités simples, dizaines, centaines, milliers, millions, milliards)",
@@ -149,7 +149,7 @@
             "C3f*": "reproduire une figure en respectant une échelle donnée"
         }
     },
-    "cycle_4_BO_2020": {
+    "cycle 4 BO 2020": {
         "cns": {
             "A1a*": "Nombres décimaux (positifs et négatifs), notion d'opposé",
             "A1a1": "Nombres entiers relatifs",
@@ -382,7 +382,7 @@
         "CO2": "Expliquer à l'oral ou à l'écrit (sa démarche, son raisonnement, un calcul, un protocole de construction géométrique, un algorithme), comprendre les explications d'un autre et argumenter dans l'échange",
         "CO3": "Vérifier la validité d'une information et distinguer ce qui est objectif et ce qui est subjectif ; lire, interpréter, commenter, produire des tableaux, des graphiques, des diagrammes"
     },
-    "cycle_4_BO_2026": {
+    "cycle 4 BO 2026": {
         "aut": {
             "A1aa": "Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2.",
             "A1ab": "Déterminer le quotient et le reste dans une division euclidienne, par exemple, savoir que $17 = 3 \\times 5 + 2$.",
@@ -770,7 +770,7 @@
             "D3ba": "Méthode de simple fausse position (pour les problèmes du type $y = ax$)."
         }
     },
-    "cycle_3_BO_2026": {
+    "cycle 3 BO 2026": {
         "obj": {
             "A1aa": "Comparer et dénombrer des collections en les organisant",
             "A1ab": "Construire des collections de cardinal donné",

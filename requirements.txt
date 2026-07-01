@@ -1,3 +1,4 @@
 pypdf
 PySide6
 pyinstaller
+pydantic

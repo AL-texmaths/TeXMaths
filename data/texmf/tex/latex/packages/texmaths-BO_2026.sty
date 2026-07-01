@@ -26,8 +26,8 @@
     \let\sqrt\write@sqrt
 }
 
-\def\fourthcycle{cycle 4 }
-\def\thirdcycle{cycle 3 }
+\def\fourthcycle{cycle_4}
+\def\thirdcycle{cycle_3}
 
 \def\deftoks#1{\expandafter\newtoks\csname#1\endcsname}
 \def\settoks#1#2{\csname#1\endcsname={#2}}
@@ -85,7 +85,7 @@
     \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}}
     \defunivar\aut[\tmpkey]{#1}%
 	\ifwrite
-		\immediate\write\datafile{\currentcycle BO 2026|:|aut|:|\tmpkey|:|\unexpanded{#1}}%
+		\immediate\write\datafile{\currentcycle_BO_2026|:|aut|:|\tmpkey|:|\unexpanded{#1}}%
 	\fi
     }
 \def\newobj#1{
@@ -95,7 +95,7 @@
     \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}}
     \defunivar\obj[\tmpkey]{#1}%
 	\ifwrite
-		\immediate\write\datafile{\currentcycle BO 2026|:|obj|:|\tmpkey|:|\unexpanded{#1}}%
+		\immediate\write\datafile{\currentcycle_BO_2026|:|obj|:|\tmpkey|:|\unexpanded{#1}}%
 	\fi
     }
 \def\newpro#1{
@@ -105,7 +105,7 @@
     \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}}
     \defunivar\pro[\tmpkey]{#1}%
 	\ifwrite
-		\immediate\write\datafile{\currentcycle BO 2026|:|pro|:|\tmpkey|:|\unexpanded{#1}}%
+		\immediate\write\datafile{\currentcycle_BO_2026|:|pro|:|\tmpkey|:|\unexpanded{#1}}%
 	\fi
     }
 

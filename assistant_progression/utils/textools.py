@@ -4,13 +4,8 @@ import json
 import subprocess
 from pathlib import Path
 
-from assistant_progression.utils.resolve import (
-    resolve_executable,
-    CODE_LABELS_DIR,
-    CODE_INDEX_DIR,
-    TEX_PACKAGES_DIR,
-    CONFIG
-    )
+from assistant_progression.models.config import Config
+from assistant_progression.utils.resolve import resolve_executable
 
 def compile_latex(
     tex_file: str | Path,
@@ -22,7 +17,8 @@ def compile_latex(
         ],
     motor: str = "latexmk",
     outputdir: str | Path | None = None,
-    logger=print
+    logger=print,
+    config:Config|None=None
     ):
     """
     Compile a LaTeX file using the specified engine and arguments.
@@ -37,7 +33,7 @@ def compile_latex(
         raise FileNotFoundError(f"The specified LaTeX file does not exist: {tex_file}")
 
     try:
-        executable_path = resolve_executable(motor)
+        executable_path = resolve_executable(motor, config=config)
     except KeyError:
         raise ValueError(f"No executable configuration found for motor: {motor}")
 
@@ -63,14 +59,13 @@ def compile_latex(
 
     return result
 
-def check_code_index_data(logger=print):
+def check_code_index_data(code_labels_dir, texmf_dir, config:Config|None=None, logger=print):
     """
     Check if the code index data is up-to-date with the LaTeX
     source files.
     If not, recompile the LaTeX files to update the data.
     """
-    cwd = CODE_LABELS_DIR
-    for tex_file in cwd.glob("*.tex"):
+    for tex_file in code_labels_dir.glob("*.tex"):
         compile = False
         data_path = tex_file.with_name(tex_file.stem + "-data.txt")
         if not data_path.exists():
@@ -81,18 +76,23 @@ def check_code_index_data(logger=print):
             compile = True
 
         sty_file_name = None
-        catalogues = CONFIG["catalogues"]
+
+        if config is not None:
+            catalogues = config.catalogues
+        else:
+            print("check_code_index_data:No config provided, catalogues will be empty.")
+            catalogues = {}
         for key in catalogues.keys():
             catalogue = catalogues[key]
-            if tex_file.name == catalogue.get("tex file name"):
-                sty_file_name = catalogue.get("sty file name")
+            if tex_file.name == catalogue.tex_file_name:
+                sty_file_name = catalogue.sty_file_name
 
         if sty_file_name is not None:
             logger(f"Checking package {sty_file_name}")
-            package_path = next(TEX_PACKAGES_DIR.rglob(sty_file_name), None)
+            package_path = next(texmf_dir.rglob(sty_file_name), None)
 
             if package_path is None:
-                logger(f"Fichier introuvable {sty_file_name} dans {TEX_PACKAGES_DIR}")
+                logger(f"Fichier introuvable {sty_file_name} dans {texmf_dir}")
             else:
                 logger(f"Analysing package {sty_file_name} at {package_path}")
 
@@ -101,7 +101,7 @@ def check_code_index_data(logger=print):
                 compile = True
         
         if compile:
-            result = compile_latex(tex_file, logger=logger)
+            result = compile_latex(tex_file, logger=logger, config=config)
             if result.returncode != 0:
                 logger(f"Compilation of {tex_file} failed. Please check the LaTeX file.")
                 continue
@@ -118,23 +118,21 @@ def insert_nested(d, codes_values):
 
     current[keys[-1]] = value
 
-def update_code_index(logger=print):
+def update_code_index(code_labels_dir:Path|str, code_index_dir:Path|str, texmf_dir:Path|str, config:Config|None=None, logger=print):
     """
     Update the code index with the latest data from the LaTeX
     source files
     """
-    check_code_index_data(logger=logger)
-    cwd = CODE_LABELS_DIR
-    code_index_parent = CODE_INDEX_DIR
+    check_code_index_data(code_labels_dir=code_labels_dir, texmf_dir=texmf_dir, config=config, logger=logger)
 
     code_index_data = {}
-    for data_file in cwd.glob("*-data.txt"):
+    for data_file in code_labels_dir.glob("*-data.txt"):
         with open(data_file, "r", encoding="utf-8") as f:
             for line in f:
                 codes_values = line.strip().split('|:|')
                 insert_nested(code_index_data, codes_values)
 
-    code_index_file = code_index_parent / "code_index.json"
+    code_index_file = code_index_dir / "code_index.json"
     with open(code_index_file, "w", encoding="utf-8") as f:
             json.dump(code_index_data, f, ensure_ascii=False, indent=4)
 

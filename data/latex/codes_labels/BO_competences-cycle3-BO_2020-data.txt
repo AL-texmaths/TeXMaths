@@ -1,144 +1,144 @@
-cycle 3 BO 2020|:|cns|:|A1a*|:|Entiers naturels
-cycle 3 BO 2020|:|cns|:|A1a1|:|Connaître les unités de la numération décimale pour les nombres entiers (unités simples, dizaines, centaines, milliers, millions, milliards)
-cycle 3 BO 2020|:|cns|:|A1a2|:|Connaître les relations qui lient les unités de la numération décimale pour les nombres entiers
-cycle 3 BO 2020|:|cns|:|A1b*|:|Fractions
-cycle 3 BO 2020|:|cns|:|A1b1|:|Connaître diverses désignations des fractions : orales, écrites et décompositions additives et multiplicatives
-cycle 3 BO 2020|:|cns|:|A1b2|:|Connaître des égalités entre des fractions usuelles
-cycle 3 BO 2020|:|cns|:|A1b3|:|Connaître et utiliser quelques fractions simples comme opérateur de partage en faisant le lien entre les formulations en langage courant et leur écriture mathématique
-cycle 3 BO 2020|:|cns|:|A1c*|:|Nombres décimaux
-cycle 3 BO 2020|:|cns|:|A1c1|:|Connaître les unités de la numération décimale (unités simples, dixièmes, centièmes, millièmes) et les relations qui les lient.
-cycle 3 BO 2020|:|cns|:|A1c2|:|Connaître et utiliser diverses désignations orales et écrites d'un nombre décimal (fractions décimales, écritures décimale, décompositions additives et multiplicatives)
-cycle 3 BO 2020|:|cns|:|A1c3|:|Connaître le lien entre les unités de numération et les unités de mesure
-cycle 3 BO 2020|:|cmp|:|A1a*|:|Entiers naturels
-cycle 3 BO 2020|:|cmp|:|A1a1|:|Composer, décomposer les grands nombres entiers, en utilisant des regroupement par milliers
-cycle 3 BO 2020|:|cmp|:|A1a2|:|Comprendre et appliquer les règles de la numérations décimale de position aux grands nombres entiers (jusqu'à 12 chiffres)
-cycle 3 BO 2020|:|cmp|:|A1a3|:|Comparer, ranger, encadrer des grands nombres entiers
-cycle 3 BO 2020|:|cmp|:|A1a4|:|Repérer et placer des grands nombres entiers et les placer sur une demi-droite graduée adaptée
-cycle 3 BO 2020|:|cmp|:|A1b*|:|Fractions
-cycle 3 BO 2020|:|cmp|:|A1b1|:|Utiliser des fractions pour rendre compte de partages de grandeurs ou de mesures de grandeurs
-cycle 3 BO 2020|:|cmp|:|A1b2|:|Repérer et placer des fractions sur une demi-droite graduée adaptée
-cycle 3 BO 2020|:|cmp|:|A1b3|:|Encadrer une fraction par deux nombres entiers consécutifs
-cycle 3 BO 2020|:|cmp|:|A1b4|:|Comparer deux fractions de même dénominateur
-cycle 3 BO 2020|:|cmp|:|A1b5|:|Écrire une fraction sous la forme de somme d'un entier et d'une fraction inférieure à 1
-cycle 3 BO 2020|:|cmp|:|A1b6|:|Utiliser des fractions pour exprimer un quotient
-cycle 3 BO 2020|:|cmp|:|A1c*|:|Nombres décimaux
-cycle 3 BO 2020|:|cmp|:|A1c1|:|Comprendre et appliquer aux nombres décimaux les règles de la numération décimale de position
-cycle 3 BO 2020|:|cmp|:|A1c2|:|Utiliser les nombres décimaux pour rendre compte de mesures de grandeurs
-cycle 3 BO 2020|:|cmp|:|A1c3|:|Repérer et placer un nombre décimal sur une demi-droite graduée adaptée
-cycle 3 BO 2020|:|cmp|:|A1c4|:|Comparer, ranger des nombres décimaux
-cycle 3 BO 2020|:|cmp|:|A1c5|:|Encadrer un nombre décimal par deux nombres entiers ou deux nombres décimaux
-cycle 3 BO 2020|:|cmp|:|A1c6|:|Intercaler des nombres décimaux entre deux nombres donnés
-cycle 3 BO 2020|:|cns|:|A2a*|:|Tables de multiplications de 0 à 10
-cycle 3 BO 2020|:|cns|:|A2b*|:|Connaître les multiples de 25 et de 50
-cycle 3 BO 2020|:|cns|:|A2c*|:|Connaître les diviseurs de 100
-cycle 3 BO 2020|:|cns|:|A2d*|:|Connaître des procédures élémentaires de calcul
-cycle 3 BO 2020|:|cns|:|A2d1|:|Multiplier ou diviser un nombre décimal par 10, 100 ou 1000
-cycle 3 BO 2020|:|cns|:|A2d2|:|Rechercher le complément à l'entier supérieur
-cycle 3 BO 2020|:|cns|:|A2d3|:|Multiplier par 5, par 25, par 50
-cycle 3 BO 2020|:|cns|:|A2d4|:|Multiplier par 0,1 par 0,5
-cycle 3 BO 2020|:|cns|:|A2e*|:|Connaître les propriéts de l'additions, de la soustraction et de la multiplication
-cycle 3 BO 2020|:|cns|:|A2e1|:|Commutativité de l'addition
-cycle 3 BO 2020|:|cns|:|A2e2|:|Commutativité de la multiplication
-cycle 3 BO 2020|:|cns|:|A2e3|:|Associativité de l'addition
-cycle 3 BO 2020|:|cns|:|A2e4|:|Associativité de la multiplication
-cycle 3 BO 2020|:|cns|:|A2e5|:|Distributivité de la multiplication par rapport à l'addition
-cycle 3 BO 2020|:|cns|:|A2f*|:|Connaître les critères de divisibilité par 2, 3, 5, 9 et 10
-cycle 3 BO 2020|:|cns|:|A2g*|:|Dans un calcul en ligne, utiliser des parenthèses pour indiquer ou respecter une chronologie dans les calculs.
-cycle 3 BO 2020|:|cns|:|A2h*|:|Calcul posé
-cycle 3 BO 2020|:|cns|:|A2h1|:|Algorithme de l'addition de nombres entiers
-cycle 3 BO 2020|:|cns|:|A2h2|:|Algorithme de l'addition de nombres décimaux
-cycle 3 BO 2020|:|cns|:|A2h3|:|Algorithme de la soustraction de nombres entiers
-cycle 3 BO 2020|:|cns|:|A2h4|:|Algorithme de la soustraction de nombres décimaux
-cycle 3 BO 2020|:|cns|:|A2h5|:|Algorithme de la multiplication de nombres entiers
-cycle 3 BO 2020|:|cns|:|A2h6|:|Algorithme de la multiplication de nombres décimaux
-cycle 3 BO 2020|:|cns|:|A2h7|:|Algorithme de division euclidienne d'un entier par un entier
-cycle 3 BO 2020|:|cns|:|A2h8|:|Algorithme de division décimale d'un nombre décimal par un nombre entier
-cycle 3 BO 2020|:|cmp|:|A2a*|:|Utiliser ces propriétés et procédures pour élaborer et mettre en oeuvre des stratégies de calcul
-cycle 3 BO 2020|:|cmp|:|A2b*|:|Vérifier la vraisemblance d'un résultat, notamment en estimant un ordre de grandeur
-cycle 3 BO 2020|:|cmp|:|A2c*|:|Utiliser une calculatrice pour trouver ou vérifier un résultat
-cycle 3 BO 2020|:|cns|:|A3a*|:|Sens des opérations
-cycle 3 BO 2020|:|cns|:|A3b*|:|Situation de proportionnalité
-cycle 3 BO 2020|:|cns|:|A3c*|:|Propriétés de linéarité (additive et multiplicative)
-cycle 3 BO 2020|:|cns|:|A3d*|:|Coefficient de proportionnalité
-cycle 3 BO 2020|:|cns|:|A3e*|:|Pourcentage
-cycle 3 BO 2020|:|cmp|:|A3a*|:|Résoudre des problèmes à une ou plusieurs étapes mettant en jeu les quatre opérations
-cycle 3 BO 2020|:|cmp|:|A3b*|:|Prélever des données numériques à partir de supports variés. Produire des tableaux, diagrammes et graphiques organisant des données numériques.
-cycle 3 BO 2020|:|cmp|:|A3c*|:|Exploiter et communiquer des résultats de mesures.
-cycle 3 BO 2020|:|cmp|:|A3d*|:|Lire ou construire des représentations de données (tableaux, diagrammes en bâtons, circulaires ou semi-circulaires, graphiques cartésiens)
-cycle 3 BO 2020|:|cmp|:|A3e*|:|Organiser des données issues d'autre enseignements en vue de les traiter
-cycle 3 BO 2020|:|cmp|:|A3f*|:|Appliquer un pourcentage
-cycle 3 BO 2020|:|cns|:|B1a*|:|notion de longueur : cas particulier du périmètre
-cycle 3 BO 2020|:|cns|:|B1b*|:|unités relatives aux longueurs : relations entre les unités de longueur et les unités de numération
-cycle 3 BO 2020|:|cns|:|B1c*|:|formule du périmètre d'un carré, d'un rectangle
-cycle 3 BO 2020|:|cns|:|B1d*|:|formule de la longueur d'un cercle
-cycle 3 BO 2020|:|cns|:|B1e*|:|unités usuelles d'aire et leur relations : multiples et sous multiples du m$^2$
-cycle 3 BO 2020|:|cns|:|B1f*|:|formule de l'aire d'un carré
-cycle 3 BO 2020|:|cns|:|B1g*|:|formule de l'aire d'un rectangle
-cycle 3 BO 2020|:|cns|:|B1h*|:|formule de l'aire d'un triangle
-cycle 3 BO 2020|:|cns|:|B1i*|:|formule de l'aire d'un disque
-cycle 3 BO 2020|:|cns|:|B1j*|:|unités usuelles de contenance (multiples et sous multiples du litre)
-cycle 3 BO 2020|:|cns|:|B1k*|:|unités usuelles de volume (cm$^3$, dm$^3$, m$^3$), relations entre ces unités
-cycle 3 BO 2020|:|cns|:|B1l*|:|formules du volume d'un cube, d'un pavé droit
-cycle 3 BO 2020|:|cns|:|B1m*|:|notion d'angle
-cycle 3 BO 2020|:|cns|:|B1n*|:|lexique associé aux angles : angle droit, aigu, obtus
-cycle 3 BO 2020|:|cns|:|B1o*|:|mesure en degré d'un angle
-cycle 3 BO 2020|:|cmp|:|B1a*|:|Comparer des périmètres avec ou sans recours à la mesure
-cycle 3 BO 2020|:|cmp|:|B1b*|:|Calculer le périmètre d'un polygone en ajoutant les longueurs des côtés
-cycle 3 BO 2020|:|cmp|:|B1c*|:|Calculer le périmètre d'un carré et d'un rectangle, la longueur d'un cercle, en utilisant la formule
-cycle 3 BO 2020|:|cmp|:|B1d*|:|Comparer des surfaces selon leurs aires sans avoir recours à la mesure, par superposition ou par découpage et recollement
-cycle 3 BO 2020|:|cmp|:|B1e*|:|Différencier périmètre et aire d'une figure
-cycle 3 BO 2020|:|cmp|:|B1f*|:|Estimer la mesure d'une aire et l'exprimer avec une unité adaptée
-cycle 3 BO 2020|:|cmp|:|B1g*|:|Déterminer la mesure de d'aire d'une surface à partir d'un pavage simple ou en utilisant une formule
-cycle 3 BO 2020|:|cmp|:|B1h*|:|Relier les unités de volume et de contenance
-cycle 3 BO 2020|:|cmp|:|B1i*|:|Estimer la mesure d'un volume ou d'une contenance par différentes procédures (transvasements, appréciation de l'ordre de grandeur) et l'exprimer dans une unité adaptée
-cycle 3 BO 2020|:|cmp|:|B1j*|:|Déterminer le volume d'un pavé droit en se rapportant à un dénombrement d'unités (cubes de taille adaptée ou en utilisant une formule)
-cycle 3 BO 2020|:|cmp|:|B1k*|:|Identifier des angles dans une figures géométrique
-cycle 3 BO 2020|:|cmp|:|B1l*|:|Comparer des angles, en ayant ou non recours à leur mesure (par superposition, avec un calque)
-cycle 3 BO 2020|:|cmp|:|B1m*|:|Reproduire un angle donné en utilisant un gabarit
-cycle 3 BO 2020|:|cmp|:|B1n*|:|Estimer qu'un angle est droit, aigu ou obtus
-cycle 3 BO 2020|:|cmp|:|B1o*|:|Utiliser l'équerre pour vérifier qu'un angle est droit, aigu ou obtus, ou pour construire un angle droit
-cycle 3 BO 2020|:|cmp|:|B1p*|:|Utiliser le rapporteur pour déterminer la mesure en degré d'un angle
-cycle 3 BO 2020|:|cmp|:|B1q*|:|Construire un angle de mesure donnée en degrés
-cycle 3 BO 2020|:|cns|:|B2a*|:|unités de mesures usuelles : jour, semaine, heure, minute, seconde, dixième de seconde, mois, année, siècle, millénaire
-cycle 3 BO 2020|:|cmp|:|B2a*|:|Résoudre des problèmes de comparaison avec et sans recours à la mesure
-cycle 3 BO 2020|:|cmp|:|B2b*|:|Résoudre des problèmes dont la résolution mobilise simultanément des unités différentes de mesure et/ou des conversions
-cycle 3 BO 2020|:|cmp|:|B2c*|:|Calculer des périmètres, des aires ou des volumes, en mobilisant ou non, selon les cas, des formules
-cycle 3 BO 2020|:|cmp|:|B2d*|:|Calculer la durée écoulée entre deux instants donnés
-cycle 3 BO 2020|:|cmp|:|B2e*|:|Déterminer un intant à partir de la connaissance d'un instant et d'une durée
-cycle 3 BO 2020|:|cmp|:|B2f*|:|Connaître et utiliser les unités de mesure des durées et leurs relations
-cycle 3 BO 2020|:|cmp|:|B2g*|:|Résoudre des problèmes en, exploitant des ressources variées (horaires de transport, horaires de marées, programmes de cinéma ou de télévision, etc.)
-cycle 3 BO 2020|:|cmp|:|B2h*|:|Identifier une situation de proportionnalité entre deux grandeurs à partir du sens de la situation.
-cycle 3 BO 2020|:|cmp|:|B2i*|:|Résoudre un problème de proportionnalité impliquant des grandeurs.
-cycle 3 BO 2020|:|cns|:|C1a*|:|vocabulaire permettant de définir des positions et des déplacements (tourner à gauche, à droite ; faire demi-tour, effectuer un quart de tour à droite, à gauche)
-cycle 3 BO 2020|:|cns|:|C1b*|:|divers modes de représentation de l'espace : maquettes, plans, schémas
-cycle 3 BO 2020|:|cmp|:|C1a*|:|Se repérer, décrire ou exécuter des déplacements, sur un plan ou sur une carte
-cycle 3 BO 2020|:|cmp|:|C1b*|:|Accomplir, décrire, coder des déplacements dans des espaces familiers
-cycle 3 BO 2020|:|cmp|:|C1c*|:|Programmer les déplacements d'un robot ou ceux d'un personnage sur un écran en utilisant un logiciel de programmation
-cycle 3 BO 2020|:|cns|:|C2a*|:|triangles, triangle rectangle, triangle isocèle, triangle équilatéral
-cycle 3 BO 2020|:|cns|:|C2b*|:|quadrilatères (carré, rectangle, losange, première approche du parallélogramme)
-cycle 3 BO 2020|:|cns|:|C2c*|:|cercle, disque
-cycle 3 BO 2020|:|cns|:|C2d*|:|polygone, côté, sommet, angle, diagonale
-cycle 3 BO 2020|:|cns|:|C2e*|:|centre, rayon, diamètre
-cycle 3 BO 2020|:|cns|:|C2f*|:|milieu d'un segment
-cycle 3 BO 2020|:|cns|:|C2g*|:|hauteur, face, arête
-cycle 3 BO 2020|:|cmp|:|C2a*|:|Reconnaître, nommer, décrire des figures simples ou complexes
-cycle 3 BO 2020|:|cmp|:|C2b*|:|Reconnaître, nommer, décrire des solides simples ou complexes : cube, pavé droit, prisme droit, pyramide, cylindre, cône, boule
-cycle 3 BO 2020|:|cmp|:|C2c*|:|Reproduire, représenter, construire des figures simples ou complexes
-cycle 3 BO 2020|:|cmp|:|C2d*|:|Reproduire, représenter, construire des solides simples ou complexes
-cycle 3 BO 2020|:|cmp|:|C2e*|:|Réaliser, compléter et rédiger un programme de construction d'une figure plane
-cycle 3 BO 2020|:|cmp|:|C2f*|:|Réaliser une figure plane simple ou une figure complexe à l'aide d'un logiciel de géométrie dynamique
-cycle 3 BO 2020|:|cns|:|C3a*|:|alignement, appartenance
-cycle 3 BO 2020|:|cns|:|C3b*|:|perpendicularité, parallélisme
-cycle 3 BO 2020|:|cns|:|C3c*|:|segment de droite
-cycle 3 BO 2020|:|cns|:|C3d*|:|distance entre deux points, entre un point et une droite
-cycle 3 BO 2020|:|cns|:|C3e*|:|figure symétrique, axe de symétrie d'une figure, figures symétriques par rapport à une droite
-cycle 3 BO 2020|:|cns|:|C3f*|:|propriétés de conservation de la symétrie axiale
-cycle 3 BO 2020|:|cns|:|C3g*|:|médiatrice d'un segment : définition
-cycle 3 BO 2020|:|cns|:|C3h*|:|médiatrice d'un segment : ensemble des points équidistants des extrémités du segment
-cycle 3 BO 2020|:|cns|:|C3i*|:|agrandissement ou réduction d'une figure
-cycle 3 BO 2020|:|cmp|:|C3a*|:|tracer avec l'équerre la droite perpendiculaire à une droite donnée passant par un point donné
-cycle 3 BO 2020|:|cmp|:|C3b*|:|tracer avec la règle et l'équerre la droite parallèle à une droite donné
-cycle 3 BO 2020|:|cmp|:|C3c*|:|déterminer le plus court chemin entre un point et une droite
-cycle 3 BO 2020|:|cmp|:|C3d*|:|compléter une figure par symétrie axiale
-cycle 3 BO 2020|:|cmp|:|C3e*|:|construire le symétrique d'un point, d'un segment, d'une droite par rapport à un axe donné
-cycle 3 BO 2020|:|cmp|:|C3f*|:|reproduire une figure en respectant une échelle donnée
+cycle_3_BO_2020|:|cns|:|A1a*|:|Entiers naturels
+cycle_3_BO_2020|:|cns|:|A1a1|:|Connaître les unités de la numération décimale pour les nombres entiers (unités simples, dizaines, centaines, milliers, millions, milliards)
+cycle_3_BO_2020|:|cns|:|A1a2|:|Connaître les relations qui lient les unités de la numération décimale pour les nombres entiers
+cycle_3_BO_2020|:|cns|:|A1b*|:|Fractions
+cycle_3_BO_2020|:|cns|:|A1b1|:|Connaître diverses désignations des fractions : orales, écrites et décompositions additives et multiplicatives
+cycle_3_BO_2020|:|cns|:|A1b2|:|Connaître des égalités entre des fractions usuelles
+cycle_3_BO_2020|:|cns|:|A1b3|:|Connaître et utiliser quelques fractions simples comme opérateur de partage en faisant le lien entre les formulations en langage courant et leur écriture mathématique
+cycle_3_BO_2020|:|cns|:|A1c*|:|Nombres décimaux
+cycle_3_BO_2020|:|cns|:|A1c1|:|Connaître les unités de la numération décimale (unités simples, dixièmes, centièmes, millièmes) et les relations qui les lient.
+cycle_3_BO_2020|:|cns|:|A1c2|:|Connaître et utiliser diverses désignations orales et écrites d'un nombre décimal (fractions décimales, écritures décimale, décompositions additives et multiplicatives)
+cycle_3_BO_2020|:|cns|:|A1c3|:|Connaître le lien entre les unités de numération et les unités de mesure
+cycle_3_BO_2020|:|cmp|:|A1a*|:|Entiers naturels
+cycle_3_BO_2020|:|cmp|:|A1a1|:|Composer, décomposer les grands nombres entiers, en utilisant des regroupement par milliers
+cycle_3_BO_2020|:|cmp|:|A1a2|:|Comprendre et appliquer les règles de la numérations décimale de position aux grands nombres entiers (jusqu'à 12 chiffres)
+cycle_3_BO_2020|:|cmp|:|A1a3|:|Comparer, ranger, encadrer des grands nombres entiers
+cycle_3_BO_2020|:|cmp|:|A1a4|:|Repérer et placer des grands nombres entiers et les placer sur une demi-droite graduée adaptée
+cycle_3_BO_2020|:|cmp|:|A1b*|:|Fractions
+cycle_3_BO_2020|:|cmp|:|A1b1|:|Utiliser des fractions pour rendre compte de partages de grandeurs ou de mesures de grandeurs
+cycle_3_BO_2020|:|cmp|:|A1b2|:|Repérer et placer des fractions sur une demi-droite graduée adaptée
+cycle_3_BO_2020|:|cmp|:|A1b3|:|Encadrer une fraction par deux nombres entiers consécutifs
+cycle_3_BO_2020|:|cmp|:|A1b4|:|Comparer deux fractions de même dénominateur
+cycle_3_BO_2020|:|cmp|:|A1b5|:|Écrire une fraction sous la forme de somme d'un entier et d'une fraction inférieure à 1
+cycle_3_BO_2020|:|cmp|:|A1b6|:|Utiliser des fractions pour exprimer un quotient
+cycle_3_BO_2020|:|cmp|:|A1c*|:|Nombres décimaux
+cycle_3_BO_2020|:|cmp|:|A1c1|:|Comprendre et appliquer aux nombres décimaux les règles de la numération décimale de position
+cycle_3_BO_2020|:|cmp|:|A1c2|:|Utiliser les nombres décimaux pour rendre compte de mesures de grandeurs
+cycle_3_BO_2020|:|cmp|:|A1c3|:|Repérer et placer un nombre décimal sur une demi-droite graduée adaptée
+cycle_3_BO_2020|:|cmp|:|A1c4|:|Comparer, ranger des nombres décimaux
+cycle_3_BO_2020|:|cmp|:|A1c5|:|Encadrer un nombre décimal par deux nombres entiers ou deux nombres décimaux
+cycle_3_BO_2020|:|cmp|:|A1c6|:|Intercaler des nombres décimaux entre deux nombres donnés
+cycle_3_BO_2020|:|cns|:|A2a*|:|Tables de multiplications de 0 à 10
+cycle_3_BO_2020|:|cns|:|A2b*|:|Connaître les multiples de 25 et de 50
+cycle_3_BO_2020|:|cns|:|A2c*|:|Connaître les diviseurs de 100
+cycle_3_BO_2020|:|cns|:|A2d*|:|Connaître des procédures élémentaires de calcul
+cycle_3_BO_2020|:|cns|:|A2d1|:|Multiplier ou diviser un nombre décimal par 10, 100 ou 1000
+cycle_3_BO_2020|:|cns|:|A2d2|:|Rechercher le complément à l'entier supérieur
+cycle_3_BO_2020|:|cns|:|A2d3|:|Multiplier par 5, par 25, par 50
+cycle_3_BO_2020|:|cns|:|A2d4|:|Multiplier par 0,1 par 0,5
+cycle_3_BO_2020|:|cns|:|A2e*|:|Connaître les propriéts de l'additions, de la soustraction et de la multiplication
+cycle_3_BO_2020|:|cns|:|A2e1|:|Commutativité de l'addition
+cycle_3_BO_2020|:|cns|:|A2e2|:|Commutativité de la multiplication
+cycle_3_BO_2020|:|cns|:|A2e3|:|Associativité de l'addition
+cycle_3_BO_2020|:|cns|:|A2e4|:|Associativité de la multiplication
+cycle_3_BO_2020|:|cns|:|A2e5|:|Distributivité de la multiplication par rapport à l'addition
+cycle_3_BO_2020|:|cns|:|A2f*|:|Connaître les critères de divisibilité par 2, 3, 5, 9 et 10
+cycle_3_BO_2020|:|cns|:|A2g*|:|Dans un calcul en ligne, utiliser des parenthèses pour indiquer ou respecter une chronologie dans les calculs.
+cycle_3_BO_2020|:|cns|:|A2h*|:|Calcul posé
+cycle_3_BO_2020|:|cns|:|A2h1|:|Algorithme de l'addition de nombres entiers
+cycle_3_BO_2020|:|cns|:|A2h2|:|Algorithme de l'addition de nombres décimaux
+cycle_3_BO_2020|:|cns|:|A2h3|:|Algorithme de la soustraction de nombres entiers
+cycle_3_BO_2020|:|cns|:|A2h4|:|Algorithme de la soustraction de nombres décimaux
+cycle_3_BO_2020|:|cns|:|A2h5|:|Algorithme de la multiplication de nombres entiers
+cycle_3_BO_2020|:|cns|:|A2h6|:|Algorithme de la multiplication de nombres décimaux
+cycle_3_BO_2020|:|cns|:|A2h7|:|Algorithme de division euclidienne d'un entier par un entier
+cycle_3_BO_2020|:|cns|:|A2h8|:|Algorithme de division décimale d'un nombre décimal par un nombre entier
+cycle_3_BO_2020|:|cmp|:|A2a*|:|Utiliser ces propriétés et procédures pour élaborer et mettre en oeuvre des stratégies de calcul
+cycle_3_BO_2020|:|cmp|:|A2b*|:|Vérifier la vraisemblance d'un résultat, notamment en estimant un ordre de grandeur
+cycle_3_BO_2020|:|cmp|:|A2c*|:|Utiliser une calculatrice pour trouver ou vérifier un résultat
+cycle_3_BO_2020|:|cns|:|A3a*|:|Sens des opérations
+cycle_3_BO_2020|:|cns|:|A3b*|:|Situation de proportionnalité
+cycle_3_BO_2020|:|cns|:|A3c*|:|Propriétés de linéarité (additive et multiplicative)
+cycle_3_BO_2020|:|cns|:|A3d*|:|Coefficient de proportionnalité
+cycle_3_BO_2020|:|cns|:|A3e*|:|Pourcentage
+cycle_3_BO_2020|:|cmp|:|A3a*|:|Résoudre des problèmes à une ou plusieurs étapes mettant en jeu les quatre opérations
+cycle_3_BO_2020|:|cmp|:|A3b*|:|Prélever des données numériques à partir de supports variés. Produire des tableaux, diagrammes et graphiques organisant des données numériques.
+cycle_3_BO_2020|:|cmp|:|A3c*|:|Exploiter et communiquer des résultats de mesures.
+cycle_3_BO_2020|:|cmp|:|A3d*|:|Lire ou construire des représentations de données (tableaux, diagrammes en bâtons, circulaires ou semi-circulaires, graphiques cartésiens)
+cycle_3_BO_2020|:|cmp|:|A3e*|:|Organiser des données issues d'autre enseignements en vue de les traiter
+cycle_3_BO_2020|:|cmp|:|A3f*|:|Appliquer un pourcentage
+cycle_3_BO_2020|:|cns|:|B1a*|:|notion de longueur : cas particulier du périmètre
+cycle_3_BO_2020|:|cns|:|B1b*|:|unités relatives aux longueurs : relations entre les unités de longueur et les unités de numération
+cycle_3_BO_2020|:|cns|:|B1c*|:|formule du périmètre d'un carré, d'un rectangle
+cycle_3_BO_2020|:|cns|:|B1d*|:|formule de la longueur d'un cercle
+cycle_3_BO_2020|:|cns|:|B1e*|:|unités usuelles d'aire et leur relations : multiples et sous multiples du m$^2$
+cycle_3_BO_2020|:|cns|:|B1f*|:|formule de l'aire d'un carré
+cycle_3_BO_2020|:|cns|:|B1g*|:|formule de l'aire d'un rectangle
+cycle_3_BO_2020|:|cns|:|B1h*|:|formule de l'aire d'un triangle
+cycle_3_BO_2020|:|cns|:|B1i*|:|formule de l'aire d'un disque
+cycle_3_BO_2020|:|cns|:|B1j*|:|unités usuelles de contenance (multiples et sous multiples du litre)
+cycle_3_BO_2020|:|cns|:|B1k*|:|unités usuelles de volume (cm$^3$, dm$^3$, m$^3$), relations entre ces unités
+cycle_3_BO_2020|:|cns|:|B1l*|:|formules du volume d'un cube, d'un pavé droit
+cycle_3_BO_2020|:|cns|:|B1m*|:|notion d'angle
+cycle_3_BO_2020|:|cns|:|B1n*|:|lexique associé aux angles : angle droit, aigu, obtus
+cycle_3_BO_2020|:|cns|:|B1o*|:|mesure en degré d'un angle
+cycle_3_BO_2020|:|cmp|:|B1a*|:|Comparer des périmètres avec ou sans recours à la mesure
+cycle_3_BO_2020|:|cmp|:|B1b*|:|Calculer le périmètre d'un polygone en ajoutant les longueurs des côtés
+cycle_3_BO_2020|:|cmp|:|B1c*|:|Calculer le périmètre d'un carré et d'un rectangle, la longueur d'un cercle, en utilisant la formule
+cycle_3_BO_2020|:|cmp|:|B1d*|:|Comparer des surfaces selon leurs aires sans avoir recours à la mesure, par superposition ou par découpage et recollement
+cycle_3_BO_2020|:|cmp|:|B1e*|:|Différencier périmètre et aire d'une figure
+cycle_3_BO_2020|:|cmp|:|B1f*|:|Estimer la mesure d'une aire et l'exprimer avec une unité adaptée
+cycle_3_BO_2020|:|cmp|:|B1g*|:|Déterminer la mesure de d'aire d'une surface à partir d'un pavage simple ou en utilisant une formule
+cycle_3_BO_2020|:|cmp|:|B1h*|:|Relier les unités de volume et de contenance
+cycle_3_BO_2020|:|cmp|:|B1i*|:|Estimer la mesure d'un volume ou d'une contenance par différentes procédures (transvasements, appréciation de l'ordre de grandeur) et l'exprimer dans une unité adaptée
+cycle_3_BO_2020|:|cmp|:|B1j*|:|Déterminer le volume d'un pavé droit en se rapportant à un dénombrement d'unités (cubes de taille adaptée ou en utilisant une formule)
+cycle_3_BO_2020|:|cmp|:|B1k*|:|Identifier des angles dans une figures géométrique
+cycle_3_BO_2020|:|cmp|:|B1l*|:|Comparer des angles, en ayant ou non recours à leur mesure (par superposition, avec un calque)
+cycle_3_BO_2020|:|cmp|:|B1m*|:|Reproduire un angle donné en utilisant un gabarit
+cycle_3_BO_2020|:|cmp|:|B1n*|:|Estimer qu'un angle est droit, aigu ou obtus
+cycle_3_BO_2020|:|cmp|:|B1o*|:|Utiliser l'équerre pour vérifier qu'un angle est droit, aigu ou obtus, ou pour construire un angle droit
+cycle_3_BO_2020|:|cmp|:|B1p*|:|Utiliser le rapporteur pour déterminer la mesure en degré d'un angle
+cycle_3_BO_2020|:|cmp|:|B1q*|:|Construire un angle de mesure donnée en degrés
+cycle_3_BO_2020|:|cns|:|B2a*|:|unités de mesures usuelles : jour, semaine, heure, minute, seconde, dixième de seconde, mois, année, siècle, millénaire
+cycle_3_BO_2020|:|cmp|:|B2a*|:|Résoudre des problèmes de comparaison avec et sans recours à la mesure
+cycle_3_BO_2020|:|cmp|:|B2b*|:|Résoudre des problèmes dont la résolution mobilise simultanément des unités différentes de mesure et/ou des conversions
+cycle_3_BO_2020|:|cmp|:|B2c*|:|Calculer des périmètres, des aires ou des volumes, en mobilisant ou non, selon les cas, des formules
+cycle_3_BO_2020|:|cmp|:|B2d*|:|Calculer la durée écoulée entre deux instants donnés
+cycle_3_BO_2020|:|cmp|:|B2e*|:|Déterminer un intant à partir de la connaissance d'un instant et d'une durée
+cycle_3_BO_2020|:|cmp|:|B2f*|:|Connaître et utiliser les unités de mesure des durées et leurs relations
+cycle_3_BO_2020|:|cmp|:|B2g*|:|Résoudre des problèmes en, exploitant des ressources variées (horaires de transport, horaires de marées, programmes de cinéma ou de télévision, etc.)
+cycle_3_BO_2020|:|cmp|:|B2h*|:|Identifier une situation de proportionnalité entre deux grandeurs à partir du sens de la situation.
+cycle_3_BO_2020|:|cmp|:|B2i*|:|Résoudre un problème de proportionnalité impliquant des grandeurs.
+cycle_3_BO_2020|:|cns|:|C1a*|:|vocabulaire permettant de définir des positions et des déplacements (tourner à gauche, à droite ; faire demi-tour, effectuer un quart de tour à droite, à gauche)
+cycle_3_BO_2020|:|cns|:|C1b*|:|divers modes de représentation de l'espace : maquettes, plans, schémas
+cycle_3_BO_2020|:|cmp|:|C1a*|:|Se repérer, décrire ou exécuter des déplacements, sur un plan ou sur une carte
+cycle_3_BO_2020|:|cmp|:|C1b*|:|Accomplir, décrire, coder des déplacements dans des espaces familiers
+cycle_3_BO_2020|:|cmp|:|C1c*|:|Programmer les déplacements d'un robot ou ceux d'un personnage sur un écran en utilisant un logiciel de programmation
+cycle_3_BO_2020|:|cns|:|C2a*|:|triangles, triangle rectangle, triangle isocèle, triangle équilatéral
+cycle_3_BO_2020|:|cns|:|C2b*|:|quadrilatères (carré, rectangle, losange, première approche du parallélogramme)
+cycle_3_BO_2020|:|cns|:|C2c*|:|cercle, disque
+cycle_3_BO_2020|:|cns|:|C2d*|:|polygone, côté, sommet, angle, diagonale
+cycle_3_BO_2020|:|cns|:|C2e*|:|centre, rayon, diamètre
+cycle_3_BO_2020|:|cns|:|C2f*|:|milieu d'un segment
+cycle_3_BO_2020|:|cns|:|C2g*|:|hauteur, face, arête
+cycle_3_BO_2020|:|cmp|:|C2a*|:|Reconnaître, nommer, décrire des figures simples ou complexes
+cycle_3_BO_2020|:|cmp|:|C2b*|:|Reconnaître, nommer, décrire des solides simples ou complexes : cube, pavé droit, prisme droit, pyramide, cylindre, cône, boule
+cycle_3_BO_2020|:|cmp|:|C2c*|:|Reproduire, représenter, construire des figures simples ou complexes
+cycle_3_BO_2020|:|cmp|:|C2d*|:|Reproduire, représenter, construire des solides simples ou complexes
+cycle_3_BO_2020|:|cmp|:|C2e*|:|Réaliser, compléter et rédiger un programme de construction d'une figure plane
+cycle_3_BO_2020|:|cmp|:|C2f*|:|Réaliser une figure plane simple ou une figure complexe à l'aide d'un logiciel de géométrie dynamique
+cycle_3_BO_2020|:|cns|:|C3a*|:|alignement, appartenance
+cycle_3_BO_2020|:|cns|:|C3b*|:|perpendicularité, parallélisme
+cycle_3_BO_2020|:|cns|:|C3c*|:|segment de droite
+cycle_3_BO_2020|:|cns|:|C3d*|:|distance entre deux points, entre un point et une droite
+cycle_3_BO_2020|:|cns|:|C3e*|:|figure symétrique, axe de symétrie d'une figure, figures symétriques par rapport à une droite
+cycle_3_BO_2020|:|cns|:|C3f*|:|propriétés de conservation de la symétrie axiale
+cycle_3_BO_2020|:|cns|:|C3g*|:|médiatrice d'un segment : définition
+cycle_3_BO_2020|:|cns|:|C3h*|:|médiatrice d'un segment : ensemble des points équidistants des extrémités du segment
+cycle_3_BO_2020|:|cns|:|C3i*|:|agrandissement ou réduction d'une figure
+cycle_3_BO_2020|:|cmp|:|C3a*|:|tracer avec l'équerre la droite perpendiculaire à une droite donnée passant par un point donné
+cycle_3_BO_2020|:|cmp|:|C3b*|:|tracer avec la règle et l'équerre la droite parallèle à une droite donné
+cycle_3_BO_2020|:|cmp|:|C3c*|:|déterminer le plus court chemin entre un point et une droite
+cycle_3_BO_2020|:|cmp|:|C3d*|:|compléter une figure par symétrie axiale
+cycle_3_BO_2020|:|cmp|:|C3e*|:|construire le symétrique d'un point, d'un segment, d'une droite par rapport à un axe donné
+cycle_3_BO_2020|:|cmp|:|C3f*|:|reproduire une figure en respectant une échelle donnée

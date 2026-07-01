@@ -12,11 +12,11 @@
             "open"
         ]
     },
-    "paths": {
-        "cycle 3 BO 2026": [
+    "paths_candidates": {
+        "cycle_3_BO_2026": [
             "data/latex/codes_labels/BO_2026.tex"
         ],
-        "cycle 4 BO 2026": [
+        "cycle_4_BO_2026": [
             "data/latex/codes_labels/BO_2026.tex"
         ],
         "katex": [
@@ -27,19 +27,19 @@
             "./data/latex/",
             ".\\data\\latex\\"
         ],
-        "code index": [
+        "code_index": [
             "./data/latex/catalogues/",
             ".\\data\\latex\\catalogues\\"
         ],
-        "code labels": [
+        "code_labels": [
             "./data/latex/codes_labels/",
             ".\\data\\latex\\codes_labels\\"
         ],
-        "progression export path": [
+        "sequencages": [
             "./data/latex/sequencages/",
             ".\\data\\latex\\sequencages\\"
         ],
-        "progression import path": [
+        "progression": [
             "./data/progressions/",
             ".\\data\\progressions\\"
         ],
@@ -48,36 +48,37 @@
             ".\\data\\texmf\\"
         ]
     },
-    "catalogues":{
-        "cmpsocle":{
+    "catalogues": {
+        "cmpsocle": {
             "name": "Compétences du socle",
-            "tex file name": "BO_competences_evaluees.tex",
-            "sty file name": "texmaths-cmpeval.sty"
+            "tex_file_name": "BO_competences_evaluees.tex",
+            "sty_file_name": "texmaths-cmpeval.sty",
+            "types": []
         },
-        "cycle 3 BO 2020":{
+        "cycle_3_BO_2020": {
             "name": "Cycle 3 BO 2020",
-            "tex file name": "BO_competences-cycle3-BO_2020.tex",
-            "sty file name": "texmaths-cycle3-BO_2020.sty",
+            "tex_file_name": "BO_competences-cycle3-BO_2020.tex",
+            "sty_file_name": "texmaths-cycle3-BO_2020.sty",
             "types": [
                 "cns",
                 "cmp",
                 "sea"
             ]
         },
-        "cycle 4 BO 2020":{
+        "cycle_4_BO_2020": {
             "name": "Cycle 4 BO 2020",
-            "tex file name": "BO_competences-cycle4-BO_2020.tex",
-            "sty file name": "texmaths-cycle4-BO_2020.sty",
+            "tex_file_name": "BO_competences-cycle4-BO_2020.tex",
+            "sty_file_name": "texmaths-cycle4-BO_2020.sty",
             "types": [
                 "cns",
                 "cmp",
                 "sea"
             ]
         },
-        "cycle 3 BO 2026":{
+        "cycle_3_BO_2026": {
             "name": "Cycle 3 BO 2026",
-            "tex file name": "BO_2026.tex",
-            "sty file name": "texmaths-BO_2026.sty",
+            "tex_file_name": "BO_2026.tex",
+            "sty_file_name": "texmaths-BO_2026.sty",
             "types": [
                 "aut",
                 "obj",
@@ -85,10 +86,10 @@
                 "sea"
             ]
         },
-        "cycle 4 BO 2026":{
+        "cycle_4_BO_2026": {
             "name": "Cycle 4 BO 2026",
-            "tex file name": "BO_2026.tex",
-            "sty file name": "texmaths-BO_2026.sty",
+            "tex_file_name": "BO_2026.tex",
+            "sty_file_name": "texmaths-BO_2026.sty",
             "types": [
                 "aut",
                 "obj",
@@ -98,8 +99,9 @@
         },
         "src": {
             "name": "Sources",
-            "tex file name": "Sources.tex",
-            "sty file name": "texmaths-sources.sty"
+            "tex_file_name": "Sources.tex",
+            "sty_file_name": "texmaths-sources.sty",
+            "types": []
         }
     },
     "codes": {
@@ -113,7 +115,7 @@
         "sea": "Séances"
     },
     "settings": {
-        "main window title": "Assistant de progression",
+        "main_window_title": "Assistant de progression",
         "themes": {
             "VSCode Dark": {
                 "bg": "#1e1e1e",
@@ -177,7 +179,7 @@
             }
         },
         "current": {
-            "theme": "VSCode Dark",
+            "theme": "Fusion Crimson",
             "code": "Cycle 4 BO 2026"
         }
     }
