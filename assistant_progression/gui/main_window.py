@@ -344,12 +344,23 @@ class MainWindow(QWidget):
         theme_menu.aboutToShow.connect(self.begin_theme_preview)
         theme_menu.aboutToHide.connect(self.end_theme_preview)
 
+        open_catalogue_menu = QMenu("Ouvrir un catalogue", self)
+        for catalogue in self.catalogue_service.get_catalogue_names():
+            action = QAction(catalogue, self)
+            action.triggered.connect(
+                lambda checked=False, name=catalogue:
+                self.catalogue_service.open_catalogue_package(
+                    name, self.paths.texmf, self.config
+                    )
+            )
+            open_catalogue_menu.addAction(action)
+
         param_menu_action = QAction("Paramètres", self)
         edit_menu.addAction(param_menu_action)
         param_menu_action.triggered.connect(
             self.persistence_service.open_config_file
         )
-        
+
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
 
@@ -393,6 +404,7 @@ class MainWindow(QWidget):
             )
 
         edit_menu.addMenu(theme_menu)
+        edit_menu.addMenu(open_catalogue_menu)
         menu_bar.addMenu(file_menu)
         menu_bar.addMenu(edit_menu)
         menu_bar.addMenu(update_menu)
@@ -511,6 +523,18 @@ class MainWindow(QWidget):
             "Info",
             f"Updated code index at {self.paths.code_index_file}"
         )
+    
+    def open_catalogue(self, name):
+        catalogue = self.catalogue_service.get_catalogue_from_name(name)
+        # print(self.paths.texmf.catalogue.sty_file_name)
+        if catalogue:
+            self.catalogue_service.open_catalogue(catalogue.name)
+        else:
+            QMessageBox.warning(
+                self,
+                "Warning",
+                f"Catalogue '{name}' not found."
+            )
 
     @record_undo
     def add_chapter(self):

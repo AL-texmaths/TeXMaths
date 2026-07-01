@@ -1,5 +1,10 @@
 import re
+import subprocess
+from pathlib import Path
 from assistant_progression.models.entry import Entry, Catalogue
+from assistant_progression.utils.resolve import resolve_executable
+from assistant_progression.models.config import Config
+
 
 class CatalogueService:
 
@@ -28,6 +33,27 @@ class CatalogueService:
                 return catalogue
         return None
     
+    def get_catalogue_names(self) -> list:
+        return sorted(
+            [catalogue.name for catalogue in self.catalogues.values()]
+        )
+    
+    def open_catalogue_package(self, name: str, texmf_dir: Path, config:Config):
+
+        catalogue = self.get_catalogue_from_name(name)
+        if not catalogue:
+            print(f"Catalogue '{name}' not found.")
+            return
+
+        sty_file_name = catalogue.sty_file_name
+        package_path = next(texmf_dir.rglob(sty_file_name), None)
+
+        if package_path is None:
+            print(f"Fichier introuvable {sty_file_name} dans {texmf_dir}")
+        else:
+            print(f"Analysing package {sty_file_name} at {package_path}")
+        
+        subprocess.run([resolve_executable("blocnote", config), str(package_path)])
 
     def build_index(self):
 

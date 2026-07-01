@@ -12,14 +12,11 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> chaque catalogue est à présent un dictionnaire, par exemple :
-"cycle 4 BO 2026" : {
-    "name": "Cycle 4 BO 2026",
-    "tex file": "BO_2026.tex",
-    "sty file": "texmaths-BO_2026.sty"
-}
 >>> nouvelle api: ouvrir le catalogue sélectionné avec vscode (pour modification)
->>> enregistrement dans config.json du catalogue précédemment sélectionné
+>>> enregistrement dans config.json (boit current theme) de:
+-- catalogue précédemment sélectionné
+-- type précédemment sélectionné
+-- progression ouverte
 >>> délégation des responsabilités du script assistant de progression
 >>> placer les raccourcis dans un menu "raccourcis"
 ===============================================================================
