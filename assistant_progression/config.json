@@ -48,6 +48,38 @@
             ".\\data\\texmf\\"
         ]
     },
+    "cataloguesNEW":{
+        "cmpsocle":{
+            "name": "Compétences du socle",
+            "tex file name": "BO_competences_evaluees.tex",
+            "sty file name": "texmaths-cmpeval.sty"
+        },
+        "cycle 3 BO 2020":{
+            "name": "Cycle 3 BO 2020",
+            "tex file name": "BO_competences-cycle3-BO_2020.tex",
+            "sty file name": "texmaths-cycle3-BO_2020.sty"
+        },
+        "cycle 4 BO 2020":{
+            "name": "Cycle 4 BO 2020",
+            "tex file name": "BO_competences-cycle4-BO_2020.tex",
+            "sty file name": "texmaths-cycle4-BO_2020.sty"
+        },
+        "cycle 3 BO 2026":{
+            "name": "Cycle 3 BO 2026",
+            "tex file name": "BO_2026.tex",
+            "sty file name": "texmaths-BO_2026.sty"
+        },
+        "cycle 4 BO 2026":{
+            "name": "Cycle 4 BO 2026",
+            "tex file name": "BO_2026.tex",
+            "sty file name": "texmaths-BO_2026.sty"
+        },
+        "src": {
+            "name": "Sources",
+            "tex file name": "Sources.tex",
+            "sty file name": "texmaths-sources.sty"
+        }
+    },
     "catalogues": {
         "packages to check": {
             "BO_2026.tex": [

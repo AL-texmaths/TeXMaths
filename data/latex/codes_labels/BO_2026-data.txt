@@ -328,8 +328,8 @@ cycle 4 BO 2026|:|obj|:|D1be|:|Lire et interpréter un graphique cartésien donn
 cycle 4 BO 2026|:|obj|:|D1bf|:|Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d'une formule.
 cycle 4 BO 2026|:|obj|:|D1bg|:|Produire une formule simple représentant la dépendance de deux grandeurs.
 cycle 4 BO 2026|:|obj|:|D1bh|:|Caractériser graphiquement la proportionnalité.
-cycle 4 BO 2026|:|aut|:|D2aa|:|Déterminer $a$~\% de $c$ quand $a$ vaut 100, 50, 25, 10 ou 1.
-cycle 4 BO 2026|:|aut|:|D2ab|:|Compléter : 20~\% de 120 = $\ldots $ ; $30 = \frac {\ldots }{100} \times 1~000$.
+cycle 4 BO 2026|:|aut|:|D2aa|:|Déterminer $a~\%$ de $c$ quand $a$ vaut 100, 50, 25, 10 ou 1.
+cycle 4 BO 2026|:|aut|:|D2ab|:|Compléter : $20~\%$ de 120 = $\ldots $ ; $30 = \frac {\ldots }{100} \times 1~000$.
 cycle 4 BO 2026|:|obj|:|D2aa|:|Utiliser des grandeurs quotients, avec ou sans unités.
 cycle 4 BO 2026|:|obj|:|D2ab|:|Comparer deux nombres ou deux grandeurs à l'aide de leur rapport ou ratio.
 cycle 4 BO 2026|:|obj|:|D2ac|:|Exprimer la proportionnalité entre deux suites de nombres par des égalités de rapports ou sous forme de ratio.

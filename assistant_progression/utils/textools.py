@@ -79,21 +79,28 @@ def check_code_index_data(logger=print):
         elif data_path.stat().st_mtime < tex_file.stat().st_mtime:
             logger(f"File {data_path} is older than {tex_file}. Recompiling.")
             compile = True
-        elif CONFIG["catalogues"]["packages to check"].get(tex_file.name) is not None:
-            packages = CONFIG["catalogues"]["packages to check"][tex_file.name]
-            for package in packages:
-                logger(f"Checking package {package}")
-                package_path = next(TEX_PACKAGES_DIR.rglob(package), None)
 
-                if package_path is None:
-                    logger(f"Fichier introuvable {package} dans {TEX_PACKAGES_DIR}")
-                else:
-                    logger(f"Analysing package {package} at {package_path}")
+        sty_file_name = None
+        catalogues = CONFIG["cataloguesNEW"]
+        for key in catalogues.keys():
+            catalogue = catalogues[key]
+            if tex_file.name == catalogue.get("tex file name"):
+                sty_file_name = catalogue.get("sty file name")
 
-                if data_path.stat().st_mtime < package_path.stat().st_mtime:
-                    logger(f"File {data_path} is older than package {package_path}. Recompiling.")
-                    compile = True
-                    break
+        if sty_file_name is not None:
+            logger(f"Checking package {sty_file_name}")
+            package_path = next(TEX_PACKAGES_DIR.rglob(sty_file_name), None)
+
+            if package_path is None:
+                logger(f"Fichier introuvable {sty_file_name} dans {TEX_PACKAGES_DIR}")
+            else:
+                logger(f"Analysing package {sty_file_name} at {package_path}")
+
+            if data_path.stat().st_mtime < package_path.stat().st_mtime:
+                logger(f"File {data_path} is older than package {package_path}. Recompiling.")
+                compile = True
+        
+        print(f'compile = {compile} ({sty_file_name})')
 
         if compile:
             result = compile_latex(tex_file, logger=logger)

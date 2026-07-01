@@ -10,9 +10,6 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant de navigation -------------
->>> tous les documents ne devrait pas nécessairement contenir de preview
-ce doit être une clée optionnelle : par defaut elle est ouverte par 
-"load pdf" mais s'il elle n'exsite pas, le document controller fallback sur "pdf"
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
 >>> chaque catalogue est à présent un dictionnaire, par exemple :
@@ -24,6 +21,7 @@ ce doit être une clée optionnelle : par defaut elle est ouverte par
 >>> nouvelle api: ouvrir le catalogue sélectionné avec vscode (pour modification)
 >>> enregistrement dans config.json du catalogue précédemment sélectionné
 >>> délégation des responsabilités du script assistant de progression
+>>> placer les raccourcis dans un menu "raccourcis"
 ===============================================================================
 					Java / html
 ===============================================================================

@@ -499,8 +499,8 @@
             "C3ac": "Calculer l'étendue d'une série.",
             "D1aa": "Reconnaitre si une situation donnée entre dans le cadre de la proportionnalité ou non.",
             "D1ab": "Dans des situations simples, mobiliser une procédure adaptée (propriété de linéarité pour la multiplication ou l'addition, retour à l'unité) pour résoudre un problème lié à la proportionnalité.",
-            "D2aa": "Déterminer $a$~\\% de $c$ quand $a$ vaut 100, 50, 25, 10 ou 1.",
-            "D2ab": "Compléter : 20~\\% de 120 = $\\ldots $ ; $30 = \\frac {\\ldots }{100} \\times 1~000$.",
+            "D2aa": "Déterminer $a~\\%$ de $c$ quand $a$ vaut 100, 50, 25, 10 ou 1.",
+            "D2ab": "Compléter : $20~\\%$ de 120 = $\\ldots $ ; $30 = \\frac {\\ldots }{100} \\times 1~000$.",
             "D3aa": "Partager une somme en deux parts selon un certain ratio.",
             "D3ab": "Partager une masse en trois parts selon un certain ratio.",
             "D3ac": "Partager une somme entre deux personnes proportionnellement à leur âge.",
@@ -1131,6 +1131,7 @@
     "src": {
         "originale": "exercice original",
         "inconnue": "inconnue",
+        "TEST": "test",
         "26GENMATAA1": "DNB Série Générale, Asie, Juin 2026",
         "26GENMATAN1": "DNB Série Générale, Amérique du Nord, Juin 2026",
         "26GENMATG11": "DNB Série Générale, Centres étrangers, Juin 2026",

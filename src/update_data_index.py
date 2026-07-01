@@ -153,8 +153,6 @@ def get_doc_dict(tex_relpath, str_id, doc_type, logger=print):
     if doc_type == 'flash':
         preview_path = str(pdf_path.parent / "previews" / ('preview-' + pdf_path.name))
         ex_dict['preview'] = preview_path.split(':')[1] if ':' in preview_path else preview_path
-    else:
-        ex_dict['preview'] = str(pdf_path).split(':')[1] if ':' in str(pdf_path) else str(pdf_path)
     errors, warns = update_doc_dict(ex_dict, logger=logger)
     return ex_dict, errors, warns
 

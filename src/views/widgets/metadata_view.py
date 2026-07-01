@@ -87,8 +87,6 @@ class MetadataView(QWidget):
         """
         Affiche les métadonnées d'un document.
         """
-        bg_color, fg_color = self._get_palette_colors()
-
         html_parts = []
 
         for key, value in document.items():

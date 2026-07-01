@@ -555,7 +555,7 @@ class RegexPDFSearchApp(QWidget):
     def load_pdf(self, item):
 
         key = item.text()
-        pdf_path = self.document_controller.get_preview_path(key)
+        pdf_path = self.document_controller.get_pdf_path(key)
 
         if not pdf_path.exists():
             QMessageBox.critical(
