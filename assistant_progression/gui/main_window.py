@@ -29,7 +29,6 @@ from PySide6.QtWidgets import (
     QMenuBar,
     QMenu,
     QSplitter,
-    QTreeWidget,
     QFileDialog,
     QMessageBox,
     QDialog,
@@ -422,13 +421,6 @@ class MainWindow(QWidget):
             self.regex_panel.selected_catalogue()
         )
 
-    def get_item_locations_in_progression(self, item):
-        code = item.data(Qt.UserRole).code
-        return self.analysis_service.find_usage_locations(
-            self.progression_panel.progression_tree,
-            code
-        )
-
     @record_undo
     def add_selected_item(self):
 
@@ -440,6 +432,8 @@ class MainWindow(QWidget):
             self.progression_panel.progression_tree,
             entry,
         )
+
+        self.preview_panel.refresh_view()
 
         if item is None:
             QMessageBox.warning(self, "Warning", "Please select a chapter to add the item.")
@@ -474,6 +468,7 @@ class MainWindow(QWidget):
     def delete_selected_item(self):
         self.progression_service.delete_item(self.progression_panel.progression_tree)
         self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
+        self.preview_panel.refresh_view()
 
     def set_theme(self, name):
         self.theme_service.set_theme(name)
