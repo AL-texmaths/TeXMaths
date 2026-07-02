@@ -28,10 +28,10 @@ class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.currentFile = None
         self.context = create_context()
         self.settings = self.context.config.settings
         self.action_manager = ActionManager(self)
+        self.current_file_path = self.context.session_controller.get_current_file()
         self.init_window_and_settings()
         self.init_services()
         self.context.theme_service.apply(self)
@@ -41,11 +41,15 @@ class MainWindow(QWidget):
         self.register_actions()
         self.init_regex_panel()
         self.init_progression_pannel()
+        if self.current_file_path:
+            self.context.document_controller.load(
+                self.progression_panel.progression_tree,
+                self.current_file_path
+            )
         self.init_preview_panel()
         self.init_connect_signals()
         self.init_menu()
         self.init_splitters()
-
         self.update_search()
         self.regex_panel.search_line.setFocus()
 
@@ -62,6 +66,9 @@ class MainWindow(QWidget):
 
         self.regex_panel.catalogue_combo.currentTextChanged.connect(
             self.catalogue_changed
+        )
+        self.regex_panel.type_combo.currentTextChanged.connect(
+            self.type_changed
         )
 
         self.regex_panel.view_mode_combo.currentTextChanged.connect(
@@ -82,7 +89,7 @@ class MainWindow(QWidget):
         self.progression_panel.progression_tree.setFocus()
 
     def init_window_and_settings(self):
-        self.setWindowTitle(self.settings.main_window.title)
+        self.setWindowTitle(self.settings.main_window.title + " - " + self.current_file_path)
         self.resize(
             self.settings.main_window.width,
             self.settings.main_window.height
@@ -106,10 +113,12 @@ class MainWindow(QWidget):
         default_code = self.settings.current.catalogue
         if default_code is None:
             default_code = self.context.catalogue_service.get_catalogue_names()[0]
-        default_label =self.context.code_service.display_name(default_code)
+        default_catalogue_label =self.context.code_service.display_name(default_code)
+    
         self.regex_panel = RegexPanel(
             self.context.search_service,
-            default_label=default_label
+            default_catalogue_label=default_catalogue_label,
+            default_type_label=self.context.session_controller.get_type()
         )
     
     def init_preview_panel(self):
@@ -301,7 +310,14 @@ class MainWindow(QWidget):
 
     def catalogue_changed(self):
         self.update_search()
-        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
+        catalogue_ = self.regex_panel.selected_catalogue()
+        self.progression_panel.update_buttons_state(catalogue_)
+        self.context.session_controller.set_catalogue(catalogue_.name)
+
+    def type_changed(self):
+        self.regex_panel.update_search()
+        type_text = self.regex_panel.type_combo.currentText()
+        self.context.session_controller.set_type(type_text)
 
     def update_search(self):
         self.regex_panel.update_type_filter()
@@ -337,6 +353,7 @@ class MainWindow(QWidget):
             filename,
         ):
             self.preview_panel.refresh_view()
+            self.context.session_controller.set_current_file(filename)
 
     def save_progression(self):
 

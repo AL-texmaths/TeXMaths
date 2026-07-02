@@ -189,9 +189,9 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Tous",
-            "type": null,
-            "current_file": null
+            "catalogue": "Cycle 3 BO 2026",
+            "type": "Objectifs d'apprentissage",
+            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json"
         }
     },
     "actions": {

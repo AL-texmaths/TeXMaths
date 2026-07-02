@@ -4,7 +4,7 @@ class CurrentSettings(BaseModel):
     theme: str
     catalogue: str | None
     type: str | None
-    current_file: str | None
+    current_file_path: str | None
 
     @property
     def size(self) -> tuple[int, int]:

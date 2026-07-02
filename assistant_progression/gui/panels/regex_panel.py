@@ -1,4 +1,5 @@
 # regex_panel.py
+from operator import index
 import re
 from assistant_progression.services.regex_service import SearchLineEdit
 
@@ -14,7 +15,7 @@ class ViewMode:
 
 
 class RegexPanel(QWidget):
-    def __init__(self, search_service, default_label=None):
+    def __init__(self, search_service, default_catalogue_label=None, default_type_label:str|None=None):
         super().__init__()
 
         self.layout = QVBoxLayout()
@@ -22,6 +23,7 @@ class RegexPanel(QWidget):
         self.search_service = search_service
         self.catalogue_combo = QComboBox()
         self.type_combo = QComboBox()
+
         
         self.view_mode_combo = QComboBox()
 
@@ -34,21 +36,31 @@ class RegexPanel(QWidget):
         self.search_line = SearchLineEdit(self.list_widget)
         self.search_line.setPlaceholderText("Regex sur code ou contenu")
 
-        self.search_service.populate_filters(
+        self.search_service.populate_catalogue_combobox(
             self.catalogue_combo
         )
 
-        if default_label is not None:
-            index = self.catalogue_combo.findText(default_label)
+        if default_catalogue_label is not None:
+            catalogue_index = self.catalogue_combo.findText(default_catalogue_label)
         else:
-            index = 0
-        if index >= 0:
-            self.catalogue_combo.setCurrentIndex(index)
+            catalogue_index = 0
+        if catalogue_index >= 0:
+            self.catalogue_combo.setCurrentIndex(catalogue_index)
+
+        self.search_service.populate_type_combobox(
+            self.catalogue_combo,
+            self.type_combo
+        )
+        if default_type_label is not None:
+            type_index = self.type_combo.findText(default_type_label)
+        else:
+            type_index = 0
+        if type_index >= 0:
+            self.type_combo.setCurrentIndex(type_index)
         
         self.build_qvboxlayout()
     
         self.init_signals()
-
         
         self.install_event_filter(self)
     
@@ -69,10 +81,7 @@ class RegexPanel(QWidget):
 
     def init_signals(self):
         self.search_line.textChanged.connect(
-            lambda _: self.update_search()
-        )
-        self.type_combo.currentTextChanged.connect(
-            lambda _: self.update_search()
+            self.update_search
         )
 
     def build_qvboxlayout(self):
@@ -118,7 +127,7 @@ class RegexPanel(QWidget):
         return entries
     
     def update_type_filter(self):
-        self.search_service.update_type_filter(
+        self.search_service.populate_type_combobox(
             self.catalogue_combo,
             self.type_combo
         )

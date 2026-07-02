@@ -29,8 +29,8 @@ class SessionController:
 
     # --- FILE ---
     def set_current_file(self, path: str | None):
-        self.config.settings.current.current_file = path
+        self.config.settings.current.current_file_path = path
         self.persistence.save_config(self.config)
 
     def get_current_file(self):
-        return self.config.settings.current.current_file
+        return self.config.settings.current.current_file_path

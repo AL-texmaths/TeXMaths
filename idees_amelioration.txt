@@ -12,11 +12,6 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> bug: TOUS dans catalogue
->>> enregistrement dans config.json (voir current theme) de:
---> catalogue précédemment sélectionné
---> type précédemment sélectionné
---> progression ouverte
 >>> délégation des responsabilités du script assistant de progression
 ===============================================================================
 					Java / html

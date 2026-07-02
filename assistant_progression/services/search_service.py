@@ -5,7 +5,11 @@ from assistant_progression.services.catalogue_service import CatalogueService, C
 
 class SearchService:
 
-    def __init__(self, code_service: CodeService, catalogue_service: CatalogueService):
+    def __init__(
+            self,
+            code_service: CodeService,
+            catalogue_service: CatalogueService
+            ):
         self.code_service = code_service
         self.catalogue_service = catalogue_service
 
@@ -21,7 +25,7 @@ class SearchService:
             type_combo.currentText()
         )
 
-    def populate_filters(self, catalogue_combo):
+    def populate_catalogue_combobox(self, catalogue_combo):
 
         catalogue_combo.clear()
 
@@ -32,7 +36,7 @@ class SearchService:
             catalogue_combo.addItem(catalogue.name)
             
 
-    def update_type_filter(
+    def populate_type_combobox(
         self,
         catalogue_combo,
         type_combo
@@ -41,6 +45,7 @@ class SearchService:
         current_catalogue = self.selected_catalogue(
             catalogue_combo
         )
+        default_type_label = type_combo.currentText()
 
         type_combo.blockSignals(True)
 
@@ -55,6 +60,9 @@ class SearchService:
                     source_type
                 )
             )
+        
+        type_index = type_combo.findText(default_type_label)
+        type_combo.setCurrentIndex(type_index if type_index >= 0 else 0)
 
         type_combo.blockSignals(False)
 
