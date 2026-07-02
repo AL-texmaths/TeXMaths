@@ -48,14 +48,13 @@ class SearchService:
 
         type_combo.addItem("Tous")
 
-        if current_catalogue is not None:
-            for source_type in current_catalogue.types:
+        for source_type in current_catalogue.types:
 
-                type_combo.addItem(
-                    self.code_service.display_name(
-                        source_type
-                    )
+            type_combo.addItem(
+                self.code_service.display_name(
+                    source_type
                 )
+            )
 
         type_combo.blockSignals(False)
 

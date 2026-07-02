@@ -577,7 +577,15 @@ class MainWindow(QWidget):
         if entries:
             self.refresh_view()
         else:
-            self.preview.setHtml("")
+
+            html = self.html_service.render_entry(
+                code="",
+                content="",
+                catalogue=self.regex_panel.selected_catalogue().name,
+                source_type="",
+                theme=self.theme_service.get_current_theme(),
+            )
+            self.preview.setHtml(html, QUrl.fromLocalFile(str(self.paths.katex) + "/"))
 
     def show_entry(self, row):
 

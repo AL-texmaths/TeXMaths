@@ -19,7 +19,7 @@ class RegexPanel(QWidget):
         
         self.view_mode_combo = QComboBox()
         self.view_mode_combo.addItems([
-            "Afichage unique",
+            "Affichage unique",
             "Liste complète filtrée"
         ])
 

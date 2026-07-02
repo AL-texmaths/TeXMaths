@@ -31,7 +31,7 @@ class CatalogueService:
         for catalogue in self.catalogues.values():
             if catalogue.name == name:
                 return catalogue
-        return None
+        return Catalogue()
     
     def get_catalogue_names(self) -> list:
         return sorted(
