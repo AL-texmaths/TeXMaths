@@ -60,6 +60,8 @@ class MainWindow(QWidget):
         self.init_regex_panel()
         self.preview_panel = PreviewPanel(
             self.regex_panel,
+            self.theme_service,
+            self.code_service,
             self.paths.katex
             )
         self.register_actions()
@@ -96,11 +98,11 @@ class MainWindow(QWidget):
         )
 
         self.regex_panel.view_mode_combo.currentTextChanged.connect(
-            lambda _: self.refresh_view()
+            self.preview_panel.refresh_view
         )
 
         self.regex_panel.list_widget.currentRowChanged.connect(
-            self.show_entry
+            self.preview_panel.refresh_view
         )
 
         self.progression.itemClicked.connect(
@@ -201,12 +203,12 @@ class MainWindow(QWidget):
         if self._saved_theme:
             self.theme_service.set_theme(self._saved_theme)
             self.theme_service.apply(self)
-            self.refresh_view()
+            self.preview_panel.refresh_view()
 
     def preview_theme(self, name):
         self.theme_service.set_theme(name)
         self.theme_service.apply(self)
-        self.refresh_view()
+        self.preview_panel.refresh_view()
 
     def commit_theme(self, name):
         self._theme_committed = True
@@ -214,14 +216,14 @@ class MainWindow(QWidget):
         self.theme_service.set_theme(name)
 
         self.theme_service.apply(self)
-        self.refresh_view()
+        self.preview_panel.refresh_view()
 
         self.config.settings.current.theme = name
         self.persistence_service.save_config(self.config)
 
     def apply_current_theme(self):
         self.theme_service.apply(self)
-        self.refresh_view()
+        self.preview_panel.refresh_view()
 
     def init_menu(self):
 
@@ -532,33 +534,6 @@ class MainWindow(QWidget):
             code
         )
 
-    def refresh_view(self):
-        mode = self.regex_panel.view_mode_combo.currentText()
-
-        if mode == "Liste complète filtrée":
-            self.show_list_view()
-        else:
-            self.show_entry(self.regex_panel.list_widget.currentRow())
-
-    def show_list_view(self):
-
-        html_items = []
-
-        for entry in self.regex_panel.current_matches:
-
-            html_items.append(
-                (
-                    f"<b>{entry.code}</b> "
-                    f"(<i>{entry.catalogue}</i>) "
-                    f"{entry.text}"
-                )
-            )
-
-        html_no_render = "<br>".join(html_items)
-        html = self.html_service.render_list(html_no_render, self.theme_service.get_current_theme())
-
-        self.preview_panel.set_html(html)
-            
     def set_theme(self, name):
         self.theme_service.set_theme(name)
         self.apply_current_theme()
@@ -569,39 +544,8 @@ class MainWindow(QWidget):
 
     def update_search(self):
         self.regex_panel.update_type_filter()
-        entries = self.regex_panel.update_search()
-        if entries:
-            self.refresh_view()
-        else:
-
-            html = self.html_service.render_entry(
-                code="",
-                content="",
-                catalogue=self.regex_panel.selected_catalogue().name,
-                source_type="",
-                theme=self.theme_service.get_current_theme(),
-            )
-            self.preview_panel.set_html(html)
-
-    def show_entry(self, row):
-
-        if self.regex_panel.view_mode_combo.currentText() == "Liste complète filtrée":
-            return
-
-        if row < 0 or row >= len(self.regex_panel.current_matches):
-            return
-
-        entry = self.regex_panel.current_matches[row]
-
-        html = self.html_service.render_entry(
-            code=entry.code,
-            content=entry.text,
-            catalogue=entry.catalogue,
-            source_type=self.code_service.display_name(entry.type),
-            theme=self.theme_service.get_current_theme(),
-        )
-
-        self.preview_panel.set_html(html)
+        self.regex_panel.update_search()
+        self.preview_panel.refresh_view()
 
     def undo(self):
         state = self.undo_redo.undo(self.progression_service.snapshot(

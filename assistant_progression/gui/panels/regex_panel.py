@@ -7,6 +7,11 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import QEvent
 
 
+class ViewMode:
+    SINGLE = "Affichage unique"
+    FILTERED_LIST = "Liste complète filtrée"
+
+
 class RegexPanel(QWidget):
     def __init__(self, search_service, default_label=None):
         super().__init__()
@@ -18,9 +23,10 @@ class RegexPanel(QWidget):
         self.type_combo = QComboBox()
         
         self.view_mode_combo = QComboBox()
+
         self.view_mode_combo.addItems([
-            "Affichage unique",
-            "Liste complète filtrée"
+            ViewMode.SINGLE,
+            ViewMode.FILTERED_LIST
         ])
 
         self.list_widget = QListWidget()

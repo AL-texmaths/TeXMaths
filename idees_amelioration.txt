@@ -12,6 +12,7 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
+>>> Extraire regex_service de main_window
 >>> load_progression/save_progression doivent suivrent
 la même structure que config (main window ne doit pas
 connaître le chemin vers le fichier)
