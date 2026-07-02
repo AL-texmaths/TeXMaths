@@ -8,13 +8,13 @@ from assistant_progression.services.theme_service import ThemeService
 from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
 from assistant_progression.services.progression_service import ProgressionService
 from assistant_progression.services.search_service import SearchService
-from assistant_progression.services.regex_service import SearchLineEdit
 from assistant_progression.utils.textools import update_code_index
 from assistant_progression.models.paths import Paths
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
 from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
 from assistant_progression.gui.menus.catalogue_menu_builder import CatalogueMenuBuilder
+from assistant_progression.gui.panels.regex_panel import RegexPanel
 
 import re
 import json
@@ -38,6 +38,7 @@ from PySide6.QtWidgets import (
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
 
+
 class MainWindow(QWidget):
 
     def __init__(self):
@@ -53,7 +54,6 @@ class MainWindow(QWidget):
         self.init_window_and_settings()
         self.init_services()
 
-
         self.main_layout = QHBoxLayout(self)
 
         self._preview_theme = None
@@ -61,7 +61,7 @@ class MainWindow(QWidget):
         self._theme_committed = False
         self.theme_service.apply(self)
 
-        self.init_regex_pannel()
+        self.init_regex_panel()
         self.init_preview_pannel()
         self.register_actions()
         self.init_progression_pannel()
@@ -71,7 +71,7 @@ class MainWindow(QWidget):
 
         self.update_type_filter()
         self.update_search()
-        self.search.setFocus()
+        self.regex_panel.search_line.setFocus()
 
     def init_services(self):
 
@@ -91,26 +91,25 @@ class MainWindow(QWidget):
             default_theme=theme_name,
         )
 
-        # self.theme_service.apply(self)
     def init_connect_signals(self):
 
-        self.search.textChanged.connect(
+        self.regex_panel.search_line.textChanged.connect(
             lambda _: self.update_search()
         )
 
-        self.catalogue_combo.currentTextChanged.connect(
+        self.regex_panel.catalogue_combo.currentTextChanged.connect(
             self.catalogue_changed
         )
 
-        self.type_combo.currentTextChanged.connect(
+        self.regex_panel.type_combo.currentTextChanged.connect(
             lambda _: self.update_search()
         )
 
-        self.view_mode_combo.currentTextChanged.connect(
+        self.regex_panel.view_mode_combo.currentTextChanged.connect(
             lambda _: self.refresh_view()
         )
 
-        self.list_widget.currentRowChanged.connect(
+        self.regex_panel.list_widget.currentRowChanged.connect(
             self.show_entry
         )
 
@@ -178,54 +177,60 @@ class MainWindow(QWidget):
     def init_splitters(self):
         self.splitter = QSplitter(Qt.Horizontal)
 
-        self.splitter.addWidget(self.left_widget)
+        self.splitter.addWidget(self.regex_panel)
         self.splitter.addWidget(self.preview_widget)
         self.splitter.addWidget(self.right_widget)
-        self.tabs = [self.left_widget, self.preview_widget, self.right_widget]
+        self.tabs = [self.regex_panel, self.preview_widget, self.right_widget]
 
         self.splitter.setSizes([400, 800, 300])
 
         
         self.main_layout.addWidget(self.splitter)
 
-    def init_regex_pannel(self):
+    def init_regex_panel(self):
 
-        self.catalogue_combo = QComboBox()
-        self.type_combo = QComboBox()
 
-        self.view_mode_combo = QComboBox()
-        self.view_mode_combo.addItems([
-            "Afichage unique",
-            "Liste complète filtrée"
-        ])
+        ###
+        # self.catalogue_combo = QComboBox()
+        # self.type_combo = QComboBox()
 
-        self.list_widget = QListWidget()
-        self.search = SearchLineEdit(self.list_widget)
+        # self.view_mode_combo = QComboBox()
+        # self.view_mode_combo.addItems([
+        #     "Afichage unique",
+        #     "Liste complète filtrée"
+        # ])
 
-        self.search.setPlaceholderText("Regex sur code ou contenu")
+        # self.list_widget = QListWidget()
+        # self.search = SearchLineEdit(self.list_widget)
 
-        self.search_service.populate_filters(
-            self.catalogue_combo
-        )
+        # self.search.setPlaceholderText("Regex sur code ou contenu")
+
+        # self.search_service.populate_filters(
+        #     self.regex_panel.catalogue_combo
+        # )
 
         default_code = self.settings.current.code
         default_label =self.code_service.display_name(default_code)
+        self.regex_panel = RegexPanel(
+            self.search_service,
+            default_label=default_label
+        )
 
-        index = self.catalogue_combo.findText(default_label)
-        if index >= 0:
-            self.catalogue_combo.setCurrentIndex(index)
+        # index = self.catalogue_combo.findText(default_label)
+        # if index >= 0:
+        #     self.catalogue_combo.setCurrentIndex(index)
 
-        left = QVBoxLayout()
+        # left = QVBoxLayout()
 
-        left.addWidget(self.catalogue_combo)
-        left.addWidget(self.type_combo)
-        left.addWidget(self.view_mode_combo)
-        left.addWidget(self.search)
-        left.addWidget(self.list_widget)
+        # left.addWidget(self.catalogue_combo)
+        # left.addWidget(self.type_combo)
+        # left.addWidget(self.view_mode_combo)
+        # left.addWidget(self.search)
+        # left.addWidget(self.list_widget)
 
-        left_widget = QWidget()
-        left_widget.setLayout(left)
-        self.left_widget = left_widget
+        # left_widget = self.regex_panel
+        # left_widget.setLayout(left)
+        # self.left_widget = left_widget
 
     def init_preview_pannel(self):
         self.preview = QWebEngineView()
@@ -382,7 +387,7 @@ class MainWindow(QWidget):
 
     def selected_catalogue(self):
         return self.search_service.selected_catalogue(
-            self.catalogue_combo
+            self.regex_panel.catalogue_combo
         )
 
     def update_code_index_main(self):
@@ -472,14 +477,11 @@ class MainWindow(QWidget):
 
             liste.addItem(texte)
 
-
         dialog_layout.addWidget(liste)
 
         dialog.setLayout(dialog_layout)
 
-
         dialog.exec()
-
 
         # indispensable sinon Qt détruit la fenêtre
         self.unused_window = dialog
@@ -592,12 +594,12 @@ class MainWindow(QWidget):
         )
 
     def refresh_view(self):
-        mode = self.view_mode_combo.currentText()
+        mode = self.regex_panel.view_mode_combo.currentText()
 
         if mode == "Liste complète filtrée":
             self.show_list_view()
         else:
-            self.show_entry(self.list_widget.currentRow())
+            self.show_entry(self.regex_panel.list_widget.currentRow())
 
     def show_list_view(self):
 
@@ -627,8 +629,8 @@ class MainWindow(QWidget):
     def update_type_filter(self):
 
         self.search_service.update_type_filter(
-            self.catalogue_combo,
-            self.type_combo
+            self.regex_panel.catalogue_combo,
+            self.regex_panel.type_combo
         )
 
     def catalogue_changed(self):
@@ -638,12 +640,12 @@ class MainWindow(QWidget):
 
     def update_search(self):
 
-        regex_text = self.search.text()
+        regex_text = self.regex_panel.search_line.text()
 
         try:
             entries = self.search_service.search(
-                self.catalogue_combo,
-                self.type_combo,
+                self.regex_panel.catalogue_combo,
+                self.regex_panel.type_combo,
                 regex_text
             )
 
@@ -653,17 +655,17 @@ class MainWindow(QWidget):
 
         self.current_matches = entries
 
-        self.list_widget.clear()
+        self.regex_panel.list_widget.clear()
 
         for entry in entries:
 
-            self.list_widget.addItem(
+            self.regex_panel.list_widget.addItem(
                 f"{entry.code} [{entry.type}]" if entry.type else f"{entry.code}"
             )
 
         if entries:
 
-            self.list_widget.setCurrentRow(0)
+            self.regex_panel.list_widget.setCurrentRow(0)
 
             self.refresh_view()
 
@@ -673,7 +675,7 @@ class MainWindow(QWidget):
 
     def show_entry(self, row):
 
-        if self.view_mode_combo.currentText() == "Liste complète filtrée":
+        if self.regex_panel.view_mode_combo.currentText() == "Liste complète filtrée":
             return
 
         if row < 0 or row >= len(self.current_matches):
@@ -691,6 +693,32 @@ class MainWindow(QWidget):
         base_path = QUrl.fromLocalFile(str(self.paths.katex) + "/")
 
         self.preview.setHtml(html, base_path)
+
+    def undo(self):
+        state = self.undo_redo.undo(self.progression_service.snapshot(
+                self.progression
+                ))
+        if state is None:
+            return
+
+        self.progression_service.restore(
+            self.progression,
+            state
+        )
+        self.update_buttons_state()
+
+    def redo(self):
+        state = self.undo_redo.redo(self.progression_service.snapshot(
+                self.progression
+            ))
+        if state is None:
+            return
+
+        self.progression_service.restore(
+           self.progression,
+            state
+        )
+        self.update_buttons_state()
 
     def load_progression(self):
 
@@ -761,32 +789,6 @@ class MainWindow(QWidget):
             data
         )
         self.currentFile = Path(filename)
-
-    def undo(self):
-        state = self.undo_redo.undo(self.progression_service.snapshot(
-                self.progression
-                ))
-        if state is None:
-            return
-
-        self.progression_service.restore(
-            self.progression,
-            state
-        )
-        self.update_buttons_state()
-
-    def redo(self):
-        state = self.undo_redo.redo(self.progression_service.snapshot(
-                self.progression
-            ))
-        if state is None:
-            return
-
-        self.progression_service.restore(
-           self.progression,
-            state
-        )
-        self.update_buttons_state()
 
     def export_progression(self):
 
