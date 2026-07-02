@@ -2,9 +2,9 @@ import re
 from assistant_progression.services.regex_service import SearchLineEdit
 
 from PySide6.QtWidgets import (
-    QListWidget, QWidget, QComboBox, QVBoxLayout
+    QListWidget, QListWidgetItem, QWidget, QComboBox, QVBoxLayout
 )
-from PySide6.QtCore import QEvent
+from PySide6.QtCore import QEvent, Qt
 
 
 class ViewMode:
@@ -82,7 +82,7 @@ class RegexPanel(QWidget):
         self.layout.addWidget(self.list_widget)
 
         self.setLayout(self.layout)
-    
+
     def update_search(self) -> list:
 
         regex_text = self.search_line.text()
@@ -95,22 +95,23 @@ class RegexPanel(QWidget):
             )
 
         except re.error:
-
-            return
+            return []
 
         self.current_matches = entries
-
         self.list_widget.clear()
 
         for entry in entries:
 
-            self.list_widget.addItem(
-                f"{entry.code} [{entry.type}]" if entry.type else f"{entry.code}"
+            text = (
+                f"{entry.code} [{entry.type}]"
+                if entry.type else entry.code
             )
-        
+
+            item = QListWidgetItem(text)
+            item.setData(Qt.UserRole, entry)
+            self.list_widget.addItem(item)
 
         if entries:
-
             self.list_widget.setCurrentRow(0)
 
         return entries

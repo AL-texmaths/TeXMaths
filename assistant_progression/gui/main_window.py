@@ -86,6 +86,10 @@ class MainWindow(QWidget):
 
     def init_connect_signals(self):
 
+        self.regex_panel.list_widget.itemClicked.connect(
+            self.show_usage
+        )
+
         self.regex_panel.catalogue_combo.currentTextChanged.connect(
             self.catalogue_changed
         )
@@ -420,6 +424,13 @@ class MainWindow(QWidget):
             self.regex_panel.selected_catalogue()
         )
 
+    def show_usage(self, item):
+
+        code = item.data(Qt.UserRole).code
+        print(code)
+        locations = self.analysis_service.find_usage_locations(self.progression_panel.progression_tree, code)
+        print(locations)
+
     @record_undo
     def add_selected_item(self):
 
@@ -442,7 +453,7 @@ class MainWindow(QWidget):
     def add_seance(self):
 
         item = self.progression_service.add_seance(
-            self.progression_panel.progressiont_tree
+            self.progression_panel.progression_tree
         )
 
         if item:
@@ -481,7 +492,7 @@ class MainWindow(QWidget):
 
     def undo(self):
         state = self.undo_redo.undo(self.progression_service.snapshot(
-                self.progression_panel.progressiont_tree
+                self.progression_panel.progression_tree
                 ))
         if state is None:
             return
@@ -494,7 +505,7 @@ class MainWindow(QWidget):
 
     def redo(self):
         state = self.undo_redo.redo(self.progression_service.snapshot(
-                self.progression_panel.progressiont_tree
+                self.progression_panel.progression_tree
             ))
         if state is None:
             return

@@ -10,9 +10,13 @@ class ProgressionService:
         self.analysis_service = analysis_service
         self.config = config
 
+    def make_item(self, text):
+        item = QTreeWidgetItem([text])
+        item.setFlags(item.flags() | Qt.ItemFlag.ItemIsEditable)
+        return item
+
     def add_level(self, tree):
-        item = QTreeWidgetItem(["Nouveau niveau"])
-        item.setFlags(item.flags() | Qt.ItemIsEditable)
+        item = self.make_item("Nouveau niveau")
         tree.addTopLevelItem(item)
         tree.setCurrentItem(item)
         return item
@@ -25,15 +29,12 @@ class ProgressionService:
         if current_item.parent() is not None:
             current_item = current_item.parent()
 
-        item = QTreeWidgetItem(["Nouveau chapitre"])
-        item.setFlags(item.flags() | Qt.ItemIsEditable)
+        item = self.make_item("Nouveau chapitre")
 
         for code in selected_catalogue.types:
 
             item.addChild(
-                QTreeWidgetItem([
-                    self.code_service.display_name(code)
-                ])
+                self.make_item(self.code_service.display_name(code))
             )
 
         item.setFlags(item.flags() | Qt.ItemIsEditable)
@@ -138,7 +139,7 @@ class ProgressionService:
         if target is None:
             return None
 
-        item = QTreeWidgetItem([entry.code])
+        item = self.make_item(entry.code)
 
         item.setData(
             0,
@@ -183,9 +184,7 @@ class ProgressionService:
         if target is None:
             return None
 
-        item = QTreeWidgetItem(["Nouvelle séance"])
-        item.setFlags(item.flags() | Qt.ItemIsEditable)
-
+        item = self.make_item("Nouvelle séance")
         target.addChild(item)
 
         tree.setCurrentItem(item)
@@ -275,7 +274,7 @@ class ProgressionService:
 
             for key, value in obj.items():
 
-                item = QTreeWidgetItem([key])
+                item = self.make_item(key)
 
                 parent.addChild(item)
 
@@ -287,7 +286,7 @@ class ProgressionService:
 
                     for code in value:
 
-                        child = QTreeWidgetItem([code])
+                        child = self.make_item(code)
 
                         child.setData(
                             0,
@@ -307,7 +306,7 @@ class ProgressionService:
 
         for key, value in data.items():
 
-            root = QTreeWidgetItem([key])
+            root = self.make_item(key)
 
             tree.addTopLevelItem(root)
 
