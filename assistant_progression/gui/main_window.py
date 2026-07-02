@@ -15,11 +15,12 @@ from assistant_progression.gui.actions_manager import ActionManager
 from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
 from assistant_progression.gui.menus.catalogue_menu_builder import CatalogueMenuBuilder
 from assistant_progression.gui.panels.regex_panel import RegexPanel
+from assistant_progression.gui.panels.preview_panel import PreviewPanel
 
 import json
 from pathlib import Path
 
-from PySide6.QtCore import Qt, QUrl
+from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
@@ -33,8 +34,6 @@ from PySide6.QtWidgets import (
     QMessageBox,
     QDialog,
 )
-from PySide6.QtWebEngineWidgets import QWebEngineView
-
 
 class MainWindow(QWidget):
 
@@ -59,7 +58,10 @@ class MainWindow(QWidget):
         self.theme_service.apply(self)
 
         self.init_regex_panel()
-        self.init_preview_pannel()
+        self.preview_panel = PreviewPanel(
+            self.regex_panel,
+            self.paths.katex
+            )
         self.register_actions()
         self.init_progression_pannel()
         self.init_connect_signals()
@@ -169,9 +171,9 @@ class MainWindow(QWidget):
         self.splitter = QSplitter(Qt.Horizontal)
 
         self.splitter.addWidget(self.regex_panel)
-        self.splitter.addWidget(self.preview_widget)
+        self.splitter.addWidget(self.preview_panel)
         self.splitter.addWidget(self.right_widget)
-        self.tabs = [self.regex_panel, self.preview_widget, self.right_widget]
+        self.tabs = [self.regex_panel, self.preview_panel, self.right_widget]
 
         self.splitter.setSizes([400, 800, 300])
 
@@ -186,10 +188,6 @@ class MainWindow(QWidget):
             self.search_service,
             default_label=default_label
         )
-
-    def init_preview_pannel(self):
-        self.preview = QWebEngineView()
-        self.preview_widget = self.preview
 
     def begin_theme_preview(self):
         self._saved_theme = self.theme_service.get_current_theme_name()
@@ -556,13 +554,11 @@ class MainWindow(QWidget):
                 )
             )
 
-        html = "<br>".join(html_items)
+        html_no_render = "<br>".join(html_items)
+        html = self.html_service.render_list(html_no_render, self.theme_service.get_current_theme())
 
-        self.preview.setHtml(
-            self.html_service.render_list(html, self.theme_service.get_current_theme()),
-            QUrl.fromLocalFile(str(self.paths.katex) + "/")
-        )
-
+        self.preview_panel.set_html(html)
+            
     def set_theme(self, name):
         self.theme_service.set_theme(name)
         self.apply_current_theme()
@@ -585,7 +581,7 @@ class MainWindow(QWidget):
                 source_type="",
                 theme=self.theme_service.get_current_theme(),
             )
-            self.preview.setHtml(html, QUrl.fromLocalFile(str(self.paths.katex) + "/"))
+            self.preview_panel.set_html(html)
 
     def show_entry(self, row):
 
@@ -604,9 +600,8 @@ class MainWindow(QWidget):
             source_type=self.code_service.display_name(entry.type),
             theme=self.theme_service.get_current_theme(),
         )
-        base_path = QUrl.fromLocalFile(str(self.paths.katex) + "/")
 
-        self.preview.setHtml(html, base_path)
+        self.preview_panel.set_html(html)
 
     def undo(self):
         state = self.undo_redo.undo(self.progression_service.snapshot(
