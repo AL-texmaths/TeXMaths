@@ -7,7 +7,7 @@ class Entry:
     type: str
     code: str
     text: str
-
+    locations: str = ""
 @dataclass(frozen=True)
 class Catalogue:
     key: str = ""

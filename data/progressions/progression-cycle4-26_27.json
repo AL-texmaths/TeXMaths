@@ -1,3 +1,22 @@
 {
-    "5eme": {}
+    "5eme": {
+        "CH1": {
+            "Automatismes": [
+                "A1aa"
+            ],
+            "Objectifs d'apprentissage": [],
+            "Prolongements": [],
+            "Séances": []
+        }
+    },
+    "4eme": {
+        "CH2": {
+            "Automatismes": [
+                "A1aa"
+            ],
+            "Objectifs d'apprentissage": [],
+            "Prolongements": [],
+            "Séances": []
+        }
+    }
 }

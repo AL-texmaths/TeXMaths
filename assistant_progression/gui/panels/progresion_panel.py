@@ -37,11 +37,6 @@ class ProgressionPanel(QWidget):
     def init_progression_tree(self):
         self.progression_tree = QTreeWidget()
         self.progression_tree.setHeaderLabel("Progression annuelle")
-        self.progression_tree.setEditTriggers(
-            QTreeWidget.EditTrigger.DoubleClicked |
-            QTreeWidget.EditTrigger.EditKeyPressed |
-            QTreeWidget.EditTrigger.SelectedClicked
-        )
 
     def init_signals(self):
         

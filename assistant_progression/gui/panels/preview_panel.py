@@ -4,11 +4,13 @@ from assistant_progression.services.html_service import HtmlService
 from assistant_progression.gui.panels.regex_panel import ViewMode
 
 class PreviewPanel(QWebEngineView):
-    def __init__(self, regex_panel, theme_service, code_service, katex_path=None):
+    def __init__(self, regex_panel, progression_panel, theme_service, code_service, analysis_service, katex_path=None):
         super().__init__()
         self.regex_panel = regex_panel
+        self.progression_panel = progression_panel
         self.theme_service = theme_service
         self.code_service = code_service
+        self.analysis_service = analysis_service
         self.html_service = HtmlService()
 
         if katex_path is not None:
@@ -61,6 +63,10 @@ class PreviewPanel(QWebEngineView):
             catalogue=entry.catalogue,
             source_type=self.code_service.display_name(entry.type),
             theme=self.theme_service.get_current_theme(),
+            locations=self.analysis_service.find_usage_locations(
+                self.progression_panel.progression_tree,
+                entry.code
+                )
         )
 
         self.set_html(html)

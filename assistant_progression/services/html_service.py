@@ -1,5 +1,13 @@
 from html import escape
 
+def format_locations(locations: list[str]) -> str:
+        if not locations:
+            return ""
+
+        return "<br>".join(
+            f"<span class='location'>{loc.replace('/', ' › ')}</span>"
+            for loc in locations
+        )
 
 class HtmlService:
     """
@@ -12,7 +20,8 @@ class HtmlService:
         content: str,
         catalogue: str,
         source_type: str,
-        theme: dict
+        theme: dict,
+        locations:list=[]
     ) -> str:
         
         css = "katex.min.css"
@@ -22,6 +31,8 @@ class HtmlService:
         content = escape(content)
 
         t = theme
+
+        locations_html = format_locations(locations)
 
         return f"""
 <!DOCTYPE html>
@@ -87,9 +98,18 @@ hr {{
 <b>Type :</b> {source_type}
 </div>
 
+
 <hr>
 
 <div class="content">{content}</div>
+
+<hr>
+
+<div class="locations">
+    <b>Emplacements :</b><br>
+    {locations_html}
+</div>
+
 </body>
 </html>
 """

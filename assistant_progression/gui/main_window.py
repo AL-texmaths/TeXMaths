@@ -59,8 +59,8 @@ class MainWindow(QWidget):
 
         self.register_actions()
         self.init_regex_panel()
-        self.init_preview_panel()
         self.init_progression_pannel()
+        self.init_preview_panel()
         self.init_connect_signals()
         self.init_menu()
         self.init_splitters()
@@ -85,10 +85,6 @@ class MainWindow(QWidget):
         )
 
     def init_connect_signals(self):
-
-        self.regex_panel.list_widget.itemClicked.connect(
-            self.show_usage
-        )
 
         self.regex_panel.catalogue_combo.currentTextChanged.connect(
             self.catalogue_changed
@@ -181,8 +177,10 @@ class MainWindow(QWidget):
     def init_preview_panel(self):
         self.preview_panel = PreviewPanel(
             self.regex_panel,
+            self.progression_panel,
             self.theme_service,
             self.code_service,
+            self.analysis_service,
             self.paths.katex
         )
 
@@ -424,12 +422,12 @@ class MainWindow(QWidget):
             self.regex_panel.selected_catalogue()
         )
 
-    def show_usage(self, item):
-
+    def get_item_locations_in_progression(self, item):
         code = item.data(Qt.UserRole).code
-        print(code)
-        locations = self.analysis_service.find_usage_locations(self.progression_panel.progression_tree, code)
-        print(locations)
+        return self.analysis_service.find_usage_locations(
+            self.progression_panel.progression_tree,
+            code
+        )
 
     @record_undo
     def add_selected_item(self):
@@ -538,6 +536,7 @@ class MainWindow(QWidget):
         self.currentFile = Path(filename)
 
         self.undo_redo.clear()
+        self.preview_panel.refresh_view()
 
     def save_progression(self):
 
