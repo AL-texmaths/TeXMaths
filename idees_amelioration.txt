@@ -17,6 +17,8 @@ la même structure que config (main window ne doit pas
 connaître le chemin vers le fichier)
 ---> progression manager pour les quatre dernières
 méthodes
+>>> setHtml("") crée un fond blanc sur le view_panel. Il faut que le
+fond soit de la même couleur
 >>> enregistrement dans config.json (boit current theme) de:
 -- catalogue précédemment sélectionné
 -- type précédemment sélectionné

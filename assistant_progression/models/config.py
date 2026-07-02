@@ -4,9 +4,17 @@ class CurrentSettings(BaseModel):
     theme: str
     code: str
 
+class WindowDim(BaseModel):
+    width: int
+    height: int
+
+    @property
+    def size(self) -> tuple[int, int]:
+        return (self.width, self.height)
 
 class Settings(BaseModel):
     main_window_title: str
+    init_size: WindowDim
     themes: dict
     current: CurrentSettings
 

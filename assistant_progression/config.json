@@ -116,6 +116,10 @@
     },
     "settings": {
         "main_window_title": "Assistant de progression",
+        "init_size": {
+            "width": 1200,
+            "height": 800
+        },
         "themes": {
             "VSCode Dark": {
                 "bg": "#1e1e1e",
