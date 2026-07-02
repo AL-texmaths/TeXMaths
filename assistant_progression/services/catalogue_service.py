@@ -20,7 +20,7 @@ class CatalogueService:
         self.build_index()
 
     def build_catalogues(self):
-        self.catalogues = {}
+        self.catalogues = {Catalogue.ALL: Catalogue()}
 
         for catalogue_key, catalogue_metadata in self.catalogues_config.items():
             catalogue = Catalogue(
@@ -69,6 +69,9 @@ class CatalogueService:
         for catalogue in self.catalogues.values():
 
             catalogue_data = catalogue.data
+
+            if catalogue.data is None:
+                continue
 
             if all(
                 isinstance(v, str)
@@ -129,7 +132,6 @@ class CatalogueService:
         source_type="Tous",
         regex_text=""
     ):
-
         entries = self.entries
 
         # Filtre catalogue
@@ -140,7 +142,6 @@ class CatalogueService:
                 for e in entries
                 if e.catalogue == catalogue_name
             ]
-
         # Filtre type
         if source_type != "Tous":
 
@@ -149,7 +150,6 @@ class CatalogueService:
                 for e in entries
                 if e.type == source_type
             ]
-
         # Recherche
         if regex_text:
 
@@ -209,6 +209,7 @@ class CatalogueService:
                         or regex.search(e.text)
                     )
                 ]
+        
 
         return sorted(
             entries,

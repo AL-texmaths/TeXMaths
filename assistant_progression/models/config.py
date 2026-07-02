@@ -2,7 +2,9 @@ from pydantic import BaseModel, Field
 
 class CurrentSettings(BaseModel):
     theme: str
-    code: str
+    catalogue: str | None
+    type: str | None
+    current_file: str | None
 
     @property
     def size(self) -> tuple[int, int]:

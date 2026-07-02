@@ -15,12 +15,14 @@ from assistant_progression.services.progression_service import ProgressionServic
 from assistant_progression.services.search_service import SearchService
 from assistant_progression.controllers.progression_controller import ProgressionController
 from assistant_progression.controllers.code_index_controller import CodeIndexController
+from assistant_progression.controllers.session_controller import SessionController
 
 
 @dataclass
 class AppContext:
     persistence_service: PersistenceService
     config: Config
+    session_controller: SessionController
     paths: Paths
     export_service: ExportService
     undo_redo_service: UndoRedoService
@@ -40,6 +42,7 @@ def create_context() -> AppContext:
 
     persistence_service = PersistenceService()
     config = persistence_service.load_config()
+    session_controller = SessionController(config, persistence_service)
     paths = Paths(config)
     export_service = ExportService()
     undo_redo_service = UndoRedoService()
@@ -84,16 +87,17 @@ def create_context() -> AppContext:
         persistence_service=persistence_service,
         config=config,
         paths=paths,
+        session_controller=session_controller,
+        export_service=export_service,
+        undo_redo_service=undo_redo_service,
+        progression_analysis_service=progression_analysis_service,
+        progression_service=progression_service,
+        progression_controller=progression_controller,
+        code_index_controller=code_index_controller,
         code_index_data=code_index_data,
         code_service=code_service,
         catalogue_service=catalogue_service,
         search_service=search_service,
-        progression_analysis_service=progression_analysis_service,
-        progression_service=progression_service,
-        progression_controller=progression_controller,
-        theme_service=theme_service,
-        export_service=export_service,
-        undo_redo_service=undo_redo_service,
         document_controller=document_controller,
-        code_index_controller=code_index_controller
+        theme_service=theme_service,
     )

@@ -14,6 +14,9 @@ class CatalogueMenuBuilder:
 
         for catalogue_name in self.catalogue_service.get_catalogue_names():
 
+            if catalogue_name == "Tous":
+                continue
+
             action = QAction(catalogue_name, menu)
             action.triggered.connect(
                 lambda checked=False, name=catalogue_name:

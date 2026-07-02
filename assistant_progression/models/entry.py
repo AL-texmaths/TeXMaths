@@ -10,8 +10,9 @@ class Entry:
     locations: str = ""
 @dataclass(frozen=True)
 class Catalogue:
-    key: str = ""
-    name: str = ""
+    ALL: str = "Tous"
+    key: str = ALL
+    name: str = ALL
     tex_file_name: str = ""
     sty_file_name: str = ""
     types: tuple = ()

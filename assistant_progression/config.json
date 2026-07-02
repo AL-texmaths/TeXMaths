@@ -188,8 +188,10 @@
             }
         },
         "current": {
-            "theme": "Nord Dark",
-            "code": "Cycle 4 BO 2026"
+            "theme": "VSCode Dark",
+            "catalogue": "Tous",
+            "type": null,
+            "current_file": null
         }
     },
     "actions": {

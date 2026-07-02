@@ -103,7 +103,9 @@ class MainWindow(QWidget):
 
     def init_regex_panel(self):
 
-        default_code = self.settings.current.code
+        default_code = self.settings.current.catalogue
+        if default_code is None:
+            default_code = self.context.catalogue_service.get_catalogue_names()[0]
         default_label =self.context.code_service.display_name(default_code)
         self.regex_panel = RegexPanel(
             self.context.search_service,
@@ -155,9 +157,16 @@ class MainWindow(QWidget):
         self.catalogue_menu_builder.populate(open_catalogue_menu)
 
         progression_menu = QMenu("Progression", self)
-        progression_menu.addAction(self.action_manager.action("add_selected_item"))
-        progression_menu.addAction(self.action_manager.action("delete_selected_item"))
-        self.addAction(self.action_manager.action("show_unused_items"))
+        for action_id in [
+            "add_level",
+            "add_chapter",
+            "add_seance",
+            "move_item_up",
+            "move_item_down",
+            "show_unused_items"
+        ]:
+            action = self.action_manager.action(action_id)
+            progression_menu.addAction(action)
 
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
