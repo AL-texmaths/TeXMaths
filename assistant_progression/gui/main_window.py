@@ -287,7 +287,8 @@ class MainWindow(QWidget):
         self.progression_panel = ProgressionPanel(
             self.action_manager,
             self.progression_service,
-            self.analysis_service
+            self.analysis_service,
+            self.regex_panel
         )
         self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
         self.progression_visible = True
@@ -348,31 +349,37 @@ class MainWindow(QWidget):
             )
 
     @record_undo
+    def add_level(self):
+        self.progression_panel.add_level()
+    
+    @record_undo
     def add_chapter(self):
-
-        selected_catalogue = self.regex_panel.selected_catalogue()
-        item = self.progression_service.add_chapter(
-            self.progression_panel.progression_tree,
-            selected_catalogue,
-            self.progression_panel.progression_tree.currentItem()
-        )
-
-        if item:
-            self.progression_panel.progression_tree.editItem(item, 0)
-        
-        self.progression_panel.update_buttons_state(selected_catalogue)
+        self.progression_panel.add_chapter()
+    
+    @record_undo
+    def add_seance(self):
+        self.progression_panel.add_seance()
 
     @record_undo
-    def add_level(self):
+    def add_selected_item(self):
+        self.progression_panel.add_selected_item()
+        self.preview_panel.refresh_view()
 
-        item = self.progression_service.add_level(
-            self.progression_panel.progression_tree
-        )
+    @record_undo
+    def delete_selected_item(self):
+        self.progression_panel.delete_selected_item()
+        self.preview_panel.refresh_view()
 
-        if item:
-            self.progression_panel.progression_tree.editItem(item, 0)
-        
-        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
+    def _move_current_item(self, delta):
+        self.progression_service.move_item(self.progression_panel.progression_tree, delta)
+
+    @record_undo
+    def move_item_up(self):
+        self._move_current_item(-1)
+
+    @record_undo
+    def move_item_down(self):
+        self._move_current_item(1)
 
     def show_unused_items(self):
 
@@ -420,55 +427,6 @@ class MainWindow(QWidget):
             self.progression_panel.progression_tree,
             self.regex_panel.selected_catalogue()
         )
-
-    @record_undo
-    def add_selected_item(self):
-
-        entry = self.regex_panel.get_selected_entry()
-        if not entry:
-            return
-
-        item = self.progression_service.add_selected_item(
-            self.progression_panel.progression_tree,
-            entry,
-        )
-
-        self.preview_panel.refresh_view()
-
-        if item is None:
-            QMessageBox.warning(self, "Warning", "Please select a chapter to add the item.")
-        
-        else:
-            QMessageBox.information(self, "Info", f"Item {entry.code} added to the progression.")
-    
-    @record_undo
-    def add_seance(self):
-
-        item = self.progression_service.add_seance(
-            self.progression_panel.progression_tree
-        )
-
-        if item:
-            self.progression_panel.progression_tree.editItem(item, 0)
-        
-        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
-
-    def _move_current_item(self, delta):
-        self.progression_service.move_item(self.progression_panel.progression_tree, delta)
-
-    @record_undo
-    def move_item_up(self):
-        self._move_current_item(-1)
-
-    @record_undo
-    def move_item_down(self):
-        self._move_current_item(1)
-
-    @record_undo
-    def delete_selected_item(self):
-        self.progression_service.delete_item(self.progression_panel.progression_tree)
-        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
-        self.preview_panel.refresh_view()
 
     def set_theme(self, name):
         self.theme_service.set_theme(name)

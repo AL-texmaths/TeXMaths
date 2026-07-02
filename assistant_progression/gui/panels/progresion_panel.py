@@ -1,9 +1,14 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QTreeWidget, QVBoxLayout, QWidget
+from PySide6.QtWidgets import (
+    QMessageBox,
+    QTreeWidget,
+    QVBoxLayout,
+    QWidget
+    )
 
 
 class ProgressionPanel(QWidget):
-    def __init__(self, action_manager, progression_service, analysis_service):
+    def __init__(self, action_manager, progression_service, analysis_service, regex_panel):
         super().__init__()
         self.action_names = [
             "add_level",
@@ -16,6 +21,7 @@ class ProgressionPanel(QWidget):
         self.action_manager = action_manager
         self.progression_service = progression_service
         self.analysis_service = analysis_service
+        self.regex_panel = regex_panel
 
         self.init_progression_tree()
         self.init_progression_buttons()
@@ -78,3 +84,59 @@ class ProgressionPanel(QWidget):
         add_item_enabled = self.is_chapter(item)
         self.action_manager.button("add_selected_item").setEnabled(add_item_enabled)
         self.action_manager.action("add_selected_item").setEnabled(add_item_enabled)
+    
+    def get_selected_catalogue(self):
+        return self.regex_panel.selected_catalogue()
+    
+    def add_level(self):
+        selected_catalogue = self.get_selected_catalogue()
+        item = self.progression_service.add_level(
+            self.progression_tree
+        )
+
+        if item:
+            self.progression_tree.editItem(item, 0)
+        
+        self.update_buttons_state(selected_catalogue)
+
+    def add_chapter(self):
+        selected_catalogue = self.get_selected_catalogue()
+        item = self.progression_service.add_chapter(
+            self.progression_tree,
+            selected_catalogue,
+            self.progression_tree.currentItem()
+        )
+
+        if item:
+            self.progression_tree.editItem(item, 0)
+        
+        self.update_buttons_state(selected_catalogue)
+    
+    def add_seance(self):
+        selected_catalogue = self.get_selected_catalogue()
+        item = self.progression_service.add_seance(
+            self.progression_tree
+        )
+
+        if item:
+            self.progression_tree.editItem(item, 0)
+        
+        self.update_buttons_state(selected_catalogue)
+    
+    def add_selected_item(self):
+        entry = self.regex_panel.get_selected_entry()
+        if not entry:
+            return
+        item = self.progression_service.add_selected_item(
+            self.progression_tree,
+            entry,
+        )
+        if item is None:
+            QMessageBox.warning(self, "Warning", "Please select a chapter to add the item.")
+        
+        else:
+            QMessageBox.information(self, "Info", f"Item {entry.code} added to the progression.")
+
+    def delete_selected_item(self):
+        self.progression_service.delete_item(self.progression_tree)
+        self.update_buttons_state(self.get_selected_catalogue())
