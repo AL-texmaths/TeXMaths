@@ -1,14 +1,18 @@
 #main_window.py
-from assistant_progression.services.code_service import CodeService
-from assistant_progression.services.catalogue_service import CatalogueService
-from assistant_progression.services.persistence_service import PersistenceService
-from assistant_progression.services.export_service import ExportService
-from assistant_progression.services.theme_service import ThemeService
-from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
-from assistant_progression.services.progression_service import ProgressionService
-from assistant_progression.services.search_service import SearchService
+from assistant_progression.app.application_context import create_context
+# from assistant_progression.services.code_service import CodeService
+# from assistant_progression.services.catalogue_service import CatalogueService
+# from assistant_progression.services.export_service import ExportService
+# from assistant_progression.services.theme_service import ThemeService
+# from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
+# from assistant_progression.services.progression_service import ProgressionService
+# from assistant_progression.services.search_service import SearchService
+# from assistant_progression.controllers.progression_controller import ProgressionController
+# from assistant_progression.services.undo_redo_service import UndoRedoService
+# from assistant_progression.controllers.progression_document_controller import ProgressionDocumentController
+# from assistant_progression.controllers.code_index_document_controller import CodeIndexDocumentController
+# from assistant_progression.models.paths import Paths
 from assistant_progression.utils.textools import update_code_index
-from assistant_progression.models.paths import Paths
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
 from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
@@ -16,10 +20,6 @@ from assistant_progression.gui.menus.catalogue_menu_builder import CatalogueMenu
 from assistant_progression.gui.panels.regex_panel import RegexPanel
 from assistant_progression.gui.panels.preview_panel import PreviewPanel
 from assistant_progression.gui.panels.progression_panel import ProgressionPanel
-from assistant_progression.controllers.progression_controller import ProgressionController
-from assistant_progression.services.undo_redo_service import UndoRedoService
-from assistant_progression.controllers.progression_document_controller import ProgressionDocumentController
-from assistant_progression.controllers.code_index_document_controller import CodeIndexDocumentController
 from assistant_progression.controllers.theme_controller import ThemeController
 from assistant_progression.gui.dialogs.unused_items_dialog import UnusedItemsDialog
 
@@ -29,13 +29,10 @@ from PySide6.QtWidgets import (
     QMenuBar,
     QMenu,
     QSplitter,
-    QVBoxLayout,
     QHBoxLayout,
-    QListWidget,
     QFileDialog,
     QWidget,
     QMessageBox,
-    QDialog,
 )
 
 
@@ -46,16 +43,16 @@ class MainWindow(QWidget):
         super().__init__()
 
         self.currentFile = None
-
-        self.persistence_service = PersistenceService()
-        self.config = self.persistence_service.load_config()
-        self.paths = Paths(self.config)
-        self.settings = self.config.settings
+        self.context = create_context()
+        # self.persistence_service = PersistenceService()
+        # self.config = self.persistence_service.load_config()
+        # self.paths = Paths(self.config)
+        self.settings = self.context.config.settings
         self.action_manager = ActionManager(self)
         self.init_window_and_settings()
         self.init_services()
-        self.reload_data()
-        self.theme_service.apply(self)
+        # self.reload_data()
+        self.context.theme_service.apply(self)
 
         self.main_layout = QHBoxLayout(self)
 
@@ -72,19 +69,26 @@ class MainWindow(QWidget):
 
     def init_services(self):
 
-        # Services génériques
-
-        self.export_service = ExportService()
-
-        self.undo_redo_service = UndoRedoService()
-
-        # Thèmes
-        theme_name = self.settings.current.theme
-
-        self.theme_service = ThemeService(
-            themes=self.settings.themes,
-            default_theme=theme_name,
+        self.theme_controller = ThemeController(
+            theme_service=self.context.theme_service,
+            persistence_service=self.context.persistence_service,
+            config=self.context.config,
+            on_theme_changed=self.apply_current_theme
         )
+
+        # # Services génériques
+
+        # self.export_service = ExportService()
+
+        # self.undo_redo_service = UndoRedoService()
+
+        # # Thèmes
+        # theme_name = self.settings.current.theme
+
+        # self.theme_service = ThemeService(
+        #     themes=self.settings.themes,
+        #     default_theme=theme_name,
+        # )
 
     def init_connect_signals(self):
 
@@ -109,56 +113,56 @@ class MainWindow(QWidget):
     def set_right_focus(self):
         self.progression_panel.progression_tree.setFocus()
 
-    def reload_data(self):
-        self.code_index_document_controller = CodeIndexDocumentController(
-            document_path=self.paths.code_index_file
-        )
+    # def reload_data(self):
+        # self.code_index_document_controller = CodeIndexDocumentController(
+        #     document_path=self.paths.code_index_file
+        # )
 
-        self.data = self.code_index_document_controller.get_code_index_data()
+        # self.data = self.code_index_document_controller.load_data()
 
-        self.code_service = CodeService(self.config.codes)
+        # self.code_service = CodeService(self.config.codes)
 
-        self.catalogue_service = CatalogueService(
-            self.data,
-            self.config.catalogues
-        )
+        # self.catalogue_service = CatalogueService(
+        #     self.data,
+        #     self.config.catalogues
+        # )
 
-        self.search_service = SearchService(
-            self.code_service,
-            self.catalogue_service
-        )
+        # self.search_service = SearchService(
+        #     self.code_service,
+        #     self.catalogue_service
+        # )
 
-        self.analysis_service = ProgressionAnalysisService(
-            self.catalogue_service
-        )
+        # self.analysis_service = ProgressionAnalysisService(
+        #     self.catalogue_service
+        # )
 
-        self.progression_service = ProgressionService(
-            self.code_service,
-            self.catalogue_service,
-            self.analysis_service,
-            self.config
-        )
+        # self.progression_service = ProgressionService(
+        #     self.code_service,
+        #     self.catalogue_service,
+        #     self.analysis_service,
+        #     self.config
+        # )
 
-        self.progression_controller = ProgressionController(
-            self.progression_service,
-            self.undo_redo_service
-        )
+        # self.progression_controller = ProgressionController(
+        #     self.progression_service,
+        #     self.undo_redo_service
+        # )
 
-        self.document_controller = ProgressionDocumentController(
-            progression_service=self.progression_service,
-            persistence_service=self.persistence_service,
-            export_service=self.export_service,
-            undo_redo_service=self.undo_redo_service,
-            code_service=self.code_service,
-            paths=self.paths,
-        )
+        # self.document_controller = ProgressionDocumentController(
+        #     progression_service=self.progression_service,
+        #     persistence_service=self.persistence_service,
+        #     export_service=self.export_service,
+        #     undo_redo_service=self.undo_redo_service,
+        #     code_service=self.code_service,
+        #     paths=self.paths,
+        # )
 
-        self.theme_controller = ThemeController(
-            theme_service=self.theme_service,
-            persistence_service=self.persistence_service,
-            config=self.config,
-            on_theme_changed=self.apply_current_theme
-        )
+        # self.theme_controller = ThemeController(
+        #     theme_service=self.theme_service,
+        #     persistence_service=self.persistence_service,
+        #     config=self.config,
+        #     on_theme_changed=self.apply_current_theme
+        # )
 
     def init_window_and_settings(self):
         self.setWindowTitle(self.settings.main_window.title)
@@ -183,9 +187,9 @@ class MainWindow(QWidget):
     def init_regex_panel(self):
 
         default_code = self.settings.current.code
-        default_label =self.code_service.display_name(default_code)
+        default_label =self.context.code_service.display_name(default_code)
         self.regex_panel = RegexPanel(
-            self.search_service,
+            self.context.search_service,
             default_label=default_label
         )
     
@@ -193,14 +197,14 @@ class MainWindow(QWidget):
         self.preview_panel = PreviewPanel(
             self.regex_panel,
             self.progression_panel,
-            self.theme_service,
-            self.code_service,
-            self.analysis_service,
-            self.paths.katex
+            self.context.theme_service,
+            self.context.code_service,
+            self.context.progression_analysis_service,
+            self.context.paths.katex
         )
     
     def apply_current_theme(self):
-        self.theme_service.apply(self)
+        self.context.theme_service.apply(self)
         self.preview_panel.refresh_view()
 
     def begin_theme_preview(self):
@@ -227,9 +231,9 @@ class MainWindow(QWidget):
 
         open_catalogue_menu = QMenu("Ouvrir un catalogue", self)
         self.catalogue_menu_builder = CatalogueMenuBuilder(
-            self.catalogue_service,
-            self.paths.texmf,
-            self.config
+            self.context.catalogue_service,
+            self.context.paths.texmf,
+            self.context.config
         )
         self.catalogue_menu_builder.populate(open_catalogue_menu)
 
@@ -250,7 +254,7 @@ class MainWindow(QWidget):
         file_menu.addAction(self.action_manager.action("export_progression"))
 
         self.theme_menu_builder = ThemeMenuBuilder(
-            self.theme_service,
+            self.context.theme_service,
             self.commit_theme,
             self.set_theme
         )
@@ -265,7 +269,7 @@ class MainWindow(QWidget):
         self.main_layout.setMenuBar(menu_bar)
 
     def register_actions(self):
-        actions = self.config.actions
+        actions = self.context.config.actions
         for id in actions.model_dump().keys():
             action = getattr(actions, id)
             self.action_manager.register(
@@ -279,15 +283,15 @@ class MainWindow(QWidget):
             )
 
     def open_config_file(self):
-        self.persistence_service.open_config_file()
+        self.context.persistence_service.open_config_file()
 
     def init_progression_pannel(self):
 
         self.progression_panel = ProgressionPanel(
             self.action_manager,
-            self.progression_service,
-            self.progression_controller,
-            self.analysis_service,
+            self.context.progression_service,
+            self.context.progression_controller,
+            self.context.progression_analysis_service,
             self.regex_panel
         )
         self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
@@ -327,20 +331,20 @@ class MainWindow(QWidget):
             self.paths.texmf,
             config=self.config
         )
-        self.reload_data()
+        # self.reload_data()
 
         self.update_search()
 
         QMessageBox.information(
             self,
             "Info",
-            f"Updated code index at {self.paths.code_index_file}"
+            f"Updated code index at {self.context.paths.code_index_file}"
         )
     
     def open_catalogue(self, name):
-        catalogue = self.catalogue_service.get_catalogue_from_name(name)
+        catalogue = self.context.catalogue_service.get_catalogue_from_name(name)
         if catalogue:
-            self.catalogue_service.open_catalogue(catalogue.name)
+            self.context.catalogue_service.open_catalogue(catalogue.name)
         else:
             QMessageBox.warning(
                 self,
@@ -348,24 +352,19 @@ class MainWindow(QWidget):
                 f"Catalogue '{name}' not found."
             )
 
-    # @record_undo
     def add_level(self):
         self.progression_panel.add_level()
     
-    # @record_undo
     def add_chapter(self):
         self.progression_panel.add_chapter()
     
-    # @record_undo
     def add_seance(self):
         self.progression_panel.add_seance()
 
-    # @record_undo
     def add_selected_item(self):
         self.progression_panel.add_selected_item()
         self.preview_panel.refresh_view()
 
-    # @record_undo
     def delete_selected_item(self):
         self.progression_panel.delete_selected_item()
         self.preview_panel.refresh_view()
@@ -381,7 +380,7 @@ class MainWindow(QWidget):
         UnusedItemsDialog(unused, self.config).exec()
 
     def get_unused_entries(self):
-        return self.analysis_service.get_unused_entries(
+        return self.context.progression_analysis_service.get_unused_entries(
             self.progression_panel.progression_tree,
             self.regex_panel.selected_catalogue()
         )
@@ -396,13 +395,13 @@ class MainWindow(QWidget):
         self.preview_panel.refresh_view()
 
     def undo(self):
-        self.progression_controller.undo(
+        self.context.progression_controller.undo(
             self.progression_panel.progression_tree,
             refresh_callback=self.progression_panel.refresh_ui
         )
     
     def redo(self):
-        self.progression_controller.redo(
+        self.context.progression_controller.redo(
             self.progression_panel.progression_tree,
             refresh_callback=self.progression_panel.refresh_ui
         )
@@ -412,14 +411,14 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getOpenFileName(
             self,
             "Charger une progression",
-            str(self.paths.progression),
+            str(self.context.paths.progression),
             "JSON (*.json)"
         )
 
         if not filename:
             return
 
-        if self.document_controller.load(
+        if self.context.document_controller.load(
             self.progression_panel.progression_tree,
             filename,
         ):
@@ -427,17 +426,17 @@ class MainWindow(QWidget):
 
     def save_progression(self):
 
-        if not self.document_controller.has_file:
+        if not self.context.document_controller.has_file:
             return self.save_as_progression()
 
-        self.document_controller.save(
+        self.context.document_controller.save(
             self.progression_panel.progression_tree
         )
 
         QMessageBox.information(
             self,
             "Info",
-            f"File saved at {self.document_controller.current_file}",
+            f"File saved at {self.context.document_controller.current_file}",
         )
 
     def save_as_progression(self):
@@ -445,21 +444,21 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getSaveFileName(
             self,
             "Sauvegarder la progression",
-            str(self.paths.progression),
+            str(self.context.paths.progression),
             "JSON Files (*.json);;All Files (*)",
         )
 
         if not filename:
             return
 
-        self.document_controller.save_as(
+        self.context.document_controller.save_as(
             self.progression_panel.progression_tree,
             filename,
         )
 
     def export_progression(self):
 
-        if not self.document_controller.has_file:
+        if not self.context.document_controller.has_file:
             QMessageBox.warning(
                 self,
                 "Warning",
@@ -467,7 +466,7 @@ class MainWindow(QWidget):
             )
             return
 
-        tex_path = self.document_controller.export(
+        tex_path = self.context.document_controller.export(
             self.progression_panel.progression_tree,
             self.regex_panel.selected_catalogue().name,
         )
