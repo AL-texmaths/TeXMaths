@@ -18,20 +18,19 @@ from assistant_progression.gui.panels.preview_panel import PreviewPanel
 from assistant_progression.gui.panels.progression_panel import ProgressionPanel
 from assistant_progression.controllers.progression_controller import ProgressionController
 from assistant_progression.services.undo_redo_service import UndoRedoService
-
-import json
-from pathlib import Path
+from assistant_progression.controllers.progression_document_controller import ProgressionDocumentController
+from assistant_progression.controllers.code_index_document_controller import CodeIndexDocumentController
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
-    QWidget,
-    QVBoxLayout,
-    QHBoxLayout,
-    QListWidget,
     QMenuBar,
     QMenu,
     QSplitter,
+    QVBoxLayout,
+    QHBoxLayout,
+    QListWidget,
     QFileDialog,
+    QWidget,
     QMessageBox,
     QDialog,
 )
@@ -111,13 +110,12 @@ class MainWindow(QWidget):
         self.progression_panel.progression_tree.setFocus()
 
     def reload_data(self):
-        code_index_file_path = self.paths.code_index_file
-        if not code_index_file_path.exists():
-            self.data = {}
-        else:
-            with open(code_index_file_path, encoding="utf-8") as f:
-                self.data = json.load(f)
-        
+        self.code_index_document_controller = CodeIndexDocumentController(
+            document_path=self.paths.code_index_file
+        )
+
+        self.data = self.code_index_document_controller.get_code_index_data()
+
         self.code_service = CodeService(self.config.codes)
 
         self.catalogue_service = CatalogueService(
@@ -144,6 +142,15 @@ class MainWindow(QWidget):
         self.progression_controller = ProgressionController(
             self.progression_service,
             self.undo_redo_service
+        )
+
+        self.document_controller = ProgressionDocumentController(
+            progression_service=self.progression_service,
+            persistence_service=self.persistence_service,
+            export_service=self.export_service,
+            undo_redo_service=self.undo_redo_service,
+            code_service=self.code_service,
+            paths=self.paths,
         )
 
     def init_window_and_settings(self):
@@ -241,6 +248,7 @@ class MainWindow(QWidget):
 
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
+        update_menu.addAction(self.action_manager.action("update_code_index_main"))
 
         file_menu.addAction(self.action_manager.action("load_progression"))
         file_menu.addSeparator()
@@ -460,97 +468,61 @@ class MainWindow(QWidget):
         if not filename:
             return
 
-        with open(filename, encoding="utf8") as f:
-            data = json.load(f)
-
-        self.progression_service.restore(
+        if self.document_controller.load(
             self.progression_panel.progression_tree,
-            data
-        )
-        self.currentFile = Path(filename)
-
-        self.undo_redo.clear()
-        self.preview_panel.refresh_view()
+            filename,
+        ):
+            self.preview_panel.refresh_view()
 
     def save_progression(self):
 
-        if self.currentFile is None:
+        if not self.document_controller.has_file:
             return self.save_as_progression()
 
-        data=self.progression_service.snapshot(
+        self.document_controller.save(
             self.progression_panel.progression_tree
-        )
-
-        with open(
-            self.currentFile,
-            "w",
-            encoding="utf8"
-        ) as f:
-
-            json.dump(
-                data,
-                f,
-                indent=4,
-                ensure_ascii=False
-            )
-        
-        QMessageBox.information(self, "Info", f"File save at {str(self.currentFile)}")
-
-    def save_as_progression(self):
-        # Open a file dialog to select the save location and name
-        options = QFileDialog.Options()
-        filename, _ = QFileDialog.getSaveFileName(
-            self,
-            "Sauvegarder la progression",
-            str(self.paths.progression),
-            "JSON Files (*.json);;All Files (*)",
-            options=options)
-        
-        if not filename:
-            return  # User cancelled the dialog
-
-        data = self.progression_service.snapshot(
-            self.progression_panel.progression_tree
-        )
-
-        self.persistence_service.save_progression(
-            filename,
-            data
-        )
-        self.currentFile = Path(filename)
-
-    def export_progression(self):
-
-        if self.currentFile is None:
-            QMessageBox.warning(
-                self,
-                "Warning",
-                "Please save the progression before exporting."
-            )
-            return
-
-        data = self.persistence_service.load_progression(
-            self.currentFile
-        )
-
-        if data is None:
-            return
-
-        tex_path = self.paths.sequencages
-
-        tex_path = (
-            tex_path
-            / f"sequencage-{self.catalogue_combo.currentText().replace(' ', '_')}-{self.currentFile.stem}-structure.tex"
-        )
-
-        self.export_service.export_progression(
-            tex_path,
-            data,
-            self.code_service.labels
         )
 
         QMessageBox.information(
             self,
             "Info",
-            f"Progression exported {tex_path}"
+            f"File saved at {self.document_controller.current_file}",
+        )
+
+    def save_as_progression(self):
+
+        filename, _ = QFileDialog.getSaveFileName(
+            self,
+            "Sauvegarder la progression",
+            str(self.paths.progression),
+            "JSON Files (*.json);;All Files (*)",
+        )
+
+        if not filename:
+            return
+
+        self.document_controller.save_as(
+            self.progression_panel.progression_tree,
+            filename,
+        )
+
+    def export_progression(self):
+
+        if not self.document_controller.has_file:
+            QMessageBox.warning(
+                self,
+                "Warning",
+                "Please save the progression before exporting.",
+            )
+            return
+
+        tex_path = self.document_controller.export(
+            self.progression_panel.progression_tree,
+            self.regex_panel.selected_catalogue().name,
+        )
+
+        QMessageBox.information(
+            self,
+            "Info",
+            f"Progression exported to\n{tex_path}",
         )

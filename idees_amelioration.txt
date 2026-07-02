@@ -12,20 +12,17 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> Extraire regex_service de main_window
 >>> load_progression/save_progression doivent suivrent
 la même structure que config (main window ne doit pas
 connaître le chemin vers le fichier)
 ---> progression manager pour les quatre dernières
 méthodes
->>> setHtml("") crée un fond blanc sur le view_panel. Il faut que le
-fond soit de la même couleur
->>> enregistrement dans config.json (boit current theme) de:
->>> fragile: if mode == "Liste complète filtrée"
->>> show usage mal utilisé dans main_window
--- catalogue précédemment sélectionné
--- type précédemment sélectionné
--- progression ouverte
+
+>>> enregistrement dans config.json (voir current theme) de:
+--> catalogue précédemment sélectionné
+--> type précédemment sélectionné
+--> progression ouverte
+
 >>> délégation des responsabilités du script assistant de progression
 ===============================================================================
 					Java / html
