@@ -1,6 +1,5 @@
 #main_window.py
 from assistant_progression.app.application_context import create_context
-from assistant_progression.utils.textools import update_code_index
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
 from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
@@ -237,15 +236,7 @@ class MainWindow(QWidget):
             self.progression_visible = True
 
     def update_code_index_main(self):
-        update_code_index(
-            self.context.paths.code_labels,
-            self.context.paths.code_index,
-            self.context.paths.texmf,
-            config=self.context.config
-        )
-        code_index_data = self.context.code_index_document_controller.load_data()
-        self.context.catalogue_service.code_index_data = code_index_data
-        self.context.catalogue_service.refresh()
+        self.context.code_index_controller.refresh_code_index()
 
         self.update_search()
 

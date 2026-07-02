@@ -14,6 +14,7 @@ from assistant_progression.services.progression_analysis_service import Progress
 from assistant_progression.services.progression_service import ProgressionService
 from assistant_progression.services.search_service import SearchService
 from assistant_progression.controllers.progression_controller import ProgressionController
+from assistant_progression.controllers.code_index_controller import CodeIndexController
 
 
 @dataclass
@@ -26,13 +27,14 @@ class AppContext:
     progression_analysis_service: ProgressionAnalysisService
     progression_service: ProgressionService
     progression_controller: ProgressionController
-    code_index_document_controller: CodeIndexDocumentController
+    code_index_controller: CodeIndexController
     code_index_data: dict
     code_service: CodeService
     catalogue_service: CatalogueService
     search_service: SearchService
     theme_service: ThemeService
     document_controller: ProgressionDocumentController
+    code_index_controller: CodeIndexController
 
 def create_context() -> AppContext:
 
@@ -46,6 +48,13 @@ def create_context() -> AppContext:
     code_index_data = code_index_document_controller.load_data()
     code_service = CodeService(config.codes)
     catalogue_service = CatalogueService(code_index_data, config.catalogues)
+    code_index_controller = CodeIndexController(
+        paths,
+        config,
+        catalogue_service,
+        code_index_document_controller
+    )
+    search_service = SearchService(code_service, catalogue_service)
     progression_analysis_service = ProgressionAnalysisService(catalogue_service)
     progression_service = ProgressionService(
         code_service,
@@ -53,7 +62,6 @@ def create_context() -> AppContext:
         progression_analysis_service,
         config
         )
-    search_service = SearchService(code_service, catalogue_service)
     progression_controller = ProgressionController(
         progression_service,
         undo_redo_service,
@@ -76,7 +84,6 @@ def create_context() -> AppContext:
         persistence_service=persistence_service,
         config=config,
         paths=paths,
-        code_index_document_controller=code_index_document_controller,
         code_index_data=code_index_data,
         code_service=code_service,
         catalogue_service=catalogue_service,
@@ -87,5 +94,6 @@ def create_context() -> AppContext:
         theme_service=theme_service,
         export_service=export_service,
         undo_redo_service=undo_redo_service,
-        document_controller=document_controller
+        document_controller=document_controller,
+        code_index_controller=code_index_controller
     )
