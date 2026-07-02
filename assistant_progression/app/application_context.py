@@ -34,7 +34,6 @@ class AppContext:
     theme_service: ThemeService
     document_controller: ProgressionDocumentController
 
-
 def create_context() -> AppContext:
 
     persistence_service = PersistenceService()

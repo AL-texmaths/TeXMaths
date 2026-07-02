@@ -1,3 +1,4 @@
+# catalogue_service.py
 import re
 import subprocess
 from pathlib import Path
@@ -8,21 +9,27 @@ from assistant_progression.models.config import Config
 
 class CatalogueService:
 
-    def __init__(self, data: dict, catalogues_config: dict):
-        self.data = data
+    def __init__(self, code_index_data: dict, catalogues_config: dict):
+        self.code_index_data = code_index_data
+        self.catalogues_config = catalogues_config
+        self.entries = []
+        self.refresh()
+    
+    def refresh(self):
+        self.build_catalogues()
+        self.build_index()
+
+    def build_catalogues(self):
         self.catalogues = {}
 
-        for catalogue_key, catalogue_metadata in catalogues_config.items():
+        for catalogue_key, catalogue_metadata in self.catalogues_config.items():
             catalogue = Catalogue(
                 key=catalogue_key,
-                data=self.data.get(catalogue_key, {}),
+                data=self.code_index_data.get(catalogue_key, {}),
                 **catalogue_metadata.model_dump()
                 )
             
             self.catalogues[catalogue_key] = catalogue
-
-        self.entries = []
-        self.build_index()
 
     def get_catalogue(self, key:str) -> dict:
         return self.catalogues.get(key, {})
@@ -56,6 +63,8 @@ class CatalogueService:
         subprocess.run([resolve_executable("blocnote", config), str(package_path)])
 
     def build_index(self):
+
+        self.entries = []
 
         for catalogue in self.catalogues.values():
 

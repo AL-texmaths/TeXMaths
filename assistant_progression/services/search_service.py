@@ -1,3 +1,4 @@
+# search_service.py
 from assistant_progression.services.code_service import CodeService
 from assistant_progression.services.catalogue_service import CatalogueService
 

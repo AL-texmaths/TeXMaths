@@ -1,3 +1,4 @@
+# regex_panel.py
 import re
 from assistant_progression.services.regex_service import SearchLineEdit
 

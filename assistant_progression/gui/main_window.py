@@ -1,17 +1,5 @@
 #main_window.py
 from assistant_progression.app.application_context import create_context
-# from assistant_progression.services.code_service import CodeService
-# from assistant_progression.services.catalogue_service import CatalogueService
-# from assistant_progression.services.export_service import ExportService
-# from assistant_progression.services.theme_service import ThemeService
-# from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
-# from assistant_progression.services.progression_service import ProgressionService
-# from assistant_progression.services.search_service import SearchService
-# from assistant_progression.controllers.progression_controller import ProgressionController
-# from assistant_progression.services.undo_redo_service import UndoRedoService
-# from assistant_progression.controllers.progression_document_controller import ProgressionDocumentController
-# from assistant_progression.controllers.code_index_document_controller import CodeIndexDocumentController
-# from assistant_progression.models.paths import Paths
 from assistant_progression.utils.textools import update_code_index
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
@@ -36,7 +24,6 @@ from PySide6.QtWidgets import (
 )
 
 
-
 class MainWindow(QWidget):
 
     def __init__(self):
@@ -44,14 +31,10 @@ class MainWindow(QWidget):
 
         self.currentFile = None
         self.context = create_context()
-        # self.persistence_service = PersistenceService()
-        # self.config = self.persistence_service.load_config()
-        # self.paths = Paths(self.config)
         self.settings = self.context.config.settings
         self.action_manager = ActionManager(self)
         self.init_window_and_settings()
         self.init_services()
-        # self.reload_data()
         self.context.theme_service.apply(self)
 
         self.main_layout = QHBoxLayout(self)
@@ -76,20 +59,6 @@ class MainWindow(QWidget):
             on_theme_changed=self.apply_current_theme
         )
 
-        # # Services génériques
-
-        # self.export_service = ExportService()
-
-        # self.undo_redo_service = UndoRedoService()
-
-        # # Thèmes
-        # theme_name = self.settings.current.theme
-
-        # self.theme_service = ThemeService(
-        #     themes=self.settings.themes,
-        #     default_theme=theme_name,
-        # )
-
     def init_connect_signals(self):
 
         self.regex_panel.catalogue_combo.currentTextChanged.connect(
@@ -112,57 +81,6 @@ class MainWindow(QWidget):
     
     def set_right_focus(self):
         self.progression_panel.progression_tree.setFocus()
-
-    # def reload_data(self):
-        # self.code_index_document_controller = CodeIndexDocumentController(
-        #     document_path=self.paths.code_index_file
-        # )
-
-        # self.data = self.code_index_document_controller.load_data()
-
-        # self.code_service = CodeService(self.config.codes)
-
-        # self.catalogue_service = CatalogueService(
-        #     self.data,
-        #     self.config.catalogues
-        # )
-
-        # self.search_service = SearchService(
-        #     self.code_service,
-        #     self.catalogue_service
-        # )
-
-        # self.analysis_service = ProgressionAnalysisService(
-        #     self.catalogue_service
-        # )
-
-        # self.progression_service = ProgressionService(
-        #     self.code_service,
-        #     self.catalogue_service,
-        #     self.analysis_service,
-        #     self.config
-        # )
-
-        # self.progression_controller = ProgressionController(
-        #     self.progression_service,
-        #     self.undo_redo_service
-        # )
-
-        # self.document_controller = ProgressionDocumentController(
-        #     progression_service=self.progression_service,
-        #     persistence_service=self.persistence_service,
-        #     export_service=self.export_service,
-        #     undo_redo_service=self.undo_redo_service,
-        #     code_service=self.code_service,
-        #     paths=self.paths,
-        # )
-
-        # self.theme_controller = ThemeController(
-        #     theme_service=self.theme_service,
-        #     persistence_service=self.persistence_service,
-        #     config=self.config,
-        #     on_theme_changed=self.apply_current_theme
-        # )
 
     def init_window_and_settings(self):
         self.setWindowTitle(self.settings.main_window.title)
@@ -298,17 +216,12 @@ class MainWindow(QWidget):
         self.progression_visible = True
         self.addAction(self.action_manager.action("toggle_progression_panel"))
 
-    # ---------------- VIEW SWITCH ----------------
-
     def toggle_progression_panel(self):
         if self.progression_visible:
-            # mémorise la taille actuelle du splitter
             self._saved_sizes = self.splitter.sizes()
 
-            # cache panneau droit
             self.right_widget.setVisible(False)
 
-            # redistribue l'espace vers centre + gauche
             self.splitter.setSizes([400, 1000, 0])
 
             self.progression_visible = False
@@ -316,7 +229,6 @@ class MainWindow(QWidget):
         else:
             self.right_widget.setVisible(True)
 
-            # restaure tailles si possible
             if hasattr(self, "_saved_sizes"):
                 self.splitter.setSizes(self._saved_sizes)
             else:
@@ -326,12 +238,14 @@ class MainWindow(QWidget):
 
     def update_code_index_main(self):
         update_code_index(
-            self.paths.code_labels,
-            self.paths.code_index,
-            self.paths.texmf,
-            config=self.config
+            self.context.paths.code_labels,
+            self.context.paths.code_index,
+            self.context.paths.texmf,
+            config=self.context.config
         )
-        # self.reload_data()
+        code_index_data = self.context.code_index_document_controller.load_data()
+        self.context.catalogue_service.code_index_data = code_index_data
+        self.context.catalogue_service.refresh()
 
         self.update_search()
 
@@ -377,7 +291,7 @@ class MainWindow(QWidget):
 
     def show_unused_items(self):
         unused = self.get_unused_entries()
-        UnusedItemsDialog(unused, self.config).exec()
+        UnusedItemsDialog(unused, self.context.config).exec()
 
     def get_unused_entries(self):
         return self.context.progression_analysis_service.get_unused_entries(
