@@ -3,7 +3,7 @@ import copy
 def record_undo(method):
     def wrapper(self, *args, **kwargs):
         self.undo_redo.record(self.progression_service.snapshot(
-                self.progression
+                self.progression_panel.progression_tree
             )
         )
         return method(self, *args, **kwargs)

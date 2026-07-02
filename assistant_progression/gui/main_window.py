@@ -1,4 +1,3 @@
-from assistant_progression.services.html_service import HtmlService
 from assistant_progression.services.code_service import CodeService
 from assistant_progression.services.catalogue_service import CatalogueService
 from assistant_progression.services.persistence_service import PersistenceService
@@ -16,6 +15,7 @@ from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
 from assistant_progression.gui.menus.catalogue_menu_builder import CatalogueMenuBuilder
 from assistant_progression.gui.panels.regex_panel import RegexPanel
 from assistant_progression.gui.panels.preview_panel import PreviewPanel
+from assistant_progression.gui.panels.progresion_panel import ProgressionPanel
 
 import json
 from pathlib import Path
@@ -57,14 +57,9 @@ class MainWindow(QWidget):
         self._theme_committed = False
         self.theme_service.apply(self)
 
-        self.init_regex_panel()
-        self.preview_panel = PreviewPanel(
-            self.regex_panel,
-            self.theme_service,
-            self.code_service,
-            self.paths.katex
-            )
         self.register_actions()
+        self.init_regex_panel()
+        self.init_preview_panel()
         self.init_progression_pannel()
         self.init_connect_signals()
         self.init_menu()
@@ -76,8 +71,6 @@ class MainWindow(QWidget):
     def init_services(self):
 
         # Services génériques
-
-        self.html_service = HtmlService()
 
         self.export_service = ExportService()
 
@@ -105,16 +98,6 @@ class MainWindow(QWidget):
             self.preview_panel.refresh_view
         )
 
-        self.progression.itemClicked.connect(
-            self.show_usage
-        )
-
-        self.progression.currentItemChanged.connect(
-            self.update_buttons_state
-        )
-
-        self.update_buttons_state()
-
         self.addAction(self.action_manager.action("set_left_focus"))
         self.addAction(self.action_manager.action("set_right_focus"))
         self.addAction(self.action_manager.action("close"))
@@ -130,7 +113,7 @@ class MainWindow(QWidget):
             self.regex_panel.search_line.setFocus()
     
     def set_right_focus(self):
-        self.progression.setFocus()
+        self.progression_panel.progression_tree.setFocus()
 
     def reload_data(self):
         code_index_file_path = self.paths.code_index_file
@@ -174,8 +157,8 @@ class MainWindow(QWidget):
 
         self.splitter.addWidget(self.regex_panel)
         self.splitter.addWidget(self.preview_panel)
-        self.splitter.addWidget(self.right_widget)
-        self.tabs = [self.regex_panel, self.preview_panel, self.right_widget]
+        self.splitter.addWidget(self.progression_panel)
+        self.tabs = [self.regex_panel, self.preview_panel, self.progression_panel]
 
         self.splitter.setSizes([400, 800, 300])
 
@@ -189,6 +172,14 @@ class MainWindow(QWidget):
         self.regex_panel = RegexPanel(
             self.search_service,
             default_label=default_label
+        )
+    
+    def init_preview_panel(self):
+        self.preview_panel = PreviewPanel(
+            self.regex_panel,
+            self.theme_service,
+            self.code_service,
+            self.paths.katex
         )
 
     def begin_theme_preview(self):
@@ -292,26 +283,13 @@ class MainWindow(QWidget):
 
     def init_progression_pannel(self):
 
-        self.progression = QTreeWidget()
-
-        self.progression.setHeaderLabel("Progression annuelle")
-
-        right = QVBoxLayout()
-
-        right.addWidget(self.progression)
-        right.addWidget(self.action_manager.button("add_level"))
-        right.addWidget(self.action_manager.button("add_chapter"))
-        right.addWidget(self.action_manager.button("add_seance"))
-        right.addWidget(self.action_manager.button("add_selected_item"))
-        right.addWidget(self.action_manager.button("delete_selected_item"))
-        right.addWidget(self.action_manager.button("show_unused_items"))
-
-        right_widget = QWidget()
-        right_widget.setLayout(right)
-        self.right_widget = right_widget
-
+        self.progression_panel = ProgressionPanel(
+            self.action_manager,
+            self.progression_service,
+            self.analysis_service
+        )
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
         self.progression_visible = True
-
         self.addAction(self.action_manager.action("toggle_progression_panel"))
 
     # ---------------- VIEW SWITCH ----------------
@@ -371,28 +349,29 @@ class MainWindow(QWidget):
     @record_undo
     def add_chapter(self):
 
+        selected_catalogue = self.regex_panel.selected_catalogue()
         item = self.progression_service.add_chapter(
-            self.progression,
-            self.regex_panel.selected_catalogue(),
-            self.progression.currentItem()
+            self.progression_panel.progression_tree,
+            selected_catalogue,
+            self.progression_panel.progression_tree.currentItem()
         )
 
         if item:
-            self.progression.editItem(item, 0)
+            self.progression_panel.progression_tree.editItem(item, 0)
         
-        self.update_buttons_state()
+        self.progression_panel.update_buttons_state(selected_catalogue)
 
     @record_undo
     def add_level(self):
 
         item = self.progression_service.add_level(
-            self.progression
+            self.progression_panel.progression_tree
         )
 
         if item:
-            self.progression.editItem(item, 0)
+            self.progression_panel.progression_tree.editItem(item, 0)
         
-        self.update_buttons_state()
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
 
     def show_unused_items(self):
 
@@ -437,7 +416,7 @@ class MainWindow(QWidget):
 
     def get_unused_entries(self):
         return self.analysis_service.get_unused_entries(
-            self.progression,
+            self.progression_panel.progression_tree,
             self.regex_panel.selected_catalogue()
         )
 
@@ -449,7 +428,7 @@ class MainWindow(QWidget):
             return
 
         item = self.progression_service.add_selected_item(
-            self.progression,
+            self.progression_panel.progression_tree,
             entry,
         )
 
@@ -463,16 +442,16 @@ class MainWindow(QWidget):
     def add_seance(self):
 
         item = self.progression_service.add_seance(
-            self.progression
+            self.progression_panel.progressiont_tree
         )
 
         if item:
-            self.progression.editItem(item, 0)
+            self.progression_panel.progression_tree.editItem(item, 0)
         
-        self.update_buttons_state()
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
 
     def _move_current_item(self, delta):
-        self.progression_service.move_item(self.progression, delta)
+        self.progression_service.move_item(self.progression_panel.progression_tree, delta)
 
     @record_undo
     def move_item_up(self):
@@ -482,57 +461,10 @@ class MainWindow(QWidget):
     def move_item_down(self):
         self._move_current_item(1)
 
-    def is_chapter(self, item):
-
-        if item is None:
-            return False
-
-        # un chapitre possède un parent racine
-        return (
-            item.parent() is not None
-            and item.data(0, Qt.UserRole) is None
-        )
-    
-    def update_buttons_state(self):
-
-        tree = self.progression
-
-        add_level_enabled = self.progression_service.can_add_level(tree)
-        self.action_manager.button("add_level").setEnabled(add_level_enabled)
-        self.action_manager.action("add_level").setEnabled(add_level_enabled)
-
-        add_chapter_enabled = self.progression_service.can_add_chapter(
-                tree,
-                self.regex_panel.selected_catalogue()
-            )
-        self.action_manager.button("add_chapter").setEnabled(add_chapter_enabled)
-        self.action_manager.action("add_chapter").setEnabled(add_chapter_enabled)
-
-        add_seance_enabled = self.progression_service.can_add_seance(tree)
-        self.action_manager.button("add_seance").setEnabled(add_seance_enabled)
-        self.action_manager.action("add_seance").setEnabled(add_seance_enabled)
-
-        item = tree.currentItem()
-
-        add_button_enabled = self.is_chapter(item)
-        self.action_manager.button("add_selected_item").setEnabled(add_button_enabled)
-        self.action_manager.action("add_selected_item").setEnabled(add_button_enabled)
-
     @record_undo
     def delete_selected_item(self):
-        self.progression_service.delete_item(self.progression)
-        self.update_buttons_state()
-
-    def show_usage(self, item):
-
-        code = item.data(0, Qt.UserRole)
-        if not code:
-            return
-
-        locations = self.analysis_service.find_usage_locations(
-            self.progression,
-            code
-        )
+        self.progression_service.delete_item(self.progression_panel.progression_tree)
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
 
     def set_theme(self, name):
         self.theme_service.set_theme(name)
@@ -540,7 +472,7 @@ class MainWindow(QWidget):
 
     def catalogue_changed(self):
         self.update_search()
-        self.update_buttons_state()
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
 
     def update_search(self):
         self.regex_panel.update_type_filter()
@@ -549,29 +481,29 @@ class MainWindow(QWidget):
 
     def undo(self):
         state = self.undo_redo.undo(self.progression_service.snapshot(
-                self.progression
+                self.progression_panel.progressiont_tree
                 ))
         if state is None:
             return
 
         self.progression_service.restore(
-            self.progression,
+            self.progression_panel.progression_tree,
             state
         )
-        self.update_buttons_state()
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
 
     def redo(self):
         state = self.undo_redo.redo(self.progression_service.snapshot(
-                self.progression
+                self.progression_panel.progressiont_tree
             ))
         if state is None:
             return
 
         self.progression_service.restore(
-           self.progression,
+           self.progression_panel.progression_tree,
             state
         )
-        self.update_buttons_state()
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
 
     def load_progression(self):
 
@@ -589,7 +521,7 @@ class MainWindow(QWidget):
             data = json.load(f)
 
         self.progression_service.restore(
-            self.progression,
+            self.progression_panel.progression_tree,
             data
         )
         self.currentFile = Path(filename)
@@ -602,7 +534,7 @@ class MainWindow(QWidget):
             return self.save_as_progression()
 
         data=self.progression_service.snapshot(
-            self.progression
+            self.progression_panel.progression_tree
         )
 
         with open(
@@ -634,7 +566,7 @@ class MainWindow(QWidget):
             return  # User cancelled the dialog
 
         data = self.progression_service.snapshot(
-            self.progression
+            self.progression_panel.progression_tree
         )
 
         self.persistence_service.save_progression(
