@@ -4,17 +4,18 @@ class CurrentSettings(BaseModel):
     theme: str
     code: str
 
-class WindowDim(BaseModel):
-    width: int
-    height: int
-
     @property
     def size(self) -> tuple[int, int]:
         return (self.width, self.height)
 
+class DialogConfig(BaseModel):
+    title: str
+    width: int
+    height: int
+
 class Settings(BaseModel):
-    main_window_title: str
-    init_size: WindowDim
+    main_window: DialogConfig
+    unused_items_dialog: DialogConfig
     themes: dict
     current: CurrentSettings
 

@@ -20,6 +20,9 @@ from assistant_progression.controllers.progression_controller import Progression
 from assistant_progression.services.undo_redo_service import UndoRedoService
 from assistant_progression.controllers.progression_document_controller import ProgressionDocumentController
 from assistant_progression.controllers.code_index_document_controller import CodeIndexDocumentController
+from assistant_progression.controllers.theme_controller import ThemeController
+from assistant_progression.gui.dialogs.unused_items_dialog import UnusedItemsDialog
+
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
@@ -34,6 +37,7 @@ from PySide6.QtWidgets import (
     QMessageBox,
     QDialog,
 )
+
 
 
 class MainWindow(QWidget):
@@ -51,13 +55,9 @@ class MainWindow(QWidget):
         self.init_window_and_settings()
         self.init_services()
         self.reload_data()
+        self.theme_service.apply(self)
 
         self.main_layout = QHBoxLayout(self)
-
-        self._preview_theme = None
-        self._saved_theme = None
-        self._theme_committed = False
-        self.theme_service.apply(self)
 
         self.register_actions()
         self.init_regex_panel()
@@ -153,9 +153,19 @@ class MainWindow(QWidget):
             paths=self.paths,
         )
 
+        self.theme_controller = ThemeController(
+            theme_service=self.theme_service,
+            persistence_service=self.persistence_service,
+            config=self.config,
+            on_theme_changed=self.apply_current_theme
+        )
+
     def init_window_and_settings(self):
-        self.setWindowTitle(self.settings.main_window_title)
-        self.resize(*self.settings.init_size.size)
+        self.setWindowTitle(self.settings.main_window.title)
+        self.resize(
+            self.settings.main_window.width,
+            self.settings.main_window.height
+            )
 
     def init_splitters(self):
         self.splitter = QSplitter(Qt.Horizontal)
@@ -188,40 +198,22 @@ class MainWindow(QWidget):
             self.analysis_service,
             self.paths.katex
         )
-
-    def begin_theme_preview(self):
-        self._saved_theme = self.theme_service.get_current_theme_name()
-        self._theme_committed = False
-        self._preview_theme = None
     
-    def end_theme_preview(self):
-        if self._theme_committed:
-            return
-
-        if self._saved_theme:
-            self.theme_service.set_theme(self._saved_theme)
-            self.theme_service.apply(self)
-            self.preview_panel.refresh_view()
-
-    def preview_theme(self, name):
-        self.theme_service.set_theme(name)
-        self.theme_service.apply(self)
-        self.preview_panel.refresh_view()
-
-    def commit_theme(self, name):
-        self._theme_committed = True
-
-        self.theme_service.set_theme(name)
-
-        self.theme_service.apply(self)
-        self.preview_panel.refresh_view()
-
-        self.config.settings.current.theme = name
-        self.persistence_service.save_config(self.config)
-
     def apply_current_theme(self):
         self.theme_service.apply(self)
         self.preview_panel.refresh_view()
+
+    def begin_theme_preview(self):
+        self.theme_controller.begin_preview()
+
+    def cancel_theme_preview(self):
+        self.theme_controller.cancel_preview()
+
+    def commit_theme(self, name):
+        self.theme_controller.commit_theme(name)
+
+    def set_theme(self, name):
+        self.theme_controller.set_theme(name)
 
     def init_menu(self):
 
@@ -231,7 +223,7 @@ class MainWindow(QWidget):
 
         theme_menu = QMenu("Thème", self)
         theme_menu.aboutToShow.connect(self.begin_theme_preview)
-        theme_menu.aboutToHide.connect(self.end_theme_preview)
+        theme_menu.aboutToHide.connect(self.cancel_theme_preview)
 
         open_catalogue_menu = QMenu("Ouvrir un catalogue", self)
         self.catalogue_menu_builder = CatalogueMenuBuilder(
@@ -244,7 +236,7 @@ class MainWindow(QWidget):
         progression_menu = QMenu("Progression", self)
         progression_menu.addAction(self.action_manager.action("add_selected_item"))
         progression_menu.addAction(self.action_manager.action("delete_selected_item"))
-        progression_menu.addAction(self.action_manager.action("show_unused_items"))
+        self.addAction(self.action_manager.action("show_unused_items"))
 
         file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
@@ -260,7 +252,7 @@ class MainWindow(QWidget):
         self.theme_menu_builder = ThemeMenuBuilder(
             self.theme_service,
             self.commit_theme,
-            self.preview_theme
+            self.set_theme
         )
         self.theme_menu_builder.populate(theme_menu)
 
@@ -385,55 +377,14 @@ class MainWindow(QWidget):
         self.progression_panel.move_item_down()
 
     def show_unused_items(self):
-
         unused = self.get_unused_entries()
-
-
-        dialog = QDialog()
-
-        dialog.setWindowTitle(
-            "Items non utilisés"
-        )
-
-        dialog.resize(
-            700,
-            800
-        )
-
-        dialog_layout = QVBoxLayout()
-
-
-        liste = QListWidget()
-
-
-        for entry in unused:
-
-            texte = (
-                f'{entry.code} '
-                f'[{entry.type}] '
-                f'- {entry.text}'
-            )
-
-            liste.addItem(texte)
-
-        dialog_layout.addWidget(liste)
-
-        dialog.setLayout(dialog_layout)
-
-        dialog.exec()
-
-        # indispensable sinon Qt détruit la fenêtre
-        self.unused_window = dialog
+        UnusedItemsDialog(unused, self.config).exec()
 
     def get_unused_entries(self):
         return self.analysis_service.get_unused_entries(
             self.progression_panel.progression_tree,
             self.regex_panel.selected_catalogue()
         )
-
-    def set_theme(self, name):
-        self.theme_service.set_theme(name)
-        self.apply_current_theme()
 
     def catalogue_changed(self):
         self.update_search()

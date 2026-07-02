@@ -115,9 +115,14 @@
         "sea": "Séances"
     },
     "settings": {
-        "main_window_title": "Assistant de progression",
-        "init_size": {
+        "main_window": {
+            "title": "Assistant de progression",
             "width": 1200,
+            "height": 800
+        },
+        "unused_items_dialog": {
+            "title": "Éléments inutilisés",
+            "width": 700,
             "height": 800
         },
         "themes": {
@@ -183,7 +188,7 @@
             }
         },
         "current": {
-            "theme": "Obsidian Dark",
+            "theme": "Nord Dark",
             "code": "Cycle 4 BO 2026"
         }
     },
