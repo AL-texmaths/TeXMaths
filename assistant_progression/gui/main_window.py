@@ -1,8 +1,8 @@
+#main_window.py
 from assistant_progression.services.code_service import CodeService
 from assistant_progression.services.catalogue_service import CatalogueService
 from assistant_progression.services.persistence_service import PersistenceService
 from assistant_progression.services.export_service import ExportService
-from assistant_progression.services.undo_redo_service import UndoRedoService, record_undo
 from assistant_progression.services.theme_service import ThemeService
 from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService 
 from assistant_progression.services.progression_service import ProgressionService
@@ -15,7 +15,9 @@ from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
 from assistant_progression.gui.menus.catalogue_menu_builder import CatalogueMenuBuilder
 from assistant_progression.gui.panels.regex_panel import RegexPanel
 from assistant_progression.gui.panels.preview_panel import PreviewPanel
-from assistant_progression.gui.panels.progresion_panel import ProgressionPanel
+from assistant_progression.gui.panels.progression_panel import ProgressionPanel
+from assistant_progression.controllers.progression_controller import ProgressionController
+from assistant_progression.services.undo_redo_service import UndoRedoService
 
 import json
 from pathlib import Path
@@ -34,6 +36,7 @@ from PySide6.QtWidgets import (
     QDialog,
 )
 
+
 class MainWindow(QWidget):
 
     def __init__(self):
@@ -48,6 +51,7 @@ class MainWindow(QWidget):
         self.action_manager = ActionManager(self)
         self.init_window_and_settings()
         self.init_services()
+        self.reload_data()
 
         self.main_layout = QHBoxLayout(self)
 
@@ -73,7 +77,7 @@ class MainWindow(QWidget):
 
         self.export_service = ExportService()
 
-        self.undo_redo = UndoRedoService()
+        self.undo_redo_service = UndoRedoService()
 
         # Thèmes
         theme_name = self.settings.current.theme
@@ -96,14 +100,6 @@ class MainWindow(QWidget):
         self.regex_panel.list_widget.currentRowChanged.connect(
             self.preview_panel.refresh_view
         )
-
-        self.addAction(self.action_manager.action("set_left_focus"))
-        self.addAction(self.action_manager.action("set_right_focus"))
-        self.addAction(self.action_manager.action("close"))
-        self.addAction(self.action_manager.action("undo"))
-        self.addAction(self.action_manager.action("redo"))
-        self.addAction(self.action_manager.action("move_item_up"))
-        self.addAction(self.action_manager.action("move_item_down"))
 
     def set_left_focus(self):
         if self.regex_panel.last_focused is not None:
@@ -145,11 +141,14 @@ class MainWindow(QWidget):
             self.config
         )
 
+        self.progression_controller = ProgressionController(
+            self.progression_service,
+            self.undo_redo_service
+        )
+
     def init_window_and_settings(self):
         self.setWindowTitle(self.settings.main_window_title)
         self.resize(*self.settings.init_size.size)
-
-        self.reload_data()
 
     def init_splitters(self):
         self.splitter = QSplitter(Qt.Horizontal)
@@ -287,6 +286,7 @@ class MainWindow(QWidget):
         self.progression_panel = ProgressionPanel(
             self.action_manager,
             self.progression_service,
+            self.progression_controller,
             self.analysis_service,
             self.regex_panel
         )
@@ -348,38 +348,33 @@ class MainWindow(QWidget):
                 f"Catalogue '{name}' not found."
             )
 
-    @record_undo
+    # @record_undo
     def add_level(self):
         self.progression_panel.add_level()
     
-    @record_undo
+    # @record_undo
     def add_chapter(self):
         self.progression_panel.add_chapter()
     
-    @record_undo
+    # @record_undo
     def add_seance(self):
         self.progression_panel.add_seance()
 
-    @record_undo
+    # @record_undo
     def add_selected_item(self):
         self.progression_panel.add_selected_item()
         self.preview_panel.refresh_view()
 
-    @record_undo
+    # @record_undo
     def delete_selected_item(self):
         self.progression_panel.delete_selected_item()
         self.preview_panel.refresh_view()
 
-    def _move_current_item(self, delta):
-        self.progression_service.move_item(self.progression_panel.progression_tree, delta)
-
-    @record_undo
     def move_item_up(self):
-        self._move_current_item(-1)
+        self.progression_panel.move_item_up()
 
-    @record_undo
     def move_item_down(self):
-        self._move_current_item(1)
+        self.progression_panel.move_item_down()
 
     def show_unused_items(self):
 
@@ -442,30 +437,16 @@ class MainWindow(QWidget):
         self.preview_panel.refresh_view()
 
     def undo(self):
-        state = self.undo_redo.undo(self.progression_service.snapshot(
-                self.progression_panel.progression_tree
-                ))
-        if state is None:
-            return
-
-        self.progression_service.restore(
+        self.progression_controller.undo(
             self.progression_panel.progression_tree,
-            state
+            refresh_callback=self.progression_panel.refresh_ui
         )
-        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
-
+    
     def redo(self):
-        state = self.undo_redo.redo(self.progression_service.snapshot(
-                self.progression_panel.progression_tree
-            ))
-        if state is None:
-            return
-
-        self.progression_service.restore(
-           self.progression_panel.progression_tree,
-            state
+        self.progression_controller.redo(
+            self.progression_panel.progression_tree,
+            refresh_callback=self.progression_panel.refresh_ui
         )
-        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
 
     def load_progression(self):
 

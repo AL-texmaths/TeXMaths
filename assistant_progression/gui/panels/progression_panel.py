@@ -8,7 +8,7 @@ from PySide6.QtWidgets import (
 
 
 class ProgressionPanel(QWidget):
-    def __init__(self, action_manager, progression_service, analysis_service, regex_panel):
+    def __init__(self, action_manager, progression_service, progression_controller, analysis_service, regex_panel):
         super().__init__()
         self.action_names = [
             "add_level",
@@ -16,12 +16,15 @@ class ProgressionPanel(QWidget):
             "add_seance",
             "add_selected_item",
             "delete_selected_item",
-            "show_unused_items"
+            "show_unused_items",
+            "move_item_up",
+            "move_item_down"
         ]
         self.action_manager = action_manager
         self.progression_service = progression_service
         self.analysis_service = analysis_service
         self.regex_panel = regex_panel
+        self.controller = progression_controller
 
         self.init_progression_tree()
         self.init_progression_buttons()
@@ -38,7 +41,8 @@ class ProgressionPanel(QWidget):
         self.progression_buttons = QVBoxLayout()
         for action_name in self.action_names:
             button = self.action_manager.button(action_name)
-            self.progression_buttons.addWidget(button)
+            if button:
+                self.progression_buttons.addWidget(button)
 
     def init_progression_tree(self):
         self.progression_tree = QTreeWidget()
@@ -60,6 +64,9 @@ class ProgressionPanel(QWidget):
             and item.data(0, Qt.UserRole) is None
         )
     
+    def refresh_ui(self):
+        self.update_buttons_state(self.get_selected_catalogue())
+
     def update_buttons_state(self, selected_catalogue):
 
         tree = self.progression_tree
@@ -89,54 +96,52 @@ class ProgressionPanel(QWidget):
         return self.regex_panel.selected_catalogue()
     
     def add_level(self):
-        selected_catalogue = self.get_selected_catalogue()
-        item = self.progression_service.add_level(
-            self.progression_tree
+        self.controller.add_level(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
         )
-
-        if item:
-            self.progression_tree.editItem(item, 0)
-        
-        self.update_buttons_state(selected_catalogue)
 
     def add_chapter(self):
-        selected_catalogue = self.get_selected_catalogue()
-        item = self.progression_service.add_chapter(
+        self.controller.add_chapter(
             self.progression_tree,
-            selected_catalogue,
-            self.progression_tree.currentItem()
+            self.get_selected_catalogue(),
+            self.progression_tree.currentItem(),
+            refresh_callback=self.refresh_ui
         )
-
-        if item:
-            self.progression_tree.editItem(item, 0)
-        
-        self.update_buttons_state(selected_catalogue)
     
     def add_seance(self):
-        selected_catalogue = self.get_selected_catalogue()
-        item = self.progression_service.add_seance(
-            self.progression_tree
+        self.controller.add_seance(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
         )
-
-        if item:
-            self.progression_tree.editItem(item, 0)
-        
-        self.update_buttons_state(selected_catalogue)
     
     def add_selected_item(self):
         entry = self.regex_panel.get_selected_entry()
         if not entry:
             return
-        item = self.progression_service.add_selected_item(
+
+        self.controller.add_selected_item(
             self.progression_tree,
             entry,
+            on_warning=lambda msg: QMessageBox.warning(self, "Warning", msg),
+            on_success=lambda msg: QMessageBox.information(self, "Info", msg),
+            refresh_callback=self.refresh_ui
         )
-        if item is None:
-            QMessageBox.warning(self, "Warning", "Please select a chapter to add the item.")
-        
-        else:
-            QMessageBox.information(self, "Info", f"Item {entry.code} added to the progression.")
 
     def delete_selected_item(self):
-        self.progression_service.delete_item(self.progression_tree)
-        self.update_buttons_state(self.get_selected_catalogue())
+        self.controller.delete_item(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
+        )
+    
+    def move_item_up(self):
+        self.controller.move_item_up(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
+        )
+
+    def move_item_down(self):
+        self.controller.move_item_down(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
+        )

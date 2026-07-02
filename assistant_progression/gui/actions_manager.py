@@ -1,3 +1,4 @@
+# actions_manager.py
 from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QPushButton
 from PySide6.QtGui import QKeySequence
@@ -37,4 +38,7 @@ class ActionManager:
         return self.actions[id_]
 
     def button(self, id_):
-        return self.buttons[id_]
+        try:
+            return self.buttons[id_]
+        except KeyError:
+            print("This action has no button. Check the config file.")
