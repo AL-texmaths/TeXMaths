@@ -27,3 +27,10 @@ handler.setFormatter(formatter)
 logger = logging.getLogger("AssistantDeProgression")
 logger.setLevel(logging.INFO)
 logger.addHandler(handler)
+
+def logger_wraper(func):
+    def wrapper(*args, **kwargs):
+        logger.info(f"Calling {func.__name__}")
+        result = func(*args, **kwargs)
+        return result
+    return wrapper

@@ -1,5 +1,5 @@
 #main_window.py
-from assistant_progression.app.logger import logger
+from assistant_progression.app.logger import logger, logger_wraper
 from assistant_progression.app.application_context import create_context
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
@@ -84,6 +84,7 @@ class MainWindow(QWidget):
     def set_right_focus(self):
         self.progression_panel.progression_tree.setFocus()
 
+    @logger_wraper
     def init_window_and_settings(self):
         self.setWindowTitle(self.settings.main_window.title + " - " + self.current_file_path)
         self.resize(

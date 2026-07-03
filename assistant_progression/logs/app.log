@@ -7,3 +7,27 @@
 2026-07-03 08:45:11 | INFO     |
      MainThread | AssistantDeProgression | starting application
     
+2026-07-03 08:51:55 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 08:51:55 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings with args: (<assistant_progression.gui.main_window.MainWindow(0x7ed1900) at 0x73e7a3e5c740>,), kwargs: {}
+    
+2026-07-03 08:51:55 | INFO     |
+     MainThread | AssistantDeProgression | init_window_and_settings returned None
+    
+2026-07-03 08:51:55 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 08:52:32 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 08:52:32 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 08:52:32 | INFO     |
+     MainThread | AssistantDeProgression | init_window_and_settings returned None
+    
+2026-07-03 08:52:32 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
