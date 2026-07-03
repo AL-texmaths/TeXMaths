@@ -38,7 +38,4 @@ class ActionManager:
         return self.actions[id_]
 
     def button(self, id_):
-        try:
-            return self.buttons[id_]
-        except KeyError:
-            print("This action has no button. Check the config file.")
+        return self.buttons.get(id_)

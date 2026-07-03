@@ -34,22 +34,17 @@ class MainWindow(QWidget):
         self.current_file_path = self.context.session_controller.get_current_file()
         self.init_window_and_settings()
         self.init_services()
-        self.context.theme_service.apply(self)
-
-        self.main_layout = QHBoxLayout(self)
 
         self.register_actions()
         self.init_regex_panel()
         self.init_progression_pannel()
-        if self.current_file_path:
-            self.context.document_controller.load(
-                self.progression_panel.progression_tree,
-                self.current_file_path
-            )
         self.init_preview_panel()
         self.init_connect_signals()
+        self.main_layout = QHBoxLayout(self)
         self.init_menu()
         self.init_splitters()
+    
+        self.context.theme_service.apply(self)
         self.update_search()
         self.regex_panel.search_line.setFocus()
 
@@ -96,6 +91,7 @@ class MainWindow(QWidget):
             )
 
     def init_splitters(self):
+        
         self.splitter = QSplitter(Qt.Horizontal)
 
         self.splitter.addWidget(self.regex_panel)
@@ -120,6 +116,25 @@ class MainWindow(QWidget):
             default_catalogue_label=default_catalogue_label,
             default_type_label=self.context.session_controller.get_type()
         )
+
+    def init_progression_pannel(self):
+
+        self.progression_panel = ProgressionPanel(
+            self.action_manager,
+            self.context.progression_service,
+            self.context.progression_controller,
+            self.context.progression_analysis_service,
+            self.regex_panel
+        )
+        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
+        self.progression_visible = True
+        self.addAction(self.action_manager.action("toggle_progression_panel"))
+
+        if self.current_file_path:
+            self.context.document_controller.load(
+                self.progression_panel.progression_tree,
+                self.current_file_path
+            )
     
     def init_preview_panel(self):
         self.preview_panel = PreviewPanel(
@@ -177,10 +192,10 @@ class MainWindow(QWidget):
             action = self.action_manager.action(action_id)
             progression_menu.addAction(action)
 
-        file_menu = QMenu("Fichier", self)
         update_menu = QMenu("Mise à jour", self)
         update_menu.addAction(self.action_manager.action("update_code_index_main"))
 
+        file_menu = QMenu("Fichier", self)
         file_menu.addAction(self.action_manager.action("load_progression"))
         file_menu.addSeparator()
         file_menu.addAction(self.action_manager.action("save_progression"))
@@ -220,31 +235,18 @@ class MainWindow(QWidget):
     def open_config_file(self):
         self.context.persistence_service.open_config_file()
 
-    def init_progression_pannel(self):
-
-        self.progression_panel = ProgressionPanel(
-            self.action_manager,
-            self.context.progression_service,
-            self.context.progression_controller,
-            self.context.progression_analysis_service,
-            self.regex_panel
-        )
-        self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
-        self.progression_visible = True
-        self.addAction(self.action_manager.action("toggle_progression_panel"))
-
     def toggle_progression_panel(self):
         if self.progression_visible:
             self._saved_sizes = self.splitter.sizes()
 
-            self.right_widget.setVisible(False)
+            self.progression_panel.setVisible(False)
 
             self.splitter.setSizes([400, 1000, 0])
 
             self.progression_visible = False
 
         else:
-            self.right_widget.setVisible(True)
+            self.progression_panel.setVisible(True)
 
             if hasattr(self, "_saved_sizes"):
                 self.splitter.setSizes(self._saved_sizes)
@@ -254,7 +256,14 @@ class MainWindow(QWidget):
             self.progression_visible = True
 
     def update_code_index_main(self):
-        self.context.code_index_controller.refresh_code_index()
+        result = self.context.code_index_controller.refresh_code_index()
+
+        if result!=0:
+            QMessageBox.warning(
+                self,
+                "Warning",
+                f"La compilation a échouchée, check log console."
+            )
 
         self.update_search()
 

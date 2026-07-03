@@ -8,6 +8,11 @@ class Entry:
     code: str
     text: str
     locations: str = ""
+
+    @property
+    def tree_code(self):
+        return ':'.join([self.catalogue, self.type, self.code])
+
 @dataclass(frozen=True)
 class Catalogue:
     ALL: str = "Tous"

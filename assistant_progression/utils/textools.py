@@ -80,7 +80,7 @@ def check_code_index_data(code_labels_dir, texmf_dir, config:Config|None=None, l
         if config is not None:
             catalogues = config.catalogues
         else:
-            print("check_code_index_data:No config provided, catalogues will be empty.")
+            logger("check_code_index_data:No config provided, catalogues will be empty.")
             catalogues = {}
         for key in catalogues.keys():
             catalogue = catalogues[key]
@@ -100,11 +100,13 @@ def check_code_index_data(code_labels_dir, texmf_dir, config:Config|None=None, l
                 logger(f"File {data_path} is older than package {package_path}. Recompiling.")
                 compile = True
         
+        result = 0
         if compile:
             result = compile_latex(tex_file, logger=logger, config=config)
             if result.returncode != 0:
                 logger(f"Compilation of {tex_file} failed. Please check the LaTeX file.")
                 continue
+        return result
 
 def insert_nested(d, codes_values):
     """
@@ -123,7 +125,12 @@ def update_code_index(code_labels_dir:Path|str, code_index_dir:Path|str, texmf_d
     Update the code index with the latest data from the LaTeX
     source files
     """
-    check_code_index_data(code_labels_dir=code_labels_dir, texmf_dir=texmf_dir, config=config, logger=logger)
+    result = check_code_index_data(
+        code_labels_dir=code_labels_dir,
+        texmf_dir=texmf_dir,
+        config=config,
+        logger=logger
+        )
 
     code_index_data = {}
     for data_file in code_labels_dir.glob("*-data.txt"):
@@ -135,6 +142,8 @@ def update_code_index(code_labels_dir:Path|str, code_index_dir:Path|str, texmf_d
     code_index_file = code_index_dir / "code_index.json"
     with open(code_index_file, "w", encoding="utf-8") as f:
             json.dump(code_index_data, f, ensure_ascii=False, indent=4)
+    
+    return result
 
 if __name__ == "__main__":
     update_code_index()

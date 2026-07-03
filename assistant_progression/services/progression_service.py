@@ -145,7 +145,7 @@ class ProgressionService:
         item.setData(
             0,
             Qt.UserRole,
-            entry.code
+            entry.tree_code
         )
 
         item.setToolTip(

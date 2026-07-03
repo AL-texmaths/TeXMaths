@@ -65,7 +65,7 @@ class PreviewPanel(QWebEngineView):
             theme=self.theme_service.get_current_theme(),
             locations=self.analysis_service.find_usage_locations(
                 self.progression_panel.progression_tree,
-                entry.code
+                entry
                 )
         )
 

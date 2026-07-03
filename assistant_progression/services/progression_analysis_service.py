@@ -1,4 +1,6 @@
 # assistant_progression/services/progression_analysis_service.py
+from PySide6.QtCore import Qt
+
 
 class ProgressionAnalysisService:
 
@@ -40,14 +42,15 @@ class ProgressionAnalysisService:
 
         return unused
 
-    def find_usage_locations(self, tree, code):
+    def find_usage_locations(self, tree, entry):
         locations = []
 
         def scan(node, path):
             for i in range(node.childCount()):
                 child = node.child(i)
 
-                if child.data(0, 0) == code:
+                if child.data(0, Qt.UserRole) == entry.tree_code:
+                    print(child.data(0,0))
                     locations.append(path)
 
                 scan(child, path + "/" + child.text(0))
