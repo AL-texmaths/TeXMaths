@@ -101,7 +101,7 @@ class MainWindow(QWidget):
         self.splitter.addWidget(self.progression_panel)
         self.tabs = [self.regex_panel, self.preview_panel, self.progression_panel]
 
-        self.splitter.setSizes([400, 800, 300])
+        self.splitter.setSizes([400, 700, 600])
 
         
         self.main_layout.addWidget(self.splitter)

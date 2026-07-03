@@ -1,8 +1,158 @@
 {
   "5eme": {
-    "CH1": {
+    "Résolution de problèmes": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1aa",
+        "A1ab",
+        "A1ad"
+      ],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Expressions numériques": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1ae",
+        "A1af",
+        "A1ag",
+        "A1ak"
+      ],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Calcul littéral": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1eb",
+        "A1ec"
+      ],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Equations": {
       "Automatismes": [],
       "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Découverte des nombres relatifs": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1ba",
+        "A1bb",
+        "A1bc",
+        "A1bd",
+        "A1be",
+        "A1bf"
+      ],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Opérations sur les nombres relatifs": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1bg",
+        "A1bh",
+        "A1bi",
+        "A1bj",
+        "A1bk",
+        "A1bl",
+        "A1bm"
+      ],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Fractions": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1ca",
+        "A1cb",
+        "A1cc"
+      ],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Algorithmique": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Volumes": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Symétrie centrale": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Angles et parallélisme": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Triangles (Partie 1)": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Triangles (Partie 2)": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Parallélogrammes": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Gestion de données": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Probabilités": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Proportionnalité": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Division": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1ai",
+        "A1aj",
+        "A1ac"
+      ],
+      "Prolongements": [],
+      "Séances": []
+    },
+    "Puissance": {
+      "Automatismes": [],
+      "Objectifs d'apprentissage": [
+        "A1da",
+        "A1db",
+        "A1dc",
+        "A1dd",
+        "A1de",
+        "A1df"
+      ],
       "Prolongements": [],
       "Séances": []
     }
