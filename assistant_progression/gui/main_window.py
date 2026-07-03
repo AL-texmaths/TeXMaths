@@ -1,4 +1,5 @@
 #main_window.py
+from assistant_progression.app.logger import logger
 from assistant_progression.app.application_context import create_context
 from assistant_progression.gui.action import ActionDefinition
 from assistant_progression.gui.actions_manager import ActionManager
@@ -27,8 +28,8 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
-
         self.context = create_context()
+        logger.info("app context created")
         self.settings = self.context.config.settings
         self.action_manager = ActionManager(self)
         self.current_file_path = self.context.session_controller.get_current_file()

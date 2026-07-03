@@ -12,10 +12,6 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> créer un fichier log qui facilite le débogage en cas de bug sur l'interface
-elle même
->>> le tree doit écrire le code et le type
->>> find_locations doit prendre en compte le type de l'item
 >>> délégation des responsabilités du script assistant de progression
 ===============================================================================
 					Java / html
