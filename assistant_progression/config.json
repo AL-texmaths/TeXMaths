@@ -119,7 +119,7 @@
             "main_window": {
                 "title": "Assistant de progression",
                 "width": 732,
-                "height": 890
+                "height": 888
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -280,8 +280,8 @@
             "icon": null,
             "checkable": false
         },
-        "delete_selected_item": {
-            "text": "Supprimer l'item sélectionné",
+        "delete_selected_branch": {
+            "text": "Supprimer la branche sélectionnée",
             "shortcut": "Ctrl+D",
             "button": true,
             "icon": null,

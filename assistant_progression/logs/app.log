@@ -457,3 +457,201 @@
 2026-07-03 14:34:28 | INFO     |
      MainThread | AssistantDeProgression | starting application
     
+2026-07-03 14:49:30 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:49:30 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:49:31 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:51:18 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:51:18 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:51:18 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:53:59 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:53:59 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:54:00 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:55:23 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:55:23 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:55:23 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:57:35 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:57:35 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:57:35 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:59:47 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:59:47 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:59:47 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:00:00 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:00:00 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:00:00 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:00:53 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:00:53 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:00:53 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:01:15 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:01:15 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:01:15 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:01:23 | DEBUG    |
+     MainThread | AssistantDeProgression | <PySide6.QtWidgets.QListWidgetItem object at 0x7419f5ef8980>
+    
+2026-07-03 15:01:35 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:01:35 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:01:35 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:01:38 | DEBUG    |
+     MainThread | AssistantDeProgression | <built-in method text of PySide6.QtWidgets.QListWidgetItem object at 0x7343c2f30180>
+    
+2026-07-03 15:01:47 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:01:47 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:01:47 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:01:56 | DEBUG    |
+     MainThread | AssistantDeProgression | A1ad [obj]
+    
+2026-07-03 15:12:18 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:12:18 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:12:18 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:12:24 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:12:24 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:12:24 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:12:53 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:12:53 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:12:53 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:14:01 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:14:01 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:14:01 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:14:15 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:14:15 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:14:15 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:14:24 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:14:24 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:14:25 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:18:11 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:18:11 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:18:25 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:18:25 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:19:36 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:19:36 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:19:36 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 15:20:28 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:20:28 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:21:06 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 15:21:06 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 15:21:06 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    

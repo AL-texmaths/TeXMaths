@@ -12,8 +12,7 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> BUG: si un code (A1aa) est sélectionné dans l'arbre de progression,
-il est impossible d'ajouter l'item sélectionné
+>>> logger.info ne fonctionne pas dans main window 
 >> BUG: au moment de la mise a jour de l'index des codes, l'item sélectionné
 de la liste des entrées issues de la recherche regex devient le premier de
 la liste

@@ -69,7 +69,7 @@ class ActionsConfig(BaseModel):
     add_chapter: ActionSettings
     add_seance: ActionSettings
     add_selected_item: ActionSettings
-    delete_selected_item: ActionSettings
+    delete_selected_branch: ActionSettings
     show_unused_items: ActionSettings
     set_left_focus: ActionSettings
     set_right_focus: ActionSettings

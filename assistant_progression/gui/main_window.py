@@ -259,7 +259,9 @@ class MainWindow(QWidget):
 
             self.progression_visible = True
 
+
     def update_code_index_main(self):
+
         result = self.context.code_index_controller.refresh_code_index()
 
         if result!=0:
@@ -276,6 +278,7 @@ class MainWindow(QWidget):
             "Info",
             f"Updated code index at {self.context.paths.code_index_file}"
         )
+
     
     def open_catalogue(self, name):
         catalogue = self.context.catalogue_service.get_catalogue_from_name(name)
@@ -301,8 +304,8 @@ class MainWindow(QWidget):
         self.progression_panel.add_selected_item()
         self.preview_panel.refresh_view()
 
-    def delete_selected_item(self):
-        self.progression_panel.delete_selected_item()
+    def delete_selected_branch(self):
+        self.progression_panel.delete_selected_branch()
         self.preview_panel.refresh_view()
 
     def move_item_up(self):
@@ -335,8 +338,26 @@ class MainWindow(QWidget):
         self.context.session_controller.set_type(type_text)
 
     def update_search(self):
+
+        restore = True
+        list_widget = self.regex_panel.list_widget
+        item = list_widget.currentItem()
+        if item is None:
+            restore = False
+        else:
+            entry = item.data(Qt.UserRole)
+
         self.regex_panel.update_type_filter()
         self.regex_panel.update_search()
+        list_widget = self.regex_panel.list_widget
+
+        if restore:
+            for i in range(list_widget .count()):
+                item = list_widget.item(i)
+                if item.data(Qt.UserRole) == entry:
+                    list_widget.setCurrentItem(item)
+                    break
+        
         self.preview_panel.refresh_view()
 
     def undo(self):

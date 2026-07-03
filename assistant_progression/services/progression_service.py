@@ -104,6 +104,9 @@ class ProgressionService:
                 return True
 
         return False
+    
+    def can_add_item(self, tree):
+        return self.get_selected_chapter(tree) is not None
 
     def get_selected_chapter(self, tree):
         item = tree.currentItem()

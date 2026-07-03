@@ -23,7 +23,7 @@ class ProgressionPanel(QWidget):
             "add_chapter",
             "add_seance",
             "add_selected_item",
-            "delete_selected_item",
+            "delete_selected_branch",
             "show_unused_items",
             "move_item_up",
             "move_item_down"
@@ -104,9 +104,7 @@ class ProgressionPanel(QWidget):
         self.action_manager.button("add_seance").setEnabled(add_seance_enabled)
         self.action_manager.action("add_seance").setEnabled(add_seance_enabled)
 
-        item = tree.currentItem()
-
-        add_item_enabled = self.is_chapter(item)
+        add_item_enabled = self.progression_service.can_add_item(tree)
         self.action_manager.button("add_selected_item").setEnabled(add_item_enabled)
         self.action_manager.action("add_selected_item").setEnabled(add_item_enabled)
     
@@ -146,7 +144,7 @@ class ProgressionPanel(QWidget):
             refresh_callback=self.refresh_ui
         )
 
-    def delete_selected_item(self):
+    def delete_selected_branch(self):
         self.controller.delete_item(
             self.progression_tree,
             refresh_callback=self.refresh_ui
