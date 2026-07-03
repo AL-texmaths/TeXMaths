@@ -15,10 +15,39 @@ class DialogConfig(BaseModel):
     width: int
     height: int
 
-class Settings(BaseModel):
+class SplittersModel(BaseModel):
+    size: list
+
+
+class GUIModel(BaseModel):
     main_window: DialogConfig
     unused_items_dialog: DialogConfig
-    themes: dict
+    splitter: SplittersModel
+
+class ThemeColorsModel(BaseModel):
+    bg: str
+    fg: str
+    panel: str
+    accent: str
+    border: str
+    focus_bg: str
+    focus_border: str
+    font: str
+
+class ThemeTreeModel(BaseModel):
+    items_height: str
+    padding: str
+
+class ThemeStyleModel(BaseModel):
+    progression_tree: ThemeTreeModel    
+
+class ThemeModel(BaseModel):
+    colors: ThemeColorsModel
+    style: ThemeStyleModel
+
+class Settings(BaseModel):
+    gui: GUIModel
+    themes: dict[str, ThemeModel]
     current: CurrentSettings
 
 

@@ -1,7 +1,8 @@
 class SessionController:
-    def __init__(self, config, persistence_service):
+    def __init__(self, config, persistence_service, main_window):
         self.config = config
         self.persistence = persistence_service
+        self.main_window = main_window
 
     # --- THEME ---
     def set_theme(self, theme: str):
@@ -34,3 +35,24 @@ class SessionController:
 
     def get_current_file(self):
         return self.config.settings.current.current_file_path
+    # --- GUI ---
+    def commit_gui_settings(self):
+        self.init_save_main_window_settings()
+        self.init_save_splitter_settings()
+        self.init_save_unused_items_dialog_settings()
+        self.persistence.save_config(self.config)
+
+    def init_save_main_window_settings(self):
+        self.config.settings.gui.main_window.width = self.main_window.width()
+        self.config.settings.gui.main_window.height = self.main_window.height()
+        self.persistence.save_config(self.config)
+
+    def init_save_splitter_settings(self):
+        self.config.settings.gui.splitter.size = self.main_window.splitter.sizes()
+        self.persistence.save_config(self.config)
+    
+    def init_save_unused_items_dialog_settings(self):
+        if self.main_window.unused_items_dialog is not None:
+            self.config.settings.gui.unused_items_dialog.width = self.main_window.unused_items_dialog.width()
+            self.config.settings.gui.unused_items_dialog.height = self.main_window.unused_items_dialog.height()
+            self.persistence.save_config(self.config)

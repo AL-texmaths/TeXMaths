@@ -28,7 +28,7 @@ class MainWindow(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.context = create_context()
+        self.context = create_context(self)
         logger.info("app context created")
         self.settings = self.context.config.settings
         self.action_manager = ActionManager(self)
@@ -43,7 +43,7 @@ class MainWindow(QWidget):
         self.init_connect_signals()
         self.main_layout = QHBoxLayout(self)
         self.init_menu()
-        self.init_splitters()
+        self.init_splitter()
     
         self.context.theme_service.apply(self)
         self.update_search()
@@ -86,13 +86,14 @@ class MainWindow(QWidget):
 
     @logger_wraper
     def init_window_and_settings(self):
-        self.setWindowTitle(self.settings.main_window.title + " - " + self.current_file_path)
+        self.setWindowTitle(self.settings.gui.main_window.title + " - " + self.current_file_path)
         self.resize(
-            self.settings.main_window.width,
-            self.settings.main_window.height
+            self.settings.gui.main_window.width,
+            self.settings.gui.main_window.height
             )
+        self.unused_items_dialog = None
 
-    def init_splitters(self):
+    def init_splitter(self):
         
         self.splitter = QSplitter(Qt.Horizontal)
 
@@ -101,7 +102,8 @@ class MainWindow(QWidget):
         self.splitter.addWidget(self.progression_panel)
         self.tabs = [self.regex_panel, self.preview_panel, self.progression_panel]
 
-        self.splitter.setSizes([400, 700, 600])
+        splitter_size = self.settings.gui.splitter.size
+        self.splitter.setSizes(splitter_size)
 
         
         self.main_layout.addWidget(self.splitter)
@@ -311,7 +313,9 @@ class MainWindow(QWidget):
 
     def show_unused_items(self):
         unused = self.get_unused_entries()
-        UnusedItemsDialog(unused, self.context.config).exec()
+        self.unused_items_dialog = UnusedItemsDialog(unused, self.context.config)
+        self.unused_items_dialog.exec()
+        self.context.session_controller.init_save_unused_items_dialog_settings()
 
     def get_unused_entries(self):
         return self.context.progression_analysis_service.get_unused_entries(
@@ -374,6 +378,7 @@ class MainWindow(QWidget):
         self.context.document_controller.save(
             self.progression_panel.progression_tree
         )
+        self.context.session_controller.commit_gui_settings()
 
         QMessageBox.information(
             self,

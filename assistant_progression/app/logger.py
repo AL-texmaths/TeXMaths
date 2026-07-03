@@ -25,8 +25,8 @@ handler = RotatingFileHandler(
 handler.setFormatter(formatter)
 
 logger = logging.getLogger("AssistantDeProgression")
-logger.setLevel(logging.INFO)
 logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
 
 def logger_wraper(func):
     def wrapper(*args, **kwargs):

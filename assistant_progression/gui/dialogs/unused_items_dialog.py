@@ -8,9 +8,9 @@ class UnusedItemsDialog(QDialog):
 
     def __init__(self, unused_items, config:Config):
         super().__init__()
-        title = config.settings.unused_items_dialog.title
-        width = config.settings.unused_items_dialog.width
-        height = config.settings.unused_items_dialog.height
+        title = config.settings.gui.unused_items_dialog.title
+        width = config.settings.gui.unused_items_dialog.width
+        height = config.settings.gui.unused_items_dialog.height
         self.setWindowTitle(title)
         self.resize(width, height)
 

@@ -1,3 +1,4 @@
+from PySide6.QtGui import QShortcut, QKeySequence
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
     QMessageBox,
@@ -8,7 +9,14 @@ from PySide6.QtWidgets import (
 
 
 class ProgressionPanel(QWidget):
-    def __init__(self, action_manager, progression_service, progression_controller, analysis_service, regex_panel):
+    def __init__(
+            self,
+            action_manager,
+            progression_service,
+            progression_controller,
+            analysis_service,
+            regex_panel
+            ):
         super().__init__()
         self.action_names = [
             "add_level",
@@ -48,12 +56,22 @@ class ProgressionPanel(QWidget):
         self.progression_tree = QTreeWidget()
         self.progression_tree.setHeaderLabel("Progression annuelle")
 
+        rename_shortcut = QShortcut(
+            QKeySequence(Qt.CTRL | Qt.Key_Return),
+            self)
+        rename_shortcut.activated.connect(self.rename_current_item)
+
     def init_signals(self):
         
         self.progression_tree.currentItemChanged.connect(
             self.update_buttons_state
         )
-    
+
+    def rename_current_item(self):
+        item = self.progression_tree.currentItem()
+        if item is not None:
+            self.progression_tree.editItem(item, 0)  # Édite la colonne 0
+
     def is_chapter(self, item):
 
         if item is None:

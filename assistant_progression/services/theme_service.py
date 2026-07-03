@@ -17,10 +17,12 @@ class ThemeService:
         return self.themes.keys()
 
     def apply(self, widget):
-        t = self.get_current_theme()
-
-        focus_bg = t.get("focus_bg", t["panel"])
-        focus_border = t.get("focus_border", t["accent"])
+        theme = self.get_current_theme()
+        colors = theme.colors
+        style = theme.style
+    
+        focus_bg = colors.focus_bg
+        focus_border = colors.focus_border
 
         widget.setStyleSheet(f"""
 
@@ -29,9 +31,9 @@ class ThemeService:
    ========================================================== */
 
 QWidget {{
-    background: {t['bg']};
-    color: {t['fg']};
-    font-family: "{t['font']}";
+    background: {colors.bg};
+    color: {colors.fg};
+    font-family: "{colors.font}";
 }}
 
 /* ==========================================================
@@ -39,8 +41,8 @@ QWidget {{
    ========================================================== */
 
 QMenuBar {{
-    background: {t['panel']};
-    border-bottom: 1px solid {t['border']};
+    background: {colors.panel};
+    border-bottom: 1px solid {colors.border};
 }}
 
 QMenuBar::item {{
@@ -48,22 +50,22 @@ QMenuBar::item {{
 }}
 
 QMenuBar::item:selected {{
-    background: {t['accent']};
+    background: {colors.accent};
     color: white;
 }}
 
 QMenu {{
-    background: {t['panel']};
-    border: 1px solid {t['border']};
+    background: {colors.panel};
+    border: 1px solid {colors.border};
 }}
 
 QMenu::item:selected {{
-    background: {t['accent']};
+    background: {colors.accent};
     color: white;
 }}
 
 QMenu::item:disabled {{
-    color: {t['border']};
+    color: {colors.border};
 }}
 
 /* ==========================================================
@@ -71,14 +73,14 @@ QMenu::item:disabled {{
    ========================================================== */
 
 QPushButton {{
-    background: {t['panel']};
-    border: 1px solid {t['border']};
+    background: {colors.panel};
+    border: 1px solid {colors.border};
     padding: 6px;
     border-radius: 4px;
 }}
 
 QPushButton:hover {{
-    border: 1px solid {t['accent']};
+    border: 1px solid {colors.accent};
 }}
 
 QPushButton:pressed {{
@@ -97,9 +99,9 @@ QLineEdit,
 QComboBox,
 QListWidget,
 QTreeWidget {{
-    background: {t['panel']};
-    color: {t['fg']};
-    border: 1px solid {t['border']};
+    background: {colors.panel};
+    color: {colors.fg};
+    border: 1px solid {colors.border};
 }}
 
 QLineEdit,
@@ -123,7 +125,7 @@ QListWidget::item {{
 }}
 
 QListWidget::item:selected {{
-    background: {t['accent']};
+    background: {colors.accent};
     color: white;
 }}
 
@@ -136,12 +138,12 @@ QTreeWidget {{
 }}
 
 QTreeWidget::item {{
-    height: 28px;
-    padding: 2px;
+    height: {style.progression_tree.items_height};
+    padding: {style.progression_tree.padding};
 }}
 
 QTreeWidget::item:selected {{
-    background: {t['accent']};
+    background: {colors.accent};
     color: white;
 }}
 
@@ -150,9 +152,9 @@ QTreeWidget::item:selected {{
    ========================================================== */
 
 QHeaderView::section {{
-    background: {t['panel']};
-    color: {t['fg']};
-    border: 1px solid {t['border']};
+    background: {colors.panel};
+    color: {colors.fg};
+    border: 1px solid {colors.border};
     padding: 5px;
     font-weight: bold;
 }}
@@ -162,11 +164,11 @@ QHeaderView::section {{
    ========================================================== */
 
 QSplitter::handle {{
-    background: {t['border']};
+    background: {colors.border};
 }}
 
 QSplitter::handle:hover {{
-    background: {t['accent']};
+    background: {colors.accent};
 }}
 
 """)

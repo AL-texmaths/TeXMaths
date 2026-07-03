@@ -30,7 +30,7 @@ class HtmlService:
 
         content = escape(content)
 
-        t = theme
+        colors = theme.colors
 
         locations_html = format_locations(locations)
 
@@ -59,22 +59,22 @@ window.onload = function() {{
 
 <style>
 body {{
-    background: {t['bg']};
-    color: {t['fg']};
+    background: {colors.bg};
+    color: {colors.fg};
     font-family: "Latin Modern Roman", serif;
     padding: 20px;
     font-size: 18px;
 }}
 
 .code {{
-    color: {t['accent']};
+    color: {colors.accent};
     font-size: 28px;
     font-weight: bold;
     margin-bottom: 10px;
 }}
 
 .meta {{
-    color: {t['fg']};
+    color: {colors.fg};
     margin-bottom: 20px;
 }}
 
@@ -83,7 +83,7 @@ body {{
 }}
 hr {{
     border: none;
-    border-top: 1px solid {t["border"]};
+    border-top: 1px solid {colors.border};
     margin: 20px 0;
 }}
 </style>
@@ -124,7 +124,7 @@ hr {{
         js = "katex.min.js"
         render = "contrib/auto-render.min.js"
 
-        t = theme
+        colors = theme.colors
 
         return f"""
 <!DOCTYPE html>
@@ -151,9 +151,9 @@ window.onload = function() {{
 
 <style>
 body {{
-    background: {t['bg']};
-    color: {t['fg']};
-    font-family: "{t['font']}", serif;
+    background: {colors.bg};
+    color: {colors.fg};
+    font-family: "{colors.font}", serif;
     padding: 20px;
     font-size: 18px;
 }}
@@ -163,12 +163,12 @@ body {{
 }}
 
 b {{
-    color: {t['accent']};
+    color: {colors.accent};
 }}
 
 hr {{
     border: none;
-    border-top: 1px solid {t["border"]};
+    border-top: 1px solid {colors.border};
     margin: 10px 0;
 }}
 </style>

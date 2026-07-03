@@ -12,13 +12,6 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> intégré les paramètres d'affichage (tailles des pannels, etc) dans
-settings.current pour rétablir l'affichage à l'ouverture du programme
->>> double-clique sur un item du progression_tree doit être équivalent à
-un raccourci clavier (par exemple Ctrl+Enter)
->>> ajouter dans les settings un paramètre qui gère la hauteur des cases du
-progression_tree (case pas suffisamment haute au moment de l'écriture d'un
-chapitre par exemple)
 >>> BUG: si un code (A1aa) est sélectionné dans l'arbre de progression,
 il est impossible d'ajouter l'item sélectionné
 >> BUG: au moment de la mise a jour de l'index des codes, l'item sélectionné
@@ -95,3 +88,5 @@ isocèle valent 45 degrés avec tangente
 
 >>> réfléchir à des chapitres centrés sur une action plutôt qu'un thème
 ("calculer", "représenter les nombres", ...)
+
+=====================

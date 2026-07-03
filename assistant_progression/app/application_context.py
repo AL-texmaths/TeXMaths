@@ -38,11 +38,15 @@ class AppContext:
     document_controller: ProgressionDocumentController
     code_index_controller: CodeIndexController
 
-def create_context() -> AppContext:
+def create_context(main_window) -> AppContext:
 
     persistence_service = PersistenceService()
     config = persistence_service.load_config()
-    session_controller = SessionController(config, persistence_service)
+    session_controller = SessionController(
+        config,
+        persistence_service,
+        main_window
+        )
     paths = Paths(config)
     export_service = ExportService()
     undo_redo_service = UndoRedoService()

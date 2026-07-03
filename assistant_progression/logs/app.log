@@ -112,3 +112,348 @@
 2026-07-03 11:32:40 | INFO     |
      MainThread | AssistantDeProgression | starting application
     
+2026-07-03 12:47:47 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 12:47:47 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 12:47:48 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 12:48:41 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 12:48:41 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 12:48:41 | INFO     |
+     MainThread | AssistantDeProgression | Splitter size = [400, 700, 600]
+    
+2026-07-03 12:48:41 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 12:54:36 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 12:54:36 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 12:54:36 | DEBUG    |
+     MainThread | AssistantDeProgression | Splitter size = [400, 700, 600]
+    
+2026-07-03 12:54:36 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:03:57 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:03:57 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:21:02 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:21:02 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:21:55 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:21:55 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:22:31 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:22:31 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:22:32 | DEBUG    |
+     MainThread | AssistantDeProgression | Splitter size = [400, 700, 600]
+    
+2026-07-03 13:22:32 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:22:53 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:22:53 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:22:53 | DEBUG    |
+     MainThread | AssistantDeProgression | Splitter size = [400, 400, 400]
+    
+2026-07-03 13:22:53 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:27:49 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:27:49 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:27:49 | DEBUG    |
+     MainThread | AssistantDeProgression | Splitter size = [400, 400, 400]
+    
+2026-07-03 13:27:50 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:28:33 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:28:33 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:28:33 | DEBUG    |
+     MainThread | AssistantDeProgression | Splitter size = [400, 400, 400]
+    
+2026-07-03 13:28:33 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:28:46 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:28:46 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:28:46 | DEBUG    |
+     MainThread | AssistantDeProgression | Splitter size = [235, 680, 255]
+    
+2026-07-03 13:28:47 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:32:22 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:32:22 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:32:23 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:32:49 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:32:49 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:32:50 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:33:53 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:33:53 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:33:54 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:34:49 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:34:49 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:34:50 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:36:41 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:36:41 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:36:41 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:38:37 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:38:37 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:38:37 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:38:52 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:38:52 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:38:52 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:39:14 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:39:14 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:39:14 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:39:28 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:39:28 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:39:28 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:40:38 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:40:38 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:40:38 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:49:13 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:49:13 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:54:23 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:54:23 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:54:23 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:55:43 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:55:43 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:55:43 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 13:58:55 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:58:55 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:59:42 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 13:59:42 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 13:59:42 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:00:33 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:00:33 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:00:33 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:01:16 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:01:16 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:01:16 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:11:00 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:11:00 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:11:17 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:11:17 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:11:40 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:11:40 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:12:34 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:12:34 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:12:34 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:22:07 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:22:07 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:22:24 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:22:24 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:22:24 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:25:13 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:25:13 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:25:13 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:30:28 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:30:28 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:30:28 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:30:47 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:30:47 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:30:47 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:32:03 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:32:03 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:32:03 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-03 14:34:28 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-03 14:34:28 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-03 14:34:28 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
