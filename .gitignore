@@ -17,4 +17,4 @@ output
 dist
 build
 .venv
-src/__pycache__
+**/__pycache__/
