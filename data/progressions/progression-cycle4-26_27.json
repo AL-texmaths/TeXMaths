@@ -9,13 +9,13 @@
         "text": "Fractions",
         "data": null,
         "tooltip": "",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "text": "Automatismes",
             "data": null,
             "tooltip": "",
-            "expanded": true,
+            "expanded": false,
             "children": [
               {
                 "text": "A1aa",
@@ -37,7 +37,7 @@
             "text": "Objectifs d'apprentissage",
             "data": null,
             "tooltip": "",
-            "expanded": true,
+            "expanded": false,
             "children": [
               {
                 "text": "A1ah",
@@ -53,6 +53,58 @@
             "data": null,
             "tooltip": "",
             "expanded": false,
+            "children": [
+              {
+                "text": "A1aa",
+                "data": "cycle_4_BO_2026:pro:A1aa",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nNotion de nombre premier et développements sur ce thème (existence d'un nombre infini de nombres premiers, crible d'Ératosthène, etc.).\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "Découverte",
+                "data": "seance",
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Décimaux",
+        "data": null,
+        "tooltip": "",
+        "expanded": true,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
             "children": []
           },
           {
@@ -62,13 +114,65 @@
             "expanded": true,
             "children": [
               {
-                "text": "Découverte",
-                "data": null,
+                "text": "Première séance",
+                "data": "seance",
                 "tooltip": "",
                 "expanded": false,
                 "children": []
               }
             ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "4eme",
+    "data": null,
+    "tooltip": "",
+    "expanded": false,
+    "children": [
+      {
+        "text": "Test",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3aa",
+                "data": "cycle_4_BO_2026:pro:A3aa",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nNotation des ensembles des entiers naturels, des entiers relatifs, des décimaux, des rationnels.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
           }
         ]
       }

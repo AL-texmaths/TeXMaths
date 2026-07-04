@@ -83,6 +83,8 @@
 {\large Nombre total de séances en \@level@name: {\bfseries\thetotalseances}}
 \vskip0pt plus 3fill}
 
+\def\endlevel{\showtotalseance\newpage}
+
 \def\@underscore{\string_}
 
 \def\sequence@key{undefined}
@@ -91,17 +93,7 @@
 \def\hideseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
 % \let\seance\hideseance
 \begin{document}
-    % \newwrite\seqcanal
-    % \immediate\openout\seqcanal=\jobname-structure.txt%
     \pagestyle{sequencage}
-
-    \level{5eme}
-    \sequence{Fractions}
-    \useaut[A1aa]
-    \endsequence
-    % \input{sequencage-Cycle_4_BO_2026-\PROGRESSION-structure.tex}
+    \input{sequencage-Cycle_4_BO_2026-\PROGRESSION-structure.tex}
     \BoDescription
-
-    % \immediate\closeout\seqcanal
-
 \end{document}

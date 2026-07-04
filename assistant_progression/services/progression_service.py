@@ -223,7 +223,7 @@ class ProgressionService:
         if target is None:
             return None
 
-        item = self.make_item("Nouvelle séance")
+        item = self.make_item("Nouvelle séance", "seance")
         target.addChild(item)
 
         tree.setCurrentItem(item)

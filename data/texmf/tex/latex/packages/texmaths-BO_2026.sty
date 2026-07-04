@@ -126,26 +126,6 @@
 \def\@countboB@occ#1{\setcounter{boB@occ}{0}\catalogue@loop#1\theboB@occ}
 \def\countocc#1{\begingroup\edef\temp{\thetoks{#1boB@occ}}\@countboB@occ\temp\endgroup}
 \makeatother
-%----------------------------------------------
-%               Pour le sequencage
-%----------------------------------------------
-\def\BoItems#1#2#3{%
-    {\itshape Automatismes}\vskip8pt
-    \@for\ii:=#1\do{%
-        \par\noindent$-$\hskip2ex\useaut[\ii]%
-    }\vskip5pt\noindent\nopagebreak
-    % -----------------------------
-    {\itshape Objectifs d'apprentissage}\vskip8pt
-    \@for\ii:=#2\do{%
-        \par\noindent$-$\hskip2ex\useobj[\ii]%
-    }\vskip5pt\noindent\nopagebreak
-    % -----------------------------
-    {\itshape Prolongements}\vskip8pt
-    \@for\ii:=#3\do{%
-        \par\noindent$-$\hskip2ex\usepro[\ii]%
-    }\vskip5pt\noindent\nopagebreak
-    \par\kern20pt\noindent
-}
 \def\BoDescription{%
     \vskip0pt plus 3fill\begingroup\large\tt
     D'après le BO n$^\circ$ 16 du 17 avril 2025\endgroup

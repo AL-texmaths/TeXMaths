@@ -1,58 +1,99 @@
-from pathlib import Path
-
-
 COMMANDS = {
-        "aut": "useaut",
-        "obj": "useobj",
-        "pro": "usepro",
-    }
+    "aut": "\\useaut[{}]",
+    "obj": "\\useobj[{}]",
+    "pro": "\\usepro[{}]",
+}
+
+CATEGORY_ORDER = [
+    ("Automatismes", "Automatismes"),
+    ("Objectifs d'apprentissage", "Objectifs d'apprentissages"),
+    ("Prolongements", "Prolongements"),
+    ("Séances", None),  # traitée à part
+]
+
 
 class ExportService:
 
-    def export_node(self, node, out):
-        text = node.get("text", "")
+    def export_item(self, node):
+        """Retourne la commande LaTeX d'un item."""
         data = node.get("data")
-        children = node.get("children", [])
+        if not data:
+            return None
 
-        # Feuille : un item du BO
-        if data:
-            try:
-                _, kind, ident = data.split(":")
-                cmd = COMMANDS.get(kind)
-                if cmd:
-                    out.write(f"\\{cmd}[{ident}]\n")
-            except ValueError:
-                print(f"Format de data invalide : {data}")
-            return
+        if data == "seance":
+            return ("seance", node["text"])
 
-        # Niveau (5eme, 4eme, ...)
-        if children and all("children" in c for c in children):
-            if text.endswith("eme") or text.endswith("e"):
-                out.write(f"\\level{{{text}}}\n")
+        try:
+            _, kind, ident = data.split(":")
+        except ValueError:
+            return None
 
-        # Séquence
-        category_names = {
-            "Automatismes",
-            "Objectifs d'apprentissage",
-            "Prolongements",
-            "Séances",
+        cmd = COMMANDS.get(kind)
+        if cmd:
+            return ("item", cmd.format(ident))
+
+        return None
+
+    def export_sequence(self, sequence, out):
+        out.write(f"\\sequence{{{sequence['text']}}}\n")
+
+        # buffer par catégorie
+        buffers = {
+            "Automatismes": [],
+            "Objectifs d'apprentissage": [],
+            "Prolongements": [],
+            "Séances": [],
         }
 
-        if children and {c.get("text") for c in children} <= category_names:
-            out.write(f"\\sequence{{{text}}}\n")
+        # remplir les buffers
+        for category in sequence.get("children", []):
+            cat_name = category.get("text")
 
-            for child in children:
-                self.export_node(child, out)
+            for item in category.get("children", []):
+                result = self.export_item(item)
+                if not result:
+                    continue
 
-            out.write("\\endsequence\n\n")
-            return
+                kind, value = result
 
-        # Cas général
-        for child in children:
-            self.export_node(child, out)
+                if kind == "seance":
+                    buffers["Séances"].append(value)
+                else:
+                    buffers[cat_name].append(value)
 
+        # écrire les blocs LaTeX
+        for cat, title in CATEGORY_ORDER:
 
-    def export_progression(self, filename, progression_tree, code_labels):
+            if cat == "Séances":
+                continue
+
+            items = buffers.get(cat, [])
+            if not items:
+                continue
+
+            out.write(f"\\par\\noindent\\textbf{{{title} :}}\n")
+            out.write("\\begin{itemize}\n")
+
+            for it in items:
+                out.write(f"    \\item {it}\n")
+
+            out.write("\\end{itemize}\n")
+
+        # séances (hors itemize)
+        for seance in buffers["Séances"]:
+            out.write(f"\\seance{{{seance}}}\n")
+
+        out.write("\\endsequence\n\n")
+
+    def export_level(self, level, out):
+        out.write(f"\\level{{{level['text']}}}\n")
+
+        for sequence in level.get("children", []):
+            self.export_sequence(sequence, out)
+
+        out.write("\\endlevel\n\n")
+
+    def export_progression(self, filename, progression_tree, code_labels=None):
         with open(filename, "w", encoding="utf-8") as out:
-            for node in progression_tree:
-                self.export_node(node, out)
+            for level in progression_tree:
+                self.export_level(level, out)
