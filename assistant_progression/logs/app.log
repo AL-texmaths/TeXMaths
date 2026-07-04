@@ -4306,3 +4306,18 @@
 2026-07-04 22:53:12 | INFO     |
      MainThread | AssistantDeProgression | Calling find_usage_locations
     
+2026-07-05 00:12:18 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-05 00:12:18 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-05 00:12:18 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-05 00:12:19 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-05 00:12:19 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    

@@ -15,8 +15,6 @@
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> API: l'utilisateur doit pouvoir choisir de n'afficher que les items
-unused dans la liste issue de la recherche regex
 >>> API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut

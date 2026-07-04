@@ -1,10 +1,11 @@
 from PySide6.QtGui import QShortcut, QKeySequence
-from PySide6.QtCore import Qt
+from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
     QMessageBox,
     QTreeWidget,
     QVBoxLayout,
-    QWidget
+    QWidget,
+    QLineEdit
     )
 
 
@@ -34,6 +35,11 @@ class ProgressionPanel(QWidget):
         self.regex_panel = regex_panel
         self.controller = progression_controller
 
+        self.search_timer = QTimer(self)
+        self.search_timer.setSingleShot(True)
+        self.search_timer.setInterval(300) # 300ms debounce
+        self.search_timer.timeout.connect(self.filter_tree)
+
         self.init_progression_tree()
         self.init_progression_buttons()
         self.init_signals()
@@ -41,6 +47,7 @@ class ProgressionPanel(QWidget):
 
     def init_main_layout(self):
         self.main_layout = QVBoxLayout()
+        self.main_layout.addWidget(self.search_bar)
         self.main_layout.addWidget(self.progression_tree)
         self.main_layout.addLayout(self.progression_buttons)
         self.setLayout(self.main_layout)
@@ -53,6 +60,9 @@ class ProgressionPanel(QWidget):
                 self.progression_buttons.addWidget(button)
 
     def init_progression_tree(self):
+        self.search_bar = QLineEdit()
+        self.search_bar.setPlaceholderText("Chercher dans la progression...")
+        
         self.progression_tree = QTreeWidget()
         self.progression_tree.setHeaderLabel("Progression annuelle")
 
@@ -66,6 +76,40 @@ class ProgressionPanel(QWidget):
         self.progression_tree.currentItemChanged.connect(
             self.update_buttons_state
         )
+        self.search_bar.textChanged.connect(
+            lambda: self.search_timer.start()
+        )
+
+    def filter_tree(self):
+        search_text = self.search_bar.text().lower()
+        
+        for i in range(self.progression_tree.topLevelItemCount()):
+            item = self.progression_tree.topLevelItem(i)
+            self._filter_item(item, search_text)
+
+    def _filter_item(self, item, search_text):
+        # Un item est visible si son texte correspond ou si l'un de ses enfants correspond
+        item_text = item.text(0).lower()
+        match = search_text in item_text
+        
+        child_match = False
+        for i in range(item.childCount()):
+            if self._filter_item(item.child(i), search_text):
+                child_match = True
+        
+        visible = match or child_match
+        item.setHidden(not visible)
+        
+        # Si on filtre (texte non vide) et qu'il y a un match chez les enfants, on déplie
+        if search_text and child_match:
+            item.setExpanded(True)
+        elif not search_text:
+            # Si recherche vidée, on ne touche pas forcément à l'expansion 
+            # ou on peut décider de tout replier/laisser tel quel.
+            # Ici on laisse tel quel pour ne pas perdre le focus de l'utilisateur.
+            pass
+            
+        return visible
 
     def rename_current_item(self):
         item = self.progression_tree.currentItem()
@@ -84,6 +128,7 @@ class ProgressionPanel(QWidget):
     
     def refresh_ui(self):
         self.update_buttons_state(self.get_selected_catalogue())
+        self.filter_tree()
 
     def update_buttons_state(self, selected_catalogue):
 
