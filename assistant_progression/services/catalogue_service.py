@@ -2,7 +2,8 @@
 import re
 import subprocess
 from pathlib import Path
-from assistant_progression.models.entry import Entry, Catalogue
+from assistant_progression.models.entry import Entry
+from assistant_progression.models.catalogue import Catalogue, ALL_CATALOGUES
 from assistant_progression.utils.resolve import resolve_executable
 from assistant_progression.models.config import Config
 
@@ -20,7 +21,7 @@ class CatalogueService:
         self.build_index()
 
     def build_catalogues(self):
-        self.catalogues = {Catalogue.ALL: Catalogue()}
+        self.catalogues = {ALL_CATALOGUES.key: ALL_CATALOGUES}
 
         for catalogue_key, catalogue_metadata in self.catalogues_config.items():
             catalogue = Catalogue(
@@ -38,7 +39,6 @@ class CatalogueService:
         for catalogue in self.catalogues.values():
             if catalogue.name == name:
                 return catalogue
-        return Catalogue()
     
     def get_catalogue_names(self) -> list:
         return sorted(
@@ -70,9 +70,6 @@ class CatalogueService:
 
             catalogue_data = catalogue.data
 
-            if catalogue.data is None:
-                continue
-
             if all(
                 isinstance(v, str)
                 for v in catalogue_data.values()
@@ -81,10 +78,9 @@ class CatalogueService:
                 for code, text in catalogue_data.items():
 
                     entry = Entry(
-                            catalogue=catalogue.name,
-                            type="",
                             code=code,
-                            text=text
+                            text=text,
+                            catalogue=catalogue,
                         )
                     self.entries.append(entry)
 
@@ -102,45 +98,28 @@ class CatalogueService:
 
                         self.entries.append(
                             Entry(
-                                catalogue=catalogue.name,
-                                type=source_type,
                                 code=code,
-                                text=text
+                                text=text,
+                                catalogue=catalogue,
+                                type=source_type,
                             )
                         )
 
-    def get_types(
-        self,
-        catalogue
-    ):
-
-        types = set()
-
-        for entry in self.entries:
-
-            if (
-                catalogue == "Tous"
-                or entry.catalogue == catalogue
-            ):
-                types.add(entry.type)
-
-        return sorted(types)
-
     def search(
         self,
-        catalogue_name="Tous",
+        catalogue: Catalogue = ALL_CATALOGUES,
         source_type="Tous",
         regex_text=""
     ):
         entries = self.entries
 
         # Filtre catalogue
-        if catalogue_name != "Tous":
+        if catalogue != ALL_CATALOGUES:
 
             entries = [
                 e
                 for e in entries
-                if e.catalogue == catalogue_name
+                if e.catalogue == catalogue
             ]
         # Filtre type
         if source_type != "Tous":
@@ -220,8 +199,8 @@ class CatalogueService:
             )
         )
     
-    def get_entry_by_code(self, code):
+    def get_entry_by_id(self, id):
         for entry in self.entries:
-            if entry.code == code:
+            if entry.id == id:
                 return entry
         return None

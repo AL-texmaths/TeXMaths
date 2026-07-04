@@ -1,24 +1,28 @@
 # models/entry.py
-from dataclasses import dataclass
+from assistant_progression.models.catalogue import Catalogue
 
-@dataclass(frozen=True)
+
 class Entry:
-    catalogue: str
-    type: str
-    code: str
-    text: str
-    locations: str = ""
 
-    @property
-    def tree_code(self):
-        return ':'.join([self.catalogue, self.type, self.code])
+    def __init__(
+            self,
+            code: str,
+            text: str,
+            catalogue:Catalogue,
+            type: str="",
+            locations: str = "",
+            ):
+        self.catalogue = catalogue
+        self.type = type
+        self.code = code
+        self.text = text
+        self.locations = locations
+        self.id = ":".join([self.catalogue.key, self.type, self.code])
 
-@dataclass(frozen=True)
-class Catalogue:
-    ALL: str = "Tous"
-    key: str = ALL
-    name: str = ALL
-    tex_file_name: str = ""
-    sty_file_name: str = ""
-    types: tuple = ()
-    data: dict = None
+    def __repr__(self):
+        return f'Entry({self.id})'
+    
+    def __eq__(self, other):
+        if not isinstance(other, Entry):
+            return NotImplemented
+        return self.id == other.id

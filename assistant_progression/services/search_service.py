@@ -82,7 +82,7 @@ class SearchService:
         )
 
         return self.catalogue_service.search(
-            catalogue_name=selected_catalogue.name if selected_catalogue else None,
+            catalogue=selected_catalogue,
             source_type=selected_type,
             regex_text=regex_text
         )

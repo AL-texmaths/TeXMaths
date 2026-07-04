@@ -3,6 +3,46 @@ from PySide6.QtWidgets import QTreeWidgetItem
 from PySide6.QtCore import Qt
 
 
+from PySide6.QtWidgets import QTreeWidget, QTreeWidgetItem
+
+
+def dump_tree(tree: QTreeWidget, show_user_role=False):
+    """Affiche le contenu d'un QTreeWidget."""
+
+    def dump_item(item: QTreeWidgetItem, prefix="", last=True):
+        branch = "└── " if last else "├── "
+        line = []
+
+        for col in range(tree.columnCount()):
+            text = item.text(col)
+            if show_user_role:
+                data = item.data(col, Qt.ItemDataRole.UserRole)
+                line.append(f"{text!r} [{data!r}]")
+            else:
+                line.append(repr(text))
+
+        print(prefix + branch + " | ".join(line))
+
+        child_prefix = prefix + ("    " if last else "│   ")
+        for i in range(item.childCount()):
+            dump_item(
+                item.child(i),
+                child_prefix,
+                i == item.childCount() - 1
+            )
+
+    print(
+        f"QTreeWidget : {tree.topLevelItemCount()} racines, "
+        f"{tree.columnCount()} colonnes"
+    )
+
+    for i in range(tree.topLevelItemCount()):
+        dump_item(
+            tree.topLevelItem(i),
+            last=(i == tree.topLevelItemCount() - 1)
+        )
+
+
 class ProgressionService:
 
     def __init__(self, code_service, catalogue_service, analysis_service, config):
@@ -11,9 +51,10 @@ class ProgressionService:
         self.analysis_service = analysis_service
         self.config = config
 
-    def make_item(self, text):
+    def make_item(self, text, data=None):
         item = QTreeWidgetItem([text])
         item.setFlags(item.flags() | Qt.ItemFlag.ItemIsEditable)
+        item.setData(0, Qt.UserRole, data)
         return item
 
     def add_level(self, tree):
@@ -143,17 +184,11 @@ class ProgressionService:
         if target is None:
             return None
 
-        item = self.make_item(entry.code)
-
-        item.setData(
-            0,
-            Qt.UserRole,
-            entry.tree_code
-        )
+        item = self.make_item(entry.code, data=entry.id)
 
         item.setToolTip(
             0,
-            f"Catalogue: {entry.catalogue}\n"
+            f"Catalogue: {entry.catalogue.name}\n"
             f"{entry.text}\n"
         )
 
@@ -195,128 +230,55 @@ class ProgressionService:
 
         return item
 
-    def tree_to_dict(self, item, depth=0):
-
-        if depth == 2:
-            return [
-                item.child(i).text(0)
-                for i in range(item.childCount())
-            ]
-
+    def item_to_dict(self, item):
         return {
-            item.child(i).text(0):
-            self.tree_to_dict(
-                item.child(i),
-                depth + 1
-            )
-            for i in range(item.childCount())
+            "text": item.text(0),
+            "data": item.data(0, Qt.UserRole),
+            "tooltip": item.toolTip(0),
+            "expanded": item.isExpanded(),
+            "children": [
+                self.item_to_dict(item.child(i))
+                for i in range(item.childCount())
+            ],
         }
+    
+    def dict_to_item(self, node):
 
+        item = self.make_item(
+            node["text"],
+            node.get("data")
+        )
+
+        item.setToolTip(
+            0,
+            node.get("tooltip", "")
+        )
+
+        item.setExpanded(
+            node.get("expanded", False)
+        )
+
+        for child in node.get("children", []):
+            item.addChild(
+                self.dict_to_item(child)
+            )
+
+        return item
+    
     def snapshot(self, tree):
 
-        data = {}
-
-        for i in range(tree.topLevelItemCount()):
-
-            root = tree.topLevelItem(i)
-
-            data[root.text(0)] = self.tree_to_dict(root)
-
-        return data
-
-    def expanded_paths(self, tree):
-
-        expanded = set()
-
-        def walk(item, path):
-
-            path = path + (item.text(0),)
-
-            if item.isExpanded():
-                expanded.add(path)
-
-            for i in range(item.childCount()):
-                walk(item.child(i), path)
-
-        for i in range(tree.topLevelItemCount()):
-            walk(
-                tree.topLevelItem(i),
-                ()
-            )
-
-        return expanded
-
-    def restore_expanded(
-        self,
-        tree,
-        expanded
-    ):
-
-        def walk(item, path):
-
-            path = path + (item.text(0),)
-
-            item.setExpanded(
-                path in expanded
-            )
-
-            for i in range(item.childCount()):
-                walk(item.child(i), path)
-
-        for i in range(tree.topLevelItemCount()):
-            walk(
-                tree.topLevelItem(i),
-                ()
-            )
+        return [
+            self.item_to_dict(tree.topLevelItem(i))
+            for i in range(tree.topLevelItemCount())
+        ]
+    
     def restore(self, tree, data):
-
-        expanded = self.expanded_paths(tree)
+        print(type(data))
+        print(repr(data))
 
         tree.clear()
 
-        def build(parent, obj):
-
-            for key, value in obj.items():
-
-                item = self.make_item(key)
-
-                parent.addChild(item)
-
-                if isinstance(value, dict):
-
-                    build(item, value)
-
-                elif isinstance(value, list):
-
-                    for code in value:
-
-                        child = self.make_item(code)
-
-                        child.setData(
-                            0,
-                            Qt.UserRole,
-                            code
-                        )
-                        entry = self.catalogue_service.get_entry_by_code(code)
-
-                        if entry is not None:
-
-                            child.setToolTip(
-                                0,
-                                entry.text
-                            )
-
-                        item.addChild(child)
-
-        for key, value in data.items():
-
-            root = self.make_item(key)
-
-            tree.addTopLevelItem(root)
-
-            build(root, value)
-
-        self.restore_expanded(
-            tree,
-            expanded
-        )
+        for node in data:
+            tree.addTopLevelItem(
+                self.dict_to_item(node)
+            )

@@ -119,7 +119,7 @@
             "main_window": {
                 "title": "Assistant de progression",
                 "width": 732,
-                "height": 888
+                "height": 890
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -129,8 +129,8 @@
             "splitter": {
                 "size": [
                     235,
-                    212,
-                    255
+                    179,
+                    288
                 ]
             }
         },
@@ -245,7 +245,7 @@
             }
         },
         "current": {
-            "theme": "Obsidian Dark",
+            "theme": "VSCode Dark",
             "catalogue": "Cycle 4 BO 2026",
             "type": "Objectifs d'apprentissage",
             "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json"

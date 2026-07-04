@@ -29,7 +29,7 @@ class PreviewPanel(QWebEngineView):
             html_items.append(
                 (
                     f"<b>{entry.code}</b> "
-                    f"(<i>{entry.catalogue}</i>) "
+                    f"(<i>{entry.catalogue.name}</i>) "
                     f"{entry.text}"
                 )
             )
@@ -56,11 +56,10 @@ class PreviewPanel(QWebEngineView):
             return
 
         entry = self.regex_panel.current_matches[row]
-
         html = self.html_service.render_entry(
             code=entry.code,
             content=entry.text,
-            catalogue=entry.catalogue,
+            catalogue=entry.catalogue.name,
             source_type=self.code_service.display_name(entry.type),
             theme=self.theme_service.get_current_theme(),
             locations=self.analysis_service.find_usage_locations(

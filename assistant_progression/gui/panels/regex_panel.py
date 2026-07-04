@@ -1,7 +1,7 @@
 # regex_panel.py
-from operator import index
 import re
 from assistant_progression.services.regex_service import SearchLineEdit
+from assistant_progression.app.logger import logger
 
 from PySide6.QtWidgets import (
     QListWidget, QListWidgetItem, QWidget, QComboBox, QVBoxLayout
@@ -118,7 +118,7 @@ class RegexPanel(QWidget):
             )
 
             item = QListWidgetItem(text)
-            item.setData(Qt.UserRole, entry)
+            item.setData(Qt.UserRole, entry.id)
             self.list_widget.addItem(item)
 
         if entries:

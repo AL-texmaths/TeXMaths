@@ -1,93 +1,58 @@
 from pathlib import Path
 
 
+COMMANDS = {
+        "aut": "useaut",
+        "obj": "useobj",
+        "pro": "usepro",
+    }
+
 class ExportService:
 
-    def export_progression(
-        self,
-        filename,
-        progression,
-        labels
-    ):
-        latex = self.build_latex(
-            progression,
-            labels
-        )
+    def export_node(self, node, out):
+        text = node.get("text", "")
+        data = node.get("data")
+        children = node.get("children", [])
 
-        Path(filename).write_text(
-            latex,
-            encoding="utf-8"
-        )
+        # Feuille : un item du BO
+        if data:
+            try:
+                _, kind, ident = data.split(":")
+                cmd = COMMANDS.get(kind)
+                if cmd:
+                    out.write(f"\\{cmd}[{ident}]\n")
+            except ValueError:
+                print(f"Format de data invalide : {data}")
+            return
 
-    def build_latex(
-        self,
-        progression,
-        labels
-    ):
+        # Niveau (5eme, 4eme, ...)
+        if children and all("children" in c for c in children):
+            if text.endswith("eme") or text.endswith("e"):
+                out.write(f"\\level{{{text}}}\n")
 
-        lines = []
+        # Séquence
+        category_names = {
+            "Automatismes",
+            "Objectifs d'apprentissage",
+            "Prolongements",
+            "Séances",
+        }
 
-        level_num = 0
+        if children and {c.get("text") for c in children} <= category_names:
+            out.write(f"\\sequence{{{text}}}\n")
 
-        for level, chapters in progression.items():
+            for child in children:
+                self.export_node(child, out)
 
-            if level_num > 0:
-                lines.append("\\showtotalseance")
+            out.write("\\endsequence\n\n")
+            return
 
-            level_num += 1
+        # Cas général
+        for child in children:
+            self.export_node(child, out)
 
-            lines.append(
-                f"\\level{{{level}}}"
-            )
 
-            for chapter, content in chapters.items():
-
-                lines.append(
-                    f"\\sequence{{{chapter}}}"
-                )
-
-                automatismes = ",".join(
-                    content.get(
-                        labels["aut"],
-                        []
-                    )
-                )
-
-                objectifs = ",".join(
-                    content.get(
-                        labels["obj"],
-                        []
-                    )
-                )
-
-                prolongements = ",".join(
-                    content.get(
-                        labels["pro"],
-                        []
-                    )
-                )
-
-                lines.append(
-                    f"    \\BoItems{{{automatismes}}}"
-                    f"{{{objectifs}}}"
-                    f"{{{prolongements}}}"
-                )
-
-                for seance in content.get(
-                    labels["sea"],
-                    []
-                ):
-
-                    lines.append(
-                        f"    \\seance{{{seance}}}"
-                    )
-
-                lines.append(
-                    "\\endsequence"
-                )
-
-        lines.append(
-            "\\showtotalseance"
-        )
-
-        return "\n".join(lines) + "\n"
+    def export_progression(self, filename, progression_tree, code_labels):
+        with open(filename, "w", encoding="utf-8") as out:
+            for node in progression_tree:
+                self.export_node(node, out)

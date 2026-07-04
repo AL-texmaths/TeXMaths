@@ -1,170 +1,77 @@
-{
-  "5eme": {
-    "Résolution de problèmes": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1aa",
-        "A1ab",
-        "A1ad"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Expressions numériques": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1ae",
-        "A1af",
-        "A1ag",
-        "A1ak"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Calcul littéral": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1eb",
-        "A1ec"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Equations": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Découverte des nombres relatifs": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1ba",
-        "A1bb",
-        "A1bc",
-        "A1bd",
-        "A1be",
-        "A1bf"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Opérations sur les nombres relatifs": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1bg",
-        "A1bh",
-        "A1bi",
-        "A1bj",
-        "A1bk",
-        "A1bl",
-        "A1bm"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Fractions": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1ca",
-        "A1cb",
-        "A1cc"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Algorithmique": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Volumes": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Symétrie centrale": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Angles et parallélisme": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Triangles (Partie 1)": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Triangles (Partie 2)": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Parallélogrammes": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Gestion de données": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Probabilités": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Proportionnalité": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Division": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1ai",
-        "A1aj",
-        "A1ac"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    },
-    "Puissance": {
-      "Automatismes": [],
-      "Objectifs d'apprentissage": [
-        "A1da",
-        "A1db",
-        "A1dc",
-        "A1dd",
-        "A1de",
-        "A1df"
-      ],
-      "Prolongements": [],
-      "Séances": []
-    }
-  },
-  "4eme": {
-    "CH2": {
-      "Automatismes": [
-        "A1aa"
-      ],
-      "Objectifs d'apprentissage": [],
-      "Prolongements": [],
-      "Séances": []
-    }
+[
+  {
+    "text": "5eme",
+    "data": null,
+    "tooltip": "",
+    "expanded": true,
+    "children": [
+      {
+        "text": "Fractions",
+        "data": null,
+        "tooltip": "",
+        "expanded": true,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": true,
+            "children": [
+              {
+                "text": "A1aa",
+                "data": "cycle_4_BO_2026:aut:A1aa",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nMobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A1ad",
+                "data": "cycle_4_BO_2026:aut:A1ad",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nSavoir calculer des produits en lien avec les tables : $0,6 \\times 7$ ; $40 \\times 0,03$.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": true,
+            "children": [
+              {
+                "text": "A1ah",
+                "data": "cycle_4_BO_2026:obj:A1ah",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nConnaitre et utiliser la distributivité simple sur des exemples numériques.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": true,
+            "children": [
+              {
+                "text": "Découverte",
+                "data": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
-}
+]

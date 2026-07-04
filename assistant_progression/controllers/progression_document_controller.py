@@ -35,7 +35,7 @@ class ProgressionDocumentController:
 
         if data is None:
             return False
-
+        
         self.progression_service.restore(
             tree,
             data
@@ -93,7 +93,7 @@ class ProgressionDocumentController:
         self.export_service.export_progression(
             tex_path,
             data,
-            self.code_service.labels
+            self.code_service.code_labels
         )
 
         return tex_path

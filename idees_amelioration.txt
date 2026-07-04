@@ -7,20 +7,24 @@
 ===============================================================================
 					Python
 ===============================================================================
+1- S'assurer de la compatibilité avec windows
+2- Tenter de créer une instalation vscoe/miktex sur le pc
+--> mettre à jour le disque dur externe consitera unquiquement
+à faire un pull github
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
->>> logger.info ne fonctionne pas dans main window 
->> BUG: au moment de la mise a jour de l'index des codes, l'item sélectionné
-de la liste des entrées issues de la recherche regex devient le premier de
-la liste
+>>> BUG: analysis_service.find_item_locations ne trouve pas les locations
+>>> raison: la sauvegarde de la progression ne sauvegarde que les code
+et non les identifiants. Tous les items de l'arbre doivent avoir un id
+unique.
 >>> API: l'utilisateur doit pouvoir choisir de n'afficher que les items
 unused dans la liste issue de la recherche regex
->>> API: utiliser Ctrl+Up/Ctrl+Down pour faire monter/descendre l'arbre
-en gardant le même item sélectionné
 >>> API: système de recherche dans l'arbre de progression
+>>> API: utiliser Ctrl+Up/Ctrl+Down pour faire monter/descendre
+l'arbre en gardant le même item sélectionné
 >>> API: pouvoir copier-coller/des items de l'arbre de progression
 >>> se renseigner sur une manière professionelle de créer des liens de
 dépendance verticales entre les items ainsi qu'une manière de les

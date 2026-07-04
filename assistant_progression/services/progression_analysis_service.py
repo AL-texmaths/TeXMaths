@@ -1,5 +1,6 @@
 # assistant_progression/services/progression_analysis_service.py
 from PySide6.QtCore import Qt
+from assistant_progression.app.logger import logger, logger_wraper
 
 
 class ProgressionAnalysisService:
@@ -34,7 +35,7 @@ class ProgressionAnalysisService:
         for entry in self.catalogue_service.entries:
 
             if selected_catalogue_name != "Tous":
-                if entry.catalogue != selected_catalogue_name:
+                if entry.catalogue.name != selected_catalogue_name:
                     continue
 
             if entry.code not in used:
@@ -42,6 +43,7 @@ class ProgressionAnalysisService:
 
         return unused
 
+    @logger_wraper
     def find_usage_locations(self, tree, entry):
         locations = []
 
@@ -49,8 +51,7 @@ class ProgressionAnalysisService:
             for i in range(node.childCount()):
                 child = node.child(i)
 
-                if child.data(0, Qt.UserRole) == entry.tree_code:
-                    print(child.data(0,0))
+                if child.data(0, Qt.UserRole) == entry.id:
                     locations.append(path)
 
                 scan(child, path + "/" + child.text(0))

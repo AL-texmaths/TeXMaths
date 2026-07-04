@@ -79,39 +79,6 @@
 }
 \setlist{label=$-$}
 
-% \def\cnsandcmp#1#2{%
-%     {\itshape Connaissances}\vskip8pt
-%     \@for\ii:=#1\do{%
-%         \par\noindent$-$\hskip2ex\usecns[\ii]%
-%         \immediate\write\seqcanal{CNS\ii:\@level@name:\sequence@key:}%
-%     }\vskip5pt\noindent\nopagebreak
-%     {\itshape Compétences}\vskip8pt
-%     \@for\jj:=#2\do{%
-%     \par\noindent$-$\hskip2ex\usecmp[\jj]%
-%     % \immediate\write\seqcanal{CMP\jj:\@level@name:\sequence@key}%
-%     }\par\kern20pt\noindent
-% }
-\def\BoItems#1#2#3{%
-    {\itshape Automatismes}\vskip8pt
-    \@for\ii:=#1\do{%
-        \par\noindent$-$\hskip2ex\useaut[\ii]%
-        \immediate\write\seqcanal{AUT\ii:\@level@name:\sequence@key:}%
-    }\vskip5pt\noindent\nopagebreak
-    % -----------------------------
-    {\itshape Objectifs d'apprentissage}\vskip8pt
-    \@for\ii:=#2\do{%
-        \par\noindent$-$\hskip2ex\useobj[\ii]%
-        \immediate\write\seqcanal{OBJ\ii:\@level@name:\sequence@key:}%
-    }\vskip5pt\noindent\nopagebreak
-    % -----------------------------
-    {\itshape Prolongements}\vskip8pt
-    \@for\ii:=#3\do{%
-        \par\noindent$-$\hskip2ex\usepro[\ii]%
-        \immediate\write\seqcanal{PRO\ii:\@level@name:\sequence@key:}%
-    }\vskip5pt\noindent\nopagebreak
-    \par\kern20pt\noindent
-}
-
 \def\showtotalseance{\vskip0pt plus 1fill\noindent
 {\large Nombre total de séances en \@level@name: {\bfseries\thetotalseances}}
 \vskip0pt plus 3fill}
@@ -124,13 +91,17 @@
 \def\hideseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
 % \let\seance\hideseance
 \begin{document}
-    \newwrite\seqcanal
-    \immediate\openout\seqcanal=\jobname-structure.txt%
+    % \newwrite\seqcanal
+    % \immediate\openout\seqcanal=\jobname-structure.txt%
     \pagestyle{sequencage}
 
-    \input{sequencage-Cycle_4_BO_2026-\PROGRESSION-structure.tex}
+    \level{5eme}
+    \sequence{Fractions}
+    \useaut[A1aa]
+    \endsequence
+    % \input{sequencage-Cycle_4_BO_2026-\PROGRESSION-structure.tex}
     \BoDescription
 
-    \immediate\closeout\seqcanal
+    % \immediate\closeout\seqcanal
 
 \end{document}
