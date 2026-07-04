@@ -9,19 +9,71 @@
 
 \makeatletter
 
+% \directlua{
+%   local path = status.filename
+%   path = path:gsub("\\", "/")
+%   local root = path:match("(.*/Projects/)")
+%   if root then
+%     tex.sprint("\\gdef\\projects@path@root{" .. root .. "}")
+%   else
+%     tex.sprint("Chemin */Projects/ introuvable")
+%   end
+% }
+
+% Détection de l'exécutable Python dans .venv (Windows: Scripts, Linux: bin)
 \directlua{
-  if package.config:sub(1,1) == "\\" then
-      tex.sprint("\\def\\system@path@root{\\Root\\}")
+  local path = status.filename
+  path = path:gsub("\\", "/")
+  local root = path:match("(.*/Projects/)")
+  local project_root = root .. "TeXMaths/"
+  if root then
+    local base = root .. "TeXMaths/.venv/"
+    local candidates = {
+      base .. "Scripts/python.exe",
+      base .. "Scripts/python",
+      base .. "bin/python",
+      base .. "python.exe",
+      base .. "python"
+    }
+    local found = nil
+    for _, p in ipairs(candidates) do
+      local f = io.open(p, "rb")
+      if f then
+        f:close()
+        found = p
+        break
+      end
+    end
+    if found then
+      tex.sprint("\\gdef\\texmaths@python@exe{" .. found .. "}")
+      tex.sprint("\\gdef\\projects@path@root{" .. root .. "}")
+      tex.sprint("\\gdef\\texmaths@path@root{" .. project_root .. "}")
+    else
+      tex.sprint("\\gdef\\texmaths@python@exe{}")
+      tex.sprint("\\gdef\\projects@path@root{}")
+      tex.sprint("\\gdef\\texmaths@path@root{}")
+      tex.sprint("\\PackageWarning{texmaths-path}{Python executable not found in .venv (checked Scripts and bin)}")
+    end
   else
-      tex.sprint("\\def\\system@path@root{/home/antoine/}")
+    tex.sprint("\\gdef\\texmaths@python@exe{}")
+    tex.sprint("\\gdef\\projects@path@root{}")
+    tex.sprint("\\gdef\\texmaths@path@root{}")
+    tex.sprint("Chemin */Projects/ introuvable")
   end
 }
 
-\def\texmaths@path@root{\system@path@root Projects/TeXMaths/}
+% \def\texmaths@path@root{\projects@path@root TeXMaths/}
 \def\texmaths@path@gifdata{\texmaths@path@root data/graphics/gif/data/}
 \graphicspath{{../graphics/}{../../graphics/}}
 
-\def\videoManim#1#2#3{\href{run:E:/Root/Projets/Manim/media/videos/#1/1080p60/#2.mp4}{#3}}
+% \def\videoManim#1#2#3{\href{run:\projects@path@root Manim/media/videos/#1/1080p60/#2.mp4}{#3}}
+
+\def\videoManim#1#2#3{%
+  \begingroup
+  \edef\temppath{run:\projects@path@root{}Manim/media/videos/#1/1080p60/#2.mp4}%
+  \href{\temppath}{#3}%
+  \endgroup
+}
 
 \svgsetup{
   inkscapepath=\texmaths@path@root data/latex/svg-inkscape/%

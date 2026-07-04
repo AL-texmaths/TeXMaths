@@ -48,3 +48,12 @@ src/
 ├── external/
 │
 └── main.py
+
+## Dépendances externes
+
+Les exécutables suivants doivent être installés et accessibles via le `PATH` :
+
+| Outil | Utilisation |
+|-------|-------------|
+| ImageMagick (`magick`) | Conversion d'images et de GIF |
+| FFmpeg (`ffmpeg`) | Encodage et traitement des vidéos |

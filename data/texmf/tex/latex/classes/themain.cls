@@ -1298,7 +1298,7 @@
         \immediate\openout\DIAPOcanal=\jobname-diapo.txt%
         }%
         % Cleaning exemples dir before compilation
-        \run@python{../../}{clean_dir data/latex/exemples}
+        \run@python{-m src.clean_dir data/latex/exemples}
     }
 \AtEndDocument{%
     \ifSubfilesClassLoaded{}{%

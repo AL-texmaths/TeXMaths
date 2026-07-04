@@ -80,6 +80,7 @@ def create_context(main_window) -> AppContext:
             undo_redo_service=undo_redo_service,
             code_service=code_service,
             paths=paths,
+            current_file=config.settings.current.current_file_path
     )
     theme_name = config.settings.current.theme
     theme_service = ThemeService(

@@ -9,7 +9,6 @@ data/latex/**/*.synctex.gz
 data/latex/**/*.fdb_latexmk
 data/latex/**/*.fls
 
-data/graphics/gif/data
 data/graphics/pdf
 data/tmp
 
@@ -18,3 +17,6 @@ dist
 build
 .venv
 **/__pycache__/
+
+data/graphics/gif/data/*
+!data/graphics/gif/data/.gitkeep

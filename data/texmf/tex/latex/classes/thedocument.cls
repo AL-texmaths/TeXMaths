@@ -32,7 +32,7 @@
     \AtEndDocument{%
         \ifisdata
         \makeatletter
-        \run@python{../../../}{write_exercice_packages \jobname}
+        \run@python{-m src.write_exercice_packages \jobname}
         \makeatother
         \fi
     }

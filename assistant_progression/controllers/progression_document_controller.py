@@ -17,6 +17,7 @@ class ProgressionDocumentController:
         undo_redo_service,
         code_service,
         paths,
+        current_file
     ):
         self.progression_service = progression_service
         self.persistence_service = persistence_service
@@ -24,6 +25,7 @@ class ProgressionDocumentController:
         self.undo_redo = undo_redo_service
         self.code_service = code_service
         self.paths = paths
+        self.current_file = current_file
 
     @property
     def has_file(self):

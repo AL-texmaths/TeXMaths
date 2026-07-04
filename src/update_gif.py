@@ -41,7 +41,7 @@ for file in recent_files:
 
     # Commande conversion GIF -> PNG
     cmd_convert = [
-        magick,
+        str(magick),
         str(file),
         "-coalesce",
         "+repage",

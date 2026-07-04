@@ -98,7 +98,7 @@ Calculer toutes les longueurs et tous les angles du triangle.
 \immediate\write\wordlisttxt{]}
 \immediate\closeout\wordlisttxt
 
-\run@python{../../}{sort_glossary data/latex/\jobname-wordlist.txt data/latex/\jobname-sortedindex.txt}
+\run@python{-m src.sort_glossary data/latex/\jobname-wordlist.txt data/latex/\jobname-sortedindex.txt}
 \newread\sortedindex
 \openin\sortedindex=\jobname-sortedindex.txt
 \read\sortedindex to \wordlistnumfromtxt
