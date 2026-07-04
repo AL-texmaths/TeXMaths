@@ -21,8 +21,6 @@ def dump_tree(tree: QTreeWidget, show_user_role=False):
             else:
                 line.append(repr(text))
 
-        print(prefix + branch + " | ".join(line))
-
         child_prefix = prefix + ("    " if last else "│   ")
         for i in range(item.childCount()):
             dump_item(
@@ -30,11 +28,6 @@ def dump_tree(tree: QTreeWidget, show_user_role=False):
                 child_prefix,
                 i == item.childCount() - 1
             )
-
-    print(
-        f"QTreeWidget : {tree.topLevelItemCount()} racines, "
-        f"{tree.columnCount()} colonnes"
-    )
 
     for i in range(tree.topLevelItemCount()):
         dump_item(
@@ -273,9 +266,7 @@ class ProgressionService:
         ]
     
     def restore(self, tree, data):
-        print(type(data))
-        print(repr(data))
-
+        
         tree.clear()
 
         for node in data:
