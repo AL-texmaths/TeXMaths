@@ -8,22 +8,20 @@
 					Python
 ===============================================================================
 1- S'assurer de la compatibilité avec windows
-2- Tenter de créer une instalation vscoe/miktex sur le pc
 --> mettre à jour le disque dur externe consitera unquiquement
-à faire un pull github
+à faire un pull github, excepté le dossier data
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant de navigation -------------
 >>> délégation des responsabilités du script assistant de navigation
 --------- Assitant de progression ---------------
-BUG: undo_redo repli l'arbre après action
+>>> API: l'utilisateur doit pouvoir choisir de n'afficher que les items
+unused dans la liste issue de la recherche regex
 >>> API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut
 "catalogue" a chaque progression et empecher l'ajout
 d'item dont le catalogue ne correspond pas)
->>> API: l'utilisateur doit pouvoir choisir de n'afficher que les items
-unused dans la liste issue de la recherche regex
 >>> API: système de recherche dans l'arbre de progression
 >>> API: utiliser Ctrl+Up/Ctrl+Down pour faire monter/descendre
 l'arbre en gardant le même item sélectionné

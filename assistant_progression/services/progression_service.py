@@ -273,3 +273,38 @@ class ProgressionService:
             tree.addTopLevelItem(
                 self.dict_to_item(node)
             )
+    
+    def _collect_expanded_paths(self, item, prefix, out):
+        path = prefix + (item.text(0),)
+        if item.isExpanded():
+            out.add(path)
+
+        for i in range(item.childCount()):
+            self._collect_expanded_paths(item.child(i), path, out)
+
+    def get_expanded_paths(self, tree):
+        """Retourne un set de tuples représentant les chemins (texte par niveau)
+        des éléments actuellement dépliés dans l'arbre.
+        """
+        out = set()
+        for i in range(tree.topLevelItemCount()):
+            self._collect_expanded_paths(tree.topLevelItem(i), tuple(), out)
+        return out
+
+    def _apply_expanded_paths(self, item, prefix, paths):
+        path = prefix + (item.text(0),)
+        if path in paths:
+            item.setExpanded(True)
+
+        for i in range(item.childCount()):
+            self._apply_expanded_paths(item.child(i), path, paths)
+
+    def apply_expanded_paths(self, tree, paths):
+        """Applique l'expansion pour tous les chemins présents dans `paths`.
+        Ne modifie que les éléments à déplier (ne replie pas explicitement les autres).
+        """
+        if not paths:
+            return
+
+        for i in range(tree.topLevelItemCount()):
+            self._apply_expanded_paths(tree.topLevelItem(i), tuple(), paths)

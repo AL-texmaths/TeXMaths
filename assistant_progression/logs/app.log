@@ -4120,3 +4120,69 @@
 2026-07-04 20:02:37 | INFO     |
      MainThread | AssistantDeProgression | Calling find_usage_locations
     
+2026-07-04 22:35:22 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-04 22:35:22 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-04 22:35:22 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:35:22 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:35:22 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-04 22:35:25 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:35:25 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:35:25 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:35:26 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:40:39 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-04 22:40:39 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-04 22:40:39 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:40:39 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:40:39 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-04 22:40:42 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:40:47 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:41:11 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-04 22:41:11 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-04 22:41:11 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:41:11 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-04 22:41:11 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-04 22:41:14 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
