@@ -24,6 +24,22 @@ class ProgressionAnalysisService:
 
         return used
 
+    def get_used_ids(self, tree):
+        used = set()
+
+        def scan(item):
+            for i in range(item.childCount()):
+                child = item.child(i)
+                uid = child.data(0, Qt.UserRole)
+                if uid:
+                    used.add(uid)
+                scan(child)
+
+        for i in range(tree.topLevelItemCount()):
+            scan(tree.topLevelItem(i))
+
+        return used
+
     def get_unused_entries(self, tree, selected_catalogue):
 
         selected_catalogue_name = selected_catalogue.name if selected_catalogue else "Tous"

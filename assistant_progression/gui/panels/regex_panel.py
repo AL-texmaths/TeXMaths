@@ -4,7 +4,7 @@ from assistant_progression.services.regex_service import SearchLineEdit
 from assistant_progression.app.logger import logger
 
 from PySide6.QtWidgets import (
-    QListWidget, QListWidgetItem, QWidget, QComboBox, QVBoxLayout
+    QListWidget, QListWidgetItem, QWidget, QComboBox, QVBoxLayout, QCheckBox
 )
 from PySide6.QtCore import QEvent, Qt
 
@@ -15,12 +15,14 @@ class ViewMode:
 
 
 class RegexPanel(QWidget):
-    def __init__(self, search_service, default_catalogue_label=None, default_type_label:str|None=None):
+    def __init__(self, search_service, analysis_service=None, default_catalogue_label=None, default_type_label:str|None=None):
         super().__init__()
 
         self.layout = QVBoxLayout()
 
         self.search_service = search_service
+        self.analysis_service = analysis_service
+        self.tree = None
         self.catalogue_combo = QComboBox()
         self.type_combo = QComboBox()
 
@@ -35,6 +37,8 @@ class RegexPanel(QWidget):
         self.list_widget = QListWidget()
         self.search_line = SearchLineEdit(self.list_widget)
         self.search_line.setPlaceholderText("Regex sur code ou contenu")
+
+        self.hide_located_checkbox = QCheckBox("Masquer les items déjà utilisés")
 
         self.search_service.populate_catalogue_combobox(
             self.catalogue_combo
@@ -71,6 +75,7 @@ class RegexPanel(QWidget):
             self.view_mode_combo,
             self.search_line,
             self.list_widget,
+            self.hide_located_checkbox,
         ):
             widget.installEventFilter(self)
 
@@ -83,6 +88,9 @@ class RegexPanel(QWidget):
         self.search_line.textChanged.connect(
             self.update_search
         )
+        self.hide_located_checkbox.stateChanged.connect(
+            self.update_search
+        )
 
     def build_qvboxlayout(self):
         self.layout.addWidget(self.catalogue_combo)
@@ -90,6 +98,7 @@ class RegexPanel(QWidget):
         self.layout.addWidget(self.view_mode_combo)
         self.layout.addWidget(self.search_line)
         self.layout.addWidget(self.list_widget)
+        self.layout.addWidget(self.hide_located_checkbox)
 
         self.setLayout(self.layout)
 
@@ -106,6 +115,10 @@ class RegexPanel(QWidget):
 
         except re.error:
             return []
+
+        if self.hide_located_checkbox.isChecked() and self.analysis_service and self.tree:
+            used_ids = self.analysis_service.get_used_ids(self.tree)
+            entries = [e for e in entries if e.id not in used_ids]
 
         self.current_matches = entries
         self.list_widget.clear()

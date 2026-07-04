@@ -120,6 +120,7 @@ class MainWindow(QWidget):
     
         self.regex_panel = RegexPanel(
             self.context.search_service,
+            analysis_service=self.context.progression_analysis_service,
             default_catalogue_label=default_catalogue_label,
             default_type_label=self.context.session_controller.get_type()
         )
@@ -133,6 +134,7 @@ class MainWindow(QWidget):
             self.context.progression_analysis_service,
             self.regex_panel
         )
+        self.regex_panel.tree = self.progression_panel.progression_tree
         self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
         self.progression_visible = True
         self.addAction(self.action_manager.action("toggle_progression_panel"))
@@ -305,11 +307,11 @@ class MainWindow(QWidget):
 
     def add_selected_item(self):
         self.progression_panel.add_selected_item()
-        self.preview_panel.refresh_view()
+        self.update_search()
 
     def delete_selected_branch(self):
         self.progression_panel.delete_selected_branch()
-        self.preview_panel.refresh_view()
+        self.update_search()
 
     def move_item_up(self):
         self.progression_panel.move_item_up()
@@ -363,16 +365,20 @@ class MainWindow(QWidget):
         
         self.preview_panel.refresh_view()
 
+    def on_progression_changed(self):
+        self.progression_panel.refresh_ui()
+        self.update_search()
+
     def undo(self):
         self.context.progression_controller.undo(
             self.progression_panel.progression_tree,
-            refresh_callback=self.progression_panel.refresh_ui
+            refresh_callback=self.on_progression_changed
         )
     
     def redo(self):
         self.context.progression_controller.redo(
             self.progression_panel.progression_tree,
-            refresh_callback=self.progression_panel.refresh_ui
+            refresh_callback=self.on_progression_changed
         )
 
     def load_progression(self):
