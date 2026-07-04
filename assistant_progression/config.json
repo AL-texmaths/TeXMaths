@@ -105,14 +105,38 @@
         }
     },
     "codes": {
-        "cmpsocle": "Compétences du socle",
-        "cmp": "Compétences",
-        "cns": "Connaissances",
-        "aut": "Automatismes",
-        "obj": "Objectifs d'apprentissage",
-        "pro": "Prolongements",
-        "src": "Sources",
-        "sea": "Séances"
+        "cmpsocle": {
+            "name": "Compétences du socle",
+            "command": "\\usecmpeval{{}}"
+        },
+        "cmp": {
+            "name": "Compétences",
+            "command": "\\usecmp[{}]"
+        },
+        "cns": {
+            "name": "Connaissances",
+            "command": "\\usecns[{}]"
+        },
+        "aut": {
+            "name": "Automatismes",
+            "command": "\\useaut[{}]"
+        },
+        "obj": {
+            "name": "Objectifs d'apprentissage",
+            "command": "\\useobj[{}]"
+        },
+        "pro": {
+            "name": "Prolongements",
+            "command": "\\usepro[{}]"
+        },
+        "src": {
+            "name": "Sources",
+            "command": "\\usesrc[{}]"
+        },
+        "sea": {
+            "name": "Séances",
+            "command": "\\seance{{}}"
+        }
     },
     "settings": {
         "gui": {

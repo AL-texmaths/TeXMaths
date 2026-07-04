@@ -86,10 +86,14 @@ class ActionsConfig(BaseModel):
     move_item_up: ActionSettings
     move_item_down: ActionSettings
 
+class CodeLabelModel(BaseModel):
+    name: str
+    command: str
+
 class Config(BaseModel):
     executables: dict[str, list[str]]
     paths_candidates: dict[str, list[str]]
     catalogues: dict[str, CatalogueMetadata]
-    codes: dict[str, str]
+    codes: dict[str, CodeLabelModel]
     settings: Settings
     actions: ActionsConfig

@@ -93,7 +93,6 @@ class ProgressionDocumentController:
         self.export_service.export_progression(
             tex_path,
             data,
-            self.code_service.code_labels
         )
 
         return tex_path

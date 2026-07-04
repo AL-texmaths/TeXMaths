@@ -1,18 +1,9 @@
-COMMANDS = {
-    "aut": "\\useaut[{}]",
-    "obj": "\\useobj[{}]",
-    "pro": "\\usepro[{}]",
-}
-
-CATEGORY_ORDER = [
-    ("Automatismes", "Automatismes"),
-    ("Objectifs d'apprentissage", "Objectifs d'apprentissages"),
-    ("Prolongements", "Prolongements"),
-    ("Séances", None),  # traitée à part
-]
-
+TYPES  = ["aut", "obj", "pro", "sea"]
 
 class ExportService:
+
+    def __init__(self, code_labels):
+        self.code_labels = code_labels
 
     def export_item(self, node):
         """Retourne la commande LaTeX d'un item."""
@@ -28,7 +19,7 @@ class ExportService:
         except ValueError:
             return None
 
-        cmd = COMMANDS.get(kind)
+        cmd = self.code_labels.get(kind).command
         if cmd:
             return ("item", cmd.format(ident))
 
@@ -37,13 +28,7 @@ class ExportService:
     def export_sequence(self, sequence, out):
         out.write(f"\\sequence{{{sequence['text']}}}\n")
 
-        # buffer par catégorie
-        buffers = {
-            "Automatismes": [],
-            "Objectifs d'apprentissage": [],
-            "Prolongements": [],
-            "Séances": [],
-        }
+        buffers = {self.code_labels.get(_type).name: [] for _type in TYPES}
 
         # remplir les buffers
         for category in sequence.get("children", []):
@@ -62,16 +47,18 @@ class ExportService:
                     buffers[cat_name].append(value)
 
         # écrire les blocs LaTeX
-        for cat, title in CATEGORY_ORDER:
+        for _type in TYPES:
 
-            if cat == "Séances":
+            name = self.code_labels.get(_type).name
+
+            if name == "Séances":
                 continue
 
-            items = buffers.get(cat, [])
+            items = buffers.get(name, [])
             if not items:
                 continue
 
-            out.write(f"\\par\\noindent\\textbf{{{title} :}}\n")
+            out.write(f"\\par\\noindent\\textbf{{{name} :}}\n")
             out.write("\\begin{itemize}\n")
 
             for it in items:
@@ -93,7 +80,7 @@ class ExportService:
 
         out.write("\\endlevel\n\n")
 
-    def export_progression(self, filename, progression_tree, code_labels=None):
+    def export_progression(self, filename, progression_tree):
         with open(filename, "w", encoding="utf-8") as out:
             for level in progression_tree:
                 self.export_level(level, out)

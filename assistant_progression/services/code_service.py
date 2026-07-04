@@ -7,17 +7,17 @@ class CodeService:
         self.entries = []
 
     def display_name(self, code):
+        code_label = self.code_labels.get(code)
+        if code_label is None:
+            return code
 
-        return self.code_labels.get(
-            code,
-            code
-        )
+        return code_label.name
 
     def internal_name(self, display):
 
         for code, label in self.code_labels.items():
 
-            if label == display:
+            if label.name == display:
                 return code
 
         return display

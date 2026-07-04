@@ -48,7 +48,7 @@ def create_context(main_window) -> AppContext:
         main_window
         )
     paths = Paths(config)
-    export_service = ExportService()
+    export_service = ExportService(config.codes)
     undo_redo_service = UndoRedoService()
 
     code_index_document_controller = CodeIndexDocumentController(paths.code_index_file)
