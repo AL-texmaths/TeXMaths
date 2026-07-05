@@ -20,6 +20,7 @@ class ProgressionPanel(QWidget):
             ):
         super().__init__()
         self.action_names = [
+            "add_custom_item",
             "add_level",
             "add_chapter",
             "add_seance",
@@ -156,6 +157,13 @@ class ProgressionPanel(QWidget):
     def get_selected_catalogue(self):
         return self.regex_panel.selected_catalogue()
     
+    def add_custom_item(self):
+        self.controller.add_custom_item(
+            self.progression_tree,
+            text="Nouvel élément",
+            refresh_callback=self.refresh_ui
+        )
+
     def add_level(self):
         self.controller.add_level(
             self.progression_tree,

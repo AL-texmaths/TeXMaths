@@ -65,6 +65,7 @@ class ActionSettings(BaseModel):
     checkable: bool = False
 
 class ActionsConfig(BaseModel):
+    add_custom_item: ActionSettings
     add_level: ActionSettings
     add_chapter: ActionSettings
     add_seance: ActionSettings

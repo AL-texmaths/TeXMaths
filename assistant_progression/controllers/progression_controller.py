@@ -41,6 +41,16 @@ class ProgressionController:
             refresh_callback()
     
     @record_tree_undo
+    def add_custom_item(self, tree, text, refresh_callback=None):
+        item = self.progression_service.add_custom_item(tree)
+
+        if item:
+            tree.editItem(item, 0)
+
+        if refresh_callback:
+            refresh_callback()
+
+    @record_tree_undo
     def add_level(self, tree, refresh_callback=None):
         item = self.progression_service.add_level(tree)
 

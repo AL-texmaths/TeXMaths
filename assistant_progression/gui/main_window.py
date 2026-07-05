@@ -191,6 +191,7 @@ class MainWindow(QWidget):
 
         progression_menu = QMenu("Progression", self)
         for action_id in [
+            "add_custom_item",
             "add_level",
             "add_chapter",
             "add_seance",
@@ -295,6 +296,9 @@ class MainWindow(QWidget):
                 "Warning",
                 f"Catalogue '{name}' not found."
             )
+    def add_custom_item(self):
+        self.progression_panel.add_custom_item()
+        self.update_search()
 
     def add_level(self):
         self.progression_panel.add_level()

@@ -56,6 +56,17 @@ class ProgressionService:
         tree.setCurrentItem(item)
         return item
 
+    def add_custom_item(self, tree):
+        current_item = tree.currentItem()
+        if current_item is None:
+            return None
+
+        item = self.make_item("Nouvel élément")
+        current_item.addChild(item)
+        current_item.setExpanded(True)
+        tree.setCurrentItem(item)
+        return item
+
     def add_chapter(self, tree, selected_catalogue, current_item):
 
         if current_item is None:

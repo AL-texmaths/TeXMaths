@@ -272,10 +272,17 @@
             "theme": "VSCode Dark",
             "catalogue": "Cycle 4 BO 2026",
             "type": "Automatismes",
-            "current_file_path": "D:/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json"
+            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json"
         }
     },
     "actions": {
+        "add_custom_item": {
+            "text": "Ajouter un élément personnalisé",
+            "shortcut": "Ctrl+N",
+            "button": true,
+            "icon": null,
+            "checkable": false
+        },
         "add_level": {
             "text": "Ajouter un niveau",
             "shortcut": "Ctrl+L",
