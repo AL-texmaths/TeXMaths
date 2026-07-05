@@ -209,6 +209,24 @@ class ProgressionPanel(QWidget):
             self.progression_tree,
             refresh_callback=self.refresh_ui
         )
+
+    def copy_item(self):
+        self.controller.copy_item(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
+        )
+
+    def cut_item(self):
+        self.controller.cut_item(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
+        )
+
+    def paste_item(self):
+        self.controller.paste_item(
+            self.progression_tree,
+            refresh_callback=self.refresh_ui
+        )
     
     def move_item_up(self):
         self.controller.move_item_up(

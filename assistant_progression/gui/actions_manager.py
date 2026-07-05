@@ -1,5 +1,5 @@
 # actions_manager.py
-from PySide6.QtGui import QAction
+from PySide6.QtGui import QAction, Qt
 from PySide6.QtWidgets import QPushButton
 from PySide6.QtGui import QKeySequence
 
@@ -19,7 +19,7 @@ class ActionManager:
                 special_shortcut = definition.shortcut.split(":")[1]
                 action.setShortcut(getattr(QKeySequence, special_shortcut))
             else:
-                action.setShortcut(definition.shortcut)
+                action.setShortcut(QKeySequence(definition.shortcut))
         action.setCheckable(definition.checkable)
 
         action.triggered.connect(definition.slot)

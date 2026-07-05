@@ -318,6 +318,20 @@ class MainWindow(QWidget):
         self.progression_panel.delete_selected_branch()
         self.update_search()
 
+    def copy_item(self):
+        print("copy_item called")
+        self.progression_panel.copy_item()
+        self.update_search()
+
+    def cut_item(self):
+        print("cut_item called")
+        self.progression_panel.cut_item()
+        self.update_search()
+
+    def paste_item(self):
+        self.progression_panel.paste_item()
+        self.update_search()
+
     def move_item_up(self):
         self.progression_panel.move_item_up()
 

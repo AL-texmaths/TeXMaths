@@ -108,6 +108,23 @@ class ProgressionController:
 
         if refresh_callback:
             refresh_callback()
+
+    def copy_item(self, tree, refresh_callback=None):
+        self.progression_service.copy_item(tree)
+        if refresh_callback:
+            refresh_callback()
+
+    @record_tree_undo
+    def cut_item(self, tree, refresh_callback=None):
+        self.progression_service.cut_item(tree)
+        if refresh_callback:
+            refresh_callback()
+
+    @record_tree_undo
+    def paste_item(self, tree, refresh_callback=None):
+        self.progression_service.paste_item(tree)
+        if refresh_callback:
+            refresh_callback()
     
     @record_tree_undo
     def move_item(self, tree, delta, refresh_callback=None):

@@ -321,6 +321,27 @@
             "icon": null,
             "checkable": false
         },
+        "copy_item": {
+            "text": "Copier l'élément",
+            "shortcut": "Ctrl+C",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "cut_item": {
+            "text": "Couper l'élément",
+            "shortcut": "Ctrl+X",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "paste_item": {
+            "text": "Coller l'élément",
+            "shortcut": "Ctrl+V",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
         "show_unused_items": {
             "text": "Montrer les items non utilisés",
             "shortcut": "Ctrl+U",

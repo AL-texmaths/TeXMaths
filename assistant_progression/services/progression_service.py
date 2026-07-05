@@ -43,6 +43,7 @@ class ProgressionService:
         self.catalogue_service = catalogue_service
         self.analysis_service = analysis_service
         self.config = config
+        self._clipboard = None
 
     def make_item(self, text, data=None):
         item = QTreeWidgetItem([text])
@@ -100,6 +101,44 @@ class ProgressionService:
             parent.removeChild(item)
         else:
             tree.takeTopLevelItem(tree.indexOfTopLevelItem(item))
+
+    def clone_item(self, item):
+        new_item = QTreeWidgetItem([item.text(i) for i in range(item.columnCount())])
+        new_item.setFlags(item.flags())
+        for col in range(item.columnCount()):
+            new_item.setData(col, Qt.UserRole, item.data(col, Qt.UserRole))
+            new_item.setToolTip(col, item.toolTip(col))
+        
+        for i in range(item.childCount()):
+            new_item.addChild(self.clone_item(item.child(i)))
+        return new_item
+
+    def copy_item(self, tree):
+        item = tree.currentItem()
+        if item:
+            self._clipboard = self.clone_item(item)
+
+    def cut_item(self, tree):
+        item = tree.currentItem()
+        if item:
+            self._clipboard = self.clone_item(item)
+            self.delete_item(tree)
+
+    def paste_item(self, tree):
+        if not self._clipboard:
+            return None
+        
+        current_item = tree.currentItem()
+        new_item = self.clone_item(self._clipboard)
+        
+        if current_item:
+            current_item.addChild(new_item)
+            current_item.setExpanded(True)
+        else:
+            tree.addTopLevelItem(new_item)
+        
+        tree.setCurrentItem(new_item)
+        return new_item
 
     def move_item(self, tree, delta):
         item = tree.currentItem()

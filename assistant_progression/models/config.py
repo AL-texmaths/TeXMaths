@@ -89,6 +89,9 @@ class ActionsConfig(BaseModel):
     redo: ActionSettings
     move_item_up: ActionSettings
     move_item_down: ActionSettings
+    copy_item: ActionSettings
+    cut_item: ActionSettings
+    paste_item: ActionSettings
 
 class CodeLabelModel(BaseModel):
     name: str
