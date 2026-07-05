@@ -26,6 +26,11 @@ class ZoomablePdfView(QPdfView):
         self.setZoomMode(QPdfView.ZoomMode.Custom)
         self.setZoomFactor(factor)
 
+    def reset_zoom(self):
+        """Réinitialise le zoom à l'adaptation à la largeur et vide l'accumulateur."""
+        self._wheel_acc = 0.0
+        self.setZoomMode(QPdfView.ZoomMode.FitToWidth)
+
     # -------------------------
     # Wheel (Ctrl + scroll)
     # -------------------------
@@ -92,6 +97,9 @@ class PdfViewerWidget(QWidget):
         self.view.setDocument(
             self.document
         )
+
+        # Connecter le signal du document pour réinitialiser le zoom à chaque chargement
+        self.document.pageCountChanged.connect(self.view.reset_zoom)
 
         self.view.setPageMode(QPdfView.PageMode.MultiPage)
         self.view.setZoomMode(QPdfView.ZoomMode.FitToWidth)
