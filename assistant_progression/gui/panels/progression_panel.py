@@ -12,6 +12,7 @@ from PySide6.QtWidgets import (
 class ProgressionPanel(QWidget):
     def __init__(
             self,
+            progression_tree_config,
             action_manager,
             progression_service,
             progression_controller,
@@ -35,7 +36,7 @@ class ProgressionPanel(QWidget):
         self.analysis_service = analysis_service
         self.regex_panel = regex_panel
         self.controller = progression_controller
-
+        self.config = progression_tree_config
         self.search_timer = QTimer(self)
         self.search_timer.setSingleShot(True)
         self.search_timer.setInterval(300) # 300ms debounce
@@ -71,6 +72,12 @@ class ProgressionPanel(QWidget):
             QKeySequence(Qt.CTRL | Qt.Key_Return),
             self)
         rename_shortcut.activated.connect(self.rename_current_item)
+
+        scroll_up_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_Up), self)
+        scroll_up_shortcut.activated.connect(self.move_tree_up)
+
+        scroll_down_shortcut = QShortcut(QKeySequence(Qt.CTRL | Qt.Key_Down), self)
+        scroll_down_shortcut.activated.connect(self.move_tree_down)
 
     def init_signals(self):
         
@@ -214,3 +221,13 @@ class ProgressionPanel(QWidget):
             self.progression_tree,
             refresh_callback=self.refresh_ui
         )
+
+    def move_tree_up(self):
+        scrollbar = self.progression_tree.verticalScrollBar()
+        scrollbar.setValue(
+            scrollbar.value() - scrollbar.singleStep() * self.config.scrolling_step)
+
+    def move_tree_down(self):
+        scrollbar = self.progression_tree.verticalScrollBar()
+        scrollbar.setValue(
+            scrollbar.value() + scrollbar.singleStep() * self.config.scrolling_step)

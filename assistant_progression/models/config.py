@@ -18,11 +18,14 @@ class DialogConfig(BaseModel):
 class SplittersModel(BaseModel):
     size: list
 
+class ProgressionTreeModel(BaseModel):
+    scrolling_step: int
 
 class GUIModel(BaseModel):
     main_window: DialogConfig
     unused_items_dialog: DialogConfig
     splitter: SplittersModel
+    progression_tree: ProgressionTreeModel
 
 class ThemeColorsModel(BaseModel):
     bg: str

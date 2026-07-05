@@ -128,6 +128,7 @@ class MainWindow(QWidget):
     def init_progression_pannel(self):
 
         self.progression_panel = ProgressionPanel(
+            self.context.config.settings.gui.progression_tree,
             self.action_manager,
             self.context.progression_service,
             self.context.progression_controller,
