@@ -6,30 +6,39 @@
 \makeatletter
 \def\run@python#1{%
     \directlua{
-        local path = status.filename
-        path = path:gsub("\\", "/")
-        local root = path:match("(.*/Projects/)")
-        local project_root = root .. "TeXMaths/"
+        local path = status.filename:gsub("\\", "/")
+        local root = path:match("(.*/TeXMaths/)")
+
         if root then
-            local base = root .. "TeXMaths/.venv/"
+            local project_root = root
+
+            local base = root .. ".venv/"
             local candidates = {
-            base .. "Scripts/python.exe",
-            base .. "Scripts/python",
-            base .. "bin/python",
-            base .. "python.exe",
-            base .. "python"
+                base .. "Scripts/python.exe",
+                base .. "Scripts/python",
+                base .. "bin/python",
+                base .. "python.exe",
+                base .. "python"
             }
-            local found = nil
+
+            local found
             for _, p in ipairs(candidates) do
-            local f = io.open(p, "rb")
-            if f then
-                f:close()
-                found = p
-                break
+                local f = io.open(p, "rb")
+                if f then f:close(); found = p; break end
             end
-            end
+
             if found then
-                os.execute("cd " .. project_root .. " && " .. found .. " " .. "#1")
+                local arg = "#1"
+
+                local cmd = "cd " .. project_root ..
+                            " && " .. found ..
+                            " " .. arg
+
+                print("")
+                print("=== Start Python ===")
+                print("Executing: " .. cmd)
+                os.execute(cmd)
+                print("=== End Python ===")
             end
         end
     }%

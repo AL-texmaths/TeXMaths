@@ -199,7 +199,7 @@ except FileNotFoundError:
     PDF_XCHANGE_PATH = None
 
 if IS_WINDOWS and not ADOBE_PATH:
-    print("Aucune application Adobe trouvée (Windows only check)")
+    print("WARNING: Aucune application Adobe trouvée (Windows only check)")
 
 
 # =========================

@@ -1,7 +1,6 @@
 \documentclass{article}
-\usepackage{luacode}
+\usepackage{texmaths-pytools}
 \begin{document}
-\directlua{
-    os.execute("D:/Projects/TeXMaths/.venv/Scripts/python.exe D:/Projects/TeXMaths/src/test.py")
-}
+    \makeatletter
+    \run@python{-m src.test}
 \end{document}
