@@ -273,7 +273,7 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Cycle 4 BO 2026",
+            "catalogue": "Cycle 4 BO 2020",
             "type": "Automatismes",
             "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json"
         }
@@ -318,27 +318,6 @@
             "text": "Supprimer la branche sélectionnée",
             "shortcut": "Ctrl+D",
             "button": true,
-            "icon": null,
-            "checkable": false
-        },
-        "copy_item": {
-            "text": "Copier l'élément",
-            "shortcut": "Ctrl+C",
-            "button": false,
-            "icon": null,
-            "checkable": false
-        },
-        "cut_item": {
-            "text": "Couper l'élément",
-            "shortcut": "Ctrl+X",
-            "button": false,
-            "icon": null,
-            "checkable": false
-        },
-        "paste_item": {
-            "text": "Coller l'élément",
-            "shortcut": "Ctrl+V",
-            "button": false,
             "icon": null,
             "checkable": false
         },
@@ -443,6 +422,27 @@
         "move_item_down": {
             "text": "Déplacer l'item vers le bas",
             "shortcut": "Alt+Down",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "copy_item": {
+            "text": "Copier l'élément",
+            "shortcut": "Ctrl+C",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "cut_item": {
+            "text": "Couper l'élément",
+            "shortcut": "Ctrl+X",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "paste_item": {
+            "text": "Coller l'élément",
+            "shortcut": "Ctrl+V",
             "button": false,
             "icon": null,
             "checkable": false
