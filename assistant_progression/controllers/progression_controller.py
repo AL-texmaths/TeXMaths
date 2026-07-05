@@ -11,21 +11,31 @@ class ProgressionController:
         return self.progression_service.snapshot(tree)
 
     def undo(self, tree, refresh_callback=None):
+        # conserver l'état d'expansion actuel pour le réappliquer
+        expanded = self.progression_service.get_expanded_paths(tree)
+
         state = self.undo_redo.undo(self.snapshot(tree))
         if state is None:
             return
 
         self.progression_service.restore(tree, state)
 
+        # réappliquer l'expansion précédente (ne déplie que les chemins connus)
+        self.progression_service.apply_expanded_paths(tree, expanded)
+
         if refresh_callback:
             refresh_callback()
     
     def redo(self, tree, refresh_callback=None):
+        expanded = self.progression_service.get_expanded_paths(tree)
+
         state = self.undo_redo.redo(self.snapshot(tree))
         if state is None:
             return
 
         self.progression_service.restore(tree, state)
+
+        self.progression_service.apply_expanded_paths(tree, expanded)
 
         if refresh_callback:
             refresh_callback()

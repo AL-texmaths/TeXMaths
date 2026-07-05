@@ -21,8 +21,6 @@ def dump_tree(tree: QTreeWidget, show_user_role=False):
             else:
                 line.append(repr(text))
 
-        print(prefix + branch + " | ".join(line))
-
         child_prefix = prefix + ("    " if last else "│   ")
         for i in range(item.childCount()):
             dump_item(
@@ -30,11 +28,6 @@ def dump_tree(tree: QTreeWidget, show_user_role=False):
                 child_prefix,
                 i == item.childCount() - 1
             )
-
-    print(
-        f"QTreeWidget : {tree.topLevelItemCount()} racines, "
-        f"{tree.columnCount()} colonnes"
-    )
 
     for i in range(tree.topLevelItemCount()):
         dump_item(
@@ -273,12 +266,45 @@ class ProgressionService:
         ]
     
     def restore(self, tree, data):
-        print(type(data))
-        print(repr(data))
-
+        
         tree.clear()
 
         for node in data:
             tree.addTopLevelItem(
                 self.dict_to_item(node)
             )
+    
+    def _collect_expanded_paths(self, item, prefix, out):
+        path = prefix + (item.text(0),)
+        if item.isExpanded():
+            out.add(path)
+
+        for i in range(item.childCount()):
+            self._collect_expanded_paths(item.child(i), path, out)
+
+    def get_expanded_paths(self, tree):
+        """Retourne un set de tuples représentant les chemins (texte par niveau)
+        des éléments actuellement dépliés dans l'arbre.
+        """
+        out = set()
+        for i in range(tree.topLevelItemCount()):
+            self._collect_expanded_paths(tree.topLevelItem(i), tuple(), out)
+        return out
+
+    def _apply_expanded_paths(self, item, prefix, paths):
+        path = prefix + (item.text(0),)
+        if path in paths:
+            item.setExpanded(True)
+
+        for i in range(item.childCount()):
+            self._apply_expanded_paths(item.child(i), path, paths)
+
+    def apply_expanded_paths(self, tree, paths):
+        """Applique l'expansion pour tous les chemins présents dans `paths`.
+        Ne modifie que les éléments à déplier (ne replie pas explicitement les autres).
+        """
+        if not paths:
+            return
+
+        for i in range(tree.topLevelItemCount()):
+            self._apply_expanded_paths(tree.topLevelItem(i), tuple(), paths)

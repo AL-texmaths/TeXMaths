@@ -19,8 +19,6 @@ pour les tests de question flash
 de plusieurs catalogues ? Sinon, ajouter un attribut
 "catalogue" a chaque progression et empecher l'ajout
 d'item dont le catalogue ne correspond pas)
->>> API: l'utilisateur doit pouvoir choisir de n'afficher que les items
-unused dans la liste issue de la recherche regexgit
 >>> API: système de recherche dans l'arbre de progression
 >>> API: utiliser Ctrl+Up/Ctrl+Down pour faire monter/descendre
 l'arbre en gardant le même item sélectionné
