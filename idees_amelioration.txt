@@ -4,7 +4,7 @@
 =============================================
                     VSCode
 =============================================
-- installer adobe et pdf xchange sur windows
+- installer adobe et pdf xchange sur machine windows
 pour les tests de question flash
 ===============================================================================
 					Python

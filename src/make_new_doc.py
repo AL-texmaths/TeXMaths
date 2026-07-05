@@ -2,12 +2,15 @@ import re
 import subprocess
 from src.tools import LATEX_DIR, get_config, get_pattern
 from assistant_progression.utils.resolve import resolve_executable
+from assistant_progression.services.persistence_service import PersistenceService
 
 TEMPLATE_DIR = LATEX_DIR / "templates"
 EXERCICES_DIR = LATEX_DIR / "exercices"
 DNBQCM_DIR = LATEX_DIR / "dnbqcm"
 
-CODE_EXE_PATH = resolve_executable('code')
+persistence_service = PersistenceService()
+config = persistence_service.load_config()
+CODE_EXE_PATH = resolve_executable('code', config)
 
 DOC_TYPE = get_config()["settings"]['index documents']
 
