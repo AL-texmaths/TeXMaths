@@ -1,4 +1,5 @@
+import subprocess
 from shutil import which
-from src.tools import get_exe
-
-print(get_exe('magick'))
+print("magick path = ", which('magick'))
+result = subprocess.run(['magick', '-version'], check=True)
+print("result = ", result)
