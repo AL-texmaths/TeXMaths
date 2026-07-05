@@ -12,7 +12,7 @@
         "data/latex/**/*.toc":true,
         "data/latex/**/*.snm":true,
         "data/latex/**/*.nav":true,
-        "data/latex/**/*.txt":false,
+        "data/latex/**/*.txt":true,
         "data/latex/**/*.synctex.gz":true,
         "data/latex/**/*.fdb_latexmk":true,
         "data/latex/**/*.fls":true,
@@ -30,7 +30,31 @@
     ],
     "latex-workshop.latex.tools": [
       {
-      "name": "lualatex-linux",
+        "name": "latexmk-pc",
+        "command": "latexmk",
+        "args": [
+          "-lualatex",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-shell-escape",
+          "%DOC%"
+        ]
+      },
+      {
+        "name": "latexmk-portable",
+        "command": "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\latexmk.exe",
+        "args": [
+          "-lualatex",
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-shell-escape",
+          "%DOC%"
+        ]
+      },
+      {
+      "name": "lualatex-pc",
       "command": "lualatex",
       "args": [
         "-synctex=1",
@@ -41,17 +65,7 @@
       ]
     },
     {
-      "name": "miktex-pdflatex",
-      "command": "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\miktex-pdflatex.exe",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-shell-escape",
-        "%DOC%"
-      ]
-    },{
-      "name": "lualatex",
+      "name": "lualatex-portable",
       "command": "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\lualatex.exe",
       "args": [
         "-synctex=1",
@@ -60,42 +74,34 @@
         "-shell-escape",
         "%DOC%"
       ]
-    },
-    {
-      "name": "pdflatex-nopdf",
-      "command": "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\miktex-pdflatex.exe",
-      "args": [
-        "-halt-on-error",
-        "-draftmode",
-        "%DOC%"
-      ]
     }
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "LuaLaTeX (Linux)",
+      "name": "latexmk (PC)",
       "tools": [
-        "lualatex-linux"
+        "latexmk-pc"
       ]
     },
     {
-      "name": "pdfLaTeX (portable)",
+      "name": "latexmk (portable)",
       "tools": [
-        "miktex-pdflatex"
+        "latexmk-portable"
       ]
-    },{
+    },
+    {
+      "name": "LuaLaTeX (PC)",
+      "tools": [
+        "lualatex-shell"
+      ]
+    },
+    {
       "name": "LuaLaTeX (portable)",
       "tools": [
-        "lualatex"
-      ]
-    },
-    {
-      "name": "pdfLaTeX (test)",
-      "tools": [
-        "pdflatex-nopdf"
+        "lualatex-portable"
       ]
     }
   ],
-  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.recipe.default": "lastUsed",
   "latex-workshop.latex.autoBuild.run": "never"
 }

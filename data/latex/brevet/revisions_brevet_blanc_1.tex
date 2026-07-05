@@ -5,7 +5,7 @@
 \usepackage{lmodern}%                    prevent bitmapfont
 \usepackage{enumitem}
 \usepackage{tikz}
-\usepackage[np]{numprint}
+\usepackage{siunitx}
 \usepackage{scratch3}
 \usepackage{amsmath}
 \usepackage{tabularx}
@@ -73,9 +73,9 @@ Un entraîneur de sport prépare deux circuits d'entraînement contenant plusieu
 Au coup de sifflet de l'entraîneur, Camille commence une séance d'entraînement sur le circuit 1 et Dominique sur le circuit 2.
 
 	\begin{enumerate}
-		\item Expliquer pourquoi, lorsque \np{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1.
+		\item Expliquer pourquoi, lorsque \num{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1.
 
-		Préciser où se trouve Dominique sur le circuit 2 lorsque \np{2800} secondes se sont écoulées.
+		Préciser où se trouve Dominique sur le circuit 2 lorsque \num{2800} secondes se sont écoulées.
 
 		\item Après le coup de sifflet, combien de temps faut-il à Camille et Dominique pour se retrouver en même temps pour la première fois au départ de leur circuit ? Exprimer cette durée en minute et seconde.
 	\end{enumerate}
@@ -223,7 +223,7 @@ fonction de la répartition des médailles obtenues. Voici le classement obtenu 
 
 	\guillemets{La médiane du nombre de médailles d'argent obtenues par ces 15 pays est 29.}
 
-	\item Aux Jeux paralympiques de Rio en 2016, la prime pour une médaille d'or française était de \np{50000} euros. Pour ceux de Tokyo en 2021, cette prime était de \np{65000} euros.
+	\item Aux Jeux paralympiques de Rio en 2016, la prime pour une médaille d'or française était de \num{50000} euros. Pour ceux de Tokyo en 2021, cette prime était de \num{65000} euros.
 
 Quel est le pourcentage d'augmentation de cette prime entre 2016 et 2021~?
 
@@ -265,13 +265,13 @@ La décomposition de 280 en produit de facteurs premiers est : \quad $280= 2^3 \
 
 Celle de 350 est :\phantom{sition de 280 en produit de facteurs premiers} \quad $350= 2 \times 5^2 \times 7$
 \item \begin{enumerate}
-		\item Lorsque \np{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1 car $\np{2800} = 10 \times 280$, donc comme 10 est un nombre entier, cela signifie que Camille a effectué 10 fois le circuit 1 complètement, et n'a pas encore commencé la 11$^\text{e}$ répétition : Camille est donc à nouveau au départ du circuit 1.
+		\item Lorsque \num{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1 car $\num{2800} = 10 \times 280$, donc comme 10 est un nombre entier, cela signifie que Camille a effectué 10 fois le circuit 1 complètement, et n'a pas encore commencé la 11$^\text{e}$ répétition : Camille est donc à nouveau au départ du circuit 1.
 
-On a :\quad $\dfrac{\np{2800}}{350 } = 8$.
+On a :\quad $\dfrac{\num{2800}}{350 } = 8$.
 
-\emph{Rem. } Ou encore $\np{2800} = 7 \times 4 \times 100 = 7 \times 4 \times 10 \times 10 =  7 \times 2^2 \times 2^2 \times 5^2 = 2^4 \times 5^2 \times 7 = 2^3 \times (2 \times 5^2 \times 7) = 8 \times 350$.
+\emph{Rem. } Ou encore $\num{2800} = 7 \times 4 \times 100 = 7 \times 4 \times 10 \times 10 =  7 \times 2^2 \times 2^2 \times 5^2 = 2^4 \times 5^2 \times 7 = 2^3 \times (2 \times 5^2 \times 7) = 8 \times 350$.
 
-Au bout de ces \np{2800}, Dominique a donc parcouru exactement 8 parcours 2  : elle est donc au départ.
+Au bout de ces \num{2800}, Dominique a donc parcouru exactement 8 parcours 2  : elle est donc au départ.
 	\item Après le coup de sifflet, la première fois où Camille et Dominique se retrouvent en même temps au départ de leur circuit est pour un nombre de secondes qui est le multiple commun à 280 et à 350 le plus petit possible.
 
 Les facteurs premiers de 280 et de 350 sont les mêmes : 2, 5 et 7.
@@ -280,9 +280,9 @@ Pour qu'un nombre soit divisible par 280, il faut au moins trois facteurs 2, au 
 
 Pour qu'un nombre soit divisible par 350, il faut au moins un facteur 2, au moins deux facteurs 5 et au moins une fois le facteur 7.
 
-En réunissant ces critères, il faut donc $2^3 \times 5^2 \times 7 = \np{1400}$ secondes pour que Camille et Dominique se retrouvent pour la première en même temps au départ de leur circuit.
+En réunissant ces critères, il faut donc $2^3 \times 5^2 \times 7 = \num{1400}$ secondes pour que Camille et Dominique se retrouvent pour la première en même temps au départ de leur circuit.
 
-Comme $\np{1400} = \np{1200} + 200 = 20 \times 60 + 180 = 20 \times 60 + 3 \times 60 + 20 = 23 \times ,60 + 20$, on a \np{1400}(s) = 23 (min 20~(s).
+Comme $\num{1400} = \num{1200} + 200 = 20 \times 60 + 180 = 20 \times 60 + 3 \times 60 + 20 = 23 \times ,60 + 20$, on a \num{1400}(s) = 23 (min 20~(s).
 
 (C'est logique : après \np[s]{2800} les deux avaient fait un nombre pair de tours complets, donc en divisant le temps par 2, ils ont encore fait un nombre entier de tours complets chacun, et donc se retrouvent au début du circuit).
 	\end{enumerate}
@@ -381,7 +381,7 @@ Le résultat final est alors : \quad $-\dfrac{7}{2}\times \dfrac{-1}{2} = \dfrac
     \textbf{Affirmation 2} Il y a 15 données, la médiane est donc la 8$^\text{e}$ donnée de la série rangée dans l'ordre croissant, (1\:11 \:12 \:15 \:15 \:15 \:17 \:20 \:29) à savoir 20.
     
     L'affirmation 2 est donc fausse.
-    \item  On calcule $\dfrac{\np{65000}}{\np{50000}} = 1,30$.
+    \item  On calcule $\dfrac{\num{65000}}{\num{50000}} = 1,30$.
     
     La prime a augmenté de 30\,\% entre 2016 et 2021.
     

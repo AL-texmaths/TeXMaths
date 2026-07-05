@@ -46,7 +46,7 @@
 \def\Ouv{$\left(\text{O}~;~\vect{u},~\vect{v}\right)$}
 \usepackage{fancyhdr}
 \usepackage[french]{babel}
-\usepackage[np]{numprint}
+\usepackage{siunitx}
 \usepackage{colortbl}
 %\usetikzlibrary{backgrounds}
 %\usetikzlibrary{calc,shapes.arrows,decorations.pathreplacing}
@@ -248,10 +248,10 @@ Le graphique ci-dessous représente le prix à payer en fonction du nombre d'ent
 		\draw [color = gray!75, line width = 0.5pt, xstep=1, ystep = 10] (0,0) grid (46,280);
 	\draw[->,line width = 1.3pt] (0,0) -- (47,0) node[above right]{Nombre d'entrées};
 	\foreach \x in {5,10,...,45}
-	\draw[shift={(\x,0)},color=black,line width = 1.3pt] (0pt,2pt) -- (0pt,-2pt) node[below, fill = white] {\footnotesize $\np{\x}$};
+	\draw[shift={(\x,0)},color=black,line width = 1.3pt] (0pt,2pt) -- (0pt,-2pt) node[below, fill = white] {\footnotesize $\num{\x}$};
 	\draw[->,line width = 1.3pt] (0,0) -- (0,290) node[above right]{Pris à payer (en \euro{})};
 	\foreach \y in {50,100,...,250}
-	\draw[shift={(0,\y)},color=black,line width = 1.3pt] (2pt,0pt) -- (-2pt,0pt) node[left, fill = white] {\footnotesize $\np{\y}$};
+	\draw[shift={(0,\y)},color=black,line width = 1.3pt] (2pt,0pt) -- (-2pt,0pt) node[left, fill = white] {\footnotesize $\num{\y}$};
 	\draw[color=black] (-2pt,-2pt) node[below left] {{\footnotesize 0}};
 	\draw[line width=1.2pt,color=red](0,0)--(25.4545,280) node[above]{$(\mathrm{d}_1)$};
 	\draw[line width=1.2pt,color=blue](0,240)--(46,240) node[right]{$(\mathrm{d}_3)$};
@@ -601,9 +601,9 @@ Un entraîneur de sport prépare deux circuits d'entraînement contenant plusieu
 Au coup de sifflet de l'entraîneur, Camille commence une séance d'entraînement sur le circuit 1 et Dominique sur le circuit 2.
 
 	\begin{enumerate}
-		\item Expliquer pourquoi, lorsque \np{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1.\index{multiple}
+		\item Expliquer pourquoi, lorsque \num{2800} secondes se sont écoulées à partir du coup de sifflet, Camille se trouve de nouveau au départ du circuit 1.\index{multiple}
 
-		Préciser où se trouve Dominique sur le circuit 2 lorsque \np{2800} secondes se sont écoulées.
+		Préciser où se trouve Dominique sur le circuit 2 lorsque \num{2800} secondes se sont écoulées.
 
 		\item Après le coup de sifflet, combien de temps faut-il à Camille et Dominique pour se retrouver en même temps pour la première fois au départ de leur circuit ? Exprimer cette durée en minute et seconde.
 	\end{enumerate}
@@ -670,10 +670,10 @@ Soit la fonction $g$ définie, pour un nombre $x$ donné, par $g(x) = x^{2}-x-2$
 	\draw [color = gray, line width = 0.6pt, xstep=1, ystep = 1] (-2.19,-3.19) grid (2.19,4.19);
 	\draw[line width=1pt] (-2.2,0) -- (2.2,0);
 	\foreach \x in {-2,-1,1,2}
-	\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\np{\x}$};
+	\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\num{\x}$};
 	\draw[line width=1pt] (0,-3.2) -- (0,4.2);
 	\foreach \y in {-3,-2,-1,1,2,3,4}
-	\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\np{\y}$};
+	\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\num{\y}$};
 	\draw[color=black] (-2pt,-2pt) node[below left] {\footnotesize 0};
 	\draw[line width=1.2pt,color=red,smooth,samples=100,domain= -2.2:2.2 ] plot(\x,{2-\x} );
 		\end{tikzpicture}&
@@ -682,10 +682,10 @@ Soit la fonction $g$ définie, pour un nombre $x$ donné, par $g(x) = x^{2}-x-2$
 		\draw [color = gray, line width = 0.6pt, xstep=1, ystep = 1] (-2.19,-3.19) grid (2.19,4.19);
 		\draw[line width=1pt] (-2.2,0) -- (2.2,0);
 		\foreach \x in {-2,-1,1,2}
-		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\np{\x}$};
+		\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\num{\x}$};
 		\draw[line width=1pt] (0,-3.2) -- (0,4.2);
 		\foreach \y in {-3,-2,-1,1,2,3,4}
-		\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\np{\y}$};
+		\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\num{\y}$};
 		\draw[color=black] (-2pt,-2pt) node[below left] {\footnotesize 0};
 		\clip (-2.19,-3.19) rectangle (2.19,4.19);
 		\draw[line width=1.2pt,color=red,smooth,samples=100,domain= -2.2:1.2 ] plot(\x,{2*\x+2});
@@ -695,10 +695,10 @@ Soit la fonction $g$ définie, pour un nombre $x$ donné, par $g(x) = x^{2}-x-2$
 			\draw [color = gray, line width = 0.6pt, xstep=1, ystep = 1] (-2.19,-3.19) grid (2.19,4.19);
 			\draw[line width=1pt] (-2.2,0) -- (2.2,0);
 			\foreach \x in {-2,-1,1,2}
-			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\np{\x}$};
+			\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below] {\footnotesize $\num{\x}$};
 			\draw[line width=1pt] (0,-3.2) -- (0,4.2);
 			\foreach \y in {-3,-2,-1,1,2,3,4}
-			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\np{\y}$};
+			\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left] {\footnotesize $\num{\y}$};
 			\draw[color=black] (-2pt,-2pt) node[below left] {\footnotesize 0};
 			\clip (-2.19,-3.19) rectangle (2.19,4.19);
 			\draw[line width=1.2pt,color=red,smooth,samples=100,domain=-2.2 :2.2 ] plot(\x,{\x*\x-\x-2});
@@ -1148,7 +1148,7 @@ Exemple: la distance la plus courte entre Nantes et Grenoble est de 741 km.
 
 \medskip
 
-\textbf{PARTIE A} : Les amis souhaitent se rendre à Marseille. Ils ont un budget de \np{1000} \euro{} pour le voyage.
+\textbf{PARTIE A} : Les amis souhaitent se rendre à Marseille. Ils ont un budget de \num{1000} \euro{} pour le voyage.
 
 \medskip
 
@@ -1209,9 +1209,9 @@ Associer chaque courbe à la formule de location correspondante. \emph{Ne pas ju
  Interpréter ce résultat.
 \item 
 	\begin{enumerate}
-		\item Si la distance parcourue est de \np{2500}~km, quelle formule doit-on choisir pour payer le moins cher ? Ne pas justifier.
+		\item Si la distance parcourue est de \num{2500}~km, quelle formule doit-on choisir pour payer le moins cher ? Ne pas justifier.
 		\item Donner une distance parcourue pour laquelle la formule A est la plus intéressante. Ne pas justifier.
-		\item Déterminer graphiquement quelle formule de location est la moins chère en fonction de la distance parcourue pour une distance inférieure à \np{2600}~km.\index{lecture graphique}
+		\item Déterminer graphiquement quelle formule de location est la moins chère en fonction de la distance parcourue pour une distance inférieure à \num{2600}~km.\index{lecture graphique}
 	\end{enumerate}
 \end{enumerate}
 
@@ -1584,9 +1584,9 @@ Arrondir le résultat au mètre près.
 		\item En déduire lequel des deux amis est le plus proche d'un bord de la piscine.
 	\end{enumerate}	
 \item Pour respecter les normes de sécurité, l'angle d'inclinaison $\widehat{\text{ABC}}$ des gradins Nord ne doit pas dépasser $35\degres$. Les gradins Nord respectent-ils cette norme ?
-\item Le toit du Centre Aquatique Olympique a une surface de \np{5000}~m$^2$.\index{calcul d'angle}
+\item Le toit du Centre Aquatique Olympique a une surface de \num{5000}~m$^2$.\index{calcul d'angle}
 
-On estime que \np{4678,4}~m$^2$ de ce toit est recouvert de panneaux photovoltaïques. 
+On estime que \num{4678,4}~m$^2$ de ce toit est recouvert de panneaux photovoltaïques. 
 
 Voici les caractéristiques d'un panneau photovoltaïque standard fournies par le constructeur:
 
@@ -1605,7 +1605,7 @@ Voici les caractéristiques d'un panneau photovoltaïque standard fournies par l
 \end{tabularx}
 \end{center}
 
-Montrer que la quantité annuelle d'énergie produite par l'ensemble des panneaux photovoltaïques du toit du Centre Aquatique Olympique est de \np{963200} kilowattheures (kWh).
+Montrer que la quantité annuelle d'énergie produite par l'ensemble des panneaux photovoltaïques du toit du Centre Aquatique Olympique est de \num{963200} kilowattheures (kWh).
 \item La température règlementaire de l'eau contenue dans la piscine lors des jeux Olympiques doit être comprise entre 25\degres{} et 28\degres. Pour respecter cette réglementation, on souhaite que l'eau contenue dans la piscine olympique de Saint-Denis soit à une température de 26\degres. On admet que l'eau contenue dans cette piscine occupe un pavé droit dont les dimensions sont:
 
 \begin{itemize}
@@ -2186,8 +2186,8 @@ Recopier sur la copie le numéro de la question et la réponse choisie.
 \multicolumn{2}{|m{6.4cm}|}{}&Réponse A & Réponse B & Réponse C \\ \hline
 \multicolumn{2}{|m{6.4cm}|}{\textbf{Question 1}\index{ecriture scentifique@écriture scientifique}
 
-Quelle est l'écriture scientifique de \np{13420} ?} &
-$1,342 \times 10^{-4}$ & $1,342 \times 10^4$ & $\np{1342} \times 10^1$\\ \hline
+Quelle est l'écriture scientifique de \num{13420} ?} &
+$1,342 \times 10^{-4}$ & $1,342 \times 10^4$ & $\num{1342} \times 10^1$\\ \hline
 \multicolumn{2}{|m{6.4cm}|}{\textbf{Question 2}
 
 On a relevé, en mètres, les onze meilleures performances du lancer de marteau chez les hommes: 
@@ -2386,7 +2386,7 @@ durée de remplissage de ces $24~\text{m}^3$ d'eau.\index{vitesse}
 
 Donner le résultat en heures et minutes.
 
-\emph{Rappel}: 1 m$^3 = \np{1000}$~L.
+\emph{Rappel}: 1 m$^3 = \num{1000}$~L.
 	\end{enumerate}
 \end{enumerate}
 %%%%  fin Martinique 3 juillet 2024
@@ -2641,9 +2641,9 @@ Arrondir le résultat au mètre près.
 		\item En déduire lequel des deux amis est le plus proche d'un bord de la piscine.
 	\end{enumerate}	
 \item Pour respecter les normes de sécurité, l'angle d'inclinaison $\widehat{\text{ABC}}$ des gradins Nord ne doit pas dépasser $35\degres$. Les gradins Nord respectent-ils cette norme ?\index{calcul d'angle}
-\item Le toit du Centre Aquatique Olympique a une surface de \np{5000}~m$^2$.
+\item Le toit du Centre Aquatique Olympique a une surface de \num{5000}~m$^2$.
 
-On estime que \np{4678,4}~m$^2$ de ce toit est recouvert de panneaux photovoltaïques.
+On estime que \num{4678,4}~m$^2$ de ce toit est recouvert de panneaux photovoltaïques.
 
 Voici les caractéristiques d'un panneau photovoltaïque standard fournies par le constructeur:
 
@@ -2662,7 +2662,7 @@ Voici les caractéristiques d'un panneau photovoltaïque standard fournies par l
 \end{tabularx}
 \end{center}
 
-Montrer que la quantité annuelle d'énergie produite par l'ensemble des panneaux photovoltaïques du toit du Centre Aquatique Olympique est de \np{963200} kilowattheures (kWh).
+Montrer que la quantité annuelle d'énergie produite par l'ensemble des panneaux photovoltaïques du toit du Centre Aquatique Olympique est de \num{963200} kilowattheures (kWh).
 \item La température règlementaire de l'eau contenue dans la piscine lors des jeux Olympiques doit être comprise entre 25\degres{} et 28\degres. Pour respecter cette réglementation, on souhaite que l'eau contenue dans la piscine olympique de Saint-Denis soit à une température de 26\degres. On admet que l'eau contenue dans cette piscine occupe un pavé droit dont les dimensions sont:
 
 \begin{itemize}
