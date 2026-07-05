@@ -171,7 +171,8 @@ cycle_4_BO_2026|:|obj|:|B1ba|:|Construire et mettre en relation différentes rep
 cycle_4_BO_2026|:|obj|:|B1bb|:|Savoir mettre en relation une représentation en perspective cavalière et un patron d'un pavé, d'un prisme droit ou d'un cylindre de révolution.
 cycle_4_BO_2026|:|obj|:|B1bc|:|Calculer le volume du cube, du pavé droit, du prisme droit.
 cycle_4_BO_2026|:|obj|:|B1bd|:|Connaitre et convertir des unités usuelles (volume et capacité).
-cycle_4_BO_2026|:|obj|:|B1be|:|Calculer l'aire du disque, le volume du cylindre de révolution.
+cycle_4_BO_2026|:|obj|:|B1be|:|Calculer l'aire du disque
+cycle_4_BO_2026|:|obj|:|B1bf|:|Calculer le volume du cylindre de révolution.
 cycle_4_BO_2026|:|pro|:|B1ba|:|Solides de Platon, formule d'Euler.
 cycle_4_BO_2026|:|pro|:|B1bb|:|Tableaux d'Escher pour jouer sur la perception de l'espace et des volumes.
 cycle_4_BO_2026|:|aut|:|B1ca|:|Reconnaitre et construire le symétrique d'une figure par symétrie axiale, dont l'axe est vertical, horizontal, ou en diagonale sur quadrillage.
