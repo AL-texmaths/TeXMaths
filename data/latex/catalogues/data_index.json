@@ -155,11 +155,11 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            ""
         ],
         "competencesTravaillees": [
-            "Écrire un enchaînement d'opérations sous la forme d'une expression numérique",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            "",
+            ""
         ]
     },
     "Exercices 0070": {
@@ -191,7 +191,7 @@
         "id": "0003",
         "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0003-data.tex",
         "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0003-data.pdf",
-        "enonce": "\\documentclass[exercice]{thedocument}%\n\\startdatakeys\n\\source{}\n\\cycle{}\n\\competencesDuSocle{}\n\\connaissancesRequises{}\n\\competencesTravaillees{}\n\\enddatakeys\n\\begin{document}%\nGrâce à la lecture de photos satelites, des chercheurs \\<nationnalite; ont pu\ncalculer les longueurs de l'\\<fleuve1; et du \\<fleuve2; avec une très grande précision.\nIls ont trouvé \\<longueur1; pour l'\\<fleuve1; et \\<longueur2; pour le \\<fleuve2;.\n\\begin{itemize}\n    \\item De combien de kilomètres l'\\<fleuve1; dépasse-il le \\<fleuve2; ?\n\\end{itemize}\n\\end{document}\n",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\startdatakeys\n    \\source{}\n    \\cycle{}\n    \\competencesDuSocle{}\n    \\connaissancesRequises{}\n    \\competencesTravaillees{}\n\\enddatakeys\n\\begin{document}%\n    Grâce à la lecture de photos satelites, des chercheurs \\<nationnalite; ont pu\n    calculer les longueurs de l'\\<fleuve1; et du \\<fleuve2; avec une très grande précision.\n    Ils ont trouvé \\<longueur1; pour l'\\<fleuve1; et \\<longueur2; pour le \\<fleuve2;.\n    \\begin{itemize}\n        \\item De combien de kilomètres l'\\<fleuve1; dépasse-il le \\<fleuve2; ?\n    \\end{itemize}\n\\end{document}\n",
         "source": "",
         "cycle": "",
         "competencesDuSocle": "",
@@ -356,13 +356,13 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Théorème de Thalès (configuration des triangles embôités et du papillon)",
-            "Théorème de Pythagore (sens direct)",
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            ""
         ]
     },
     "Exercices 0265": {
@@ -522,15 +522,15 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notions d'inconnue, d'équation, d'indéterminée, d'identité",
-            "Propriétés de distributivité (simple et double)",
-            "Annulation d'un produit (démonstration possible par conjonction de cas)"
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Développer des expressions algébriques",
-            "Réduire des expressions algébriques",
-            "Utiliser le calcul littéral pour traduire une propriété générale, pour démontrer un résultat général, pour valider ou réfuter une conjecture, pour modéliser une situation",
-            "Résoudre algébriquement des équations produit"
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0189": {
@@ -569,11 +569,11 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            ""
         ],
         "competencesTravaillees": [
-            "Écrire un enchaînement d'opérations sous la forme d'une expression numérique",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            "",
+            ""
         ]
     },
     "Exercices 0055": {
@@ -720,10 +720,10 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Différent modes de représentation d'une fonction"
+            ""
         ],
         "competencesTravaillees": [
-            "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction"
+            ""
         ]
     },
     "Exercices 0515": {
@@ -811,13 +811,13 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "variable, fonction, antécédent, image",
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction",
-            "Résoudre algébriquement des équations du premier degré",
-            "Développer des expressions algébriques"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0349": {
@@ -866,7 +866,7 @@
         "BO": "2026",
         "cycle": "cycle 3",
         "objectifsApprentissage": [
-            "Savoir que la fraction $\\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal"
+            ""
         ]
     },
     "Exercices 0236": {
@@ -894,15 +894,15 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Définition d'un nombre premier ; liste des nombres premiers inférieurs ou égaux à 30",
-            "Volume d'un prisme",
-            "Volume d'un cylindre",
-            "Correspondance entre unités de volume et de contenance"
+            "",
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Décomposer un nombre entier en un produit de facteurs premier à la main",
-            "Modéliser et résoudre des problèmes mettant en jeu la divisibilité (engrenages, conjonction de phénomènes, etc.)",
-            "Mener des calculs impliquant des grandeurs mesurables, notamment des grandeurs composées, exprimer les résultats dans des unités adaptées"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0002": {
@@ -992,14 +992,14 @@
             "Chercher"
         ],
         "connaissancesRequises": [
-            "Théorème de Pythagore (sens direct)",
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Utiliser la racine carrée pour résoudre des problèmes, notamment géométriques",
-            "Vérifier la vraisemblance d'un résultat, notamment en estimant son ordre de grandeur",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0252": {
@@ -1232,13 +1232,13 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente",
-            "Triangles semblables"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations",
-            "Résoudre des problèmes utilisant la proportionnalité (pourcentages, échelles, agrandissement, réduction)",
-            "Faire le lien entre la proportionnalité et certaines configurations ou transformations géométriques (agrandissment, réduction, triangles semblables, homothéties)"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0064": {
@@ -1376,11 +1376,11 @@
             "Modéliser"
         ],
         "automatismes": [
-            "Addition et soustraction de fractions simples : $\\frac {3}{5} + \\frac {4}{5}$ ; $1 - \\frac {2}{3}$ ; $\\frac {4}{7} - \\frac {2}{21}$ ; $3 + \\frac {2}{5}$ ; $\\frac {2}{5} + \\frac {1}{4}$."
+            ""
         ],
         "objectifsApprentissage": [
-            "Additionner et soustraire des fractions de dénominateurs quelconques.",
-            "Résoudre des problèmes avec des additions et soustractions de fractions."
+            "",
+            ""
         ]
     },
     "Exercices 0017": {
@@ -1707,10 +1707,10 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            ""
         ]
     },
     "Exercices 0392": {
@@ -1786,14 +1786,14 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notions d'inconnue, d'équation, d'indéterminée, d'identité",
-            "Propriété de distributivité simple",
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Développer des expressions algébriques",
-            "Factoriser des expressions algébriques",
-            "Utiliser le calcul littéral pour modéliser une situation."
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0183": {
@@ -1893,12 +1893,12 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Expression littérale et variable",
-            "Propriété de distributivité simple"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Développer, factoriser, réduire des expressions algébriques dans des cas très simples",
-            "Utiliser le calcul littéral pour démontrer un résultat général."
+            "",
+            ""
         ]
     },
     "Exercices 0005": {
@@ -2154,15 +2154,15 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notion de grandeur produit, grandeur quotient",
-            "variable, fonction, antécédent, image",
-            "Différent modes de représentation d'une fonction",
-            "Notations $f(x)$ et $x\\mapsto f(x)$",
-            "Fonction linéaire, affine"
+            "",
+            "",
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction",
-            "Résoudre des problèmes modélisés par des fonctions"
+            "",
+            ""
         ]
     },
     "Exercices 0166": {
@@ -2215,12 +2215,12 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Notion de grandeur produit, grandeur quotient"
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des calculs impliquant des grandeurs mesurables, notamment des grandeurs composées, exprimer les résultats dans des unités adaptées",
-            "Vérifier la cohérence des résultats d'un point de vue des unités",
-            "Effectuer des conversions d'unités"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0583": {
@@ -2285,13 +2285,13 @@
             "Calculer"
         ],
         "automatismes": [
-            "Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2."
+            ""
         ],
         "objectifsApprentissage": [
-            "Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat."
+            ""
         ],
         "prolongements": [
-            "Notion de nombre premier et développements sur ce thème (existence d'un nombre infini de nombres premiers, crible d'Ératosthène, etc.)."
+            ""
         ]
     },
     "Exercices 0014": {
@@ -2547,11 +2547,11 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Caractérisation angulaire du parallélisme : angles alternes internes, angles correspondants",
-            "Cas d'égalité des triangles"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            ""
         ]
     },
     "Exercices 0150": {
@@ -2616,12 +2616,12 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Expression littérale et variable",
-            "Notion d'inconnue",
-            "Notion d'équation"
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Résoudre algébriquement des équations produit"
+            ""
         ]
     },
     "Exercices 0531": {
@@ -2709,11 +2709,11 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Notions d'inconnue, d'équation, d'indéterminée, d'identité",
-            "Annulation d'un produit (démonstration possible par conjonction de cas)"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Résoudre algébriquement des équations du premier degré ou s'y ramenant (équations produits), en particulier des équations du type $x^2=a$"
+            ""
         ]
     },
     "Exercices 0040": {
@@ -2742,11 +2742,11 @@
             "Modéliser"
         ],
         "automatismes": [
-            "Addition et soustraction de fractions simples : $\\frac {3}{5} + \\frac {4}{5}$ ; $1 - \\frac {2}{3}$ ; $\\frac {4}{7} - \\frac {2}{21}$ ; $3 + \\frac {2}{5}$ ; $\\frac {2}{5} + \\frac {1}{4}$."
+            ""
         ],
         "objectifsApprentissage": [
-            "Additionner et soustraire des fractions de dénominateurs quelconques.",
-            "Résoudre des problèmes avec des additions et soustractions de fractions."
+            "",
+            ""
         ]
     },
     "Exercices 0466": {
@@ -2786,10 +2786,10 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Notions d'algorithmique et de programme"
+            ""
         ],
         "competencesTravaillees": [
-            "Écrire, mettre au point (tester, corriger) et exécuter un programme en réponse à un problème donné"
+            ""
         ]
     },
     "Exercices 0611": {
@@ -2854,13 +2854,13 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Notions d'inconnue, d'équation, d'indéterminée, d'identité",
-            "Propriété de distributivité simple"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Factoriser des expressions algébriques",
-            "Mettre un problème en équation en vue de sa résolution",
-            "Résoudre algébriquement des équations du premier degré"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0456": {
@@ -2886,6 +2886,24 @@
         "competencesDuSocle": "",
         "connaissancesRequises": "",
         "competencesTravaillees": ""
+    },
+    "Exercices 0724": {
+        "type": "exercice",
+        "id": "0724",
+        "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0724-data.tex",
+        "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0724-data.pdf",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{inconnue}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{RE}\n    \\competencesTravaillees{A1a2, D2c4, D2a*}\n\\enddatakeys\n\\begin{document}%\n    Construire l'image du triangle SAM par l'homothétie de centre O et de rapport\n    $\\dfrac{1}{4}$ :\n\n    \\vspace{0.4em}\n    \\begin{center}\n    \\begin{tikzpicture}[x=0.5cm, y=0.5cm]\n        % Grille\n        \\draw[gridcol, very thin, step=1] (-5,-2) grid (9,5);\n\n        % Point O  (-4, 0)\n        \\ptmark{-4}{0}\n        \\node[ptcol, above left, font=\\small\\itshape] at (-4,0) {\\mathspoint{O}};\n\n        % Point S  (0, 4)\n        \\ptmark{0}{4}\n        \\node[ptcol, above right, font=\\small\\itshape] at (0,4) {\\mathspoint{S}};\n\n        % Point M  (0, 0)\n        \\ptmark{0}{0}\n        \\node[ptcol, below right, font=\\small\\itshape] at (0,0) {\\mathspoint{M}};\n\n        % Point A  (8, 4)\n        \\ptmark{8}{4}\n        \\node[ptcol, above right, font=\\small\\itshape] at (8,4) {\\mathspoint{A}};\n\n        % Triangle SAM  (angle droit en S)\n        \\draw[black!80, line width=1.5pt] (0,4) -- (8,4) -- (0,0) -- cycle;\n    \\end{tikzpicture}\n    \\end{center}\n\\end{document}",
+        "source": "inconnue",
+        "BO": "2020",
+        "cycle": "cycle 4",
+        "competencesDuSocle": [
+            "Représenter"
+        ],
+        "competencesTravaillees": [
+            "",
+            "",
+            ""
+        ]
     },
     "Exercices 0169": {
         "type": "exercice",
@@ -2949,7 +2967,7 @@
             "Communiquer"
         ],
         "objectifsApprentissage": [
-            "Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon)."
+            ""
         ],
         "motsCles": "Thalès sens direct"
     },
@@ -3279,11 +3297,11 @@
             "Modéliser"
         ],
         "automatismes": [
-            "Addition et soustraction de fractions simples : $\\frac {3}{5} + \\frac {4}{5}$ ; $1 - \\frac {2}{3}$ ; $\\frac {4}{7} - \\frac {2}{21}$ ; $3 + \\frac {2}{5}$ ; $\\frac {2}{5} + \\frac {1}{4}$."
+            ""
         ],
         "objectifsApprentissage": [
-            "Additionner et soustraire des fractions de dénominateurs quelconques.",
-            "Résoudre des problèmes avec des additions et soustractions de fractions."
+            "",
+            ""
         ]
     },
     "Exercices 0400": {
@@ -3490,12 +3508,12 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Cas d'égalité des triangles"
+            ""
         ],
         "competencesTravaillees": [
-            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0544": {
@@ -3822,6 +3840,26 @@
         "connaissancesRequises": "",
         "competencesTravaillees": ""
     },
+    "Exercices 0726": {
+        "type": "exercice",
+        "id": "0726",
+        "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0726-data.tex",
+        "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0726-data.pdf",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{inconnue}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{RE}\n    \\connaissancesTravaillees{D2b6}\n    \\competencesTravaillees{A1a2, D2c4, D2a*, C2d*}\n\\enddatakeys\n\\begin{document}%\n\\mathspoint{A'} est l'image de \\mathspoint{A} par l'homothétie $h$ de centre \\mathspoint{O} et de rapport $k$.\\\\[0.2em]\n\\mathspoint{B'} est l'image de \\mathspoint{B} par cette même homothétie $h$.\n\n\\begin{enumerate}\n  \\item Construire le centre \\mathspoint{O} et déterminer le rapport $k$ de cette homothétie en justifiant.\n  \\item Ecrire les égalités faisant intervenir des longueurs de segment et le rapport $k$ de l'homothétie.\n  \\item Que peut-on dire des triangles \\mathspoint{OAB} et \\mathspoint{OA'B'}~?\n\\end{enumerate}\n\n\\begin{center}\n\\begin{tikzpicture}[scale=1.3]\n  % Segment A'B'\n  \\draw[black!70, line width=0.9pt] (0,3) -- (4,5);\n  % Segment AB\n  \\draw[black!70, line width=0.9pt] (4,0) -- (6,1);\n  % Point A'\n  \\ptmark{0}{3}\n  \\node[ptcol, left, font=\\small\\itshape] at (0,3) {$A'$};\n  % Point B'\n  \\ptmark{4}{5}\n  \\node[ptcol, above right, font=\\small\\itshape] at (4,5) {$B'$};\n  % Point A\n  \\ptmark{4}{0}\n  \\node[ptcol, below, font=\\small\\itshape] at (4,0) {$A$};\n  % Point B\n  \\ptmark{6}{1}\n  \\node[ptcol, right, font=\\small\\itshape] at (6,1) {$B$};\n\\end{tikzpicture}\n\\end{center}\n\n\\end{document}",
+        "source": "inconnue",
+        "BO": "2020",
+        "cycle": "cycle 4",
+        "competencesDuSocle": [
+            "Représenter"
+        ],
+        "connaissancesTravaillees": "D2b6",
+        "competencesTravaillees": [
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
     "Exercices 0110": {
         "type": "exercice",
         "id": "0110",
@@ -3859,20 +3897,20 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notion d'inconnue",
-            "Notion d'équation",
-            "Propriété de distributivité simple",
-            "Annulation d'un produit (démonstration possible par conjonction de cas)"
+            "",
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Calculer avec des nombres entiers relatifs",
-            "Écrire un enchaînement d'opérations sous la forme d'une expression numérique",
-            "Développer des expressions algébriques",
-            "Réduire des expressions algébriques",
-            "Utiliser le calcul littéral pour démontrer un résultat général.",
-            "Utiliser le calcul littéral pour valider ou réfuter une conjecture.",
-            "Résoudre algébriquement des équations du premier degré",
-            "Résoudre algébriquement des équations produit"
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0720": {
@@ -3890,11 +3928,11 @@
             "Résoudre des problèmes impliquant des grandeurs variées (géométriques, physiques, économiques) : mobiliser les connaissances nécessaires, analyser et exploiter ses erreurs, mettre à l'essai plusieurs solutions"
         ],
         "objectifsApprentissage": [
-            "Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente.",
-            "Connaitre le théorème de Pythagore, sa réciproque, sa contraposée.",
-            "Caractériser le parallélisme par les angles : angles alternes-internes, angles correspondants.",
-            "Connaitre les carrés des entiers de 0 à 12.",
-            "Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.)."
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0685": {
@@ -3910,11 +3948,11 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Différent modes de représentation d'une fonction"
+            ""
         ],
         "competencesTravaillees": [
-            "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction",
-            "Résoudre des problèmes modélisés par des fonctions"
+            "",
+            ""
         ]
     },
     "Exercices 0316": {
@@ -3943,11 +3981,11 @@
             "Modéliser"
         ],
         "connaissancesRequises": [
-            "Indicateurs de position : moyenne, médiane"
+            ""
         ],
         "competencesTravaillees": [
-            "Lire et interpréter des données sous forme de données brutes, de tableau, de diagramme (bâtons, circulaire ou histogramme)",
-            "Résoudre des problèmes utilisant la proportionnalité (pourcentages, échelles, agrandissement, réduction)"
+            "",
+            ""
         ]
     },
     "Exercices 0510": {
@@ -4238,12 +4276,12 @@
         "cycle": "cycle 4",
         "competencesDuSocle": "",
         "connaissancesRequises": [
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente",
-            "Théorème de Pythagore et sa réciproque"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations",
-            "Résoudre des problèmes utilisant la proportionnalité (pourcentages, échelles, agrandissement, réduction)"
+            "",
+            ""
         ]
     },
     "Exercices 0300": {
@@ -4450,11 +4488,11 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Différent modes de représentation d'une fonction"
+            ""
         ],
         "competencesTravaillees": [
-            "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction",
-            "Résoudre des problèmes modélisés par des fonctions"
+            "",
+            ""
         ]
     },
     "Exercices 0695": {
@@ -4469,12 +4507,12 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Annulation d'un produit (démonstration possible par conjonction de cas)",
-            "Propriété de distributivité double"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Développer des expressions algébriques",
-            "Résoudre algébriquement des équations du premier degré ou s'y ramenant (équations produits), en particulier des équations du type $x^2=a$"
+            "",
+            ""
         ]
     },
     "Exercices 0545": {
@@ -4694,11 +4732,11 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Cas d'égalité des triangles"
+            ""
         ],
         "competencesTravaillees": [
-            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            ""
         ]
     },
     "Exercices 0045": {
@@ -4737,14 +4775,14 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Triangle (somme des angles, hauteurs et médiatrice, inégalité triangulaire, cas d'égalité, triangles semblables)",
-            "Notions d'inconnue, d'équation, d'indéterminée, d'identité"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations",
-            "Utiliser le calcul littéral pour modéliser une situation.",
-            "Résoudre algébriquement des équations du premier degré"
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0525": {
@@ -4810,8 +4848,8 @@
             "Expliquer à l'oral ou à l'écrit (sa démarche, son raisonnement, un calcul, un protocole de construction géométrique, un algorithme), comprendre les explications d'un autre et argumenter dans l'échange"
         ],
         "objectifsApprentissage": [
-            "Traduire un problème, une succession donnée d'opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses.",
-            "Savoir appliquer un programme de calcul à deux (plusieurs) étapes à un nombre simple puis à une variable."
+            "",
+            ""
         ]
     },
     "Exercices 0407": {
@@ -5200,13 +5238,13 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Triangles semblables",
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0420": {
@@ -5259,14 +5297,14 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente",
-            "Notions d'algorithmique et de programme",
-            "Déclenchement d'une action par un événement",
-            "Séquences d'instructions, boucles, instructions conditionnelles"
+            "",
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Écrire, mettre au point (tester, corriger) et exécuter un programme en réponse à un problème donné"
+            "",
+            ""
         ]
     },
     "Exercices 0708": {
@@ -5283,11 +5321,11 @@
             "Modéliser"
         ],
         "automatismes": [
-            "Addition et soustraction de fractions simples : $\\frac {3}{5} + \\frac {4}{5}$ ; $1 - \\frac {2}{3}$ ; $\\frac {4}{7} - \\frac {2}{21}$ ; $3 + \\frac {2}{5}$ ; $\\frac {2}{5} + \\frac {1}{4}$."
+            ""
         ],
         "objectifsApprentissage": [
-            "Additionner et soustraire des fractions de dénominateurs quelconques.",
-            "Résoudre des problèmes avec des additions et soustractions de fractions."
+            "",
+            ""
         ]
     },
     "Exercices 0350": {
@@ -5329,11 +5367,11 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente",
-            "Théorème de Thalès (configuration des triangles embôités et du papillon)"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            ""
         ],
         "motsCles": "arctangente,Thalès direct"
     },
@@ -5351,17 +5389,17 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Effet d'un déplacement, d'un agrandissement, ou d'une réduction sur les longueurs, les angles, les aires et les volumes",
-            "Notions d'algorithmique et de programme",
-            "Déclenchement d'une action par un événement",
-            "Séquences d'instructions",
-            "boucles"
+            "",
+            "",
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Comprendre l'effet d'une symétrie (axiale et centrale) sur une figure",
-            "Comprendre l'effet d'une translation sur une figure",
-            "Comprendre l'effet d'une rotation sur une figure",
-            "Compléter un programme en réponse à un problème donnée"
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0587": {
@@ -5460,11 +5498,11 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Cas d'égalité des triangles"
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            ""
         ]
     },
     "Exercices 0054": {
@@ -5733,11 +5771,29 @@
             "Modéliser"
         ],
         "automatismes": [
-            "Addition et soustraction de fractions simples : $\\frac {3}{5} + \\frac {4}{5}$ ; $1 - \\frac {2}{3}$ ; $\\frac {4}{7} - \\frac {2}{21}$ ; $3 + \\frac {2}{5}$ ; $\\frac {2}{5} + \\frac {1}{4}$."
+            ""
         ],
         "objectifsApprentissage": [
-            "Additionner et soustraire des fractions de dénominateurs quelconques.",
-            "Résoudre des problèmes avec des additions et soustractions de fractions."
+            "",
+            ""
+        ]
+    },
+    "Exercices 0725": {
+        "type": "exercice",
+        "id": "0725",
+        "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0725-data.tex",
+        "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0725-data.pdf",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{inconnue}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{RE}\n    \\competencesTravaillees{A1a2, D2c4, D2a*}\n\\enddatakeys\n\\begin{document}%\n\\begin{minipage}[t]{0.35\\textwidth}\n  \\vspace{0pt}\n  Construire l'image du quadrilatère BLEU par l'homothétie de centre P et de\n  rapport $-2$ :\n\\end{minipage}%\n\\hfill%\n\\begin{minipage}[t]{0.61\\textwidth}\n  \\vspace{0pt}\n  \\begin{tikzpicture}[x=0.5cm, y=0.5cm]\n    % Grille (étendue vers le bas pour la construction)\n    \\draw[gridcol, very thin, step=1] (-1,-8) grid (9,5);\n\n    % Point U  (3, 4)\n    \\ptmark{3}{4}\n    \\node[ptcol, above left, font=\\small\\itshape] at (3,4) {\\mathspoint{U}};\n\n    % Point B  (5, 4)\n    \\ptmark{5}{4}\n    \\node[ptcol, above right, font=\\small\\itshape] at (5,4) {\\mathspoint{B}};\n\n    % Point L  (7, 1)\n    \\ptmark{7}{1}\n    \\node[ptcol, below right, font=\\small\\itshape] at (7,1) {\\mathspoint{L}};\n\n    % Point E  (3, 1)\n    \\ptmark{3}{1}\n    \\node[ptcol, below left, font=\\small\\itshape] at (3,1) {\\mathspoint{E}};\n\n    % Centre d'homothétie P  (4, -1)\n    \\ptmark{4}{-1}\n    \\node[ptcol, below right, font=\\small\\itshape] at (4,-1) {\\mathspoint{P}};\n\n    % Quadrilatère BLEU  (côté gauche vertical, côté droit oblique)\n    \\draw[black!80, line width=1.5pt] (5,4) -- (7,1) -- (3,1) -- (3,4) -- cycle;\n  \\end{tikzpicture}\n\\end{minipage}\n\n\\end{document}",
+        "source": "inconnue",
+        "BO": "2020",
+        "cycle": "cycle 4",
+        "competencesDuSocle": [
+            "Représenter"
+        ],
+        "competencesTravaillees": [
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0297": {
@@ -5993,10 +6049,10 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Somme des angles d'un triangle"
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            ""
         ]
     },
     "Exercices 0165": {
@@ -6097,8 +6153,8 @@
             "Produire et utiliser plusieurs représentations des nombres."
         ],
         "competencesTravaillees": [
-            "Décomposer un nombre entier en un produit de facteurs premier à la calculatrice",
-            "Déterminer les diviseurs d'un nombre (à la main, à l'aide d'un tableur, d'une calculatrice)"
+            "",
+            ""
         ]
     },
     "Exercices 0635": {
@@ -6187,10 +6243,10 @@
             "Communiquer"
         ],
         "objectifsApprentissage": [
-            "Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon).",
-            "Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente.",
-            "Donner les quartiles et la médiane d'une série donnée sous forme de tableau d'effectifs ou de diagramme en barres.",
-            "Comprendre et interpréter des données statistiques."
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0302": {
@@ -6208,14 +6264,14 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Théorème de Pythagore et sa réciproque",
-            "Théorème de Thalès (configuration des triangles embôités et du papillon)",
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            "",
+            ""
         ],
         "motsCles": "arccosinus,arcsinus,arctangente,cosinus,sinus,tangente,construire"
     },
@@ -6303,11 +6359,11 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            ""
         ],
         "competencesTravaillees": [
-            "Écrire un enchaînement d'opérations sous la forme d'une expression numérique",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            "",
+            ""
         ]
     },
     "Exercices 0415": {
@@ -6467,12 +6523,12 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "variable, fonction, antécédent, image",
-            "Propriété de distributivité simple"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Développer des expressions algébriques",
-            "Réduire des expressions algébriques"
+            "",
+            ""
         ]
     },
     "Exercices 0027": {
@@ -6766,13 +6822,13 @@
             "Communiquer"
         ],
         "automatismes": [
-            "Additionner, soustraire, multiplier et diviser des fractions."
+            ""
         ],
         "objectifsApprentissage": [
-            "Mettre une fraction sous forme irréductible.",
-            "Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon).",
-            "Comparer deux nombres ou deux grandeurs à l'aide de leur rapport ou ratio.",
-            "Résoudre des problèmes de partage proportionnel."
+            "",
+            "",
+            "",
+            ""
         ],
         "motsCels": "Réciproque Thalès"
     },
@@ -6789,13 +6845,13 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Multiples et diviseurs",
-            "Définition d'un nombre premier ; liste des nombres premiers inférieurs ou égaux à 30"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Déterminer les nombres premiers inférieurs ou égaux à 100",
-            "Décomposer un nombre entier en un produit de facteurs premier à la main",
-            "Modéliser et résoudre des problèmes mettant en jeu la divisibilité (engrenages, conjonction de phénomènes, etc.)"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0380": {
@@ -7062,10 +7118,10 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            ""
         ],
         "competencesTravaillees": [
-            "Écrire un enchaînement d'opérations sous la forme d'une expression numérique"
+            ""
         ]
     },
     "Exercices 0197": {
@@ -7175,11 +7231,11 @@
         "cycle": "cycle 4",
         "competencesDuSocle": "",
         "automatismes": [
-            "Savoir qu'un angle droit mesure $90^\\circ $, qu'un angle plat mesure $180^\\circ $."
+            ""
         ],
         "objectifsApprentissage": [
-            "Analyser un programme simple donné et modifier ses paramètres.",
-            "Prévoir la valeur d'une expression informatique avant son exécution."
+            "",
+            ""
         ]
     },
     "Exercices 0314": {
@@ -7218,11 +7274,11 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Cas d'égalité des triangles"
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            ""
         ]
     },
     "Exercices 0521": {
@@ -7562,10 +7618,10 @@
             "Raisonner"
         ],
         "objectifsApprentissage": [
-            "Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon).",
-            "Construire des triangles à partir de données partielles.",
-            "Structurer des programmes.",
-            "Écrire un programme donné pour réaliser un objectif ou résoudre un problème."
+            "",
+            "",
+            "",
+            ""
         ],
         "motsCles": "scratch,programmation"
     },
@@ -7594,12 +7650,12 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Notions d'inconnue, d'équation, d'indéterminée, d'identité"
+            ""
         ],
         "competencesTravaillees": [
-            "Utiliser le calcul littéral pour modéliser une situation.",
-            "Mettre un problème en équation en vue de sa résolution",
-            "Résoudre algébriquement des équations du premier degré"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0716": {
@@ -7652,13 +7708,13 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Théorème de Pythagore et sa réciproque",
-            "Théorème de Thalès (configuration des triangles embôités et du papillon)"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des calculs impliquant des grandeurs mesurables, notamment des grandeurs composées, exprimer les résultats dans des unités adaptées",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0119": {
@@ -7711,7 +7767,7 @@
             "Communiquer"
         ],
         "objectifsApprentissage": [
-            "Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon)."
+            ""
         ]
     },
     "Exercices 0649": {
@@ -7968,11 +8024,11 @@
             "Raisonner"
         ],
         "automatismes": [
-            "Écrire l'égalité de Pythagore dans un triangle rectangle."
+            ""
         ],
         "objectifsApprentissage": [
-            "Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon).",
-            "Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente."
+            "",
+            ""
         ]
     },
     "Exercices 0602": {
@@ -8145,12 +8201,12 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Expression littérale et variable",
-            "Notion d'inconnue",
-            "Notion d'équation"
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Résoudre algébriquement des équations produit"
+            ""
         ]
     },
     "Exercices 0118": {
@@ -8359,15 +8415,15 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Théorème de Pythagore et sa réciproque",
-            "Théorème de Thalès (configuration des triangles embôités et du papillon)",
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
+            "",
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations",
-            "Utiliser une formule liant deux grandeurs dans une situation de proportionnalité"
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0237": {
@@ -8395,11 +8451,11 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Cas d'égalité des triangles"
+            ""
         ],
         "competencesTravaillees": [
-            "Mettre en \\oe uvre ou écrire un protocole de construction d'une figure géométrique",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            ""
         ]
     },
     "Exercices 0036": {
@@ -8451,11 +8507,11 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Notion d'inconnue",
-            "Notion d'équation"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Résoudre algébriquement des équations du premier degré ou s'y ramenant (équations produits), en particulier des équations du type $x^2=a$"
+            ""
         ]
     },
     "Exercices 0202": {
@@ -8519,12 +8575,12 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Somme des angles d'un triangle",
-            "Lignes trigonométriques dans un triangle rectangle : sinus, cosinus, tangente"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques",
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            "",
+            ""
         ]
     },
     "Exercices 0590": {
@@ -8552,12 +8608,12 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Propriété de distributivité double"
+            ""
         ],
         "competencesTravaillees": [
-            "Développer des expressions algébriques",
-            "Réduire des expressions algébriques",
-            "Utiliser le calcul littéral pour traduire une propriété générale, pour démontrer un résultat général, pour valider ou réfuter une conjecture, pour modéliser une situation"
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0475": {
@@ -8598,11 +8654,11 @@
             "Modéliser"
         ],
         "automatismes": [
-            "Addition et soustraction de fractions simples : $\\frac {3}{5} + \\frac {4}{5}$ ; $1 - \\frac {2}{3}$ ; $\\frac {4}{7} - \\frac {2}{21}$ ; $3 + \\frac {2}{5}$ ; $\\frac {2}{5} + \\frac {1}{4}$."
+            ""
         ],
         "objectifsApprentissage": [
-            "Additionner et soustraire des fractions de dénominateurs quelconques.",
-            "Résoudre des problèmes avec des additions et soustractions de fractions."
+            "",
+            ""
         ]
     },
     "Exercices 0116": {
@@ -8701,10 +8757,10 @@
             "Représenter"
         ],
         "connaissancesRequises": [
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            ""
         ],
         "competencesTravaillees": [
-            "Écrire un enchaînement d'opérations sous la forme d'une expression numérique"
+            ""
         ]
     },
     "Exercices 0126": {
@@ -8902,10 +8958,10 @@
             "Démontrer : utiliser un raisonnement logique et des règles établies (propriétés, théorèmes, formules) pour parvenir à une conclusion"
         ],
         "objectifsApprentissage": [
-            "Connaitre le théorème de Pythagore, sa réciproque, sa contraposée.",
-            "Caractériser le parallélisme par les angles : angles alternes-internes, angles correspondants.",
-            "Connaitre et appliquer le théorème de Thalès, sa réciproque, sa contraposée (configurations des triangles emboîtés et configuration dite du papillon).",
-            "Connaitre le volume de la pyramide et du cône de révolution."
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Exercices 0291": {
@@ -9237,7 +9293,7 @@
         "id": "0722",
         "tex": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0722-data.tex",
         "pdf": "/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0722-data.pdf",
-        "enonce": "\\documentclass[exercice]{thedocument}%\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{CA,RE}\n    \\competencesTravaillees{B4b*,B3d*}\n\\enddatakeys\n\\begin{document}%\n    \\textbf{Dans cet exercice, les parties A et B sont\n    indépendantes.}\\par\\noindent\n    \\begin{minipage}{.5\\linewidth}\n        \\noindent\\textbf{Partie A}\\medskip\\par\\noindent\n        On a tracé ci-contre la courbe représentative de la fonction\n        qui donne le volume d'une boule en cm$^3$ en fonction de\n        son rayon en cm.\n        \\begin{enumerate}\n            \\item Déterminer graphiquement l'image de 3,6 par cette\n            fonction.\n            \\item Le volume d'une boule est égal à 660 cm$^3$. Lire\n            graphiquement sont rayon.\n        \\end{enumerate}\n    \\end{minipage}\n    \\begin{minipage}[c]{.45\\linewidth}\n        \\begin{tikzpicture}[scale=0.8]\n            \\begin{axis}[\n                x=1cm, y=0.01cm,\n                axis lines=left,\n                axis lines=middle,\n                legend pos=outer north east,\n                xticklabel style={\n                    font=\\small,\n                    },\n            xlabel={Rayon (en cm)},\n            ylabel={Volume (en cm$^3$)},\n            xmin=-0.01,xmax=8.21,\n            ymin=-0.01,ymax=860,\n            domain=0:5.9,\n            % Graduations principales\n            xtick={0,1,...,8},\n            ytick={0,100,...,800},\n            % Grille type papier millimétré\n            minor x tick num=4,\n            minor y tick num=4,\n            minor tick length=0pt,\n            grid=both,\n            major grid style={gray!60, line width=0.4pt},\n            minor grid style={gray!25, line width=0.2pt},\n            axis line style={thick},\n            clip=false\n        ]\n            \\addplot [\n                thick\n                ]\n                {4*pi*x^3/3};\n            \\end{axis}\n        \\end{tikzpicture}\n    \\end{minipage}\\medskip\\par\\noindent\n    \\textbf{Partie B}\\medskip\\par\\noindent\n    On souhaite fabriquer avec une imprimante 3D, des boules\n    pleines en plastique, de rayon de 2,5 cm.\n    \\begin{enumerate}\n        \\item Montrer que le volume d'une boule, arrondi à l'unité,\n        est égal à 65 cm$^3$.\\par\\smallskip\\noindent\n        \\textit{On rappelle que le volume V d'une boule de rayon R\n        est donné par la formule~:}$$V=\\dfrac43\\times\\pi\\times R^3$$\n        \\item Pour utiliser cette imprimante, on dispose d'une bobine\n        de \\np{1000} cm$^3$ de plastique. Combien de boules peut-on\n        fabriquer au maximum~?\n        \\item Sachant que la masse volumique de ce plastique est égal\n        à 0,9 g/cm$^3$, calculer la masse d'nue boule.\n    \\end{enumerate}\n    \\showthesource\n\\end{document}",
+        "enonce": "\\documentclass[exercice]{thedocument}%\n\\usepackage{texmaths-tikz}\n\\startdatakeys\n    \\source{26GENMATME1}\n    \\BO{2020}\n    \\cycle{4}\n    \\competencesDuSocle{CA,RE}\n    \\competencesTravaillees{B4b*,B3d*}\n\\enddatakeys\n\\begin{document}%\n    \\textbf{Dans cet exercice, les parties A et B sont\n    indépendantes.}\\par\\noindent\n    \\begin{minipage}{.5\\linewidth}\n        \\noindent\\textbf{Partie A}\\medskip\\par\\noindent\n        On a tracé ci-contre la courbe représentative de la fonction\n        qui donne le volume d'une boule en cm$^3$ en fonction de\n        son rayon en cm.\n        \\begin{enumerate}\n            \\item Déterminer graphiquement l'image de 3,6 par cette\n            fonction.\n            \\item Le volume d'une boule est égal à 660 cm$^3$. Lire\n            graphiquement sont rayon.\n        \\end{enumerate}\n    \\end{minipage}\n    \\begin{minipage}[c]{.45\\linewidth}\n        \\begin{tikzpicture}[scale=0.8]\n            \\begin{axis}[\n                x=1cm, y=0.01cm,\n                axis lines=left,\n                axis lines=middle,\n                legend pos=outer north east,\n                xticklabel style={\n                    font=\\small,\n                    },\n            xlabel={Rayon (en cm)},\n            ylabel={Volume (en cm$^3$)},\n            xmin=-0.01,xmax=8.21,\n            ymin=-0.01,ymax=860,\n            domain=0:5.9,\n            % Graduations principales\n            xtick={0,1,...,8},\n            ytick={0,100,...,800},\n            % Grille type papier millimétré\n            minor x tick num=4,\n            minor y tick num=4,\n            minor tick length=0pt,\n            grid=both,\n            major grid style={gray!60, line width=0.4pt},\n            minor grid style={gray!25, line width=0.2pt},\n            axis line style={thick},\n            clip=false\n        ]\n            \\addplot [\n                thick\n                ]\n                {4*pi*x^3/3};\n            \\end{axis}\n        \\end{tikzpicture}\n    \\end{minipage}\\medskip\\par\\noindent\n    \\textbf{Partie B}\\medskip\\par\\noindent\n    On souhaite fabriquer avec une imprimante 3D, des boules\n    pleines en plastique, de rayon de 2,5 cm.\n    \\begin{enumerate}\n        \\item Montrer que le volume d'une boule, arrondi à l'unité,\n        est égal à 65 cm$^3$.\\par\\smallskip\\noindent\n        \\textit{On rappelle que le volume V d'une boule de rayon R\n        est donné par la formule~:}$$V=\\dfrac43\\times\\pi\\times R^3$$\n        \\item Pour utiliser cette imprimante, on dispose d'une bobine\n        de \\num{1000} cm$^3$ de plastique. Combien de boules peut-on\n        fabriquer au maximum~?\n        \\item Sachant que la masse volumique de ce plastique est égal\n        à 0,9 g/cm$^3$, calculer la masse d'nue boule.\n    \\end{enumerate}\n    \\showthesource\n\\end{document}",
         "source": "DNB Série Générale, Métropole, Juin 2026",
         "BO": "2020",
         "cycle": "cycle 4",
@@ -9246,8 +9302,8 @@
             "Représenter"
         ],
         "competencesTravaillees": [
-            "Déterminer à partir d'un mode de représentation, l'image ou un antécédent d'un nombre par une fonction",
-            "Utiliser une formule liant deux grandeurs dans une situation de proportionnalité"
+            "",
+            ""
         ]
     },
     "Exercices 0537": {
@@ -9370,10 +9426,10 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Théorème de Thalès et réciproque (configuation des triangles emboîtés et du papillon)"
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            ""
         ]
     },
     "Activites symetrie_axiale-1": {
@@ -9869,10 +9925,10 @@
             "Communiquer"
         ],
         "connaissancesRequises": [
-            "Effet d'une homothétie sur les longueurs, les angles, les aires et les volumes"
+            ""
         ],
         "competencesTravaillees": [
-            "Faire le lien entre la proportionnalité et certaines configurations ou transformations géométriques (agrandissment, réduction, triangles semblables, homothéties)"
+            ""
         ]
     },
     "Activites construction_symetrique_figure_complexe-1": {
@@ -10044,11 +10100,11 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "variable, fonction, antécédent, image",
-            "Notations $f(x)$ et $x\\mapsto f(x)$"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            ""
         ],
         "motsCles": "trigonométrie"
     },
@@ -10624,10 +10680,10 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Cas d'égalité des triangles"
+            ""
         ],
         "competencesTravaillees": [
-            "Mobiliser les connaissances des figures, des configurations et des transformations au programme pour déterminer des grandeurs géométriques"
+            ""
         ],
         "motsCles": "CAC"
     },
@@ -11414,10 +11470,10 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Inégalité triangulaire"
+            ""
         ],
         "competencesTravaillees": [
-            "Mener des raisonnements et s'initier à la démonstration en utilisant les propriétés des figures, des configurations et des transformations"
+            ""
         ],
         "motsCles": "triangles"
     },
@@ -11904,11 +11960,11 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Nombre rationnel (positif ou négatif)",
-            "Somme et différence de nombres rationnels positifs"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Calculer avec des nombres rationnels positifs en écriture fractionnaire"
+            ""
         ]
     },
     "Flash fonctions-1": {
@@ -12321,11 +12377,11 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Connaître des procédures élémentaires de calcul",
-            "Connaître les propriéts de l'additions, de la soustraction et de la multiplication"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Utiliser ces propriétés et procédures pour élaborer et mettre en oeuvre des stratégies de calcul"
+            ""
         ],
         "motsCles": "priorités opératoires, plusieurs étapes, plusieurs opérations, entiers"
     },
@@ -12363,10 +12419,10 @@
             "Raisonner"
         ],
         "connaissancesRequises": [
-            "Nombres décimaux relatifs"
+            ""
         ],
         "competencesTravaillees": [
-            "Comparer, ranger, encadrer des nombres en écriture décimale"
+            ""
         ]
     },
     "Flash le_compte_est_bon-10": {
@@ -12458,11 +12514,11 @@
             "Calculer"
         ],
         "connaissancesRequises": [
-            "Notions d'inconnue, d'équation, d'indéterminée, d'identité",
-            "Annulation d'un produit (démonstration possible par conjonction de cas)"
+            "",
+            ""
         ],
         "competencesTravaillees": [
-            "Résoudre algébriquement des équations produit"
+            ""
         ]
     },
     "Flash notations_geometrie-4": {
@@ -12511,7 +12567,7 @@
         ],
         "connaissancesRequises": "",
         "competencesTravaillees": [
-            "Résoudre des problèmes utilisant la proportionnalité (pourcentages, échelles, agrandissement, réduction)"
+            ""
         ]
     },
     "Flash multiplier_par_05_et_025-1": {
@@ -12713,16 +12769,16 @@
         "cycle": "cycle 4",
         "competencesDuSocle": "",
         "objectifsApprentissage": [
-            "Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente.",
-            "Définir et connaitre le vocabulaire : image, antécédents.",
-            "Résoudre graphiquement des équations et des inéquations linéaires.",
-            "Manipuler les trois identités remarquables pour développer et factoriser : $a^2 + 2ab + b^2 = (a+b)^2$ ; $a^2 - 2ab + b^2 = (a-b)^2$ ; $a^2 - b^2 = (a-b)(a+b)$.",
-            "Résoudre une équation produit nul."
+            "",
+            "",
+            "",
+            "",
+            ""
         ],
         "automatismes": [
-            "Donner une médiane pour une série comportant un petit nombre de valeurs.",
-            "Calculer une moyenne pour un très petit nombre de valeurs.",
-            "Reconnaitre un triangle isocèle, équilatéral ou rectangle à partir d'un schéma codé."
+            "",
+            "",
+            ""
         ]
     },
     "Dnbqcm 0001": {
@@ -12739,15 +12795,15 @@
             "Reconnaître un modèle mathématique (proportionnalité, équiprobabilité) et raisonner dans le cadre de ce modèle pour résoudre un problème"
         ],
         "objectifsApprentissage": [
-            "Attribuer des probabilités dans des cas simples (équiprobabilité).",
-            "Utiliser des grandeurs quotients, avec ou sans unités."
+            "",
+            ""
         ],
         "automatismes": [
-            "Résoudre des équations du type $ax = c$, $x + b = c$, $ax + b = c$.",
-            "Connaitre et utiliser les formules du volume d'un cube, d'un pavé, d'un prisme, d'un cylindre."
+            "",
+            ""
         ],
         "prolongements": [
-            "Notion de nombre premier et développements sur ce thème (existence d'un nombre infini de nombres premiers, crible d'Ératosthène, etc.)."
+            ""
         ]
     },
     "Dnbqcm 0003": {
@@ -12755,24 +12811,24 @@
         "id": "0003",
         "tex": "/home/antoine/Projects/TeXMaths/data/latex/dnbqcm/dnbqcm-0003.tex",
         "pdf": "/home/antoine/Projects/TeXMaths/data/latex/dnbqcm/dnbqcm-0003.pdf",
-        "enonce": "\\documentclass{dnbqcm}\n\\usepackage{texmaths-main}\n\\startdatakeys\n    \\source{26GENMATAA1}\n    \\BO{2026}\n    \\cycle{4}\n    \\competencesDuSocle{}\n    \\automatismes{D3af, C3ab}\n    \\objectifsApprentissage{A3bc, A3eb, B1bc, A1aj, D2aa, C2bc, B3cb, C3aa}\n\\enddatakeys\n\\begin{document}\n    Pour chaque question, recopier sur la copie son numéro et la réponse correspondante.\n\n    Pour cette partie, aucune justification n'est demandée.\n\n    Pour les questions à choix multiple, une seule réponse est exacte.\n\n    \\qcmquestion\n    L'écriture scientifique du nombre \\np{45310} est :\n\n    \\begin{qcm}\n        $45,31 \\times 10^{3}$ & $4,531 \\times 10^{4}$ & $4,531 \\times 10^{-4}$ & $4531 \\times 10^{1}$\n    \\end{qcm}\n\n    \\qcmquestion\n    Une forme développée de l'expression $(4x-3)(4x+3)$ est :\n\n    \\begin{qcm}\n        $4x^2 - 9$ & $16x^2+9$ & $16x^2-9$ & $8x^2-6$\n    \\end{qcm}\n\n    \\qcmquestion\n    Un pavé droit a pour dimensions : 4,5 cm de long, 4 cm de large, 10 cm de haut. Le volume de ce pavé est de :\n\n    \\begin{qcm}\n        $180~\\text{cm}^3$ & $170~\\text{cm}^3$ & $160,5~\\text{cm}^3$ & $18,5~\\text{cm}^3$\n    \\end{qcm}\n\n    \\qcmquestion\n    On considère les nombres suivants et on s'intéresse à leur divisibilité par 9.\n\n    \\[N = \\np{2025} \\quad \\text{et} \\quad P = \\np{2026}.\\]\n\n    \\begin{qcm}\n        \\small $N$ et $P$ sont tous les deux divisibles par 9 & $N$ est divisible\n        par 9 mais $P$ ne l'est pas & $P$ est divisible par 9 mais $N$ ne l'est pas &\n        Aucun des deux n'est divisible par 9\n    \\end{qcm}\n\n    \\qcmquestion\n    Une personne a couru 9~km en 45~minutes.\n\n    Quelle est sa vitesse moyenne en km/h ?\n\n    \\qcmquestion\n\n    \\begin{minipage}{0.68\\textwidth}\n        Une roue de la fortune est utilisée pour faire gagner des cadeaux.\n        La roue est divisée en 10 secteurs de tailles égales, avec les gains\n        suivants : des stylos, des porte-clés, des casques audios ou un\n        smartphone.\n\n        Un joueur tourne la roue une seule fois.\n\n        Quelle est la probabilité que le joueur gagne un casque audio ?\n    \\end{minipage}%\n    \\hfill\n    \\begin{minipage}{0.28\\textwidth}\n        \\centering\n        \\begin{tikzpicture}[scale=1.1]\n            \\foreach \\i in {0,...,9} {\n            \\draw (0,0) -- (90+36*\\i:1.6);\n            }\n            \\draw (0,0) circle (1.6);\n            \\node at (108:1.1) {\\tiny stylo};\n            \\node at (72:1.1) {\\tiny casque};\n            \\node at (36:1.1) {\\tiny porte-clé};\n            \\node at (0:1.1) {\\tiny smartphone};\n            \\node at (-36:1.1) {\\tiny porte-clé};\n            \\node at (-72:1.1) {\\tiny stylo};\n            \\node at (-108:1.1) {\\tiny stylo};\n            \\node at (-144:1.1) {\\tiny casque};\n            \\node at (180:1.1) {\\tiny porte-clé};\n            \\node at (144:1.1) {\\tiny stylo};\n        \\end{tikzpicture}\n    \\end{minipage}\n\n    \\qcmquestion\n    Un article coûte 60 \\euro. Calculer son nouveau prix après une baisse de 10\\,\\%.\n\n    \\qcmquestion\n\n    \\begin{minipage}{0.62\\textwidth}\n        Quelle est la mesure de l'angle $\\widehat{\\text{BAC}}$ ?\n    \\end{minipage}%\n    \\hfill\n    \\begin{minipage}{0.34\\textwidth}\n        \\centering\n        \\begin{tikzpicture}[scale=0.8]\n            \\coordinate (C) at (0,0);\n            \\coordinate (A) at (3,0);\n            \\coordinate (B) at (0,3.5);\n            \\draw (B) -- (C) -- (A) -- (B);\n            \\draw (0,0.3) -- (0.3,0.3) -- (0.3,0);\n            \\node at (-0.3,3.7) {$B$};\n            \\node[below left] at (C) {$C$};\n            \\node[below right] at (A) {$A$};\n            \\pic[draw, angle radius=0.6cm, \"$40^\\circ$\",\n                angle eccentricity=1.5] {angle = C--B--A};\n        \\end{tikzpicture}\n    \\end{minipage}\n\n    \\qcmquestion\n    Le diagramme en barres ci-dessous donne les notes des élèves d'une classe au\n    dernier contrôle de mathématiques.\n\n    \\begin{enumerate}\n        \\item Combien d'élèves ont participé à ce contrôle ?\n        \\item Quelle est la note médiane ?\n    \\end{enumerate}\n\n    \\begin{center}\n        \\begin{tikzpicture}\n            \\begin{axis}[\n                ybar,\n                width=10cm,\n                height=6cm,\n                bar width=12pt,\n                xlabel={notes},\n                ylabel={effectif},\n                symbolic x coords={7,8,9,10,11,12,13,14,15,16,17,18},\n                xtick=data,\n                ymin=0, ymax=6,\n                ytick={0,1,2,3,4,5,6},\n                clip=false,\n                axis lines=left,\n                nodes near coords,\n                enlarge x limits=0.1,\n            ]\n                \\addplot coordinates {(7,3) (8,4) (10,4) (11,5)\n                    (12,5) (15,3) (17,2) (18,1)};\n            \\end{axis}\n        \\end{tikzpicture}\n    \\end{center}\n    \\showthesource\n\n\\end{document}",
+        "enonce": "\\documentclass{dnbqcm}\n\\usepackage{texmaths-main}\n\\startdatakeys\n    \\source{26GENMATAA1}\n    \\BO{2026}\n    \\cycle{4}\n    \\competencesDuSocle{}\n    \\automatismes{D3af, C3ab}\n    \\objectifsApprentissage{A3bc, A3eb, B1bc, A1aj, D2aa, C2bc, B3cb, C3aa}\n\\enddatakeys\n\\begin{document}\n    Pour chaque question, recopier sur la copie son numéro et la réponse correspondante.\n\n    Pour cette partie, aucune justification n'est demandée.\n\n    Pour les questions à choix multiple, une seule réponse est exacte.\n\n    \\qcmquestion\n    L'écriture scientifique du nombre \\num{45310} est :\n\n    \\begin{qcm}\n        $45,31 \\times 10^{3}$ & $4,531 \\times 10^{4}$ & $4,531 \\times 10^{-4}$ & $4531 \\times 10^{1}$\n    \\end{qcm}\n\n    \\qcmquestion\n    Une forme développée de l'expression $(4x-3)(4x+3)$ est :\n\n    \\begin{qcm}\n        $4x^2 - 9$ & $16x^2+9$ & $16x^2-9$ & $8x^2-6$\n    \\end{qcm}\n\n    \\qcmquestion\n    Un pavé droit a pour dimensions : 4,5 cm de long, 4 cm de large, 10 cm de haut. Le volume de ce pavé est de :\n\n    \\begin{qcm}\n        $180~\\text{cm}^3$ & $170~\\text{cm}^3$ & $160,5~\\text{cm}^3$ & $18,5~\\text{cm}^3$\n    \\end{qcm}\n\n    \\qcmquestion\n    On considère les nombres suivants et on s'intéresse à leur divisibilité par 9.\n\n    \\[N = \\num{2025} \\quad \\text{et} \\quad P = \\num{2026}.\\]\n\n    \\begin{qcm}\n        \\small $N$ et $P$ sont tous les deux divisibles par 9 & $N$ est divisible\n        par 9 mais $P$ ne l'est pas & $P$ est divisible par 9 mais $N$ ne l'est pas &\n        Aucun des deux n'est divisible par 9\n    \\end{qcm}\n\n    \\qcmquestion\n    Une personne a couru 9~km en 45~minutes.\n\n    Quelle est sa vitesse moyenne en km/h ?\n\n    \\qcmquestion\n\n    \\begin{minipage}{0.68\\textwidth}\n        Une roue de la fortune est utilisée pour faire gagner des cadeaux.\n        La roue est divisée en 10 secteurs de tailles égales, avec les gains\n        suivants : des stylos, des porte-clés, des casques audios ou un\n        smartphone.\n\n        Un joueur tourne la roue une seule fois.\n\n        Quelle est la probabilité que le joueur gagne un casque audio ?\n    \\end{minipage}%\n    \\hfill\n    \\begin{minipage}{0.28\\textwidth}\n        \\centering\n        \\begin{tikzpicture}[scale=1.1]\n            \\foreach \\i in {0,...,9} {\n            \\draw (0,0) -- (90+36*\\i:1.6);\n            }\n            \\draw (0,0) circle (1.6);\n            \\node at (108:1.1) {\\tiny stylo};\n            \\node at (72:1.1) {\\tiny casque};\n            \\node at (36:1.1) {\\tiny porte-clé};\n            \\node at (0:1.1) {\\tiny smartphone};\n            \\node at (-36:1.1) {\\tiny porte-clé};\n            \\node at (-72:1.1) {\\tiny stylo};\n            \\node at (-108:1.1) {\\tiny stylo};\n            \\node at (-144:1.1) {\\tiny casque};\n            \\node at (180:1.1) {\\tiny porte-clé};\n            \\node at (144:1.1) {\\tiny stylo};\n        \\end{tikzpicture}\n    \\end{minipage}\n\n    \\qcmquestion\n    Un article coûte 60 \\euro. Calculer son nouveau prix après une baisse de 10\\,\\%.\n\n    \\qcmquestion\n\n    \\begin{minipage}{0.62\\textwidth}\n        Quelle est la mesure de l'angle $\\widehat{\\text{BAC}}$ ?\n    \\end{minipage}%\n    \\hfill\n    \\begin{minipage}{0.34\\textwidth}\n        \\centering\n        \\begin{tikzpicture}[scale=0.8]\n            \\coordinate (C) at (0,0);\n            \\coordinate (A) at (3,0);\n            \\coordinate (B) at (0,3.5);\n            \\draw (B) -- (C) -- (A) -- (B);\n            \\draw (0,0.3) -- (0.3,0.3) -- (0.3,0);\n            \\node at (-0.3,3.7) {$B$};\n            \\node[below left] at (C) {$C$};\n            \\node[below right] at (A) {$A$};\n            \\pic[draw, angle radius=0.6cm, \"$40^\\circ$\",\n                angle eccentricity=1.5] {angle = C--B--A};\n        \\end{tikzpicture}\n    \\end{minipage}\n\n    \\qcmquestion\n    Le diagramme en barres ci-dessous donne les notes des élèves d'une classe au\n    dernier contrôle de mathématiques.\n\n    \\begin{enumerate}\n        \\item Combien d'élèves ont participé à ce contrôle ?\n        \\item Quelle est la note médiane ?\n    \\end{enumerate}\n\n    \\begin{center}\n        \\begin{tikzpicture}\n            \\begin{axis}[\n                ybar,\n                width=10cm,\n                height=6cm,\n                bar width=12pt,\n                xlabel={notes},\n                ylabel={effectif},\n                symbolic x coords={7,8,9,10,11,12,13,14,15,16,17,18},\n                xtick=data,\n                ymin=0, ymax=6,\n                ytick={0,1,2,3,4,5,6},\n                clip=false,\n                axis lines=left,\n                nodes near coords,\n                enlarge x limits=0.1,\n            ]\n                \\addplot coordinates {(7,3) (8,4) (10,4) (11,5)\n                    (12,5) (15,3) (17,2) (18,1)};\n            \\end{axis}\n        \\end{tikzpicture}\n    \\end{center}\n    \\showthesource\n\n\\end{document}",
         "source": "DNB Série Générale, Asie, Juin 2026",
         "BO": "2026",
         "cycle": "cycle 4",
         "competencesDuSocle": "",
         "automatismes": [
-            "Appliquer, dans des cas simples, une augmentation ou une diminution exprimée en pourcentages, en utilisant ou non le coefficient multiplicateur.",
-            "Donner une médiane pour une série comportant un petit nombre de valeurs."
+            "",
+            ""
         ],
         "objectifsApprentissage": [
-            "Déterminer la notation scientifique d'un nombre.",
-            "Utiliser la double distributivité pour développer et factoriser des expressions dont le facteur est apparent.",
-            "Calculer le volume du cube, du pavé droit, du prisme droit.",
-            "Connaitre les critères de divisibilité par 3 et par 9.",
-            "Utiliser des grandeurs quotients, avec ou sans unités.",
-            "Calculer la probabilité d'un évènement et de l'évènement contraire.",
-            "Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente.",
-            "Calculer des effectifs cumulés croissants."
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "Dnbqcm 0002": {
@@ -12787,12 +12843,12 @@
         "competencesDuSocle": "",
         "automatismes": "",
         "objectifsApprentissage": [
-            "Utiliser la double distributivité pour développer et factoriser des expressions dont le facteur est apparent.",
-            "Manipuler les trois identités remarquables pour développer et factoriser : $a^2 + 2ab + b^2 = (a+b)^2$ ; $a^2 - 2ab + b^2 = (a-b)^2$ ; $a^2 - b^2 = (a-b)(a+b)$.",
-            "Connaitre et utiliser les lignes trigonométriques dans le triangle rectangle : cosinus, sinus, tangente."
+            "",
+            "",
+            ""
         ],
         "prolongements": [
-            "Notion de nombre premier et développements sur ce thème (existence d'un nombre infini de nombres premiers, crible d'Ératosthène, etc.)."
+            ""
         ]
     },
     "Dnbqcm 0004": {
@@ -12809,18 +12865,18 @@
             "Raisonner"
         ],
         "automatismes": [
-            "Entretenir l'écriture décimale des fractions simples comme $\\frac {1}{2}$ ; $\\frac {1}{4}$ ; $\\frac {3}{4}$ ; $\\frac {3}{2}$ ; $\\frac {4}{2}$ ; $\\frac {5}{2}$ ; $\\frac {1}{10}$ ; $\\frac {100}{100}$ ; $\\frac {7}{1}$."
+            ""
         ],
         "objectifsApprentissage": [
-            "Déterminer une quatrième proportionnelle.",
-            "Attribuer des probabilités dans des cas simples (équiprobabilité).",
-            "Résoudre une équation du premier degré du type $ax + b = c$.",
-            "Déterminer la notation scientifique d'un nombre.",
-            "Calculer et interpréter l'étendue d'une série présentée sous forme de données brutes, d'un tableau, d'un diagramme en barres, d'un diagramme circulaire.",
-            "Calculer, appliquer des proportions, des pourcentages.",
-            "Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.).",
-            "Visualiser et réaliser des sections de pavé parallèlement à une face, de cylindre parallèlement ou perpendiculairement à son axe, d'une boule.",
-            "Additionner deux nombres décimaux relatifs."
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     }
 }

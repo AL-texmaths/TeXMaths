@@ -1,3 +1,5 @@
+import os
+print(f"Current working directory: {os.getcwd()}")
 from src.tools import LATEX_DIR
 
 enonces_path = LATEX_DIR / "enonces"

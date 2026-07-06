@@ -53,7 +53,7 @@ def get_config() -> dict:
 CONFIG = get_config()
 
 
-def resolve_executable(executable: str, config:Config) -> Path:
+def resolve_executable(executable: str, config:Config|None=None) -> Path:
     """
     Resolve the first available executable.
 
@@ -72,7 +72,10 @@ def resolve_executable(executable: str, config:Config) -> Path:
         FileNotFoundError: If no executable could be found.
         ValueError: If the executable list is empty.
     """
-    executables = config.executables.get(executable)
+    if config is not None:
+        executables = config.executables.get(executable)
+    else:
+        executables = None
     #1. Search in PATH
     resolved = shutil.which(executable)
     if resolved:
@@ -92,18 +95,19 @@ def resolve_executable(executable: str, config:Config) -> Path:
     except NameError:
         pass
 
-    # 1. Search in local candidate directories
-    for executable in executables:
-        for directory in candidates_dirs:
-            candidate = directory / executable
-            if candidate.is_file():
-                return candidate.absolute()
+    if executables is None:
+        # 1. Search in local candidate directories
+        for executable in executables:
+            for directory in candidates_dirs:
+                candidate = directory / executable
+                if candidate.is_file():
+                    return candidate.absolute()
 
-    # 2. Search in PATH
-    for executable in executables:
-        resolved = shutil.which(executable)
-        if resolved:
-            return Path(resolved).absolute()
+        # 2. Search in PATH
+        for executable in executables:
+            resolved = shutil.which(executable)
+            if resolved:
+                return Path(resolved).absolute()
     
     raise FileNotFoundError(
         f"Could not resolve any executable from: {', '.join(executables)}"

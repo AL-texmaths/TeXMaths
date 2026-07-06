@@ -21,7 +21,7 @@ class DatabaseWorker(QObject):
         codes_labels_dir = self.config.get_path_by_key("codes_labels")
         code_index_dir = self.config.get_path_by_key("code_index")
         texmf_dir = self.config.get_path_by_key("texmf")
-        update_code_index(codes_labels_dir, code_index_dir, texmf_dir, config=self.config, logger=log)
+        update_code_index(codes_labels_dir, code_index_dir, texmf_dir, logger=log)
         update_previews(logger=log)
         errors, warnings = check_database(logger=log)
         errors_sup, warnings_sup = 0, 0
