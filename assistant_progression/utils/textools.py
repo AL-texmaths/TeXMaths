@@ -125,6 +125,7 @@ def update_code_index(
         code_index_dir:Path|str,
         texmf_dir:Path|str,
         config:Config|None=None,
+        code_index_file_name:str|None=None,
         logger=print
         ) -> int:
     """
@@ -144,8 +145,11 @@ def update_code_index(
             for line in f:
                 codes_values = line.strip().split('|:|')
                 insert_nested(code_index_data, codes_values)
+    
+    if config is not None and code_index_file_name is None:
+        code_index_file_name = config.settings.current.code_index_file_name
 
-    code_index_file = code_index_dir / "code_index.json"
+    code_index_file = code_index_dir / code_index_file_name
     with open(code_index_file, "w", encoding="utf-8") as f:
             json.dump(code_index_data, f, ensure_ascii=False, indent=4)
     

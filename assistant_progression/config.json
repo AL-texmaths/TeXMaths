@@ -39,10 +39,6 @@
             "./data/latex/sequencages/",
             ".\\data\\latex\\sequencages\\"
         ],
-        "progression": [
-            "./data/progressions/",
-            ".\\data\\progressions\\"
-        ],
         "texmf": [
             "./data/texmf/",
             ".\\data\\texmf\\"
@@ -283,7 +279,8 @@
             "theme": "VSCode Dark",
             "catalogue": "Cycle 4 BO 2026",
             "type": "Automatismes",
-            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json"
+            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
+            "code_index_file_name": "code_index.json"
         }
     },
     "actions": {

@@ -1,3 +1,6 @@
+from pathlib import Path
+
+
 class SessionController:
     def __init__(self, config, persistence_service, main_window):
         self.config = config
@@ -34,7 +37,13 @@ class SessionController:
         self.persistence.save_config(self.config)
 
     def get_current_file(self):
-        return self.config.settings.current.current_file_path
+        return Path(self.config.settings.current.current_file_path)
+
+    def get_progression_dir(self):
+        current_file_path = self.get_current_file()
+        if current_file_path is not None:
+            return current_file_path.parent
+        return Path.cwd()
     # --- GUI ---
     def commit_gui_settings(self):
         self.init_save_main_window_settings()

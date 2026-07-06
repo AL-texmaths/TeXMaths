@@ -15,11 +15,6 @@ pour les tests de question flash
 >>> délégation des responsabilités du script assistant de
 navigation
 --------- Assitant de progression ---------------
->>> code index ne devrait pas etre nécessaire, s'il n'exsite pas
-il doit etre mis a jour a partir des catalogues
->>> le dossier contenant les progression ne devrait pas etre
-interne à l'application. Son chemin doit être choisi la première
-fois par l'utilisateur puis etre stocké dans "current"
 >>> API: gérer les chemins non trouvé en affichant les dossiers
 nécessaires ou
 en provoquant la création des dossiers nécessaires

@@ -1,4 +1,6 @@
 #main_window.py
+from pathlib import Path
+
 from assistant_progression.app.logger import logger, logger_wraper
 from assistant_progression.app.application_context import create_context
 from assistant_progression.gui.action import ActionDefinition
@@ -89,7 +91,7 @@ class MainWindow(QWidget):
         current_file_path = self.context.session_controller.get_current_file()
         if current_file_path is None:
             current_file_path = "No file"
-        self.setWindowTitle(self.settings.gui.main_window.title + " - " + current_file_path)
+        self.setWindowTitle(self.settings.gui.main_window.title + " - " + str(current_file_path))
         self.resize(
             self.settings.gui.main_window.width,
             self.settings.gui.main_window.height
@@ -405,7 +407,7 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getOpenFileName(
             self,
             "Charger une progression",
-            str(self.context.paths.progression),
+            str(self.context.session_controller.get_progression_dir()),
             "JSON (*.json)"
         )
 
@@ -440,7 +442,7 @@ class MainWindow(QWidget):
         filename, _ = QFileDialog.getSaveFileName(
             self,
             "Sauvegarder la progression",
-            str(self.context.paths.progression),
+            str(self.context.session_controller.get_progression_dir()),
             "JSON Files (*.json);;All Files (*)",
         )
 

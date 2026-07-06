@@ -7,8 +7,8 @@ class CodeIndexDocumentController:
         self.document_path = Path(document_path) if document_path else None
 
     def load_data(self):
-        if self.document_path is None:
-            return {}
-        else:
+        if self.document_path and self.document_path.exists():
             with open(self.document_path, 'r', encoding='utf-8') as f:
                 return json.load(f)
+        else:
+            return {}

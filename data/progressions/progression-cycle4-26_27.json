@@ -3,13 +3,13 @@
     "text": "5eme",
     "data": null,
     "tooltip": "",
-    "expanded": true,
+    "expanded": false,
     "children": [
       {
         "text": "Fraction",
         "data": null,
         "tooltip": "",
-        "expanded": true,
+        "expanded": false,
         "children": [
           {
             "text": "Automatismes",
@@ -36,7 +36,7 @@
             "text": "Séances",
             "data": null,
             "tooltip": "",
-            "expanded": true,
+            "expanded": false,
             "children": [
               {
                 "text": "Première séance",
@@ -58,7 +58,7 @@
             "text": "Prérequis",
             "data": null,
             "tooltip": "",
-            "expanded": true,
+            "expanded": false,
             "children": [
               {
                 "text": "Premier prérequis",

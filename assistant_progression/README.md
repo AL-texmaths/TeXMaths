@@ -2,11 +2,12 @@
 
 - config.json must exist
 - data/latex/catalogues must exist <path:code_index>
+--> to be created
 - data/katex must be copied/download <path:katex>
-- data/latex/progressions must exist <path:progression_import>
 - data/texmf must be copied <path:texmf>
 - data/latex/codes_labels/*.tex must be copied <path:code_labels>
 - data/latex/sequencages must exist <path:progression_export>
+--> be copied
 
 ## Procedure adding new catalogue
 
