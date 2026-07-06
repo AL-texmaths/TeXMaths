@@ -62,7 +62,8 @@
             "types": [
                 "cns",
                 "cmp",
-                "sea"
+                "sea",
+                "prq"
             ]
         },
         "cycle_4_BO_2020": {
@@ -72,7 +73,8 @@
             "types": [
                 "cns",
                 "cmp",
-                "sea"
+                "sea",
+                "prq"
             ]
         },
         "cycle_3_BO_2026": {
@@ -83,7 +85,8 @@
                 "aut",
                 "obj",
                 "pro",
-                "sea"
+                "sea",
+                "prq"
             ]
         },
         "cycle_4_BO_2026": {
@@ -94,7 +97,8 @@
                 "aut",
                 "obj",
                 "pro",
-                "sea"
+                "sea",
+                "prq"
             ]
         },
         "src": {
@@ -136,14 +140,18 @@
         "sea": {
             "name": "Séances",
             "command": "\\seance{{}}"
+        },
+        "prq": {
+            "name": "Prérequis",
+            "command": "\\prerequis{{}}"
         }
     },
     "settings": {
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 732,
-                "height": 888
+                "width": 1469,
+                "height": 890
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -152,9 +160,9 @@
             },
             "splitter": {
                 "size": [
-                    235,
-                    179,
-                    288
+                    496,
+                    362,
+                    581
                 ]
             },
             "progression_tree": {
@@ -273,7 +281,7 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Cycle 4 BO 2020",
+            "catalogue": "Cycle 4 BO 2026",
             "type": "Automatismes",
             "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json"
         }

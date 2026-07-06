@@ -43,6 +43,7 @@
 % --------
 \newcounter{totalseances}
 \newcounter{seancenumber}
+\newcounter{prerequisnumber}
 \newcounter{sequence}
 % ------
 % MACROS
@@ -51,10 +52,17 @@
     \addtocounter{#1}{-1}\refstepcounter{#1}\label{#2}}
 \def\seancenumberseq#1{%
     \getrefnumber{ref:seancenumber\@level@name#1}}
+\def\prerequisnumberseq#1{%
+    \getrefnumber{ref:prerequisnumber\@level@name#1}}
 \long\def\seance#1{%
     \par\noindent
     \stepcounter{seancenumber}\stepcounter{totalseances}%
     {\bfseries Séance \theseancenumber : }#1
+    }
+\long\def\prerequis#1{%
+    \par\noindent
+    \stepcounter{prerequisnumber}%
+    {\bfseries Prérequis \theprerequisnumber : }#1
     }
 \long\def\dontshowseance#1{\stepcounter{seancenumber}\stepcounter{totalseances}}
 \def\sequence#1{%

@@ -6,7 +6,7 @@
     "expanded": true,
     "children": [
       {
-        "text": "Fractions",
+        "text": "Fraction",
         "data": null,
         "tooltip": "",
         "expanded": true,
@@ -16,66 +16,6 @@
             "data": null,
             "tooltip": "",
             "expanded": false,
-            "children": [
-              {
-                "text": "A1aa",
-                "data": "cycle_4_BO_2026:aut:A1aa",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nMobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "A1ad",
-                "data": "cycle_4_BO_2026:aut:A1ad",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nSavoir calculer des produits en lien avec les tables : $0,6 \\times 7$ ; $40 \\times 0,03$.\n",
-                "expanded": false,
-                "children": []
-              }
-            ]
-          },
-          {
-            "text": "Prolongements",
-            "data": null,
-            "tooltip": "",
-            "expanded": false,
-            "children": [
-              {
-                "text": "A1aa",
-                "data": "cycle_4_BO_2026:pro:A1aa",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nNotion de nombre premier et développements sur ce thème (existence d'un nombre infini de nombres premiers, crible d'Ératosthène, etc.).\n",
-                "expanded": false,
-                "children": []
-              }
-            ]
-          },
-          {
-            "text": "Séances",
-            "data": null,
-            "tooltip": "",
-            "expanded": false,
-            "children": [
-              {
-                "text": "Découverte",
-                "data": "seance",
-                "tooltip": "",
-                "expanded": false,
-                "children": []
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "text": "Décimaux",
-        "data": null,
-        "tooltip": "",
-        "expanded": false,
-        "children": [
-          {
-            "text": "Automatismes",
-            "data": null,
-            "tooltip": "",
-            "expanded": false,
             "children": []
           },
           {
@@ -96,7 +36,7 @@
             "text": "Séances",
             "data": null,
             "tooltip": "",
-            "expanded": false,
+            "expanded": true,
             "children": [
               {
                 "text": "Première séance",
@@ -104,60 +44,37 @@
                 "tooltip": "",
                 "expanded": false,
                 "children": []
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "text": "4eme",
-    "data": null,
-    "tooltip": "",
-    "expanded": false,
-    "children": [
-      {
-        "text": "Test",
-        "data": null,
-        "tooltip": "",
-        "expanded": false,
-        "children": [
-          {
-            "text": "Automatismes",
-            "data": null,
-            "tooltip": "",
-            "expanded": false,
-            "children": []
-          },
-          {
-            "text": "Objectifs d'apprentissage",
-            "data": null,
-            "tooltip": "",
-            "expanded": false,
-            "children": []
-          },
-          {
-            "text": "Prolongements",
-            "data": null,
-            "tooltip": "",
-            "expanded": false,
-            "children": [
+              },
               {
-                "text": "A3aa",
-                "data": "cycle_4_BO_2026:pro:A3aa",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nNotation des ensembles des entiers naturels, des entiers relatifs, des décimaux, des rationnels.\n",
+                "text": "Deuxième séance",
+                "data": "seance",
+                "tooltip": "",
                 "expanded": false,
                 "children": []
               }
             ]
           },
           {
-            "text": "Séances",
+            "text": "Prérequis",
             "data": null,
             "tooltip": "",
-            "expanded": false,
-            "children": []
+            "expanded": true,
+            "children": [
+              {
+                "text": "Premier prérequis",
+                "data": "prerequis",
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Deuxième prérequis",
+                "data": "prerequis",
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           }
         ]
       }

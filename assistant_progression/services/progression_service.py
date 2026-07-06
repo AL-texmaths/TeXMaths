@@ -63,6 +63,10 @@ class ProgressionService:
             return None
 
         item = self.make_item("Nouvel élément")
+        if current_item.text(0) == "Prérequis":
+            item.setData(0, Qt.UserRole, "prerequis")
+        elif current_item.text(0) == "Séances":
+            item.setData(0, Qt.UserRole, "seance")
         current_item.addChild(item)
         current_item.setExpanded(True)
         tree.setCurrentItem(item)

@@ -1,4 +1,4 @@
-TYPES  = ["aut", "obj", "pro", "sea"]
+TYPES  = ["aut", "obj", "pro", "sea", "prq"]
 
 class ExportService:
 
@@ -13,6 +13,9 @@ class ExportService:
 
         if data == "seance":
             return ("seance", node["text"])
+
+        if data == "prerequis":
+            return ("prerequis", node["text"])
 
         try:
             _, kind, ident = data.split(":")
@@ -43,6 +46,8 @@ class ExportService:
 
                 if kind == "seance":
                     buffers["Séances"].append(value)
+                elif kind == "prerequis":
+                    buffers["Prérequis"].append(value)
                 else:
                     buffers[cat_name].append(value)
 
@@ -51,7 +56,7 @@ class ExportService:
 
             name = self.code_labels.get(_type).name
 
-            if name == "Séances":
+            if name == "Séances" or name == "Prérequis":
                 continue
 
             items = buffers.get(name, [])
@@ -69,6 +74,10 @@ class ExportService:
         # séances (hors itemize)
         for seance in buffers["Séances"]:
             out.write(f"\\seance{{{seance}}}\n")
+
+        # prérequis (hors itemize)
+        for prerequis in buffers["Prérequis"]:
+            out.write(f"\\prerequis{{{prerequis}}}\n")
 
         out.write("\\endsequence\n\n")
 
