@@ -9,12 +9,19 @@ from src.extract_preview import update_previews
 class DatabaseWorker(QObject):
     message = Signal(str)
     finished = Signal(int, int)
+    
+    def __init__(self, config=None):
+        super().__init__()
+        self.config = config
 
     def run(self):
         def log(msg):
             self.message.emit(msg)
 
-        update_code_index(logger=log)
+        codes_labels_dir = self.config.get_path_by_key("codes_labels")
+        code_index_dir = self.config.get_path_by_key("code_index")
+        texmf_dir = self.config.get_path_by_key("texmf")
+        update_code_index(codes_labels_dir, code_index_dir, texmf_dir, config=self.config, logger=log)
         update_previews(logger=log)
         errors, warnings = check_database(logger=log)
         errors_sup, warnings_sup = 0, 0

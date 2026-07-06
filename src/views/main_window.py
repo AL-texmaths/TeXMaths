@@ -37,7 +37,7 @@ class RegexPDFSearchApp(QWidget):
         self.console_output = QPlainTextEdit()
         self.console_output.setReadOnly(True)
 
-        self.database_controller = DatabaseReloadController()
+        self.database_controller = DatabaseReloadController(config=self.context.config)
 
         self.database_controller.message.connect(
             self.console_output.appendPlainText

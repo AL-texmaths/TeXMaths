@@ -12,8 +12,17 @@ pour les tests de question flash
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant de navigation -------------
->>> délégation des responsabilités du script assistant de navigation
+>>> délégation des responsabilités du script assistant de
+navigation
 --------- Assitant de progression ---------------
+>>> code index ne devrait pas etre nécessaire, s'il n'exsite pas
+il doit etre mis a jour a partir des catalogues
+>>> le dossier contenant les progression ne devrait pas etre
+interne à l'application. Son chemin doit être choisi la première
+fois par l'utilisateur puis etre stocké dans "current"
+>>> API: gérer les chemins non trouvé en affichant les dossiers
+nécessaires ou
+en provoquant la création des dossiers nécessaires
 >>> API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut

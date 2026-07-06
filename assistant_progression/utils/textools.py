@@ -120,7 +120,13 @@ def insert_nested(d, codes_values):
 
     current[keys[-1]] = value
 
-def update_code_index(code_labels_dir:Path|str, code_index_dir:Path|str, texmf_dir:Path|str, config:Config|None=None, logger=print):
+def update_code_index(
+        code_labels_dir:Path|str,
+        code_index_dir:Path|str,
+        texmf_dir:Path|str,
+        config:Config|None=None,
+        logger=print
+        ) -> int:
     """
     Update the code index with the latest data from the LaTeX
     source files

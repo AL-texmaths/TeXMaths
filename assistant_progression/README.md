@@ -1,11 +1,11 @@
 ## Required project structure
 
 - config.json must exist
-- data/latex/catalogue must exist <path:code_index>
-- data/katex must exist <path:katex>
+- data/latex/catalogues must exist <path:code_index>
+- data/katex must be copied/download <path:katex>
 - data/latex/progressions must exist <path:progression_import>
-- data/texmf must exist <path:texmf>
-- data/latex/codes_labels must exist <path:code_labels>
+- data/texmf must be copied <path:texmf>
+- data/latex/codes_labels/*.tex must be copied <path:code_labels>
 - data/latex/sequencages must exist <path:progression_export>
 
 ## Procedure adding new catalogue

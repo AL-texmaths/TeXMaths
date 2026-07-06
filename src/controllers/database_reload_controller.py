@@ -8,8 +8,9 @@ class DatabaseReloadController(QObject):
     message = Signal(str)
     finished = Signal(int, int)
 
-    def __init__(self):
+    def __init__(self, config=None):
         super().__init__()
+        self.config = config
 
         self._thread = None
         self._worker = None
@@ -21,7 +22,7 @@ class DatabaseReloadController(QObject):
 
         self._thread = QThread()
 
-        self._worker = DatabaseWorker()
+        self._worker = DatabaseWorker(config=self.config)
 
         self._worker.moveToThread(self._thread)
 

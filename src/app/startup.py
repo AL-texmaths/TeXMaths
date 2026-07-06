@@ -13,7 +13,7 @@ def create_context():
     config = ConfigManager()
 
     repository = DocumentRepository(
-        config.get_path_by_key("data index")
+        config.get_path_by_key("data_index")
     )
 
     process_service = ProcessService()

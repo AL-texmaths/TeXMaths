@@ -14,10 +14,10 @@ jobs:
     steps:
 
       - name: Télécharger le dépôt
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Installer Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -31,7 +31,7 @@ jobs:
           pyinstaller --onedir --windowed --collect-all PySide6 assistant_progression.py
 
       - name: Sauvegarder le .exe
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: WindowsExecutable
           path: dist/*

@@ -687,7 +687,12 @@ class DatabaseWorker(QObject):
         def log(msg):
             self.message.emit(msg)
 
-        update_code_index(logger=log)
+        update_code_index(
+            self.context.config.get_path_by_key("codes_labels"),
+            self.context.config.get_path_by_key("code_index"),
+            self.context.config.get_path_by_key("texmf"),
+            logger=log
+            )
         update_previews(logger=log)
         errors, warnings = check_database(logger=log)
         errors_sup, warnings_sup = 0, 0
