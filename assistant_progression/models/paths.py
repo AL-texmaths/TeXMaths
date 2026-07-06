@@ -6,9 +6,13 @@ class Paths:
     def __init__(self, config):
 
         for key, candidates in config.paths_candidates.items():
-            resolved_path = resolve_path(candidates, config)
-            setattr(self, f"{key}", resolved_path)
-        
+            try:
+                resolved_path = resolve_path(candidates, config)
+                setattr(self, f"{key}", resolved_path)
+                print(f"Resolved path for key '{key}': {resolved_path}")
+            except FileNotFoundError as e:
+                print(f"Error occurred while resolving path for key '{key}': {e}")
+
         code_index_file_name = config.settings.current.code_index_file_name
         
         if not hasattr(self, "code_index"):
