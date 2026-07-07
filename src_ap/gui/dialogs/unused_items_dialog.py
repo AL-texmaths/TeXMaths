@@ -1,7 +1,7 @@
 # unused_items_dialog.py
 from PySide6.QtWidgets import QDialog, QVBoxLayout, QLabel, QListWidget, QPushButton
 
-from assistant_progression.models.config import Config
+from src_ap.models.config import Config
 
 
 class UnusedItemsDialog(QDialog):

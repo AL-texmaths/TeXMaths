@@ -1,6 +1,6 @@
 import subprocess
-from assistant_progression.utils.resolve import CONFIG_PATH, resolve_executable
-from assistant_progression.models.config import Config
+from src_ap.utils.resolve import CONFIG_PATH, resolve_executable
+from src_ap.models.config import Config
 from pathlib import Path
 import json
 

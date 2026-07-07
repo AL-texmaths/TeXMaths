@@ -2,10 +2,10 @@
 import re
 import subprocess
 from pathlib import Path
-from assistant_progression.models.entry import Entry
-from assistant_progression.models.catalogue import Catalogue, ALL_CATALOGUES
-from assistant_progression.utils.resolve import resolve_executable
-from assistant_progression.models.config import Config
+from src_ap.models.entry import Entry
+from src_ap.models.catalogue import Catalogue, ALL_CATALOGUES
+from src_ap.utils.resolve import resolve_executable
+from src_ap.models.config import Config
 
 
 class CatalogueService:

@@ -4,8 +4,8 @@ import json
 import subprocess
 from pathlib import Path
 
-from assistant_progression.models.config import Config
-from assistant_progression.utils.resolve import resolve_executable
+from src_ap.models.config import Config
+from src_ap.utils.resolve import resolve_executable
 
 def compile_latex(
     tex_file: str | Path,

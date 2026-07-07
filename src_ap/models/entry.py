@@ -1,5 +1,5 @@
 # models/entry.py
-from assistant_progression.models.catalogue import Catalogue
+from src_ap.models.catalogue import Catalogue
 
 
 class Entry:

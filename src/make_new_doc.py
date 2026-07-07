@@ -1,8 +1,8 @@
 import re
 import subprocess
 from src.tools import LATEX_DIR, get_config, get_pattern
-from assistant_progression.utils.resolve import resolve_executable
-from assistant_progression.services.persistence_service import PersistenceService
+from src_ap.utils.resolve import resolve_executable
+from src_ap.services.persistence_service import PersistenceService
 
 TEMPLATE_DIR = LATEX_DIR / "templates"
 EXERCICES_DIR = LATEX_DIR / "exercices"

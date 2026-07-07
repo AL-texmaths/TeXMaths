@@ -3,7 +3,7 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 
-LOG_DIR = Path("assistant_progression/logs")
+LOG_DIR = Path("src_ap/logs")
 LOG_DIR.mkdir(exist_ok=True)
 
 LOG_FILE = LOG_DIR / "app.log"

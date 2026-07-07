@@ -1,17 +1,16 @@
 #main_window.py
-from pathlib import Path
-
-from assistant_progression.app.logger import logger, logger_wraper
-from assistant_progression.app.application_context import create_context
-from assistant_progression.gui.action import ActionDefinition
-from assistant_progression.gui.actions_manager import ActionManager
-from assistant_progression.gui.menus.theme_menu_builder import ThemeMenuBuilder
-from assistant_progression.gui.menus.catalogue_menu_builder import CatalogueMenuBuilder
-from assistant_progression.gui.panels.regex_panel import RegexPanel
-from assistant_progression.gui.panels.preview_panel import PreviewPanel
-from assistant_progression.gui.panels.progression_panel import ProgressionPanel
-from assistant_progression.controllers.theme_controller import ThemeController
-from assistant_progression.gui.dialogs.unused_items_dialog import UnusedItemsDialog
+from src_ap.app.logger import logger, logger_wraper
+from src_ap.app.application_context import create_context
+from src_ap.gui.action import ActionDefinition
+from src_ap.gui.actions_manager import ActionManager
+from src_ap.gui.menus.theme_menu_builder import ThemeMenuBuilder
+from src_ap.gui.menus.catalogue_menu_builder import CatalogueMenuBuilder
+from src_ap.gui.panels.regex_panel import RegexPanel
+from src_ap.gui.panels.preview_panel import PreviewPanel
+from src_ap.gui.panels.progression_panel import ProgressionPanel
+from src_ap.controllers.theme_controller import ThemeController
+from src_ap.gui.dialogs.unused_items_dialog import UnusedItemsDialog
+from src_ap.gui.tabs.document_tab import DocumentTab
 
 
 from PySide6.QtCore import Qt
@@ -20,6 +19,7 @@ from PySide6.QtWidgets import (
     QMenu,
     QSplitter,
     QHBoxLayout,
+    QTabWidget,
     QFileDialog,
     QWidget,
     QMessageBox,
@@ -110,8 +110,11 @@ class MainWindow(QWidget):
         splitter_size = self.settings.gui.splitter.size
         self.splitter.setSizes(splitter_size)
 
-        
-        self.main_layout.addWidget(self.splitter)
+        self.tab_widget = QTabWidget()
+        self.tab_widget.addTab(self.splitter, "Progression")
+        self.tab_widget.addTab(DocumentTab(), "Documents")
+
+        self.main_layout.addWidget(self.tab_widget)
 
     def init_regex_panel(self):
 

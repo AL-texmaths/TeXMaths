@@ -20,7 +20,7 @@
         "*.txt": false,
     },
     "terminal.integrated.cwd": "${workspaceFolder}",
-    "python.analysis.extraPaths": ["./src", "./assistant_progression"],
+    "python.analysis.extraPaths": ["./src", "./src_ap"],
     "python-envs.pythonProjects": [
       {
         "path": ".",

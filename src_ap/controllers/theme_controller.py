@@ -1,7 +1,7 @@
 # theme_controller.py
-from assistant_progression.services.theme_service import ThemeService
-from assistant_progression.services.persistence_service import PersistenceService
-from assistant_progression.models.config import Config
+from src_ap.services.theme_service import ThemeService
+from src_ap.services.persistence_service import PersistenceService
+from src_ap.models.config import Config
 
 
 class ThemeController:

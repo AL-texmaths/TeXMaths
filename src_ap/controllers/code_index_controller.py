@@ -1,9 +1,9 @@
 
-from assistant_progression.utils.textools import update_code_index
-from assistant_progression.models.config import Config
-from assistant_progression.models.paths import Paths
-from assistant_progression.services.catalogue_service import CatalogueService
-from assistant_progression.controllers.code_index_document_controller import CodeIndexDocumentController
+from src_ap.utils.textools import update_code_index
+from src_ap.models.config import Config
+from src_ap.models.paths import Paths
+from src_ap.services.catalogue_service import CatalogueService
+from src_ap.controllers.code_index_document_controller import CodeIndexDocumentController
 
 class CodeIndexController:
     def __init__(

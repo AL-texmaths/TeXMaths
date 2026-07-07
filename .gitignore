@@ -20,7 +20,7 @@ build
 
 data/graphics/gif/data/*
 !data/graphics/gif/data/.gitkeep
-assistant_progression/logs
+src_ap/logs
 data/graphics/*.db
 data/graphics/*.db-wal
 data/graphics/*.db-shm

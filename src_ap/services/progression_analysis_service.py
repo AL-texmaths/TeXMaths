@@ -1,6 +1,6 @@
-# assistant_progression/services/progression_analysis_service.py
+# src_ap/services/progression_analysis_service.py
 from PySide6.QtCore import Qt
-from assistant_progression.app.logger import logger, logger_wraper
+from src_ap.app.logger import logger, logger_wraper
 
 
 class ProgressionAnalysisService:

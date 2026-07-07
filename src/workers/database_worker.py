@@ -1,6 +1,6 @@
 from PySide6.QtCore import QObject, Signal
 
-from assistant_progression.utils.textools import update_code_index
+from src_ap.utils.textools import update_code_index
 from src.update_data_index import update_json
 from src.check_database import check_database
 from src.extract_preview import update_previews

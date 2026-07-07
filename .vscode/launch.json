@@ -14,7 +14,7 @@
             "name": "Run assistant de progression",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/assistant_progression.py",
+            "program": "${workspaceFolder}/src_ap.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}"
         },
@@ -49,7 +49,7 @@
         "name": "Run gui.file",
         "type": "debugpy",
         "request": "launch",
-        "module": "assistant_progression.gui.${fileBasenameNoExtension}",
+        "module": "src_ap.gui.${fileBasenameNoExtension}",
         "cwd": "${workspaceFolder}",
         "console": "integratedTerminal",
         "justMyCode": true
@@ -58,7 +58,7 @@
         "name": "Run services.file",
         "type": "debugpy",
         "request": "launch",
-        "module": "assistant_progression.services.${fileBasenameNoExtension}",
+        "module": "src_ap.services.${fileBasenameNoExtension}",
         "cwd": "${workspaceFolder}",
         "console": "integratedTerminal",
         "justMyCode": true
@@ -67,7 +67,7 @@
         "name": "Run utils.file",
         "type": "debugpy",
         "request": "launch",
-        "module": "assistant_progression.utils.${fileBasenameNoExtension}",
+        "module": "src_ap.utils.${fileBasenameNoExtension}",
         "cwd": "${workspaceFolder}",
         "console": "integratedTerminal",
         "justMyCode": true

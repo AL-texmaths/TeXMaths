@@ -1,5 +1,5 @@
 from pathlib import Path
-from assistant_progression.utils.resolve import resolve_path
+from src_ap.utils.resolve import resolve_path
 
 class Paths:
 

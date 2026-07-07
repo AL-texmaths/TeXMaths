@@ -1,21 +1,21 @@
 # application_context.py
 from dataclasses import dataclass
-from assistant_progression.services.persistence_service import PersistenceService
-from assistant_progression.models.config import Config
-from assistant_progression.models.paths import Paths
-from assistant_progression.controllers.code_index_document_controller import CodeIndexDocumentController
-from assistant_progression.services.code_service import CodeService
-from assistant_progression.controllers.progression_document_controller import ProgressionDocumentController
-from assistant_progression.services.theme_service import ThemeService
-from assistant_progression.services.undo_redo_service import UndoRedoService
-from assistant_progression.services.catalogue_service import CatalogueService
-from assistant_progression.services.export_service import ExportService
-from assistant_progression.services.progression_analysis_service import ProgressionAnalysisService
-from assistant_progression.services.progression_service import ProgressionService
-from assistant_progression.services.search_service import SearchService
-from assistant_progression.controllers.progression_controller import ProgressionController
-from assistant_progression.controllers.code_index_controller import CodeIndexController
-from assistant_progression.controllers.session_controller import SessionController
+from src_ap.services.persistence_service import PersistenceService
+from src_ap.models.config import Config
+from src_ap.models.paths import Paths
+from src_ap.controllers.code_index_document_controller import CodeIndexDocumentController
+from src_ap.services.code_service import CodeService
+from src_ap.controllers.progression_document_controller import ProgressionDocumentController
+from src_ap.services.theme_service import ThemeService
+from src_ap.services.undo_redo_service import UndoRedoService
+from src_ap.services.catalogue_service import CatalogueService
+from src_ap.services.export_service import ExportService
+from src_ap.services.progression_analysis_service import ProgressionAnalysisService
+from src_ap.services.progression_service import ProgressionService
+from src_ap.services.search_service import SearchService
+from src_ap.controllers.progression_controller import ProgressionController
+from src_ap.controllers.code_index_controller import CodeIndexController
+from src_ap.controllers.session_controller import SessionController
 
 
 @dataclass

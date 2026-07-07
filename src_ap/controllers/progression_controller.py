@@ -1,5 +1,5 @@
 # progression_controller.py
-from assistant_progression.services.undo_redo_service import record_tree_undo
+from src_ap.services.undo_redo_service import record_tree_undo
 
 
 class ProgressionController:

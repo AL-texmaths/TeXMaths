@@ -1,7 +1,7 @@
 # regex_panel.py
 import re
-from assistant_progression.services.regex_service import SearchLineEdit
-from assistant_progression.app.logger import logger
+from src_ap.services.regex_service import SearchLineEdit
+from src_ap.app.logger import logger
 
 from PySide6.QtWidgets import (
     QListWidget, QListWidgetItem, QWidget, QComboBox, QVBoxLayout, QCheckBox

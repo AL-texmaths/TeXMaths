@@ -1,7 +1,7 @@
 from PySide6.QtCore import QUrl
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from assistant_progression.services.html_service import HtmlService
-from assistant_progression.gui.panels.regex_panel import ViewMode
+from src_ap.services.html_service import HtmlService
+from src_ap.gui.panels.regex_panel import ViewMode
 
 class PreviewPanel(QWebEngineView):
     def __init__(self, regex_panel, progression_panel, theme_service, code_service, analysis_service, katex_path=None):

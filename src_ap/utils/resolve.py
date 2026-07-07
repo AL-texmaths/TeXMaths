@@ -3,7 +3,7 @@ import json
 import shutil
 from pathlib import Path
 
-from assistant_progression.models.config import Config
+from src_ap.models.config import Config
 
 def check_project_layout(Base_dir: Path):
 
@@ -38,7 +38,7 @@ def check_project_layout(Base_dir: Path):
             "\n".join(str(m) for m in missing)
         )
 
-CONFIG_PATH = (Path("assistant_progression") / "config.json").absolute()
+CONFIG_PATH = (Path("src_ap") / "config.json").absolute()
 
 def get_config() -> dict:
     """

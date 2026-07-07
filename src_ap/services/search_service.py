@@ -1,6 +1,6 @@
 # search_service.py
-from assistant_progression.services.code_service import CodeService
-from assistant_progression.services.catalogue_service import CatalogueService, Catalogue
+from src_ap.services.code_service import CodeService
+from src_ap.services.catalogue_service import CatalogueService, Catalogue
 
 
 class SearchService:
