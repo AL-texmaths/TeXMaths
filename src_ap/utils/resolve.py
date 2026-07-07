@@ -108,10 +108,6 @@ def resolve_executable(executable: str, config:Config|None=None) -> Path:
             resolved = shutil.which(executable)
             if resolved:
                 return Path(resolved).absolute()
-    
-    raise FileNotFoundError(
-        f"Could not resolve any executable from: {', '.join(executables)}"
-    )
 
 def resolve_path(candidates: Path | str | list[str], config:Config|None=None) -> Path:
     """

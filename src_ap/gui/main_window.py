@@ -112,7 +112,8 @@ class MainWindow(QWidget):
 
         self.tab_widget = QTabWidget()
         self.tab_widget.addTab(self.splitter, "Progression")
-        self.tab_widget.addTab(DocumentTab(), "Documents")
+        self.doument_tab = DocumentTab(self.context)
+        self.tab_widget.addTab(self.doument_tab, "Documents")
 
         self.main_layout.addWidget(self.tab_widget)
 

@@ -101,18 +101,18 @@ class FlowLayout(QLayout):
 
 class RegexPDFSearchApp(QWidget):
     def __init__(self, context):
-        super().__init__()
+        # super().__init__()
 
-        self.context = context
-        self.pdf_viewer = PdfViewerWidget()
+        # self.context = context
+        # self.pdf_viewer = PdfViewerWidget()
 
         self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
-        self.metadata_view = MetadataView(self.context)
+        # self.metadata_view = MetadataView(self.context)
         self.search_controller = SearchController(self.context.search_service)
 
-        self.search_timer = QTimer()
-        self.search_timer.setSingleShot(True)
-        self.search_timer.timeout.connect(self.update_results)
+        # self.search_timer = QTimer()
+        # self.search_timer.setSingleShot(True)
+        # self.search_timer.timeout.connect(self.update_results)
 
         self.setWindowTitle("Assistant de navigation")
         self.resize(1200, 700)
@@ -129,56 +129,56 @@ class RegexPDFSearchApp(QWidget):
         # ONGLET 1 : Recherche PDF
         # =========================
 
-        tab1 = QWidget()
-        tab1_layout = QVBoxLayout(tab1)
-        splitter = QSplitter(Qt.Horizontal) # pyright: ignore[reportAttributeAccessIssue]
-        tab1_layout.addWidget(splitter)
+        # tab1 = QWidget()
+        # tab1_layout = QVBoxLayout(tab1)
+        # splitter = QSplitter(Qt.Horizontal) # pyright: ignore[reportAttributeAccessIssue]
+        # tab1_layout.addWidget(splitter)
 
         # Partie gauche
-        left_layout = QVBoxLayout()
+        # left_layout = QVBoxLayout()
 
-        self.search_input = QLineEdit()
-        self.search_input.setPlaceholderText("Recherche (regex)")
-        self.search_input.textChanged.connect(self.schedule_search)
+        # self.search_input = QLineEdit()
+        # self.search_input.setPlaceholderText("Recherche (regex)")
+        # self.search_input.textChanged.connect(self.schedule_search)
 
-        self.results_list = QListWidget()
-        self.results_list.itemClicked.connect(self.load_pdf)
-        self.results_list.setContextMenuPolicy(Qt.CustomContextMenu)# type:ignore
-        self.results_list.customContextMenuRequested.connect(self.show_results_context_menu)
+        # self.results_list = QListWidget()
+        # self.results_list.itemClicked.connect(self.load_pdf)
+        # self.results_list.setContextMenuPolicy(Qt.CustomContextMenu)# type:ignore
+        # self.results_list.customContextMenuRequested.connect(self.show_results_context_menu)
         # Intercept keyboard navigation (flèches) to load l'item courant
-        self.results_list.installEventFilter(self)
-        self.search_input.installEventFilter(self)
+        # self.results_list.installEventFilter(self)
+        # self.search_input.installEventFilter(self)
 
-        left_layout.addWidget(self.search_input)
-        left_layout.addWidget(self.results_list)
+        # left_layout.addWidget(self.search_input)
+        # left_layout.addWidget(self.results_list)
 
 
-        left_widget = QWidget()
-        left_widget.setLayout(left_layout)
-        splitter.addWidget(left_widget)
+        # left_widget = QWidget()
+        # left_widget.setLayout(left_layout)
+        # splitter.addWidget(left_widget)
 
         # Partie droite
-        right_widget = QWidget()
-        right_layout = QVBoxLayout(right_widget)
+        # right_widget = QWidget()
+        # right_layout = QVBoxLayout(right_widget)
 
         # Use a vertical splitter so the PDF (top) and HTML info (bottom)
         # are separated by a draggable splitter the user can resize.
-        self.inner_splitter = QSplitter(Qt.Vertical)#type:ignore
-        self.inner_splitter.addWidget(self.pdf_viewer.view)
+        # self.inner_splitter = QSplitter(Qt.Vertical)#type:ignore
+        # self.inner_splitter.addWidget(self.pdf_viewer.view)
 
         # Give PDF more initial space than the info panel (stretch factors)
-        self.inner_splitter.setStretchFactor(0, 3)
-        self.inner_splitter.setStretchFactor(1, 1)
+        # self.inner_splitter.setStretchFactor(0, 3)
+        # self.inner_splitter.setStretchFactor(1, 1)
 
-        self.inner_splitter.addWidget(
-            self.metadata_view
-        )
+        # self.inner_splitter.addWidget(
+        #     self.metadata_view
+        # )
 
-        right_layout.addWidget(self.inner_splitter)
-        # Apply initial sizes once the event loop runs so the window size is known
-        QTimer.singleShot(0, self._set_initial_splitter_sizes)
-        QTimer.singleShot(0, self.search_input.setFocus)
-        splitter.addWidget(right_widget)
+        # right_layout.addWidget(self.inner_splitter)
+        # # Apply initial sizes once the event loop runs so the window size is known
+        # QTimer.singleShot(0, self._set_initial_splitter_sizes)
+        # QTimer.singleShot(0, self.search_input.setFocus)
+        # splitter.addWidget(right_widget)
 
         self.tabs.addTab(tab1, "Recherche PDF")
 
@@ -323,22 +323,22 @@ class RegexPDFSearchApp(QWidget):
 
         self.context.config.set("settings", "theme", value=name)
 
-    def schedule_search(self):
-        self.search_timer.start(300)  # délai en millisecondes
+    # def schedule_search(self):
+    #     self.search_timer.start(300)  # délai en millisecondes
 
-    def _set_initial_splitter_sizes(self):
-        """Set the inner splitter sizes so the bottom pane is ~1/4 of window height."""
-        try:
-            total = self.height()
-            if not total or total <= 0:
-                total = 800
-            top = int(total * 0.75)
-            bottom = max(120, int(total * 0.25))
-            # If the splitter exists, apply sizes [top, bottom]
-            if hasattr(self, 'inner_splitter') and self.inner_splitter is not None:
-                self.inner_splitter.setSizes([top, bottom])
-        except Exception:
-            pass
+    # def _set_initial_splitter_sizes(self):
+    #     """Set the inner splitter sizes so the bottom pane is ~1/4 of window height."""
+    #     try:
+    #         total = self.height()
+    #         if not total or total <= 0:
+    #             total = 800
+    #         top = int(total * 0.75)
+    #         bottom = max(120, int(total * 0.25))
+    #         # If the splitter exists, apply sizes [top, bottom]
+    #         if hasattr(self, 'inner_splitter') and self.inner_splitter is not None:
+    #             self.inner_splitter.setSizes([top, bottom])
+    #     except Exception:
+    #         pass
 
     def eventFilter(self, obj, event):
         """Intercept key presses on the results list so that Up/Down
@@ -446,77 +446,78 @@ class RegexPDFSearchApp(QWidget):
             self.empty_keys_layout.addWidget(cb)
             self.empty_filters[key] = cb
 
-    def add_menu_action(
-            self,
-            menu: QMenu,
-            text: str,
-            callback,
-            item,
-            enabled: bool = True,
-        ):
-            action = QAction(text, self)
-            action.setEnabled(enabled)
-            action.triggered.connect(
-                lambda checked=False, cb=callback, it=item: cb(it)
-            )
-            menu.addAction(action)
-            return action
+    # def add_menu_action(
+    #         self,
+    #         menu: QMenu,
+    #         text: str,
+    #         callback,
+    #         item,
+    #         enabled: bool = True,
+    #     ):
+    #         action = QAction(text, self)
+    #         action.setEnabled(enabled)
+    #         action.triggered.connect(
+    #             lambda checked=False, cb=callback, it=item: cb(it)
+    #         )
+    #         menu.addAction(action)
+    #         return action
 
     def show_results_context_menu(self, position):
-        item = self.results_list.itemAt(position)
-        if item is None:
-            return
+        """"""
+        # item = self.results_list.itemAt(position)
+        # if item is None:
+        #     return
 
-        self.results_list.setCurrentItem(item)
+        # self.results_list.setCurrentItem(item)
 
-        menu = QMenu(self)
+        # menu = QMenu(self)
 
-        copy_enonce_action = self.add_menu_action(
-            menu,
-            "Copier l'exemple minimal LaTeX",
-            self.copy_enonce_for_item,
-            item,
-            True
-        )
+        # copy_enonce_action = self.add_menu_action(
+        #     menu,
+        #     "Copier l'exemple minimal LaTeX",
+        #     self.copy_enonce_for_item,
+        #     item,
+        #     True
+        # )
 
-        open_tex_action = self.add_menu_action(
-            menu,
-            "Ouvrir le fichier .tex dans VS Code",
-            self.open_tex_in_vscode,
-            item,
-            self.context.config.get_exe_by_key('code') is not Path()
-        )
+        # open_tex_action = self.add_menu_action(
+        #     menu,
+        #     "Ouvrir le fichier .tex dans VS Code",
+        #     self.open_tex_in_vscode,
+        #     item,
+        #     self.context.config.get_exe_by_key('code') is not Path()
+        # )
 
-        open_pdf_adobe_action = self.add_menu_action(
-            menu,
-            "Ouvrir le fichier PDF dans Adobe Reader",
-            self.open_pdf_with_adobe,
-            item,
-            self.context.config.get_exe_by_key('adobe') is not None
-        )
+        # open_pdf_adobe_action = self.add_menu_action(
+        #     menu,
+        #     "Ouvrir le fichier PDF dans Adobe Reader",
+        #     self.open_pdf_with_adobe,
+        #     item,
+        #     self.context.config.get_exe_by_key('adobe') is not None
+        # )
 
-        open_pdf_xchange_action = self.add_menu_action(
-            menu,
-            "Ouvrir le fichier PDF dans PDF XChange",
-            self.open_pdf_with_pdfxchange,
-            item,
-            self.context.config.get_exe_by_key('pdf_xchange') is not None
-        )
+        # open_pdf_xchange_action = self.add_menu_action(
+        #     menu,
+        #     "Ouvrir le fichier PDF dans PDF XChange",
+        #     self.open_pdf_with_pdfxchange,
+        #     item,
+        #     self.context.config.get_exe_by_key('pdf_xchange') is not None
+        # )
 
-        open_pdf_okular_action = self.add_menu_action(
-            menu,
-            "Ouvrir le fichier PDF dans Okular",
-            self.open_pdf_with_okular,
-            item,
-            self.context.config.get_exe_by_key('okular') is not None
-        )
+        # open_pdf_okular_action = self.add_menu_action(
+        #     menu,
+        #     "Ouvrir le fichier PDF dans Okular",
+        #     self.open_pdf_with_okular,
+        #     item,
+        #     self.context.config.get_exe_by_key('okular') is not None
+        # )
 
-        menu.addAction(copy_enonce_action)
-        menu.addAction(open_tex_action)
-        menu.addAction(open_pdf_xchange_action)
-        menu.addAction(open_pdf_adobe_action)
-        menu.addAction(open_pdf_okular_action)
-        menu.exec(self.results_list.viewport().mapToGlobal(position))
+        # menu.addAction(copy_enonce_action)
+        # menu.addAction(open_tex_action)
+        # menu.addAction(open_pdf_xchange_action)
+        # menu.addAction(open_pdf_adobe_action)
+        # menu.addAction(open_pdf_okular_action)
+        # menu.exec(self.results_list.viewport().mapToGlobal(position))
 
     def open_pdf_with_adobe(self, item):
         adobe_exe_path = self.context.config.get_exe_by_key("adobe")
@@ -532,7 +533,7 @@ class RegexPDFSearchApp(QWidget):
             )
 
     def open_pdf_with_pdfxchange(self, item):
-        pdf_xchange_exe_path = self.context.config.get_exe_by_key('pdf_xchange'),
+        pdf_xchange_exe_path = self.context.config.get_exe_by_key('pdf_xchange')
         doc_dict = self.context.repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
@@ -613,46 +614,46 @@ class RegexPDFSearchApp(QWidget):
     # ======================================
     # PDF
     # ======================================
-    def load_pdf(self, item):
+    # def load_pdf(self, item):
 
-        key = item.text()
+    #     key = item.text()
 
-        pdf_path = Path(
-            self.context.repository
-            .get_doc_by_key(key)
-            .get("preview", "")
-        )
+    #     pdf_path = Path(
+    #         self.context.repository
+    #         .get_doc_by_key(key)
+    #         .get("preview", "")
+    #     )
 
-        if not pdf_path.exists():
-            QMessageBox.critical(
-                self,
-                "Erreur",
-                f"Fichier PDF introuvable\n{pdf_path}"
-            )
-            return
+    #     if not pdf_path.exists():
+    #         QMessageBox.critical(
+    #             self,
+    #             "Erreur",
+    #             f"Fichier PDF introuvable\n{pdf_path}"
+    #         )
+    #         return
 
-        self.pdf_viewer.document.load(str(pdf_path))
+    #     self.pdf_viewer.document.load(str(pdf_path))
 
-        document = self.context.repository.get_doc_by_key(key)
+    #     document = self.context.repository.get_doc_by_key(key)
 
-        self.metadata_view.show_document(document)
+    #     self.metadata_view.show_document(document)
 
-        self.current_enonce = document.get(
-            "enonce",
-            ""
-        )
+    #     self.current_enonce = document.get(
+    #         "enonce",
+    #         ""
+    #     )
 
-    def copy_enonce_for_item(self, item):
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        enonce = doc_dict.get("enonce", "")
+    # def copy_enonce_for_item(self, item):
+    #     doc_dict = self.context.repository.get_doc_by_key(item.text())
+    #     enonce = doc_dict.get("enonce", "")
 
-        if not enonce:
-            QMessageBox.information(self, "Exemple minimal", "Aucun énoncé LaTeX n'est disponible pour cet item")
-            return
+    #     if not enonce:
+    #         QMessageBox.information(self, "Exemple minimal", "Aucun énoncé LaTeX n'est disponible pour cet item")
+    #         return
 
-        clipboard = QGuiApplication.clipboard()
-        clipboard.setText(enonce)
-        QMessageBox.information(self, "Exemple minimal", "Exemple minimal copié dans le presse papier")
+    #     clipboard = QGuiApplication.clipboard()
+    #     clipboard.setText(enonce)
+    #     QMessageBox.information(self, "Exemple minimal", "Exemple minimal copié dans le presse papier")
     
     def reload_check_database(self):
 

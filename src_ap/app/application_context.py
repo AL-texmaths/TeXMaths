@@ -17,6 +17,8 @@ from src_ap.controllers.progression_controller import ProgressionController
 from src_ap.controllers.code_index_controller import CodeIndexController
 from src_ap.controllers.session_controller import SessionController
 
+from src.services.document_repository import DocumentRepository
+
 
 @dataclass
 class AppContext:
@@ -37,6 +39,7 @@ class AppContext:
     theme_service: ThemeService
     document_controller: ProgressionDocumentController
     code_index_controller: CodeIndexController
+    document_repository: DocumentRepository
 
 def create_context(main_window) -> AppContext:
 
@@ -50,6 +53,7 @@ def create_context(main_window) -> AppContext:
     paths = Paths(config)
     export_service = ExportService(config.codes)
     undo_redo_service = UndoRedoService()
+    document_repository = DocumentRepository(paths.code_index)
 
     code_index_document_controller = CodeIndexDocumentController(paths.code_index_file)
     code_index_data = code_index_document_controller.load_data()
@@ -105,4 +109,5 @@ def create_context(main_window) -> AppContext:
         search_service=search_service,
         document_controller=document_controller,
         theme_service=theme_service,
+        document_repository=document_repository
     )

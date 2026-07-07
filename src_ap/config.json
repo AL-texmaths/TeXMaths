@@ -6,6 +6,19 @@
         "latexmk": [
             "\\Root\\Programmes\\MiKTeX\\miktex\\bin\\latexmk.exe"
         ],
+        "code": [
+            "code",
+            "\\Root\\Programmes\\VSCode\\Code.exe"
+        ],
+        "adobe": [
+            "\\Root\\Programmes\\Adobe\\Acrobat DC\\Acrobat\\Acrobat.exe"
+        ],
+        "pdf_xchange": [
+            "\\Root\\Programmes\\PDF XChange\\PDF XChange Editor\\PDFXChangeEditor.exe"
+        ],
+        "okular": [
+            "\\Root\\Programmes\\Okular\\Okular.exe"
+        ],
         "blocnote": [
             "gedit",
             "notepad",

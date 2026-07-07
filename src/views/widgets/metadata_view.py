@@ -28,7 +28,7 @@ class MetadataView(QWidget):
         super().__init__(parent)
 
         self.context = context
-        katex_dir = self.context.config.get_path_by_key("katex")
+        katex_dir = self.context.paths.katex
 
         self.katex_service = KatexService(
             QUrl.fromLocalFile(str(katex_dir.resolve()) + "/")
