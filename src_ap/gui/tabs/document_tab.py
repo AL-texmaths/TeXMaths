@@ -9,10 +9,12 @@ from PySide6.QtWidgets import (
     QListWidget,
     QMessageBox,
     QMenu,
-    
+    QComboBox,
     )
 from src.views.widgets.pdf_viewer import PdfViewerWidget
 from src.views.widgets.metadata_view import MetadataView
+from src.models.search_filters import SearchFilters
+from src_ap.controllers.search_pdf_controller import SearchPDFController
 
 from src_ap.utils.resolve import resolve_executable
 
@@ -280,6 +282,20 @@ class DocumentTab(QWidget):
         splitter.addWidget(right_widget)
 
         layout.addWidget(splitter)
+
+        self.key_filter_actions = {}
+        self.field_actions = {}
+        self.empty_filters = {}
+
+        self.sort_order_combo = QComboBox()
+        self.sort_order_combo.addItem("Trier par ordre alphabétique")
+        self.sort_order_combo.addItem("Trier par date de modification")
+        # Défaut : trier par date de modification
+        self.sort_order_combo.setCurrentIndex(1)
+        self.sort_order_combo.currentIndexChanged.connect(self.update_results)
+        left_layout.addWidget(self.sort_order_combo)
+
+        self.search_pdf_controller = SearchPDFController(self.context.search_pdf_service)
     
     def _set_initial_splitter_sizes(self):
         """Set the inner splitter sizes so the bottom pane is ~1/4 of window height."""
@@ -295,11 +311,33 @@ class DocumentTab(QWidget):
         except Exception:
             pass
     
+    def build_search_filters(self) -> SearchFilters:
+
+        return SearchFilters(
+            pattern=self.search_input.text().strip(),
+            active_prefixes=[
+                prefix
+                for prefix, cb in self.key_filter_actions.items()
+                if cb.isChecked()
+            ],
+            active_fields=[
+                field
+                for field, cb in self.field_actions.items()
+                if cb.isChecked()
+            ],
+            empty_fields=[
+                field
+                for field, cb in self.empty_filters.items()
+                if cb.isChecked()
+            ],
+            sort_mode=self.sort_order_combo.currentIndex(),
+        )
+
     def update_results(self):
 
         filters = self.build_search_filters()
 
-        results = self.search_controller.search(filters)
+        results = self.search_pdf_controller.search(filters)
 
         self.results_list.clear()
 

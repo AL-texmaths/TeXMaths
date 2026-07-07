@@ -108,7 +108,7 @@ class RegexPDFSearchApp(QWidget):
 
         self.katex_service = KatexService(self.context.config.get_path_by_key("katex"))
         # self.metadata_view = MetadataView(self.context)
-        self.search_controller = SearchController(self.context.search_service)
+        # self.search_controller = SearchController(self.context.search_service)
 
         # self.search_timer = QTimer()
         # self.search_timer.setSingleShot(True)
@@ -240,7 +240,7 @@ class RegexPDFSearchApp(QWidget):
 
         self.types_layout = types_flow_layout
 
-        self.key_filter_actions = {}
+        # self.key_filter_actions = {}
 
         tab2_layout.addWidget(types_frame)
 
@@ -261,7 +261,7 @@ class RegexPDFSearchApp(QWidget):
 
         self.fields_layout = flow_layout
 
-        self.field_actions = {}
+        # self.field_actions = {}
 
         tab2_layout.addWidget(fields_frame)
 
@@ -282,17 +282,17 @@ class RegexPDFSearchApp(QWidget):
 
         self.empty_keys_layout = filters_flow_layout
 
-        self.empty_filters = {}
+        # self.empty_filters = {}
 
         tab2_layout.addWidget(filters_frame)
 
-        self.sort_order_combo = QComboBox()
-        self.sort_order_combo.addItem("Trier par ordre alphabétique")
-        self.sort_order_combo.addItem("Trier par date de modification")
-        # Défaut : trier par date de modification
-        self.sort_order_combo.setCurrentIndex(1)
-        self.sort_order_combo.currentIndexChanged.connect(self.update_results)
-        left_layout.addWidget(self.sort_order_combo)
+        # self.sort_order_combo = QComboBox()
+        # self.sort_order_combo.addItem("Trier par ordre alphabétique")
+        # self.sort_order_combo.addItem("Trier par date de modification")
+        # # Défaut : trier par date de modification
+        # self.sort_order_combo.setCurrentIndex(1)
+        # self.sort_order_combo.currentIndexChanged.connect(self.update_results)
+        # left_layout.addWidget(self.sort_order_combo)
 
         # =========================
         # SHORTCUTS ONGLETS
@@ -519,98 +519,98 @@ class RegexPDFSearchApp(QWidget):
         # menu.addAction(open_pdf_okular_action)
         # menu.exec(self.results_list.viewport().mapToGlobal(position))
 
-    def open_pdf_with_adobe(self, item):
-        adobe_exe_path = self.context.config.get_exe_by_key("adobe")
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict['pdf']).resolve()
-        try:
-            self.context.process_service.open_with(adobe_exe_path, pdf_path)
-        except FileNotFoundError:
-            QMessageBox.critical(
-                self,
-                "Erreur ouverture PDF",
-                f"Impossible d'ouvrir le PDF avec Adobe Reader.\nChemin attendu: {adobe_exe_path}\nFichier: {pdf_path}"
-            )
+    # def open_pdf_with_adobe(self, item):
+    #     adobe_exe_path = self.context.config.get_exe_by_key("adobe")
+    #     doc_dict = self.context.repository.get_doc_by_key(item.text())
+    #     pdf_path = Path(doc_dict['pdf']).resolve()
+    #     try:
+    #         self.context.process_service.open_with(adobe_exe_path, pdf_path)
+    #     except FileNotFoundError:
+    #         QMessageBox.critical(
+    #             self,
+    #             "Erreur ouverture PDF",
+    #             f"Impossible d'ouvrir le PDF avec Adobe Reader.\nChemin attendu: {adobe_exe_path}\nFichier: {pdf_path}"
+    #         )
 
-    def open_pdf_with_pdfxchange(self, item):
-        pdf_xchange_exe_path = self.context.config.get_exe_by_key('pdf_xchange')
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict.get("pdf", "")).resolve()
+    # def open_pdf_with_pdfxchange(self, item):
+    #     pdf_xchange_exe_path = self.context.config.get_exe_by_key('pdf_xchange')
+    #     doc_dict = self.context.repository.get_doc_by_key(item.text())
+    #     pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
-        if not pdf_path.exists():
-            QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
-            return
+    #     if not pdf_path.exists():
+    #         QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
+    #         return
 
-        try:
-            self.context.process_service.open_with(
-                str(pdf_xchange_exe_path),
-                str(pdf_path),
-                '/A',
-                "page=1&fullscreen=yes=OpenParameters"
-                )
-        except OSError as error:
-            QMessageBox.critical(self, "Erreur PDF XChange", str(error))
+    #     try:
+    #         self.context.process_service.open_with(
+    #             str(pdf_xchange_exe_path),
+    #             str(pdf_path),
+    #             '/A',
+    #             "page=1&fullscreen=yes=OpenParameters"
+    #             )
+    #     except OSError as error:
+    #         QMessageBox.critical(self, "Erreur PDF XChange", str(error))
 
-    def open_pdf_with_okular(self, item):
-        okular_exe_path = self.context.config.get_exe_by_key('okular')
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict.get("pdf", "")).resolve()
+    # def open_pdf_with_okular(self, item):
+    #     okular_exe_path = self.context.config.get_exe_by_key('okular')
+    #     doc_dict = self.context.repository.get_doc_by_key(item.text())
+    #     pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
-        if not pdf_path.exists():
-            QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
-            return
+    #     if not pdf_path.exists():
+    #         QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
+    #         return
 
-        try:
-            self.context.process_service.open_with(okular_exe_path, pdf_path)
-        except OSError as error:
-            QMessageBox.critical(self, "Erreur Okular", str(error))
+    #     try:
+    #         self.context.process_service.open_with(okular_exe_path, pdf_path)
+    #     except OSError as error:
+    #         QMessageBox.critical(self, "Erreur Okular", str(error))
 
-    def open_tex_in_vscode(self, item):
-        code_path_exe = self.context.config.get_exe_by_key("code")
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
-        tex_path = Path(doc_dict.get("tex", "")).resolve()
+    # def open_tex_in_vscode(self, item):
+    #     code_path_exe = self.context.config.get_exe_by_key("code")
+    #     doc_dict = self.context.repository.get_doc_by_key(item.text())
+    #     tex_path = Path(doc_dict.get("tex", "")).resolve()
 
-        if not tex_path.exists():
-            QMessageBox.warning(self, "Fichier introuvable", f"Fichier .tex introuvable\n{tex_path}")
-            return
+    #     if not tex_path.exists():
+    #         QMessageBox.warning(self, "Fichier introuvable", f"Fichier .tex introuvable\n{tex_path}")
+    #         return
 
-        try:
-            self.context.process_service.open_with(code_path_exe, tex_path)
-        except OSError as error:
-            QMessageBox.critical(self, "Erreur VS Code", str(error))
+    #     try:
+    #         self.context.process_service.open_with(code_path_exe, tex_path)
+    #     except OSError as error:
+    #         QMessageBox.critical(self, "Erreur VS Code", str(error))
 
-    def build_search_filters(self) -> SearchFilters:
+    # def build_search_filters(self) -> SearchFilters:
 
-        return SearchFilters(
-            pattern=self.search_input.text().strip(),
-            active_prefixes=[
-                prefix
-                for prefix, cb in self.key_filter_actions.items()
-                if cb.isChecked()
-            ],
-            active_fields=[
-                field
-                for field, cb in self.field_actions.items()
-                if cb.isChecked()
-            ],
-            empty_fields=[
-                field
-                for field, cb in self.empty_filters.items()
-                if cb.isChecked()
-            ],
-            sort_mode=self.sort_order_combo.currentIndex(),
-        )
+    #     return SearchFilters(
+    #         pattern=self.search_input.text().strip(),
+    #         active_prefixes=[
+    #             prefix
+    #             for prefix, cb in self.key_filter_actions.items()
+    #             if cb.isChecked()
+    #         ],
+    #         active_fields=[
+    #             field
+    #             for field, cb in self.field_actions.items()
+    #             if cb.isChecked()
+    #         ],
+    #         empty_fields=[
+    #             field
+    #             for field, cb in self.empty_filters.items()
+    #             if cb.isChecked()
+    #         ],
+    #         sort_mode=self.sort_order_combo.currentIndex(),
+    #     )
 
-    def update_results(self):
+    # def update_results(self):
 
-        filters = self.build_search_filters()
+    #     filters = self.build_search_filters()
 
-        results = self.search_controller.search(filters)
+    #     results = self.search_controller.search(filters)
 
-        self.results_list.clear()
+    #     self.results_list.clear()
 
-        for key, _ in results:
-            self.results_list.addItem(key)
+    #     for key, _ in results:
+    #         self.results_list.addItem(key)
     # ======================================
     # PDF
     # ======================================

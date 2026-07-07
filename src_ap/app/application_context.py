@@ -16,6 +16,7 @@ from src_ap.services.search_service import SearchService
 from src_ap.controllers.progression_controller import ProgressionController
 from src_ap.controllers.code_index_controller import CodeIndexController
 from src_ap.controllers.session_controller import SessionController
+from src_ap.services.search_pdf_service import SearchPDFService
 
 from src.services.document_repository import DocumentRepository
 
@@ -40,6 +41,7 @@ class AppContext:
     document_controller: ProgressionDocumentController
     code_index_controller: CodeIndexController
     document_repository: DocumentRepository
+    search_pdf_service: SearchPDFService
 
 def create_context(main_window) -> AppContext:
 
@@ -92,6 +94,10 @@ def create_context(main_window) -> AppContext:
         default_theme=theme_name
         )
 
+    search_pdf_service = SearchPDFService(
+        repository=document_repository,
+    )
+
     return AppContext(
         persistence_service=persistence_service,
         config=config,
@@ -109,5 +115,6 @@ def create_context(main_window) -> AppContext:
         search_service=search_service,
         document_controller=document_controller,
         theme_service=theme_service,
-        document_repository=document_repository
+        document_repository=document_repository,
+        search_pdf_service=search_pdf_service
     )
