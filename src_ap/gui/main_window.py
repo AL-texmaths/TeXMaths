@@ -13,6 +13,7 @@ from src_ap.gui.dialogs.unused_items_dialog import UnusedItemsDialog
 from src_ap.gui.tabs.document_tab import DocumentTab
 from src_ap.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
 
+from src.update_data_index import update_data_index
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import (
@@ -213,6 +214,7 @@ class MainWindow(QWidget):
 
         update_menu = QMenu("Mise à jour", self)
         update_menu.addAction(self.action_manager.action("update_code_index_main"))
+        update_menu.addAction(self.action_manager.action("update_data_index_main"))
 
         file_menu = QMenu("Fichier", self)
         file_menu.addAction(self.action_manager.action("load_progression"))
@@ -296,7 +298,14 @@ class MainWindow(QWidget):
             "Info",
             f"Updated code index at {self.context.paths.code_index_file}"
         )
-
+    def update_data_index_main(self):
+        result = update_data_index()
+        QMessageBox.information(
+            self,
+            "Info",
+            f"Updated data index at {self.context.paths.data_index_file}"
+        )
+        return result
     
     def open_catalogue(self, name):
         catalogue = self.context.catalogue_service.get_catalogue_from_name(name)

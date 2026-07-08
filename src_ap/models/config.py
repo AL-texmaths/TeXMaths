@@ -81,6 +81,7 @@ class ActionsConfig(BaseModel):
     set_right_focus: ActionSettings
     open_config_file: ActionSettings
     update_code_index_main: ActionSettings
+    update_data_index_main: ActionSettings
     load_progression: ActionSettings
     save_progression: ActionSettings
     save_as_progression: ActionSettings

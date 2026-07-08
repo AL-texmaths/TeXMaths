@@ -375,6 +375,13 @@
             "icon": null,
             "checkable": false
         },
+        "update_data_index_main": {
+            "text": "Mettre à jour l'index de données",
+            "shortcut": "Ctrl+Alt+F",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
         "load_progression": {
             "text": "Charger une progression",
             "shortcut": "special:Open",

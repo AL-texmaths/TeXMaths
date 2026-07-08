@@ -156,7 +156,7 @@ def get_doc_dict(tex_relpath, str_id, doc_type, logger=print):
     errors, warns = update_doc_dict(ex_dict, logger=logger)
     return ex_dict, errors, warns
 
-def update_json(logger=print):
+def update_data_index(logger=print):
     """
     """
     Data_dict = {}
@@ -185,5 +185,5 @@ def update_json(logger=print):
 
 if __name__ == "__main__":
     print('UPDATING : data index ...')
-    update_json()
+    update_data_index()
     print(f'module {__file__} ok')
