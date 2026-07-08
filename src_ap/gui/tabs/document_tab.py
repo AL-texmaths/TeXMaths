@@ -121,6 +121,7 @@ class PdfContextualMenu(QMenu):
         self.context = context
         self.results_list = results_list
         self.pdf_documents_controller = pdf_documents_controller
+        self.current_item = None
 
         copy_enonce_action = self.add_action(
             "Copier l'exemple minimal LaTeX",
@@ -161,9 +162,7 @@ class PdfContextualMenu(QMenu):
         action = QAction(text, self)
         action.setEnabled(enabled)
         action.triggered.connect(
-            lambda checked=False,
-            cb=callback,
-            it=self.results_list.currentItem(): cb(it)
+            lambda checked=False, cb=callback: cb(self.current_item)
         )
         self.addAction(action)
     
@@ -233,6 +232,7 @@ class ResultsList(QListWidget):
             return
 
         self.setCurrentItem(item)
+        self.pdf_context_menu.current_item = item
 
         self.pdf_context_menu.exec_(self.viewport().mapToGlobal(position))
 
