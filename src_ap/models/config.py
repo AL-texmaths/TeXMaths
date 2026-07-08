@@ -6,6 +6,7 @@ class CurrentSettings(BaseModel):
     type: str | None
     current_file_path: str | None
     code_index_file_name: str | None
+    pdf_data_file_name: str | None
 
     @property
     def size(self) -> tuple[int, int]:

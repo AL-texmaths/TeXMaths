@@ -293,7 +293,8 @@
             "catalogue": "Cycle 4 BO 2026",
             "type": "Automatismes",
             "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
-            "code_index_file_name": "code_index.json"
+            "code_index_file_name": "code_index.json",
+            "pdf_data_file_name": "data_index.json"
         }
     },
     "actions": {

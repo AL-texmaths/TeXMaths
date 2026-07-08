@@ -30,7 +30,7 @@ class PdfDocumentsController:
             QMessageBox.information(self, "Adobe Reader non trouvé", "Adobe Reader n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
+        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict['pdf']).resolve()
         try:
             self.context.process_service.open_with(adobe_exe_path, pdf_path)
@@ -48,7 +48,7 @@ class PdfDocumentsController:
             QMessageBox.information(self, "PDF XChange non trouvé", "PDF XChange n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
+        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
         if not pdf_path.exists():
@@ -72,7 +72,7 @@ class PdfDocumentsController:
             QMessageBox.information(self, "Okular non trouvé", "Okular n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
+        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
         pdf_path = Path(doc_dict.get("pdf", "")).resolve()
 
         if not pdf_path.exists():
@@ -91,7 +91,7 @@ class PdfDocumentsController:
             QMessageBox.information(self, "VS Code non trouvé", "VS Code n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
+        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
         tex_path = Path(doc_dict.get("tex", "")).resolve()
 
         if not tex_path.exists():
@@ -104,7 +104,7 @@ class PdfDocumentsController:
             QMessageBox.critical(self, "Erreur VS Code", str(error))
 
     def copy_enonce_for_item(self, item):
-        doc_dict = self.context.repository.get_doc_by_key(item.text())
+        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
         enonce = doc_dict.get("enonce", "")
 
         if not enonce:
@@ -188,7 +188,7 @@ class ResultsList(QListWidget):
         key = item.text()
 
         pdf_path = Path(
-            self.context.repository
+            self.context.document_repository
             .get_doc_by_key(key)
             .get("preview", "")
         )
@@ -203,7 +203,7 @@ class ResultsList(QListWidget):
 
         self.pdf_viewer.document.load(str(pdf_path))
 
-        document = self.context.repository.get_doc_by_key(key)
+        document = self.context.document_repository.get_doc_by_key(key)
 
         self.metadata_view.show_document(document)
 
@@ -238,9 +238,10 @@ class SearchInput(QLineEdit):
 
 
 class DocumentTab(QWidget):
-    def __init__(self, context):
+    def __init__(self, context, filter_pdf_doc_menu):
         super().__init__()
         self.context = context
+        self.filter_pdf_doc_menu = filter_pdf_doc_menu
 
         self.pdf_viewer = PdfViewerWidget()
         self.pdf_documents_controller = PdfDocumentsController(context)
@@ -315,16 +316,8 @@ class DocumentTab(QWidget):
 
         return SearchFilters(
             pattern=self.search_input.text().strip(),
-            active_prefixes=[
-                prefix
-                for prefix, cb in self.key_filter_actions.items()
-                if cb.isChecked()
-            ],
-            active_fields=[
-                field
-                for field, cb in self.field_actions.items()
-                if cb.isChecked()
-            ],
+            active_prefixes=self.filter_pdf_doc_menu.get_checked_types(),
+            active_fields=self.filter_pdf_doc_menu.get_checked_fields(),
             empty_fields=[
                 field
                 for field, cb in self.empty_filters.items()
@@ -336,10 +329,20 @@ class DocumentTab(QWidget):
     def update_results(self):
 
         filters = self.build_search_filters()
+        print("filters:", filters)
 
         results = self.search_pdf_controller.search(filters)
+        print("results:", results)
 
         self.results_list.clear()
 
         for key, _ in results:
             self.results_list.addItem(key)
+    
+    def load_data(self):
+        self.context.document_repository.load()
+        types = self.context.document_repository.get_types()
+        fields = self.context.document_repository.get_fields()
+
+        self.filter_pdf_doc_menu.rebuild_types_menu(types)
+        self.filter_pdf_doc_menu.rebuild_fields_menu(fields)

@@ -11,6 +11,7 @@ from src_ap.gui.panels.progression_panel import ProgressionPanel
 from src_ap.controllers.theme_controller import ThemeController
 from src_ap.gui.dialogs.unused_items_dialog import UnusedItemsDialog
 from src_ap.gui.tabs.document_tab import DocumentTab
+from src_ap.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
 
 
 from PySide6.QtCore import Qt
@@ -112,8 +113,9 @@ class MainWindow(QWidget):
 
         self.tab_widget = QTabWidget()
         self.tab_widget.addTab(self.splitter, "Progression")
-        self.doument_tab = DocumentTab(self.context)
-        self.tab_widget.addTab(self.doument_tab, "Documents")
+        self.document_tab = DocumentTab(self.context, self.filter_pdf_doc_menu)
+        self.document_tab.load_data()
+        self.tab_widget.addTab(self.document_tab, "Documents")
 
         self.main_layout.addWidget(self.tab_widget)
 
@@ -227,12 +229,15 @@ class MainWindow(QWidget):
         )
         self.theme_menu_builder.populate(theme_menu)
 
+        self.filter_pdf_doc_menu = FilterPDFDocumentsMenu("Filtrer les documents PDF", self)
+
         edit_menu.addMenu(theme_menu)
         edit_menu.addMenu(open_catalogue_menu)
         menu_bar.addMenu(file_menu)
         menu_bar.addMenu(edit_menu)
         menu_bar.addMenu(progression_menu)
         menu_bar.addMenu(update_menu)
+        menu_bar.addMenu(self.filter_pdf_doc_menu)
         self.main_layout.setMenuBar(menu_bar)
 
     def register_actions(self):

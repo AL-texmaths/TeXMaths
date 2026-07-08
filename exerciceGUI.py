@@ -374,16 +374,16 @@ class RegexPDFSearchApp(QWidget):
             except Exception:
                 pass
 
-    def load_json_only(self):
-        try:
-            data = self.context.repository.load()
-        except Exception as e:
-            QMessageBox.critical(self, "Erreur JSON", str(e))
-            data = {}
+    # def load_json_only(self):
+    #     try:
+    #         data = self.context.repository.load()
+    #     except Exception as e:
+    #         QMessageBox.critical(self, "Erreur JSON", str(e))
+    #         data = {}
 
-        self.rebuild_types_menu(data)
-        self.rebuild_fields_menu(data)
-        self.rebuild_empty_keys_menu()
+    #     self.rebuild_types_menu(data)
+    #     self.rebuild_fields_menu(data)
+    #     self.rebuild_empty_keys_menu()
 
     def check_all_fields(self):
         for action in self.field_actions.values():
@@ -396,43 +396,43 @@ class RegexPDFSearchApp(QWidget):
             action.setChecked(False)
         self.update_results()
 
-    def clear_layout(self, layout):
-        while layout.count():
-            item = layout.takeAt(0)
-            widget = item.widget()
-            if widget is not None:
-                widget.deleteLater()
+    # def clear_layout(self, layout):
+    #     while layout.count():
+    #         item = layout.takeAt(0)
+    #         widget = item.widget()
+    #         if widget is not None:
+    #             widget.deleteLater()
 
-    def rebuild_types_menu(self, data):
-        self.clear_layout(self.types_layout)
-        self.key_filter_actions = {}
+    # def rebuild_types_menu(self, data):
+    #     self.clear_layout(self.types_layout)
+    #     self.key_filter_actions = {}
 
-        prefixes = set()
-        for key in data.keys():
-            prefix = key.split()[0]
-            prefixes.add(prefix)
+    #     prefixes = set()
+    #     for key in data.keys():
+    #         prefix = key.split()[0]
+    #         prefixes.add(prefix)
 
-        for prefix in sorted(prefixes):
-            cb = QCheckBox(prefix)
-            cb.setChecked(True)
-            cb.stateChanged.connect(self.update_results)
-            self.types_layout.addWidget(cb)
-            self.key_filter_actions[prefix] = cb
+    #     for prefix in sorted(prefixes):
+    #         cb = QCheckBox(prefix)
+    #         cb.setChecked(True)
+    #         cb.stateChanged.connect(self.update_results)
+    #         self.types_layout.addWidget(cb)
+    #         self.key_filter_actions[prefix] = cb
 
-    def rebuild_fields_menu(self, data):
-        self.clear_layout(self.fields_layout)
-        self.field_actions = {}
+    # def rebuild_fields_menu(self, data):
+    #     self.clear_layout(self.fields_layout)
+    #     self.field_actions = {}
 
-        all_keys = set()
-        for infos in data.values():
-            all_keys.update(infos.keys())
+    #     all_keys = set()
+    #     for infos in data.values():
+    #         all_keys.update(infos.keys())
 
-        for key in sorted(all_keys):
-            cb = QCheckBox(camel_to_sentence(key))
-            cb.setChecked(True)
-            cb.stateChanged.connect(self.update_results)
-            self.fields_layout.addWidget(cb)
-            self.field_actions[key] = cb
+    #     for key in sorted(all_keys):
+    #         cb = QCheckBox(camel_to_sentence(key))
+    #         cb.setChecked(True)
+    #         cb.stateChanged.connect(self.update_results)
+    #         self.fields_layout.addWidget(cb)
+    #         self.field_actions[key] = cb
 
     def rebuild_empty_keys_menu(self):
         self.clear_layout(self.empty_keys_layout)
@@ -709,8 +709,8 @@ if __name__ == "__main__":
     app.setStyle("Fusion")
     app.setStyleSheet(THEMES["Fusion Modern Dark Red"])  # thème par défaut
 
-    context = create_context()
-    window = RegexPDFSearchApp(context)
-    window.show()
-    window.load_json_only()
-    sys.exit(app.exec())
+    # context = create_context()
+    # window = RegexPDFSearchApp(context)
+    # window.show()
+    # window.load_json_only()
+    # sys.exit(app.exec())

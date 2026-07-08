@@ -1,5 +1,5 @@
-from pathlib import Path
 import re
+from pathlib import Path
 
 from src.models.search_filters import SearchFilters
 
@@ -23,7 +23,7 @@ class SearchPDFService:
             
             matching_items = []
 
-            for key, infos in self.repository.load().items():
+            for key, infos in self.repository.data.items():
                 prefix = key.split()[0]
 
                 if prefix not in filters.active_prefixes:
