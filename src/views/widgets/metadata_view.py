@@ -174,7 +174,7 @@ class MetadataView(QWidget):
             font=self.font()
         )
 
-        base = self.context.config.get_path_by_key("katex")
+        base = self.context.paths.katex
 
         base_url = QUrl.fromLocalFile(
                 str(base.resolve()) + "/"

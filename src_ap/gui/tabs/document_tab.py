@@ -170,12 +170,20 @@ class PdfContextualMenu(QMenu):
 
 
 class ResultsList(QListWidget):
-    def __init__(self, context, pdf_viewer, pdf_documents_controller: PdfDocumentsController):
+    def __init__(
+            self,
+            context,
+            pdf_viewer,
+            pdf_documents_controller: PdfDocumentsController,
+            metadata_view: MetadataView
+            ):
         super().__init__()
         self.context = context
         self.pdf_viewer = pdf_viewer
         self.pdf_documents_controller = pdf_documents_controller
+        self.metadata_view = metadata_view
         self.itemClicked.connect(self.load_pdf)
+        self.itemSelectionChanged.connect(self.on_selection_changed)
         self.setContextMenuPolicy(Qt.CustomContextMenu)
         self.customContextMenuRequested.connect(
             self.show_results_context_menu
@@ -183,15 +191,22 @@ class ResultsList(QListWidget):
     
         self.pdf_context_menu = PdfContextualMenu(self.context, self, self.pdf_documents_controller)
     
+    def on_selection_changed(self):
+        """Appelé quand la sélection change (par clic, flèches, focus)"""
+        current_item = self.currentItem()
+        if current_item is not None:
+            self.load_pdf(current_item)
+    
     def load_pdf(self, item):
 
         key = item.text()
 
-        pdf_path = Path(
-            self.context.document_repository
-            .get_doc_by_key(key)
-            .get("preview", "")
-        )
+        doc_dict = self.context.document_repository.get_doc_by_key(key)
+        pdf_path = doc_dict.get("preview") or doc_dict.get("pdf")  
+        pdf_path = Path(pdf_path).resolve()
+
+        print(f"Loading PDF for key: {key}")
+        print(f"PDF path: {pdf_path}")
 
         if not pdf_path.exists():
             QMessageBox.critical(
@@ -259,15 +274,6 @@ class DocumentTab(QWidget):
 
         # search layout
         left_layout = QVBoxLayout()
-
-        self.results_list = ResultsList(self.context, self.pdf_viewer, self.pdf_documents_controller)
-        self.results_list.installEventFilter(self)
-        
-        self.search_input = SearchInput(self.update_results, self.results_list)
-        self.search_input.installEventFilter(self)
-
-        left_layout.addWidget(self.search_input)
-        left_layout.addWidget(self.results_list)
     
         left_widget = QWidget()
         left_widget.setLayout(left_layout)
@@ -285,6 +291,20 @@ class DocumentTab(QWidget):
         self.inner_splitter.addWidget(
             self.metadata_view
         )
+
+        self.results_list = ResultsList(
+            self.context,
+            self.pdf_viewer,
+            self.pdf_documents_controller,
+            self.metadata_view
+            )
+        self.results_list.installEventFilter(self)
+        
+        self.search_input = SearchInput(self.update_results, self.results_list)
+        self.search_input.installEventFilter(self)
+
+        left_layout.addWidget(self.search_input)
+        left_layout.addWidget(self.results_list)
 
         right_layout.addWidget(self.inner_splitter)
         QTimer.singleShot(0, self._set_initial_splitter_sizes)
@@ -338,10 +358,8 @@ class DocumentTab(QWidget):
     def update_results(self):
 
         filters = self.build_search_filters()
-        print("filters:", filters)
 
         results = self.search_pdf_controller.search(filters)
-        print("results:", results)
 
         self.results_list.clear()
 

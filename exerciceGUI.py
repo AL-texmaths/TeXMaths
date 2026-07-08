@@ -340,39 +340,39 @@ class RegexPDFSearchApp(QWidget):
     #     except Exception:
     #         pass
 
-    def eventFilter(self, obj, event):
-        """Intercept key presses on the results list so that Up/Down
-        act like a click (chargent l'item courant).
-        """
-        try:
-            if obj is self.search_input and event.type() == QEvent.KeyPress:#type:ignore[reportAttributeAccessIssue]
-                if event.key() == Qt.Key_Down:#type:ignore[reportAttributeAccessIssue]
-                    if self.results_list.count() > 0:
-                        self.results_list.setFocus()
-                        self.results_list.setCurrentRow(0)
-                        self._load_current_item_if_any()
-                    return True
-            if obj is self.results_list and event.type() == QEvent.KeyPress:#type:ignore[reportAttributeAccessIssue]
-                key = event.key()
-                if key in (Qt.Key_Up, Qt.Key_Down):#type:ignore[reportAttributeAccessIssue]
-                    # Schedule loading after the key event is processed
-                    QTimer.singleShot(0, self._load_current_item_if_any)
-                elif key in (Qt.Key_Return, Qt.Key_Enter):#type:ignore[reportAttributeAccessIssue]
-                    item = self.results_list.currentItem()
-                    if item is not None:
-                        self.open_pdf_with_pdfxchange(item)
-                    return True
-        except Exception:
-            pass
-        return super().eventFilter(obj, event)
+    # def eventFilter(self, obj, event):
+    #     """Intercept key presses on the results list so that Up/Down
+    #     act like a click (chargent l'item courant).
+    #     """
+    #     try:
+    #         if obj is self.search_input and event.type() == QEvent.KeyPress:#type:ignore[reportAttributeAccessIssue]
+    #             if event.key() == Qt.Key_Down:#type:ignore[reportAttributeAccessIssue]
+    #                 if self.results_list.count() > 0:
+    #                     self.results_list.setFocus()
+    #                     self.results_list.setCurrentRow(0)
+    #                     self._load_current_item_if_any()
+    #                 return True
+    #         if obj is self.results_list and event.type() == QEvent.KeyPress:#type:ignore[reportAttributeAccessIssue]
+    #             key = event.key()
+    #             if key in (Qt.Key_Up, Qt.Key_Down):#type:ignore[reportAttributeAccessIssue]
+    #                 # Schedule loading after the key event is processed
+    #                 QTimer.singleShot(0, self._load_current_item_if_any)
+    #             elif key in (Qt.Key_Return, Qt.Key_Enter):#type:ignore[reportAttributeAccessIssue]
+    #                 item = self.results_list.currentItem()
+    #                 if item is not None:
+    #                     self.open_pdf_with_pdfxchange(item)
+    #                 return True
+    #     except Exception:
+    #         pass
+    #     return super().eventFilter(obj, event)
 
-    def _load_current_item_if_any(self):
-        item = getattr(self.results_list, 'currentItem')()
-        if item is not None:
-            try:
-                self.load_pdf(item)
-            except Exception:
-                pass
+    # def _load_current_item_if_any(self):
+    #     item = getattr(self.results_list, 'currentItem')()
+    #     if item is not None:
+    #         try:
+    #             self.load_pdf(item)
+    #         except Exception:
+    #             pass
 
     # def load_json_only(self):
     #     try:
