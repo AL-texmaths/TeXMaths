@@ -223,15 +223,24 @@ class ResultsList(QListWidget):
 
 
 class SearchInput(QLineEdit):
-    def __init__(self, callback):
+    def __init__(self, callback, results_list=None):
         super().__init__()
         self.setPlaceholderText("Recherche (regex)")
         self.textChanged.connect(self.schedule_search)
         self.callback = callback
+        self.results_list = results_list
 
         self.search_timer = QTimer()
         self.search_timer.setSingleShot(True)
         self.search_timer.timeout.connect(self.callback)
+    
+    def keyPressEvent(self, event):
+        if event.key() == Qt.Key_Down:
+            if self.results_list and self.results_list.count() > 0:
+                self.results_list.setCurrentRow(0)
+                self.results_list.setFocus()
+                return
+        super().keyPressEvent(event)
         
     def schedule_search(self):
         self.search_timer.start(300)
@@ -251,10 +260,10 @@ class DocumentTab(QWidget):
         # search layout
         left_layout = QVBoxLayout()
 
-        self.search_input = SearchInput(self.update_results)
-
         self.results_list = ResultsList(self.context, self.pdf_viewer, self.pdf_documents_controller)
         self.results_list.installEventFilter(self)
+        
+        self.search_input = SearchInput(self.update_results, self.results_list)
         self.search_input.installEventFilter(self)
 
         left_layout.addWidget(self.search_input)
@@ -347,28 +356,3 @@ class DocumentTab(QWidget):
         self.filter_pdf_doc_menu.rebuild_types_menu(types)
         self.filter_pdf_doc_menu.rebuild_fields_menu(fields)
     
-    def eventFilter(self, obj, event):
-        """Intercept key presses on the results list so that Up/Down
-        act like a click (chargent l'item courant).
-        """
-        try:
-            if obj is self.search_input and event.type() == QEvent.KeyPress:#type:ignore[reportAttributeAccessIssue]
-                if event.key() == Qt.Key_Down:#type:ignore[reportAttributeAccessIssue]
-                    if self.results_list.count() > 0:
-                        self.results_list.setFocus()
-                        self.results_list.setCurrentRow(0)
-                        self._load_current_item_if_any()
-                    return True
-            if obj is self.results_list and event.type() == QEvent.KeyPress:#type:ignore[reportAttributeAccessIssue]
-                key = event.key()
-                if key in (Qt.Key_Up, Qt.Key_Down):#type:ignore[reportAttributeAccessIssue]
-                    # Schedule loading after the key event is processed
-                    QTimer.singleShot(0, self._load_current_item_if_any)
-                elif key in (Qt.Key_Return, Qt.Key_Enter):#type:ignore[reportAttributeAccessIssue]
-                    item = self.results_list.currentItem()
-                    if item is not None:
-                        self.open_pdf_with_pdfxchange(item)
-                    return True
-        except Exception:
-            pass
-        return super().eventFilter(obj, event)
