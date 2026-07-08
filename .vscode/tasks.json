@@ -1,6 +1,19 @@
 {
     "tasks": [
         {
+            "label": "Compiler les PDF manquants",
+            "type": "shell",
+            "command": "find ${input:findArgs} | while read -r tex; do pdf=\"${tex%.tex}.pdf\"; [ -e \"$pdf\" ] || latexmk -pdf \"$tex\"; done",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "shell": {
+                    "executable": "bash",
+                    "args": ["-c"]
+                }
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "split main",
             "type": "process",
             "command": "${workspaceFolder}/.venv/bin/python",
