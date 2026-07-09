@@ -216,6 +216,11 @@
                     "name": "Fiche méthode",
                     "dir_name": "fiches_methode",
                     "tex_name": "fiche_methode-*.tex"
+                },
+                "flash":{
+                    "name": "Flash",
+                    "dir_name": "flash",
+                    "tex_name": "flash-*.tex"
                 }
             }
         },

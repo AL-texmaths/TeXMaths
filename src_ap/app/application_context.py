@@ -98,7 +98,7 @@ def create_context(main_window) -> AppContext:
         )
 
     search_pdf_service = SearchPDFService(
-        repository=pedago_data_service,
+        pedago_data_service=pedago_data_service,
     )
 
     html_service = HtmlService()

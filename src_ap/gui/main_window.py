@@ -218,7 +218,6 @@ class MainWindow(QWidget):
         update_menu.addAction(self.action_manager.action("update_data_index_main"))
         latexmk_menu = QMenu("Compiler tous les fichiers .tex", self)
         for _type in self.latex_service.types_dict.values():
-            print(_type)
             latexmk_menu.addAction(
                 QAction(
                     f"latexmk - {_type.dir_name}/{_type.tex_name}",

@@ -10,14 +10,6 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
->>> possibilité de recompiler les fichiers modifés aec latexmk :
---> cd data/latex/activites
---> latexmk -lualatex -interaction=nonstopmode -file-line-error -synctex=1 -shell-escape activite-*.tex
---> cd ../diapo
---> latexmk -lualatex -interaction=nonstopmode -file-line-error -synctex=1 -shell-escape diapo-*.tex
---> cd ../dnbqcm
---> cd ../exercices
---> cd ../flash
 (cela correspond normalement aux "types" des index pedagogiques)
 >>> incorporate update_data_index and check_database into update_service
 >>> délégation des responsabilités du script document_tab

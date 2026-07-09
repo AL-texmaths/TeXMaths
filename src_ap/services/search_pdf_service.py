@@ -4,9 +4,9 @@ from src_ap.models.search_filters import SearchFilters
 
 class SearchPDFService:
 
-    def __init__(self, repository):
-        self.repository = repository
-    
+    def __init__(self, pedago_data_service):
+        self.pedago_data_service = pedago_data_service
+
     def search(
             self,
             filters: SearchFilters,
@@ -22,35 +22,35 @@ class SearchPDFService:
             
             matching_items = []
 
-            for key, infos in self.repository.data.items():
-                prefix = key.split()[0]
+            for key, pedadoc_obj in self.pedago_data_service.data.items():
+                _type = pedadoc_obj.type
 
-                if prefix not in filters.active_prefixes:
+                if _type not in filters.active_prefixes:
                     continue
 
                 # Filtre champs vides
-                skip = False
+                # skip = False
 
-                for field in filters.empty_fields:
-                    value = getattr(infos, field, "")
+                # for field in filters.empty_fields:
+                #     value = getattr(pedadoc_obj, field, "")
 
-                    if value not in ["", None, []]:
-                        skip = True
-                        break
-                if skip:
-                    continue
+                #     if value not in ["", None, []]:
+                #         skip = True
+                #         break
+                # if skip:
+                #     continue
 
                 # Rassembler les parties recherchables selon les champs actifs
                 searchable_parts = []
                 for field in filters.active_fields:
-                    value = getattr(infos, field, "")
+                    value = getattr(pedadoc_obj, field, "")
                     if isinstance(value, list):
                         searchable_parts.extend(str(v) for v in value)
                     else:
                         searchable_parts.append(str(value))
 
                 if regex.search(" ".join(searchable_parts)):
-                    matching_items.append((key, infos))
+                    matching_items.append((key, pedadoc_obj))
                 
             if filters.sort_mode == 0:
                 # Tri par ordre alphabétique

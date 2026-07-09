@@ -306,7 +306,6 @@ class DocumentTab(QWidget):
 
         self.key_filter_actions = {}
         self.field_actions = {}
-        self.empty_filters = {}
 
         self.sort_order_combo = QComboBox()
         self.sort_order_combo.addItem("Trier par ordre alphabétique")
@@ -338,11 +337,6 @@ class DocumentTab(QWidget):
             pattern=self.search_input.text().strip(),
             active_prefixes=self.filter_pdf_doc_menu.get_checked_types(),
             active_fields=self.filter_pdf_doc_menu.get_checked_fields(),
-            empty_fields=[
-                field
-                for field, cb in self.empty_filters.items()
-                if cb.isChecked()
-            ],
             sort_mode=self.sort_order_combo.currentIndex(),
         )
 
