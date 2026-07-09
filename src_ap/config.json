@@ -190,7 +190,34 @@
                 "objectifsApprentissage",
                 "prolongements",
                 "motsCles"
-            ]
+            ],
+            "pedago_doc_types":{
+                "activite":{
+                    "name": "Activité",
+                    "dir_name": "activites",
+                    "tex_name": "activite-*.tex"
+                },
+                "dnbqcm":{
+                    "name": "DNB QCM",
+                    "dir_name": "dnbqcm",
+                    "tex_name": "dnbqcm-*.tex"
+                },
+                "diapo":{
+                    "name": "Diaporama",
+                    "dir_name": "diapo",
+                    "tex_name": "diapo-*.tex"
+                },
+                "exercice":{
+                    "name": "Exercice",
+                    "dir_name": "exercices",
+                    "tex_name": "exercice-*-data.tex"
+                },
+                "fiche_methode":{
+                    "name": "Fiche méthode",
+                    "dir_name": "fiches_methode",
+                    "tex_name": "fiche_methode-*.tex"
+                }
+            }
         },
         "themes": {
             "VSCode Dark": {
@@ -392,6 +419,13 @@
         "update_data_index_main": {
             "text": "Mettre à jour l'index de données",
             "shortcut": "Ctrl+Alt+F",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "latexmk_all_tex_files": {
+            "text": "Compiler tous les fichiers .tex",
+            "shortcut": "Ctrl+Alt+L",
             "button": false,
             "icon": null,
             "checkable": false

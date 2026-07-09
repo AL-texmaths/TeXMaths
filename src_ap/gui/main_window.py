@@ -12,10 +12,11 @@ from src_ap.controllers.theme_controller import ThemeController
 from src_ap.gui.dialogs.unused_items_dialog import UnusedItemsDialog
 from src_ap.gui.tabs.document_tab import DocumentTab
 from src_ap.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
+from src_ap.services.latex_service import LatexService
 
 from src.update_data_index import update_data_index
 
-from PySide6.QtCore import Qt
+from PySide6.QtGui import Qt, QAction
 from PySide6.QtWidgets import (
     QMenuBar,
     QMenu,
@@ -61,6 +62,8 @@ class MainWindow(QWidget):
             config=self.context.config,
             on_theme_changed=self.apply_current_theme
         )
+
+        self.latex_service = LatexService(self.context)
 
     def init_connect_signals(self):
 
@@ -213,6 +216,19 @@ class MainWindow(QWidget):
         update_menu = QMenu("Mise à jour", self)
         update_menu.addAction(self.action_manager.action("update_code_index_main"))
         update_menu.addAction(self.action_manager.action("update_data_index_main"))
+        latexmk_menu = QMenu("Compiler tous les fichiers .tex", self)
+        for _type in self.latex_service.types_dict.values():
+            print(_type)
+            latexmk_menu.addAction(
+                QAction(
+                    f"latexmk - {_type.dir_name}/{_type.tex_name}",
+                    self,
+                    triggered=lambda _: self.latexmk_all_tex_files_for_type(_type)
+                )
+            )
+        latexmk_menu.addSeparator()
+        latexmk_menu.addAction(self.action_manager.action("latexmk_all_tex_files"))
+        update_menu.addMenu(latexmk_menu)
 
         file_menu = QMenu("Fichier", self)
         file_menu.addAction(self.action_manager.action("load_progression"))
@@ -305,6 +321,12 @@ class MainWindow(QWidget):
         )
         return result
     
+    def latexmk_all_tex_files_for_type(self, _type):
+        self.latex_service.latexmk_all_tex_files_for_type(_type)
+
+    def latexmk_all_tex_files(self):
+        self.latex_service.latexmk_all_tex_files()
+
     def open_catalogue(self, name):
         catalogue = self.context.catalogue_service.get_catalogue_from_name(name)
         if catalogue:

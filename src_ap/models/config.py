@@ -50,8 +50,14 @@ class ThemeModel(BaseModel):
     colors: ThemeColorsModel
     style: ThemeStyleModel
 
+class PedagoDocTypeModel(BaseModel):
+    name: str
+    dir_name: str
+    tex_name: str
+
 class PedagoServiceModel(BaseModel):
     metadata: list[str]
+    pedago_doc_types: dict[str, PedagoDocTypeModel]
 
 class Settings(BaseModel):
     gui: GUIModel
@@ -86,6 +92,7 @@ class ActionsConfig(BaseModel):
     open_config_file: ActionSettings
     update_code_index_main: ActionSettings
     update_data_index_main: ActionSettings
+    latexmk_all_tex_files: ActionSettings
     load_progression: ActionSettings
     save_progression: ActionSettings
     save_as_progression: ActionSettings

@@ -34,9 +34,8 @@ class PedagoDataService:
     
     def get_types(self) -> list[str]:
         prefixes = set()
-        for key in self.data.keys():
-            prefix = key.split()[0]
-            prefixes.add(prefix)
+        for document in self.data.values():
+            prefixes.add(document.type)
         return sorted(prefixes)
 
     def get_fields(self) -> list[str]:

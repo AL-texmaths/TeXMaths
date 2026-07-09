@@ -14,6 +14,7 @@
 --> cd data/latex/activites
 --> latexmk -lualatex -interaction=nonstopmode -file-line-error -synctex=1 -shell-escape activite-*.tex
 --> cd ../diapo
+--> latexmk -lualatex -interaction=nonstopmode -file-line-error -synctex=1 -shell-escape diapo-*.tex
 --> cd ../dnbqcm
 --> cd ../exercices
 --> cd ../flash
@@ -49,8 +50,6 @@ permet le passage au niveau suivant
 ===============================================================================
 					LaTeX
 ===============================================================================
->>> erreur avec les svg : activite-decouverte_homothetie-1
->>> s'assurer de la compatibilité windows
 >>> revoir la macro \videoManim de texmaths-path
 >>> revoir le code avec lualatex/Expl3 pour amélioration
 % --------------------------

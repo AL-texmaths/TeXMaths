@@ -1,4 +1,4 @@
-%% Creator: Inkscape 1.4.3 (0d15f75042, 2025-12-25), www.inkscape.org
+%% Creator: Inkscape 1.2-alpha (e853764d, 2022-02-09), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
 %% Accompanies image file 'movie_svg-tex.pdf' (pdf, eps, ps)
 %%
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{205.561203bp}%
+    \setlength{\unitlength}{205.56120258bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
