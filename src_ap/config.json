@@ -178,8 +178,8 @@
                 "scrolling_step": 1
             }
         },
-        "pedago_service":{
-            "metadata":[
+        "pedago_service": {
+            "metadata": [
                 "BO",
                 "source",
                 "cycle",
@@ -304,7 +304,7 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Cycle 4 BO 2026",
+            "catalogue": "Cycle 3 BO 2020",
             "type": "Automatismes",
             "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
             "code_index_file_name": "code_index.json",

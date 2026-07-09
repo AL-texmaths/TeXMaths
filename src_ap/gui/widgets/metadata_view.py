@@ -8,9 +8,6 @@ from PySide6.QtWidgets import QWidget, QLabel, QVBoxLayout
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
 
-raise Exception("MetadataView is deprecated. Use src_ap/gui/widgets/metadata_view.py instead.")
-
-
 def camel_to_sentence(s: str) -> str:
     s = s.replace('_', ' ').replace('-', ' ')
     s = re.sub(r'(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])', ' ', s)

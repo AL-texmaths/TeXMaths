@@ -1,12 +1,40 @@
 import re
 import json
-from src.tools import get_config, LATEX_DIR, get_pattern
+from pathlib import Path
 """
 Lit les fichiers exercice-*-data.tex et stocke les
 données dans un fichier json
 """
+LATEX_DIR = Path("D:/Projects/TeXMaths/data/latex")
 CATALOGUES = LATEX_DIR / "catalogues"
-DOC_DICT = get_config()['settings']['index documents']
+DOC_DICT = {
+            "exercice": {
+                "folder name": "exercices",
+                "name pattern": "-(\\d{4})-(data|[a-z])\\.([A-Za-z\\.]+)$"
+            },
+            "activite": {
+                "folder name": "activites",
+                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+            },
+            "flash": {
+                "folder name": "flash",
+                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+            },
+            "diapo": {
+                "folder name": "diapo",
+                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+            },
+            "dnbqcm": {
+                "folder name": "dnbqcm",
+                "name pattern": "-(\\d{4})\\.([A-Za-z\\.]+)$"
+            }
+        }
+
+def get_pattern(doc_type, extension=None):
+    doc_dict = DOC_DICT.get(doc_type, {})
+    if extension is None:
+        return doc_dict.get('name pattern', '')
+    return doc_type + doc_dict.get('name pattern', '').replace('([A-Za-z\\.]+)$', f'{extension}$')
 
 CYCLE_VALUE_DEFAUT = 'cycle 4'
 BO_VALUE_DEFAULT = 'BO 2020'

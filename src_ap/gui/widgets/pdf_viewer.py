@@ -6,8 +6,6 @@ from PySide6.QtGui import QWheelEvent, QNativeGestureEvent
 from PySide6.QtPdfWidgets import QPdfView
 from PySide6.QtPdf import QPdfDocument
 
-raise Exception("PdfViewerWidget is deprecated. Use src_ap/gui/widgets/pdf_viewer.py instead.")
-
 
 class ZoomablePdfView(QPdfView):
 

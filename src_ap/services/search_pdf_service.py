@@ -1,7 +1,6 @@
 import re
-from pathlib import Path
 
-from src.models.search_filters import SearchFilters
+from src_ap.models.search_filters import SearchFilters
 
 class SearchPDFService:
 

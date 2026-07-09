@@ -11,11 +11,10 @@ from PySide6.QtWidgets import (
     QMenu,
     QComboBox,
     )
-from src.views.widgets.pdf_viewer import PdfViewerWidget
-from src.views.widgets.metadata_view import MetadataView
-from src.models.search_filters import SearchFilters
+from src_ap.models.search_filters import SearchFilters
+from src_ap.gui.widgets.pdf_viewer import PdfViewerWidget
+from src_ap.gui.widgets.metadata_view import MetadataView
 from src_ap.controllers.search_pdf_controller import SearchPDFController
-
 from src_ap.utils.resolve import resolve_executable
 
 
