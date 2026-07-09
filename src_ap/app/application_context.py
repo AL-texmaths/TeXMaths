@@ -19,6 +19,7 @@ from src_ap.controllers.session_controller import SessionController
 from src_ap.services.search_pdf_service import SearchPDFService
 from src_ap.services.pedago_data_service import PedagoDataService
 from src_ap.services.process_service import ProcessService
+from src_ap.services.html_service import HtmlService
 
 
 @dataclass
@@ -43,6 +44,7 @@ class AppContext:
     pedago_data_service: PedagoDataService
     search_pdf_service: SearchPDFService
     process_service: ProcessService
+    html_service: HtmlService
 
 def create_context(main_window) -> AppContext:
 
@@ -98,6 +100,8 @@ def create_context(main_window) -> AppContext:
     search_pdf_service = SearchPDFService(
         repository=pedago_data_service,
     )
+
+    html_service = HtmlService()
     
     process_service = ProcessService()
 
@@ -120,5 +124,6 @@ def create_context(main_window) -> AppContext:
         theme_service=theme_service,
         pedago_data_service=pedago_data_service,
         search_pdf_service=search_pdf_service,
-        process_service=process_service
+        process_service=process_service,
+        html_service=html_service
     )

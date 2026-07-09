@@ -12,7 +12,6 @@ except Exception:
     QWebEngineView = None
 
 from src.tools import camel_to_sentence
-from src.services.katex_service import KatexService
 
 
 class MetadataView(QWidget):
@@ -29,11 +28,6 @@ class MetadataView(QWidget):
 
         self.context = context
         self.pedago_config = context.config.settings.pedago_service
-        katex_dir = self.context.paths.katex
-
-        self.katex_service = KatexService(
-            QUrl.fromLocalFile(str(katex_dir.resolve()) + "/")
-        )
 
         self._last_body_html = None
         self.last_info_html = None
@@ -74,7 +68,7 @@ class MetadataView(QWidget):
         """
         bg_color, fg_color = self._get_palette_colors()
     
-        return self.katex_service.wrap_with_katex(
+        return self.context.html_service.render_document_metadata(
             body_html,
             bg_color=bg_color,
             fg_color=fg_color,
@@ -162,10 +156,10 @@ class MetadataView(QWidget):
 
         bg_color, fg_color = self._get_palette_colors()
         
-        full_html = self.katex_service.wrap_with_katex(
+        full_html = self.context.html_service.render_document_metadata(
             self._last_body_html,
-            bg_color,
-            fg_color,
+            bg_color=bg_color,
+            fg_color=fg_color,
             font=self.font()
         )
 

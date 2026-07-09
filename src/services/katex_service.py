@@ -7,10 +7,13 @@ class KatexService:
     Service KaTeX basé sur auto-render (comme ton HtmlService).
     """
 
-    _INLINE_PATTERN = re.compile(r"\$(.+?)\$", re.DOTALL)
+    # _INLINE_PATTERN = re.compile(r"\$(.+?)\$", re.DOTALL)
 
     def __init__(self, katex_base_path):
         self.base_path = katex_base_path
+        self.css = "katex.min.css"
+        self.js = "katex.min.js"
+        self.render = "contrib/auto-render.min.js"
 
     def wrap_with_katex(
         self,
@@ -20,9 +23,9 @@ class KatexService:
         font=None
     ) -> str:
 
-        css = "katex.min.css"
-        js = "katex.min.js"
-        render = "contrib/auto-render.min.js"
+        css = self.css
+        js = self.js
+        render = self.render
 
         bg = bg_color or "#ffffff"
         fg = fg_color or "#000000"

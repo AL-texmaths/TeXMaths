@@ -159,10 +159,8 @@ class MainWindow(QWidget):
         self.preview_panel = PreviewPanel(
             self.regex_panel,
             self.progression_panel,
-            self.context.theme_service,
-            self.context.code_service,
-            self.context.progression_analysis_service,
-            self.context.paths.katex
+            self.context,
+            katex_path=self.context.paths.katex
         )
     
     def apply_current_theme(self):

@@ -1,17 +1,17 @@
 from PySide6.QtCore import QUrl
 from PySide6.QtWebEngineWidgets import QWebEngineView
-from src_ap.services.html_service import HtmlService
 from src_ap.gui.panels.regex_panel import ViewMode
 
 class PreviewPanel(QWebEngineView):
-    def __init__(self, regex_panel, progression_panel, theme_service, code_service, analysis_service, katex_path=None):
+    def __init__(self, regex_panel, progression_panel, context, katex_path=None):
         super().__init__()
         self.regex_panel = regex_panel
         self.progression_panel = progression_panel
-        self.theme_service = theme_service
-        self.code_service = code_service
-        self.analysis_service = analysis_service
-        self.html_service = HtmlService()
+        self.context = context
+        self.theme_service = context.theme_service
+        self.code_service = context.code_service
+        self.analysis_service = context.progression_analysis_service
+        self.html_service = context.html_service
 
         if katex_path is not None:
             self.base_path = QUrl.fromLocalFile(str(katex_path) + "/")
@@ -35,7 +35,7 @@ class PreviewPanel(QWebEngineView):
             )
 
         html_no_render = "<br>".join(html_items)
-        html = self.html_service.render_list(html_no_render, self.theme_service.get_current_theme())
+        html = self.html_service.render_catalogue_list(html_no_render, self.theme_service.get_current_theme())
 
         self.set_html(html)
     
@@ -45,7 +45,7 @@ class PreviewPanel(QWebEngineView):
         row = self.regex_panel.list_widget.currentRow()
 
         if row < 0 or row >= len(self.regex_panel.current_matches):
-            html = self.html_service.render_entry(
+            html = self.html_service.render_catalogue_entry(
                 code="",
                 content="",
                 catalogue=self.regex_panel.selected_catalogue().name,
@@ -56,7 +56,7 @@ class PreviewPanel(QWebEngineView):
             return
 
         entry = self.regex_panel.current_matches[row]
-        html = self.html_service.render_entry(
+        html = self.html_service.render_catalogue_entry(
             code=entry.code,
             content=entry.text,
             catalogue=entry.catalogue.name,

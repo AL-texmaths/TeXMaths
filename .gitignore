@@ -8,6 +8,7 @@ data/latex/**/*.synctex
 data/latex/**/*.synctex.gz
 data/latex/**/*.fdb_latexmk
 data/latex/**/*.fls
+data/latex/**/*.synctex(busy)
 
 data/graphics/pdf
 data/tmp
@@ -26,4 +27,3 @@ data/graphics/*.db-wal
 data/graphics/*.db-shm
 data/graphics/.nextcloudsync.log
 .github
-.synctex(busy)
