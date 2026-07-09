@@ -17,7 +17,7 @@ from src_ap.controllers.progression_controller import ProgressionController
 from src_ap.controllers.code_index_controller import CodeIndexController
 from src_ap.controllers.session_controller import SessionController
 from src_ap.services.search_pdf_service import SearchPDFService
-from src_ap.services.document_repository import DocumentRepository
+from src_ap.services.pedago_data_service import PedagoDataService
 from src_ap.services.process_service import ProcessService
 
 
@@ -40,7 +40,7 @@ class AppContext:
     theme_service: ThemeService
     document_controller: ProgressionDocumentController
     code_index_controller: CodeIndexController
-    document_repository: DocumentRepository
+    pedago_data_service: PedagoDataService
     search_pdf_service: SearchPDFService
     process_service: ProcessService
 
@@ -56,7 +56,7 @@ def create_context(main_window) -> AppContext:
     paths = Paths(config)
     export_service = ExportService(config.codes)
     undo_redo_service = UndoRedoService()
-    document_repository = DocumentRepository(paths.code_index / config.settings.current.pdf_data_file_name)
+    pedago_data_service = PedagoDataService(paths.code_index / config.settings.current.pdf_data_file_name)
 
     code_index_document_controller = CodeIndexDocumentController(paths.code_index_file)
     code_index_data = code_index_document_controller.load_data()
@@ -96,7 +96,7 @@ def create_context(main_window) -> AppContext:
         )
 
     search_pdf_service = SearchPDFService(
-        repository=document_repository,
+        repository=pedago_data_service,
     )
     
     process_service = ProcessService()
@@ -118,7 +118,7 @@ def create_context(main_window) -> AppContext:
         search_service=search_service,
         document_controller=document_controller,
         theme_service=theme_service,
-        document_repository=document_repository,
+        pedago_data_service=pedago_data_service,
         search_pdf_service=search_pdf_service,
         process_service=process_service
     )

@@ -33,7 +33,7 @@ class SearchPDFService:
                 skip = False
 
                 for field in filters.empty_fields:
-                    value = infos.get(field, "")
+                    value = getattr(infos, field, "")
 
                     if value not in ["", None, []]:
                         skip = True
@@ -44,7 +44,7 @@ class SearchPDFService:
                 # Rassembler les parties recherchables selon les champs actifs
                 searchable_parts = []
                 for field in filters.active_fields:
-                    value = infos.get(field, "")
+                    value = getattr(infos, field, "")
                     if isinstance(value, list):
                         searchable_parts.extend(str(v) for v in value)
                     else:
@@ -58,6 +58,6 @@ class SearchPDFService:
                 matching_items.sort(key=lambda x: x[0].lower())  # Tri par nom
             elif filters.sort_mode == 1:
                 # Tri par date de modification du fichier PDF
-                matching_items.sort(key=lambda x: Path(x[1]["pdf"]).stat().st_mtime, reverse=True)
+                matching_items.sort(key=lambda x: x[1].get_pdf_modification_date(), reverse=True)
 
             return matching_items

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from PySide6.QtWidgets import QWidget, QVBoxLayout
 from PySide6.QtCore import Qt, QEvent
 from PySide6.QtGui import QWheelEvent, QNativeGestureEvent
@@ -94,9 +96,7 @@ class PdfViewerWidget(QWidget):
 
         self.view = ZoomablePdfView()
 
-        self.view.setDocument(
-            self.document
-        )
+        self.view.setDocument(self.document)
 
         # Connecter le signal du document pour réinitialiser le zoom à chaque chargement
         self.document.pageCountChanged.connect(self.view.reset_zoom)
@@ -108,8 +108,8 @@ class PdfViewerWidget(QWidget):
 
         layout.addWidget(self.view)
 
-    def load_pdf(self, pdf_path):
-        self.document.load(pdf_path)
+    def load_pdf(self, pdf_path: str | Path):
+        self.document.load(str(pdf_path))
 
     def clear(self):
         self.document.close()

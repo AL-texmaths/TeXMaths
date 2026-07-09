@@ -30,8 +30,8 @@ class PdfDocumentsController:
             QMessageBox.information(self, "Adobe Reader non trouvé", "Adobe Reader n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict['pdf']).resolve()
+        document = self.context.pedago_data_service.data.get(item.text())
+        pdf_path = document.pdf
         try:
             self.context.process_service.open_with(adobe_exe_path, pdf_path)
         except FileNotFoundError:
@@ -48,8 +48,8 @@ class PdfDocumentsController:
             QMessageBox.information(self, "PDF XChange non trouvé", "PDF XChange n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict.get("pdf", "")).resolve()
+        document = self.context.pedago_data_service.data.get(item.text())
+        pdf_path = Path(document.pdf).resolve()
 
         if not pdf_path.exists():
             QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
@@ -72,8 +72,8 @@ class PdfDocumentsController:
             QMessageBox.information(self, "Okular non trouvé", "Okular n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
-        pdf_path = Path(doc_dict.get("pdf", "")).resolve()
+        document = self.context.pedago_data_service.data.get(item.text())
+        pdf_path = Path(document.pdf).resolve()
 
         if not pdf_path.exists():
             QMessageBox.warning(self, "Fichier introuvable", f"Fichier PDF introuvable\n{pdf_path}")
@@ -91,8 +91,8 @@ class PdfDocumentsController:
             QMessageBox.information(self, "VS Code non trouvé", "VS Code n'est pas installé ou le chemin n'est pas configuré.")
             return
 
-        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
-        tex_path = Path(doc_dict.get("tex", "")).resolve()
+        document = self.context.pedago_data_service.data.get(item.text())
+        tex_path = document.tex
 
         if not tex_path.exists():
             QMessageBox.warning(self, "Fichier introuvable", f"Fichier .tex introuvable\n{tex_path}")
@@ -104,8 +104,8 @@ class PdfDocumentsController:
             QMessageBox.critical(self, "Erreur VS Code", str(error))
 
     def copy_enonce_for_item(self, item):
-        doc_dict = self.context.document_repository.get_doc_by_key(item.text())
-        enonce = doc_dict.get("enonce", "")
+        document = self.context.pedago_data_service.data.get(item.text())
+        enonce = document.enonce
 
         if not enonce:
             QMessageBox.information(self, "Exemple minimal", "Aucun énoncé LaTeX n'est disponible pour cet item")
@@ -198,14 +198,11 @@ class ResultsList(QListWidget):
     
     def load_pdf(self, item):
 
+        pedago_data =  self.context.pedago_data_service.data
         key = item.text()
+        document = pedago_data.get(key)
 
-        doc_dict = self.context.document_repository.get_doc_by_key(key)
-        pdf_path = doc_dict.get("preview") or doc_dict.get("pdf")  
-        pdf_path = Path(pdf_path).resolve()
-
-        print(f"Loading PDF for key: {key}")
-        print(f"PDF path: {pdf_path}")
+        pdf_path = document.pdf
 
         if not pdf_path.exists():
             QMessageBox.critical(
@@ -217,14 +214,9 @@ class ResultsList(QListWidget):
 
         self.pdf_viewer.document.load(str(pdf_path))
 
-        document = self.context.document_repository.get_doc_by_key(key)
-
         self.metadata_view.show_document(document)
 
-        self.current_enonce = document.get(
-            "enonce",
-            ""
-        )
+        self.current_enonce = document.enonce
     
     def show_results_context_menu(self, position):
         item = self.itemAt(position)
@@ -367,9 +359,9 @@ class DocumentTab(QWidget):
             self.results_list.addItem(key)
     
     def load_data(self):
-        self.context.document_repository.load()
-        types = self.context.document_repository.get_types()
-        fields = self.context.document_repository.get_fields()
+        self.context.pedago_data_service.load()
+        types = self.context.pedago_data_service.get_types()
+        fields = self.context.pedago_data_service.get_fields()
 
         self.filter_pdf_doc_menu.rebuild_types_menu(types)
         self.filter_pdf_doc_menu.rebuild_fields_menu(fields)

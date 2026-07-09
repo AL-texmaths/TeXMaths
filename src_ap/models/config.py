@@ -50,8 +50,12 @@ class ThemeModel(BaseModel):
     colors: ThemeColorsModel
     style: ThemeStyleModel
 
+class PedagoServiceModel(BaseModel):
+    metadata: list[str]
+
 class Settings(BaseModel):
     gui: GUIModel
+    pedago_service: PedagoServiceModel
     themes: dict[str, ThemeModel]
     current: CurrentSettings
 

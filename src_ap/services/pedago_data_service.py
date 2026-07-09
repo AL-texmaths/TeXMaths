@@ -3,7 +3,7 @@ from pathlib import Path
 from src_ap.models.pedago import PedagoDoc
 
 
-class PadagoDataService:
+class PedagoDataService:
     def __init__(self, pdf_data_path:Path|str):
         self.pdf_data_path = Path(pdf_data_path)
         self.data, self._data = {}, {}
@@ -31,5 +31,16 @@ class PadagoDataService:
                 else:
                     print(msg)
                 continue
+    
+    def get_types(self) -> list[str]:
+        prefixes = set()
+        for key in self.data.keys():
+            prefix = key.split()[0]
+            prefixes.add(prefix)
+        return sorted(prefixes)
 
-pedago_data_service = PadagoDataService('D:/Projects/TeXMaths/data/latex/catalogues/data_index.json')
+    def get_fields(self) -> list[str]:
+        fields = set()
+        for document in self.data.values():
+            fields.update(document.__dict__.keys())
+        return sorted(fields)

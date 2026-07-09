@@ -28,6 +28,7 @@ class MetadataView(QWidget):
         super().__init__(parent)
 
         self.context = context
+        self.pedago_config = context.config.settings.pedago_service
         katex_dir = self.context.paths.katex
 
         self.katex_service = KatexService(
@@ -88,16 +89,10 @@ class MetadataView(QWidget):
         """
         html_parts = []
 
-        for key, value in document.items():
+        for key in self.pedago_config.metadata:
 
-            if key in {
-                "type",
-                "id",
-                "pdf",
-                "preview",
-                "tex",
-                "enonce",
-            }:
+            value = getattr(document, key)
+            if value is None:
                 continue
 
             title = f"<b>{camel_to_sentence(key)} :</b>"

@@ -1,6 +1,7 @@
 from typing import Any
 from pathlib import Path
 from dataclasses import dataclass, field
+from datetime import datetime
 
 
 @dataclass
@@ -42,3 +43,10 @@ class PedagoDoc:
                 setattr(self, name, None)
             if isinstance(value, list) and "" in value:
                 print(f'WARNING: Empty string in list for field {name} in PedagoDoc {self.type} {self.id}')
+
+    def get_pdf_modification_date(self) -> datetime | None:
+        """Return the modification date of the PDF file."""
+        print(f'inside get_pdf_modification_date for {self.pdf}')
+        if self.pdf and self.pdf.exists():
+            return datetime.fromtimestamp(self.pdf.stat().st_mtime)
+        return None
