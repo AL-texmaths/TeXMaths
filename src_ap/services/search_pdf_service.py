@@ -57,6 +57,6 @@ class SearchPDFService:
                 matching_items.sort(key=lambda x: x[0].lower())  # Tri par nom
             elif filters.sort_mode == 1:
                 # Tri par date de modification du fichier PDF
-                matching_items.sort(key=lambda x: x[1].get_pdf_modification_date(), reverse=True)
+                matching_items.sort(key=lambda x: x[1].get_pdf_modification_date() or 0, reverse=True)
 
             return matching_items

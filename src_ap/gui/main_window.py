@@ -17,6 +17,7 @@ from src_ap.services.latex_service import LatexService
 from src.update_data_index import UpdateDataService
 from src.check_database import CheckDatabaseService
 
+from PySide6.QtCore import QTimer
 from PySide6.QtGui import Qt, QAction
 from PySide6.QtWidgets import (
     QMenuBar,
@@ -26,8 +27,9 @@ from PySide6.QtWidgets import (
     QTabWidget,
     QFileDialog,
     QWidget,
-    QMessageBox,
+    QMessageBox
 )
+from PySide6.QtGui import QKeySequence, QShortcut
 
 
 class MainWindow(QWidget):
@@ -54,6 +56,19 @@ class MainWindow(QWidget):
         self.context.theme_service.apply(self)
         self.update_search()
         self.regex_panel.search_line.setFocus()
+
+        self.shortcut_tab_1 = QShortcut(QKeySequence("Ctrl+&"), self)
+        self.shortcut_tab_1.activated.connect(self.go_tab_1)
+
+        self.shortcut_tab_2 = QShortcut(QKeySequence("Ctrl+é"), self)
+        self.shortcut_tab_2.activated.connect(self.go_tab_2)
+
+    def go_tab_1(self):
+        self.tab_widget.setCurrentIndex(0)
+        QTimer.singleShot(0, self.regex_panel.search_line.setFocus)
+    
+    def go_tab_2(self):
+        self.tab_widget.setCurrentIndex(1)
 
     def init_services(self):
 
@@ -116,7 +131,6 @@ class MainWindow(QWidget):
         self.splitter.addWidget(self.regex_panel)
         self.splitter.addWidget(self.preview_panel)
         self.splitter.addWidget(self.progression_panel)
-        self.tabs = [self.regex_panel, self.preview_panel, self.progression_panel]
 
         splitter_size = self.settings.gui.splitter.size
         self.splitter.setSizes(splitter_size)
@@ -126,6 +140,7 @@ class MainWindow(QWidget):
         self.document_tab = DocumentTab(self.context, self.filter_pdf_doc_menu)
         self.document_tab.load_data()
         self.tab_widget.addTab(self.document_tab, "Documents")
+        self.tabs = [self.tab_widget, self.document_tab]
 
         self.main_layout.addWidget(self.tab_widget)
 
@@ -229,7 +244,7 @@ class MainWindow(QWidget):
                 QAction(
                     f"latexmk - {_type.dir_name}/{_type.tex_name}",
                     self,
-                    triggered=lambda _: self.latexmk_all_tex_files_for_type(_type)
+                    triggered=lambda _, t=_type: self.latexmk_all_tex_files_for_type(t)
                 )
             )
         latexmk_menu.addSeparator()

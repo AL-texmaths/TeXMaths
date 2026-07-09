@@ -1,4 +1,5 @@
 import os
+import glob
 import subprocess
 
 
@@ -15,22 +16,27 @@ class LatexService:
              self.latexmk_all_tex_files_for_type(_type)
     
     def latexmk_all_tex_files_for_type(self, _type):
-            base_name = _type.tex_name
             cwd = str(self.context.paths.latex / _type.dir_name)
-            result = subprocess.Popen(
-                [
-                    "latexmk",
-                    "-lualatex",
-                    "-interaction=nonstopmode",
-                    "-file-line-error",
-                    "-shell-escape",
-                    "-recorder",
-                    "-synctex=1",
-                    base_name
-                    ],
-                cwd=cwd,
-                # stdout=subprocess.PIPE,
-                # stderr=subprocess.STDOUT,
-                text=True)
-            print(result.stdout)
-            return result
+            tex_files = glob.glob(os.path.join(cwd, _type.tex_name))
+            if not tex_files:
+                print(f"No files matching '{_type.tex_name}' in {cwd}")
+                return None
+            results = []
+            for tex_file in tex_files:
+                base_name = os.path.basename(tex_file)
+                print(f"Compiling {base_name} in {cwd} using latexmk...")
+                result = subprocess.Popen(
+                    [
+                        "latexmk",
+                        "-lualatex",
+                        "-interaction=nonstopmode",
+                        "-file-line-error",
+                        "-shell-escape",
+                        "-recorder",
+                        "-synctex=1",
+                        base_name
+                        ],
+                    cwd=cwd,
+                    text=True)
+                results.append(result)
+            return results
