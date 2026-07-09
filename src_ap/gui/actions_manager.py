@@ -1,5 +1,5 @@
 # actions_manager.py
-from PySide6.QtGui import QAction, Qt
+from PySide6.QtGui import QAction
 from PySide6.QtWidgets import QPushButton
 from PySide6.QtGui import QKeySequence
 

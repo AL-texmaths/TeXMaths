@@ -1,6 +1,7 @@
 import re
 import json
 from src_ap.app.application_context import create_context
+from src_ap.utils.textools import get_pattern
 """
 Lit les fichiers exercice-*-data.tex et stocke les
 données dans un fichier json
@@ -14,14 +15,8 @@ class UpdateDataService:
         
 
         self.cycle_value_default = 'cycle 4'
-        self.bo_value_default = 'BO 2020'
+        self.bo_value_default = 'BO 2026'
         self.logger = print
-
-    def get_pattern(self, doc_type, extension=None):
-        doc_dict = self.types_dict.get(doc_type, {})
-        if extension is None:
-            return doc_dict.name_pattern
-        return doc_type + doc_dict.name_pattern.replace('([A-Za-z\\.]+)$', f'{extension}$')
 
     @staticmethod
     def identity(value, **kwargs):
@@ -174,7 +169,7 @@ class UpdateDataService:
         for doc_type, doc_dict in self.types_dict.items():
             foldername = doc_dict.dir_name
             dirpath = self.latex_path / foldername
-            pattern = self.get_pattern(doc_type, 'tex').replace('(data|[a-z])', 'data')
+            pattern = get_pattern(self.types_dict, doc_type, 'tex').replace('(data|[a-z])', 'data')
             for file_path in dirpath.iterdir():
                 matches = re.findall(pattern, str(file_path))
                 if matches:

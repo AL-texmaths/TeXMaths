@@ -196,39 +196,52 @@
                     "name": "Activité",
                     "dir_name": "activites",
                     "tex_name": "activite-*.tex",
-                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z_\\.]+)$"
                 },
                 "dnbqcm":{
                     "name": "DNB QCM",
                     "dir_name": "dnbqcm",
                     "tex_name": "dnbqcm-*.tex",
-                    "name_pattern": "-(\\d{4})\\.([A-Za-z\\.]+)$"
+                    "name_pattern": "-(\\d{4})\\.([A-Za-z_\\.]+)$"
                 },
                 "diapo":{
                     "name": "Diaporama",
                     "dir_name": "diapo",
                     "tex_name": "diapo-*.tex",
-                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z_\\.]+)$"
                 },
                 "exercice":{
                     "name": "Exercice",
                     "dir_name": "exercices",
                     "tex_name": "exercice-*-data.tex",
-                    "name_pattern": "-(\\d{4})-(data|[a-z])\\.([A-Za-z\\.]+)$"
+                    "name_pattern": "-(\\d{4})-(data|[a-z])\\.([A-Za-z_\\.]+)$"
                 },
                 "fiche_methode":{
                     "name": "Fiche méthode",
                     "dir_name": "fiches_methode",
                     "tex_name": "fiche_methode-*.tex",
-                    "name_pattern": "-([A-Za-z_\\d]+)\\.([A-Za-z\\.]+)$"
+                    "name_pattern": "-([A-Za-z_\\d]+)\\.([A-Za-z_\\.]+)$"
                 },
                 "flash":{
                     "name": "Flash",
                     "dir_name": "flash",
                     "tex_name": "flash-*.tex",
-                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
+                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z_\\.]+)$"
                 }
-            }
+            },
+            "string_check_order": [
+                "\\documentclass",
+                "\\startdatakeys",
+                "\\enddatakeys",
+                "\\begin{document}",
+                "\\end{document}"
+            ],
+            "tex_non_optional_keys": [
+                "source",
+                "BO",
+                "cycle",
+                "objectifsApprentissage"
+            ]
         },
         "themes": {
             "VSCode Dark": {
@@ -420,16 +433,23 @@
             "icon": null,
             "checkable": false
         },
-        "update_code_index_main": {
+        "update_code_index": {
             "text": "Mettre à jour l'index des codes",
             "shortcut": "Ctrl+Alt+S",
             "button": false,
             "icon": null,
             "checkable": false
         },
-        "update_data_index_main": {
+        "update_data_index": {
             "text": "Mettre à jour l'index de données",
             "shortcut": "Ctrl+Alt+F",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "check_database": {
+            "text": "Vérifier la base de données",
+            "shortcut": "Ctrl+Alt+G",
             "button": false,
             "icon": null,
             "checkable": false

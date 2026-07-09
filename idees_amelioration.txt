@@ -10,7 +10,7 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
->>> incorporate update_data_index and check_database into update_service
+>>> probleme avec les warnings count de check database
 >>> délégation des responsabilités du script document_tab
 >>> délégation des responsabilités du script main_window
 >>> API: gérer les chemins non trouvé en affichant les dossiers

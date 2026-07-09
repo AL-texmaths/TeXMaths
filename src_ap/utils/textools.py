@@ -144,3 +144,10 @@ def update_code_index(
             json.dump(code_index_data, f, ensure_ascii=False, indent=4)
     
     return result
+
+
+def get_pattern(types_dict, doc_type, extension=None):
+        doc_dict = types_dict.get(doc_type, {})
+        if extension is None:
+            return doc_dict.name_pattern
+        return doc_type + doc_dict.name_pattern.replace('([A-Za-z_\\.]+)$', f'{extension}$')

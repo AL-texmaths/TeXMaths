@@ -15,6 +15,7 @@ from src_ap.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
 from src_ap.services.latex_service import LatexService
 
 from src.update_data_index import UpdateDataService
+from src.check_database import CheckDatabaseService
 
 from PySide6.QtGui import Qt, QAction
 from PySide6.QtWidgets import (
@@ -65,6 +66,10 @@ class MainWindow(QWidget):
 
         self.latex_service = LatexService(self.context)
         self.update_data_service = UpdateDataService(self.context)
+        self.check_database_service = CheckDatabaseService(
+            self.context.config.settings,
+            self.context.paths.latex
+            )
 
     def init_connect_signals(self):
 
@@ -215,8 +220,9 @@ class MainWindow(QWidget):
             progression_menu.addAction(action)
 
         update_menu = QMenu("Mise à jour", self)
-        update_menu.addAction(self.action_manager.action("update_code_index_main"))
-        update_menu.addAction(self.action_manager.action("update_data_index_main"))
+        update_menu.addAction(self.action_manager.action("update_code_index"))
+        update_menu.addAction(self.action_manager.action("update_data_index"))
+        update_menu.addAction(self.action_manager.action("check_database"))
         latexmk_menu = QMenu("Compiler tous les fichiers .tex", self)
         for _type in self.latex_service.types_dict.values():
             latexmk_menu.addAction(
@@ -294,7 +300,7 @@ class MainWindow(QWidget):
             self.progression_visible = True
 
 
-    def update_code_index_main(self):
+    def update_code_index(self):
 
         result = self.context.code_index_controller.refresh_code_index()
 
@@ -312,7 +318,7 @@ class MainWindow(QWidget):
             "Info",
             f"Updated code index at {self.context.paths.code_index_file}"
         )
-    def update_data_index_main(self):
+    def update_data_index(self):
         result = self.update_data_service.update_data_index()
         self.document_tab.load_data()
         QMessageBox.information(
@@ -321,7 +327,15 @@ class MainWindow(QWidget):
             f"Updated data index at {self.context.paths.data_index_file}"
         )
         return result
-    
+
+    def check_database(self):
+        errors, warnings = self.check_database_service.check_database()
+        QMessageBox.information(
+            self,
+            "Info",
+            f"Database check completed. Errors: {errors}, Warnings: {warnings}"
+        )
+
     def latexmk_all_tex_files_for_type(self, _type):
         self.latex_service.latexmk_all_tex_files_for_type(_type)
 

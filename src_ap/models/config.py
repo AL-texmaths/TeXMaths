@@ -59,6 +59,8 @@ class PedagoDocTypeModel(BaseModel):
 class PedagoServiceModel(BaseModel):
     metadata: list[str]
     pedago_doc_types: dict[str, PedagoDocTypeModel]
+    string_check_order: list[str]
+    tex_non_optional_keys: list[str]
 
 class Settings(BaseModel):
     gui: GUIModel
@@ -91,8 +93,9 @@ class ActionsConfig(BaseModel):
     set_left_focus: ActionSettings
     set_right_focus: ActionSettings
     open_config_file: ActionSettings
-    update_code_index_main: ActionSettings
-    update_data_index_main: ActionSettings
+    update_code_index: ActionSettings
+    update_data_index: ActionSettings
+    check_database: ActionSettings
     latexmk_all_tex_files: ActionSettings
     load_progression: ActionSettings
     save_progression: ActionSettings
