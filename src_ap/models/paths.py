@@ -9,7 +9,6 @@ class Paths:
             try:
                 resolved_path = resolve_path(candidates, config)
                 setattr(self, f"{key}", resolved_path)
-                print(f"Resolved path for key '{key}': {resolved_path}")
             except FileNotFoundError as e:
                 print(f"Error occurred while resolving path for key '{key}': {e}")
 

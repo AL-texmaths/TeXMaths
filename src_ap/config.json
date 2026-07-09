@@ -195,32 +195,38 @@
                 "activite":{
                     "name": "Activité",
                     "dir_name": "activites",
-                    "tex_name": "activite-*.tex"
+                    "tex_name": "activite-*.tex",
+                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
                 },
                 "dnbqcm":{
                     "name": "DNB QCM",
                     "dir_name": "dnbqcm",
-                    "tex_name": "dnbqcm-*.tex"
+                    "tex_name": "dnbqcm-*.tex",
+                    "name_pattern": "-(\\d{4})\\.([A-Za-z\\.]+)$"
                 },
                 "diapo":{
                     "name": "Diaporama",
                     "dir_name": "diapo",
-                    "tex_name": "diapo-*.tex"
+                    "tex_name": "diapo-*.tex",
+                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
                 },
                 "exercice":{
                     "name": "Exercice",
                     "dir_name": "exercices",
-                    "tex_name": "exercice-*-data.tex"
+                    "tex_name": "exercice-*-data.tex",
+                    "name_pattern": "-(\\d{4})-(data|[a-z])\\.([A-Za-z\\.]+)$"
                 },
                 "fiche_methode":{
                     "name": "Fiche méthode",
                     "dir_name": "fiches_methode",
-                    "tex_name": "fiche_methode-*.tex"
+                    "tex_name": "fiche_methode-*.tex",
+                    "name_pattern": "-([A-Za-z_\\d]+)\\.([A-Za-z\\.]+)$"
                 },
                 "flash":{
                     "name": "Flash",
                     "dir_name": "flash",
-                    "tex_name": "flash-*.tex"
+                    "tex_name": "flash-*.tex",
+                    "name_pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
                 }
             }
         },

@@ -46,7 +46,6 @@ class PedagoDoc:
 
     def get_pdf_modification_date(self) -> datetime | None:
         """Return the modification date of the PDF file."""
-        print(f'inside get_pdf_modification_date for {self.pdf}')
         if self.pdf and self.pdf.exists():
             return datetime.fromtimestamp(self.pdf.stat().st_mtime)
         return None

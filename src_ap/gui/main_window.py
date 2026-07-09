@@ -14,7 +14,7 @@ from src_ap.gui.tabs.document_tab import DocumentTab
 from src_ap.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
 from src_ap.services.latex_service import LatexService
 
-from src.update_data_index import update_data_index
+from src.update_data_index import UpdateDataService
 
 from PySide6.QtGui import Qt, QAction
 from PySide6.QtWidgets import (
@@ -64,6 +64,7 @@ class MainWindow(QWidget):
         )
 
         self.latex_service = LatexService(self.context)
+        self.update_data_service = UpdateDataService(self.context)
 
     def init_connect_signals(self):
 
@@ -312,7 +313,8 @@ class MainWindow(QWidget):
             f"Updated code index at {self.context.paths.code_index_file}"
         )
     def update_data_index_main(self):
-        result = update_data_index()
+        result = self.update_data_service.update_data_index()
+        self.document_tab.load_data()
         QMessageBox.information(
             self,
             "Info",
@@ -358,12 +360,10 @@ class MainWindow(QWidget):
         self.update_search()
 
     def copy_item(self):
-        print("copy_item called")
         self.progression_panel.copy_item()
         self.update_search()
 
     def cut_item(self):
-        print("cut_item called")
         self.progression_panel.cut_item()
         self.update_search()
 

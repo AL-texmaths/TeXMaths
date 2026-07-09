@@ -17,7 +17,6 @@ class LatexService:
     def latexmk_all_tex_files_for_type(self, _type):
             base_name = _type.tex_name
             cwd = str(self.context.paths.latex / _type.dir_name)
-            print(f'Running latexmk for {base_name} in {cwd}')
             result = subprocess.Popen(
                 [
                     "latexmk",

@@ -163,7 +163,7 @@ class PdfContextualMenu(QMenu):
         action.triggered.connect(
             lambda checked=False, cb=callback: cb(self.current_item)
         )
-        self.addAction(action)
+        return action
     
 
 
@@ -352,7 +352,7 @@ class DocumentTab(QWidget):
             self.results_list.addItem(key)
     
     def load_data(self):
-        self.context.pedago_data_service.load()
+        self.context.pedago_data_service.refresh()
         types = self.context.pedago_data_service.get_types()
         fields = self.context.pedago_data_service.get_fields()
 

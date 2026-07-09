@@ -54,6 +54,7 @@ class PedagoDocTypeModel(BaseModel):
     name: str
     dir_name: str
     tex_name: str
+    name_pattern: str
 
 class PedagoServiceModel(BaseModel):
     metadata: list[str]

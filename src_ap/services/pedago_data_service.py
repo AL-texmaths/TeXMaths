@@ -7,13 +7,15 @@ class PedagoDataService:
     def __init__(self, pdf_data_path:Path|str):
         self.pdf_data_path = Path(pdf_data_path)
         self.data, self._data = {}, {}
-        self.refresh()
 
     def refresh(self):
         self.load()
         self.build_obj()
     
     def load(self):
+        if not self.pdf_data_path.exists():
+            print('WARNING: PDF data file does not exist.\n Consider updating data index.')
+            return
         with open(self.pdf_data_path, 'r', encoding='utf-8') as f:
             self._data = json.load(f)
     

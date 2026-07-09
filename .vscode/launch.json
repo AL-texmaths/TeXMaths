@@ -28,7 +28,7 @@
             "justMyCode": true
         },
         {
-            "name": "Run src.tools module",
+            "name": "Run src.* module",
             "type": "debugpy",
             "request": "launch",
             "module": "src.${fileBasenameNoExtension}",

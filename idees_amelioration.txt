@@ -10,7 +10,6 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
-(cela correspond normalement aux "types" des index pedagogiques)
 >>> incorporate update_data_index and check_database into update_service
 >>> délégation des responsabilités du script document_tab
 >>> délégation des responsabilités du script main_window
