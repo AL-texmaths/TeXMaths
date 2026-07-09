@@ -7,11 +7,7 @@ from PySide6.QtGui import QPalette
 from PySide6.QtWidgets import QWidget, QLabel, QVBoxLayout
 from PySide6.QtWebEngineWidgets import QWebEngineView
 
-
-def camel_to_sentence(s: str) -> str:
-    s = s.replace('_', ' ').replace('-', ' ')
-    s = re.sub(r'(?<=[a-z0-9])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])', ' ', s)
-    return s[0].upper() + s[1:] if s else s
+from src_ap.utils.misc import camel_to_sentence
 
 
 class MetadataView(QWidget):

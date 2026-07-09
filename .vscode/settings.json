@@ -38,6 +38,7 @@
           "-interaction=nonstopmode",
           "-file-line-error",
           "-shell-escape",
+          "-recorder",
           "%DOCFILE%"
         ]
       },
@@ -50,6 +51,7 @@
           "-interaction=nonstopmode",
           "-file-line-error",
           "-shell-escape",
+          "-recorder",
           "%DOCFILE%"
         ]
       },

@@ -6,6 +6,7 @@ from pathlib import Path
 
 from src_ap.models.config import Config
 from src_ap.utils.resolve import resolve_executable
+from src_ap.utils.misc import insert_nested
 
 def compile_latex(
     tex_file: str | Path,
@@ -14,6 +15,7 @@ def compile_latex(
         "-file-line-error",
         "-lualatex",
         "-shell-escape",
+        "-recorder"
         ],
     motor: str = "latexmk",
     outputdir: str | Path | None = None,
@@ -107,18 +109,6 @@ def check_code_index_data(code_labels_dir, texmf_dir, config:Config|None=None, l
                 logger(f"Compilation of {tex_file} failed. Please check the LaTeX file.")
                 continue
         return result
-
-def insert_nested(d, codes_values):
-    """
-    Insert a value into a nested dictionary based on a list of keys.
-    """
-    *keys, value = codes_values
-
-    current = d
-    for key in keys[:-1]:
-        current = current.setdefault(key, {})
-
-    current[keys[-1]] = value
 
 def update_code_index(
         code_labels_dir:Path|str,

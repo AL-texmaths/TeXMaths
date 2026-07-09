@@ -9,10 +9,10 @@
 ===============================================================================
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
---------- Assistant de navigation -------------
->>> délégation des responsabilités du script assistant de
-navigation
---------- Assitant de progression ---------------
+--------- Assistant -------------
+>>> incorporate update_data_index and check_database into update_service
+>>> délégation des responsabilités du script document_tab
+>>> délégation des responsabilités du script main_window
 >>> API: gérer les chemins non trouvé en affichant les dossiers
 nécessaires ou
 en provoquant la création des dossiers nécessaires
