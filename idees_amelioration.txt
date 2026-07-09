@@ -10,6 +10,14 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
+>>> possibilité de recompiler les fichiers modifés aec latexmk :
+--> cd data/latex/activites
+--> latexmk -lualatex -interaction=nonstopmode -file-line-error -synctex=1 -shell-escape activite-*.tex
+--> cd ../diapo
+--> cd ../dnbqcm
+--> cd ../exercices
+--> cd ../flash
+(cela correspond normalement aux "types" des index pedagogiques)
 >>> incorporate update_data_index and check_database into update_service
 >>> délégation des responsabilités du script document_tab
 >>> délégation des responsabilités du script main_window
@@ -41,6 +49,7 @@ permet le passage au niveau suivant
 ===============================================================================
 					LaTeX
 ===============================================================================
+>>> erreur avec les svg : activite-decouverte_homothetie-1
 >>> s'assurer de la compatibilité windows
 >>> revoir la macro \videoManim de texmaths-path
 >>> revoir le code avec lualatex/Expl3 pour amélioration
