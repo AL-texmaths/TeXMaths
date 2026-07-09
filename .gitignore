@@ -26,3 +26,4 @@ data/graphics/*.db-wal
 data/graphics/*.db-shm
 data/graphics/.nextcloudsync.log
 .github
+.synctex(busy)
