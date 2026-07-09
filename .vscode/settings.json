@@ -38,7 +38,7 @@
           "-interaction=nonstopmode",
           "-file-line-error",
           "-shell-escape",
-          "%DOC%"
+          "%DOCFILE%"
         ]
       },
       {
@@ -50,7 +50,7 @@
           "-interaction=nonstopmode",
           "-file-line-error",
           "-shell-escape",
-          "%DOC%"
+          "%DOCFILE%"
         ]
       },
       {
@@ -61,7 +61,7 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-shell-escape",
-        "%DOC%"
+        "%DOCFILE%"
       ]
     },
     {
@@ -72,7 +72,7 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-shell-escape",
-        "%DOC%"
+        "%DOCFILE%"
       ]
     }
   ],

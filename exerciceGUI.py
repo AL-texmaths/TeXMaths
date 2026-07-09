@@ -180,7 +180,7 @@ class RegexPDFSearchApp(QWidget):
         # QTimer.singleShot(0, self.search_input.setFocus)
         # splitter.addWidget(right_widget)
 
-        self.tabs.addTab(tab1, "Recherche PDF")
+        # self.tabs.addTab(tab1, "Recherche PDF")
 
         # =========================
         # ONGLET 2 : Paramètres
