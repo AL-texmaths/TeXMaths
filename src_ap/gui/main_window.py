@@ -342,21 +342,22 @@ class MainWindow(QWidget):
             f"Updated code index at {self.context.paths.code_index_file}"
         )
     def update_data_index(self):
-        result = self.update_data_service.update_data_index()
+        self.update_data_service.update_data_index()
         self.document_tab.load_data()
         QMessageBox.information(
             self,
             "Info",
-            f"Updated data index at {self.context.paths.data_index_file}"
+            f"""Updated data index at {self.context.paths.data_index_file}
+            \n Errors: {self.update_data_service.errors}
+            """
         )
-        return result
 
     def check_database(self):
-        errors, warnings = self.check_database_service.check_database()
+        self.check_database_service.check_database()
         QMessageBox.information(
             self,
             "Info",
-            f"Database check completed. Errors: {errors}, Warnings: {warnings}"
+            f"Database check completed. Errors: {self.check_database_service.database_errors}"
         )
 
     def latexmk_all_tex_files_for_type(self, _type):

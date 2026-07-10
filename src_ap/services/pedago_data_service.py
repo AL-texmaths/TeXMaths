@@ -16,6 +16,7 @@ class PedagoDataService:
         if not self.pdf_data_path.exists():
             print('WARNING: PDF data file does not exist.\n Consider updating data index.')
             return
+        print(f'Loading PDF data from {self.pdf_data_path}')
         with open(self.pdf_data_path, 'r', encoding='utf-8') as f:
             self._data = json.load(f)
     

@@ -25,7 +25,7 @@
             "program": "debug.py",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
             "name": "Run src.* module",

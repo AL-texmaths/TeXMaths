@@ -21,13 +21,6 @@
     },
     "terminal.integrated.cwd": "${workspaceFolder}",
     "python.analysis.extraPaths": ["./src", "./src_ap"],
-    "python-envs.pythonProjects": [
-      {
-        "path": ".",
-        "envManager": "ms-python.python:system",
-        "packageManager": "ms-python.python:pip"
-      }
-    ],
     "latex-workshop.latex.tools": [
       {
         "name": "latexmk-pc",
@@ -105,5 +98,12 @@
     }
   ],
   "latex-workshop.latex.recipe.default": "lastUsed",
-  "latex-workshop.latex.autoBuild.run": "never"
+  "latex-workshop.latex.autoBuild.run": "never",
+  "python-envs.pythonProjects": [
+    {
+      "path": ".",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
 }

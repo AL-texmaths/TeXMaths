@@ -9,37 +9,41 @@ données dans un fichier json
 CYCLE_KEY = 'cycle_{}_BO_{}'
 
 class UpdateDataService:
-    def __init__(self, context):
+    def __init__(self, context, logger=print):
         self.context = context
         self.types_dict = context.config.settings.pedago_service.pedago_doc_types
         self.latex_path = context.paths.latex
         self.code_index_path = context.paths.code_index
-        
+        self.logger = logger
 
         self.cycle_value_default = '4'
         self.bo_value_default = '2026'
-        self.logger = print
+        self.errors = 0
+    
+    def display_error(self, message):
+        self.logger(message)
+        self.errors += 1
 
     @staticmethod
     def identity(value, **kwargs):
-        return value, 0
+        return value
 
     def source(self, value, **kwargs):
         if value == '':
-            return '', 0
+            return ''
         else:
             try:
                 result = self.context.code_index_data['src'][value]
             except KeyError:
-                self.logger(f'WARNING : source invalide ({value})\n' + kwargs['tex_relpath'])
-                result = '', 1
-            return result, 0
+                self.display_error(f'WARNING : source invalide ({value})\n' + kwargs['tex_relpath'])
+                result = ''
+            return result
 
     def cycle(self, value, **kwargs):
         if value == '':
-            self.logger(f'WARNING : empty cycle value\n' + kwargs['tex_relpath'])
-            return '', 1
-        return str(value), 0
+            self.display_error(f'WARNING : empty cycle value\n' + kwargs['tex_relpath'])
+            return ''
+        return str(value)
 
     def decode_code_index_list(self, value, *, top_key=None, subkey=None, top_label=None, **kwargs):
         """Decode a comma-separated list of codes from CODE_INDEX.
@@ -50,11 +54,10 @@ class UpdateDataService:
         """
         value = value.replace(' ', '')
         if value == '':
-            self.logger(f'WARNING : empty value for {top_label or subkey}\n' + kwargs.get('tex_relpath', ''))
-            return '', 1
+            self.display_error(f'WARNING : empty value for {top_label or subkey}\n' + kwargs.get('tex_relpath', ''))
+            return ''
         result = []
         cycle_key = None
-        warns = 0
         for token in value.split(','):
             try:
                 if top_key is not None:
@@ -65,14 +68,13 @@ class UpdateDataService:
             except KeyError:
                 if top_key is not None:
                     label = top_label or top_key
-                    self.logger(f'WARNING : {label} invalide ({token})\n' + kwargs.get('tex_relpath', ''))
+                    self.display_error(f'WARNING : {label} invalide ({token})\n' + kwargs.get('tex_relpath', ''))
                 else:
                     label_map = {'cns': 'connaissance', 'cmp': 'compétence', 'aut': 'automatisme'}
                     label = label_map.get(subkey, subkey)#type:ignore
-                    self.logger(f'WARNING : {label} du {cycle_key} invalide ({token})\n' + kwargs.get('tex_relpath', ''))
-                warns += 1
+                    self.display_error(f'WARNING : {label} du {cycle_key} invalide ({token})\n' + kwargs.get('tex_relpath', ''))
                 result.append('')
-        return result, warns
+        return result
 
     def competencesDuSocle(self, value, **kwargs):
         return self.decode_code_index_list(value, top_key='cmpsocle', top_label='competence du socle', **kwargs)
@@ -99,13 +101,11 @@ class UpdateDataService:
             doc_dict['enonce'] = ex_enonce
         lines = iter(ex_enonce.splitlines())
         line = next(lines)
-        errors, warns = 0, 0
         while not line.startswith(f'\\startdatakeys'):
             try:
                 line = next(lines)
             except StopIteration:
-                self.logger(f'Error: Could not find \\startdatakeys in {tex_relpath}')
-                errors += 1
+                self.display_error(f'Error: Could not find \\startdatakeys in {tex_relpath}')
                 break
         datakeys = ''
         cycle_value = self.cycle_value_default
@@ -114,8 +114,7 @@ class UpdateDataService:
             try:
                 line = next(lines)
             except StopIteration:
-                self.logger(f'Error: Could not find \\enddatakeys in {tex_relpath}')
-                errors += 1
+                self.display_error(f'Error: Could not find \\enddatakeys in {tex_relpath}')
                 break
             # ignorer les lignes commentées commençant par '%' (après espaces éventuels)
             if line.lstrip().startswith('%'):
@@ -135,15 +134,13 @@ class UpdateDataService:
 
         for key, value in matches:
             decode_func = getattr(self, key, self.identity)
-            doc_dict[key], warns = decode_func(value, cycle=cycle_value, bo=bo_value, tex_relpath=tex_relpath)
+            doc_dict[key] = decode_func(value, cycle=cycle_value, bo=bo_value, tex_relpath=tex_relpath)
         while not line.startswith('\\begin{document}'):
             try:
                 line = next(lines)
             except StopIteration:
-                self.logger(f'Error: Could not find \\begin{{document}} in {tex_relpath}')
-                errors += 1
+                self.display_error(f'Error: Could not find \\begin{{document}} in {tex_relpath}')
                 break
-        return errors, warns
         
 
     def get_doc_dict(self, tex_relpath, str_id, doc_type):
@@ -157,15 +154,14 @@ class UpdateDataService:
         if doc_type == 'flash':
             preview_path = str(pdf_path.parent / "previews" / ('preview-' + pdf_path.name))
             ex_dict['preview'] = preview_path
-        errors, warns = self.update_doc_dict(ex_dict)
-        print(ex_dict)
-        return ex_dict, errors, warns
+        self.update_doc_dict(ex_dict)
+        self.logger(f"Updated document dictionary for {tex_relpath}")
+        return ex_dict
 
     def update_data_index(self):
         """
         """
         Data_dict = {}
-        errors, warns = 0, 0
         for doc_type, doc_dict in self.types_dict.items():
             foldername = doc_dict.dir_name
             dirpath = self.latex_path / foldername
@@ -178,9 +174,7 @@ class UpdateDataService:
                     else:
                         str_id = matches[0]
                     doc_type = file_path.stem.split('-')[0]
-                    Data_dict[foldername.capitalize() + ' ' + str_id], errors_sup, warns_sup = self.get_doc_dict(dirpath / file_path, str_id, doc_type)
-                    errors += errors_sup
-                    warns += warns_sup
+                    Data_dict[foldername.capitalize() + ' ' + str_id] = self.get_doc_dict(dirpath / file_path, str_id, doc_type)
             
         
         with open(
@@ -188,4 +182,3 @@ class UpdateDataService:
             'w', encoding='utf-8') as outfile:
                 json.dump(Data_dict, outfile, indent=4, ensure_ascii=False)
         
-        return errors, warns
