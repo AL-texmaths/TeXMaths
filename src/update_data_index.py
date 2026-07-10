@@ -8,7 +8,7 @@ données dans un fichier json
 """
 class UpdateDataService:
     def __init__(self, context):
-        self.config = context.config
+        self.context = context
         self.types_dict = context.config.settings.pedago_service.pedago_doc_types
         self.latex_path = context.paths.latex
         self.code_index_path = context.paths.code_index
@@ -22,7 +22,14 @@ class UpdateDataService:
     def identity(value, **kwargs):
         return value, 0
 
+    def BO(self, value, **kwargs):
+        if value == '':
+            self.logger(f'WARNING : empty BO value\n' + kwargs['tex_relpath'])
+            return '', 1
+        return value, 0
+
     def source(self, value, **kwargs):
+        print("SOURCE APPELLEE")
         if value == '':
             return '', 0
         else:
@@ -37,13 +44,13 @@ class UpdateDataService:
         if value == '':
             self.logger(f'WARNING : empty cycle value\n' + kwargs['tex_relpath'])
             return '', 1
-        return 'cycle ' + value, 0
+        return 'Cycle ' + value, 0
 
     def decode_code_index_list(self, value, *, top_key=None, subkey=None, top_label=None, **kwargs):
         """Decode a comma-separated list of codes from CODE_INDEX.
 
         - If `top_key` is provided, look up CODE_INDEX[top_key][code].
-        - Otherwise, build `cycle_key = kwargs['cycle'] + ' ' + kwargs['bo']` and look up CODE_INDEX[cycle_key][subkey][code].
+        - Otherwise, build `cycle_key = kwargs['cycle'] + '_' + kwargs['bo']` and look up CODE_INDEX[cycle_key][subkey][code].
         Returns '' when input is empty, otherwise a list with decoded values ('' for unknown codes).
         """
         value = value.replace(' ', '')
@@ -58,7 +65,7 @@ class UpdateDataService:
                 if top_key is not None:
                     result.append(self.context.code_index_data[top_key][token])
                 else:
-                    cycle_key = kwargs['cycle'] + ' ' + kwargs['bo']
+                    cycle_key = kwargs['cycle'] + '_' + kwargs['bo']
                     result.append(self.context.code_index_data[cycle_key][subkey][token])
             except KeyError:
                 if top_key is not None:
@@ -121,21 +128,19 @@ class UpdateDataService:
             datakeys += line
             if 'cycle' in line:
                 try:
-                    cycle_value = 'cycle ' + re.findall(r'\{(.*?)\}', line)[0]
+                    cycle_value = 'cycle_' + re.findall(r'\{(.*?)\}', line)[0]
                 except (IndexError, ValueError):
                     pass
             if 'BO' in line:
                 try:
-                    bo_value = 'BO ' + re.findall(r'\{(.*?)\}', line)[0]
+                    bo_value = 'BO_' + re.findall(r'\{(.*?)\}', line)[0]
                 except (IndexError, ValueError):
                     pass
         matches = re.findall(r'\\(.*?)\{(.*?)\}', datakeys)
 
         for key, value in matches:
-            try: 
-                decode_func = globals()[key]
-            except KeyError:
-                decode_func = self.identity
+            print(key)
+            decode_func = getattr(self, key, self.identity)
             doc_dict[key], warns = decode_func(value, cycle=cycle_value, bo=bo_value, tex_relpath=tex_relpath)
         while not line.startswith('\\begin{document}'):
             try:
@@ -184,11 +189,13 @@ class UpdateDataService:
             
         
         with open(
-            self.code_index_path / self.config.settings.current.pdf_data_file_name,
+            self.code_index_path / self.context.config.settings.current.pdf_data_file_name,
             'w', encoding='utf-8') as outfile:
                 json.dump(Data_dict, outfile, indent=4, ensure_ascii=False)
         
         return errors, warns
+
+from pathlib import Path
 
 if __name__ == "__main__":
     print('UPDATING : data index ...')

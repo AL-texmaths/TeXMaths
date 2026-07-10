@@ -27,7 +27,8 @@ from PySide6.QtWidgets import (
     QTabWidget,
     QFileDialog,
     QWidget,
-    QMessageBox
+    QMessageBox,
+    QProgressDialog
 )
 from PySide6.QtGui import QKeySequence, QShortcut
 
@@ -352,10 +353,41 @@ class MainWindow(QWidget):
         )
 
     def latexmk_all_tex_files_for_type(self, _type):
-        self.latex_service.latexmk_all_tex_files_for_type(_type)
+        thread = self.latex_service.latexmk_all_tex_files_for_type(_type)
+        if thread:
+            self._start_compilation_thread(thread)
 
     def latexmk_all_tex_files(self):
-        self.latex_service.latexmk_all_tex_files()
+        thread = self.latex_service.latexmk_all_tex_files()
+        if thread:
+            self._start_compilation_thread(thread)
+
+    def _start_compilation_thread(self, thread):
+        self._latex_thread = thread
+        self._compilation_progress = QProgressDialog(
+            "Compilation LaTeX en cours...", "Annuler", 0, 0, self
+        )
+        self._compilation_progress.setMinimumDuration(0)
+        self._compilation_progress.setAutoClose(False)
+        self._compilation_progress.canceled.connect(thread.request_stop)
+        thread.compilation_started.connect(
+            lambda name: self._compilation_progress.setLabelText(f"Compilation : {name}")
+        )
+        thread.progress.connect(self._on_compilation_progress)
+        thread.compilation_finished.connect(
+            lambda name, success: logger.info(f"{'OK' if success else 'FAIL'} - {name}")
+        )
+        thread.all_finished.connect(self._on_all_compilations_finished)
+        thread.start()
+        self._compilation_progress.show()
+
+    def _on_compilation_progress(self, done, total):
+        self._compilation_progress.setMaximum(total)
+        self._compilation_progress.setValue(done)
+
+    def _on_all_compilations_finished(self):
+        self._compilation_progress.close()
+        QMessageBox.information(self, "Info", "Toutes les compilations LaTeX sont terminées.")
 
     def open_catalogue(self, name):
         catalogue = self.context.catalogue_service.get_catalogue_from_name(name)
