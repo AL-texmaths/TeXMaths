@@ -23,11 +23,16 @@ class SplittersModel(BaseModel):
 class ProgressionTreeModel(BaseModel):
     scrolling_step: int
 
+class DocumentTabGUIModel(BaseModel):
+    vertical_splitter: int
+    horizontal_splitter: int
+
 class GUIModel(BaseModel):
     main_window: DialogConfig
     unused_items_dialog: DialogConfig
     splitter: SplittersModel
     progression_tree: ProgressionTreeModel
+    documents_tab: DocumentTabGUIModel
 
 class ThemeColorsModel(BaseModel):
     bg: str

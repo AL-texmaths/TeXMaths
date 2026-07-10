@@ -261,14 +261,14 @@ class DocumentTab(QWidget):
         self.pdf_viewer = PdfViewerWidget()
         self.pdf_documents_controller = PdfDocumentsController(context)
         layout = QVBoxLayout(self)
-        splitter = QSplitter(Qt.Horizontal)
+        self.horizontal_splitter = QSplitter(Qt.Horizontal)
 
         # search layout
         left_layout = QVBoxLayout()
     
         left_widget = QWidget()
         left_widget.setLayout(left_layout)
-        splitter.addWidget(left_widget)
+        self.horizontal_splitter.addWidget(left_widget)
 
         right_widget = QWidget()
         right_layout = QVBoxLayout(right_widget)
@@ -298,11 +298,10 @@ class DocumentTab(QWidget):
         left_layout.addWidget(self.results_list)
 
         right_layout.addWidget(self.inner_splitter)
-        QTimer.singleShot(0, self._set_initial_splitter_sizes)
         QTimer.singleShot(0, self.search_input.setFocus)
-        splitter.addWidget(right_widget)
+        self.horizontal_splitter.addWidget(right_widget)
 
-        layout.addWidget(splitter)
+        layout.addWidget(self.horizontal_splitter)
 
         self.key_filter_actions = {}
         self.field_actions = {}
@@ -316,20 +315,112 @@ class DocumentTab(QWidget):
         left_layout.addWidget(self.sort_order_combo)
 
         self.search_pdf_controller = SearchPDFController(self.context.search_pdf_service)
+
+        # Initialize save timers for debouncing splitter changes
+        self._save_splitter_settings_timer = QTimer()
+        self._save_splitter_settings_timer.setSingleShot(True)
+        self._save_splitter_settings_timer.timeout.connect(self._save_splitter_settings_debounced)
+        
+        # Flag to load splitter sizes on first show
+        self._splitter_sizes_loaded = False
+        
+        # Connect splitter changes to debounced save
+        self.horizontal_splitter.splitterMoved.connect(self._schedule_save_splitter_settings)
+        self.inner_splitter.splitterMoved.connect(self._schedule_save_splitter_settings)
     
-    def _set_initial_splitter_sizes(self):
-        """Set the inner splitter sizes so the bottom pane is ~1/4 of window height."""
+    def showEvent(self, event):
+        """Load splitter sizes when the widget is first shown."""
+        super().showEvent(event)
+        if not self._splitter_sizes_loaded:
+            self._splitter_sizes_loaded = True
+            self._load_splitter_sizes()
+    
+    def _load_splitter_sizes(self):
+        """Load splitter sizes from config, apply defaults if not available."""
         try:
-            total = self.height()
-            if not total or total <= 0:
-                total = 800
-            top = int(total * 0.75)
-            bottom = max(120, int(total * 0.25))
-            # If the splitter exists, apply sizes [top, bottom]
-            if hasattr(self, 'inner_splitter') and self.inner_splitter is not None:
+            saved_vertical = self.context.config.settings.gui.documents_tab.vertical_splitter
+            saved_horizontal = self.context.config.settings.gui.documents_tab.horizontal_splitter
+            
+            # Get actual widget dimensions
+            height = self.height()
+            width = self.width()
+            
+            # Ensure we have reasonable dimensions
+            if height <= 0:
+                height = 600
+            if width <= 0:
+                width = 1000
+            
+            # Apply vertical splitter (bottom panel height)
+            if saved_vertical and saved_vertical > 0 and saved_vertical < height - 120:
+                top = height - saved_vertical
+                self.inner_splitter.setSizes([top, saved_vertical])
+            else:
+                # Default: 75% top (PDF), 25% bottom (metadata)
+                top = int(height * 0.75)
+                bottom = height - top
+                if bottom < 120:
+                    bottom = 120
+                    top = height - bottom
                 self.inner_splitter.setSizes([top, bottom])
-        except Exception:
-            pass
+            
+            # Apply horizontal splitter (right panel width)
+            if saved_horizontal and saved_horizontal > 0 and saved_horizontal < width - 200:
+                left_width = width - saved_horizontal
+                self.horizontal_splitter.setSizes([left_width, saved_horizontal])
+            else:
+                # Default: left panel 60%, right panel 40%
+                right_width = int(width * 0.4)
+                left_width = width - right_width
+                if left_width < 200:
+                    left_width = 200
+                    right_width = width - left_width
+                self.horizontal_splitter.setSizes([left_width, right_width])
+        except Exception as e:
+            # Fallback to default sizes
+            try:
+                height = max(600, self.height())
+                width = max(1000, self.width())
+                
+                # Vertical: 75% top, 25% bottom
+                top = int(height * 0.75)
+                bottom = height - top
+                if bottom < 120:
+                    bottom = 120
+                    top = height - bottom
+                self.inner_splitter.setSizes([top, bottom])
+                
+                # Horizontal: 60% left, 40% right
+                right_width = int(width * 0.4)
+                left_width = width - right_width
+                self.horizontal_splitter.setSizes([left_width, right_width])
+            except Exception as e2:
+                print(f"Error applying default splitter sizes: {e2}")
+    
+    def _schedule_save_splitter_settings(self):
+        """Schedule a debounced save of splitter settings."""
+        self._save_splitter_settings_timer.stop()
+        self._save_splitter_settings_timer.start(500)  # 500ms debounce
+    
+    def _save_splitter_settings_debounced(self):
+        """Save splitter settings after debounce delay."""
+        try:
+            # Get horizontal splitter size (right panel width)
+            if self.horizontal_splitter.sizes():
+                sizes = self.horizontal_splitter.sizes()
+                if len(sizes) >= 2:
+                    self.context.config.settings.gui.documents_tab.horizontal_splitter = sizes[1]
+            
+            # Get vertical splitter size (bottom panel height)
+            if self.inner_splitter.sizes():
+                sizes = self.inner_splitter.sizes()
+                if len(sizes) >= 2:
+                    self.context.config.settings.gui.documents_tab.vertical_splitter = sizes[1]
+            
+            # Save config
+            self.context.persistence_service.save_config(self.context.config)
+        except Exception as e:
+            print(f"Error saving splitter settings: {e}")
     
     def build_search_filters(self) -> SearchFilters:
 

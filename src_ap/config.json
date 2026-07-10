@@ -159,8 +159,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 1311,
-                "height": 544
+                "width": 1469,
+                "height": 890
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -170,12 +170,16 @@
             "splitter": {
                 "size": [
                     286,
-                    622,
-                    371
+                    846,
+                    305
                 ]
             },
             "progression_tree": {
                 "scrolling_step": 1
+            },
+            "documents_tab": {
+                "vertical_splitter": 383,
+                "horizontal_splitter": 1178
             }
         },
         "pedago_service": {
