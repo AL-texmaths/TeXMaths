@@ -136,7 +136,7 @@ class CheckDatabaseService:
                     if not pdf_path.exists():
                         self.warn(f"\n=== Missing pdf ===\n{pdf_path}.")
                         self.logger(f"Trying to compile the LaTeX file {file_path}.")
-                        compile_result = compile_latex(file_path, motor='lualatex', silent=False)
+                        compile_result = compile_latex(file_path)
                         if compile_result.returncode != 0:
                             self.warn(f"\n=== Compilation failed ===\n{file_path}\nPlease check the LaTeX file.")
                         else:
