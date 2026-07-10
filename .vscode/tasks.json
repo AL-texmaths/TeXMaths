@@ -83,6 +83,23 @@
             "group": "build"
         },
         {
+            "label": "init probas for class",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "args": [
+                "-m",
+                "src.init_class_probalities",
+                "${input:classes}"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
             "label": "make new doc",
             "type": "process",
             "command": "${workspaceFolder}/.venv/bin/python",

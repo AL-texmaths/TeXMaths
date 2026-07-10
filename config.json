@@ -121,6 +121,10 @@
         "texmf": [
             "./data/latex/texmf/",
             ".\\data\\latex\\texmf\\"
+        ],
+        "student_lists": [
+            "./data/student_lists/",
+            ".\\data\\student_lists\\"
         ]
     }
 }

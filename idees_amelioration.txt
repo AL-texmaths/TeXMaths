@@ -9,7 +9,8 @@
 ===============================================================================
 --------- src modules ------------
 >>> choose_random student
---> créer un script qui initialise la student list
+--> doit utiliser les fichiers proba-<classe>.json pour
+chaque classe
 --------- Global ---------------
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi

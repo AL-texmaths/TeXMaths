@@ -1,0 +1,14 @@
+{
+    "NOM1 Prénom1\n": {
+        "classe": "test",
+        "probability": 243
+    },
+    "NOM2 Prénom2\n": {
+        "classe": "test",
+        "probability": 243
+    },
+    "NOM3 Prénom3": {
+        "classe": "test",
+        "probability": 243
+    }
+}
