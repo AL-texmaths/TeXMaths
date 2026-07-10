@@ -13,9 +13,8 @@ from src_ap.gui.dialogs.unused_items_dialog import UnusedItemsDialog
 from src_ap.gui.tabs.document_tab import DocumentTab
 from src_ap.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
 from src_ap.services.latex_service import LatexService
-
-from src.update_data_index import UpdateDataService
-from src.check_database import CheckDatabaseService
+from src_ap.services.update_data_service import UpdateDataService
+from src_ap.services.check_database_service import CheckDatabaseService
 
 from PySide6.QtGui import Qt, QAction
 from PySide6.QtWidgets import (

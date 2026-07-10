@@ -37,6 +37,15 @@
             "justMyCode": true
         },
         {
+            "name": "Debug src_ap module",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "debug.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "justMyCode": true
+        },
+        {
         "name": "Run models.file",
         "type": "debugpy",
         "request": "launch",

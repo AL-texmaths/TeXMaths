@@ -61,10 +61,10 @@ def get_random_name(classe):
     probability = [p/s for p in probability]
     return random.choices(names, weights=probability, k=1)[0]
 
-def passage():
+def passage(search_duration=3, sleep_time=0.05):
     print("Recherche d'un nom ...")
-    for i in range(50):
-        time.sleep(0.05)
+    for _ in range(int(search_duration/sleep_time)):
+        time.sleep(sleep_time)
         print(' '*max_lenght, end='\r')
         print(get_random_name(classe), end='\r')
     choosen_name = get_random_name(classe)
@@ -74,8 +74,8 @@ def passage():
     print('='*max_lenght)
 
     codezero = input('Enregistrer le passage ? (O/N)')
-    while not codezero == 'O' and not codezero == 'N':
-        print(f'Commande {codezero} invalide. Répondre par O ou N :')
+    while not codezero.strip() == 'O' and not codezero.strip() == 'N':
+        print(f'Commande <{codezero}> invalide. Répondre par O ou N :')
         codezero = input()
     if codezero == 'O':
         current_classe_dict[choosen_name]['probability'] = current_classe_dict[choosen_name]['probability']/2
@@ -84,9 +84,9 @@ def passage():
             json.dump(current_classe_dict, fullstudentlist, indent=4, ensure_ascii=False)
     
     nextstudent = input('Voulez vous poursuivre ? (O/N)')
-    while not nextstudent == 'O' and not nextstudent == 'N':
-        print(f'Commande {nextstudent} invalide. Répondre par O ou N :')
-        codezero = input()
+    while not nextstudent.strip() == 'O' and not nextstudent.strip() == 'N':
+        print(f'Commande <{nextstudent}> invalide. Répondre par O ou N :')
+        nextstudent = input()
     
     return nextstudent
 
