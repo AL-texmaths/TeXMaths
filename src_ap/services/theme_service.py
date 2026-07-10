@@ -33,7 +33,8 @@ class ThemeService:
 QWidget {{
     background: {colors.bg};
     color: {colors.fg};
-    font-family: "{colors.font}";
+    font-family: "{style.font.family}";
+    font-size: {style.font.size};
 }}
 
 /* ==========================================================
@@ -169,6 +170,36 @@ QSplitter::handle {{
 
 QSplitter::handle:hover {{
     background: {colors.accent};
+}}
+
+/* ==========================================================
+   Onglets (Tabs)
+   ========================================================== */
+
+QTabWidget::pane {{
+    border: 1px solid {colors.border};
+    background: {colors.bg};
+}}
+
+QTabBar::tab {{
+    background: {colors.panel};
+    color: {colors.fg};
+    padding: 6px 12px;
+    border: 1px solid {colors.border};
+    border-bottom: none;
+    margin-right: 2px;
+}}
+
+QTabBar::tab:selected {{
+    background: {colors.accent};
+    color: white;
+    border: 1px solid {colors.border};
+    border-bottom: 3px solid {colors.accent};
+    font-weight: bold;
+}}
+
+QTabBar::tab:hover {{
+    background: {focus_bg};
 }}
 
 """)

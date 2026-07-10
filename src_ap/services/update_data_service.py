@@ -1,6 +1,5 @@
 import re
 import json
-from src_ap.app.application_context import create_context
 from src_ap.utils.textools import get_pattern
 """
 Lit les fichiers exercice-*-data.tex et stocke les
@@ -8,7 +7,7 @@ données dans un fichier json
 """
 class UpdateDataService:
     def __init__(self, context):
-        self.config = context.config
+        self.context = context
         self.types_dict = context.config.settings.pedago_service.pedago_doc_types
         self.latex_path = context.paths.latex
         self.code_index_path = context.paths.code_index
@@ -132,10 +131,7 @@ class UpdateDataService:
         matches = re.findall(r'\\(.*?)\{(.*?)\}', datakeys)
 
         for key, value in matches:
-            try: 
-                decode_func = globals()[key]
-            except KeyError:
-                decode_func = self.identity
+            decode_func = getattr(self, key, self.identity)
             doc_dict[key], warns = decode_func(value, cycle=cycle_value, bo=bo_value, tex_relpath=tex_relpath)
         while not line.startswith('\\begin{document}'):
             try:
@@ -184,14 +180,8 @@ class UpdateDataService:
             
         
         with open(
-            self.code_index_path / self.config.settings.current.pdf_data_file_name,
+            self.code_index_path / self.context.config.settings.current.pdf_data_file_name,
             'w', encoding='utf-8') as outfile:
                 json.dump(Data_dict, outfile, indent=4, ensure_ascii=False)
         
         return errors, warns
-
-if __name__ == "__main__":
-    print('UPDATING : data index ...')
-    update_data_service = UpdateDataService(create_context(None))
-    update_data_service.update_data_index()
-    print(f'module {__file__} ok')

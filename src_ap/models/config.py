@@ -37,13 +37,17 @@ class ThemeColorsModel(BaseModel):
     border: str
     focus_bg: str
     focus_border: str
-    font: str
 
 class ThemeTreeModel(BaseModel):
     items_height: str
     padding: str
 
+class FontStyleModel(BaseModel):
+    family: str
+    size: str
+
 class ThemeStyleModel(BaseModel):
+    font: FontStyleModel
     progression_tree: ThemeTreeModel    
 
 class ThemeModel(BaseModel):
