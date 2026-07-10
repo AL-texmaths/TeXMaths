@@ -8,7 +8,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
             "name": "Run assistant",
@@ -16,7 +17,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/src_ap.py",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
+            "python": "${workspaceFolder}/.venv/bin/python"
         },
         {
             "name": "Debug src_ap module",
@@ -34,43 +36,7 @@
             "module": "src.${fileBasenameNoExtension}",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            "justMyCode": true
-        },
-        {
-        "name": "Run models.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "models.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
-        },
-        {
-        "name": "Run gui.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "src_ap.gui.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
-        },
-        {
-        "name": "Run services.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "src_ap.services.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
-        },
-        {
-        "name": "Run utils.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "src_ap.utils.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
+            "python": "${workspaceFolder}/.venv/bin/python",
         }
     ]
 }

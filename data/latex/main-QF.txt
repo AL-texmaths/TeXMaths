@@ -1,8 +1,6 @@
-5e-8-Angles_et_parallelisme-QF1/vocabulaire_angles_cinquieme-1
-5e-8-Angles_et_parallelisme-QF2/reduire_expression_litterale-1
-5e-8-Angles_et_parallelisme-QF3/reduire_expression_litterale-2
-5e-9-Triangles_partie_3-QF1/pourcentages-3
-5e-9-Triangles_partie_3-QF2/angle_inconnu_triangle-1
-5e-11-Somme_et_difference_de_nombres_relatifs-QF1/le_compte_est_bon_simple-4
-5e-11-Somme_et_difference_de_nombres_relatifs-QF2/somme_entiers_relatifs-1
-5e-11-Somme_et_difference_de_nombres_relatifs-QF3/difference_entiers_relatifs-1
+6e-1-Aborder_la_geometrie-QF1/tables_de_multiplication-2
+6e-1-Aborder_la_geometrie-QF2/tables_de_multiplication-3
+6e-1-Aborder_la_geometrie-QF3/tables_de_multiplication-1
+6e-1-Aborder_la_geometrie-QF4/notations_geometrie-1
+6e-1-Aborder_la_geometrie-QF5/completer_liste_logique-1
+6e-1-Aborder_la_geometrie-QF6/completer_liste_logique_difficile-1

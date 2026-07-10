@@ -7,11 +7,13 @@
 ===============================================================================
 					Python
 ===============================================================================
+--------- src modules ------------
+>>> choose_random student
+--> créer un script qui initialise la student list
+--------- Global ---------------
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
->>> délégation des responsabilités du script document_tab
->>> délégation des responsabilités du script main_window
 >>> API: gérer les chemins non trouvé en affichant les dossiers
 nécessaires ou
 en provoquant la création des dossiers nécessaires
@@ -20,7 +22,7 @@ en provoquant la création des dossiers nécessaires
 de plusieurs catalogues ? Sinon, ajouter un attribut
 "catalogue" a chaque progression et empecher l'ajout
 d'item dont le catalogue ne correspond pas)
->>> délégation des responsabilités du script assistant de progression
+>>> délégation des responsabilités du script assistant
 ===============================================================================
 					Java / html
 ===============================================================================

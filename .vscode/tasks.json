@@ -71,7 +71,8 @@
             "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
-                "src.compile_suivi"
+                "src.compile_suivi",
+                "${input:classes}"
             ],
             "windows": {
                 "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
@@ -241,7 +242,7 @@
         {
             "id": "classes",
             "type": "promptString",
-            "description": "Entrez les classes (a separer avec espace) :"
+            "description": "Entrez les classes (a separer avec virgule) :"
         },
         {
             "id": "texfilestocompile",

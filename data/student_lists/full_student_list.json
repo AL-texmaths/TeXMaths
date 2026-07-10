@@ -346,5 +346,17 @@
     "YALCIN Etan": {
         "classe": "5G2",
         "probability": 64
+    },
+    "NOM1 Prénom1": {
+        "classe": "test",
+        "probability": 729
+    },
+    "NOM2 Prénom2": {
+        "classe": "test",
+        "probability": 243.0
+    },
+    "NOM3 Prénom3": {
+        "classe": "test",
+        "probability": 729
     }
 }

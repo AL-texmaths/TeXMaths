@@ -10,7 +10,7 @@ TEMPLATES = LATEX_DIR / "templates"
 YEAR = get_config()["settings"]["year"]
 OUTPUT_LIST_DIR = OUTPUT_DIR / YEAR / "suivi"
 
-classes = sys.argv[1:]
+classes = sys.argv[1].split(",")
 if len(classes) == 1 and classes[0] == 'All':
     classes = []
     for file in LISTPATH.glob('*.csv'):
@@ -110,6 +110,7 @@ PARAM = {
     "periode" : periode,
     "type"    : suivi_type
 }
+result = None
 
 for classe in classes:
     PARAM["classe"] = classe
@@ -161,7 +162,7 @@ for classe in classes:
         ]
     result = compile_latex(texfilename, cmd_args=cmdargs, cwd=TMP_DIR, silent=False)
 
-if result.returncode != 0:
+if result is not None and result.returncode != 0:
     print(f"Erreur lors de la compilation du fichier {texfilename}.")
     print(result.stderr)
 else:

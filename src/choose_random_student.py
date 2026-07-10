@@ -6,6 +6,8 @@ from src.tools import DATA_DIR
 
 DIRPATH = DATA_DIR / "student_lists"
 
+div__number = 3
+
 def get_current_classe_dict():
     with open(DIRPATH / 'full_student_list.json', 'r', encoding='utf-8') as full_file:
         classe_dict = json.load(full_file)
@@ -78,7 +80,7 @@ def passage(search_duration=3, sleep_time=0.05):
         print(f'Commande <{codezero}> invalide. Répondre par O ou N :')
         codezero = input()
     if codezero == 'O':
-        current_classe_dict[choosen_name]['probability'] = current_classe_dict[choosen_name]['probability']/2
+        current_classe_dict[choosen_name]['probability'] = current_classe_dict[choosen_name]['probability']/div__number
 
     with open(DIRPATH / 'full_student_list.json', 'w', encoding='utf8') as fullstudentlist:
             json.dump(current_classe_dict, fullstudentlist, indent=4, ensure_ascii=False)
