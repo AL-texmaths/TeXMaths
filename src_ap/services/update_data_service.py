@@ -5,6 +5,9 @@ from src_ap.utils.textools import get_pattern
 Lit les fichiers exercice-*-data.tex et stocke les
 données dans un fichier json
 """
+
+CYCLE_KEY = 'cycle_{}_BO_{}'
+
 class UpdateDataService:
     def __init__(self, context):
         self.context = context
@@ -13,8 +16,8 @@ class UpdateDataService:
         self.code_index_path = context.paths.code_index
         
 
-        self.cycle_value_default = 'cycle 4'
-        self.bo_value_default = 'BO 2026'
+        self.cycle_value_default = '4'
+        self.bo_value_default = '2026'
         self.logger = print
 
     @staticmethod
@@ -36,13 +39,13 @@ class UpdateDataService:
         if value == '':
             self.logger(f'WARNING : empty cycle value\n' + kwargs['tex_relpath'])
             return '', 1
-        return 'cycle ' + value, 0
+        return str(value), 0
 
     def decode_code_index_list(self, value, *, top_key=None, subkey=None, top_label=None, **kwargs):
         """Decode a comma-separated list of codes from CODE_INDEX.
 
         - If `top_key` is provided, look up CODE_INDEX[top_key][code].
-        - Otherwise, build `cycle_key = kwargs['cycle'] + ' ' + kwargs['bo']` and look up CODE_INDEX[cycle_key][subkey][code].
+        - Otherwise, build `cycle_key = CYCLE_KEY.format(kwargs['cycle'], kwargs['bo'])` and look up CODE_INDEX[cycle_key][subkey][code].
         Returns '' when input is empty, otherwise a list with decoded values ('' for unknown codes).
         """
         value = value.replace(' ', '')
@@ -57,7 +60,7 @@ class UpdateDataService:
                 if top_key is not None:
                     result.append(self.context.code_index_data[top_key][token])
                 else:
-                    cycle_key = kwargs['cycle'] + ' ' + kwargs['bo']
+                    cycle_key = CYCLE_KEY.format(kwargs['cycle'], kwargs['bo'])
                     result.append(self.context.code_index_data[cycle_key][subkey][token])
             except KeyError:
                 if top_key is not None:
@@ -120,12 +123,12 @@ class UpdateDataService:
             datakeys += line
             if 'cycle' in line:
                 try:
-                    cycle_value = 'cycle ' + re.findall(r'\{(.*?)\}', line)[0]
+                    cycle_value = re.findall(r'\{(.*?)\}', line)[0]
                 except (IndexError, ValueError):
                     pass
             if 'BO' in line:
                 try:
-                    bo_value = 'BO ' + re.findall(r'\{(.*?)\}', line)[0]
+                    bo_value = re.findall(r'\{(.*?)\}', line)[0]
                 except (IndexError, ValueError):
                     pass
         matches = re.findall(r'\\(.*?)\{(.*?)\}', datakeys)
@@ -155,6 +158,7 @@ class UpdateDataService:
             preview_path = str(pdf_path.parent / "previews" / ('preview-' + pdf_path.name))
             ex_dict['preview'] = preview_path
         errors, warns = self.update_doc_dict(ex_dict)
+        print(ex_dict)
         return ex_dict, errors, warns
 
     def update_data_index(self):
