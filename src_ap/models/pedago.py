@@ -12,7 +12,7 @@ class PedagoDoc:
     pdf: Path
     enonce: str
 
-    preview: str | None = None
+    preview: Path | None = None
     source: str | None = None
     BO: str | None = None
     cycle: str | None = None
@@ -34,6 +34,8 @@ class PedagoDoc:
             self.tex = Path(self.tex)
         if isinstance(self.pdf, (str, Path)) and self.pdf != "":
             self.pdf = Path(self.pdf)
+        if isinstance(self.preview, (str, Path)) and self.preview != "":
+            self.preview = Path(self.preview)
 
         # normalize empty strings to None for optional fields
         for name, value in list(self.__dict__.items()):

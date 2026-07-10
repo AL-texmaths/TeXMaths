@@ -201,7 +201,7 @@ class ResultsList(QListWidget):
         key = item.text()
         document = pedago_data.get(key)
 
-        pdf_path = document.pdf
+        pdf_path = document.preview or document.pdf
 
         if not pdf_path.exists():
             QMessageBox.critical(
