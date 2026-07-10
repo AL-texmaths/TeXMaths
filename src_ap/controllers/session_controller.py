@@ -46,22 +46,25 @@ class SessionController:
         return Path.cwd()
     # --- GUI ---
     def commit_gui_settings(self):
-        self.init_save_main_window_settings()
-        self.init_save_splitter_settings()
-        self.init_save_unused_items_dialog_settings()
+        self.init_save_main_window_settings(save=False)
+        self.init_save_splitter_settings(save=False)
+        self.init_save_unused_items_dialog_settings(save=False)
         self.persistence.save_config(self.config)
 
-    def init_save_main_window_settings(self):
+    def init_save_main_window_settings(self, save=True):
         self.config.settings.gui.main_window.width = self.main_window.width()
         self.config.settings.gui.main_window.height = self.main_window.height()
-        self.persistence.save_config(self.config)
+        if save:
+            self.persistence.save_config(self.config)
 
-    def init_save_splitter_settings(self):
+    def init_save_splitter_settings(self, save=True):
         self.config.settings.gui.splitter.size = self.main_window.splitter.sizes()
-        self.persistence.save_config(self.config)
+        if save:
+            self.persistence.save_config(self.config)
     
-    def init_save_unused_items_dialog_settings(self):
+    def init_save_unused_items_dialog_settings(self, save=True):
         if self.main_window.unused_items_dialog is not None:
             self.config.settings.gui.unused_items_dialog.width = self.main_window.unused_items_dialog.width()
             self.config.settings.gui.unused_items_dialog.height = self.main_window.unused_items_dialog.height()
+        if save:
             self.persistence.save_config(self.config)

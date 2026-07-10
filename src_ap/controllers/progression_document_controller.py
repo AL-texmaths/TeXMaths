@@ -29,7 +29,9 @@ class ProgressionDocumentController:
 
     @property
     def has_file(self):
-        return self.current_file is not None
+        if self.current_file is None:
+            return False
+        return Path(self.current_file).exists()
 
     def load(self, tree, filename):
 
@@ -53,7 +55,7 @@ class ProgressionDocumentController:
 
         if self.current_file is None:
             return False
-
+    
         data = self.progression_service.snapshot(tree)
 
         self.persistence_service.save_progression(

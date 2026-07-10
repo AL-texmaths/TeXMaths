@@ -51,7 +51,7 @@ class PersistenceService:
         filename,
         progression
     ):
-
+        
         filename = Path(filename)
 
         with filename.open(

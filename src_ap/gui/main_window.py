@@ -17,7 +17,7 @@ from src_ap.services.update_data_service import UpdateDataService
 from src_ap.services.check_database_service import CheckDatabaseService
 
 from PySide6.QtCore import QTimer
-from PySide6.QtGui import Qt, QAction
+from PySide6.QtGui import Qt, QAction, QCloseEvent, QResizeEvent
 from PySide6.QtWidgets import (
     QMenuBar,
     QMenu,
@@ -62,6 +62,14 @@ class MainWindow(QWidget):
 
         self.shortcut_tab_2 = QShortcut(QKeySequence("Ctrl+é"), self)
         self.shortcut_tab_2.activated.connect(self.go_tab_2)
+
+        # Initialize save timers for debouncing
+        self._save_gui_settings_timer = QTimer()
+        self._save_gui_settings_timer.setSingleShot(True)
+        self._save_gui_settings_timer.timeout.connect(self._save_gui_settings_debounced)
+        
+        # Connect splitter changes to debounced save
+        self.splitter.splitterMoved.connect(self._schedule_save_gui_settings)
 
     def go_tab_1(self):
         self.tab_widget.setCurrentIndex(0)
@@ -520,7 +528,7 @@ class MainWindow(QWidget):
 
     def save_progression(self):
 
-        if not self.context.document_controller.has_file:
+        if not self.context.document_controller.has_file or not self.context.document_controller.current_file.exists():
             return self.save_as_progression()
 
         self.context.document_controller.save(
@@ -571,3 +579,32 @@ class MainWindow(QWidget):
             "Info",
             f"Progression exported to\n{tex_path}",
         )
+
+    def _schedule_save_gui_settings(self):
+        """Schedule a debounced save of GUI settings (window size, splitter size)."""
+        self._save_gui_settings_timer.stop()
+        self._save_gui_settings_timer.start(500)  # 500ms debounce
+
+    def _save_gui_settings_debounced(self):
+        """Save GUI settings after debounce delay."""
+        try:
+            self.context.session_controller.init_save_main_window_settings(save=False)
+            self.context.session_controller.init_save_splitter_settings(save=False)
+            self.context.persistence_service.save_config(self.context.config)
+            logger.info("GUI settings saved (debounced)")
+        except Exception as e:
+            logger.error(f"Error saving GUI settings: {e}")
+
+    def resizeEvent(self, event: QResizeEvent):
+        """Handle window resize event - schedule debounced save of window size."""
+        super().resizeEvent(event)
+        self._schedule_save_gui_settings()
+
+    def closeEvent(self, event: QCloseEvent):
+        """Handle window close event - save all GUI settings before closing."""
+        try:
+            self.context.session_controller.commit_gui_settings()
+            logger.info("GUI settings saved on window close")
+        except Exception as e:
+            logger.error(f"Error saving GUI settings on close: {e}")
+        super().closeEvent(event)
