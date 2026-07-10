@@ -10,6 +10,8 @@ data/latex/**/*.fdb_latexmk
 data/latex/**/*.fls
 data/latex/**/*.synctex(busy)
 
+data/latex/catalogues/*.json
+
 data/graphics/pdf
 data/tmp
 
