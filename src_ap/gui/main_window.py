@@ -186,7 +186,7 @@ class MainWindow(QWidget):
                 self.progression_panel.progression_tree,
                 self.current_file_path
             )
-    
+
     def init_preview_panel(self):
         self.preview_panel = PreviewPanel(
             self.regex_panel,

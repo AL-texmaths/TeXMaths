@@ -11,6 +11,7 @@ class Paths:
                 setattr(self, f"{key}", resolved_path)
             except FileNotFoundError as e:
                 print(f"Error occurred while resolving path for key '{key}': {e}")
+                setattr(self, f"{key}", None)
 
         code_index_file_name = config.settings.current.code_index_file_name
         

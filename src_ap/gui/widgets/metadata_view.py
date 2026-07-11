@@ -159,11 +159,11 @@ class MetadataView(QWidget):
             font=self.font()
         )
 
-        base = self.context.paths.katex
-
-        base_url = QUrl.fromLocalFile(
-                str(base.resolve()) + "/"
-        )
+        katex_path = self.context.paths.katex
+        if katex_path is not None:
+            base_url = QUrl.fromLocalFile(str(katex_path) + "/")
+        else:
+            base_url = QUrl("https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/")
 
         self.last_info_html = full_html
 

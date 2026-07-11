@@ -33,7 +33,7 @@
             "data/latex/codes_labels/BO_2026.tex"
         ],
         "katex": [
-            "./data/katex/",
+            "./data/katexDEBUG/",
             ".\\data\\katex\\"
         ],
         "latex": [
