@@ -100,7 +100,7 @@
             "group": "build"
         },
         {
-            "label": "display stduents notes",
+            "label": "display students notes",
             "type": "process",
             "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
