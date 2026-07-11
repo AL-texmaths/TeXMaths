@@ -6,7 +6,7 @@
 \makeatletter
 \def\run@python#1{%
     \directlua{
-        local path = status.filename:gsub("\\", "/")
+        local path = os.getenv("PWD"):gsub("\\", "/")
         local root = path:match("(.*/TeXMaths/)")
 
         if root then

@@ -1,5 +1,7 @@
+% test.tex
 \documentclass{article}
-\usepackage{texmaths-path}
+\usepackage{texmaths-pytools}
 \begin{document}
-    \svg{movie}
+\makeatletter
+\run@python{-m src.enonces_catalogue}
 \end{document}

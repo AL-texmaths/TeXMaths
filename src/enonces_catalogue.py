@@ -1,5 +1,4 @@
-import os
-print(f"Current working directory: {os.getcwd()}")
+print('Generating enonces catalogue')
 from src.tools import LATEX_DIR
 
 enonces_path = LATEX_DIR / "enonces"
@@ -16,3 +15,4 @@ for file_path in file_pathes:
     print(f'writing \n{outputdata[:-1]}\n in {output_path}')
 with open(output_path, "w", encoding="utf-8") as output_file:
     output_file.write(outputdatas)
+print(f'Catalogue generated in {output_path}')
