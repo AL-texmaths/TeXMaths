@@ -11,6 +11,8 @@ data/latex/**/*.fls
 data/latex/**/*.synctex(busy)
 
 data/latex/catalogues/*.json
+data/latex/catalogues/enonces.tex
+data/latex/flash/previews
 
 data/graphics/pdf
 data/tmp
