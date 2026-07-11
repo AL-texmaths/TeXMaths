@@ -2,19 +2,52 @@
     "NOM1 Prénom1": {
         "name": "NOM1 Prénom1",
         "classe": "test",
-        "passages": [],
+        "passages": [
+            {
+                "date": "2026-07-11 22:03:58",
+                "question": "cours",
+                "note": 0.8
+            },
+            {
+                "date": "2026-07-11 22:11:15",
+                "question": "cours",
+                "note": 0.2
+            }
+        ],
         "moyenne": null
     },
     "NOM2 Prénom2": {
         "name": "NOM2 Prénom2",
         "classe": "test",
-        "passages": [],
+        "passages": [
+            {
+                "date": "2026-07-11 22:04:35",
+                "question": "cours",
+                "note": 0.5
+            }
+        ],
         "moyenne": null
     },
     "NOM3 Prénom3": {
         "name": "NOM3 Prénom3",
         "classe": "test",
-        "passages": [],
+        "passages": [
+            {
+                "date": "2026-07-11 22:04:19",
+                "question": "def",
+                "note": 0.2
+            },
+            {
+                "date": "2026-07-11 22:07:07",
+                "question": "cours3",
+                "note": 0.2
+            },
+            {
+                "date": "2026-07-11 22:10:14",
+                "question": "cours",
+                "note": 0.2
+            }
+        ],
         "moyenne": null
     },
     "NOM4 Prénom4": {
@@ -22,9 +55,14 @@
         "classe": "test",
         "passages": [
             {
-                "date": "2026-07-11 14:46:45",
+                "date": "2026-07-11 22:04:08",
                 "question": "cours",
-                "note": "4/5"
+                "note": 0.4
+            },
+            {
+                "date": "2026-07-11 22:04:48",
+                "question": "cours",
+                "note": 0.4
             }
         ],
         "moyenne": null

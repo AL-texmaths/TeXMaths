@@ -69,6 +69,7 @@ class StudentClass:
             self.reset_student_list()
     
     def save_student_list(self):
+        print(self.students)
         with open(self.get_class_dict_path(), 'w', encoding='utf-8') as f:
             json.dump({name: asdict(student) for name, student in self.students.items()}, f, indent=4, ensure_ascii=False)
 
@@ -107,7 +108,7 @@ class StudentClass:
         passage = Passage()
         passage.date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         passage.question = input('Entrez la question posée : ')
-        passage.note = input('Entrez la note obtenue : ')
+        passage.note = eval(input('Entrez la note obtenue : '))
         return passage
 
     def save_passage(self, student: Student, passage: Passage):
@@ -148,7 +149,7 @@ class StudentClass:
 if __name__ == '__main__':
     classe = input('Entrez le nom de la classe ')
     while not classe in get_all_classes():
-        print(f'La classe <{classe}> n\'existe pas.')
+        print(f'La classe {classe} n\'existe pas.')
         classe = input('Entrez le nom de la classe ')
     student_class = StudentClass(classe)
     nextstudent = student_class.passage()

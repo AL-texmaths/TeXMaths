@@ -100,6 +100,23 @@
             "group": "build"
         },
         {
+            "label": "display stduents notes",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "args": [
+                "-m",
+                "src.display_students_notes",
+                "${input:classes}"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
             "label": "make new doc",
             "type": "process",
             "command": "${workspaceFolder}/.venv/bin/python",
