@@ -16,10 +16,9 @@
             ".synctex.gz"
         ],
         "student_lists": {
-            "list_key": "liste-{0}.txt",
-            "proba_key": "proba-{0}.json",
-            "div_num": 3,
-            "max_num_passages": 5
+            "list_key": "liste-{0}.{1}",
+            "template_key": "liste-{0}-template.tex",
+            "proba_coeff": 0.2
         }
     },
     "executables": {

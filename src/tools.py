@@ -256,27 +256,25 @@ def compile_latex(tex_file_path: str | Path,
     except FileNotFoundError:
         exe_path = 'lualatex'  # fallback to system path
     
-    print(exe_path)
+    try:
+        exe_path = get_exe(motor)
+    except FileNotFoundError:
+        exe_path = motor
 
-    if IS_WINDOWS and not str(exe_path).lower().endswith(".exe"):
-        exe_path = exe_path.with_suffix(".exe")
-
-        if not Path(exe_path).exists():
-            return subprocess.CompletedProcess([], 2, "", f"Executable not found : {exe_path}")
-
-    cmd_list = [str(exe_path)] + cmd_args + [str(tex_file_cmd_path)]
-    if not silent:
-        log(f"Running command: {' '.join(cmd_list)} in {cwd}")
-
-    result = subprocess.run(
-        cmd_list,
-        cwd=cwd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        text=True,
-    )
-
-    return result
+    try:
+        return subprocess.run(
+            [exe_path, *cmd_args, str(tex_file_cmd_path)],
+            cwd=cwd,
+            capture_output=True,
+            text=True,
+        )
+    except FileNotFoundError:
+        return subprocess.CompletedProcess(
+            [],
+            2,
+            "",
+            f"Executable not found: {exe_path}",
+        )
 
 
 # =========================

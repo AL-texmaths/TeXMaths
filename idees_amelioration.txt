@@ -9,8 +9,9 @@
 ===============================================================================
 --------- src modules ------------
 >>> choose_random student
---> enregistrer les dates de passages/question posée et les notes
-chaque classe
+--> la note doit etre un float
+--> display_passages_moyenne
+
 --------- Global ---------------
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi

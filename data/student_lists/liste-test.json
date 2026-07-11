@@ -1,0 +1,32 @@
+{
+    "NOM1 Prénom1": {
+        "name": "NOM1 Prénom1",
+        "classe": "test",
+        "passages": [],
+        "moyenne": null
+    },
+    "NOM2 Prénom2": {
+        "name": "NOM2 Prénom2",
+        "classe": "test",
+        "passages": [],
+        "moyenne": null
+    },
+    "NOM3 Prénom3": {
+        "name": "NOM3 Prénom3",
+        "classe": "test",
+        "passages": [],
+        "moyenne": null
+    },
+    "NOM4 Prénom4": {
+        "name": "NOM4 Prénom4",
+        "classe": "test",
+        "passages": [
+            {
+                "date": "2026-07-11 14:46:45",
+                "question": "cours",
+                "note": "4/5"
+            }
+        ],
+        "moyenne": null
+    }
+}

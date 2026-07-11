@@ -1,43 +1,43 @@
 {
     "NOM1 Prénom1": {
+        "name": "NOM1 Prénom1",
         "classe": "test",
-        "probability": 243,
         "passages": [
             {
-                "date": "2026-07-11 13:50:45",
-                "question": "def",
+                "date": "2026-07-11 14:08:58",
+                "question": "cours",
                 "note": "3/5"
             }
         ],
         "moyenne": null
     },
     "NOM2 Prénom2": {
+        "name": "NOM2 Prénom2",
         "classe": "test",
-        "probability": 243,
         "passages": [
             {
-                "date": "2026-07-11 13:50:59",
-                "question": "def2",
+                "date": "2026-07-11 14:09:07",
+                "question": "def",
                 "note": "1/5"
             }
         ],
         "moyenne": null
     },
     "NOM3 Prénom3": {
+        "name": "NOM3 Prénom3",
         "classe": "test",
-        "probability": 243,
         "passages": [
             {
-                "date": "2026-07-11 13:49:27",
-                "question": "cours",
-                "note": "4/5"
+                "date": "2026-07-11 14:09:20",
+                "question": "chapitre 3",
+                "note": "2/5"
             }
         ],
         "moyenne": null
     },
     "NOM4 Prénom4": {
+        "name": "NOM4 Prénom4",
         "classe": "test",
-        "probability": 243,
         "passages": [],
         "moyenne": null
     }

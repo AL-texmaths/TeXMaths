@@ -4,11 +4,15 @@ from src.tools import (
     get_config, DATA_DIR, LATEX_DIR, OUTPUT_DIR, TMP_DIR,
     del_files_by_ext, getmodtime, compile_latex)
 
-LOGICIEL = get_config()["settings"]["logiciel"]
+config = get_config()
+settings = config["settings"]
+LOGICIEL = settings["logiciel"]
 LISTPATH = DATA_DIR / "student_lists"
 TEMPLATES = LATEX_DIR / "templates"
-YEAR = get_config()["settings"]["year"]
+YEAR = settings["year"]
 OUTPUT_LIST_DIR = OUTPUT_DIR / YEAR / "suivi"
+LIST_KEY = settings["student_lists"]["list_key"]
+TEMPLATE_KEY = settings["student_lists"]["template_key"]
 
 classes = sys.argv[1].split(",")
 if len(classes) == 1 and classes[0] == 'All':
@@ -30,7 +34,7 @@ def get_student_list_csv_ent(classe):
     student_list: list of string
         The student list.
     """
-    csvpath = LISTPATH / f'list-{classe}.csv'
+    csvpath = LISTPATH / LIST_KEY.format(classe, "csv")
     student_list = []
     
     with open(csvpath, newline='') as csvfile:
@@ -57,7 +61,7 @@ def get_student_list_csv_pronote(classe):
     student_list: list of string
         The student list.
     """
-    csvpath = LISTPATH / f'liste-{classe}.csv'
+    csvpath = LISTPATH / LIST_KEY.format(classe, "csv")
     student_list = []
     
     with open(csvpath, newline='') as csvfile:
@@ -74,12 +78,12 @@ def get_student_list_csv_pronote(classe):
     return student_list
 
 def write_list_txt(classe):
-    txtpath = LISTPATH / f'liste-{classe}.txt'
-    csvpath = LISTPATH / f'liste-{classe}.csv'
+    txtpath = LISTPATH / LIST_KEY.format(classe, "txt")
+    csvpath = LISTPATH / LIST_KEY.format(classe, "csv")
     txtmodtime = getmodtime(txtpath)
     csvmodtime = getmodtime(csvpath)
     if txtmodtime > csvmodtime:
-        print("No need to change list : " + f'liste-{classe}.txt')
+        print(f"No need to change list : {txtpath.name} is up to date.")
         return
     with open(txtpath, 'w') as list_file:
         list_file.write('\n'.join(globals()["get_student_list_csv_" + LOGICIEL](classe)))
@@ -115,10 +119,10 @@ result = None
 for classe in classes:
     PARAM["classe"] = classe
     write_list_txt(classe)
-    with open(TEMPLATES / f"liste-{suivi_type}-template.tex", 'r', encoding='utf-8') as tex_file:
+    with open(TEMPLATES / TEMPLATE_KEY.format(suivi_type), 'r', encoding='utf-8') as tex_file:
         tex_file_data_lines = tex_file.read().split('\n')
 
-    with open(LISTPATH / f"liste-{classe}.txt", 'r', encoding='utf-8') as txt_file:
+    with open(LISTPATH / LIST_KEY.format(classe, "txt"), 'r', encoding='utf-8') as txt_file:
         txt_file_data_lines = txt_file.read().split('\n')
 
     tex_file_last_line = tex_file_data_lines[-1]
@@ -135,7 +139,7 @@ for classe in classes:
 
     tex_file_data_lines.append(tex_file_last_line)
 
-    with open(TMP_DIR / f"liste-{classe}.tex", 'w', encoding='utf-8') as tex_file:
+    with open(TMP_DIR / LIST_KEY.format(classe, "tex"), 'w', encoding='utf-8') as tex_file:
         tex_file.write('\n'.join(tex_file_data_lines))
 
     with open(TEMPLATES / "suivi-template.tex", 'r', encoding='utf-8') as suivi_file:
@@ -147,7 +151,7 @@ for classe in classes:
             if macro(param) in line:
                 suivi_file_lines[line_index] = macro(param) + "{" + PARAM[param] + "}"
 
-    texfilename = f"suivi-{classe}-{periode}.tex"
+    texfilename = f"{suivi_type}-{classe}-{periode}.tex"
     texfiletocomp = TMP_DIR / texfilename
     with open(texfiletocomp, 'w', encoding='utf-8') as suivi_file:
         suivi_file.write('\n'.join(suivi_file_lines))

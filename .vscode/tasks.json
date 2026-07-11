@@ -22,7 +22,7 @@
                 "src.mainsplit"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "group": "build"
         },
@@ -35,7 +35,7 @@
                 "src.export_exemple"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "group": "build"
         },
@@ -58,7 +58,7 @@
                 "src.enonces_catalogue"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -75,7 +75,7 @@
                 "${input:classes}"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -92,7 +92,7 @@
                 "${input:classes}"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -108,23 +108,7 @@
                 "src.make_new_doc"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
-            },
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "group": "build"
-        },
-        {
-            "label": "test all exercices",
-            "type": "process",
-            "command": "${workspaceFolder}/.venv/bin/python",
-            "args": [
-                "-m",
-                "src.test_all_exercices"
-            ],
-            "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -140,44 +124,12 @@
                 "src.printer"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "group": "build"
-        },
-        {
-            "label": "Git push avec date TeXMaths (github and machine)",
-            "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-Command",
-                "$date = Get-Date -Format 'yyyy-MM-dd'; $message = 'Update ' + $date; git add .; git commit -m $message; git push machine main; git push github main"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "group": {
-                "kind": "build",
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Git push avec date MiKTeX Local (github and machine)",
-            "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-Command",
-                "$date = Get-Date -Format 'yyyy-MM-dd'; $message = 'Update ' + $date; git add .; git commit -m $message; git push machine main; git push github main"
-            ],
-            "options": {
-                "cwd": "\\Root\\Programmes\\MiKTeX\\texmfs\\data\\tex\\latex\\local"
-            },
-            "group": {
-                "kind": "build",
-            },
-            "problemMatcher": []
         },
         {
             "label": "open BO 2026",
