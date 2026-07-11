@@ -8,28 +8,6 @@
             "TOSHIBA 3528A",
             "Microsoft XPS Document Writer"
         ],
-        "index documents": {
-            "exercice": {
-                "folder name": "exercices",
-                "name pattern": "-(\\d{4})-(data|[a-z])\\.([A-Za-z\\.]+)$"
-            },
-            "activite": {
-                "folder name": "activites",
-                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
-            },
-            "flash": {
-                "folder name": "flash",
-                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
-            },
-            "diapo": {
-                "folder name": "diapo",
-                "name pattern": "-([A-Za-z_\\d]+)-(\\d+)\\.([A-Za-z\\.]+)$"
-            },
-            "dnbqcm": {
-                "folder name": "dnbqcm",
-                "name pattern": "-(\\d{4})\\.([A-Za-z\\.]+)$"
-            }
-        },
         "ignored extensions": [
             ".aux",
             ".log",
@@ -37,20 +15,12 @@
             ".fdb_latexmk",
             ".synctex.gz"
         ],
-        "string check order": [
-            "\\documentclass",
-            "\\startdatakeys",
-            "\\enddatakeys",
-            "\\begin{document}",
-            "\\end{document}"
-        ],
-        "tex non optionnal keys": [
-            "source",
-            "BO",
-            "cycle",
-            "objectifsApprentissage"
-        ],
-        "theme": "VS Code Dark"
+        "student_lists": {
+            "list_key": "liste-{0}.txt",
+            "proba_key": "proba-{0}.json",
+            "div_num": 3,
+            "max_num_passages": 5
+        }
     },
     "executables": {
         "code": [
