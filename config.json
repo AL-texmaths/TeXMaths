@@ -13,7 +13,8 @@
             ".log",
             ".fls",
             ".fdb_latexmk",
-            ".synctex.gz"
+            ".synctex.gz",
+            ".synctex(busy)"
         ],
         "student_lists": {
             "list_key": "liste-{0}.{1}",
