@@ -109,10 +109,3 @@ class CheckDatabaseService:
                         else:
                             self.logger(f"Compilation of {file_path} succeeded.")
                             self.database_errors -=1
-
-if __name__ == "__main__":
-    context = create_context(None)
-    check_database_service = CheckDatabaseService(context.config.settings, context.paths.latex)
-    check_database_service.check_database()
-    # show_non_matches(unlink=True)
-    

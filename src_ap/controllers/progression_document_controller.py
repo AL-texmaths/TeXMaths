@@ -85,7 +85,10 @@ class ProgressionDocumentController:
     ):
 
         if self.current_file is None:
-            return None
+            return 1
+
+        if self.paths.sequencages is None:
+            return 1
 
         data = self.progression_service.snapshot(tree)
 
@@ -99,4 +102,4 @@ class ProgressionDocumentController:
             data,
         )
 
-        return tex_path
+        return 0

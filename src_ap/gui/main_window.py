@@ -38,6 +38,13 @@ class MainWindow(QWidget):
         super().__init__()
         self.context = create_context(self)
         logger.info("app context created")
+        if self.context.paths.latex is None:
+            QMessageBox.critical(
+                self,
+                "Error",
+                "LaTeX path is not set. Please check your configuration.",
+            )
+            raise ValueError("LaTeX(data/latex/) path is not set.")
         self.settings = self.context.config.settings
         self.action_manager = ActionManager(self)
         self.current_file_path = self.context.session_controller.get_current_file()
@@ -333,6 +340,7 @@ class MainWindow(QWidget):
                 "Warning",
                 f"La compilation a échouchée, check log console."
             )
+            return
 
         self.update_search()
 
@@ -570,15 +578,23 @@ class MainWindow(QWidget):
             )
             return
 
-        tex_path = self.context.document_controller.export(
+        result = self.context.document_controller.export(
             self.progression_panel.progression_tree,
             self.regex_panel.selected_catalogue().name,
         )
 
+        if result != 0:
+            QMessageBox.warning(
+                self,
+                "Warning",
+                "Failed to export progression.",
+            )
+            return
+
         QMessageBox.information(
             self,
             "Info",
-            f"Progression exported to\n{tex_path}",
+            f"Progression successfully exported",
         )
 
     def _schedule_save_gui_settings(self):

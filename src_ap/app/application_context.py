@@ -20,6 +20,7 @@ from src_ap.services.search_pdf_service import SearchPDFService
 from src_ap.services.pedago_data_service import PedagoDataService
 from src_ap.services.process_service import ProcessService
 from src_ap.services.html_service import HtmlService
+from pathlib import Path
 
 
 @dataclass
@@ -58,6 +59,9 @@ def create_context(main_window) -> AppContext:
     paths = Paths(config)
     export_service = ExportService(config.codes)
     undo_redo_service = UndoRedoService()
+    if not hasattr(paths, "code_index") or paths.code_index is None:
+        print("Warning: 'code_index' path is not set. Using current working directory.")
+        paths.code_index = Path.cwd()
     pedago_data_service = PedagoDataService(paths.code_index / config.settings.current.pdf_data_file_name)
 
     code_index_document_controller = CodeIndexDocumentController(paths.code_index_file)

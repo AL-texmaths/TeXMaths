@@ -122,6 +122,9 @@ def update_code_index(
     Update the code index with the latest data from the LaTeX
     source files
     """
+    if code_labels_dir is None or texmf_dir is None:
+        logger("Warning: code_labels_dir or texmf_dir is None. Skipping check_code_index_data.")
+        return 1
     result = check_code_index_data(
         code_labels_dir=code_labels_dir,
         texmf_dir=texmf_dir,

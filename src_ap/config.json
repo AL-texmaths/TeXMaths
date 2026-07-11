@@ -33,11 +33,11 @@
             "data/latex/codes_labels/BO_2026.tex"
         ],
         "katex": [
-            "./data/katexDEBUG/",
+            "./data/katex/",
             ".\\data\\katex\\"
         ],
         "latex": [
-            "./data/latex/",
+            "./data/latexDEBUG/",
             ".\\data\\latex\\"
         ],
         "code_index": [
@@ -159,8 +159,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 1469,
-                "height": 890
+                "width": 732,
+                "height": 888
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -170,7 +170,7 @@
             "splitter": {
                 "size": [
                     286,
-                    846,
+                    109,
                     305
                 ]
             },
@@ -377,9 +377,9 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Cycle 4 BO 2026",
+            "catalogue": "Compétences du socle",
             "type": "Tous",
-            "current_file_path": "/caca/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
+            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
             "code_index_file_name": "code_index.json",
             "pdf_data_file_name": "data_index.json"
         }

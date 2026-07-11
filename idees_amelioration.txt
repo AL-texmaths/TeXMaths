@@ -11,6 +11,7 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
+>>> checker la sauvegarde du dossier d'enregistrement des progressions
 >>> API: rétablir un fichier config (menu paramètres "retablir
 les paramètres par défault")
 >>> API: gérer les chemins non trouvé en affichant les dossiers
