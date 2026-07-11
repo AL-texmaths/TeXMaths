@@ -31,6 +31,9 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtGui import QKeySequence, QShortcut
 
+from pathlib import Path
+import json
+
 
 class MainWindow(QWidget):
 
@@ -285,6 +288,8 @@ class MainWindow(QWidget):
 
         edit_menu.addMenu(theme_menu)
         edit_menu.addMenu(open_catalogue_menu)
+        edit_menu.addSeparator()
+        edit_menu.addAction(self.action_manager.action("restore_default_settings"))
         menu_bar.addMenu(file_menu)
         menu_bar.addMenu(edit_menu)
         menu_bar.addMenu(progression_menu)
@@ -601,6 +606,42 @@ class MainWindow(QWidget):
         """Schedule a debounced save of GUI settings (window size, splitter size)."""
         self._save_gui_settings_timer.stop()
         self._save_gui_settings_timer.start(500)  # 500ms debounce
+
+    def restore_default_settings(self):
+        """Restore default settings and reload configuration."""
+        reply = QMessageBox.question(
+            self,
+            "Restaurer les paramètres par défaut",
+            "Êtes-vous sûr de vouloir restaurer tous les paramètres par défaut ?\nCette action ne peut pas être annulée.",
+            QMessageBox.Yes | QMessageBox.No,
+            QMessageBox.No
+        )
+        
+        if reply != QMessageBox.Yes:
+            return
+        
+        try:
+            # Load the default config
+            default_config_path = (Path("src_ap") / "config-default.json").absolute()
+            with open(default_config_path, "r", encoding="utf-8") as f:
+                default_config_dict = json.load(f)
+            
+            # Save the default config to the current config file
+            with open('config.json', "w", encoding="utf-8") as f:
+                json.dump(default_config_dict, f, indent=4, ensure_ascii=False)
+            
+            QMessageBox.information(
+                self,
+                "Succès",
+                "Les paramètres par défaut ont été restaurés.\nVeuillez redémarrer l'application pour voir les changements."
+            )
+            
+        except Exception as e:
+            QMessageBox.critical(
+                self,
+                "Erreur",
+                f"Erreur lors de la restauration des paramètres par défaut:\n{str(e)}"
+            )
 
     def _save_gui_settings_debounced(self):
         """Save GUI settings after debounce delay."""

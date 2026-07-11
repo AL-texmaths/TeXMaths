@@ -37,7 +37,7 @@
             ".\\data\\katex\\"
         ],
         "latex": [
-            "./data/latexDEBUG/",
+            "./data/latex/",
             ".\\data\\latex\\"
         ],
         "code_index": [
@@ -159,8 +159,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 732,
-                "height": 888
+                "width": 1469,
+                "height": 890
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -169,17 +169,17 @@
             },
             "splitter": {
                 "size": [
-                    286,
-                    109,
-                    305
+                    464,
+                    379,
+                    594
                 ]
             },
             "progression_tree": {
                 "scrolling_step": 1
             },
             "documents_tab": {
-                "vertical_splitter": 383,
-                "horizontal_splitter": 1178
+                "vertical_splitter": 525,
+                "horizontal_splitter": 839
             }
         },
         "pedago_service": {
@@ -376,8 +376,8 @@
             }
         },
         "current": {
-            "theme": "VSCode Dark",
-            "catalogue": "Compétences du socle",
+            "theme": "Nord Dark",
+            "catalogue": "Cycle 3 BO 2026",
             "type": "Tous",
             "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
             "code_index_file_name": "code_index.json",
@@ -570,6 +570,13 @@
         "paste_item": {
             "text": "Coller l'élément",
             "shortcut": "Ctrl+V",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "restore_default_settings": {
+            "text": "Restaurer les paramètres par défaut",
+            "shortcut": "",
             "button": false,
             "icon": null,
             "checkable": false

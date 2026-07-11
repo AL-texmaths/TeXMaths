@@ -119,6 +119,7 @@ class ActionsConfig(BaseModel):
     copy_item: ActionSettings
     cut_item: ActionSettings
     paste_item: ActionSettings
+    restore_default_settings: ActionSettings
 
 class CodeLabelModel(BaseModel):
     name: str
