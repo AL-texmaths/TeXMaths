@@ -552,6 +552,7 @@ class MainWindow(QWidget):
         ):
             self.preview_panel.refresh_view()
             self.context.session_controller.set_current_file(filename)
+            self.reload_window_title()
 
     def save_progression(self):
 

@@ -2,6 +2,7 @@ import sys
 import json
 import shutil
 from pathlib import Path
+from json.decoder import JSONDecodeError
 
 from src_ap.models.config import Config
 
@@ -38,9 +39,22 @@ def check_project_layout(Base_dir: Path):
             "\n".join(str(m) for m in missing)
         )
 
-USR_CONFIG_PATH = (Path("src_ap") / "usr_data" / "config.json").absolute()
 DEF_CONFIG_PATH = (Path("src_ap") / "default_data" / "config.json").absolute()
+USR_CONFIG_PATH = (Path("src_ap") / "usr_data" / "config.json").absolute()
 
+usr_config_correct = True
+try:
+    with open(USR_CONFIG_PATH, "r", encoding="utf8") as f:
+        json.load(f)
+except JSONDecodeError:
+    shutil.copy(USR_CONFIG_PATH, USR_CONFIG_PATH.parent / "backup" / USR_CONFIG_PATH.with_suffix(".bak"))
+    usr_config_correct = False
+except FileNotFoundError:
+    usr_config_correct = False
+
+if  not usr_config_correct:
+    print("User config file not found or invalid. Copying default config to user config.")
+    shutil.copy(DEF_CONFIG_PATH, USR_CONFIG_PATH)
 
 def resolve_executable(executable: str, config:Config|None=None) -> Path:
     """
