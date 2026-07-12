@@ -1,5 +1,5 @@
 import subprocess
-from src_ap.utils.resolve import CONFIG_PATH, resolve_executable
+from src_ap.utils.resolve import USR_CONFIG_PATH, DEF_CONFIG_PATH, resolve_executable
 from src_ap.models.config import Config
 from pathlib import Path
 import json
@@ -7,14 +7,18 @@ import json
 class PersistenceService:
 
     @staticmethod
-    def load_config() -> Config:
-        with open(CONFIG_PATH, encoding="utf8") as f:
-            config = Config.model_validate(json.load(f))
+    def load_config(usr: bool = True) -> Config:
+        if usr:
+            with open(USR_CONFIG_PATH, encoding="utf8") as f:
+                config = Config.model_validate(json.load(f))
+        else:
+            with open(DEF_CONFIG_PATH, encoding="utf8") as f:
+                config = Config.model_validate(json.load(f))
         return config
 
     @staticmethod
     def save_config(config: Config) -> None:
-        with open(CONFIG_PATH, "w", encoding="utf8") as f:
+        with open(USR_CONFIG_PATH, "w", encoding="utf8") as f:
             json.dump(
                 config.model_dump(by_alias=True),
                 f,
@@ -22,11 +26,15 @@ class PersistenceService:
                 ensure_ascii=False,
             )
     
+    def restore_default_settings(self) -> None:
+        default_config = self.load_config(usr=False)
+        self.save_config(default_config)
+
     def open_config_file(self):
         subprocess.run(
             [
                 str(resolve_executable("blocnote", self.load_config())),
-                str(CONFIG_PATH)
+                str(USR_CONFIG_PATH)
             ],
             check=False
             )

@@ -37,7 +37,10 @@ class SessionController:
         self.persistence.save_config(self.config)
 
     def get_current_file(self):
-        return Path(self.config.settings.current.current_file_path)
+        current_file_path = self.config.settings.current.current_file_path
+        if current_file_path is None:
+            return None
+        return Path(current_file_path)
 
     def get_progression_dir(self):
         current_file_path = self.get_current_file()

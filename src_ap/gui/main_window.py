@@ -141,6 +141,7 @@ class MainWindow(QWidget):
             self.settings.gui.main_window.height
             )
         self.unused_items_dialog = None
+        self.save_at_close = True
 
     def init_splitter(self):
         
@@ -621,20 +622,15 @@ class MainWindow(QWidget):
             return
         
         try:
-            # Load the default config
-            default_config_path = (Path("src_ap") / "config-default.json").absolute()
-            with open(default_config_path, "r", encoding="utf-8") as f:
-                default_config_dict = json.load(f)
-            
-            # Save the default config to the current config file
-            with open('config.json', "w", encoding="utf-8") as f:
-                json.dump(default_config_dict, f, indent=4, ensure_ascii=False)
+            self.context.persistence_service.restore_default_settings()
+            self.context.config = self.context.persistence_service.load_config()
             
             QMessageBox.information(
                 self,
                 "Succès",
                 "Les paramètres par défaut ont été restaurés.\nVeuillez redémarrer l'application pour voir les changements."
             )
+            self.save_at_close = False
             
         except Exception as e:
             QMessageBox.critical(
@@ -660,6 +656,8 @@ class MainWindow(QWidget):
 
     def closeEvent(self, event: QCloseEvent):
         """Handle window close event - save all GUI settings before closing."""
+        if not self.save_at_close:
+            return
         try:
             self.context.session_controller.commit_gui_settings()
             logger.info("GUI settings saved on window close")

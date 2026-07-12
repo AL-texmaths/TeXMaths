@@ -169,17 +169,17 @@
             },
             "splitter": {
                 "size": [
-                    464,
-                    379,
-                    594
+                    286,
+                    680,
+                    471
                 ]
             },
             "progression_tree": {
                 "scrolling_step": 1
             },
             "documents_tab": {
-                "vertical_splitter": 525,
-                "horizontal_splitter": 839
+                "vertical_splitter": 293,
+                "horizontal_splitter": 1160
             }
         },
         "pedago_service": {
@@ -376,10 +376,10 @@
             }
         },
         "current": {
-            "theme": "Nord Dark",
-            "catalogue": "Cycle 3 BO 2026",
+            "theme": "VSCode Dark",
+            "catalogue": "Compétences du socle",
             "type": "Tous",
-            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
+            "current_file_path": null,
             "code_index_file_name": "code_index.json",
             "pdf_data_file_name": "data_index.json"
         }

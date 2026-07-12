@@ -38,19 +38,8 @@ def check_project_layout(Base_dir: Path):
             "\n".join(str(m) for m in missing)
         )
 
-CONFIG_PATH = (Path("src_ap") / "config.json").absolute()
-
-def get_config() -> dict:
-    """
-    Load the configuration from the config.json file.
-
-    Returns:
-        A dictionary containing the configuration.
-    """
-    with open(CONFIG_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-CONFIG = get_config()
+USR_CONFIG_PATH = (Path("src_ap") / "usr_data" / "config.json").absolute()
+DEF_CONFIG_PATH = (Path("src_ap") / "default_data" / "config.json").absolute()
 
 
 def resolve_executable(executable: str, config:Config|None=None) -> Path:

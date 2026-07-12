@@ -170,8 +170,8 @@
             "splitter": {
                 "size": [
                     286,
-                    680,
-                    471
+                    679,
+                    470
                 ]
             },
             "progression_tree": {
@@ -379,7 +379,7 @@
             "theme": "VSCode Dark",
             "catalogue": "Compétences du socle",
             "type": "Tous",
-            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
+            "current_file_path": null,
             "code_index_file_name": "code_index.json",
             "pdf_data_file_name": "data_index.json"
         }
