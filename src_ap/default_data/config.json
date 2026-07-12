@@ -170,16 +170,16 @@
             "splitter": {
                 "size": [
                     286,
-                    680,
-                    471
+                    679,
+                    470
                 ]
             },
             "progression_tree": {
                 "scrolling_step": 1
             },
             "documents_tab": {
-                "vertical_splitter": 293,
-                "horizontal_splitter": 1160
+                "vertical_splitter": 517,
+                "horizontal_splitter": 1142
             }
         },
         "pedago_service": {
@@ -187,6 +187,15 @@
                 "BO",
                 "source",
                 "cycle",
+                "competencesDuSocle",
+                "connaissancesRequises",
+                "competencesTravaillees",
+                "automatismes",
+                "objectifsApprentissage",
+                "prolongements",
+                "motsCles"
+            ],
+            "to_convert": [
                 "competencesDuSocle",
                 "connaissancesRequises",
                 "competencesTravaillees",
@@ -377,7 +386,7 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Compétences du socle",
+            "catalogue": "Cycle 4 BO 2020",
             "type": "Tous",
             "current_file_path": null,
             "code_index_file_name": "code_index.json",
@@ -576,6 +585,20 @@
         },
         "restore_default_settings": {
             "text": "Restaurer les paramètres par défaut",
+            "shortcut": "",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "extract_flash_previews": {
+            "text": "Extraire les aperçus de flash",
+            "shortcut": "",
+            "button": false,
+            "icon": null,
+            "checkable": false
+        },
+        "update_flash_previews": {
+            "text": "Mettre à jour les aperçus de flash",
             "shortcut": "",
             "button": false,
             "icon": null,

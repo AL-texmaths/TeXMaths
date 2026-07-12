@@ -11,14 +11,12 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
->>> DEBUG: update_data_index doit également reload le pdf actuellement dans la liste s'il existe
 >>> checker la sauvegarde du dossier d'enregistrement des progressions
 >>> API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut
 "catalogue" a chaque progression et empecher l'ajout
 d'item dont le catalogue ne correspond pas)
->>> délégation des responsabilités du script assistant
 ===============================================================================
 					Java / html
 ===============================================================================
@@ -38,6 +36,7 @@ permet le passage au niveau suivant
 ===============================================================================
 					LaTeX
 ===============================================================================
+>>> mettre des gifs/animations en questions flash ??
 >>> revoir la macro \videoManim de texmaths-path
 >>> revoir le code avec lualatex/Expl3 pour amélioration
 % --------------------------

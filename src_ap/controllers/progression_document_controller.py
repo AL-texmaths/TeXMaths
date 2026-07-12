@@ -13,6 +13,7 @@ class ProgressionDocumentController:
         self,
         progression_service,
         persistence_service,
+        session_controller,
         export_service,
         undo_redo_service,
         code_service,
@@ -21,6 +22,7 @@ class ProgressionDocumentController:
     ):
         self.progression_service = progression_service
         self.persistence_service = persistence_service
+        self.session_controller = session_controller
         self.export_service = export_service
         self.undo_redo = undo_redo_service
         self.code_service = code_service
@@ -45,7 +47,7 @@ class ProgressionDocumentController:
             data
         )
 
-        self.current_file = Path(filename)
+        self.current_file = self.session_controller.get_current_file()
 
         self.undo_redo.clear()
 
@@ -73,8 +75,7 @@ class ProgressionDocumentController:
             filename,
             data
         )
-
-        self.current_file = Path(filename)
+        self.session_controller.set_current_file(filename)
 
         return True
 

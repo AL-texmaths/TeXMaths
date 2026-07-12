@@ -32,11 +32,11 @@ class SessionController:
         return self.config.settings.current.type
 
     # --- FILE ---
-    def set_current_file(self, path: str | None):
-        self.config.settings.current.current_file_path = path
+    def set_current_file(self, path: str | None) -> None:
+        self.config.settings.current.current_file_path = path if path is not None else None
         self.persistence.save_config(self.config)
 
-    def get_current_file(self):
+    def get_current_file(self) -> Path | None:
         current_file_path = self.config.settings.current.current_file_path
         if current_file_path is None:
             return None

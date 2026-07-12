@@ -90,12 +90,13 @@ def create_context(main_window) -> AppContext:
     )
     document_controller = ProgressionDocumentController(
         progression_service=progression_service,
-            persistence_service=persistence_service,
-            export_service=export_service,
-            undo_redo_service=undo_redo_service,
-            code_service=code_service,
-            paths=paths,
-            current_file=config.settings.current.current_file_path
+        persistence_service=persistence_service,
+        session_controller=session_controller,
+        export_service=export_service,
+        undo_redo_service=undo_redo_service,
+        code_service=code_service,
+        paths=paths,
+        current_file=config.settings.current.current_file_path
     )
     theme_name = config.settings.current.theme
     theme_service = ThemeService(

@@ -132,12 +132,15 @@ class MainWindow(QWidget):
     def set_right_focus(self):
         self.progression_panel.progression_tree.setFocus()
 
-    @logger_wraper
-    def init_window_and_settings(self):
+    def reload_window_title(self):
         current_file_path = self.context.session_controller.get_current_file()
         if current_file_path is None:
             current_file_path = "No file"
         self.setWindowTitle(self.settings.gui.main_window.title + " - " + str(current_file_path))
+
+    @logger_wraper
+    def init_window_and_settings(self):
+        self.reload_window_title()
         self.resize(
             self.settings.gui.main_window.width,
             self.settings.gui.main_window.height
@@ -565,6 +568,8 @@ class MainWindow(QWidget):
             "Info",
             f"File saved at {self.context.document_controller.current_file}",
         )
+    
+        self.reload_window_title()
 
     def save_as_progression(self):
 
@@ -582,6 +587,7 @@ class MainWindow(QWidget):
             self.progression_panel.progression_tree,
             filename,
         )
+        self.reload_window_title()
 
     def export_progression(self):
 
