@@ -178,8 +178,8 @@
                 "scrolling_step": 1
             },
             "documents_tab": {
-                "vertical_splitter": 517,
-                "horizontal_splitter": 1142
+                "vertical_splitter": 251,
+                "horizontal_splitter": 1124
             }
         },
         "pedago_service": {
@@ -385,8 +385,8 @@
             }
         },
         "current": {
-            "theme": "VSCode Dark",
-            "catalogue": "Cycle 4 BO 2020",
+            "theme": "Soothing",
+            "catalogue": "Cycle 4 BO 2026",
             "type": "Tous",
             "current_file_path": null,
             "code_index_file_name": "code_index.json",

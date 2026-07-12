@@ -212,8 +212,15 @@ class MainWindow(QWidget):
         )
     
     def apply_current_theme(self):
-        self.context.theme_service.apply(self)
-        self.preview_panel.refresh_view()
+        if getattr(self, '_applying_theme', False):
+            return
+        self._applying_theme = True
+        try:
+            print(f"Applying theme: {self.context.theme_service.get_current_theme_name()}")
+            self.context.theme_service.apply(self)
+            self.preview_panel.refresh_view()
+        finally:
+            self._applying_theme = False
 
     def begin_theme_preview(self):
         self.theme_controller.begin_preview()
@@ -401,6 +408,7 @@ class MainWindow(QWidget):
         self._compilation_progress = QProgressDialog(
             "Compilation LaTeX en cours...", "Annuler", 0, 0, self
         )
+        self._compilation_progress.setWindowTitle("Compilation LaTeX")
         self._compilation_progress.setMinimumDuration(0)
         self._compilation_progress.setAutoClose(False)
         self._compilation_progress.canceled.connect(thread.request_stop)
