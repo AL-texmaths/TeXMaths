@@ -1,16 +1,11 @@
 import re
 import subprocess
-from src.tools import LATEX_DIR, get_config, get_pattern
-from src_ap.utils.resolve import resolve_executable
-from src_ap.services.persistence_service import PersistenceService
+from src.tools import LATEX_DIR, get_config, get_pattern, get_exe
 
 TEMPLATE_DIR = LATEX_DIR / "templates"
 EXERCICES_DIR = LATEX_DIR / "exercices"
 DNBQCM_DIR = LATEX_DIR / "dnbqcm"
-
-persistence_service = PersistenceService()
-config = persistence_service.load_config()
-CODE_EXE_PATH = resolve_executable('code', config)
+CODE_EXE_PATH = get_exe('code')
 
 DOC_TYPE = get_config()["settings"]['index documents']
 
