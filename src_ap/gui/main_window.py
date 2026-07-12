@@ -218,6 +218,7 @@ class MainWindow(QWidget):
         try:
             print(f"Applying theme: {self.context.theme_service.get_current_theme_name()}")
             self.context.theme_service.apply(self)
+            self.document_tab.results_list.on_selection_changed()
             self.preview_panel.refresh_view()
         finally:
             self._applying_theme = False

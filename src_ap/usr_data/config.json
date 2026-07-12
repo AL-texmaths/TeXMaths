@@ -159,8 +159,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 1469,
-                "height": 890
+                "width": 1920,
+                "height": 1027
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
