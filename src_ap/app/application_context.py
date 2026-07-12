@@ -62,7 +62,9 @@ def create_context(main_window) -> AppContext:
     if not hasattr(paths, "code_index") or paths.code_index is None:
         print("Warning: 'code_index' path is not set. Using current working directory.")
         paths.code_index = Path.cwd()
-    pedago_data_service = PedagoDataService(paths.code_index / config.settings.current.pdf_data_file_name)
+    pedago_data_service = PedagoDataService(
+        paths.code_index / config.settings.current.pdf_data_file_name,
+        to_convert = config.settings.pedago_service.to_convert)
 
     code_index_document_controller = CodeIndexDocumentController(paths.code_index_file)
     code_index_data = code_index_document_controller.load_data()

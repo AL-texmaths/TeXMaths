@@ -15,6 +15,7 @@ from src_ap.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
 from src_ap.services.latex_service import LatexService
 from src_ap.services.update_data_service import UpdateDataService
 from src_ap.services.check_database_service import CheckDatabaseService
+from src_ap.services.extract_flash_preview_service import FlashPreviewService
 
 from PySide6.QtCore import QTimer
 from PySide6.QtGui import Qt, QAction, QCloseEvent, QResizeEvent
@@ -103,6 +104,7 @@ class MainWindow(QWidget):
             self.context.config.settings,
             self.context.paths.latex
             )
+        self.extract_flash_preview_service = FlashPreviewService(self.context)
 
     def init_connect_signals(self):
 
@@ -257,6 +259,7 @@ class MainWindow(QWidget):
         update_menu.addAction(self.action_manager.action("update_code_index"))
         update_menu.addAction(self.action_manager.action("update_data_index"))
         update_menu.addAction(self.action_manager.action("check_database"))
+        update_menu.addAction(self.action_manager.action("extract_flash_previews"))
         latexmk_menu = QMenu("Compiler tous les fichiers .tex", self)
         for _type in self.latex_service.types_dict.values():
             latexmk_menu.addAction(
@@ -373,6 +376,12 @@ class MainWindow(QWidget):
             "Info",
             f"Database check completed. Errors: {self.check_database_service.database_errors}"
         )
+    
+    def extract_flash_previews(self):
+        self.extract_flash_preview_service.extract_previews()
+    
+    def update_flash_previews(self):
+        self.extract_flash_preview_service.update_previews()
 
     def latexmk_all_tex_files_for_type(self, _type):
         thread = self.latex_service.latexmk_all_tex_files_for_type(_type)

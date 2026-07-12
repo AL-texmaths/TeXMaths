@@ -211,4 +211,7 @@ class DocumentTab(QWidget):
 
         self.filter_pdf_doc_menu.rebuild_types_menu(types)
         self.filter_pdf_doc_menu.rebuild_fields_menu(fields)
+
+        if self.results_list.currentItem() is not None:
+            self.results_list.load_pdf(self.results_list.currentItem())
     

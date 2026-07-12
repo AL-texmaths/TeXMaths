@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import json
 import subprocess
 from pathlib import Path
@@ -154,3 +155,62 @@ def get_pattern(types_dict, doc_type, extension=None):
         if extension is None:
             return doc_dict.name_pattern
         return doc_type + doc_dict.name_pattern.replace('([A-Za-z_\\.]+)$', f'{extension}$')
+
+_LATEX_TEXT_REPLACEMENTS = {
+    "oe": "œ",
+    "OE": "Œ",
+    "ae": "æ",
+    "AE": "Æ",
+    "ss": "ß",
+    "&": "&",
+    "%": "%",
+    "#": "#",
+    "_": "_",
+    "$": "$",
+}
+
+_LATEX_TEXT_PATTERN = re.compile(
+    r"\\(" + "|".join(map(re.escape, _LATEX_TEXT_REPLACEMENTS.keys())) + r")\s*"
+)
+
+def latex_text_to_unicode(text: str) -> str:
+    """Convertit quelques macros LaTeX textuelles en Unicode."""
+
+    # \oe, \AE, \%, ... en consommant l'espace éventuel après la commande
+    text = _LATEX_TEXT_PATTERN.sub(
+        lambda m: _LATEX_TEXT_REPLACEMENTS[m.group(1)],
+        text,
+    )
+
+    # Accents : \'e, \`a, \^o, \"u...
+    accents = {
+        "'": {
+            "a": "á", "e": "é", "i": "í", "o": "ó", "u": "ú",
+            "A": "Á", "E": "É", "I": "Í", "O": "Ó", "U": "Ú",
+        },
+        "`": {
+            "a": "à", "e": "è", "i": "ì", "o": "ò", "u": "ù",
+            "A": "À", "E": "È", "I": "Ì", "O": "Ò", "U": "Ù",
+        },
+        "^": {
+            "a": "â", "e": "ê", "i": "î", "o": "ô", "u": "û",
+            "A": "Â", "E": "Ê", "I": "Î", "O": "Ô", "U": "Û",
+        },
+        '"': {
+            "a": "ä", "e": "ë", "i": "ï", "o": "ö", "u": "ü",
+            "A": "Ä", "E": "Ë", "I": "Ï", "O": "Ö", "U": "Ü",
+        },
+        "~": {
+            "a": "ã", "n": "ñ", "o": "õ",
+            "A": "Ã", "N": "Ñ", "O": "Õ",
+        },
+    }
+
+    def repl(match):
+        accent = match.group(1)
+        letter = match.group(2)
+        return accents.get(accent, {}).get(letter, match.group(0))
+
+    text = re.sub(r'\\([\'`^"~])([A-Za-z])', repl, text)
+
+    return text

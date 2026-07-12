@@ -124,7 +124,6 @@ hr {{
         theme: dict
     ) -> str:
 
-
         colors = theme.colors
 
         return f"""
@@ -189,7 +188,7 @@ hr {{
         fg_color=None,
         font=None
     ) -> str:
-
+        
         bg = bg_color or "#ffffff"
         fg = fg_color or "#000000"
         font_family = font.family if font else "Latin Modern Roman"

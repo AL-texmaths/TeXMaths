@@ -11,8 +11,7 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
->>> DEBUG: rétablir un fichier config (menu paramètres "retablir
-les paramètres par défault")
+>>> DEBUG: update_data_index doit également reload le pdf actuellement dans la liste s'il existe
 >>> checker la sauvegarde du dossier d'enregistrement des progressions
 >>> API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant

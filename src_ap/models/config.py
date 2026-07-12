@@ -67,6 +67,7 @@ class PedagoDocTypeModel(BaseModel):
 
 class PedagoServiceModel(BaseModel):
     metadata: list[str]
+    to_convert: list[str]
     pedago_doc_types: dict[str, PedagoDocTypeModel]
     string_check_order: list[str]
     tex_non_optional_keys: list[str]
@@ -120,6 +121,8 @@ class ActionsConfig(BaseModel):
     cut_item: ActionSettings
     paste_item: ActionSettings
     restore_default_settings: ActionSettings
+    extract_flash_previews: ActionSettings
+    update_flash_previews: ActionSettings
 
 class CodeLabelModel(BaseModel):
     name: str
