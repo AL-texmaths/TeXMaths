@@ -178,10 +178,20 @@ class ProgressionPanel(QWidget):
         )
 
     def add_chapter(self):
+        current_item = self.progression_tree.currentItem()
+        first_chapter_item = None
+        
+        # Trouver le premier parent de niveau 1
+        if current_item:
+            item = current_item
+            while item.parent() is not None:
+                item = item.parent()
+            first_chapter_item = item
+        
         self.controller.add_chapter(
             self.progression_tree,
             self.get_selected_catalogue(),
-            self.progression_tree.currentItem(),
+            first_chapter_item,
             refresh_callback=self.refresh_ui
         )
     

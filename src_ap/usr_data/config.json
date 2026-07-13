@@ -159,8 +159,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 1920,
-                "height": 1027
+                "width": 1469,
+                "height": 890
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -169,9 +169,9 @@
             },
             "splitter": {
                 "size": [
-                    247,
-                    1011,
-                    628
+                    286,
+                    710,
+                    441
                 ]
             },
             "progression_tree": {
@@ -388,7 +388,7 @@
             "theme": "Nord Dark",
             "catalogue": "Cycle 3 BO 2026",
             "type": "Tous",
-            "current_file_path": "D:/Projects/TeXMaths/data/progressions/progression-6eme.json",
+            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-6eme.json",
             "code_index_file_name": "code_index.json",
             "pdf_data_file_name": "data_index.json"
         }
