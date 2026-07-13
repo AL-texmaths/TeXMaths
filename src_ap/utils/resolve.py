@@ -98,7 +98,7 @@ def resolve_executable(executable: str, config:Config|None=None) -> Path:
     except NameError:
         pass
 
-    if executables is None:
+    if executables is not None:
         # 1. Search in local candidate directories
         for executable in executables:
             for directory in candidates_dirs:

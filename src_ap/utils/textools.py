@@ -167,6 +167,7 @@ _LATEX_TEXT_REPLACEMENTS = {
     "#": "#",
     "_": "_",
     "$": "$",
+    "~": " "
 }
 
 _LATEX_TEXT_PATTERN = re.compile(
@@ -212,5 +213,9 @@ def latex_text_to_unicode(text: str) -> str:
         return accents.get(accent, {}).get(letter, match.group(0))
 
     text = re.sub(r'\\([\'`^"~])([A-Za-z])', repl, text)
+
+    # ~ nu en LaTeX = espace insécable
+    text = text.replace("~", "\u00a0")
+
 
     return text

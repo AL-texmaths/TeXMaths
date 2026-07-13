@@ -597,6 +597,7 @@ class MainWindow(QWidget):
             self.progression_panel.progression_tree,
             filename,
         )
+        self.context.session_controller.set_current_file(filename)
         self.reload_window_title()
 
     def export_progression(self):

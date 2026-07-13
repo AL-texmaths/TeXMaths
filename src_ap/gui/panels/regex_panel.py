@@ -104,6 +104,13 @@ class RegexPanel(QWidget):
 
     def update_search(self) -> list:
 
+        # Mémoriser l'item courant avant le rebuild
+        previous_row = self.list_widget.currentRow()
+        previous_id = None
+        current_item = self.list_widget.currentItem()
+        if current_item is not None:
+            previous_id = current_item.data(Qt.UserRole)
+
         regex_text = self.search_line.text()
 
         try:
@@ -135,7 +142,17 @@ class RegexPanel(QWidget):
             self.list_widget.addItem(item)
 
         if entries:
-            self.list_widget.setCurrentRow(0)
+            # Chercher si l'item précédent est encore présent
+            new_row = next(
+                (i for i, e in enumerate(entries) if e.id == previous_id),
+                -1
+            )
+            if new_row >= 0:
+                # L'item est toujours là → on le garde
+                self.list_widget.setCurrentRow(new_row)
+            else:
+                # L'item a disparu → sélectionner le suivant (ou le dernier)
+                self.list_widget.setCurrentRow(min(previous_row, len(entries) - 1))
 
         return entries
     

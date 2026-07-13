@@ -386,9 +386,9 @@
         },
         "current": {
             "theme": "Nord Dark",
-            "catalogue": "Cycle 3 BO 2026",
+            "catalogue": "Cycle 4 BO 2026",
             "type": "Tous",
-            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-6eme.json",
+            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/caca.json",
             "code_index_file_name": "code_index.json",
             "pdf_data_file_name": "data_index.json"
         }

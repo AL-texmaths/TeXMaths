@@ -5,6 +5,7 @@ from pathlib import Path
 from src_ap.models.entry import Entry
 from src_ap.models.catalogue import Catalogue, ALL_CATALOGUES
 from src_ap.utils.resolve import resolve_executable
+from src_ap.utils.textools import latex_text_to_unicode
 from src_ap.models.config import Config
 
 
@@ -60,6 +61,8 @@ class CatalogueService:
         else:
             print(f"Analysing package {sty_file_name} at {package_path}")
         
+        print(f"Opening package {sty_file_name} at {package_path} with {resolve_executable("blocnote", config)}")
+        
         subprocess.run([resolve_executable("blocnote", config), str(package_path)])
 
     def build_index(self):
@@ -79,7 +82,7 @@ class CatalogueService:
 
                     entry = Entry(
                             code=code,
-                            text=text,
+                            text=latex_text_to_unicode(text),
                             catalogue=catalogue,
                         )
                     self.entries.append(entry)
@@ -99,7 +102,7 @@ class CatalogueService:
                         self.entries.append(
                             Entry(
                                 code=code,
-                                text=text,
+                                text=latex_text_to_unicode(text),
                                 catalogue=catalogue,
                                 type=source_type,
                             )

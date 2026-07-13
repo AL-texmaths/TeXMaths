@@ -11,13 +11,6 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
-BUG: nouveau chapitre créée dans un sous item
-BUG: "~" est affiché littéralement (voit textools)
-BUG: save ---> save_as meme après save_as
-BUG: en ajoutant un item, la liste se rafraichit et l'item sélectionné
-se retrouve en premier dans la liste
-BUG: lors de l'export, le programme pense que la progression n'est pas sauvegardée
-BUG: ouvrir un catalogue ne fonctionne pas sous windows
 API: écrire entre parenthèse dans la branche du niveau, le nombre de chapitres 
 API: possibilité de colorer les items de la progression ou coloration
 automatique en fonction du type d'item
