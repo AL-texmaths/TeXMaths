@@ -721,10 +721,9 @@ cycle_3_BO_2026|:|aut|:|E3aa|:|L’élève sait repérer des relations multiplic
 cycle_3_BO_2026|:|aut|:|E3ab|:|Il associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.
 cycle_3_BO_2026|:|obj|:|E3aa|:|Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante
 cycle_3_BO_2026|:|obj|:|E3ab|:|Identifier si une situation relève du « modèle » de la proportionnalité
-cycle_3_BO_2026|:|obj|:|E3ac|:|Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication
-cycle_3_BO_2026|:|obj|:|E3ad|:|ou l’addition, retour à l’unité
-cycle_3_BO_2026|:|obj|:|E3ae|:|Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques
-cycle_3_BO_2026|:|obj|:|E3af|:|S’initier à la résolution de problèmes d’échelles
+cycle_3_BO_2026|:|obj|:|E3ac|:|Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication ou l’addition, retour à l’unité
+cycle_3_BO_2026|:|obj|:|E3ad|:|Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques
+cycle_3_BO_2026|:|obj|:|E3ae|:|S’initier à la résolution de problèmes d’échelles
 cycle_3_BO_2026|:|obj|:|F3aa|:|Identifier une instruction ou une séquence d’instructions
 cycle_3_BO_2026|:|obj|:|F3ab|:|Produire et exécuter une séquence d’instructions
 cycle_3_BO_2026|:|obj|:|F3ac|:|Répéter à la main une séquence d’instructions pour accomplir une tâche imposée

@@ -1,0 +1,1378 @@
+[
+  {
+    "text": "6e",
+    "data": null,
+    "tooltip": "",
+    "expanded": true,
+    "children": [
+      {
+        "text": "Nombre entiers",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3aa",
+                "data": "cycle_3_BO_2026:obj:A3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ab",
+                "data": "cycle_3_BO_2026:obj:A3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ac",
+                "data": "cycle_3_BO_2026:obj:A3ac",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître des grands nombres entiers\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3aa",
+                "data": "cycle_3_BO_2026:pro:A3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDécouverte d'écritures des nombres à partir de lettres ou de dessins~: numérations acrophoniques grecque, romaine, hiéroglyphique égyptienne\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ab",
+                "data": "cycle_3_BO_2026:pro:A3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDécouverte d'algorithmes opératoires, développés dans plusieurs traditions mathématiques, comme la multiplication par jalousies ou en tableau\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ac",
+                "data": "cycle_3_BO_2026:pro:A3ac",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nManipulation d'abaques à jetons ou de bouliers pour remobiliser le principe de la numération et la notion de « base de numération »\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Repérer et ordonner des fractions",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3bd",
+                "data": "cycle_3_BO_2026:obj:A3bd",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nPlacer une fraction sur une demi-droite graduée dans des cas simples\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3be",
+                "data": "cycle_3_BO_2026:obj:A3be",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nGraduer un segment de longueur donnée\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bh",
+                "data": "cycle_3_BO_2026:obj:A3bh",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nÉtablir des égalités de fractions\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bi",
+                "data": "cycle_3_BO_2026:obj:A3bi",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nComparer et encadrer des fractions\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bj",
+                "data": "cycle_3_BO_2026:obj:A3bj",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nOrdonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Division euclidienne",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3aw",
+                "data": "cycle_3_BO_2026:obj:A3aw",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nEffectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ax",
+                "data": "cycle_3_BO_2026:obj:A3ax",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes mettant en jeu des divisions euclidiennes\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bb",
+                "data": "cycle_3_BO_2026:obj:A3bb",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nComprendre et connaître la définition du quotient d’un entier a par un entier b non nul\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bc",
+                "data": "cycle_3_BO_2026:obj:A3bc",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCompléter des égalités à trous multiplicatives\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3ae",
+                "data": "cycle_3_BO_2026:pro:A3ae",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nLe passage de ce système de numération au système décimal (et vice versa) est un autre contexte que celui des durées pour travailler la division euclidienne\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Nombre décimaux",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3ad",
+                "data": "cycle_3_BO_2026:obj:A3ad",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nReconnaître un nombre décimal\n",
+                "expanded": true,
+                "children": []
+              },
+              {
+                "text": "A3af",
+                "data": "cycle_3_BO_2026:obj:A3af",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nAssocier et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ag",
+                "data": "cycle_3_BO_2026:obj:A3ag",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nPlacer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ah",
+                "data": "cycle_3_BO_2026:obj:A3ah",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRepérer un nombre décimal sur une demi-droite graduée\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ai",
+                "data": "cycle_3_BO_2026:obj:A3ai",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nComparer deux nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3aj",
+                "data": "cycle_3_BO_2026:obj:A3aj",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nOrdonner une liste de nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3am",
+                "data": "cycle_3_BO_2026:obj:A3am",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nEncadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bf",
+                "data": "cycle_3_BO_2026:obj:A3bf",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nSavoir que la fraction $\\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3af",
+                "data": "cycle_3_BO_2026:pro:A3af",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDécouverte de l'écriture des nombres décimaux utilisée par Simon Stevin de Bruges pour illustrer le lien entre numération décimale et fractions décimales\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Sommes et produits de nombre décimaux",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3an",
+                "data": "cycle_3_BO_2026:obj:A3an",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nAdditionner et soustraire des nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ao",
+                "data": "cycle_3_BO_2026:obj:A3ao",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nMultiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ap",
+                "data": "cycle_3_BO_2026:obj:A3ap",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître le lien avec la division par 10, 100 et par 1 000\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3aq",
+                "data": "cycle_3_BO_2026:obj:A3aq",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nComprendre le sens de la multiplication de deux nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ar",
+                "data": "cycle_3_BO_2026:obj:A3ar",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer le produit de deux nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3as",
+                "data": "cycle_3_BO_2026:obj:A3as",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nContrôler les résultats à l’aide d’ordres de grandeur\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3at",
+                "data": "cycle_3_BO_2026:obj:A3at",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Division décimale",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3al",
+                "data": "cycle_3_BO_2026:obj:A3al",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDéterminer ou connaître la valeur arrondie de certains nombres non décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ak",
+                "data": "cycle_3_BO_2026:obj:A3ak",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDonner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3au",
+                "data": "cycle_3_BO_2026:obj:A3au",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDiviser un nombre décimal par un nombre entier non nul inférieur à 10\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3av",
+                "data": "cycle_3_BO_2026:obj:A3av",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes mettant en jeu des divisions décimales\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Sommes de fractions",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3ba",
+                "data": "cycle_3_BO_2026:obj:A3ba",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRelier une fraction au résultat exact de la division de son numérateur par son dénominateur\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bl",
+                "data": "cycle_3_BO_2026:obj:A3bl",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nAdditionner et soustraire des fractions\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bn",
+                "data": "cycle_3_BO_2026:obj:A3bn",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes mettant en jeu des fractions\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bo",
+                "data": "cycle_3_BO_2026:obj:A3bo",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nInventer des problèmes mettant en jeu des fractions\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bk",
+                "data": "cycle_3_BO_2026:obj:A3bk",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nEffectuer des opérations sur les fractions\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Proportionnalité",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "E3ab",
+                "data": "cycle_3_BO_2026:aut:E3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nIl associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3ae",
+                "data": "cycle_3_BO_2026:obj:A3ae",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la définition d’un pourcentage\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bg",
+                "data": "cycle_3_BO_2026:obj:A3bg",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nUtiliser une multiplication pour appliquer une fraction à un nombre entier\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bm",
+                "data": "cycle_3_BO_2026:obj:A3bm",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nMultiplier une fraction par un nombre entier\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bp",
+                "data": "cycle_3_BO_2026:obj:A3bp",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nComprendre le sens d’un pourcentage\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3bq",
+                "data": "cycle_3_BO_2026:obj:A3bq",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3br",
+                "data": "cycle_3_BO_2026:obj:A3br",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nAppliquer un pourcentage à une grandeur ou à un nombre\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "E3aa",
+                "data": "cycle_3_BO_2026:obj:E3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "E3ab",
+                "data": "cycle_3_BO_2026:obj:E3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nIdentifier si une situation relève du « modèle » de la proportionnalité\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "E3ac",
+                "data": "cycle_3_BO_2026:obj:E3ac",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication ou l’addition, retour à l’unité\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "E3ad",
+                "data": "cycle_3_BO_2026:obj:E3ad",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nReprésenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "E3ae",
+                "data": "cycle_3_BO_2026:obj:E3ae",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nS’initier à la résolution de problèmes d’échelles\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Longueurs",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "B3aa",
+                "data": "cycle_3_BO_2026:aut:B3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève connaît les significations des préfixes allant du kilo- au milli-, ainsi que les relations entre le mètre, ses multiples et ses sous-multiples, et fait le lien avec les unités de numération du système décimal.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ab",
+                "data": "cycle_3_BO_2026:aut:B3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève connaît les relations entre deux unités successives du système décimal, par exemple : 1 dm = 10 cm et 1 cm = $\\dfrac {1}{10}$ dm = 0,1 dm.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ac",
+                "data": "cycle_3_BO_2026:aut:B3ac",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait convertir en mètre une longueur donnée dans une autre unité, multiple ou sous-multiple du mètre. Inversement, l’élève sait convertir dans une unité donnée une longueur exprimée en mètre.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ae",
+                "data": "cycle_3_BO_2026:aut:B3ae",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nIl sait que le périmètre d’une figure plane est la longueur de son contour. L’élève sait calculer le périmètre d’un carré et d’un rectangle.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ad",
+                "data": "cycle_3_BO_2026:aut:B3ad",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait utiliser le compas comme outil de report de longueurs.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "B3aa",
+                "data": "cycle_3_BO_2026:obj:B3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nSavoir que le périmètre du disque est proportionnel à son diamètre.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ab",
+                "data": "cycle_3_BO_2026:obj:B3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la formule du périmètre d’un disque.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ac",
+                "data": "cycle_3_BO_2026:obj:B3ac",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer le périmètre d’un disque.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ad",
+                "data": "cycle_3_BO_2026:obj:B3ad",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer des périmètres de figures composées.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3ae",
+                "data": "cycle_3_BO_2026:obj:B3ae",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes impliquant des longueurs.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Surfaces",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "B3ba",
+                "data": "cycle_3_BO_2026:aut:B3ba",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait comparer des aires sans avoir recours à la mesure, par superposition ou par découpage et recollement de surfaces.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3bb",
+                "data": "cycle_3_BO_2026:aut:B3bb",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait que 1 cm$^2$ est l’aire d’un carré de 1 cm de côté, que 1 m$^2$ est l’aire d’un carré de 1 m de côté, que 1 dm$^2$ est l’aire d’un carré de 1 dm de côté.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3bc",
+                "data": "cycle_3_BO_2026:aut:B3bc",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDans des cas simples, l’élève sait déterminer l’aire d’une surface en s’appuyant sur un quadrillage composé de carreaux dont les côtés mesurent 1 cm.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3bd",
+                "data": "cycle_3_BO_2026:aut:B3bd",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait que : 1 m$^2$ = 1 m $\\times $ 1 m = 10 dm $\\times $ 10 dm = 10 $\\times $ 10 dm$^2$ = 100 dm$^2$ ; 1 dm$^2$ = 1 dm $\\times $ 1 dm = 10 cm $\\times $ 10 cm = 10 $\\times $ 10 cm$^2$ = 100 cm$^2$.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3be",
+                "data": "cycle_3_BO_2026:aut:B3be",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève mémorise que 1 cm$^2$ est égal à un centième de 1 dm$^2$, qu’il écrit 1 cm$^2=\\dfrac {1}{100}$\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3bf",
+                "data": "cycle_3_BO_2026:aut:B3bf",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève mémorise que 1 dm$^2$ est égal à un centième de 1 m$^2$, qu’il écrit 1 dm$^2=\\dfrac {1}{100}$ m$^2$ ou 1 dm$^2=0,001$ m$^2$.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "B3ba",
+                "data": "cycle_3_BO_2026:obj:B3ba",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nEffectuer des conversions d’aire\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3bb",
+                "data": "cycle_3_BO_2026:obj:B3bb",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la formule de l’aire d’un carré ou d’un rectangle\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3bc",
+                "data": "cycle_3_BO_2026:obj:B3bc",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer l’aire d’un carré ou d’un rectangle\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Volumes",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "B3ca",
+                "data": "cycle_3_BO_2026:obj:B3ca",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève connaît l’unité centimètre cube.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3cb",
+                "data": "cycle_3_BO_2026:obj:B3cb",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait comparer des volumes.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3cc",
+                "data": "cycle_3_BO_2026:obj:B3cc",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait déterminer un volume.\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Durées",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "B3da",
+                "data": "cycle_3_BO_2026:aut:B3da",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève lit l’heure sur un cadran à aiguilles ou sur un affichage digital (heures, minutes et secondes).\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3db",
+                "data": "cycle_3_BO_2026:aut:B3db",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève place les aiguilles pour qu’une horloge indique une heure donnée.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3dc",
+                "data": "cycle_3_BO_2026:aut:B3dc",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève connaît les unités de mesure de durées jour, heure, minute et seconde et les relations qui les lient.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3dd",
+                "data": "cycle_3_BO_2026:aut:B3dd",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait combien de jours il y a dans une année (bissextile ou non), combien d’années il y a dans un siècle, et dans un millénaire.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3de",
+                "data": "cycle_3_BO_2026:aut:B3de",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait qu’une demi-heure c’est 30 minutes, qu’un quart d’heure c’est 15 minutes, que trois quarts d’heure c’est 45 minutes.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "E3aa",
+                "data": "cycle_3_BO_2026:aut:E3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève sait repérer des relations multiplicatives simples entre des nombres (double, quadruple, moitié, tiers, quart).\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "B3db",
+                "data": "cycle_3_BO_2026:obj:B3db",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes impliquant des horaires et des durées\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3da",
+                "data": "cycle_3_BO_2026:obj:B3da",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nEffectuer des calculs sur des horaires et des durées\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3dc",
+                "data": "cycle_3_BO_2026:obj:B3dc",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConvertir des durées\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3ad",
+                "data": "cycle_3_BO_2026:pro:A3ad",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nDécouverte de la numération sexagésimale paléo-babylonienne, qui repose sur les mêmes principes mathématiques que le système utilisé pour exprimer des durées en heures, minutes et secondes\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3da",
+                "data": "cycle_3_BO_2026:pro:B3da",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nL’élève découvre l’histoire et le fonctionnement de différents types de calendriers : solaires, lunaires ou luni-solaires. Il comprend le lien entre les calendriers julien et grégorien et les différentes approximations de la valeur de l’année tropique.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "B3db",
+                "data": "cycle_3_BO_2026:pro:B3db",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nSelon ses intérêts et ses besoins, l’élève peut également s’interroger sur les moyens de partager le temps, découvrir les clepsydres (horloges à eau) ou d’autres instruments historiques et interculturels (grecs, arabes, chinois).\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Statistiques et probabilités",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "D3aa",
+                "data": "cycle_3_BO_2026:obj:D3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nPlanifier une enquête et recueillir des données\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "D3ab",
+                "data": "cycle_3_BO_2026:obj:D3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRéaliser des mesures et les consigner dans un tableau\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "D3ac",
+                "data": "cycle_3_BO_2026:obj:D3ac",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConstruire un tableau simple pour présenter des données (observations, caractères)\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "D3ad",
+                "data": "cycle_3_BO_2026:obj:D3ad",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nFaire un choix en filtrant les données d’un tableau selon un critère\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "D3ba",
+                "data": "cycle_3_BO_2026:obj:D3ba",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nSavoir que la probabilité d’un évènement est un nombre compris entre 0 et 1\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "D3bb",
+                "data": "cycle_3_BO_2026:obj:D3bb",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer des probabilités dans des situations simples d’équiprobabilité\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "D3bc",
+                "data": "cycle_3_BO_2026:obj:D3bc",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nComparer des résultats d’une expérience aléatoire répétée à une probabilité calculée\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Résolution de problèmes",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "A3ca",
+                "data": "cycle_3_BO_2026:obj:A3ca",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nUtiliser des modèles pré-algébriques pour résoudre des problèmes algébriques\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3cb",
+                "data": "cycle_3_BO_2026:obj:A3cb",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nIdentifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Algorithmique",
+        "data": null,
+        "tooltip": "",
+        "expanded": false,
+        "children": [
+          {
+            "text": "Automatismes",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Objectifs d'apprentissage",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": [
+              {
+                "text": "F3aa",
+                "data": "cycle_3_BO_2026:obj:F3aa",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nIdentifier une instruction ou une séquence d’instructions\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "F3ab",
+                "data": "cycle_3_BO_2026:obj:F3ab",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nProduire et exécuter une séquence d’instructions\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "F3ac",
+                "data": "cycle_3_BO_2026:obj:F3ac",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRépéter à la main une séquence d’instructions pour accomplir une tâche imposée\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "F3ad",
+                "data": "cycle_3_BO_2026:obj:F3ad",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nProgrammer la construction d’un chemin simple\n",
+                "expanded": false,
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prolongements",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Séances",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          },
+          {
+            "text": "Prérequis",
+            "data": null,
+            "tooltip": "",
+            "expanded": false,
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+]
