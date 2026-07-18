@@ -1,5 +1,5 @@
-from src_ap.app.application_context import create_context
-from src_ap.services.update_data_service import UpdateDataService
+from assistant.app.application_context import create_context
+from assistant.services.update_data_service import UpdateDataService
 
 if __name__ == "__main__":
     print('UPDATING : data index ...')

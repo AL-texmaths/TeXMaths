@@ -12,12 +12,12 @@
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
 API: écrire entre parenthèse dans la branche du niveau, le nombre de chapitres 
-API: possibilité de colorer les items de la progression ou coloration
-automatique en fonction du type d'item
 API: possibilité d'afficher la progression "détaillée", i.e. les textes à la
 place des codes
 API: la barre de recherche dans la progression doit également chercher dans
 le texte des codes
+API: possibilité de colorer les items de la progression ou coloration
+automatique en fonction du type d'item
 API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut

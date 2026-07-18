@@ -10,7 +10,7 @@ from src.views.widgets.metadata_view import MetadataView
 from src.models.search_filters import SearchFilters
 from src.controllers.search_controller import SearchController
 
-from src_ap.utils.textools import update_code_index
+from assistant.utils.textools import update_code_index
 from src.update_data_index import update_json
 from src.check_database import check_database
 from src.extract_preview import update_previews

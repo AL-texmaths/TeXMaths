@@ -14,7 +14,7 @@
             "name": "Run assistant",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src_ap.py",
+            "program": "${workspaceFolder}/assistant.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
         },
