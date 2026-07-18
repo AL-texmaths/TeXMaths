@@ -342,15 +342,21 @@ class ProgressionService:
     def apply_colors(self, tree, level_colors: list[str], type_colors: dict[str, str] | None = None):
         """Colore les items de l'arbre en fonction de leur profondeur.
         Pour les dossiers de type (profondeur 2), type_colors peut définir
-        une couleur par nom de dossier, héritée par tous leurs descendants.
+        une couleur par code (ex: 'sea') ou par nom d'affichage, héritée par tous leurs descendants.
         Une couleur vide ('') ou absente remet la couleur par défaut.
         """
+        # Résoudre les clés (codes ou noms) en noms d'affichage une seule fois
+        resolved = {}
+        if type_colors:
+            for key, color in type_colors.items():
+                resolved[self.code_service.display_name(key)] = color
+
         def process_item(item, depth, inherited_color=None):
-            # Priorité : hérité > type_colors (profondeur 2) > level_colors > défaut
+            # Priorité : hérité > resolved (profondeur 2) > level_colors > défaut
             if inherited_color:
                 color_str = inherited_color
-            elif type_colors and depth == 2:
-                color_str = type_colors.get(item.text(0)) or (
+            elif resolved and depth == 2:
+                color_str = resolved.get(item.text(0)) or (
                     level_colors[depth] if level_colors and depth < len(level_colors) else ""
                 )
             else:
@@ -362,8 +368,8 @@ class ProgressionService:
                 item.setData(0, Qt.ItemDataRole.ForegroundRole, None)
 
             # Propager la couleur de type aux enfants dès la profondeur 2
-            if type_colors and depth == 2:
-                next_inherited = type_colors.get(item.text(0))
+            if resolved and depth == 2:
+                next_inherited = resolved.get(item.text(0))
             else:
                 next_inherited = inherited_color
 

@@ -9652,3 +9652,24 @@
 2026-07-18 09:33:04 | INFO     |
      MainThread | AssistantDeProgression | GUI settings saved on window close
     
+2026-07-18 09:36:12 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 09:36:12 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 09:36:13 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 09:36:13 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:36:17 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:36:18 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:36:22 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    

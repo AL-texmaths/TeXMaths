@@ -178,8 +178,8 @@
                 "scrolling_step": 1,
                 "level_colors": ["#E8A040", "#5090C0", "", ""],
                 "type_colors": {
-                    "Objectifs d'apprentissage": "#C04040",
-                    "Séances": "#409040"
+                    "obj": "#C04040",
+                    "sea": "#409040"
                 }
             },
             "documents_tab": {
