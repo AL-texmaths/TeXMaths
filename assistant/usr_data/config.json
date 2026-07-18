@@ -159,8 +159,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 1469,
-                "height": 890
+                "width": 1920,
+                "height": 1027
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -169,13 +169,23 @@
             },
             "splitter": {
                 "size": [
-                    286,
-                    709,
-                    440
+                    376,
+                    856,
+                    654
                 ]
             },
             "progression_tree": {
-                "scrolling_step": 1
+                "scrolling_step": 1,
+                "level_colors": [
+                    "#E8A040",
+                    "#5090C0",
+                    "",
+                    ""
+                ],
+                "type_colors": {
+                    "Objectifs d'apprentissage": "#C04040",
+                    "Séances": "#409040"
+                }
             },
             "documents_tab": {
                 "vertical_splitter": 251,
@@ -388,7 +398,7 @@
             "theme": "VSCode Dark",
             "catalogue": "Cycle 4 BO 2026",
             "type": "Tous",
-            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/caca.json",
+            "current_file_path": "D:/Projects/TeXMaths/data/progressions/progression-6eme.json",
             "code_index_file_name": "code_index.json",
             "pdf_data_file_name": "data_index.json"
         }
@@ -603,6 +613,13 @@
             "button": false,
             "icon": null,
             "checkable": false
+        },
+        "toggle_detailed_mode": {
+            "text": "Mode détaillé",
+            "shortcut": "Ctrl+F",
+            "button": true,
+            "icon": null,
+            "checkable": true
         }
     }
 }

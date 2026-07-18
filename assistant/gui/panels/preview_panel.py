@@ -77,3 +77,17 @@ class PreviewPanel(QWebEngineView):
             self.show_list_view()
         elif mode == ViewMode.SINGLE:
             self.show_entry_view()
+
+    def show_progression_item(self, entry):
+        html = self.html_service.render_catalogue_entry(
+            code=entry.code,
+            content=entry.text,
+            catalogue=entry.catalogue.name,
+            source_type=self.code_service.display_name(entry.type),
+            theme=self.theme_service.get_current_theme(),
+            locations=self.analysis_service.find_usage_locations(
+                self.progression_panel.progression_tree,
+                entry
+            )
+        )
+        self.set_html(html)

@@ -1,12 +1,25 @@
 from PySide6.QtGui import QShortcut, QKeySequence
-from PySide6.QtCore import Qt, QTimer
+from PySide6.QtCore import Qt, QTimer, QSize
 from PySide6.QtWidgets import (
     QMessageBox,
+    QStyledItemDelegate,
     QTreeWidget,
     QVBoxLayout,
     QWidget,
     QLineEdit
     )
+
+
+class _MultilineDelegate(QStyledItemDelegate):
+    """Ajuste la hauteur des items contenant des sauts de lignes."""
+
+    def sizeHint(self, option, index):
+        size = super().sizeHint(option, index)
+        text = index.data(Qt.DisplayRole) or ""
+        n = text.count("\n")
+        if n > 0:
+            return QSize(size.width(), size.height() * (n + 1))
+        return size
 
 
 class ProgressionPanel(QWidget):
@@ -29,7 +42,8 @@ class ProgressionPanel(QWidget):
             "delete_selected_branch",
             "show_unused_items",
             "move_item_up",
-            "move_item_down"
+            "move_item_down",
+            "toggle_detailed_mode"
         ]
         self.action_manager = action_manager
         self.progression_service = progression_service
@@ -67,6 +81,8 @@ class ProgressionPanel(QWidget):
         
         self.progression_tree = QTreeWidget()
         self.progression_tree.setHeaderLabel("Progression annuelle")
+        self.progression_tree.setUniformRowHeights(False)
+        self.progression_tree.setItemDelegate(_MultilineDelegate(self.progression_tree))
 
         rename_shortcut = QShortcut(
             QKeySequence(Qt.CTRL | Qt.Key_Return),
@@ -96,9 +112,11 @@ class ProgressionPanel(QWidget):
             self._filter_item(item, search_text)
 
     def _filter_item(self, item, search_text):
-        # Un item est visible si son texte correspond ou si l'un de ses enfants correspond
+        # Un item est visible si son texte (ou le texte de son entrée catalogue) correspond,
+        # ou si l'un de ses enfants correspond
         item_text = item.text(0).lower()
-        match = search_text in item_text
+        extended_text = self.progression_service.get_item_extended_text(item)
+        match = search_text in item_text or search_text in extended_text
         
         child_match = False
         for i in range(item.childCount()):
@@ -135,6 +153,13 @@ class ProgressionPanel(QWidget):
         )
     
     def refresh_ui(self):
+        self.progression_service.update_level_displays(self.progression_tree)
+        self.progression_service.refresh_detailed_mode(self.progression_tree)
+        self.progression_service.apply_colors(
+                self.progression_tree,
+                self.config.level_colors,
+                self.config.type_colors
+            )
         self.update_buttons_state(self.get_selected_catalogue())
         self.filter_tree()
 
@@ -238,6 +263,10 @@ class ProgressionPanel(QWidget):
             refresh_callback=self.refresh_ui
         )
     
+    def toggle_detailed_mode(self):
+        self.progression_service.toggle_detailed_mode(self.progression_tree)
+        self.filter_tree()
+
     def move_item_up(self):
         self.controller.move_item_up(
             self.progression_tree,

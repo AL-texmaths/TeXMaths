@@ -11,13 +11,11 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
-API: écrire entre parenthèse dans la branche du niveau, le nombre de chapitres 
-API: possibilité d'afficher la progression "détaillée", i.e. les textes à la
-place des codes
-API: la barre de recherche dans la progression doit également chercher dans
-le texte des codes
 API: possibilité de colorer les items de la progression ou coloration
-automatique en fonction du type d'item
+automatique en fonction du niveau de la branche. Le choix des couleurs pourra être
+modifiée dans le fichier config.json. Lors de la modification du fichier config.json,
+il faut également penser à modifier le fiochier config.py correspondant.
+API: affichae katex des formules dans le panneau de progression.
 API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut

@@ -123,6 +123,10 @@ class MainWindow(QWidget):
             self.preview_panel.refresh_view
         )
 
+        self.progression_panel.progression_tree.currentItemChanged.connect(
+            lambda current, _: self.on_progression_item_selected(current)
+        )
+
     def set_left_focus(self):
         if self.regex_panel.last_focused is not None:
             self.regex_panel.last_focused.setFocus()
@@ -202,6 +206,7 @@ class MainWindow(QWidget):
                 self.progression_panel.progression_tree,
                 self.current_file_path
             )
+            self.progression_panel.refresh_ui()
 
     def init_preview_panel(self):
         self.preview_panel = PreviewPanel(
@@ -261,7 +266,8 @@ class MainWindow(QWidget):
             "add_seance",
             "move_item_up",
             "move_item_down",
-            "show_unused_items"
+            "show_unused_items",
+            "toggle_detailed_mode"
         ]:
             action = self.action_manager.action(action_id)
             progression_menu.addAction(action)
@@ -481,6 +487,9 @@ class MainWindow(QWidget):
     def move_item_down(self):
         self.progression_panel.move_item_down()
 
+    def toggle_detailed_mode(self):
+        self.progression_panel.toggle_detailed_mode()
+
     def show_unused_items(self):
         unused = self.get_unused_entries()
         self.unused_items_dialog = UnusedItemsDialog(unused, self.context.config)
@@ -492,6 +501,17 @@ class MainWindow(QWidget):
             self.progression_panel.progression_tree,
             self.regex_panel.selected_catalogue()
         )
+
+    def on_progression_item_selected(self, item):
+        if item is None:
+            return
+        entry_id = item.data(0, Qt.UserRole)
+        if not entry_id:
+            return
+        entry = self.context.catalogue_service.get_entry_by_id(entry_id)
+        if entry is None:
+            return
+        self.preview_panel.show_progression_item(entry)
 
     def catalogue_changed(self):
         self.update_search()
@@ -559,6 +579,7 @@ class MainWindow(QWidget):
             self.progression_panel.progression_tree,
             filename,
         ):
+            self.progression_panel.refresh_ui()
             self.preview_panel.refresh_view()
             self.context.session_controller.set_current_file(filename)
             self.reload_window_title()

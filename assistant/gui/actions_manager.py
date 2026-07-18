@@ -31,6 +31,9 @@ class ActionManager:
         if definition.button:
             button = QPushButton(action.text())
             button.setToolTip(action.shortcut().toString())
+            if definition.checkable:
+                button.setCheckable(True)
+                action.toggled.connect(button.setChecked)
             button.clicked.connect(action.trigger)
             self.buttons[definition.id] = button
 

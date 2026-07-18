@@ -9502,3 +9502,153 @@
 2026-07-18 08:47:17 | INFO     |
      MainThread | AssistantDeProgression | GUI settings saved on window close
     
+2026-07-18 08:57:02 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 08:57:02 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 08:57:09 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 08:57:10 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 08:57:55 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    
+2026-07-18 09:04:01 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 09:04:01 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 09:04:03 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 09:04:03 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:04:10 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:04:16 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:04:30 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:04:31 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    
+2026-07-18 09:09:11 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 09:09:11 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 09:09:11 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 09:09:12 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:09:24 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:09:24 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:10:31 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    
+2026-07-18 09:13:15 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 09:13:15 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 09:13:15 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 09:13:16 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:13:41 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    
+2026-07-18 09:24:49 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 09:24:49 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 09:24:50 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 09:24:51 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:27:29 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 09:27:29 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 09:27:29 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 09:27:30 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:27:34 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:39 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:40 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:41 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:42 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:43 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:44 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:45 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:47 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:27:58 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    
+2026-07-18 09:32:53 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-18 09:32:53 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-18 09:32:53 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-18 09:32:54 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-18 09:33:01 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:33:03 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-18 09:33:04 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    

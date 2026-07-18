@@ -22,6 +22,8 @@ class SplittersModel(BaseModel):
 
 class ProgressionTreeModel(BaseModel):
     scrolling_step: int
+    level_colors: list[str] = Field(default_factory=list)
+    type_colors: dict[str, str] = Field(default_factory=dict)
 
 class DocumentTabGUIModel(BaseModel):
     vertical_splitter: int
@@ -123,6 +125,7 @@ class ActionsConfig(BaseModel):
     restore_default_settings: ActionSettings
     extract_flash_previews: ActionSettings
     update_flash_previews: ActionSettings
+    toggle_detailed_mode: ActionSettings
 
 class CodeLabelModel(BaseModel):
     name: str

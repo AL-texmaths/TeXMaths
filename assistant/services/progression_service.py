@@ -1,4 +1,7 @@
 # progression_service.py
+import re
+import textwrap
+from PySide6.QtGui import QBrush, QColor
 from PySide6.QtWidgets import QTreeWidgetItem
 from PySide6.QtCore import Qt
 
@@ -44,6 +47,7 @@ class ProgressionService:
         self.analysis_service = analysis_service
         self.config = config
         self._clipboard = None
+        self._detailed_mode = False
 
     def make_item(self, text, data=None):
         item = QTreeWidgetItem([text])
@@ -277,9 +281,101 @@ class ProgressionService:
 
         return item
 
+    def _strip_level_count(self, text: str) -> str:
+        """Retire le suffixe ' (n)' ajouté aux branches de niveau 0."""
+        return re.sub(r'\s*\(\d+\)$', '', text)
+
+    def update_level_displays(self, tree):
+        """Met à jour le texte des branches de niveau 0 pour afficher le nombre de chapitres."""
+        for i in range(tree.topLevelItemCount()):
+            item = tree.topLevelItem(i)
+            base = self._strip_level_count(item.text(0))
+            count = item.childCount()
+            item.setText(0, f"{base} ({count})")
+
+    def _get_raw_text(self, item) -> str:
+        """Retourne le texte brut d'un item (code pour les items catalogue, texte sans compteur sinon)."""
+        entry_id = item.data(0, Qt.UserRole)
+        if entry_id:
+            entry = self.catalogue_service.get_entry_by_id(entry_id)
+            if entry is not None:
+                return entry.code
+        return self._strip_level_count(item.text(0))
+
+    def toggle_detailed_mode(self, tree):
+        """Bascule l'affichage entre les codes et les textes détaillés."""
+        self._detailed_mode = not self._detailed_mode
+        self._apply_detailed_mode(tree)
+
+    def _apply_detailed_mode(self, tree):
+        """Applique l'affichage détaillé ou normal sur tous les items de l'arbre."""
+        def process_item(item):
+            entry_id = item.data(0, Qt.UserRole)
+            if entry_id:
+                entry = self.catalogue_service.get_entry_by_id(entry_id)
+                if entry is not None:
+                    if self._detailed_mode:
+                        item.setText(0, textwrap.fill(entry.text, width=60))
+                    else:
+                        item.setText(0, entry.code)
+            for i in range(item.childCount()):
+                process_item(item.child(i))
+
+        for i in range(tree.topLevelItemCount()):
+            process_item(tree.topLevelItem(i))
+
+    def refresh_detailed_mode(self, tree):
+        """Réapplique le mode détaillé si actif (à appeler après undo/redo/chargement)."""
+        if self._detailed_mode:
+            self._apply_detailed_mode(tree)
+
+    def get_item_extended_text(self, item) -> str:
+        """Retourne le texte complet de l'entrée catalogue associée à un item (en minuscules).
+        Utilisé pour la recherche étendue, qu'on soit en mode détaillé ou non.
+        """
+        entry_id = item.data(0, Qt.UserRole)
+        if not entry_id:
+            return ""
+        entry = self.catalogue_service.get_entry_by_id(entry_id)
+        return entry.text.lower() if entry else ""
+
+    def apply_colors(self, tree, level_colors: list[str], type_colors: dict[str, str] | None = None):
+        """Colore les items de l'arbre en fonction de leur profondeur.
+        Pour les dossiers de type (profondeur 2), type_colors peut définir
+        une couleur par nom de dossier, héritée par tous leurs descendants.
+        Une couleur vide ('') ou absente remet la couleur par défaut.
+        """
+        def process_item(item, depth, inherited_color=None):
+            # Priorité : hérité > type_colors (profondeur 2) > level_colors > défaut
+            if inherited_color:
+                color_str = inherited_color
+            elif type_colors and depth == 2:
+                color_str = type_colors.get(item.text(0)) or (
+                    level_colors[depth] if level_colors and depth < len(level_colors) else ""
+                )
+            else:
+                color_str = level_colors[depth] if level_colors and depth < len(level_colors) else ""
+
+            if color_str:
+                item.setForeground(0, QBrush(QColor(color_str)))
+            else:
+                item.setData(0, Qt.ItemDataRole.ForegroundRole, None)
+
+            # Propager la couleur de type aux enfants dès la profondeur 2
+            if type_colors and depth == 2:
+                next_inherited = type_colors.get(item.text(0))
+            else:
+                next_inherited = inherited_color
+
+            for i in range(item.childCount()):
+                process_item(item.child(i), depth + 1, next_inherited)
+
+        for i in range(tree.topLevelItemCount()):
+            process_item(tree.topLevelItem(i), 0)
+
     def item_to_dict(self, item):
         return {
-            "text": item.text(0),
+            "text": self._get_raw_text(item),
             "data": item.data(0, Qt.UserRole),
             "tooltip": item.toolTip(0),
             "expanded": item.isExpanded(),
