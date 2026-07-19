@@ -9673,3 +9673,177 @@
 2026-07-18 09:36:22 | INFO     |
      MainThread | AssistantDeProgression | GUI settings saved on window close
     
+2026-07-19 08:28:44 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-19 08:28:44 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-19 08:28:51 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-19 08:28:52 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-19 08:29:11 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:29:12 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:29:12 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:29:24 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:29:32 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:29:34 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:29:35 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:29:41 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:13 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:13 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:14 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:14 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:14 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:14 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:15 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:16 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:16 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:16 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:16 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:16 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:17 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:46 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:46 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:30:48 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:31:01 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:31:03 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:31:05 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:31:10 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:31:17 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:32:28 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:33:03 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:33:03 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:33:03 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:33:03 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:33:25 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-19 08:33:25 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-19 08:33:26 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-19 08:33:27 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-19 08:33:35 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-19 08:33:36 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-19 08:34:41 | INFO     |
+     MainThread | AssistantDeProgression | app context created
+    
+2026-07-19 08:34:41 | INFO     |
+     MainThread | AssistantDeProgression | Calling init_window_and_settings
+    
+2026-07-19 08:34:42 | INFO     |
+     MainThread | AssistantDeProgression | starting application
+    
+2026-07-19 08:34:42 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved (debounced)
+    
+2026-07-19 08:35:18 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:19 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:20 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:21 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:21 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:22 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:23 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:23 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:24 | INFO     |
+     MainThread | AssistantDeProgression | Calling find_usage_locations
+    
+2026-07-19 08:35:32 | INFO     |
+     MainThread | AssistantDeProgression | GUI settings saved on window close
+    

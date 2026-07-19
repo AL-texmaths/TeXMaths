@@ -11,11 +11,6 @@
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
 --------- Assistant -------------
-API: possibilité de colorer les items de la progression ou coloration
-automatique en fonction du niveau de la branche. Le choix des couleurs pourra être
-modifiée dans le fichier config.json. Lors de la modification du fichier config.json,
-il faut également penser à modifier le fiochier config.py correspondant.
-API: affichae katex des formules dans le panneau de progression.
 API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut
