@@ -32,6 +32,11 @@ l'arbre en gardant le même item sélectionné
 dépendance verticales entre les items ainsi qu'une manière de les
 visualiser
 >>> délégation des responsabilités du script assistant de progression
+>>> Intercépter l'erreur FileNotFound pour l'export des questions flash
+lors du split main
+>>> Vérifier le nom des fichiers de students list au début de compilation_suivi.py
+---> revoir cette ligne : classes = sys.argv[1:][0].split(' ') pourquoi est elle
+nécéssaire ?
 ===============================================================================
 					Java / html
 ===============================================================================

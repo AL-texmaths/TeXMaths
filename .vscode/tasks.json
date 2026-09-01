@@ -9,7 +9,7 @@
                 "src.mainsplit"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "group": "build"
         },
@@ -22,7 +22,7 @@
                 "src.export_exemple"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "group": "build"
         },
@@ -45,7 +45,7 @@
                 "src.enonces_catalogue"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -58,10 +58,11 @@
             "command": "${workspaceFolder}/.venv/bin/python",
             "args": [
                 "-m",
-                "src.compile_suivi"
+                "src.compile_suivi",
+                "${input:classes}"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "\\Root\\Programmes\\Python\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -77,7 +78,7 @@
                 "src.make_new_doc"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -93,7 +94,7 @@
                 "src.test_all_exercices"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -109,7 +110,7 @@
                 "src.printer"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\texmaths\\Scripts\\python.exe"
+                "command": "\\Root\\Programmes\\Python\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"

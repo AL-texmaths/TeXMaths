@@ -4,13 +4,14 @@ from src.tools import (
     get_config, DATA_DIR, LATEX_DIR, OUTPUT_DIR, TMP_DIR,
     del_files_by_ext, getmodtime, compile_latex)
 
+
 LOGICIEL = get_config()["settings"]["logiciel"]
 LISTPATH = DATA_DIR / "student_lists"
 TEMPLATES = LATEX_DIR / "templates"
 YEAR = get_config()["settings"]["year"]
 OUTPUT_LIST_DIR = OUTPUT_DIR / YEAR / "suivi"
 
-classes = sys.argv[1:]
+classes = sys.argv[1:][0].split(' ')
 if len(classes) == 1 and classes[0] == 'All':
     classes = []
     for file in LISTPATH.glob('*.csv'):
@@ -76,9 +77,7 @@ def get_student_list_csv_pronote(classe):
 def write_list_txt(classe):
     txtpath = LISTPATH / f'liste-{classe}.txt'
     csvpath = LISTPATH / f'liste-{classe}.csv'
-    txtmodtime = getmodtime(txtpath)
-    csvmodtime = getmodtime(csvpath)
-    if txtmodtime > csvmodtime:
+    if txtpath.exists() and getmodtime(txtpath) > getmodtime(csvpath):
         print("No need to change list : " + f'liste-{classe}.txt')
         return
     with open(txtpath, 'w') as list_file:
@@ -146,7 +145,7 @@ for classe in classes:
             if macro(param) in line:
                 suivi_file_lines[line_index] = macro(param) + "{" + PARAM[param] + "}"
 
-    texfilename = f"suivi-{classe}-{periode}.tex"
+    texfilename = f"{suivi_type}-{classe}-{periode}.tex"
     texfiletocomp = TMP_DIR / texfilename
     with open(texfiletocomp, 'w', encoding='utf-8') as suivi_file:
         suivi_file.write('\n'.join(suivi_file_lines))
@@ -161,10 +160,10 @@ for classe in classes:
         ]
     result = compile_latex(texfilename, cmd_args=cmdargs, cwd=TMP_DIR, silent=False)
 
-if result.returncode != 0:
-    print(f"Erreur lors de la compilation du fichier {texfilename}.")
-    print(result.stderr)
-else:
-    del_files_by_ext(TMP_DIR, ['.tex'])
-    del_files_by_ext(OUTPUT_LIST_DIR, ['.log','.aux'])
-    
+    if result.returncode != 0:
+        print(f"Erreur lors de la compilation du fichier {texfilename}.")
+        print(result.stderr)
+    else:
+        del_files_by_ext(TMP_DIR, ['.tex'])
+        del_files_by_ext(OUTPUT_LIST_DIR, ['.log','.aux'])
+        
