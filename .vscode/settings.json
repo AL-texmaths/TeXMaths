@@ -20,14 +20,10 @@
         "*.txt": false,
     },
     "terminal.integrated.cwd": "${workspaceFolder}",
-    "python.analysis.extraPaths": ["./src", "./assistant_progression"],
-    "python-envs.pythonProjects": [
-      {
-        "path": ".",
-        "envManager": "ms-python.python:system",
-        "packageManager": "ms-python.python:pip"
-      }
-    ],
+    "python.analysis.extraPaths": ["./src", "./src_ap"],
+    "env": {
+        "TEXMATHS": "${workspaceFolder}"
+    },
     "latex-workshop.latex.tools": [
       {
         "name": "latexmk-pc",
@@ -38,7 +34,8 @@
           "-interaction=nonstopmode",
           "-file-line-error",
           "-shell-escape",
-          "%DOC%"
+          "-recorder",
+          "%DOCFILE%"
         ]
       },
       {
@@ -50,7 +47,8 @@
           "-interaction=nonstopmode",
           "-file-line-error",
           "-shell-escape",
-          "%DOC%"
+          "-recorder",
+          "%DOCFILE%"
         ]
       },
       {
@@ -61,7 +59,7 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-shell-escape",
-        "%DOC%"
+        "%DOCFILE%"
       ]
     },
     {
@@ -72,7 +70,7 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-shell-escape",
-        "%DOC%"
+        "%DOCFILE%"
       ]
     }
   ],
@@ -103,5 +101,12 @@
     }
   ],
   "latex-workshop.latex.recipe.default": "lastUsed",
-  "latex-workshop.latex.autoBuild.run": "never"
+  "latex-workshop.latex.autoBuild.run": "never",
+  "python-envs.pythonProjects": [
+    {
+      "path": ".",
+      "envManager": "ms-python.python:venv",
+      "packageManager": "ms-python.python:pip"
+    }
+  ]
 }

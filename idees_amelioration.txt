@@ -7,17 +7,11 @@
 ===============================================================================
 					Python
 ===============================================================================
-1- S'assurer de la compatibilité avec windows
-2- Tenter de créer une instalation vscoe/miktex sur le pc
---> mettre à jour le disque dur externe consitera unquiquement
-à faire un pull github
+--------- Global ---------------
 >>> Checker la possibilité native de linux pour remplacer sumatrapdf (commande lp)
 >>> Checker la possibilité de connecter linux a une imprimante via wifi
---------- Assistant de navigation -------------
->>> délégation des responsabilités du script assistant de navigation
---------- Assitant de progression ---------------
-BUG: undo_redo repli l'arbre après action
->>> API: clarifier le lien entre progression et BO.
+--------- Assistant -------------
+API: clarifier le lien entre progression et BO.
 (une progression peut-elle utiliser des items venant
 de plusieurs catalogues ? Sinon, ajouter un attribut
 "catalogue" a chaque progression et empecher l'ajout
@@ -56,7 +50,7 @@ permet le passage au niveau suivant
 ===============================================================================
 					LaTeX
 ===============================================================================
->>> s'assurer de la compatibilité windows
+>>> mettre des gifs/animations en questions flash ??
 >>> revoir la macro \videoManim de texmaths-path
 >>> revoir le code avec lualatex/Expl3 pour amélioration
 % --------------------------

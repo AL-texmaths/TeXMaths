@@ -1,0 +1,42 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+    \source{inconnue}
+    \BO{2020}
+    \cycle{4}
+    \competencesDuSocle{RE}
+    \connaissancesTravaillees{D2b6}
+    \competencesTravaillees{A1a2, D2c4, D2a*, C2d*}
+\enddatakeys
+\begin{document}%
+\mathspoint{A'} est l'image de \mathspoint{A} par l'homothétie $h$ de centre \mathspoint{O} et de rapport $k$.\\[0.2em]
+\mathspoint{B'} est l'image de \mathspoint{B} par cette même homothétie $h$.
+
+\begin{enumerate}
+  \item Construire le centre \mathspoint{O} et déterminer le rapport $k$ de cette homothétie en justifiant.
+  \item Ecrire les égalités faisant intervenir des longueurs de segment et le rapport $k$ de l'homothétie.
+  \item Que peut-on dire des triangles \mathspoint{OAB} et \mathspoint{OA'B'}~?
+\end{enumerate}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.3]
+  % Segment A'B'
+  \draw[black!70, line width=0.9pt] (0,3) -- (4,5);
+  % Segment AB
+  \draw[black!70, line width=0.9pt] (4,0) -- (6,1);
+  % Point A'
+  \ptmark{0}{3}
+  \node[ptcol, left, font=\small\itshape] at (0,3) {$A'$};
+  % Point B'
+  \ptmark{4}{5}
+  \node[ptcol, above right, font=\small\itshape] at (4,5) {$B'$};
+  % Point A
+  \ptmark{4}{0}
+  \node[ptcol, below, font=\small\itshape] at (4,0) {$A$};
+  % Point B
+  \ptmark{6}{1}
+  \node[ptcol, right, font=\small\itshape] at (6,1) {$B$};
+\end{tikzpicture}
+\end{center}
+
+\end{document}

@@ -32,7 +32,7 @@
 \makeatletter
 \def\catalogues@enonce#1s/#2.tex{\csname #1\endcsname{#2}}
 \begin{document}
-    \immediate\write18{"python3" "\texmaths@path@root src/enonces_catalogue.py" "\texmaths@path@root data/latex/enonces" "enonces.tex"}
+    \run@python{-m src.enonces_catalogue}
     \input{enonces.tex}
     \makeatother
 \end{document}

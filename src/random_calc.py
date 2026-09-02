@@ -1,5 +1,5 @@
 import random
-import sympy
+# import sympy
 
 PYTOTEX = {
     '*': "\\times",

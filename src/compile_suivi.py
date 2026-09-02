@@ -4,14 +4,17 @@ from src.tools import (
     get_config, DATA_DIR, LATEX_DIR, OUTPUT_DIR, TMP_DIR,
     del_files_by_ext, getmodtime, compile_latex)
 
-
-LOGICIEL = get_config()["settings"]["logiciel"]
+config = get_config()
+settings = config["settings"]
+LOGICIEL = settings["logiciel"]
 LISTPATH = DATA_DIR / "student_lists"
 TEMPLATES = LATEX_DIR / "templates"
-YEAR = get_config()["settings"]["year"]
+YEAR = settings["year"]
 OUTPUT_LIST_DIR = OUTPUT_DIR / YEAR / "suivi"
+LIST_KEY = settings["student_lists"]["list_key"]
+TEMPLATE_KEY = settings["student_lists"]["template_key"]
 
-classes = sys.argv[1:][0].split(' ')
+classes = sys.argv[1].split(",")
 if len(classes) == 1 and classes[0] == 'All':
     classes = []
     for file in LISTPATH.glob('*.csv'):
@@ -31,7 +34,7 @@ def get_student_list_csv_ent(classe):
     student_list: list of string
         The student list.
     """
-    csvpath = LISTPATH / f'list-{classe}.csv'
+    csvpath = LISTPATH / LIST_KEY.format(classe, "csv")
     student_list = []
     
     with open(csvpath, newline='') as csvfile:
@@ -58,7 +61,7 @@ def get_student_list_csv_pronote(classe):
     student_list: list of string
         The student list.
     """
-    csvpath = LISTPATH / f'liste-{classe}.csv'
+    csvpath = LISTPATH / LIST_KEY.format(classe, "csv")
     student_list = []
     
     with open(csvpath, newline='') as csvfile:
@@ -109,14 +112,15 @@ PARAM = {
     "periode" : periode,
     "type"    : suivi_type
 }
+result = None
 
 for classe in classes:
     PARAM["classe"] = classe
     write_list_txt(classe)
-    with open(TEMPLATES / f"liste-{suivi_type}-template.tex", 'r', encoding='utf-8') as tex_file:
+    with open(TEMPLATES / TEMPLATE_KEY.format(suivi_type), 'r', encoding='utf-8') as tex_file:
         tex_file_data_lines = tex_file.read().split('\n')
 
-    with open(LISTPATH / f"liste-{classe}.txt", 'r', encoding='utf-8') as txt_file:
+    with open(LISTPATH / LIST_KEY.format(classe, "txt"), 'r', encoding='utf-8') as txt_file:
         txt_file_data_lines = txt_file.read().split('\n')
 
     tex_file_last_line = tex_file_data_lines[-1]
@@ -133,7 +137,7 @@ for classe in classes:
 
     tex_file_data_lines.append(tex_file_last_line)
 
-    with open(TMP_DIR / f"liste-{classe}.tex", 'w', encoding='utf-8') as tex_file:
+    with open(TMP_DIR / LIST_KEY.format(classe, "tex"), 'w', encoding='utf-8') as tex_file:
         tex_file.write('\n'.join(tex_file_data_lines))
 
     with open(TEMPLATES / "suivi-template.tex", 'r', encoding='utf-8') as suivi_file:

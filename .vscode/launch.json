@@ -8,69 +8,31 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
+            "cwd": "${workspaceFolder}",
         },
         {
-            "name": "Run assistant de progression",
+            "name": "Run assistant",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/assistant_progression.py",
-            "console": "integratedTerminal",
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "name": "Run assistant de navigation",
-            "type": "debugpy",
-            "request": "launch",
-            "module": "src.views.main_window",
+            "program": "${workspaceFolder}/assistant.py",
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",
-            "justMyCode": true
         },
         {
-            "name": "Run src.tools module",
+            "name": "Debug src_ap module",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "debug.py",
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+        },
+        {
+            "name": "Run src.* module",
             "type": "debugpy",
             "request": "launch",
             "module": "src.${fileBasenameNoExtension}",
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
-            "justMyCode": true
-        },
-        {
-        "name": "Run models.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "models.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
-        },
-        {
-        "name": "Run gui.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "assistant_progression.gui.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
-        },
-        {
-        "name": "Run services.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "assistant_progression.services.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
-        },
-        {
-        "name": "Run utils.file",
-        "type": "debugpy",
-        "request": "launch",
-        "module": "assistant_progression.utils.${fileBasenameNoExtension}",
-        "cwd": "${workspaceFolder}",
-        "console": "integratedTerminal",
-        "justMyCode": true
         }
     ]
 }

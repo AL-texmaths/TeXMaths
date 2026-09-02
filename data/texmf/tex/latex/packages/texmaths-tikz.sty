@@ -350,6 +350,16 @@
         }
     \end{tikzpicture}%
     }
+
+\definecolor{gridcol}{RGB}{176,196,222}
+\definecolor{ptcol}{RGB}{90,90,200}
+
+% Macro : trace une croix × au point (#1, #2) dans le repère TikZ courant
+\def\ptmarksize{0.1}
+\newcommand{\ptmark}[2]{%
+\draw[ptcol, line width=1.5pt] ({#1-\ptmarksize},{#2-\ptmarksize}) -- ({#1+\ptmarksize},{#2+\ptmarksize});%
+\draw[ptcol, line width=1.5pt] ({#1-\ptmarksize},{#2+\ptmarksize}) -- ({#1+\ptmarksize},{#2-\ptmarksize});%
+}
 % -------------------------------------------
 % CODE pour l'exercice "le chemin mysterieux"
 % -------------------------------------------

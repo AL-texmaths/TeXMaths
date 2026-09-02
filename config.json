@@ -54,6 +54,7 @@
     },
     "executables": {
         "code": [
+            "code",
             "\\Root\\Programmes\\VSCode\\Code.exe"
         ],
         "sumatrapdf": [
@@ -83,12 +84,11 @@
             "okular"
         ],
         "lualatex": [
+            "lualatex",
             "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\lualatex.exe"
         ],
-        "pdflatex": [
-            "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\pdflatex.exe"
-        ],
         "latexmk": [
+            "latexmk",
             "\\Root\\Programmes\\MiKTeX\\texmfs\\install\\miktex\\bin\\x64\\latexmk.exe"
         ]
     },

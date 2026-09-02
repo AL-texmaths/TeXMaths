@@ -11,4 +11,5 @@ Traduire (un programme de calcul)
 Effectuer (une opération)
 Démontrer (par le calcul)
 Résoudre (un triangle)
+Arreter les betises
 ]

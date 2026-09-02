@@ -1,0 +1,48 @@
+\documentclass[exercice]{thedocument}%
+\usepackage{texmaths-tikz}
+\startdatakeys
+    \source{inconnue}
+    \BO{2020}
+    \cycle{4}
+    \competencesDuSocle{RE}
+    \competencesTravaillees{A1a2, D2c4, D2a*}
+\enddatakeys
+\begin{document}%
+\begin{minipage}[t]{0.35\textwidth}
+  \vspace{0pt}
+  Construire l'image du quadrilatère BLEU par l'homothétie de centre P et de
+  rapport $-2$ :
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.61\textwidth}
+  \vspace{0pt}
+  \begin{tikzpicture}[x=0.5cm, y=0.5cm]
+    % Grille (étendue vers le bas pour la construction)
+    \draw[gridcol, very thin, step=1] (-1,-8) grid (9,5);
+
+    % Point U  (3, 4)
+    \ptmark{3}{4}
+    \node[ptcol, above left, font=\small\itshape] at (3,4) {\mathspoint{U}};
+
+    % Point B  (5, 4)
+    \ptmark{5}{4}
+    \node[ptcol, above right, font=\small\itshape] at (5,4) {\mathspoint{B}};
+
+    % Point L  (7, 1)
+    \ptmark{7}{1}
+    \node[ptcol, below right, font=\small\itshape] at (7,1) {\mathspoint{L}};
+
+    % Point E  (3, 1)
+    \ptmark{3}{1}
+    \node[ptcol, below left, font=\small\itshape] at (3,1) {\mathspoint{E}};
+
+    % Centre d'homothétie P  (4, -1)
+    \ptmark{4}{-1}
+    \node[ptcol, below right, font=\small\itshape] at (4,-1) {\mathspoint{P}};
+
+    % Quadrilatère BLEU  (côté gauche vertical, côté droit oblique)
+    \draw[black!80, line width=1.5pt] (5,4) -- (7,1) -- (3,1) -- (3,4) -- cycle;
+  \end{tikzpicture}
+\end{minipage}
+
+\end{document}

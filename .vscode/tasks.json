@@ -1,6 +1,19 @@
 {
     "tasks": [
         {
+            "label": "Compiler les PDF manquants",
+            "type": "shell",
+            "command": "find ${input:findArgs} | while read -r tex; do pdf=\"${tex%.tex}.pdf\"; [ -e \"$pdf\" ] || latexmk -pdf \"$tex\"; done",
+            "options": {
+                "cwd": "${workspaceFolder}",
+                "shell": {
+                    "executable": "bash",
+                    "args": ["-c"]
+                }
+            },
+            "problemMatcher": []
+        },
+        {
             "label": "split main",
             "type": "process",
             "command": "${workspaceFolder}/.venv/bin/python",
@@ -62,7 +75,41 @@
                 "${input:classes}"
             ],
             "windows": {
-                "command": "\\Root\\Programmes\\Python\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "init probas for class",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "args": [
+                "-m",
+                "src.init_class_probalities",
+                "${input:classes}"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "build"
+        },
+        {
+            "label": "display students notes",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "args": [
+                "-m",
+                "src.display_students_notes",
+                "${input:classes}"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -86,22 +133,6 @@
             "group": "build"
         },
         {
-            "label": "test all exercices",
-            "type": "process",
-            "command": "${workspaceFolder}/.venv/bin/python",
-            "args": [
-                "-m",
-                "src.test_all_exercices"
-            ],
-            "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
-            },
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "group": "build"
-        },
-        {
             "label": "print pdf",
             "type": "process",
             "command": "${workspaceFolder}/.venv/bin/python",
@@ -110,44 +141,12 @@
                 "src.printer"
             ],
             "windows": {
-                "command": "\\Root\\Programmes\\Python\\python.exe"
+                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "group": "build"
-        },
-        {
-            "label": "Git push avec date TeXMaths (github and machine)",
-            "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-Command",
-                "$date = Get-Date -Format 'yyyy-MM-dd'; $message = 'Update ' + $date; git add .; git commit -m $message; git push machine main; git push github main"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "group": {
-                "kind": "build",
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "Git push avec date MiKTeX Local (github and machine)",
-            "type": "shell",
-            "command": "powershell",
-            "args": [
-                "-Command",
-                "$date = Get-Date -Format 'yyyy-MM-dd'; $message = 'Update ' + $date; git add .; git commit -m $message; git push machine main; git push github main"
-            ],
-            "options": {
-                "cwd": "\\Root\\Programmes\\MiKTeX\\texmfs\\data\\tex\\latex\\local"
-            },
-            "group": {
-                "kind": "build",
-            },
-            "problemMatcher": []
         },
         {
             "label": "open BO 2026",
@@ -229,7 +228,7 @@
         {
             "id": "classes",
             "type": "promptString",
-            "description": "Entrez les classes (a separer avec espace) :"
+            "description": "Entrez les classes (a separer avec virgule) :"
         },
         {
             "id": "texfilestocompile",
