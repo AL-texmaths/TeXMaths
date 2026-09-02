@@ -31,3 +31,5 @@ data/graphics/*.db-wal
 data/graphics/*.db-shm
 data/graphics/.nextcloudsync.log
 .github
+
+assistant/logs/app.log
