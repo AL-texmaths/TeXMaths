@@ -22,7 +22,7 @@
                 "src.mainsplit"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "group": "build"
         },
@@ -35,7 +35,7 @@
                 "src.export_exemple"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "group": "build"
         },
@@ -58,7 +58,7 @@
                 "src.enonces_catalogue"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -75,7 +75,7 @@
                 "${input:classes}"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -92,7 +92,7 @@
                 "${input:classes}"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -109,7 +109,7 @@
                 "${input:classes}"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -125,7 +125,7 @@
                 "src.make_new_doc"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -141,7 +141,7 @@
                 "src.printer"
             ],
             "windows": {
-                "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe"
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
             },
             "options": {
                 "cwd": "${workspaceFolder}"
