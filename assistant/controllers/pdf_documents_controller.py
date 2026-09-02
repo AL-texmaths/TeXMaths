@@ -45,7 +45,7 @@ class PdfDocumentsController:
                 str(pdf_xchange_exe_path),
                 str(pdf_path),
                 '/A',
-                "page=1&fullscreen=yes=OpenParameters"
+                "page=1"
                 )
         except OSError as error:
             QMessageBox.critical(self, "Erreur PDF XChange", str(error))

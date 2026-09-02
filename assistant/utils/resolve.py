@@ -1,7 +1,8 @@
 import sys
+import string
 import json
 import shutil
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from json.decoder import JSONDecodeError
 
 from assistant.models.config import Config
@@ -56,6 +57,26 @@ if  not usr_config_correct:
     print("User config file not found or invalid. Copying default config to user config.")
     shutil.copy(DEF_CONFIG_PATH, USR_CONFIG_PATH)
 
+def _resolve_drive_relative(path_str: str) -> Path | None:
+    """
+    Resolve a Windows drive-relative path (e.g. "\\Root\\foo.exe", no drive
+    letter) by trying it against every existing drive letter, since the
+    drive can change from one machine/session to another.
+
+    Returns the first matching absolute Path, or None if not found.
+    """
+    win_path = PureWindowsPath(path_str)
+    if win_path.drive or not win_path.root:
+        return None
+    for letter in string.ascii_uppercase:
+        drive_root = Path(f"{letter}:/")
+        if not drive_root.exists():
+            continue
+        candidate = Path(f"{letter}:{path_str}")
+        if candidate.is_file():
+            return candidate.absolute()
+    return None
+
 def resolve_executable(executable: str, config:Config|None=None) -> Path:
     """
     Resolve the first available executable.
@@ -99,18 +120,25 @@ def resolve_executable(executable: str, config:Config|None=None) -> Path:
         pass
 
     if executables is not None:
-        # 1. Search in local candidate directories
+        # 1. Search drive-relative paths (e.g. "\Root\...") across all drives
+        for executable in executables:
+            found = _resolve_drive_relative(executable)
+            if found:
+                return found
+
+        # 2. Search in local candidate directories
         for executable in executables:
             for directory in candidates_dirs:
                 candidate = directory / executable
                 if candidate.is_file():
                     return candidate.absolute()
 
-        # 2. Search in PATH
+        # 3. Search in PATH
         for executable in executables:
             resolved = shutil.which(executable)
             if resolved:
                 return Path(resolved).absolute()
+
 
 def resolve_path(candidates: Path | str | list[str], config:Config|None=None) -> Path:
     """

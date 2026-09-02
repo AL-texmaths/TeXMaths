@@ -62,4 +62,4 @@ class FlashPreviewService:
     def update_previews(self):
         self.del_old_previews()
         for file_path in self.pathes:
-            self.extract_preview(file_path)
+            self.extract_preview(file_path, self.preview_dir)

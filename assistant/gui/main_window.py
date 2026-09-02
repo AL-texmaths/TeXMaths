@@ -395,7 +395,7 @@ class MainWindow(QWidget):
         )
     
     def extract_flash_previews(self):
-        self.extract_flash_preview_service.extract_previews()
+        self.extract_flash_preview_service.update_previews()
     
     def update_flash_previews(self):
         self.extract_flash_preview_service.update_previews()

@@ -1,5 +1,4 @@
 import subprocess
-import sys
 from pathlib import Path
 
 
@@ -22,10 +21,7 @@ class ProcessService:
             
             cmd = [executable_path, file_path] + list(args)
             
-            if sys.platform.startswith("win"):
-                subprocess.Popen(cmd)
-            else:
-                subprocess.Popen(cmd)
+            subprocess.Popen(cmd, cwd=str(Path(file_path).parent))
                 
         except Exception as e:
             raise OSError(f"Erreur lors de l'ouverture du fichier: {e}")
