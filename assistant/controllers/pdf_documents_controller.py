@@ -41,12 +41,15 @@ class PdfDocumentsController:
             return
 
         try:
+            # PDF XChange: open in fullscreen on page 1. Example CLI:
+            # PDFXEdit.exe /A "fullscreen=yes;page=1" "file.pdf"
             self.context.process_service.open_with(
                 str(pdf_xchange_exe_path),
                 str(pdf_path),
                 '/A',
-                "page=1"
-                )
+                'fullscreen=yes;page=1',
+                place_file_last=False
+            )
         except OSError as error:
             QMessageBox.critical(self, "Erreur PDF XChange", str(error))
 
