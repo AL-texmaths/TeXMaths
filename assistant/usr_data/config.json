@@ -160,7 +160,7 @@
             "main_window": {
                 "title": "Assistant de progression",
                 "width": 958,
-                "height": 1018
+                "height": 881
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -169,9 +169,9 @@
             },
             "splitter": {
                 "size": [
-                    247,
-                    384,
-                    293
+                    255,
+                    379,
+                    290
                 ]
             },
             "progression_tree": {
