@@ -7,11 +7,12 @@ from pathlib import Path
 from src.tools import get_config, DEFAULT_DATA_LOG_DIR, TMP_DIR, get_cours_file_path, get_exe
 
 log_file_path = DEFAULT_DATA_LOG_DIR / 'impress.log'
-PRINTER = get_config()["settings"]['printers'][2]
+PRINTER = get_config()["settings"]['printers'][1]
+gs_exe = str(get_exe("ghostscript"))
 
 GS_CMD = {
     "A5 Portrait": [
-    get_config()["executables"]["ghostscript"],
+    gs_exe,
     "-sDEVICE=pdfwrite",
     "-dCompatibilityLevel=1.4",
     "-dPDFFitPage",
@@ -24,7 +25,7 @@ GS_CMD = {
     "{}"
     ],
     "A5 Landscape": [
-    get_config()["executables"]["ghostscript"],
+    gs_exe,
     "-sDEVICE=pdfwrite",
     "-dCompatibilityLevel=1.4",
     "-dPDFFitPage",
@@ -213,18 +214,33 @@ def print_pdf(pdf_path, printer:str, printsettings:str):
 
 def extract_big(pdf_path):
     pdf_format = get_pdf_format(pdf_path)
-    if pdf_format is None:
+    if not pdf_format:
         print('Format non reconnu')
-        return
-    if pdf_format and not pdf_format in GS_CMD.keys():
-        return 0
-    cmd = " ".join(GS_CMD[pdf_format]).format(TMP_DIR / pdf_path.name, pdf_path)
-    print(cmd)
-    result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        return None
+    if pdf_format not in GS_CMD:
+        print(pdf_format + ' not supported')
+        return None
+
+    output_path = TMP_DIR / f"{pdf_path.stem}-big.pdf"
+
+    # Construire la commande en remplaçant les placeholders
+    cmd_list = []
+    for arg in GS_CMD[pdf_format]:
+        if arg == "{}":
+            cmd_list.append(str(pdf_path))
+        elif "{}" in arg:
+            cmd_list.append(arg.replace("{}", str(output_path)))
+        else:
+            cmd_list.append(arg)
+
+    print('Running:', ' '.join(map(str, cmd_list)))
+    result = subprocess.run(cmd_list, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     if result.returncode != 0:
         print("Erreur")
+        return None
     else:
         print("Success")
+        return output_path
 
 def read_impress_datas():
     try:
@@ -258,9 +274,11 @@ if __name__ == '__main__':
         if fileName.split('-')[-1] == 'big':
             fileName = fileName[:-4]
             pdf_path = get_cours_file_path(fileName)
-            extract_big(pdf_path)
-            big_pdf_path = TMP_DIR / pdf_path.name
+            big_pdf_path = extract_big(pdf_path)
+            if big_pdf_path is None:
+                continue
             tmp_files_path.append(big_pdf_path)
+            pdf_path = big_pdf_path
         else:
             pdf_path = get_cours_file_path(fileName)
         message = "Start printing " + fileName + " Settings : " + printsettings
