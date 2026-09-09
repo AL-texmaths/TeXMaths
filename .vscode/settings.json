@@ -21,9 +21,6 @@
     },
     "terminal.integrated.cwd": "${workspaceFolder}",
     "python.analysis.extraPaths": ["./src", "./src_ap"],
-    "env": {
-        "TEXMATHS": "${workspaceFolder}"
-    },
     "latex-workshop.latex.tools": [
       {
         "name": "latexmk-pc",

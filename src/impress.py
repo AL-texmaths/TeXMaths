@@ -7,7 +7,7 @@ from pathlib import Path
 from src.tools import get_config, DEFAULT_DATA_LOG_DIR, TMP_DIR, get_cours_file_path, get_exe
 
 log_file_path = DEFAULT_DATA_LOG_DIR / 'impress.log'
-PRINTER = get_config()["settings"]['printers'][1]
+PRINTER = get_config()["settings"]['printers'][2]
 gs_exe = str(get_exe("ghostscript"))
 
 GS_CMD = {

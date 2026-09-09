@@ -1,6 +1,6 @@
-6e-Ch1-cours;1x
-5e-Ch1-cours;1x
-6e-Ch1-A1;45x
-6e-Ch1-E1;45x
-5e-Ch1-A1;45x
-5e-Ch1-E1;45x
+5e-Ch1-A3;21x
+5e-Ch1-A4;21x
+5e-Ch1-A5;21x
+5e-Ch1-A6;21x
+5e-Ch1-E3;21x
+5e-Ch1-E4;21x

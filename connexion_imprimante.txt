@@ -1,0 +1,64 @@
+Oui. Dans un collège, ça dépend surtout de la façon dont l’imprimante est reliée au réseau de l’établissement.
+
+Si l’imprimante est sur le réseau du collège
+Sur le PC :
+
+Ouvre Paramètres → Bluetooth et appareils → Imprimantes et scanners.
+Clique sur Ajouter un appareil.
+Attends quelques secondes.
+Si l’imprimante apparaît, sélectionne-la puis Ajouter l’appareil.
+Si elle n’apparaît pas
+Il est souvent possible de l’ajouter avec son adresse IP :
+
+Va dans Paramètres → Bluetooth et appareils → Imprimantes et scanners.
+Ajouter un appareil → Ajouter manuellement.
+Choisis Ajouter une imprimante à l’aide d’une adresse IP ou d’un nom d’hôte.
+Entre l’adresse IP de l’imprimante (par exemple 192.168.1.50).
+Windows installe ensuite le pilote.
+⚠️ Dans un PC professionnel de collège, tu peux ne pas avoir les droits administrateur nécessaires. Et si tu es chez toi, l’imprimante du collège n'est généralement pas directement accessible : il faut que le PC soit connecté au réseau de l'établissement, souvent via un VPN, ou passer par le système d'impression mis en place par le service informatique.
+
+Si tu me dis où se trouve le PC (au collège ou chez toi) et où se trouve l’imprimante, je peux te donner la procédure exacte.
+
+
+
+Vous avez dit :
+
+le pc se trouve à l'étage 1 et l'imprimante à l'étage 2. Il y a des pc connnecté à l'étage 2 à l'imprimante mais je ne sais pas comment.
+
+ChatGPT a dit :
+Oui — dans ce cas, c’est probablement une imprimante réseau. Le fait qu’elle soit à l’étage 2 n’est pas un problème : si le PC de l’étage 1 et l’imprimante sont sur le même réseau du collège, le PC peut l’utiliser à distance.
+
+Le plus simple est de regarder comment les PC de l’étage 2 sont déjà connectés.
+
+1. Sur un PC de l’étage 2 qui imprime déjà
+Va dans :
+
+Paramètres → Bluetooth et appareils → Imprimantes et scanners
+
+Clique sur l’imprimante concernée, puis cherche Propriétés de l’imprimante ou Propriétés.
+
+Regarde notamment :
+
+le nom exact de l’imprimante ;
+dans l'onglet Ports, ce qui est indiqué ;
+éventuellement une adresse du type 192.168.x.x ;
+ou un chemin du type \\serveur\Imprimante.
+👉 Le point le plus important est le contenu de l'onglet "Ports".
+
+2. Si tu vois quelque chose comme \\SERVEUR\IMPRIMANTE
+C'est très probablement une imprimante partagée par un serveur d'impression.
+
+Dans ce cas, sur le PC de l'étage 1, on peut généralement l'ajouter en utilisant le même chemin :
+
+\\SERVEUR\IMPRIMANTE
+
+C'est même préférable à essayer de trouver son adresse IP.
+
+3. Si tu vois une adresse IP
+Par exemple :
+
+192.168.10.45
+
+Alors l'imprimante est probablement directement accessible sur le réseau. On pourra l'ajouter au PC de l'étage 1 avec cette adresse.
+
+Je te conseille de ne rien modifier sur le PC de l'étage 2. Si tu peux me donner ce qui est écrit dans l'onglet "Ports" (tu peux aussi m'envoyer une photo/capture en masquant les noms sensibles), je pourrai te dire précisément comment connecter le PC de l'étage 1.
