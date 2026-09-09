@@ -171,7 +171,13 @@
                 "/Documents/Officiel/BO_2026/Cycle3_programmes.pdf"
             ],
             "windows": {
-                "command": "\\Root\\Programmes\\VSCode\\code.exe"
+                "command": "${workspaceFolder}\\scripts\\run_code.bat",
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": ["/d", "/c"]
+                    }
+                }
             },
             "problemMatcher": [],
             "group": "build"
@@ -213,7 +219,13 @@
                     "${workspaceFolder}/data/latex/exercices/exercice-${input:exerciceID}-data.tex"
                 ],
             "windows": {
-                "command": "\\Root\\Programmes\\VSCode\\code.exe"
+                "command": "${workspaceFolder}\\scripts\\run_code.bat",
+                "options": {
+                    "shell": {
+                        "executable": "cmd.exe",
+                        "args": ["/d", "/c"]
+                    }
+                }
             },
             "problemMatcher": [],
             "group": "build"
