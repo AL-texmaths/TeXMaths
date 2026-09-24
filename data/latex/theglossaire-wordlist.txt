@@ -11,5 +11,8 @@ Traduire (un programme de calcul)
 Effectuer (une opération)
 Démontrer (par le calcul)
 Résoudre (un triangle)
-Arreter les betises
+Exprimer (sous la forme d'une expression numérique)
+Rédiger (un programme)
+Placer (un point)
+Réaliser (un programme)
 ]
