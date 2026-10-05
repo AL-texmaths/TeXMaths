@@ -15,4 +15,20 @@ Exprimer (sous la forme d'une expression numérique)
 Rédiger (un programme)
 Placer (un point)
 Réaliser (un programme)
+Calculer
+Comparer (deux nombres)
+Déterminer
+Simplifier une expression littérale
+Simplifier une fraction
+Ajouter
+Soustraire
+Multiplier
+Diviser
+Développer un produit
+Factoriser une somme
+Mesurer
+Nommer un objet géométrique
+Convertir
+Comparer
+Justifier
 ]

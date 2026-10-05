@@ -6,8 +6,8 @@
 9-6e-2-Entiers_naturels-DSA
 11-6e-2-Entiers_naturels-DSB
 13-6e-2-Entiers_naturels-DSC
-15-6e-3-Angles-hidden
-15-6e-4-Fractions-hidden
+15-6e-3-Fractions-hidden
+15-6e-4-Angles-hidden
 15-6e-5-Droites_perpendiculaires_et_paralleles-hidden
 15-6e-6-Operations_sur_les_nombres_decimaux-hidden
 15-6e-7-Division_euclidienne-hidden

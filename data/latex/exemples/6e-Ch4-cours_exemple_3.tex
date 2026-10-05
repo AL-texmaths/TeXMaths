@@ -1,0 +1,8 @@
+\documentclass [varwidth]{standalone}
+%scale[1.2]
+%lmargin[30]
+%vmargins[30]
+\usepackage {texmaths-main}
+\begin {document}
+\setCompleteVersion {0}\begin {tblr}{colspec={Q[c,m]Q[c,m]Q[c,m]}} \begin {tikzpicture}[scale=1] \Angle [ right side len = 3, left side len = 3, angle = 90, color = white ] \tkzMarkRightAngle [size=.5, colored](B,A,C) \toComplete {\tkzLabelAngle [pos=1.5](B,A,C){{$\mathbf {90}^\circ $}}} \end {tikzpicture}& \begin {tikzpicture}[scale=1] \Angle [ right side len = 3, left side len = 3, angle = 70, color = \currentcolor ] \toComplete {\tkzLabelAngle [pos=1.5](B,A,C){{$\mathbf {70}^\circ $}}} \end {tikzpicture}& \begin {tikzpicture}[scale=1] \Angle [ right side len = 3, left side len = 3, angle = 115, color = \currentcolor ] \toComplete {\tkzLabelAngle [pos=1.5](B,A,C){{$\mathbf {115}^\circ $}}} \end {tikzpicture}\\ \toComplete {Angle droit}&\toComplete {Angle aigu}&\toComplete {Angle obtus} \end {tblr} 
+\end {document}
