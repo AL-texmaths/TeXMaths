@@ -50,6 +50,7 @@ permet le passage au niveau suivant
 ===============================================================================
 					LaTeX
 ===============================================================================
+>>> supprimer theglosssaire-sortedindex
 >>> mettre des gifs/animations en questions flash ??
 >>> revoir la macro \videoManim de texmaths-path
 >>> revoir le code avec lualatex/Expl3 pour amélioration

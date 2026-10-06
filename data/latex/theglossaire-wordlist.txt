@@ -31,4 +31,6 @@ Nommer un objet géométrique
 Convertir
 Comparer
 Justifier
+Ordonner
+AATEST
 ]
