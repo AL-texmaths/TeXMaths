@@ -1,0 +1,29 @@
+\documentclass[17pt]{flash}
+\startdatakeys
+\cycle{3}
+\connaissancesRequises{}
+\competencesTravaillees{}
+\enddatakeys
+\begin{document}
+
+\flashvisibletimertrue
+\FlashSetItemSep{40pt}
+\FlashSetVtop{-3em}
+\FlashSetTitle{Nombres décimaux : ordre et comparaison}
+
+\FlashShowConsignes{%
+    \item Dans chaque cas, ranger les nombres par ordre croissant.
+}
+\small
+\def\sep{\hfill}
+\def\correctSep{\hfill/\hfill}
+\AtCorrection{\footnotesize\let\sep\correctSep}
+\flashlist{
+    \flashitem{30}{$4,09\sep4,9\sep4,099\sep4,19$}
+    \flashitem{30}{$0,506\sep0,56\sep0,056\sep0,65$}
+    \flashitem{30}{$3,2\sep3,02\sep3,20\sep3,12$}
+    \flashitem{30}{$1,75\sep1,705\sep1+\dfrac{7}{10}\sep1,057$}
+    \flashitem{30}{$0,4\sep\dfrac{4}{10}\sep0,04\sep0,404$}
+}
+
+\end{document}
