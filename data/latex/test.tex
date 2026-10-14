@@ -1,15 +1,23 @@
-% test.tex
-\documentclass{article}
-\usepackage{tkz-euclide}
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{hyperref}
+
+\newcounter{task}
+\def\chb{\medskip\stepcounter{task}\CheckBox[name=case\thetask,width=1em,height=1em]{}\ }
+
 \begin{document}
-Soit ABC un triangle tel que~:
-\begin{itemize}
-    \item AB = 5 cm
-    \item AC = 7 cm
-    \item BC = 4,3 cm
-\end{itemize}
-\begin{enumerate}
-    \item Faire une figure à main levée.
-    \item Construire le triangle.
-\end{enumerate}
+
+\section*{Ma liste de contrôle}
+
+\begin{Form}
+\chb Première tâche
+
+\chb Deuxième tâche
+
+\chb Troisième tâche
+
+\chb Quatrième tâche
+\end{Form}
+
 \end{document}
