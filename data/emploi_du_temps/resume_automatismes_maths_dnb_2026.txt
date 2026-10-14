@@ -1,0 +1,50 @@
+DNB 2026 — AUTOMATISMES DE MATHÉMATIQUES
+Résumé du document officiel « Liste indicative d’automatismes susceptibles d’être mobilisés lors de l’épreuve écrite de mathématiques » (séries générale et professionnelle).
+Document daté d’octobre 2025.
+
+1. NOMBRES ET CALCULS
+- Connaître les écritures décimales de fractions simples (par exemple 1/2, 1/4, 3/4, 3/2, 1/10).
+- Comparer et calculer avec des nombres décimaux, y compris négatifs.
+- Simplifier, comparer et calculer avec des fractions.
+- Calculer une fraction simple d’un nombre et des pourcentages usuels (100 %, 50 %, 25 %, 10 %, 1 %).
+- Reconnaître différentes écritures d’un même nombre : fraction, décimal, décomposition, pourcentage.
+- Passer de l’écriture décimale à la notation scientifique.
+- Connaître les carrés des entiers de 1 à 12.
+- Utiliser les critères de divisibilité par 2, 3, 5 et 9.
+- Exprimer le double, le triple, la moitié, le prédécesseur, le successeur et le carré d’un entier n.
+- Simplifier des expressions littérales, calculer la valeur d’expressions algébriques (y compris avec des puissances), développer et factoriser une expression simple.
+- Résoudre des équations simples, notamment des formes du type ax = c, x + b = c et ax + b = c.
+- Lire et placer des abscisses sur une droite graduée.
+
+2. ESPACE ET GÉOMÉTRIE
+- Lire et placer des points dans un repère orthogonal à partir de leurs coordonnées.
+- Utiliser le codage d’une figure pour reconnaître des triangles, des quadrilatères particuliers et une médiatrice.
+- Reconnaître différents types d’angles : plat, nul, opposés par le sommet, adjacents, supplémentaires, aigus et obtus ; connaître les mesures de 90° pour l’angle droit et de 180° pour l’angle plat.
+- Utiliser la somme des angles d’un triangle pour calculer un angle manquant.
+- Convertir les unités de longueur, d’aire, de volume, de masse, de capacité et de durée : mm, cm, m, km ; mm², cm², m², km² ; cm³, dm³, m³ ; g, kg ; mL, cL, dL, L ; secondes, minutes, heures, jours. Connaître les correspondances entre dm³ et L, et entre m³ et L.
+- Reconnaître les solides : cube, pavé droit, prisme droit, cylindre, pyramide et cône.
+- Calculer le périmètre d’un polygone ou d’un disque.
+- Connaître et utiliser les formules d’aire du triangle, du rectangle et du disque.
+- Connaître et utiliser les formules de volume du cube, du pavé droit, du prisme droit et du cylindre.
+- Reconnaître les situations où appliquer le théorème de Pythagore ou celui de Thalès, vérifier les conditions d’application et juger la cohérence des résultats.
+- Reconnaître les situations d’utilisation du cosinus en trigonométrie.
+- Mobiliser les propriétés de la symétrie axiale, de la symétrie centrale et de la translation. La translation ne concerne pas les candidats de l’enseignement agricole.
+
+3. ORGANISATION ET GESTION DE DONNÉES, PROBABILITÉS
+- Attribuer des probabilités dans des situations simples d’équiprobabilité.
+- Calculer ou exprimer une fréquence simple.
+- Calculer une moyenne.
+- Déterminer la médiane d’une petite série de valeurs.
+- Lire et interpréter des tableaux, diagrammes et graphiques.
+
+4. PROPORTIONNALITÉ ET FONCTIONS
+- Reconnaître si une situation relève ou non de la proportionnalité.
+- Résoudre des problèmes simples de proportionnalité avec la linéarité (multiplication ou addition) ou le retour à l’unité.
+- Appliquer une augmentation ou une diminution en pourcentage.
+- Lire et interpréter un graphique représentant la dépendance entre deux grandeurs, en relevant des valeurs sur les axes.
+
+5. ALGORITHMIQUE ET PROGRAMMATION
+- Interpréter une suite d’instructions : programme de calcul, déplacement ou construction géométrique.
+
+À RETENIR
+Le document est une liste indicative des automatismes susceptibles d’être mobilisés à l’épreuve écrite de mathématiques du DNB, pour les séries générale et professionnelle. Il présente les compétences à entretenir, sans détailler de cours ni proposer d’exercices.

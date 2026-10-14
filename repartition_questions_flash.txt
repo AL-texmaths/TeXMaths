@@ -1,0 +1,129 @@
+QUESTIONS FLASH (automatismes) - Planning annuel 3e (calé sur les horaires de 5G2)
+
+Principes : pratique de récupération (quiz sans notes, 5-10 min en début d'heure), répétition espacée à intervalles croissants (rappels environ +3, +10, +30 séances),
+entrelacement des thèmes (au plus un thème nouveau toutes les 3 séances après le démarrage), difficulté désirable, correction immédiate, bilans mixtes avant le DNB.
+Thèmes issus de la liste officielle d'automatismes DNB 2026.
+
+ N° | Date           | Type       | Question flash
+-------------------------------------------------------------------------------------------------------------------------
+  1 | mar 01/09/2026 | Nouveau    | Écritures décimales de fractions simples (1/2, 1/4, 3/4, 1/10)
+  2 | jeu 03/09/2026 | Nouveau    | Comparer et calculer avec des décimaux (y compris négatifs)
+  3 | ven 04/09/2026 | Nouveau    | Droite graduée : lire et placer des abscisses
+  4 | lun 07/09/2026 | Rappel 1   | Écritures décimales de fractions simples (1/2, 1/4, 3/4, 1/10)
+  5 | lun 07/09/2026 | Rappel 1   | Comparer et calculer avec des décimaux (y compris négatifs)
+  6 | mer 09/09/2026 | Nouveau    | Carrés des entiers de 1 à 12
+  7 | jeu 10/09/2026 | Rappel 1   | Droite graduée : lire et placer des abscisses
+  8 | mar 15/09/2026 | Nouveau    | Critères de divisibilité (2, 3, 5, 9)
+  9 | jeu 17/09/2026 | Rappel 1   | Carrés des entiers de 1 à 12
+ 10 | ven 18/09/2026 | Nouveau    | Double, triple, moitié, successeur, carré d'un entier n
+ 11 | lun 21/09/2026 | Rappel 1   | Critères de divisibilité (2, 3, 5, 9)
+ 12 | lun 21/09/2026 | Nouveau    | Fractions : simplifier et comparer
+ 13 | mer 23/09/2026 | Rappel 1   | Double, triple, moitié, successeur, carré d'un entier n
+ 14 | jeu 24/09/2026 | Rappel 2   | Écritures décimales de fractions simples (1/2, 1/4, 3/4, 1/10)
+ 15 | jeu 01/10/2026 | Nouveau    | Fractions : calculer avec des fractions
+ 16 | ven 02/10/2026 | Rappel 2   | Comparer et calculer avec des décimaux (y compris négatifs)
+ 17 | ven 02/10/2026 | Rappel 1   | Fractions : simplifier et comparer
+ 18 | lun 05/10/2026 | Nouveau    | Fraction d'un nombre et pourcentages usuels (100 %, 50 %, 25 %, 10 %, 1 %)
+ 19 | mer 07/10/2026 | Rappel 2   | Droite graduée : lire et placer des abscisses
+ 20 | jeu 08/10/2026 | Rappel 1   | Fractions : calculer avec des fractions
+ 21 | jeu 15/10/2026 | Nouveau    | Fraction / décimal / pourcentage : différentes écritures d'un même nombre
+ 22 | ven 16/10/2026 | Rappel 2   | Carrés des entiers de 1 à 12
+ 23 | ven 16/10/2026 | Rappel 2   | Critères de divisibilité (2, 3, 5, 9)
+ 24 | lun 02/11/2026 | Nouveau    | Notation scientifique et écriture décimale
+ 25 | lun 02/11/2026 | Rappel 1   | Fraction d'un nombre et pourcentages usuels (100 %, 50 %, 25 %, 10 %, 1 %)
+ 26 | mer 04/11/2026 | Rappel 2   | Double, triple, moitié, successeur, carré d'un entier n
+ 27 | jeu 05/11/2026 | Nouveau    | Expressions littérales : simplifier et calculer une valeur
+ 28 | jeu 12/11/2026 | Rappel 1   | Fraction / décimal / pourcentage : différentes écritures d'un même nombre
+ 29 | ven 13/11/2026 | Rappel 2   | Fractions : simplifier et comparer
+ 30 | ven 13/11/2026 | Nouveau    | Développer et factoriser une expression simple
+ 31 | lun 16/11/2026 | Rappel 1   | Notation scientifique et écriture décimale
+ 32 | lun 16/11/2026 | Rappel 2   | Fractions : calculer avec des fractions
+ 33 | jeu 19/11/2026 | Nouveau    | Équations simples : ax = c, x + b = c, ax + b = c
+ 34 | jeu 26/11/2026 | Rappel 1   | Expressions littérales : simplifier et calculer une valeur
+ 35 | ven 27/11/2026 | Rappel 1   | Développer et factoriser une expression simple
+ 36 | ven 27/11/2026 | Nouveau    | Repère : lire et placer des points (coordonnées)
+ 37 | lun 30/11/2026 | Rappel 2   | Fraction d'un nombre et pourcentages usuels (100 %, 50 %, 25 %, 10 %, 1 %)
+ 38 | lun 30/11/2026 | Rappel 1   | Équations simples : ax = c, x + b = c, ax + b = c
+ 39 | mer 02/12/2026 | Nouveau    | Figures codées : triangles, quadrilatères, médiatrice
+ 40 | jeu 03/12/2026 | Rappel 2   | Fraction / décimal / pourcentage : différentes écritures d'un même nombre
+ 41 | jeu 10/12/2026 | Rappel 1   | Repère : lire et placer des points (coordonnées)
+ 42 | ven 11/12/2026 | Nouveau    | Angles : types et mesures (droit 90°, plat 180°)
+ 43 | ven 11/12/2026 | Rappel 2   | Notation scientifique et écriture décimale
+ 44 | lun 14/12/2026 | Rappel 1   | Figures codées : triangles, quadrilatères, médiatrice
+ 45 | lun 14/12/2026 | Nouveau    | Somme des angles d'un triangle
+ 46 | mer 16/12/2026 | Rappel 3   | Écritures décimales de fractions simples (1/2, 1/4, 3/4, 1/10)
+ 47 | jeu 17/12/2026 | Rappel 2   | Expressions littérales : simplifier et calculer une valeur
+ 48 | jeu 07/01/2027 | Nouveau    | Conversions : longueurs, masses, durées
+ 49 | ven 08/01/2027 | Rappel 2   | Développer et factoriser une expression simple
+ 50 | ven 08/01/2027 | Rappel 1   | Angles : types et mesures (droit 90°, plat 180°)
+ 51 | lun 11/01/2027 | Nouveau    | Conversions : aires, volumes, capacités (dm³ = L, m³ = 1000 L)
+ 52 | lun 11/01/2027 | Rappel 3   | Comparer et calculer avec des décimaux (y compris négatifs)
+ 53 | mer 13/01/2027 | Rappel 2   | Équations simples : ax = c, x + b = c, ax + b = c
+ 54 | jeu 14/01/2027 | Nouveau    | Reconnaître les solides (cube, pavé, prisme, cylindre, pyramide, cône)
+ 55 | jeu 21/01/2027 | Rappel 1   | Somme des angles d'un triangle
+ 56 | ven 22/01/2027 | Rappel 3   | Droite graduée : lire et placer des abscisses
+ 57 | ven 22/01/2027 | Nouveau    | Périmètres : polygone et disque
+ 58 | lun 25/01/2027 | Rappel 2   | Repère : lire et placer des points (coordonnées)
+ 59 | lun 25/01/2027 | Rappel 1   | Conversions : longueurs, masses, durées
+ 60 | mer 27/01/2027 | Nouveau    | Aires : triangle, rectangle, disque
+ 61 | jeu 28/01/2027 | Rappel 3   | Carrés des entiers de 1 à 12
+ 62 | jeu 04/02/2027 | Rappel 3   | Critères de divisibilité (2, 3, 5, 9)
+ 63 | ven 05/02/2027 | Nouveau    | Volumes : cube, pavé, prisme, cylindre
+ 64 | ven 05/02/2027 | Rappel 2   | Figures codées : triangles, quadrilatères, médiatrice
+ 65 | lun 22/02/2027 | Rappel 1   | Conversions : aires, volumes, capacités (dm³ = L, m³ = 1000 L)
+ 66 | lun 22/02/2027 | Nouveau    | Pythagore ou Thalès ? Reconnaître la situation
+ 67 | mer 24/02/2027 | Rappel 3   | Double, triple, moitié, successeur, carré d'un entier n
+ 68 | jeu 25/02/2027 | Rappel 1   | Reconnaître les solides (cube, pavé, prisme, cylindre, pyramide, cône)
+ 69 | jeu 04/03/2027 | Nouveau    | Trigonométrie : reconnaître une situation de cosinus
+ 70 | ven 05/03/2027 | Rappel 3   | Fractions : simplifier et comparer
+ 71 | ven 05/03/2027 | Rappel 2   | Angles : types et mesures (droit 90°, plat 180°)
+ 72 | lun 08/03/2027 | Nouveau    | Symétries axiale et centrale, translation
+ 73 | lun 08/03/2027 | Rappel 1   | Périmètres : polygone et disque
+ 74 | mer 10/03/2027 | Rappel 3   | Fractions : calculer avec des fractions
+ 75 | jeu 11/03/2027 | Nouveau    | Proportionnalité : reconnaître et résoudre (linéarité, retour à l'unité)
+ 76 | jeu 18/03/2027 | Rappel 1   | Aires : triangle, rectangle, disque
+ 77 | ven 19/03/2027 | Rappel 2   | Somme des angles d'un triangle
+ 78 | ven 19/03/2027 | Nouveau    | Augmentation / diminution en pourcentage
+ 79 | lun 22/03/2027 | Rappel 1   | Volumes : cube, pavé, prisme, cylindre
+ 80 | lun 22/03/2027 | Rappel 3   | Fraction d'un nombre et pourcentages usuels (100 %, 50 %, 25 %, 10 %, 1 %)
+ 81 | mer 24/03/2027 | Nouveau    | Probabilités (équiprobabilité) et fréquences
+ 82 | jeu 25/03/2027 | Rappel 2   | Conversions : longueurs, masses, durées
+ 83 | jeu 01/04/2027 | Rappel 1   | Pythagore ou Thalès ? Reconnaître la situation
+ 84 | ven 02/04/2027 | Nouveau    | Statistiques : moyenne et médiane
+ 85 | ven 02/04/2027 | Rappel 3   | Fraction / décimal / pourcentage : différentes écritures d'un même nombre
+ 86 | lun 19/04/2027 | Rappel 1   | Trigonométrie : reconnaître une situation de cosinus
+ 87 | lun 19/04/2027 | Nouveau    | Lire un tableau, un diagramme ou un graphique (dont dépendance entre deux grandeurs)
+ 88 | mer 21/04/2027 | Rappel 3   | Notation scientifique et écriture décimale
+ 89 | jeu 22/04/2027 | Rappel 2   | Conversions : aires, volumes, capacités (dm³ = L, m³ = 1000 L)
+ 90 | jeu 29/04/2027 | Nouveau    | Programmes de calcul et algorithmique (suite d'instructions)
+ 91 | ven 30/04/2027 | Rappel 1   | Symétries axiale et centrale, translation
+ 92 | ven 30/04/2027 | Rappel 3   | Expressions littérales : simplifier et calculer une valeur
+ 93 | lun 03/05/2027 | Rappel 2   | Reconnaître les solides (cube, pavé, prisme, cylindre, pyramide, cône)
+ 94 | lun 03/05/2027 | Rappel 1   | Proportionnalité : reconnaître et résoudre (linéarité, retour à l'unité)
+ 95 | mer 05/05/2027 | Rappel 3   | Développer et factoriser une expression simple
+ 96 | jeu 13/05/2027 | Rappel 1   | Augmentation / diminution en pourcentage
+ 97 | ven 14/05/2027 | Rappel 3   | Équations simples : ax = c, x + b = c, ax + b = c
+ 98 | ven 14/05/2027 | Rappel 2   | Périmètres : polygone et disque
+ 99 | mer 19/05/2027 | Rappel 1   | Probabilités (équiprobabilité) et fréquences
+100 | jeu 20/05/2027 | Rappel 2   | Aires : triangle, rectangle, disque
+101 | jeu 27/05/2027 | Rappel 1   | Statistiques : moyenne et médiane
+102 | ven 28/05/2027 | Rappel 3   | Repère : lire et placer des points (coordonnées)
+103 | ven 28/05/2027 | Rappel 2   | Volumes : cube, pavé, prisme, cylindre
+104 | lun 31/05/2027 | Rappel 1   | Lire un tableau, un diagramme ou un graphique (dont dépendance entre deux grandeurs)
+105 | lun 31/05/2027 | Rappel 2   | Pythagore ou Thalès ? Reconnaître la situation
+106 | mer 02/06/2027 | Rappel 1   | Programmes de calcul et algorithmique (suite d'instructions)
+107 | jeu 03/06/2027 | Rappel 3   | Figures codées : triangles, quadrilatères, médiatrice
+108 | jeu 10/06/2027 | Rappel 2   | Trigonométrie : reconnaître une situation de cosinus
+109 | ven 11/06/2027 | Rappel 3   | Angles : types et mesures (droit 90°, plat 180°)
+110 | ven 11/06/2027 | Rappel 2   | Symétries axiale et centrale, translation
+111 | lun 14/06/2027 | Rappel 2   | Proportionnalité : reconnaître et résoudre (linéarité, retour à l'unité)
+112 | lun 14/06/2027 | Rappel 2   | Augmentation / diminution en pourcentage
+113 | mer 16/06/2027 | Rappel 3   | Somme des angles d'un triangle
+114 | jeu 17/06/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)
+115 | jeu 24/06/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)
+116 | ven 25/06/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)
+117 | ven 25/06/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)
+118 | lun 28/06/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)
+119 | lun 28/06/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)
+120 | mer 30/06/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)
+121 | jeu 01/07/2027 | Mixte DNB  | Bilan mixte : 1 question de chaque domaine (tirage au sort parmi les thèmes déjà vus)

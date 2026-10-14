@@ -1,0 +1,542 @@
+QUESTIONS FLASH (automatismes) - Planning annuel 3e, version 2 (calé sur les horaires de 5G2)
+
+Principes :
+- Chaque thème est découpé en micro-compétences (code Txx + lettre) : une question cible une opération mentale précise.
+- Une séance = plusieurs micro-compétences de THÈMES DIFFÉRENTS (entrelacement) : 2 questions en sept.-oct., 3 jusqu'en janv., 4 ensuite, 5 pour les bilans DNB.
+- Micro-compétences d'un même thème introduites à >= 4 séances d'écart, dans l'ordre croissant de difficulté.
+- Répétition espacée : rappels environ +2, +6, +15, +35, +70 séances après l'introduction ; entretien des plus anciennes en cas de place libre.
+- 8 dernières séances : bilans, priorité aux micro-compétences les moins révisées.
+Légende : Nouveau = première rencontre ; Rappel n = n-ième retour espacé ; Entretien = rappel libre ; Bilan = révision DNB.
+
+  1 | mar 01/09/2026 | 1 questions
+      - T01a [Nouveau] Fractions simples et décimaux : fraction simple (1/2, 1/4, 3/4, 1/10) -> écriture décimale
+  2 | jeu 03/09/2026 | 2 questions
+      - T02a [Nouveau] Nombres décimaux et relatifs : comparer et ranger des décimaux
+      - T01a [Entretien] Fractions simples et décimaux : fraction simple (1/2, 1/4, 3/4, 1/10) -> écriture décimale
+  3 | ven 04/09/2026 | 2 questions
+      - T03a [Nouveau] Droite graduée : lire une abscisse (graduation entière)
+      - T01a [Rappel 1] Fractions simples et décimaux : fraction simple (1/2, 1/4, 3/4, 1/10) -> écriture décimale
+  4 | lun 07/09/2026 | 2 questions
+      - T04a [Nouveau] Carrés : carré d'un entier de 1 à 12
+      - T02a [Rappel 1] Nombres décimaux et relatifs : comparer et ranger des décimaux
+  5 | lun 07/09/2026 | 2 questions
+      - T01b [Nouveau] Fractions simples et décimaux : écriture décimale -> fraction simple
+      - T03a [Rappel 1] Droite graduée : lire une abscisse (graduation entière)
+  6 | mer 09/09/2026 | 2 questions
+      - T02b [Nouveau] Nombres décimaux et relatifs : additionner / soustraire avec des négatifs
+      - T04a [Rappel 1] Carrés : carré d'un entier de 1 à 12
+  7 | jeu 10/09/2026 | 2 questions
+      - T03b [Nouveau] Droite graduée : lire une abscisse (graduation décimale ou non unitaire)
+      - T01b [Rappel 1] Fractions simples et décimaux : écriture décimale -> fraction simple
+  8 | mar 15/09/2026 | 2 questions
+      - T04b [Nouveau] Carrés : racine carrée d'un carré parfait
+      - T02b [Rappel 1] Nombres décimaux et relatifs : additionner / soustraire avec des négatifs
+  9 | jeu 17/09/2026 | 2 questions
+      - T05a [Nouveau] Divisibilité : critères par 2, 5, 10
+      - T01a [Rappel 2] Fractions simples et décimaux : fraction simple (1/2, 1/4, 3/4, 1/10) -> écriture décimale
+ 10 | ven 18/09/2026 | 2 questions
+      - T02c [Nouveau] Nombres décimaux et relatifs : multiplier / diviser par 10, 100, 0,1
+      - T03b [Rappel 1] Droite graduée : lire une abscisse (graduation décimale ou non unitaire)
+ 11 | lun 21/09/2026 | 2 questions
+      - T03c [Nouveau] Droite graduée : placer une abscisse fractionnaire ou négative
+      - T02a [Rappel 2] Nombres décimaux et relatifs : comparer et ranger des décimaux
+ 12 | lun 21/09/2026 | 2 questions
+      - T06a [Nouveau] Entier n : double, triple, moitié de n
+      - T04b [Rappel 1] Carrés : racine carrée d'un carré parfait
+ 13 | mer 23/09/2026 | 2 questions
+      - T05b [Nouveau] Divisibilité : critères par 3 et 9
+      - T03a [Rappel 2] Droite graduée : lire une abscisse (graduation entière)
+ 14 | jeu 24/09/2026 | 2 questions
+      - T07a [Nouveau] Fractions : simplifier une fraction
+      - T05a [Rappel 1] Divisibilité : critères par 2, 5, 10
+ 15 | jeu 01/10/2026 | 2 questions
+      - T08a [Nouveau] Fraction d'un nombre et pourcentages : 50 %, 25 %, 10 %, 1 %, 100 % d'un nombre
+      - T04a [Rappel 2] Carrés : carré d'un entier de 1 à 12
+ 16 | ven 02/10/2026 | 2 questions
+      - T06b [Nouveau] Entier n : successeur et prédécesseur de n
+      - T02c [Rappel 1] Nombres décimaux et relatifs : multiplier / diviser par 10, 100, 0,1
+ 17 | ven 02/10/2026 | 2 questions
+      - T05c [Nouveau] Divisibilité : décider si un nombre est multiple d'un autre (critères mélangés)
+      - T01b [Rappel 2] Fractions simples et décimaux : écriture décimale -> fraction simple
+ 18 | lun 05/10/2026 | 2 questions
+      - T07b [Nouveau] Fractions : comparer des fractions
+      - T03c [Rappel 1] Droite graduée : placer une abscisse fractionnaire ou négative
+ 19 | mer 07/10/2026 | 2 questions
+      - T08b [Nouveau] Fraction d'un nombre et pourcentages : fraction simple d'un nombre
+      - T02b [Rappel 2] Nombres décimaux et relatifs : additionner / soustraire avec des négatifs
+ 20 | jeu 08/10/2026 | 2 questions
+      - T06c [Nouveau] Entier n : carré de n et expressions mélangées
+      - T05b [Rappel 1] Divisibilité : critères par 3 et 9
+ 21 | jeu 15/10/2026 | 3 questions
+      - T09a [Nouveau] Écritures d'un même nombre : fraction <-> décimal <-> pourcentage
+      - T10a [Nouveau] Notation scientifique : écriture décimale -> notation scientifique
+      - T06a [Rappel 1] Entier n : double, triple, moitié de n
+ 22 | ven 16/10/2026 | 3 questions
+      - T07c [Nouveau] Fractions : additionner / soustraire des fractions
+      - T03b [Rappel 2] Droite graduée : lire une abscisse (graduation décimale ou non unitaire)
+      - T08a [Rappel 1] Fraction d'un nombre et pourcentages : 50 %, 25 %, 10 %, 1 %, 100 % d'un nombre
+ 23 | ven 16/10/2026 | 3 questions
+      - T08c [Nouveau] Fraction d'un nombre et pourcentages : pourcentage d'une quantité en contexte
+      - T11a [Nouveau] Expressions littérales : réduire une expression
+      - T07a [Rappel 1] Fractions : simplifier une fraction
+ 24 | lun 02/11/2026 | 3 questions
+      - T12a [Nouveau] Développer / factoriser : développer k(a + b)
+      - T04b [Rappel 2] Carrés : racine carrée d'un carré parfait
+      - T06b [Rappel 1] Entier n : successeur et prédécesseur de n
+ 25 | lun 02/11/2026 | 3 questions
+      - T09b [Nouveau] Écritures d'un même nombre : décomposition d'un nombre (ex. 3 x 10 + 4 x 0,1)
+      - T10b [Nouveau] Notation scientifique : notation scientifique -> écriture décimale
+      - T05c [Rappel 1] Divisibilité : décider si un nombre est multiple d'un autre (critères mélangés)
+ 26 | mer 04/11/2026 | 3 questions
+      - T07d [Nouveau] Fractions : multiplier des fractions
+      - T05a [Rappel 2] Divisibilité : critères par 2, 5, 10
+      - T08b [Rappel 1] Fraction d'un nombre et pourcentages : fraction simple d'un nombre
+ 27 | jeu 05/11/2026 | 3 questions
+      - T11b [Nouveau] Expressions littérales : calculer la valeur d'une expression
+      - T13a [Nouveau] Équations : x + b = c
+      - T07b [Rappel 1] Fractions : comparer des fractions
+ 28 | jeu 12/11/2026 | 3 questions
+      - T12b [Nouveau] Développer / factoriser : factoriser un facteur commun
+      - T02c [Rappel 2] Nombres décimaux et relatifs : multiplier / diviser par 10, 100, 0,1
+      - T06c [Rappel 1] Entier n : carré de n et expressions mélangées
+ 29 | ven 13/11/2026 | 3 questions
+      - T10c [Nouveau] Notation scientifique : calculer avec des puissances de 10
+      - T14a [Nouveau] Repère : lire les coordonnées d'un point
+      - T09a [Rappel 1] Écritures d'un même nombre : fraction <-> décimal <-> pourcentage
+ 30 | ven 13/11/2026 | 3 questions
+      - T15a [Nouveau] Figures codées : reconnaître un triangle particulier grâce au codage
+      - T10a [Rappel 1] Notation scientifique : écriture décimale -> notation scientifique
+      - T01a [Rappel 3] Fractions simples et décimaux : fraction simple (1/2, 1/4, 3/4, 1/10) -> écriture décimale
+ 31 | lun 16/11/2026 | 3 questions
+      - T11c [Nouveau] Expressions littérales : valeur d'une expression avec puissances (x², 2x²)
+      - T13b [Nouveau] Équations : ax = c
+      - T03c [Rappel 2] Droite graduée : placer une abscisse fractionnaire ou négative
+ 32 | lun 16/11/2026 | 3 questions
+      - T12c [Nouveau] Développer / factoriser : reconnaître forme développée ou factorisée
+      - T07c [Rappel 1] Fractions : additionner / soustraire des fractions
+      - T08c [Rappel 1] Fraction d'un nombre et pourcentages : pourcentage d'une quantité en contexte
+ 33 | jeu 19/11/2026 | 3 questions
+      - T14b [Nouveau] Repère : placer un point connaissant ses coordonnées
+      - T16a [Nouveau] Angles : vocabulaire : aigu, obtus, droit, plat, nul
+      - T11a [Rappel 1] Expressions littérales : réduire une expression
+ 34 | jeu 26/11/2026 | 3 questions
+      - T15b [Nouveau] Figures codées : reconnaître un quadrilatère particulier grâce au codage
+      - T02a [Rappel 3] Nombres décimaux et relatifs : comparer et ranger des décimaux
+      - T05b [Rappel 2] Divisibilité : critères par 3 et 9
+ 35 | ven 27/11/2026 | 3 questions
+      - T13c [Nouveau] Équations : ax + b = c
+      - T17a [Nouveau] Somme des angles d'un triangle : calculer l'angle manquant
+      - T12a [Rappel 1] Développer / factoriser : développer k(a + b)
+ 36 | ven 27/11/2026 | 3 questions
+      - T18a [Nouveau] Conversions : longueurs
+      - T06a [Rappel 2] Entier n : double, triple, moitié de n
+      - T09b [Rappel 1] Écritures d'un même nombre : décomposition d'un nombre (ex. 3 x 10 + 4 x 0,1)
+ 37 | lun 30/11/2026 | 3 questions
+      - T14c [Nouveau] Repère : abscisse / ordonnée : distinguer et repérer le quadrant
+      - T16b [Nouveau] Angles : adjacents, supplémentaires, opposés par le sommet
+      - T10b [Rappel 1] Notation scientifique : notation scientifique -> écriture décimale
+ 38 | lun 30/11/2026 | 3 questions
+      - T15c [Nouveau] Figures codées : médiatrice : lire le codage et conclure
+      - T03a [Rappel 3] Droite graduée : lire une abscisse (graduation entière)
+      - T08a [Rappel 2] Fraction d'un nombre et pourcentages : 50 %, 25 %, 10 %, 1 %, 100 % d'un nombre
+ 39 | mer 02/12/2026 | 3 questions
+      - T13d [Nouveau] Équations : tester si un nombre est solution
+      - T17b [Nouveau] Somme des angles d'un triangle : triangle isocèle ou équilatéral et angles
+      - T07d [Rappel 1] Fractions : multiplier des fractions
+ 40 | jeu 03/12/2026 | 3 questions
+      - T18b [Nouveau] Conversions : masses
+      - T07a [Rappel 2] Fractions : simplifier une fraction
+      - T11b [Rappel 1] Expressions littérales : calculer la valeur d'une expression
+ 41 | jeu 10/12/2026 | 3 questions
+      - T16c [Nouveau] Angles : calculer un angle (90°, 180°)
+      - T19a [Nouveau] Solides : reconnaître et nommer un solide
+      - T13a [Rappel 1] Équations : x + b = c
+ 42 | ven 11/12/2026 | 3 questions
+      - T20a [Nouveau] Périmètres : périmètre d'un polygone
+      - T04a [Rappel 3] Carrés : carré d'un entier de 1 à 12
+      - T06b [Rappel 2] Entier n : successeur et prédécesseur de n
+ 43 | ven 11/12/2026 | 3 questions
+      - T21a [Nouveau] Aires : aire du rectangle et du triangle
+      - T22a [Nouveau] Volumes : volume du cube et du pavé droit
+      - T12b [Rappel 1] Développer / factoriser : factoriser un facteur commun
+ 44 | lun 14/12/2026 | 3 questions
+      - T18c [Nouveau] Conversions : durées
+      - T05c [Rappel 2] Divisibilité : décider si un nombre est multiple d'un autre (critères mélangés)
+      - T10c [Rappel 1] Notation scientifique : calculer avec des puissances de 10
+ 45 | lun 14/12/2026 | 3 questions
+      - T19b [Nouveau] Solides : reconnaître un patron ou une représentation en perspective
+      - T23a [Nouveau] Pythagore / Thalès : reconnaître la situation (Pythagore ou Thalès ?)
+      - T14a [Rappel 1] Repère : lire les coordonnées d'un point
+ 46 | mer 16/12/2026 | 3 questions
+      - T20b [Nouveau] Périmètres : périmètre d'un disque (2πr, πd)
+      - T01b [Rappel 3] Fractions simples et décimaux : écriture décimale -> fraction simple
+      - T08b [Rappel 2] Fraction d'un nombre et pourcentages : fraction simple d'un nombre
+ 47 | jeu 17/12/2026 | 3 questions
+      - T21b [Nouveau] Aires : aire du disque (πr²)
+      - T22b [Nouveau] Volumes : volume du prisme droit et du cylindre
+      - T15a [Rappel 1] Figures codées : reconnaître un triangle particulier grâce au codage
+ 48 | jeu 07/01/2027 | 3 questions
+      - T18d [Nouveau] Conversions : aires
+      - T07b [Rappel 2] Fractions : comparer des fractions
+      - T11c [Rappel 1] Expressions littérales : valeur d'une expression avec puissances (x², 2x²)
+ 49 | ven 08/01/2027 | 3 questions
+      - T23b [Nouveau] Pythagore / Thalès : vérifier les conditions d'application
+      - T24a [Nouveau] Trigonométrie : reconnaître une situation de cosinus (adjacent / hypoténuse)
+      - T13b [Rappel 1] Équations : ax = c
+ 50 | ven 08/01/2027 | 3 questions
+      - T25a [Nouveau] Transformations : symétrie axiale : propriétés
+      - T02b [Rappel 3] Nombres décimaux et relatifs : additionner / soustraire avec des négatifs
+      - T06c [Rappel 2] Entier n : carré de n et expressions mélangées
+ 51 | lun 11/01/2027 | 3 questions
+      - T21c [Nouveau] Aires : aire d'une figure composée
+      - T22c [Nouveau] Volumes : lien volume / capacité en contexte
+      - T12c [Rappel 1] Développer / factoriser : reconnaître forme développée ou factorisée
+ 52 | lun 11/01/2027 | 3 questions
+      - T18e [Nouveau] Conversions : volumes et capacités (dm³ = L, m³ = 1000 L)
+      - T09a [Rappel 2] Écritures d'un même nombre : fraction <-> décimal <-> pourcentage
+      - T14b [Rappel 1] Repère : placer un point connaissant ses coordonnées
+ 53 | mer 13/01/2027 | 3 questions
+      - T23c [Nouveau] Pythagore / Thalès : juger la cohérence d'un résultat
+      - T24b [Nouveau] Trigonométrie : choisir la bonne relation (cosinus, Pythagore ou Thalès ?)
+      - T16a [Rappel 1] Angles : vocabulaire : aigu, obtus, droit, plat, nul
+ 54 | jeu 14/01/2027 | 3 questions
+      - T25b [Nouveau] Transformations : symétrie centrale : propriétés
+      - T10a [Rappel 2] Notation scientifique : écriture décimale -> notation scientifique
+      - T15b [Rappel 1] Figures codées : reconnaître un quadrilatère particulier grâce au codage
+ 55 | jeu 21/01/2027 | 3 questions
+      - T26a [Nouveau] Proportionnalité : reconnaître une situation de proportionnalité
+      - T27a [Nouveau] Évolutions en pourcentage : appliquer une augmentation / diminution en pourcentage
+      - T03b [Rappel 3] Droite graduée : lire une abscisse (graduation décimale ou non unitaire)
+ 56 | ven 22/01/2027 | 3 questions
+      - T28a [Nouveau] Probabilités : probabilité en situation d'équiprobabilité
+      - T13c [Rappel 1] Équations : ax + b = c
+      - T17a [Rappel 1] Somme des angles d'un triangle : calculer l'angle manquant
+ 57 | ven 22/01/2027 | 3 questions
+      - T29a [Nouveau] Statistiques : calculer une moyenne
+      - T30a [Nouveau] Lecture de données : lire un tableau
+      - T07c [Rappel 2] Fractions : additionner / soustraire des fractions
+ 58 | lun 25/01/2027 | 3 questions
+      - T25c [Nouveau] Transformations : translation : reconnaître et utiliser
+      - T08c [Rappel 2] Fraction d'un nombre et pourcentages : pourcentage d'une quantité en contexte
+      - T18a [Rappel 1] Conversions : longueurs
+ 59 | lun 25/01/2027 | 3 questions
+      - T26b [Nouveau] Proportionnalité : résoudre par linéarité (x ou +)
+      - T27b [Nouveau] Évolutions en pourcentage : coefficient multiplicateur
+      - T04b [Rappel 3] Carrés : racine carrée d'un carré parfait
+ 60 | mer 27/01/2027 | 3 questions
+      - T28b [Nouveau] Probabilités : fréquence simple
+      - T11a [Rappel 2] Expressions littérales : réduire une expression
+      - T14c [Rappel 1] Repère : abscisse / ordonnée : distinguer et repérer le quadrant
+ 61 | jeu 28/01/2027 | 4 questions
+      - T29b [Nouveau] Statistiques : déterminer une médiane
+      - T30b [Nouveau] Lecture de données : lire un diagramme
+      - T16b [Rappel 1] Angles : adjacents, supplémentaires, opposés par le sommet
+      - T15c [Rappel 1] Figures codées : médiatrice : lire le codage et conclure
+ 62 | jeu 04/02/2027 | 4 questions
+      - T31a [Nouveau] Programmes de calcul : exécuter un programme de calcul
+      - T26c [Nouveau] Proportionnalité : résoudre par retour à l'unité
+      - T05a [Rappel 3] Divisibilité : critères par 2, 5, 10
+      - T12a [Rappel 2] Développer / factoriser : développer k(a + b)
+ 63 | ven 05/02/2027 | 4 questions
+      - T30c [Nouveau] Lecture de données : lire un graphique (valeurs sur les axes)
+      - T31b [Nouveau] Programmes de calcul : interpréter des instructions de déplacement ou de construction
+      - T13d [Rappel 1] Équations : tester si un nombre est solution
+      - T17b [Rappel 1] Somme des angles d'un triangle : triangle isocèle ou équilatéral et angles
+ 64 | ven 05/02/2027 | 4 questions
+      - T31c [Nouveau] Programmes de calcul : exprimer / tester un programme de calcul
+      - T09b [Rappel 2] Écritures d'un même nombre : décomposition d'un nombre (ex. 3 x 10 + 4 x 0,1)
+      - T18b [Rappel 1] Conversions : masses
+      - T02c [Rappel 3] Nombres décimaux et relatifs : multiplier / diviser par 10, 100, 0,1
+ 65 | lun 22/02/2027 | 4 questions
+      - T10b [Rappel 2] Notation scientifique : notation scientifique -> écriture décimale
+      - T16c [Rappel 1] Angles : calculer un angle (90°, 180°)
+      - T19a [Rappel 1] Solides : reconnaître et nommer un solide
+      - T20a [Rappel 1] Périmètres : périmètre d'un polygone
+ 66 | lun 22/02/2027 | 4 questions
+      - T07d [Rappel 2] Fractions : multiplier des fractions
+      - T21a [Rappel 1] Aires : aire du rectangle et du triangle
+      - T22a [Rappel 1] Volumes : volume du cube et du pavé droit
+      - T03c [Rappel 3] Droite graduée : placer une abscisse fractionnaire ou négative
+ 67 | mer 24/02/2027 | 4 questions
+      - T11b [Rappel 2] Expressions littérales : calculer la valeur d'une expression
+      - T18c [Rappel 1] Conversions : durées
+      - T13a [Rappel 2] Équations : x + b = c
+      - T19b [Rappel 1] Solides : reconnaître un patron ou une représentation en perspective
+ 68 | jeu 25/02/2027 | 4 questions
+      - T23a [Rappel 1] Pythagore / Thalès : reconnaître la situation (Pythagore ou Thalès ?)
+      - T20b [Rappel 1] Périmètres : périmètre d'un disque (2πr, πd)
+      - T05b [Rappel 3] Divisibilité : critères par 3 et 9
+      - T12b [Rappel 2] Développer / factoriser : factoriser un facteur commun
+ 69 | jeu 04/03/2027 | 4 questions
+      - T21b [Rappel 1] Aires : aire du disque (πr²)
+      - T22b [Rappel 1] Volumes : volume du prisme droit et du cylindre
+      - T10c [Rappel 2] Notation scientifique : calculer avec des puissances de 10
+      - T18d [Rappel 1] Conversions : aires
+ 70 | ven 05/03/2027 | 4 questions
+      - T06a [Rappel 3] Entier n : double, triple, moitié de n
+      - T14a [Rappel 2] Repère : lire les coordonnées d'un point
+      - T23b [Rappel 1] Pythagore / Thalès : vérifier les conditions d'application
+      - T24a [Rappel 1] Trigonométrie : reconnaître une situation de cosinus (adjacent / hypoténuse)
+ 71 | ven 05/03/2027 | 4 questions
+      - T25a [Rappel 1] Transformations : symétrie axiale : propriétés
+      - T08a [Rappel 3] Fraction d'un nombre et pourcentages : 50 %, 25 %, 10 %, 1 %, 100 % d'un nombre
+      - T15a [Rappel 2] Figures codées : reconnaître un triangle particulier grâce au codage
+      - T21c [Rappel 1] Aires : aire d'une figure composée
+ 72 | lun 08/03/2027 | 4 questions
+      - T22c [Rappel 1] Volumes : lien volume / capacité en contexte
+      - T11c [Rappel 2] Expressions littérales : valeur d'une expression avec puissances (x², 2x²)
+      - T18e [Rappel 1] Conversions : volumes et capacités (dm³ = L, m³ = 1000 L)
+      - T07a [Rappel 3] Fractions : simplifier une fraction
+ 73 | lun 08/03/2027 | 4 questions
+      - T13b [Rappel 2] Équations : ax = c
+      - T23c [Rappel 1] Pythagore / Thalès : juger la cohérence d'un résultat
+      - T24b [Rappel 1] Trigonométrie : choisir la bonne relation (cosinus, Pythagore ou Thalès ?)
+      - T25b [Rappel 1] Transformations : symétrie centrale : propriétés
+ 74 | mer 10/03/2027 | 4 questions
+      - T06b [Rappel 3] Entier n : successeur et prédécesseur de n
+      - T12c [Rappel 2] Développer / factoriser : reconnaître forme développée ou factorisée
+      - T26a [Rappel 1] Proportionnalité : reconnaître une situation de proportionnalité
+      - T27a [Rappel 1] Évolutions en pourcentage : appliquer une augmentation / diminution en pourcentage
+ 75 | jeu 11/03/2027 | 4 questions
+      - T14b [Rappel 2] Repère : placer un point connaissant ses coordonnées
+      - T28a [Rappel 1] Probabilités : probabilité en situation d'équiprobabilité
+      - T05c [Rappel 3] Divisibilité : décider si un nombre est multiple d'un autre (critères mélangés)
+      - T16a [Rappel 2] Angles : vocabulaire : aigu, obtus, droit, plat, nul
+ 76 | jeu 18/03/2027 | 4 questions
+      - T29a [Rappel 1] Statistiques : calculer une moyenne
+      - T30a [Rappel 1] Lecture de données : lire un tableau
+      - T15b [Rappel 2] Figures codées : reconnaître un quadrilatère particulier grâce au codage
+      - T25c [Rappel 1] Transformations : translation : reconnaître et utiliser
+ 77 | ven 19/03/2027 | 4 questions
+      - T08b [Rappel 3] Fraction d'un nombre et pourcentages : fraction simple d'un nombre
+      - T26b [Rappel 1] Proportionnalité : résoudre par linéarité (x ou +)
+      - T27b [Rappel 1] Évolutions en pourcentage : coefficient multiplicateur
+      - T13c [Rappel 2] Équations : ax + b = c
+ 78 | ven 19/03/2027 | 4 questions
+      - T17a [Rappel 2] Somme des angles d'un triangle : calculer l'angle manquant
+      - T28b [Rappel 1] Probabilités : fréquence simple
+      - T07b [Rappel 3] Fractions : comparer des fractions
+      - T29b [Rappel 1] Statistiques : déterminer une médiane
+ 79 | lun 22/03/2027 | 4 questions
+      - T30b [Rappel 1] Lecture de données : lire un diagramme
+      - T18a [Rappel 2] Conversions : longueurs
+      - T31a [Rappel 1] Programmes de calcul : exécuter un programme de calcul
+      - T26c [Rappel 1] Proportionnalité : résoudre par retour à l'unité
+ 80 | lun 22/03/2027 | 4 questions
+      - T01a [Rappel 4] Fractions simples et décimaux : fraction simple (1/2, 1/4, 3/4, 1/10) -> écriture décimale
+      - T06c [Rappel 3] Entier n : carré de n et expressions mélangées
+      - T30c [Rappel 1] Lecture de données : lire un graphique (valeurs sur les axes)
+      - T31b [Rappel 1] Programmes de calcul : interpréter des instructions de déplacement ou de construction
+ 81 | mer 24/03/2027 | 4 questions
+      - T14c [Rappel 2] Repère : abscisse / ordonnée : distinguer et repérer le quadrant
+      - T31c [Rappel 1] Programmes de calcul : exprimer / tester un programme de calcul
+      - T09a [Rappel 3] Écritures d'un même nombre : fraction <-> décimal <-> pourcentage
+      - T16b [Rappel 2] Angles : adjacents, supplémentaires, opposés par le sommet
+ 82 | jeu 25/03/2027 | 4 questions
+      - T15c [Rappel 2] Figures codées : médiatrice : lire le codage et conclure
+      - T02a [Rappel 4] Nombres décimaux et relatifs : comparer et ranger des décimaux
+      - T10a [Rappel 3] Notation scientifique : écriture décimale -> notation scientifique
+      - T13d [Rappel 2] Équations : tester si un nombre est solution
+ 83 | jeu 01/04/2027 | 4 questions
+      - T17b [Rappel 2] Somme des angles d'un triangle : triangle isocèle ou équilatéral et angles
+      - T18b [Rappel 2] Conversions : masses
+      - T16c [Rappel 2] Angles : calculer un angle (90°, 180°)
+      - T19a [Rappel 2] Solides : reconnaître et nommer un solide
+ 84 | ven 02/04/2027 | 4 questions
+      - T20a [Rappel 2] Périmètres : périmètre d'un polygone
+      - T07c [Rappel 3] Fractions : additionner / soustraire des fractions
+      - T21a [Rappel 2] Aires : aire du rectangle et du triangle
+      - T22a [Rappel 2] Volumes : volume du cube et du pavé droit
+ 85 | ven 02/04/2027 | 4 questions
+      - T03a [Rappel 4] Droite graduée : lire une abscisse (graduation entière)
+      - T08c [Rappel 3] Fraction d'un nombre et pourcentages : pourcentage d'une quantité en contexte
+      - T18c [Rappel 2] Conversions : durées
+      - T19b [Rappel 2] Solides : reconnaître un patron ou une représentation en perspective
+ 86 | lun 19/04/2027 | 4 questions
+      - T23a [Rappel 2] Pythagore / Thalès : reconnaître la situation (Pythagore ou Thalès ?)
+      - T20b [Rappel 2] Périmètres : périmètre d'un disque (2πr, πd)
+      - T11a [Rappel 3] Expressions littérales : réduire une expression
+      - T21b [Rappel 2] Aires : aire du disque (πr²)
+ 87 | lun 19/04/2027 | 4 questions
+      - T22b [Rappel 2] Volumes : volume du prisme droit et du cylindre
+      - T18d [Rappel 2] Conversions : aires
+      - T23b [Rappel 2] Pythagore / Thalès : vérifier les conditions d'application
+      - T24a [Rappel 2] Trigonométrie : reconnaître une situation de cosinus (adjacent / hypoténuse)
+ 88 | mer 21/04/2027 | 4 questions
+      - T04a [Rappel 4] Carrés : carré d'un entier de 1 à 12
+      - T12a [Rappel 3] Développer / factoriser : développer k(a + b)
+      - T25a [Rappel 2] Transformations : symétrie axiale : propriétés
+      - T21c [Rappel 2] Aires : aire d'une figure composée
+ 89 | jeu 22/04/2027 | 4 questions
+      - T22c [Rappel 2] Volumes : lien volume / capacité en contexte
+      - T18e [Rappel 2] Conversions : volumes et capacités (dm³ = L, m³ = 1000 L)
+      - T09b [Rappel 3] Écritures d'un même nombre : décomposition d'un nombre (ex. 3 x 10 + 4 x 0,1)
+      - T23c [Rappel 2] Pythagore / Thalès : juger la cohérence d'un résultat
+ 90 | jeu 29/04/2027 | 4 questions
+      - T24b [Rappel 2] Trigonométrie : choisir la bonne relation (cosinus, Pythagore ou Thalès ?)
+      - T25b [Rappel 2] Transformations : symétrie centrale : propriétés
+      - T10b [Rappel 3] Notation scientifique : notation scientifique -> écriture décimale
+      - T26a [Rappel 2] Proportionnalité : reconnaître une situation de proportionnalité
+ 91 | ven 30/04/2027 | 4 questions
+      - T27a [Rappel 2] Évolutions en pourcentage : appliquer une augmentation / diminution en pourcentage
+      - T01b [Rappel 4] Fractions simples et décimaux : écriture décimale -> fraction simple
+      - T07d [Rappel 3] Fractions : multiplier des fractions
+      - T28a [Rappel 2] Probabilités : probabilité en situation d'équiprobabilité
+ 92 | ven 30/04/2027 | 4 questions
+      - T11b [Rappel 3] Expressions littérales : calculer la valeur d'une expression
+      - T13a [Rappel 3] Équations : x + b = c
+      - T29a [Rappel 2] Statistiques : calculer une moyenne
+      - T30a [Rappel 2] Lecture de données : lire un tableau
+ 93 | lun 03/05/2027 | 4 questions
+      - T25c [Rappel 2] Transformations : translation : reconnaître et utiliser
+      - T12b [Rappel 3] Développer / factoriser : factoriser un facteur commun
+      - T26b [Rappel 2] Proportionnalité : résoudre par linéarité (x ou +)
+      - T27b [Rappel 2] Évolutions en pourcentage : coefficient multiplicateur
+ 94 | lun 03/05/2027 | 4 questions
+      - T10c [Rappel 3] Notation scientifique : calculer avec des puissances de 10
+      - T28b [Rappel 2] Probabilités : fréquence simple
+      - T29b [Rappel 2] Statistiques : déterminer une médiane
+      - T02b [Rappel 4] Nombres décimaux et relatifs : additionner / soustraire avec des négatifs
+ 95 | mer 05/05/2027 | 4 questions
+      - T14a [Rappel 3] Repère : lire les coordonnées d'un point
+      - T30b [Rappel 2] Lecture de données : lire un diagramme
+      - T31a [Rappel 2] Programmes de calcul : exécuter un programme de calcul
+      - T26c [Rappel 2] Proportionnalité : résoudre par retour à l'unité
+ 96 | jeu 13/05/2027 | 4 questions
+      - T15a [Rappel 3] Figures codées : reconnaître un triangle particulier grâce au codage
+      - T30c [Rappel 2] Lecture de données : lire un graphique (valeurs sur les axes)
+      - T31b [Rappel 2] Programmes de calcul : interpréter des instructions de déplacement ou de construction
+      - T11c [Rappel 3] Expressions littérales : valeur d'une expression avec puissances (x², 2x²)
+ 97 | ven 14/05/2027 | 4 questions
+      - T31c [Rappel 2] Programmes de calcul : exprimer / tester un programme de calcul
+      - T13b [Rappel 3] Équations : ax = c
+      - T12c [Rappel 3] Développer / factoriser : reconnaître forme développée ou factorisée
+      - T03b [Rappel 4] Droite graduée : lire une abscisse (graduation décimale ou non unitaire)
+ 98 | ven 14/05/2027 | 4 questions
+      - T14b [Rappel 3] Repère : placer un point connaissant ses coordonnées
+      - T16a [Rappel 3] Angles : vocabulaire : aigu, obtus, droit, plat, nul
+      - T15b [Rappel 3] Figures codées : reconnaître un quadrilatère particulier grâce au codage
+      - T13c [Rappel 3] Équations : ax + b = c
+ 99 | mer 19/05/2027 | 4 questions
+      - T17a [Rappel 3] Somme des angles d'un triangle : calculer l'angle manquant
+      - T04b [Rappel 4] Carrés : racine carrée d'un carré parfait
+      - T18a [Rappel 3] Conversions : longueurs
+      - T14c [Rappel 3] Repère : abscisse / ordonnée : distinguer et repérer le quadrant
+100 | jeu 20/05/2027 | 4 questions
+      - T16b [Rappel 3] Angles : adjacents, supplémentaires, opposés par le sommet
+      - T05a [Rappel 4] Divisibilité : critères par 2, 5, 10
+      - T15c [Rappel 3] Figures codées : médiatrice : lire le codage et conclure
+      - T13d [Rappel 3] Équations : tester si un nombre est solution
+101 | jeu 27/05/2027 | 4 questions
+      - T17b [Rappel 3] Somme des angles d'un triangle : triangle isocèle ou équilatéral et angles
+      - T18b [Rappel 3] Conversions : masses
+      - T16c [Rappel 3] Angles : calculer un angle (90°, 180°)
+      - T19a [Rappel 3] Solides : reconnaître et nommer un solide
+102 | ven 28/05/2027 | 4 questions
+      - T02c [Rappel 4] Nombres décimaux et relatifs : multiplier / diviser par 10, 100, 0,1
+      - T20a [Rappel 3] Périmètres : périmètre d'un polygone
+      - T21a [Rappel 3] Aires : aire du rectangle et du triangle
+      - T22a [Rappel 3] Volumes : volume du cube et du pavé droit
+103 | ven 28/05/2027 | 4 questions
+      - T18c [Rappel 3] Conversions : durées
+      - T19b [Rappel 3] Solides : reconnaître un patron ou une représentation en perspective
+      - T03c [Rappel 4] Droite graduée : placer une abscisse fractionnaire ou négative
+      - T23a [Rappel 3] Pythagore / Thalès : reconnaître la situation (Pythagore ou Thalès ?)
+104 | lun 31/05/2027 | 4 questions
+      - T20b [Rappel 3] Périmètres : périmètre d'un disque (2πr, πd)
+      - T21b [Rappel 3] Aires : aire du disque (πr²)
+      - T22b [Rappel 3] Volumes : volume du prisme droit et du cylindre
+      - T18d [Rappel 3] Conversions : aires
+105 | lun 31/05/2027 | 4 questions
+      - T23b [Rappel 3] Pythagore / Thalès : vérifier les conditions d'application
+      - T24a [Rappel 3] Trigonométrie : reconnaître une situation de cosinus (adjacent / hypoténuse)
+      - T05b [Rappel 4] Divisibilité : critères par 3 et 9
+      - T25a [Rappel 3] Transformations : symétrie axiale : propriétés
+106 | mer 02/06/2027 | 4 questions
+      - T21c [Rappel 3] Aires : aire d'une figure composée
+      - T22c [Rappel 3] Volumes : lien volume / capacité en contexte
+      - T18e [Rappel 3] Conversions : volumes et capacités (dm³ = L, m³ = 1000 L)
+      - T23c [Rappel 3] Pythagore / Thalès : juger la cohérence d'un résultat
+107 | jeu 03/06/2027 | 4 questions
+      - T06a [Rappel 4] Entier n : double, triple, moitié de n
+      - T24b [Rappel 3] Trigonométrie : choisir la bonne relation (cosinus, Pythagore ou Thalès ?)
+      - T25b [Rappel 3] Transformations : symétrie centrale : propriétés
+      - T26a [Rappel 3] Proportionnalité : reconnaître une situation de proportionnalité
+108 | jeu 10/06/2027 | 4 questions
+      - T08a [Rappel 4] Fraction d'un nombre et pourcentages : 50 %, 25 %, 10 %, 1 %, 100 % d'un nombre
+      - T27a [Rappel 3] Évolutions en pourcentage : appliquer une augmentation / diminution en pourcentage
+      - T28a [Rappel 3] Probabilités : probabilité en situation d'équiprobabilité
+      - T07a [Rappel 4] Fractions : simplifier une fraction
+109 | ven 11/06/2027 | 4 questions
+      - T29a [Rappel 3] Statistiques : calculer une moyenne
+      - T30a [Rappel 3] Lecture de données : lire un tableau
+      - T25c [Rappel 3] Transformations : translation : reconnaître et utiliser
+      - T26b [Rappel 3] Proportionnalité : résoudre par linéarité (x ou +)
+110 | ven 11/06/2027 | 4 questions
+      - T27b [Rappel 3] Évolutions en pourcentage : coefficient multiplicateur
+      - T06b [Rappel 4] Entier n : successeur et prédécesseur de n
+      - T28b [Rappel 3] Probabilités : fréquence simple
+      - T29b [Rappel 3] Statistiques : déterminer une médiane
+111 | lun 14/06/2027 | 4 questions
+      - T05c [Rappel 4] Divisibilité : décider si un nombre est multiple d'un autre (critères mélangés)
+      - T30b [Rappel 3] Lecture de données : lire un diagramme
+      - T31a [Rappel 3] Programmes de calcul : exécuter un programme de calcul
+      - T26c [Rappel 3] Proportionnalité : résoudre par retour à l'unité
+112 | lun 14/06/2027 | 4 questions
+      - T30c [Rappel 3] Lecture de données : lire un graphique (valeurs sur les axes)
+      - T31b [Rappel 3] Programmes de calcul : interpréter des instructions de déplacement ou de construction
+      - T08b [Rappel 4] Fraction d'un nombre et pourcentages : fraction simple d'un nombre
+      - T07b [Entretien] Fractions : comparer des fractions
+113 | mer 16/06/2027 | 4 questions
+      - T31c [Rappel 3] Programmes de calcul : exprimer / tester un programme de calcul
+      - T07b [Rappel 4] Fractions : comparer des fractions
+      - T01a [Entretien] Fractions simples et décimaux : fraction simple (1/2, 1/4, 3/4, 1/10) -> écriture décimale
+      - T06c [Entretien] Entier n : carré de n et expressions mélangées
+114 | jeu 17/06/2027 | 5 questions
+      - T09a [Bilan] Écritures d'un même nombre : fraction <-> décimal <-> pourcentage
+      - T10a [Bilan] Notation scientifique : écriture décimale -> notation scientifique
+      - T07c [Bilan] Fractions : additionner / soustraire des fractions
+      - T08c [Bilan] Fraction d'un nombre et pourcentages : pourcentage d'une quantité en contexte
+      - T11a [Bilan] Expressions littérales : réduire une expression
+115 | jeu 24/06/2027 | 5 questions
+      - T12a [Bilan] Développer / factoriser : développer k(a + b)
+      - T09b [Bilan] Écritures d'un même nombre : décomposition d'un nombre (ex. 3 x 10 + 4 x 0,1)
+      - T10b [Bilan] Notation scientifique : notation scientifique -> écriture décimale
+      - T07d [Bilan] Fractions : multiplier des fractions
+      - T11b [Bilan] Expressions littérales : calculer la valeur d'une expression
+116 | ven 25/06/2027 | 5 questions
+      - T13a [Bilan] Équations : x + b = c
+      - T12b [Bilan] Développer / factoriser : factoriser un facteur commun
+      - T10c [Bilan] Notation scientifique : calculer avec des puissances de 10
+      - T14a [Bilan] Repère : lire les coordonnées d'un point
+      - T15a [Bilan] Figures codées : reconnaître un triangle particulier grâce au codage
+117 | ven 25/06/2027 | 5 questions
+      - T11c [Bilan] Expressions littérales : valeur d'une expression avec puissances (x², 2x²)
+      - T13b [Bilan] Équations : ax = c
+      - T12c [Bilan] Développer / factoriser : reconnaître forme développée ou factorisée
+      - T14b [Bilan] Repère : placer un point connaissant ses coordonnées
+      - T16a [Bilan] Angles : vocabulaire : aigu, obtus, droit, plat, nul
+118 | lun 28/06/2027 | 5 questions
+      - T15b [Bilan] Figures codées : reconnaître un quadrilatère particulier grâce au codage
+      - T13c [Bilan] Équations : ax + b = c
+      - T17a [Bilan] Somme des angles d'un triangle : calculer l'angle manquant
+      - T18a [Bilan] Conversions : longueurs
+      - T14c [Bilan] Repère : abscisse / ordonnée : distinguer et repérer le quadrant
+119 | lun 28/06/2027 | 5 questions
+      - T16b [Bilan] Angles : adjacents, supplémentaires, opposés par le sommet
+      - T15c [Bilan] Figures codées : médiatrice : lire le codage et conclure
+      - T13d [Bilan] Équations : tester si un nombre est solution
+      - T17b [Bilan] Somme des angles d'un triangle : triangle isocèle ou équilatéral et angles
+      - T18b [Bilan] Conversions : masses
+120 | mer 30/06/2027 | 5 questions
+      - T16c [Bilan] Angles : calculer un angle (90°, 180°)
+      - T19a [Bilan] Solides : reconnaître et nommer un solide
+      - T20a [Bilan] Périmètres : périmètre d'un polygone
+      - T21a [Bilan] Aires : aire du rectangle et du triangle
+      - T22a [Bilan] Volumes : volume du cube et du pavé droit
+121 | jeu 01/07/2027 | 5 questions
+      - T18c [Bilan] Conversions : durées
+      - T19b [Bilan] Solides : reconnaître un patron ou une représentation en perspective
+      - T23a [Bilan] Pythagore / Thalès : reconnaître la situation (Pythagore ou Thalès ?)
+      - T20b [Bilan] Périmètres : périmètre d'un disque (2πr, πd)
+      - T21b [Bilan] Aires : aire du disque (πr²)
