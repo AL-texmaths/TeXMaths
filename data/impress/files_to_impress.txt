@@ -1,4 +1,2 @@
-5e-Ch2-DSA;11x,duplexlong
-5e-Ch2-DSB;11x,duplexlong
-6e-Ch3-A4;22x
-6e-Ch3-E4;22x
+5e-Ch3-E3;20x
+5e-Ch3-E4;20x

@@ -72,7 +72,12 @@ for texFileName in EXEMPLES_DIR.glob('*.tex'):
             if '%vmargins' in texFileLine:
                 vmargins = float(texFileLine.split('[')[1].split(']')[0])
 
-    result = compile_latex(EXEMPLES_DIR / texFileName)
+    result = compile_latex(
+        EXEMPLES_DIR / texFileName,
+        cmd_args=['-interaction=nonstopmode', '-halt-on-error']
+        )
+    if result.returncode != 0:
+        print(f"! LaTeX error in {texFileName.name} (see {texFileName.with_suffix('.log').name})")
 
     pdf_path = ""
     try :

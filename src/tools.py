@@ -266,6 +266,7 @@ def compile_latex(tex_file_path: str | Path,
             [exe_path, *cmd_args, str(tex_file_cmd_path)],
             cwd=cwd,
             capture_output=True,
+            stdin=subprocess.DEVNULL,
             text=True,
         )
     except FileNotFoundError:

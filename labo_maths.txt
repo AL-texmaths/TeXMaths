@@ -4,3 +4,19 @@ Problèmes lycée
 
 2x+1/2x
 relatifs
+
+Projet de création automatique de calendrier de questions flash.
+
+BUT: utiliser l'ia pour générer une progression annuelle des questions
+rapide de début d'heure. 
+-------------------------------------
+I- Informations à donner à l'agent IA
+-------------------------------------
+- emploi du temps pronote sous format ics
+- dates prévues de contrôle (ex: toutes les deux semaines)
+- prendre en compte les séances "perdues" (réunions, rentrée, fin d'année)
+--> connaissance quasi-exacte de toutes les séances commençant par une
+question flash
+- progression annuelle des chapitres + listes des automatismes à entrainer
+--> connaissances actuelles de la recherche en neuro sciences sur
+l'apprentissage
