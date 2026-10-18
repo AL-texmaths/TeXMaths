@@ -1,0 +1,571 @@
+QUESTIONS FLASH (automatismes) - Planning 3e, version 4 (généré par src/planning_flash.py)
+
+Séances 5G2 retenues : 103 ; contrôles retirés : 18 ; séances sautées : 0 (sur 121).
+Banque : data/flash_3e/banque_*.txt (une micro-compétence = 3 variantes de questions LaTeX).
+Réglages (contrôles, séances sautées, dates de déblocage) : data/flash_3e/config_planning.json.
+Légende : Nouveau = première rencontre ; Rappel n = retour espacé (+3 puis +12 jours) ; Entretien = ancien item remis en jeu après 30 jours ; Bilan = révision DNB.
+
+  1 | mar 01/09/2026 13:00 | 2 questions
+      - D01a-1 [Nouveau] Reconnaître une situation de proportionnalité
+      - D02a-1 [Nouveau] Appliquer une augmentation ou une diminution en pourcentage
+  2 | jeu 03/09/2026 08:30 | 2 questions
+      - A02a-1 [Nouveau] Développer une expression simple
+      - D03a-1 [Nouveau] Probabilité en situation d'équiprobabilité
+  3 | ven 04/09/2026 14:00 | 2 questions
+      - D01b-1 [Nouveau] Proportionnalité par linéarité
+      - D02a-2 [Rappel 1] Appliquer une augmentation ou une diminution en pourcentage
+  4 | lun 07/09/2026 10:30 | 2 questions
+      - D01a-2 [Rappel 1] Reconnaître une situation de proportionnalité
+      - A02a-2 [Rappel 1] Développer une expression simple
+  5 | lun 07/09/2026 15:00 | 2 questions
+      - D03a-2 [Rappel 1] Probabilité en situation d'équiprobabilité
+      - D01c-1 [Nouveau] Proportionnalité par retour à l'unité
+  6 | mer 09/09/2026 10:30 | 2 questions
+      - D01b-2 [Rappel 1] Proportionnalité par linéarité
+      - A03a-1 [Nouveau] Équations $x+b=c$ et $ax=c$
+  7 | mar 15/09/2026 13:00 | 3 questions
+      - D01c-2 [Rappel 1] Proportionnalité par retour à l'unité
+      - A03a-2 [Rappel 1] Équations $x+b=c$ et $ax=c$
+      - A02b-1 [Nouveau] Factoriser une expression simple
+  8 | jeu 17/09/2026 08:30 | 3 questions
+      - D04a-1 [Nouveau] Calculer une moyenne
+      - N01a-1 [Nouveau] Fractions simples en écriture décimale
+      - D02a-3 [Rappel 2] Appliquer une augmentation ou une diminution en pourcentage
+  9 | ven 18/09/2026 14:00 | 3 questions
+      - A03b-1 [Nouveau] Équations $ax+b=c$
+      - A01a-1 [Nouveau] Réduire une expression
+      - A02b-2 [Rappel 1] Factoriser une expression simple
+ 10 | lun 21/09/2026 10:30 | 3 questions
+      - N01a-2 [Rappel 1] Fractions simples en écriture décimale
+      - D04a-2 [Rappel 1] Calculer une moyenne
+      - A01b-1 [Nouveau] Valeur d'une expression
+ 11 | lun 21/09/2026 13:00 | 3 questions
+      - G01a-1 [Nouveau] Lire les coordonnées d'un point
+      - N02a-1 [Nouveau] Comparer et ranger des décimaux
+      - A02a-3 [Rappel 2] Développer une expression simple
+ 12 | mer 23/09/2026 10:30 | 3 questions
+      - A01a-2 [Rappel 1] Réduire une expression
+      - A03b-2 [Rappel 1] Équations $ax+b=c$
+      - D01a-3 [Rappel 2] Reconnaître une situation de proportionnalité
+ 13 | jeu 01/10/2026 08:30 | 3 questions
+      - N02a-2 [Rappel 1] Comparer et ranger des décimaux
+      - A01b-2 [Rappel 1] Valeur d'une expression
+      - G01a-2 [Rappel 1] Lire les coordonnées d'un point
+ 14 | ven 02/10/2026 14:00 | 3 questions
+      - D03a-3 [Rappel 2] Probabilité en situation d'équiprobabilité
+      - D01b-3 [Rappel 2] Proportionnalité par linéarité
+      - A03a-3 [Rappel 2] Équations $x+b=c$ et $ax=c$
+ 15 | ven 02/10/2026 16:00 | 3 questions
+      - D01c-3 [Rappel 2] Proportionnalité par retour à l'unité
+      - D04b-1 [Nouveau] Déterminer une médiane
+      - N01b-1 [Nouveau] Décimaux simples en fractions
+ 16 | lun 05/10/2026 13:00 | 3 questions
+      - A02b-3 [Rappel 2] Factoriser une expression simple
+      - N02b-1 [Nouveau] Somme et différence de relatifs
+      - G01b-1 [Nouveau] Placer un point dans un repère
+ 17 | mer 07/10/2026 10:30 | 3 questions
+      - N01b-2 [Rappel 1] Décimaux simples en fractions
+      - D04b-2 [Rappel 1] Déterminer une médiane
+      - G02a-1 [Nouveau] Triangles particuliers grâce au codage
+ 18 | jeu 15/10/2026 08:30 | 3 questions
+      - N02b-2 [Rappel 1] Somme et différence de relatifs
+      - G01b-2 [Rappel 1] Placer un point dans un repère
+      - G02a-2 [Rappel 1] Triangles particuliers grâce au codage
+ 19 | ven 16/10/2026 14:00 | 3 questions
+      - N01a-3 [Rappel 2] Fractions simples en écriture décimale
+      - D04a-3 [Rappel 2] Calculer une moyenne
+      - A01a-3 [Rappel 2] Réduire une expression
+ 20 | ven 16/10/2026 16:00 | 3 questions
+      - A03b-3 [Rappel 2] Équations $ax+b=c$
+      - D02b-1 [Nouveau] Coefficient multiplicateur
+      - N03a-1 [Nouveau] Lire une abscisse
+ 21 | lun 02/11/2026 10:30 | 3 questions
+      - N03a-2 [Rappel 1] Lire une abscisse
+      - D02b-2 [Rappel 1] Coefficient multiplicateur
+      - N02a-3 [Rappel 2] Comparer et ranger des décimaux
+ 22 | lun 02/11/2026 13:00 | 3 questions
+      - A01b-3 [Rappel 2] Valeur d'une expression
+      - G01a-3 [Rappel 2] Lire les coordonnées d'un point
+      - N01b-3 [Rappel 2] Décimaux simples en fractions
+ 23 | mer 04/11/2026 10:30 | 3 questions
+      - D04b-3 [Rappel 2] Déterminer une médiane
+      - N02b-3 [Rappel 2] Somme et différence de relatifs
+      - G01b-3 [Rappel 2] Placer un point dans un repère
+ 24 | jeu 12/11/2026 08:30 | 3 questions
+      - G02a-3 [Rappel 2] Triangles particuliers grâce au codage
+      - N02c-1 [Nouveau] Multiplier et diviser par 10, 100, 1000, 0,1
+      - N07a-1 [Nouveau] Simplifier une fraction
+ 25 | ven 13/11/2026 14:00 | 3 questions
+      - N03b-1 [Nouveau] Placer une abscisse
+      - D03b-1 [Nouveau] Fréquence
+      - N04a-1 [Nouveau] Carrés des entiers de 1 à 12
+ 26 | ven 13/11/2026 16:00 | 4 questions
+      - A03c-1 [Nouveau] Tester si un nombre est solution
+      - G04a-1 [Nouveau] Conversions de longueurs et de masses
+      - G07a-1 [Nouveau] Aire d'un rectangle et d'un triangle
+      - N08a-1 [Nouveau] Pourcentages usuels d'un nombre
+ 27 | lun 16/11/2026 10:30 | 4 questions
+      - N02c-2 [Rappel 1] Multiplier et diviser par 10, 100, 1000, 0,1
+      - N07a-2 [Rappel 1] Simplifier une fraction
+      - G02b-1 [Nouveau] Quadrilatères particuliers grâce au codage
+      - A04a-1 [Nouveau] Exécuter un programme de calcul
+ 28 | lun 16/11/2026 13:00 | 4 questions
+      - G04b-1 [Nouveau] Conversions de durées
+      - G07b-1 [Nouveau] Aire d'un disque
+      - D05a-1 [Nouveau] Lire un tableau d'effectifs
+      - N03a-3 [Rappel 2] Lire une abscisse
+ 29 | jeu 26/11/2026 08:30 | 4 questions
+      - N03b-2 [Rappel 1] Placer une abscisse
+      - N04a-2 [Rappel 1] Carrés des entiers de 1 à 12
+      - N08a-2 [Rappel 1] Pourcentages usuels d'un nombre
+      - A03c-2 [Rappel 1] Tester si un nombre est solution
+ 30 | ven 27/11/2026 14:00 | 4 questions
+      - G04a-2 [Rappel 1] Conversions de longueurs et de masses
+      - G07a-2 [Rappel 1] Aire d'un rectangle et d'un triangle
+      - D03b-2 [Rappel 1] Fréquence
+      - A04a-2 [Rappel 1] Exécuter un programme de calcul
+ 31 | ven 27/11/2026 16:00 | 4 questions
+      - G02b-2 [Rappel 1] Quadrilatères particuliers grâce au codage
+      - G04b-2 [Rappel 1] Conversions de durées
+      - G07b-2 [Rappel 1] Aire d'un disque
+      - D05a-2 [Rappel 1] Lire un tableau d'effectifs
+ 32 | lun 30/11/2026 10:30 | 4 questions
+      - D02b-3 [Rappel 2] Coefficient multiplicateur
+      - D05b-1 [Nouveau] Lire un graphique
+      - G02c-1 [Nouveau] Médiatrice : lire le codage et conclure
+      - N07b-1 [Nouveau] Comparer des fractions
+ 33 | lun 30/11/2026 13:00 | 4 questions
+      - N08b-1 [Nouveau] Fraction simple d'un nombre
+      - A01c-1 [Nouveau] Nature d'une expression
+      - A04b-1 [Nouveau] Écrire l'expression d'un programme de calcul
+      - N02c-3 [Rappel 2] Multiplier et diviser par 10, 100, 1000, 0,1
+ 34 | mer 02/12/2026 10:30 | 4 questions
+      - N07a-3 [Rappel 2] Simplifier une fraction
+      - G04c-1 [Nouveau] Conversions d'aires
+      - G03a-1 [Nouveau] Vocabulaire des angles
+      - G09a-1 [Nouveau] Pythagore : calculer l'hypoténuse
+ 35 | jeu 10/12/2026 08:30 | 4 questions
+      - N07b-2 [Rappel 1] Comparer des fractions
+      - N08b-2 [Rappel 1] Fraction simple d'un nombre
+      - A01c-2 [Rappel 1] Nature d'une expression
+      - A04b-2 [Rappel 1] Écrire l'expression d'un programme de calcul
+ 36 | ven 11/12/2026 14:00 | 4 questions
+      - G02c-2 [Rappel 1] Médiatrice : lire le codage et conclure
+      - D05b-2 [Rappel 1] Lire un graphique
+      - G03a-2 [Rappel 1] Vocabulaire des angles
+      - G04c-2 [Rappel 1] Conversions d'aires
+ 37 | ven 11/12/2026 16:00 | 4 questions
+      - G09a-2 [Rappel 1] Pythagore : calculer l'hypoténuse
+      - G06a-1 [Nouveau] Périmètre d'un polygone
+      - N04b-1 [Nouveau] Racine carrée d'un carré parfait
+      - N03b-3 [Rappel 2] Placer une abscisse
+ 38 | lun 14/12/2026 10:30 | 4 questions
+      - N04a-3 [Rappel 2] Carrés des entiers de 1 à 12
+      - N08a-3 [Rappel 2] Pourcentages usuels d'un nombre
+      - A03c-3 [Rappel 2] Tester si un nombre est solution
+      - A04a-3 [Rappel 2] Exécuter un programme de calcul
+ 39 | lun 14/12/2026 13:00 | 4 questions
+      - G02b-3 [Rappel 2] Quadrilatères particuliers grâce au codage
+      - G04a-3 [Rappel 2] Conversions de longueurs et de masses
+      - G07a-3 [Rappel 2] Aire d'un rectangle et d'un triangle
+      - D03b-3 [Rappel 2] Fréquence
+ 40 | mer 16/12/2026 10:30 | 4 questions
+      - N04b-2 [Rappel 1] Racine carrée d'un carré parfait
+      - G06a-2 [Rappel 1] Périmètre d'un polygone
+      - G04b-3 [Rappel 2] Conversions de durées
+      - G07b-3 [Rappel 2] Aire d'un disque
+ 41 | jeu 07/01/2027 08:30 | 4 questions
+      - D05a-3 [Rappel 2] Lire un tableau d'effectifs
+      - N07b-3 [Rappel 2] Comparer des fractions
+      - N08b-3 [Rappel 2] Fraction simple d'un nombre
+      - A01c-3 [Rappel 2] Nature d'une expression
+ 42 | ven 08/01/2027 14:00 | 4 questions
+      - A04b-3 [Rappel 2] Écrire l'expression d'un programme de calcul
+      - G02c-3 [Rappel 2] Médiatrice : lire le codage et conclure
+      - G03a-3 [Rappel 2] Vocabulaire des angles
+      - G04c-3 [Rappel 2] Conversions d'aires
+ 43 | ven 08/01/2027 16:00 | 4 questions
+      - G09a-3 [Rappel 2] Pythagore : calculer l'hypoténuse
+      - D05b-3 [Rappel 2] Lire un graphique
+      - N04b-3 [Rappel 2] Racine carrée d'un carré parfait
+      - G06a-3 [Rappel 2] Périmètre d'un polygone
+ 44 | lun 11/01/2027 10:30 | 4 questions
+      - A01d-1 [Nouveau] Opposé d'une expression
+      - G03b-1 [Nouveau] Calculer un angle (90° et 180°)
+      - N07c-1 [Nouveau] Additionner et soustraire des fractions
+      - N08c-1 [Nouveau] Pourcentage en contexte
+ 45 | lun 11/01/2027 13:00 | 4 questions
+      - G04d-1 [Nouveau] Conversions de volumes et de capacités
+      - G09b-1 [Nouveau] Pythagore : calculer un côté de l'angle droit
+      - G06b-1 [Nouveau] Périmètre d'un disque
+      - N05a-1 [Nouveau] Critères de divisibilité par 2, 5 et 10
+ 46 | mer 13/01/2027 10:30 | 4 questions
+      - G07c-1 [Nouveau] Aire d'une figure composée
+      - N06a-1 [Nouveau] Double, triple, moitié d'un entier $n$
+      - G08a-1 [Nouveau] Volume d'un cube et d'un pavé droit
+      - N09a-1 [Nouveau] Fraction, décimal, pourcentage
+ 47 | jeu 21/01/2027 08:30 | 4 questions
+      - N05a-2 [Rappel 1] Critères de divisibilité par 2, 5 et 10
+      - N07c-2 [Rappel 1] Additionner et soustraire des fractions
+      - N08c-2 [Rappel 1] Pourcentage en contexte
+      - A01d-2 [Rappel 1] Opposé d'une expression
+ 48 | ven 22/01/2027 14:00 | 4 questions
+      - G03b-2 [Rappel 1] Calculer un angle (90° et 180°)
+      - G04d-2 [Rappel 1] Conversions de volumes et de capacités
+      - G06b-2 [Rappel 1] Périmètre d'un disque
+      - G09b-2 [Rappel 1] Pythagore : calculer un côté de l'angle droit
+ 49 | ven 22/01/2027 16:00 | 4 questions
+      - N06a-2 [Rappel 1] Double, triple, moitié d'un entier $n$
+      - N09a-2 [Rappel 1] Fraction, décimal, pourcentage
+      - G07c-2 [Rappel 1] Aire d'une figure composée
+      - G08a-2 [Rappel 1] Volume d'un cube et d'un pavé droit
+ 50 | lun 25/01/2027 10:30 | 4 questions
+      - G03c-1 [Nouveau] Somme des angles d'un triangle
+      - N07d-1 [Nouveau] Multiplier et diviser des fractions
+      - G08b-1 [Nouveau] Volume d'un prisme droit et d'un cylindre
+      - N05b-1 [Nouveau] Critères de divisibilité par 3 et 9
+ 51 | lun 25/01/2027 13:00 | 4 questions
+      - N06b-1 [Nouveau] Successeur, prédécesseur, carré d'un entier $n$
+      - G05a-1 [Nouveau] Reconnaître et nommer un solide
+      - N10a-1 [Nouveau] Écriture décimale vers notation scientifique
+      - G13a-1 [Nouveau] Symétrie axiale : propriétés
+ 52 | mer 27/01/2027 10:30 | 4 questions
+      - D02a-1 [Entretien] Appliquer une augmentation ou une diminution en pourcentage
+      - A02a-1 [Entretien] Développer une expression simple
+      - D01a-1 [Entretien] Reconnaître une situation de proportionnalité
+      - A03a-1 [Entretien] Équations $x+b=c$ et $ax=c$
+ 53 | jeu 04/02/2027 08:30 | 4 questions
+      - N05b-2 [Rappel 1] Critères de divisibilité par 3 et 9
+      - N06b-2 [Rappel 1] Successeur, prédécesseur, carré d'un entier $n$
+      - N07d-2 [Rappel 1] Multiplier et diviser des fractions
+      - N10a-2 [Rappel 1] Écriture décimale vers notation scientifique
+ 54 | ven 05/02/2027 14:00 | 4 questions
+      - G03c-2 [Rappel 1] Somme des angles d'un triangle
+      - G05a-2 [Rappel 1] Reconnaître et nommer un solide
+      - G08b-2 [Rappel 1] Volume d'un prisme droit et d'un cylindre
+      - G13a-2 [Rappel 1] Symétrie axiale : propriétés
+ 55 | ven 05/02/2027 16:00 | 4 questions
+      - G10a-1 [Nouveau] Thalès : écrire les rapports égaux
+      - G11a-1 [Nouveau] Pythagore ou Thalès ?
+      - N05a-3 [Rappel 2] Critères de divisibilité par 2, 5 et 10
+      - N07c-3 [Rappel 2] Additionner et soustraire des fractions
+ 56 | lun 22/02/2027 10:30 | 4 questions
+      - G10a-2 [Rappel 1] Thalès : écrire les rapports égaux
+      - G11a-2 [Rappel 1] Pythagore ou Thalès ?
+      - N08c-3 [Rappel 2] Pourcentage en contexte
+      - A01d-3 [Rappel 2] Opposé d'une expression
+ 57 | lun 22/02/2027 13:00 | 4 questions
+      - N06a-3 [Rappel 2] Double, triple, moitié d'un entier $n$
+      - N09a-3 [Rappel 2] Fraction, décimal, pourcentage
+      - G03b-3 [Rappel 2] Calculer un angle (90° et 180°)
+      - G04d-3 [Rappel 2] Conversions de volumes et de capacités
+ 58 | mer 24/02/2027 10:30 | 4 questions
+      - G06b-3 [Rappel 2] Périmètre d'un disque
+      - G07c-3 [Rappel 2] Aire d'une figure composée
+      - G08a-3 [Rappel 2] Volume d'un cube et d'un pavé droit
+      - G09b-3 [Rappel 2] Pythagore : calculer un côté de l'angle droit
+ 59 | jeu 04/03/2027 08:30 | 4 questions
+      - N05b-3 [Rappel 2] Critères de divisibilité par 3 et 9
+      - N06b-3 [Rappel 2] Successeur, prédécesseur, carré d'un entier $n$
+      - N07d-3 [Rappel 2] Multiplier et diviser des fractions
+      - N10a-3 [Rappel 2] Écriture décimale vers notation scientifique
+ 60 | ven 05/03/2027 14:00 | 4 questions
+      - G03c-3 [Rappel 2] Somme des angles d'un triangle
+      - G05a-3 [Rappel 2] Reconnaître et nommer un solide
+      - G08b-3 [Rappel 2] Volume d'un prisme droit et d'un cylindre
+      - G13a-3 [Rappel 2] Symétrie axiale : propriétés
+ 61 | ven 05/03/2027 16:00 | 4 questions
+      - G10b-1 [Nouveau] Thalès : calculer une longueur
+      - G12a-1 [Nouveau] Reconnaître le cosinus dans un triangle rectangle
+      - G11b-1 [Nouveau] Juger la cohérence d'un résultat
+      - D01b-1 [Entretien] Proportionnalité par linéarité
+ 62 | lun 08/03/2027 10:30 | 4 questions
+      - G12b-1 [Nouveau] Calculer une longueur avec le cosinus
+      - G05b-1 [Nouveau] Patrons et représentations de solides
+      - G10a-3 [Rappel 2] Thalès : écrire les rapports égaux
+      - G11a-3 [Rappel 2] Pythagore ou Thalès ?
+ 63 | lun 08/03/2027 13:00 | 4 questions
+      - N10b-1 [Nouveau] Notation scientifique vers écriture décimale
+      - G10b-2 [Rappel 1] Thalès : calculer une longueur
+      - G11b-2 [Rappel 1] Juger la cohérence d'un résultat
+      - G12a-2 [Rappel 1] Reconnaître le cosinus dans un triangle rectangle
+ 64 | mer 10/03/2027 10:30 | 4 questions
+      - G13b-1 [Nouveau] Symétrie centrale : propriétés
+      - D01c-1 [Entretien] Proportionnalité par retour à l'unité
+      - D03a-1 [Entretien] Probabilité en situation d'équiprobabilité
+      - A02b-1 [Entretien] Factoriser une expression simple
+ 65 | jeu 18/03/2027 08:30 | 4 questions
+      - N10b-2 [Rappel 1] Notation scientifique vers écriture décimale
+      - G05b-2 [Rappel 1] Patrons et représentations de solides
+      - G12b-2 [Rappel 1] Calculer une longueur avec le cosinus
+      - G13b-2 [Rappel 1] Symétrie centrale : propriétés
+ 66 | ven 19/03/2027 14:00 | 4 questions
+      - A03b-1 [Entretien] Équations $ax+b=c$
+      - D04a-1 [Entretien] Calculer une moyenne
+      - A01b-1 [Entretien] Valeur d'une expression
+      - N02b-1 [Entretien] Somme et différence de relatifs
+ 67 | ven 19/03/2027 16:00 | 4 questions
+      - D04b-1 [Entretien] Déterminer une médiane
+      - N07a-1 [Entretien] Simplifier une fraction
+      - N01a-1 [Entretien] Fractions simples en écriture décimale
+      - A01a-1 [Entretien] Réduire une expression
+ 68 | lun 22/03/2027 10:30 | 4 questions
+      - N10c-1 [Nouveau] Calculs avec des puissances de 10
+      - G10b-3 [Rappel 2] Thalès : calculer une longueur
+      - G11b-3 [Rappel 2] Juger la cohérence d'un résultat
+      - G12a-3 [Rappel 2] Reconnaître le cosinus dans un triangle rectangle
+ 69 | lun 22/03/2027 13:00 | 4 questions
+      - G13c-1 [Nouveau] Translation : propriétés
+      - N08a-1 [Entretien] Pourcentages usuels d'un nombre
+      - G07a-1 [Entretien] Aire d'un rectangle et d'un triangle
+      - N01b-1 [Entretien] Décimaux simples en fractions
+ 70 | mer 24/03/2027 10:30 | 4 questions
+      - G07b-1 [Entretien] Aire d'un disque
+      - N02a-1 [Entretien] Comparer et ranger des décimaux
+      - G01a-1 [Entretien] Lire les coordonnées d'un point
+      - G02a-1 [Entretien] Triangles particuliers grâce au codage
+ 71 | jeu 01/04/2027 08:30 | 4 questions
+      - N10c-2 [Rappel 1] Calculs avec des puissances de 10
+      - G13c-2 [Rappel 1] Translation : propriétés
+      - G05b-3 [Rappel 2] Patrons et représentations de solides
+      - G12b-3 [Rappel 2] Calculer une longueur avec le cosinus
+ 72 | ven 02/04/2027 14:00 | 4 questions
+      - N10b-3 [Rappel 2] Notation scientifique vers écriture décimale
+      - G13b-3 [Rappel 2] Symétrie centrale : propriétés
+      - G01b-1 [Entretien] Placer un point dans un repère
+      - N03a-1 [Entretien] Lire une abscisse
+ 73 | ven 02/04/2027 16:00 | 4 questions
+      - N07b-1 [Entretien] Comparer des fractions
+      - N08b-1 [Entretien] Fraction simple d'un nombre
+      - G09a-1 [Entretien] Pythagore : calculer l'hypoténuse
+      - D05b-1 [Entretien] Lire un graphique
+ 74 | lun 19/04/2027 10:30 | 4 questions
+      - N10c-3 [Rappel 2] Calculs avec des puissances de 10
+      - G13c-3 [Rappel 2] Translation : propriétés
+      - N02c-1 [Entretien] Multiplier et diviser par 10, 100, 1000, 0,1
+      - D02b-1 [Entretien] Coefficient multiplicateur
+ 75 | lun 19/04/2027 13:00 | 4 questions
+      - N03b-1 [Entretien] Placer une abscisse
+      - N04a-1 [Entretien] Carrés des entiers de 1 à 12
+      - A03c-1 [Entretien] Tester si un nombre est solution
+      - A04a-1 [Entretien] Exécuter un programme de calcul
+ 76 | mer 21/04/2027 10:30 | 4 questions
+      - G02b-1 [Entretien] Quadrilatères particuliers grâce au codage
+      - G04a-1 [Entretien] Conversions de longueurs et de masses
+      - D03b-1 [Entretien] Fréquence
+      - A02a-2 [Entretien] Développer une expression simple
+ 77 | jeu 29/04/2027 08:30 | 4 questions
+      - A03a-2 [Entretien] Équations $x+b=c$ et $ax=c$
+      - D01a-2 [Entretien] Reconnaître une situation de proportionnalité
+      - D02a-2 [Entretien] Appliquer une augmentation ou une diminution en pourcentage
+      - G04b-1 [Entretien] Conversions de durées
+ 78 | ven 30/04/2027 14:00 | 4 questions
+      - N07c-1 [Entretien] Additionner et soustraire des fractions
+      - D05a-1 [Entretien] Lire un tableau d'effectifs
+      - A04b-1 [Entretien] Écrire l'expression d'un programme de calcul
+      - G02c-1 [Entretien] Médiatrice : lire le codage et conclure
+ 79 | ven 30/04/2027 16:00 | 4 questions
+      - G04c-1 [Entretien] Conversions d'aires
+      - G06a-1 [Entretien] Périmètre d'un polygone
+      - N08c-1 [Entretien] Pourcentage en contexte
+      - G09b-1 [Entretien] Pythagore : calculer un côté de l'angle droit
+ 80 | lun 03/05/2027 10:30 | 4 questions
+      - N07d-1 [Entretien] Multiplier et diviser des fractions
+      - G03c-1 [Entretien] Somme des angles d'un triangle
+      - G08b-1 [Entretien] Volume d'un prisme droit et d'un cylindre
+      - D01b-2 [Entretien] Proportionnalité par linéarité
+ 81 | lun 03/05/2027 13:00 | 4 questions
+      - G10a-1 [Entretien] Thalès : écrire les rapports égaux
+      - G11a-1 [Entretien] Pythagore ou Thalès ?
+      - A02b-2 [Entretien] Factoriser une expression simple
+      - D01c-2 [Entretien] Proportionnalité par retour à l'unité
+ 82 | jeu 13/05/2027 08:30 | 4 questions
+      - D03a-2 [Entretien] Probabilité en situation d'équiprobabilité
+      - N02b-2 [Entretien] Somme et différence de relatifs
+      - N07a-2 [Entretien] Simplifier une fraction
+      - A01b-2 [Entretien] Valeur d'une expression
+ 83 | ven 14/05/2027 14:00 | 4 questions
+      - A03b-2 [Entretien] Équations $ax+b=c$
+      - D04a-2 [Entretien] Calculer une moyenne
+      - N09a-1 [Entretien] Fraction, décimal, pourcentage
+      - A01d-1 [Entretien] Opposé d'une expression
+ 84 | ven 14/05/2027 16:00 | 4 questions
+      - D04b-2 [Entretien] Déterminer une médiane
+      - G03b-1 [Entretien] Calculer un angle (90° et 180°)
+      - G04d-1 [Entretien] Conversions de volumes et de capacités
+      - N08a-2 [Entretien] Pourcentages usuels d'un nombre
+ 85 | mer 19/05/2027 10:30 | 4 questions
+      - G07a-2 [Entretien] Aire d'un rectangle et d'un triangle
+      - G10b-1 [Entretien] Thalès : calculer une longueur
+      - G12a-1 [Entretien] Reconnaître le cosinus dans un triangle rectangle
+      - G06b-1 [Entretien] Périmètre d'un disque
+ 86 | jeu 27/05/2027 08:30 | 4 questions
+      - G07b-2 [Entretien] Aire d'un disque
+      - G08a-1 [Entretien] Volume d'un cube et d'un pavé droit
+      - N10a-1 [Entretien] Écriture décimale vers notation scientifique
+      - G12b-1 [Entretien] Calculer une longueur avec le cosinus
+ 87 | ven 28/05/2027 14:00 | 4 questions
+      - G07c-1 [Entretien] Aire d'une figure composée
+      - N07b-2 [Entretien] Comparer des fractions
+      - N08b-2 [Entretien] Fraction simple d'un nombre
+      - G09a-2 [Entretien] Pythagore : calculer l'hypoténuse
+ 88 | ven 28/05/2027 16:00 | 4 questions
+      - G13a-1 [Entretien] Symétrie axiale : propriétés
+      - D05b-2 [Entretien] Lire un graphique
+      - A01c-1 [Entretien] Nature d'une expression
+      - N01a-2 [Entretien] Fractions simples en écriture décimale
+ 89 | lun 31/05/2027 10:30 | 4 questions
+      - A01a-2 [Entretien] Réduire une expression
+      - N04b-1 [Entretien] Racine carrée d'un carré parfait
+      - G03a-1 [Entretien] Vocabulaire des angles
+      - N01b-2 [Entretien] Décimaux simples en fractions
+ 90 | lun 31/05/2027 13:00 | 4 questions
+      - G11b-1 [Entretien] Juger la cohérence d'un résultat
+      - N02a-2 [Entretien] Comparer et ranger des décimaux
+      - G01a-2 [Entretien] Lire les coordonnées d'un point
+      - G02a-2 [Entretien] Triangles particuliers grâce au codage
+ 91 | mer 02/06/2027 10:30 | 4 questions
+      - A02a-3 [Entretien] Développer une expression simple
+      - N03a-2 [Entretien] Lire une abscisse
+      - N10b-1 [Entretien] Notation scientifique vers écriture décimale
+      - G01b-2 [Entretien] Placer un point dans un repère
+ 92 | jeu 10/06/2027 08:30 | 4 questions
+      - G13b-1 [Entretien] Symétrie centrale : propriétés
+      - A03a-3 [Entretien] Équations $x+b=c$ et $ax=c$
+      - D01a-3 [Entretien] Reconnaître une situation de proportionnalité
+      - D02a-3 [Entretien] Appliquer une augmentation ou une diminution en pourcentage
+ 93 | ven 11/06/2027 14:00 | 4 questions
+      - N05a-1 [Entretien] Critères de divisibilité par 2, 5 et 10
+      - N07c-2 [Entretien] Additionner et soustraire des fractions
+      - N08c-2 [Entretien] Pourcentage en contexte
+      - G09b-2 [Entretien] Pythagore : calculer un côté de l'angle droit
+ 94 | ven 11/06/2027 16:00 | 4 questions
+      - N07d-2 [Entretien] Multiplier et diviser des fractions
+      - A02b-3 [Entretien] Factoriser une expression simple
+      - G03c-2 [Entretien] Somme des angles d'un triangle
+      - G08b-2 [Entretien] Volume d'un prisme droit et d'un cylindre
+ 95 | lun 14/06/2027 10:30 | 4 questions
+      - G10a-2 [Entretien] Thalès : écrire les rapports égaux
+      - G11a-2 [Entretien] Pythagore ou Thalès ?
+      - D01b-3 [Entretien] Proportionnalité par linéarité
+      - N02c-2 [Entretien] Multiplier et diviser par 10, 100, 1000, 0,1
+ 96 | lun 14/06/2027 13:00 | 4 questions
+      - D01c-3 [Bilan] Proportionnalité par retour à l'unité
+      - N10c-1 [Bilan] Calculs avec des puissances de 10
+      - N06a-1 [Bilan] Double, triple, moitié d'un entier $n$
+      - N04a-2 [Bilan] Carrés des entiers de 1 à 12
+ 97 | mer 16/06/2027 10:30 | 4 questions
+      - N03b-2 [Bilan] Placer une abscisse
+      - G13c-1 [Bilan] Translation : propriétés
+      - D02b-2 [Bilan] Coefficient multiplicateur
+      - A04a-2 [Bilan] Exécuter un programme de calcul
+ 98 | jeu 24/06/2027 08:30 | 4 questions
+      - A03c-2 [Bilan] Tester si un nombre est solution
+      - G04a-2 [Bilan] Conversions de longueurs et de masses
+      - G02b-2 [Bilan] Quadrilatères particuliers grâce au codage
+      - D03b-2 [Bilan] Fréquence
+ 99 | ven 25/06/2027 14:00 | 4 questions
+      - N07a-3 [Bilan] Simplifier une fraction
+      - N02b-3 [Bilan] Somme et différence de relatifs
+      - D03a-3 [Bilan] Probabilité en situation d'équiprobabilité
+      - A01b-3 [Bilan] Valeur d'une expression
+100 | ven 25/06/2027 16:00 | 4 questions
+      - N08a-3 [Bilan] Pourcentages usuels d'un nombre
+      - D04b-3 [Bilan] Déterminer une médiane
+      - A03b-3 [Bilan] Équations $ax+b=c$
+      - G04b-2 [Bilan] Conversions de durées
+101 | lun 28/06/2027 10:30 | 4 questions
+      - D04a-3 [Bilan] Calculer une moyenne
+      - G12a-2 [Bilan] Reconnaître le cosinus dans un triangle rectangle
+      - G10b-2 [Bilan] Thalès : calculer une longueur
+      - G07a-3 [Bilan] Aire d'un rectangle et d'un triangle
+102 | lun 28/06/2027 13:00 | 4 questions
+      - G06a-2 [Bilan] Périmètre d'un polygone
+      - G04c-2 [Bilan] Conversions d'aires
+      - G02c-2 [Bilan] Médiatrice : lire le codage et conclure
+      - D05a-2 [Bilan] Lire un tableau d'effectifs
+103 | mer 30/06/2027 10:30 | 4 questions
+      - A04b-2 [Bilan] Écrire l'expression d'un programme de calcul
+      - N06b-1 [Bilan] Successeur, prédécesseur, carré d'un entier $n$
+      - N05b-1 [Bilan] Critères de divisibilité par 3 et 9
+      - G05a-1 [Bilan] Reconnaître et nommer un solide
+
+Passages par micro-compétence :
+  N01a : 5 passage(s) - Fractions simples en écriture décimale
+  N01b : 5 passage(s) - Décimaux simples en fractions
+  N02a : 5 passage(s) - Comparer et ranger des décimaux
+  N02b : 6 passage(s) - Somme et différence de relatifs
+  N02c : 5 passage(s) - Multiplier et diviser par 10, 100, 1000, 0,1
+  N03a : 5 passage(s) - Lire une abscisse
+  N03b : 5 passage(s) - Placer une abscisse
+  N04a : 5 passage(s) - Carrés des entiers de 1 à 12
+  N04b : 4 passage(s) - Racine carrée d'un carré parfait
+  N05a : 4 passage(s) - Critères de divisibilité par 2, 5 et 10
+  N05b : 4 passage(s) - Critères de divisibilité par 3 et 9
+  N06a : 4 passage(s) - Double, triple, moitié d'un entier $n$
+  N06b : 4 passage(s) - Successeur, prédécesseur, carré d'un entier $n$
+  N07a : 6 passage(s) - Simplifier une fraction
+  N07b : 5 passage(s) - Comparer des fractions
+  N07c : 5 passage(s) - Additionner et soustraire des fractions
+  N07d : 5 passage(s) - Multiplier et diviser des fractions
+  N08a : 6 passage(s) - Pourcentages usuels d'un nombre
+  N08b : 5 passage(s) - Fraction simple d'un nombre
+  N08c : 5 passage(s) - Pourcentage en contexte
+  N09a : 4 passage(s) - Fraction, décimal, pourcentage
+  N10a : 4 passage(s) - Écriture décimale vers notation scientifique
+  N10b : 4 passage(s) - Notation scientifique vers écriture décimale
+  N10c : 4 passage(s) - Calculs avec des puissances de 10
+  A01a : 5 passage(s) - Réduire une expression
+  A01b : 6 passage(s) - Valeur d'une expression
+  A01c : 4 passage(s) - Nature d'une expression
+  A01d : 4 passage(s) - Opposé d'une expression
+  A02a : 6 passage(s) - Développer une expression simple
+  A02b : 6 passage(s) - Factoriser une expression simple
+  A03a : 6 passage(s) - Équations $x+b=c$ et $ax=c$
+  A03b : 6 passage(s) - Équations $ax+b=c$
+  A03c : 5 passage(s) - Tester si un nombre est solution
+  A04a : 5 passage(s) - Exécuter un programme de calcul
+  A04b : 5 passage(s) - Écrire l'expression d'un programme de calcul
+  G01a : 5 passage(s) - Lire les coordonnées d'un point
+  G01b : 5 passage(s) - Placer un point dans un repère
+  G02a : 5 passage(s) - Triangles particuliers grâce au codage
+  G02b : 5 passage(s) - Quadrilatères particuliers grâce au codage
+  G02c : 5 passage(s) - Médiatrice : lire le codage et conclure
+  G03a : 4 passage(s) - Vocabulaire des angles
+  G03b : 4 passage(s) - Calculer un angle (90° et 180°)
+  G03c : 5 passage(s) - Somme des angles d'un triangle
+  G04a : 5 passage(s) - Conversions de longueurs et de masses
+  G04b : 5 passage(s) - Conversions de durées
+  G04c : 5 passage(s) - Conversions d'aires
+  G04d : 4 passage(s) - Conversions de volumes et de capacités
+  G05a : 4 passage(s) - Reconnaître et nommer un solide
+  G05b : 3 passage(s) - Patrons et représentations de solides
+  G06a : 5 passage(s) - Périmètre d'un polygone
+  G06b : 4 passage(s) - Périmètre d'un disque
+  G07a : 6 passage(s) - Aire d'un rectangle et d'un triangle
+  G07b : 5 passage(s) - Aire d'un disque
+  G07c : 4 passage(s) - Aire d'une figure composée
+  G08a : 4 passage(s) - Volume d'un cube et d'un pavé droit
+  G08b : 5 passage(s) - Volume d'un prisme droit et d'un cylindre
+  G09a : 5 passage(s) - Pythagore : calculer l'hypoténuse
+  G09b : 5 passage(s) - Pythagore : calculer un côté de l'angle droit
+  G10a : 5 passage(s) - Thalès : écrire les rapports égaux
+  G10b : 5 passage(s) - Thalès : calculer une longueur
+  G11a : 5 passage(s) - Pythagore ou Thalès ?
+  G11b : 4 passage(s) - Juger la cohérence d'un résultat
+  G12a : 5 passage(s) - Reconnaître le cosinus dans un triangle rectangle
+  G12b : 4 passage(s) - Calculer une longueur avec le cosinus
+  G13a : 4 passage(s) - Symétrie axiale : propriétés
+  G13b : 4 passage(s) - Symétrie centrale : propriétés
+  G13c : 4 passage(s) - Translation : propriétés
+  D01a : 6 passage(s) - Reconnaître une situation de proportionnalité
+  D01b : 6 passage(s) - Proportionnalité par linéarité
+  D01c : 6 passage(s) - Proportionnalité par retour à l'unité
+  D02a : 6 passage(s) - Appliquer une augmentation ou une diminution en pourcentage
+  D02b : 5 passage(s) - Coefficient multiplicateur
+  D03a : 6 passage(s) - Probabilité en situation d'équiprobabilité
+  D03b : 5 passage(s) - Fréquence
+  D04a : 6 passage(s) - Calculer une moyenne
+  D04b : 6 passage(s) - Déterminer une médiane
+  D05a : 5 passage(s) - Lire un tableau d'effectifs
+  D05b : 5 passage(s) - Lire un graphique

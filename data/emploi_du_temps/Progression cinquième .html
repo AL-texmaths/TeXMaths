@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+  <meta charset="UTF-8">
+  <title>Progression 5e — Mathématiques</title>
+  
+<style>
+body { font-family: sans-serif; margin: 0; height: 100vh; overflow: hidden; }
+#container { display: flex; height: 90vh; }
+
+#leftPanel {
+  width: 40%; min-width: 150px; max-width: 80%;
+  border-right: 1px solid #ccc;
+  overflow-y: auto; padding: 10px; box-sizing: border-box;
+}
+#leftPanel.hidden { display: none; }
+
+#resizer { width: 5px; background: #ccc; cursor: col-resize; }
+
+#rightPanel { flex-grow: 1; min-width: 0; padding-left: 20px; overflow-y: auto; box-sizing: border-box; }
+#rightPanel.full-width { width: 100% !important; }
+
+details summary { cursor: pointer; font-weight: bold; padding: 4px; border-radius: 4px; }
+
+/* Objectif normal */
+.objectif {
+  padding: 3px 8px; border-radius: 5px; margin-bottom: 4px;
+  cursor: grab; user-select: none;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.objectif.grayed { color: gray; text-decoration: line-through; opacity: 0.6; cursor: default; }
+
+/* Automatisme : jamais grisé, compteur à gauche */
+.objectif-auto { cursor: grab; }
+.objectif-auto .auto-counter {
+  display: none;
+  margin-right: 6px;
+  background: white; color: #555;
+  border-radius: 10px; padding: 0 6px;
+  font-size: 0.85em; font-weight: bold;
+}
+.objectif-auto .auto-counter.visible { display: inline; }
+
+/* Volet droit */
+.right-objectif {
+  position: relative; padding: 6px 25px 6px 10px; border-radius: 5px;
+  user-select: none; cursor: grab; color: white;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: transform 0.2s ease;
+}
+.right-objectif .close-btn {
+  position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+  cursor: pointer; font-weight: bold; color: #eee;
+  background-color: rgba(0,0,0,0.3); border-radius: 50%;
+  width: 18px; height: 18px; line-height: 18px; text-align: center; font-size: 14px;
+}
+
+/* Séquences */
+.sequence { border: 1px solid #aaa; border-radius: 6px; margin: 10px 0; padding: 0; background: #f9f9f9; }
+.sequence-header {
+  background: #eee; padding: 0px 10px;
+  display: flex; align-items: center; gap: 2px; cursor: pointer;
+}
+.sequence-header .chevron { font-size: 22px; transition: transform 0.3s ease; user-select: none; cursor: pointer; }
+.sequence.open .chevron { transform: rotate(90deg); }
+.sequence-title { font-weight: bold; border: none; background: transparent; width: 100%; outline: none; }
+.sequence-buttons { display: flex; gap: 6px; margin-left: auto; }
+.sequence-buttons button { background: none; border: 1.2px; cursor: pointer; font-size: 16px; padding: 0 4px; }
+.delete-sequence { background: none; border: none; cursor: pointer; color: red; font-weight: bold; font-size: 16px; margin-left: 10px; }
+.sequence-content { padding: 10px; min-height: 40px; display: none; }
+.sequence.open .sequence-content { display: block; }
+.dropzone { border: 2px dashed #aaa; border-radius: 6px; min-height: 40px; padding: 5px; margin: 5px 0; position: relative; }
+
+/* Vacances */
+.vacances {
+  display: flex; align-items: center; justify-content: center;
+  padding: 5px 20px; margin: 15px 0;
+  background: linear-gradient(90deg, #fff585, #fff7e6, #fff585);
+  border-radius: 18px; font-size: 1.0em; font-weight: bold; color: #c98600;
+  position: relative; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.vacances .ligne { flex-grow: 1; height: 3px; background-color: #e5a800; margin: 0 10px; }
+.vacances .texte { font-weight: bold; font-size: 1em; color: #c98600; background: transparent; border: none; outline: none; text-align: center; width: auto; min-width: 100px; }
+.vacances .delete-vacances { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #cc6600; font-size: 0.7em; cursor: pointer; padding: 0; line-height: 1; width: 18px; height: 18px; text-align: center; }
+
+/* Séparateur exercices */
+.exercice-separator { margin: 12px 0; position: relative; }
+.separator-line { display: flex; align-items: center; justify-content: center; width: 100%; position: relative; }
+.separator-line::before, .separator-line::after { content: ""; flex: 1; height: 3px; background-color: #331032; margin: 0 10px; border-radius: 2px; }
+.separator-text { font-weight: bold; color: #331032; font-size: 0.9em; white-space: nowrap; outline: none; padding: 2px 6px; background: #fffdf2; border-radius: 4px; }
+.delete-separator { position: absolute; right: -6px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #c44; font-size: 0.9em; cursor: pointer; padding: 0; line-height: 1; width: 18px; height: 18px; text-align: center; }
+
+/* Commentaires */
+.commentaire-bloc { border: 1px dashed #aaa; margin-top: 10px; border-radius: 6px; background: #fffef2; font-size: 0.90em; overflow: hidden; }
+.commentaire-header { display: flex; align-items: center; gap: 8px; padding: 4px 10px; background-color: #fff9db; border-radius: 6px; cursor: pointer; }
+.commentaire-header .chevron { font-size: 18px; transition: transform 0.3s ease; user-select: none; }
+.commentaire-bloc.open .commentaire-content { display: block; }
+.commentaire-texte { flex-grow: 1; padding: 2px 6px; outline: none; background: transparent; font-weight: bold; }
+.delete-commentaire { background: none; border: none; color: #c44; font-weight: bold; font-size: 1em; cursor: pointer; }
+.commentaire-content { display: none; padding: 8px 12px; background-color: #fffdf5; border-top: 1px dashed #ccc; }
+.commentaire-zone { padding-bottom: 0; margin-bottom: 0; line-height: 1.3; }
+
+/* Points d'insertion drag & drop */
+.insertion-point { height: 0; position: relative; pointer-events: auto; margin: 0; }
+.insertion-point::before { content: ""; position: absolute; top: -6px; left: 0; right: 0; height: 20px; background-color: transparent; z-index: 2; }
+.insertion-point.drag-over::after { content: ""; position: absolute; top: 6px; left: 0; right: 0; height: 0; border-top: 3px solid #0078d7; z-index: 5; }
+.insertion-point.drag-over + .right-objectif { transform: translateY(6px); }
+
+.insertion-indicator { height: 4px; background-color: #0078d7; margin: 2px 0; border-radius: 2px; transition: opacity 0.2s ease; opacity: 0; }
+.insertion-indicator.visible { opacity: 1; }
+
+.chevron { font-size: 18px; display: inline-block; transition: transform 0.3s ease; user-select: none; }
+
+@media print {
+  body * { visibility: hidden; }
+  #rightPanel, #rightPanel * { visibility: visible; }
+  #rightPanel { position: absolute; left: 0; top: 0; width: 100%; }
+  #rightPanel button, .delete-sequence, .delete-commentaire, .delete-vacances, .sequence-buttons { display: none !important; }
+  .sequence { border: 1px solid #aaa; box-shadow: none; }
+}
+</style>
+
+</head>
+<body>
+<div id="container">
+  
+<div id="leftPanel">
+  <h4 style="margin:20;">Liste des objectifs et 🛠Automatismes de 5e.</h4>
+  <div style="font-size:0.8em; color:#aaa;">
+    Cliquer pour déplier les thèmes. Glisser-déposer les objectifs à droite.<br><br>
+  </div>
+  <div style="margin-bottom:10px;">
+    <button onclick="expandAllThemes()">Tout déplier</button>
+    <button onclick="collapseAllThemes()">Tout replier</button>
+  </div>
+<details class="theme" style="margin-bottom:5px;"><summary class="theme-title" style="background-color:#a30f33;color:white;">🔢➗ Nombres et Calcul <span class="theme-counter" id="count--nombres-et-calcul">(0/45)</span></summary><details style="margin-left:15px; background:#a71b3d;"><summary>✖️ Opérations</summary><div class="objectif grayed" draggable="false" title="✖1 – Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat." style="background:#a71b3d; color:white;" data-code="✖1" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.">✖1 – Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.</div><div class="objectif grayed" draggable="false" title="✖2 – Connaitre le sens et les situations d’emploi de ces opérations." style="background:#a71b3d; color:white;" data-code="✖2" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Connaitre le sens et les situations d’emploi de ces opérations.">✖2 – Connaitre le sens et les situations d’emploi de ces opérations.</div><div class="objectif grayed" draggable="false" title="✖3 – Diviser par un nombre décimal." style="background:#a71b3d; color:white;" data-code="✖3" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Diviser par un nombre décimal.">✖3 – Diviser par un nombre décimal.</div><div class="objectif grayed" draggable="false" title="✖4 – Enchainer des opérations." style="background:#a71b3d; color:white;" data-code="✖4" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Enchainer des opérations.">✖4 – Enchainer des opérations.</div><div class="objectif grayed" draggable="false" title="✖5 – Traduire un problème, une succession donnée d’opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses." style="background:#a71b3d; color:white;" data-code="✖5" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Traduire un problème, une succession donnée d’opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses.">✖5 – Traduire un problème, une succession donnée d’opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses.</div><div class="objectif grayed" draggable="false" title="✖6 – Nommer un calcul, distinguer sommes et produits, termes et facteurs." style="background:#a71b3d; color:white;" data-code="✖6" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Nommer un calcul, distinguer sommes et produits, termes et facteurs.">✖6 – Nommer un calcul, distinguer sommes et produits, termes et facteurs.</div><div class="objectif grayed" draggable="false" title="✖7 – Connaitre et utiliser les priorités opératoires." style="background:#a71b3d; color:white;" data-code="✖7" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Connaitre et utiliser les priorités opératoires.">✖7 – Connaitre et utiliser les priorités opératoires.</div><div class="objectif grayed" draggable="false" title="✖8 – Connaitre et utiliser la distributivité simple sur des exemples numériques." style="background:#a71b3d; color:white;" data-code="✖8" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Connaitre et utiliser la distributivité simple sur des exemples numériques.">✖8 – Connaitre et utiliser la distributivité simple sur des exemples numériques.</div><div class="objectif grayed" draggable="false" title="✖9 – Utiliser les notions de multiples et diviseurs." style="background:#a71b3d; color:white;" data-code="✖9" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Utiliser les notions de multiples et diviseurs.">✖9 – Utiliser les notions de multiples et diviseurs.</div><div class="objectif grayed" draggable="false" title="✖10 – Connaitre les critères de divisibilité par 3 et par 9." style="background:#a71b3d; color:white;" data-code="✖10" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Connaitre les critères de divisibilité par 3 et par 9.">✖10 – Connaitre les critères de divisibilité par 3 et par 9.</div><div class="objectif grayed" draggable="false" title="✖11 – Mobiliser un algorithme dans le cadre du calcul numérique." style="background:#a71b3d; color:white;" data-code="✖11" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="✖️ Opérations" data-objectif="Mobiliser un algorithme dans le cadre du calcul numérique.">✖11 – Mobiliser un algorithme dans le cadre du calcul numérique.</div></details><details style="margin-left:15px; background:#ac2747;"><summary>➖ Nombres relatifs</summary><div class="objectif grayed" draggable="false" title="➖1 – Définir les nombres relatifs." style="background:#ac2747; color:white;" data-code="➖1" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Définir les nombres relatifs.">➖1 – Définir les nombres relatifs.</div><div class="objectif grayed" draggable="false" title="➖2 – Définir l’opposé et la valeur absolue d’un nombre." style="background:#ac2747; color:white;" data-code="➖2" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Définir l’opposé et la valeur absolue d’un nombre.">➖2 – Définir l’opposé et la valeur absolue d’un nombre.</div><div class="objectif grayed" draggable="false" title="➖3 – Définir la notion de nombre positif, strictement positif, négatif, strictement négatif." style="background:#ac2747; color:white;" data-code="➖3" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Définir la notion de nombre positif, strictement positif, négatif, strictement négatif.">➖3 – Définir la notion de nombre positif, strictement positif, négatif, strictement négatif.</div><div class="objectif grayed" draggable="false" title="➖4 – Utiliser les nombres relatifs pour représenter des grandeurs observables qui peuvent prendre des valeurs inférieures à zéro (température, temps, altitude, etc.), en particulier dans le cadre de la résolution de problèmes." style="background:#ac2747; color:white;" data-code="➖4" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Utiliser les nombres relatifs pour représenter des grandeurs observables qui peuvent prendre des valeurs inférieures à zéro (température, temps, altitude, etc.), en particulier dans le cadre de la résolution de problèmes.">➖4 – Utiliser les nombres relatifs pour représenter des grandeurs observables qui peuvent prendre des valeurs inférieures à zéro (température, temps, altitude, etc.), en particulier dans le cadre de la résolution de problèmes.</div><div class="objectif grayed" draggable="false" title="➖5 – Lire l’abscisse d’un nombre relatif sur une droite graduée et placer un nombre relatif d’abscisse donnée." style="background:#ac2747; color:white;" data-code="➖5" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Lire l’abscisse d’un nombre relatif sur une droite graduée et placer un nombre relatif d’abscisse donnée.">➖5 – Lire l’abscisse d’un nombre relatif sur une droite graduée et placer un nombre relatif d’abscisse donnée.</div><div class="objectif grayed" draggable="false" title="➖6 – Comparer et ranger dans l’ordre croissant et décroissant des nombres décimaux relatifs." style="background:#ac2747; color:white;" data-code="➖6" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Comparer et ranger dans l’ordre croissant et décroissant des nombres décimaux relatifs.">➖6 – Comparer et ranger dans l’ordre croissant et décroissant des nombres décimaux relatifs.</div><div class="objectif grayed" draggable="false" title="➖7 – Additionner deux nombres décimaux relatifs." style="background:#ac2747; color:white;" data-code="➖7" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Additionner deux nombres décimaux relatifs.">➖7 – Additionner deux nombres décimaux relatifs.</div><div class="objectif grayed" draggable="false" title="➖8 – Additionner plusieurs nombres décimaux relatifs." style="background:#ac2747; color:white;" data-code="➖8" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Additionner plusieurs nombres décimaux relatifs.">➖8 – Additionner plusieurs nombres décimaux relatifs.</div><div class="objectif grayed" draggable="false" title="➖9 – Soustraire deux nombres décimaux relatifs." style="background:#ac2747; color:white;" data-code="➖9" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Soustraire deux nombres décimaux relatifs.">➖9 – Soustraire deux nombres décimaux relatifs.</div><div class="objectif grayed" draggable="false" title="➖10 – Connaitre et justifier les situations dans lesquelles des parenthèses sont indispensables au sens des écritures." style="background:#ac2747; color:white;" data-code="➖10" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Connaitre et justifier les situations dans lesquelles des parenthèses sont indispensables au sens des écritures.">➖10 – Connaitre et justifier les situations dans lesquelles des parenthèses sont indispensables au sens des écritures.</div><div class="objectif grayed" draggable="false" title="➖11 – Simplifier l’écriture de sommes comportant des parenthèses." style="background:#ac2747; color:white;" data-code="➖11" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Simplifier l’écriture de sommes comportant des parenthèses.">➖11 – Simplifier l’écriture de sommes comportant des parenthèses.</div><div class="objectif grayed" draggable="false" title="➖12 – Enchainer additions et soustractions de décimaux relatifs." style="background:#ac2747; color:white;" data-code="➖12" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Enchainer additions et soustractions de décimaux relatifs.">➖12 – Enchainer additions et soustractions de décimaux relatifs.</div><div class="objectif grayed" draggable="false" title="➖13 – Résoudre des problèmes mobilisant addition et soustraction de nombres décimaux relatifs." style="background:#ac2747; color:white;" data-code="➖13" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➖ Nombres relatifs" data-objectif="Résoudre des problèmes mobilisant addition et soustraction de nombres décimaux relatifs.">➖13 – Résoudre des problèmes mobilisant addition et soustraction de nombres décimaux relatifs.</div></details><details style="margin-left:15px; background:#b03351;"><summary>➗ Nombres rationnels</summary><div class="objectif grayed" draggable="false" title="➗1 – Comparer des fractions." style="background:#b03351; color:white;" data-code="➗1" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➗ Nombres rationnels" data-objectif="Comparer des fractions.">➗1 – Comparer des fractions.</div><div class="objectif grayed" draggable="false" title="➗2 – Additionner et soustraire des fractions de dénominateurs quelconques." style="background:#b03351; color:white;" data-code="➗2" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➗ Nombres rationnels" data-objectif="Additionner et soustraire des fractions de dénominateurs quelconques.">➗2 – Additionner et soustraire des fractions de dénominateurs quelconques.</div><div class="objectif grayed" draggable="false" title="➗3 – Résoudre des problèmes avec des additions et soustractions de fractions." style="background:#b03351; color:white;" data-code="➗3" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="➗ Nombres rationnels" data-objectif="Résoudre des problèmes avec des additions et soustractions de fractions.">➗3 – Résoudre des problèmes avec des additions et soustractions de fractions.</div></details><details style="margin-left:15px; background:#b53f5b;"><summary>⬆️ Puissances</summary><div class="objectif grayed" draggable="false" title="⬆1 – Découvrir la notion de puissance d’un nombre et sa notation dans le cas du carré et du cube." style="background:#b53f5b; color:white;" data-code="⬆1" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="⬆️ Puissances" data-objectif="Découvrir la notion de puissance d’un nombre et sa notation dans le cas du carré et du cube.">⬆1 – Découvrir la notion de puissance d’un nombre et sa notation dans le cas du carré et du cube.</div><div class="objectif grayed" draggable="false" title="⬆2 – Connaitre les carrés des entiers de 0 à 12." style="background:#b53f5b; color:white;" data-code="⬆2" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="⬆️ Puissances" data-objectif="Connaitre les carrés des entiers de 0 à 12.">⬆2 – Connaitre les carrés des entiers de 0 à 12.</div><div class="objectif grayed" draggable="false" title="⬆3 – Connaitre le cube de 10." style="background:#b53f5b; color:white;" data-code="⬆3" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="⬆️ Puissances" data-objectif="Connaitre le cube de 10.">⬆3 – Connaitre le cube de 10.</div><div class="objectif grayed" draggable="false" title="⬆4 – Savoir écrire un nombre sous la forme d’une puissance 2 ou 3." style="background:#b53f5b; color:white;" data-code="⬆4" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="⬆️ Puissances" data-objectif="Savoir écrire un nombre sous la forme d’une puissance 2 ou 3.">⬆4 – Savoir écrire un nombre sous la forme d’une puissance 2 ou 3.</div><div class="objectif grayed" draggable="false" title="⬆5 – Calculer la valeur numérique d’expressions contenant des puissances simples, additions, soustractions et produits." style="background:#b53f5b; color:white;" data-code="⬆5" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="⬆️ Puissances" data-objectif="Calculer la valeur numérique d’expressions contenant des puissances simples, additions, soustractions et produits.">⬆5 – Calculer la valeur numérique d’expressions contenant des puissances simples, additions, soustractions et produits.</div><div class="objectif grayed" draggable="false" title="⬆6 – Calculer la valeur d’une expression littérale contenant une puissance simple." style="background:#b53f5b; color:white;" data-code="⬆6" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="⬆️ Puissances" data-objectif="Calculer la valeur d’une expression littérale contenant une puissance simple.">⬆6 – Calculer la valeur d’une expression littérale contenant une puissance simple.</div></details><details style="margin-left:15px; background:#ba4b66;"><summary>🔤 Calcul littéral et algébrique</summary><div class="objectif grayed" draggable="false" title="🔤1 – Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.)." style="background:#ba4b66; color:white;" data-code="🔤1" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.).">🔤1 – Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.).</div><div class="objectif grayed" draggable="false" title="🔤2 – Calculer la valeur d’une expression littérale par substitution." style="background:#ba4b66; color:white;" data-code="🔤2" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Calculer la valeur d’une expression littérale par substitution.">🔤2 – Calculer la valeur d’une expression littérale par substitution.</div><div class="objectif grayed" draggable="false" title="🔤3 – Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse." style="background:#ba4b66; color:white;" data-code="🔤3" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.">🔤3 – Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.</div><div class="objectif grayed" draggable="false" title="🔤4 – Déterminer si une expression littérale est une somme ou un produit." style="background:#ba4b66; color:white;" data-code="🔤4" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Déterminer si une expression littérale est une somme ou un produit.">🔤4 – Déterminer si une expression littérale est une somme ou un produit.</div><div class="objectif grayed" draggable="false" title="🔤5 – Exploiter les relations k(a + b) = ka + kb ou k(a – b) = ka – kb pour factoriser, ou développer une expression littérale." style="background:#ba4b66; color:white;" data-code="🔤5" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Exploiter les relations k(a + b) = ka + kb ou k(a – b) = ka – kb pour factoriser, ou développer une expression littérale.">🔤5 – Exploiter les relations k(a + b) = ka + kb ou k(a – b) = ka – kb pour factoriser, ou développer une expression littérale.</div><div class="objectif grayed" draggable="false" title="🔤6 – Réduire une expression littérale de la forme a𝑥 + b, où a et b sont des nombres décimaux." style="background:#ba4b66; color:white;" data-code="🔤6" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Réduire une expression littérale de la forme a𝑥 + b, où a et b sont des nombres décimaux.">🔤6 – Réduire une expression littérale de la forme a𝑥 + b, où a et b sont des nombres décimaux.</div><div class="objectif grayed" draggable="false" title="🔤7 – Démontrer une propriété générale par le calcul littéral." style="background:#ba4b66; color:white;" data-code="🔤7" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Démontrer une propriété générale par le calcul littéral.">🔤7 – Démontrer une propriété générale par le calcul littéral.</div><div class="objectif grayed" draggable="false" title="🔤8 – Utiliser un contre-exemple pour démontrer qu’une assertion est fausse." style="background:#ba4b66; color:white;" data-code="🔤8" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Utiliser un contre-exemple pour démontrer qu’une assertion est fausse.">🔤8 – Utiliser un contre-exemple pour démontrer qu’une assertion est fausse.</div><div class="objectif grayed" draggable="false" title="🔤9 – Formuler des conjectures en s’appuyant sur un langage algorithmique ou un tableur." style="background:#ba4b66; color:white;" data-code="🔤9" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Formuler des conjectures en s’appuyant sur un langage algorithmique ou un tableur.">🔤9 – Formuler des conjectures en s’appuyant sur un langage algorithmique ou un tableur.</div><div class="objectif grayed" draggable="false" title="🔤10 – Donner à la lettre le statut d’inconnue." style="background:#ba4b66; color:white;" data-code="🔤10" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Donner à la lettre le statut d’inconnue.">🔤10 – Donner à la lettre le statut d’inconnue.</div><div class="objectif grayed" draggable="false" title="🔤11 – Modéliser des problèmes relevant des opérations à trous par des équations du type a𝑥 = c ou 𝑥 + b = c." style="background:#ba4b66; color:white;" data-code="🔤11" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Modéliser des problèmes relevant des opérations à trous par des équations du type a𝑥 = c ou 𝑥 + b = c.">🔤11 – Modéliser des problèmes relevant des opérations à trous par des équations du type a𝑥 = c ou 𝑥 + b = c.</div><div class="objectif grayed" draggable="false" title="🔤12 – Résoudre des équations du type a𝑥 = c ou 𝑥 + b = c par des méthodes arithmétiques s'appuyant sur les opérations inverses." style="background:#ba4b66; color:white;" data-code="🔤12" data-theme="🔢➗ Nombres et Calcul" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Résoudre des équations du type a𝑥 = c ou 𝑥 + b = c par des méthodes arithmétiques s'appuyant sur les opérations inverses.">🔤12 – Résoudre des équations du type a𝑥 = c ou 𝑥 + b = c par des méthodes arithmétiques s'appuyant sur les opérations inverses.</div></details></details><details class="theme" style="margin-bottom:5px;"><summary class="theme-title" style="background-color:#0066cc;color:white;">🧊📐 Espace et Géométrie <span class="theme-counter" id="count--espace-et-geometrie">(0/29)</span></summary><details style="margin-left:15px; background:#0c6dce;"><summary>🧭 Repérage sur une droite et dans le plan</summary><div class="objectif grayed" draggable="false" title="🧭1 – Sur une droite graduée : lire l’abscisse d’un point donné" style="background:#0c6dce; color:white;" data-code="🧭1" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧭 Repérage sur une droite et dans le plan" data-objectif="Sur une droite graduée : lire l’abscisse d’un point donné">🧭1 – Sur une droite graduée : lire l’abscisse d’un point donné</div><div class="objectif grayed" draggable="false" title="🧭2 – Sur une droite graduée : placer un point d’abscisse donnée." style="background:#0c6dce; color:white;" data-code="🧭2" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧭 Repérage sur une droite et dans le plan" data-objectif="Sur une droite graduée : placer un point d’abscisse donnée.">🧭2 – Sur une droite graduée : placer un point d’abscisse donnée.</div><div class="objectif grayed" draggable="false" title="🧭3 – Dans le plan muni d’un repère orthogonal :  lire les coordonnées d’un point donné." style="background:#0c6dce; color:white;" data-code="🧭3" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧭 Repérage sur une droite et dans le plan" data-objectif="Dans le plan muni d’un repère orthogonal :  lire les coordonnées d’un point donné.">🧭3 – Dans le plan muni d’un repère orthogonal :  lire les coordonnées d’un point donné.</div><div class="objectif grayed" draggable="false" title="🧭4 – Dans le plan muni d’un repère orthogonal : placer un point de coordonnées données." style="background:#0c6dce; color:white;" data-code="🧭4" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧭 Repérage sur une droite et dans le plan" data-objectif="Dans le plan muni d’un repère orthogonal : placer un point de coordonnées données.">🧭4 – Dans le plan muni d’un repère orthogonal : placer un point de coordonnées données.</div></details><details style="margin-left:15px; background:#1975d1;"><summary>🧊 Représentation de l’espace</summary><div class="objectif grayed" draggable="false" title="🧊1 – Construire et mettre en relation différentes représentations en perspectives cavalières des solides suivants : pavé droit, cube, cylindre de révolution, prisme droit." style="background:#1975d1; color:white;" data-code="🧊1" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Construire et mettre en relation différentes représentations en perspectives cavalières des solides suivants : pavé droit, cube, cylindre de révolution, prisme droit.">🧊1 – Construire et mettre en relation différentes représentations en perspectives cavalières des solides suivants : pavé droit, cube, cylindre de révolution, prisme droit.</div><div class="objectif grayed" draggable="false" title="🧊2 – Savoir mettre en relation une représentation en perspective cavalière et un patron d’un pavé, d’un prisme droit ou d’un cylindre de révolution." style="background:#1975d1; color:white;" data-code="🧊2" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Savoir mettre en relation une représentation en perspective cavalière et un patron d’un pavé, d’un prisme droit ou d’un cylindre de révolution.">🧊2 – Savoir mettre en relation une représentation en perspective cavalière et un patron d’un pavé, d’un prisme droit ou d’un cylindre de révolution.</div><div class="objectif grayed" draggable="false" title="🧊3 – Calculer le volume du cube, du pavé droit, du prisme droit." style="background:#1975d1; color:white;" data-code="🧊3" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Calculer le volume du cube, du pavé droit, du prisme droit.">🧊3 – Calculer le volume du cube, du pavé droit, du prisme droit.</div><div class="objectif grayed" draggable="false" title="🧊4 – Connaitre et convertir des unités usuelles (volume et capacité)." style="background:#1975d1; color:white;" data-code="🧊4" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Connaitre et convertir des unités usuelles (volume et capacité).">🧊4 – Connaitre et convertir des unités usuelles (volume et capacité).</div><div class="objectif grayed" draggable="false" title="🧊5 – Calculer l’aire du disque, le volume du cylindre de révolution." style="background:#1975d1; color:white;" data-code="🧊5" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Calculer l’aire du disque, le volume du cylindre de révolution.">🧊5 – Calculer l’aire du disque, le volume du cylindre de révolution.</div></details><details style="margin-left:15px; background:#267cd3;"><summary>🔄️ Transformations</summary><div class="objectif grayed" draggable="false" title="🔄1 – Définir le demi-tour, ou symétrie centrale." style="background:#267cd3; color:white;" data-code="🔄1" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔄️ Transformations" data-objectif="Définir le demi-tour, ou symétrie centrale.">🔄1 – Définir le demi-tour, ou symétrie centrale.</div><div class="objectif grayed" draggable="false" title="🔄2 – Connaitre les propriétés du demi-tour." style="background:#267cd3; color:white;" data-code="🔄2" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔄️ Transformations" data-objectif="Connaitre les propriétés du demi-tour.">🔄2 – Connaitre les propriétés du demi-tour.</div></details><details style="margin-left:15px; background:#3384d6;"><summary>📐 Angles</summary><div class="objectif grayed" draggable="false" title="📐1 – Caractériser le parallélisme par les angles : angles alternes internes, angles correspondants." style="background:#3384d6; color:white;" data-code="📐1" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="📐 Angles" data-objectif="Caractériser le parallélisme par les angles : angles alternes internes, angles correspondants.">📐1 – Caractériser le parallélisme par les angles : angles alternes internes, angles correspondants.</div></details><details style="margin-left:15px; background:#3f8cd8;"><summary>🔺 Triangles</summary><div class="objectif grayed" draggable="false" title="🔺1 – Connaitre la somme des angles d’un triangle et savoir la démontrer." style="background:#3f8cd8; color:white;" data-code="🔺1" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Connaitre la somme des angles d’un triangle et savoir la démontrer.">🔺1 – Connaitre la somme des angles d’un triangle et savoir la démontrer.</div><div class="objectif grayed" draggable="false" title="🔺2 – Construire des triangles à partir de données partielles." style="background:#3f8cd8; color:white;" data-code="🔺2" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Construire des triangles à partir de données partielles.">🔺2 – Construire des triangles à partir de données partielles.</div><div class="objectif grayed" draggable="false" title="🔺3 – Connaitre les propriétés des médiatrices et du cercle circonscrit dans le cas de triangles particuliers." style="background:#3f8cd8; color:white;" data-code="🔺3" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Connaitre les propriétés des médiatrices et du cercle circonscrit dans le cas de triangles particuliers.">🔺3 – Connaitre les propriétés des médiatrices et du cercle circonscrit dans le cas de triangles particuliers.</div><div class="objectif grayed" draggable="false" title="🔺4 – Calculer l’aire d’un triangle." style="background:#3f8cd8; color:white;" data-code="🔺4" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Calculer l’aire d’un triangle.">🔺4 – Calculer l’aire d’un triangle.</div><div class="objectif grayed" draggable="false" title="🔺5 – Définir et tracer les hauteurs dans un triangle." style="background:#3f8cd8; color:white;" data-code="🔺5" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Définir et tracer les hauteurs dans un triangle.">🔺5 – Définir et tracer les hauteurs dans un triangle.</div><div class="objectif grayed" draggable="false" title="🔺6 – Savoir que les hauteurs d’un triangle sont concourantes." style="background:#3f8cd8; color:white;" data-code="🔺6" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Savoir que les hauteurs d’un triangle sont concourantes.">🔺6 – Savoir que les hauteurs d’un triangle sont concourantes.</div><div class="objectif grayed" draggable="false" title="🔺7 – Définir et tracer les médianes dans un triangle." style="background:#3f8cd8; color:white;" data-code="🔺7" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Définir et tracer les médianes dans un triangle.">🔺7 – Définir et tracer les médianes dans un triangle.</div><div class="objectif grayed" draggable="false" title="🔺8 – Démontrer qu’une médiane partage un triangle en deux triangles d’aires égales." style="background:#3f8cd8; color:white;" data-code="🔺8" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Démontrer qu’une médiane partage un triangle en deux triangles d’aires égales.">🔺8 – Démontrer qu’une médiane partage un triangle en deux triangles d’aires égales.</div><div class="objectif grayed" draggable="false" title="🔺9 – Utiliser ces propriétés dans le cas de triangles particuliers." style="background:#3f8cd8; color:white;" data-code="🔺9" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔺 Triangles" data-objectif="Utiliser ces propriétés dans le cas de triangles particuliers.">🔺9 – Utiliser ces propriétés dans le cas de triangles particuliers.</div></details><details style="margin-left:15px; background:#4c93db;"><summary>🔷 Parallélogrammes</summary><div class="objectif grayed" draggable="false" title="🔷1 – Définir le parallélogramme." style="background:#4c93db; color:white;" data-code="🔷1" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Définir le parallélogramme.">🔷1 – Définir le parallélogramme.</div><div class="objectif grayed" draggable="false" title="🔷2 – Construire des parallélogrammes." style="background:#4c93db; color:white;" data-code="🔷2" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Construire des parallélogrammes.">🔷2 – Construire des parallélogrammes.</div><div class="objectif grayed" draggable="false" title="🔷3 – Connaitre les propriétés caractéristiques des côtés opposés et des diagonales." style="background:#4c93db; color:white;" data-code="🔷3" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Connaitre les propriétés caractéristiques des côtés opposés et des diagonales.">🔷3 – Connaitre les propriétés caractéristiques des côtés opposés et des diagonales.</div><div class="objectif grayed" draggable="false" title="🔷4 – Utiliser une propriété caractéristique sur les diagonales ou les côtés pour les construire ou donner la nature du quadrilatère." style="background:#4c93db; color:white;" data-code="🔷4" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Utiliser une propriété caractéristique sur les diagonales ou les côtés pour les construire ou donner la nature du quadrilatère.">🔷4 – Utiliser une propriété caractéristique sur les diagonales ou les côtés pour les construire ou donner la nature du quadrilatère.</div><div class="objectif grayed" draggable="false" title="🔷5 – Définir les parallélogrammes particuliers (rectangle, losange, carré)." style="background:#4c93db; color:white;" data-code="🔷5" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Définir les parallélogrammes particuliers (rectangle, losange, carré).">🔷5 – Définir les parallélogrammes particuliers (rectangle, losange, carré).</div><div class="objectif grayed" draggable="false" title="🔷6 – Connaitre les propriétés caractéristiques." style="background:#4c93db; color:white;" data-code="🔷6" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Connaitre les propriétés caractéristiques.">🔷6 – Connaitre les propriétés caractéristiques.</div><div class="objectif grayed" draggable="false" title="🔷7 – Savoir calculer l’aire d’un parallélogramme et de figures complexes." style="background:#4c93db; color:white;" data-code="🔷7" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Savoir calculer l’aire d’un parallélogramme et de figures complexes.">🔷7 – Savoir calculer l’aire d’un parallélogramme et de figures complexes.</div><div class="objectif grayed" draggable="false" title="🔷8 – Résoudre des problèmes faisant appel à des conversions d’unités de longueur et d’unités d’aires." style="background:#4c93db; color:white;" data-code="🔷8" data-theme="🧊📐 Espace et Géométrie" data-sous-theme="🔷 Parallélogrammes" data-objectif="Résoudre des problèmes faisant appel à des conversions d’unités de longueur et d’unités d’aires.">🔷8 – Résoudre des problèmes faisant appel à des conversions d’unités de longueur et d’unités d’aires.</div></details></details><details class="theme" style="margin-bottom:5px;"><summary class="theme-title" style="background-color:#16a34a;color:white;">📊🎲 Organisation et gestion de données - probabilités <span class="theme-counter" id="count--organisation-et-gestion-de-donnees---probabilites">(0/10)</span></summary><details style="margin-left:15px; background:#21a753;"><summary>📊 Statistiques</summary><div class="objectif grayed" draggable="false" title="📊1 – Recueillir et organiser des données." style="background:#21a753; color:white;" data-code="📊1" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="📊 Statistiques" data-objectif="Recueillir et organiser des données.">📊1 – Recueillir et organiser des données.</div><div class="objectif grayed" draggable="false" title="📊2 – Calculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage)." style="background:#21a753; color:white;" data-code="📊2" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="📊 Statistiques" data-objectif="Calculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage).">📊2 – Calculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage).</div><div class="objectif grayed" draggable="false" title="📊3 – Lire et interpréter des informations présentées sous forme de tableaux, de diagrammes et de graphiques." style="background:#21a753; color:white;" data-code="📊3" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="📊 Statistiques" data-objectif="Lire et interpréter des informations présentées sous forme de tableaux, de diagrammes et de graphiques.">📊3 – Lire et interpréter des informations présentées sous forme de tableaux, de diagrammes et de graphiques.</div><div class="objectif grayed" draggable="false" title="📊4 – Représenter, sur papier ou à l’aide d’un tableur-grapheur, des données sous la forme d’un tableau, d’un diagramme (diagramme en barres, diagramme circulaire) ou d’un graphique cartésien." style="background:#21a753; color:white;" data-code="📊4" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="📊 Statistiques" data-objectif="Représenter, sur papier ou à l’aide d’un tableur-grapheur, des données sous la forme d’un tableau, d’un diagramme (diagramme en barres, diagramme circulaire) ou d’un graphique cartésien.">📊4 – Représenter, sur papier ou à l’aide d’un tableur-grapheur, des données sous la forme d’un tableau, d’un diagramme (diagramme en barres, diagramme circulaire) ou d’un graphique cartésien.</div><div class="objectif grayed" draggable="false" title="📊5 – Choisir une représentation adaptée à ce qu’il convient de mettre en avant." style="background:#21a753; color:white;" data-code="📊5" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="📊 Statistiques" data-objectif="Choisir une représentation adaptée à ce qu’il convient de mettre en avant.">📊5 – Choisir une représentation adaptée à ce qu’il convient de mettre en avant.</div><div class="objectif grayed" draggable="false" title="📊6 – Calculer et interpréter la moyenne simple d’une série de données." style="background:#21a753; color:white;" data-code="📊6" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="📊 Statistiques" data-objectif="Calculer et interpréter la moyenne simple d’une série de données.">📊6 – Calculer et interpréter la moyenne simple d’une série de données.</div></details><details style="margin-left:15px; background:#2dac5c;"><summary>🎲 Probabilités</summary><div class="objectif grayed" draggable="false" title="🎲1 – Aborder les questions relatives au hasard à partir de problèmes simples." style="background:#2dac5c; color:white;" data-code="🎲1" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="🎲 Probabilités" data-objectif="Aborder les questions relatives au hasard à partir de problèmes simples.">🎲1 – Aborder les questions relatives au hasard à partir de problèmes simples.</div><div class="objectif grayed" draggable="false" title="🎲2 – Utiliser le vocabulaire des probabilités dans des contextes concrets : expérience aléatoire, issue, évènement." style="background:#2dac5c; color:white;" data-code="🎲2" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="🎲 Probabilités" data-objectif="Utiliser le vocabulaire des probabilités dans des contextes concrets : expérience aléatoire, issue, évènement.">🎲2 – Utiliser le vocabulaire des probabilités dans des contextes concrets : expérience aléatoire, issue, évènement.</div><div class="objectif grayed" draggable="false" title="🎲3 – Attribuer des probabilités dans des cas simples (équiprobabilité)." style="background:#2dac5c; color:white;" data-code="🎲3" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="🎲 Probabilités" data-objectif="Attribuer des probabilités dans des cas simples (équiprobabilité).">🎲3 – Attribuer des probabilités dans des cas simples (équiprobabilité).</div><div class="objectif grayed" draggable="false" title="🎲4 – Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d’effectifs et de fréquences." style="background:#2dac5c; color:white;" data-code="🎲4" data-theme="📊🎲 Organisation et gestion de données - probabilités" data-sous-theme="🎲 Probabilités" data-objectif="Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d’effectifs et de fréquences.">🎲4 – Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d’effectifs et de fréquences.</div></details></details><details class="theme" style="margin-bottom:5px;"><summary class="theme-title" style="background-color:#7e22ce;color:white;">∝📈 Proportionnalité et Fonctions <span class="theme-counter" id="count--proportionnalite-et-fonctions">(0/15)</span></summary><details style="margin-left:15px; background:#842dd0;"><summary>∝ Proportionnalité</summary><div class="objectif grayed" draggable="false" title="∝1 – Utiliser des proportions, des pourcentages." style="background:#842dd0; color:white;" data-code="∝1" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="∝ Proportionnalité" data-objectif="Utiliser des proportions, des pourcentages.">∝1 – Utiliser des proportions, des pourcentages.</div><div class="objectif grayed" draggable="false" title="∝2 – Calculer, appliquer des proportions, des pourcentages." style="background:#842dd0; color:white;" data-code="∝2" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="∝ Proportionnalité" data-objectif="Calculer, appliquer des proportions, des pourcentages.">∝2 – Calculer, appliquer des proportions, des pourcentages.</div><div class="objectif grayed" draggable="false" title="∝3 – Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles)." style="background:#842dd0; color:white;" data-code="∝3" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="∝ Proportionnalité" data-objectif="Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).">∝3 – Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).</div><div class="objectif grayed" draggable="false" title="∝4 – Utiliser un coefficient de proportionnalité dans des contextes concrets (prix unitaire, vitesse moyenne, échelle, etc.)." style="background:#842dd0; color:white;" data-code="∝4" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="∝ Proportionnalité" data-objectif="Utiliser un coefficient de proportionnalité dans des contextes concrets (prix unitaire, vitesse moyenne, échelle, etc.).">∝4 – Utiliser un coefficient de proportionnalité dans des contextes concrets (prix unitaire, vitesse moyenne, échelle, etc.).</div><div class="objectif grayed" draggable="false" title="∝5 – Représenter une situation de proportionnalité par un tableau ou un graphique." style="background:#842dd0; color:white;" data-code="∝5" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="∝ Proportionnalité" data-objectif="Représenter une situation de proportionnalité par un tableau ou un graphique.">∝5 – Représenter une situation de proportionnalité par un tableau ou un graphique.</div><div class="objectif grayed" draggable="false" title="∝6 – Reconnaitre une situation de proportionnalité à partir d’un tableau ou d’un graphique." style="background:#842dd0; color:white;" data-code="∝6" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="∝ Proportionnalité" data-objectif="Reconnaitre une situation de proportionnalité à partir d’un tableau ou d’un graphique.">∝6 – Reconnaitre une situation de proportionnalité à partir d’un tableau ou d’un graphique.</div><div class="objectif grayed" draggable="false" title="∝7 – Reconnaitre graphiquement qu’un nuage de points est ou n’est pas associé à une situation de proportionnalité entre données discrètes." style="background:#842dd0; color:white;" data-code="∝7" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="∝ Proportionnalité" data-objectif="Reconnaitre graphiquement qu’un nuage de points est ou n’est pas associé à une situation de proportionnalité entre données discrètes.">∝7 – Reconnaitre graphiquement qu’un nuage de points est ou n’est pas associé à une situation de proportionnalité entre données discrètes.</div></details><details style="margin-left:15px; background:#8a38d2;"><summary>📈 Fonctions</summary><div class="objectif grayed" draggable="false" title="📈1 – Introduire l’expression : « en fonction de » dans des contextes concrets ou mathématiques." style="background:#8a38d2; color:white;" data-code="📈1" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Introduire l’expression : « en fonction de » dans des contextes concrets ou mathématiques.">📈1 – Introduire l’expression : « en fonction de » dans des contextes concrets ou mathématiques.</div><div class="objectif grayed" draggable="false" title="📈2 – Produire un tableau de valeurs." style="background:#8a38d2; color:white;" data-code="📈2" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Produire un tableau de valeurs.">📈2 – Produire un tableau de valeurs.</div><div class="objectif grayed" draggable="false" title="📈3 – Lire et interpréter un tableau de valeurs." style="background:#8a38d2; color:white;" data-code="📈3" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Lire et interpréter un tableau de valeurs.">📈3 – Lire et interpréter un tableau de valeurs.</div><div class="objectif grayed" draggable="false" title="📈4 – Placer dans un repère orthogonal donné des points correspondant à un tableau de valeurs." style="background:#8a38d2; color:white;" data-code="📈4" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Placer dans un repère orthogonal donné des points correspondant à un tableau de valeurs.">📈4 – Placer dans un repère orthogonal donné des points correspondant à un tableau de valeurs.</div><div class="objectif grayed" draggable="false" title="📈5 – Lire et interpréter un graphique cartésien donné par une courbe ou un nuage de points." style="background:#8a38d2; color:white;" data-code="📈5" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Lire et interpréter un graphique cartésien donné par une courbe ou un nuage de points.">📈5 – Lire et interpréter un graphique cartésien donné par une courbe ou un nuage de points.</div><div class="objectif grayed" draggable="false" title="📈6 – Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d’une formule." style="background:#8a38d2; color:white;" data-code="📈6" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d’une formule.">📈6 – Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d’une formule.</div><div class="objectif grayed" draggable="false" title="📈7 – Produire une formule simple représentant la dépendance de deux grandeurs." style="background:#8a38d2; color:white;" data-code="📈7" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Produire une formule simple représentant la dépendance de deux grandeurs.">📈7 – Produire une formule simple représentant la dépendance de deux grandeurs.</div><div class="objectif grayed" draggable="false" title="📈8 – Caractériser graphiquement la proportionnalité." style="background:#8a38d2; color:white;" data-code="📈8" data-theme="∝📈 Proportionnalité et Fonctions" data-sous-theme="📈 Fonctions" data-objectif="Caractériser graphiquement la proportionnalité.">📈8 – Caractériser graphiquement la proportionnalité.</div></details></details><details class="theme" style="margin-bottom:5px;"><summary class="theme-title" style="background-color:#db00a8;color:white;">🤖 La pensée informatique <span class="theme-counter" id="count--la-pensee-informatique">(0/7)</span></summary><details style="margin-left:15px; background:#dc0cac;"><summary>🐱 Algorithmique</summary><div class="objectif grayed" draggable="false" title="🐱1 – Manipuler des instructions simples et les séquencer." style="background:#dc0cac; color:white;" data-code="🐱1" data-theme="🤖 La pensée informatique" data-sous-theme="🐱 Algorithmique" data-objectif="Manipuler des instructions simples et les séquencer.">🐱1 – Manipuler des instructions simples et les séquencer.</div><div class="objectif grayed" draggable="false" title="🐱2 – Identifier les entrées et sorties d’un programme." style="background:#dc0cac; color:white;" data-code="🐱2" data-theme="🤖 La pensée informatique" data-sous-theme="🐱 Algorithmique" data-objectif="Identifier les entrées et sorties d’un programme.">🐱2 – Identifier les entrées et sorties d’un programme.</div><div class="objectif grayed" draggable="false" title="🐱3 – Représenter des formules sous la forme d’une expression informatique dans un langage de programmation par blocs." style="background:#dc0cac; color:white;" data-code="🐱3" data-theme="🤖 La pensée informatique" data-sous-theme="🐱 Algorithmique" data-objectif="Représenter des formules sous la forme d’une expression informatique dans un langage de programmation par blocs.">🐱3 – Représenter des formules sous la forme d’une expression informatique dans un langage de programmation par blocs.</div><div class="objectif grayed" draggable="false" title="🐱4 – Calculer la valeur de formules à l’aide d’une suite d’instructions dans un langage de programmation par blocs." style="background:#dc0cac; color:white;" data-code="🐱4" data-theme="🤖 La pensée informatique" data-sous-theme="🐱 Algorithmique" data-objectif="Calculer la valeur de formules à l’aide d’une suite d’instructions dans un langage de programmation par blocs.">🐱4 – Calculer la valeur de formules à l’aide d’une suite d’instructions dans un langage de programmation par blocs.</div><div class="objectif grayed" draggable="false" title="🐱5 – Prévoir la valeur d’une expression informatique avant son exécution." style="background:#dc0cac; color:white;" data-code="🐱5" data-theme="🤖 La pensée informatique" data-sous-theme="🐱 Algorithmique" data-objectif="Prévoir la valeur d’une expression informatique avant son exécution.">🐱5 – Prévoir la valeur d’une expression informatique avant son exécution.</div><div class="objectif grayed" draggable="false" title="🐱6 – Analyser un programme simple donné et modifier ses paramètres." style="background:#dc0cac; color:white;" data-code="🐱6" data-theme="🤖 La pensée informatique" data-sous-theme="🐱 Algorithmique" data-objectif="Analyser un programme simple donné et modifier ses paramètres.">🐱6 – Analyser un programme simple donné et modifier ses paramètres.</div><div class="objectif grayed" draggable="false" title="🐱7 – Effectuer une boucle inconditionnelle simple permettant de répéter une séquence linéaire d’instructions un nombre précis de fois." style="background:#dc0cac; color:white;" data-code="🐱7" data-theme="🤖 La pensée informatique" data-sous-theme="🐱 Algorithmique" data-objectif="Effectuer une boucle inconditionnelle simple permettant de répéter une séquence linéaire d’instructions un nombre précis de fois.">🐱7 – Effectuer une boucle inconditionnelle simple permettant de répéter une séquence linéaire d’instructions un nombre précis de fois.</div></details></details><details class="theme" style="margin-bottom:5px;"><summary class="theme-title" style="background-color:#fcca03;color:white;">🛠Automatismes <span class="theme-counter" id="count-automatismes">(47)</span></summary><details style="margin-left:15px; background:#a30f33;"><summary>✖️ Opérations</summary><div class="objectif objectif-auto" draggable="true" title="✖🅰1 – Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2." style="background:#a30f33; color:white;" data-code="✖🅰1" data-theme="🛠Automatismes" data-sous-theme="✖️ Opérations" data-objectif="Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2." data-automatisme="true"><span class="auto-counter">0</span>✖🅰1 – Mobiliser les critères de divisibilité par 2, 5 et 10 vus en CM1 et CM2.</div><div class="objectif objectif-auto" draggable="true" title="✖🅰2 – Déterminer le quotient et le reste dans une division euclidienne, par exemple, savoir que 17 = 3 × 5 + 2." style="background:#a30f33; color:white;" data-code="✖🅰2" data-theme="🛠Automatismes" data-sous-theme="✖️ Opérations" data-objectif="Déterminer le quotient et le reste dans une division euclidienne, par exemple, savoir que 17 = 3 × 5 + 2." data-automatisme="true"><span class="auto-counter">0</span>✖🅰2 – Déterminer le quotient et le reste dans une division euclidienne, par exemple, savoir que 17 = 3 × 5 + 2.</div><div class="objectif objectif-auto" draggable="true" title="✖🅰3 – Utiliser les tables de multiplication pour factoriser des nombres entiers décomposables en produit de deux nombres différents de 1, par exemple, 21 = 3 × 7." style="background:#a30f33; color:white;" data-code="✖🅰3" data-theme="🛠Automatismes" data-sous-theme="✖️ Opérations" data-objectif="Utiliser les tables de multiplication pour factoriser des nombres entiers décomposables en produit de deux nombres différents de 1, par exemple, 21 = 3 × 7." data-automatisme="true"><span class="auto-counter">0</span>✖🅰3 – Utiliser les tables de multiplication pour factoriser des nombres entiers décomposables en produit de deux nombres différents de 1, par exemple, 21 = 3 × 7.</div><div class="objectif objectif-auto" draggable="true" title="✖🅰4 – Savoir calculer des produits en lien avec les tables : 0,6 × 7 ; 40 × 0,03." style="background:#a30f33; color:white;" data-code="✖🅰4" data-theme="🛠Automatismes" data-sous-theme="✖️ Opérations" data-objectif="Savoir calculer des produits en lien avec les tables : 0,6 × 7 ; 40 × 0,03." data-automatisme="true"><span class="auto-counter">0</span>✖🅰4 – Savoir calculer des produits en lien avec les tables : 0,6 × 7 ; 40 × 0,03.</div><div class="objectif objectif-auto" draggable="true" title="✖🅰5 – Multiplier et diviser par 10, 100, 1 000." style="background:#a30f33; color:white;" data-code="✖🅰5" data-theme="🛠Automatismes" data-sous-theme="✖️ Opérations" data-objectif="Multiplier et diviser par 10, 100, 1 000." data-automatisme="true"><span class="auto-counter">0</span>✖🅰5 – Multiplier et diviser par 10, 100, 1 000.</div><div class="objectif objectif-auto" draggable="true" title="✖🅰6 – Additionner et soustraire des décimaux, par exemple, 2,7 + 1,4 ; 3,4 – 0,8" style="background:#a30f33; color:white;" data-code="✖🅰6" data-theme="🛠Automatismes" data-sous-theme="✖️ Opérations" data-objectif="Additionner et soustraire des décimaux, par exemple, 2,7 + 1,4 ; 3,4 – 0,8" data-automatisme="true"><span class="auto-counter">0</span>✖🅰6 – Additionner et soustraire des décimaux, par exemple, 2,7 + 1,4 ; 3,4 – 0,8</div></details><details style="margin-left:15px; background:#a30f33;"><summary>➖ Nombres relatifs</summary><div class="objectif objectif-auto" draggable="true" title="➖🅰7 – Additionner, soustraire, multiplier des nombres décimaux à une ou deux décimales." style="background:#a30f33; color:white;" data-code="➖🅰7" data-theme="🛠Automatismes" data-sous-theme="➖ Nombres relatifs" data-objectif="Additionner, soustraire, multiplier des nombres décimaux à une ou deux décimales." data-automatisme="true"><span class="auto-counter">0</span>➖🅰7 – Additionner, soustraire, multiplier des nombres décimaux à une ou deux décimales.</div><div class="objectif objectif-auto" draggable="true" title="➖🅰8 – Savoir que pour compléter une addition à trou, on utilise une soustraction : 2 + ... = 7 se complète en calculant 7 – 2." style="background:#a30f33; color:white;" data-code="➖🅰8" data-theme="🛠Automatismes" data-sous-theme="➖ Nombres relatifs" data-objectif="Savoir que pour compléter une addition à trou, on utilise une soustraction : 2 + ... = 7 se complète en calculant 7 – 2." data-automatisme="true"><span class="auto-counter">0</span>➖🅰8 – Savoir que pour compléter une addition à trou, on utilise une soustraction : 2 + ... = 7 se complète en calculant 7 – 2.</div></details><details style="margin-left:15px; background:#a30f33;"><summary>➗ Nombres rationnels</summary><div class="objectif objectif-auto" draggable="true" title="➗🅰9 – Entretenir la connaissance et l’utilisation des tables de multiplication" style="background:#a30f33; color:white;" data-code="➗🅰9" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Entretenir la connaissance et l’utilisation des tables de multiplication" data-automatisme="true"><span class="auto-counter">0</span>➗🅰9 – Entretenir la connaissance et l’utilisation des tables de multiplication</div><div class="objectif objectif-auto" draggable="true" title="➗🅰10 – Entretenir l’écriture décimale des fractions simples comme 1/2 ; 1/4 ; 3/4 ; 3/2 ; 4/2 ; 5/2 ; 1/10 ; 100/100 ; 7/1" style="background:#a30f33; color:white;" data-code="➗🅰10" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Entretenir l’écriture décimale des fractions simples comme 1/2 ; 1/4 ; 3/4 ; 3/2 ; 4/2 ; 5/2 ; 1/10 ; 100/100 ; 7/1" data-automatisme="true"><span class="auto-counter">0</span>➗🅰10 – Entretenir l’écriture décimale des fractions simples comme 1/2 ; 1/4 ; 3/4 ; 3/2 ; 4/2 ; 5/2 ; 1/10 ; 100/100 ; 7/1</div><div class="objectif objectif-auto" draggable="true" title="➗🅰11 – Faire vivre la notion de nombre quotient en complétant des multiplications à trou : 3 × … = 7 puis 3 × (7/3) = …" style="background:#a30f33; color:white;" data-code="➗🅰11" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Faire vivre la notion de nombre quotient en complétant des multiplications à trou : 3 × … = 7 puis 3 × (7/3) = …" data-automatisme="true"><span class="auto-counter">0</span>➗🅰11 – Faire vivre la notion de nombre quotient en complétant des multiplications à trou : 3 × … = 7 puis 3 × (7/3) = …</div><div class="objectif objectif-auto" draggable="true" title="➗🅰12 – Lire l’abscisse d’un point sur une droite graduée en tiers, en quarts, en moitiés, en dixièmes" style="background:#a30f33; color:white;" data-code="➗🅰12" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Lire l’abscisse d’un point sur une droite graduée en tiers, en quarts, en moitiés, en dixièmes" data-automatisme="true"><span class="auto-counter">0</span>➗🅰12 – Lire l’abscisse d’un point sur une droite graduée en tiers, en quarts, en moitiés, en dixièmes</div><div class="objectif objectif-auto" draggable="true" title="➗🅰13 – Reconnaitre des fractions égales : 2/3 = …/15 ; 4/7 = …/14" style="background:#a30f33; color:white;" data-code="➗🅰13" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Reconnaitre des fractions égales : 2/3 = …/15 ; 4/7 = …/14" data-automatisme="true"><span class="auto-counter">0</span>➗🅰13 – Reconnaitre des fractions égales : 2/3 = …/15 ; 4/7 = …/14</div><div class="objectif objectif-auto" draggable="true" title="➗🅰14 – Comparer deux fractions : 2/7 et 5/7 ; 8/12 et 8/21 ; 3/4 et 7/18 ; 8/3 et 6/7" style="background:#a30f33; color:white;" data-code="➗🅰14" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Comparer deux fractions : 2/7 et 5/7 ; 8/12 et 8/21 ; 3/4 et 7/18 ; 8/3 et 6/7" data-automatisme="true"><span class="auto-counter">0</span>➗🅰14 – Comparer deux fractions : 2/7 et 5/7 ; 8/12 et 8/21 ; 3/4 et 7/18 ; 8/3 et 6/7</div><div class="objectif objectif-auto" draggable="true" title="➗🅰15 – Écrire une fraction sous la forme d’une somme d’un nombre entier et d’une fraction inférieure à 1 : 17/5 = 3 + 2/5" style="background:#a30f33; color:white;" data-code="➗🅰15" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Écrire une fraction sous la forme d’une somme d’un nombre entier et d’une fraction inférieure à 1 : 17/5 = 3 + 2/5" data-automatisme="true"><span class="auto-counter">0</span>➗🅰15 – Écrire une fraction sous la forme d’une somme d’un nombre entier et d’une fraction inférieure à 1 : 17/5 = 3 + 2/5</div><div class="objectif objectif-auto" draggable="true" title="➗🅰16 – Addition et soustraction de fractions simples : 3/5 + 4/5 ; 1 - 2/3 ; 4/7 - 2/21 ; 3 + 2/5 ; 2/5 + 1/4" style="background:#a30f33; color:white;" data-code="➗🅰16" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Addition et soustraction de fractions simples : 3/5 + 4/5 ; 1 - 2/3 ; 4/7 - 2/21 ; 3 + 2/5 ; 2/5 + 1/4" data-automatisme="true"><span class="auto-counter">0</span>➗🅰16 – Addition et soustraction de fractions simples : 3/5 + 4/5 ; 1 - 2/3 ; 4/7 - 2/21 ; 3 + 2/5 ; 2/5 + 1/4</div><div class="objectif objectif-auto" draggable="true" title="➗🅰17 – Prendre une fraction simple d’un nombre : le 1/3 de 18 ; le 1/4 de 12" style="background:#a30f33; color:white;" data-code="➗🅰17" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Prendre une fraction simple d’un nombre : le 1/3 de 18 ; le 1/4 de 12" data-automatisme="true"><span class="auto-counter">0</span>➗🅰17 – Prendre une fraction simple d’un nombre : le 1/3 de 18 ; le 1/4 de 12</div><div class="objectif objectif-auto" draggable="true" title="➗🅰18 – Prendre 1 %, 10 % ou 50 % d’un nombre, en lien avec la proportionnalité" style="background:#a30f33; color:white;" data-code="➗🅰18" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Prendre 1 %, 10 % ou 50 % d’un nombre, en lien avec la proportionnalité" data-automatisme="true"><span class="auto-counter">0</span>➗🅰18 – Prendre 1 %, 10 % ou 50 % d’un nombre, en lien avec la proportionnalité</div><div class="objectif objectif-auto" draggable="true" title="➗🅰19 – Écrire un même nombre sous de multiples formes, par exemple dire que 1,2 = 12/10 = 6/5 = 1 + 1/5 = 120 % = 120/100" style="background:#a30f33; color:white;" data-code="➗🅰19" data-theme="🛠Automatismes" data-sous-theme="➗ Nombres rationnels" data-objectif="Écrire un même nombre sous de multiples formes, par exemple dire que 1,2 = 12/10 = 6/5 = 1 + 1/5 = 120 % = 120/100" data-automatisme="true"><span class="auto-counter">0</span>➗🅰19 – Écrire un même nombre sous de multiples formes, par exemple dire que 1,2 = 12/10 = 6/5 = 1 + 1/5 = 120 % = 120/100</div></details><details style="margin-left:15px; background:#a30f33;"><summary>⬆️ Puissances</summary><div class="objectif objectif-auto" draggable="true" title="⬆🅰20 – Entretenir les tables de multiplications." style="background:#a30f33; color:white;" data-code="⬆🅰20" data-theme="🛠Automatismes" data-sous-theme="⬆️ Puissances" data-objectif="Entretenir les tables de multiplications." data-automatisme="true"><span class="auto-counter">0</span>⬆🅰20 – Entretenir les tables de multiplications.</div><div class="objectif objectif-auto" draggable="true" title="⬆🅰21 – Connaitre les unités d’aires et de volume" style="background:#a30f33; color:white;" data-code="⬆🅰21" data-theme="🛠Automatismes" data-sous-theme="⬆️ Puissances" data-objectif="Connaitre les unités d’aires et de volume" data-automatisme="true"><span class="auto-counter">0</span>⬆🅰21 – Connaitre les unités d’aires et de volume</div></details><details style="margin-left:15px; background:#a30f33;"><summary>🔤 Calcul littéral et algébrique</summary><div class="objectif objectif-auto" draggable="true" title="🔤🅰22 – Identifier des régularités et poursuivre une suite de motifs évolutive." style="background:#a30f33; color:white;" data-code="🔤🅰22" data-theme="🛠Automatismes" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Identifier des régularités et poursuivre une suite de motifs évolutive." data-automatisme="true"><span class="auto-counter">0</span>🔤🅰22 – Identifier des régularités et poursuivre une suite de motifs évolutive.</div><div class="objectif objectif-auto" draggable="true" title="🔤🅰23 – Trouver le nombre d’éléments pour une étape donnée dans une suite de motifs évolutive." style="background:#a30f33; color:white;" data-code="🔤🅰23" data-theme="🛠Automatismes" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Trouver le nombre d’éléments pour une étape donnée dans une suite de motifs évolutive." data-automatisme="true"><span class="auto-counter">0</span>🔤🅰23 – Trouver le nombre d’éléments pour une étape donnée dans une suite de motifs évolutive.</div><div class="objectif objectif-auto" draggable="true" title="🔤🅰24 – Identifier la structure d’un motif évolutif en repérant une régularité." style="background:#a30f33; color:white;" data-code="🔤🅰24" data-theme="🛠Automatismes" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Identifier la structure d’un motif évolutif en repérant une régularité." data-automatisme="true"><span class="auto-counter">0</span>🔤🅰24 – Identifier la structure d’un motif évolutif en repérant une régularité.</div><div class="objectif objectif-auto" draggable="true" title="🔤🅰25 – Nombre quotient." style="background:#a30f33; color:white;" data-code="🔤🅰25" data-theme="🛠Automatismes" data-sous-theme="🔤 Calcul littéral et algébrique" data-objectif="Nombre quotient." data-automatisme="true"><span class="auto-counter">0</span>🔤🅰25 – Nombre quotient.</div></details><details style="margin-left:15px; background:#0066cc;"><summary>🧭 Repérage sur une droite et dans le plan</summary><div class="objectif objectif-auto" draggable="true" title="🧭🅰26 – Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal." style="background:#0066cc; color:white;" data-code="🧭🅰26" data-theme="🛠Automatismes" data-sous-theme="🧭 Repérage sur une droite et dans le plan" data-objectif="Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal." data-automatisme="true"><span class="auto-counter">0</span>🧭🅰26 – Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal.</div><div class="objectif objectif-auto" draggable="true" title="🧭🅰27 – Repérer un nombre décimal sur une demi-droite graduée." style="background:#0066cc; color:white;" data-code="🧭🅰27" data-theme="🛠Automatismes" data-sous-theme="🧭 Repérage sur une droite et dans le plan" data-objectif="Repérer un nombre décimal sur une demi-droite graduée." data-automatisme="true"><span class="auto-counter">0</span>🧭🅰27 – Repérer un nombre décimal sur une demi-droite graduée.</div></details><details style="margin-left:15px; background:#0066cc;"><summary>🧊 Représentation de l’espace</summary><div class="objectif objectif-auto" draggable="true" title="🧭🅰28 – Reconnaitre des vues (de dessus, dessous…) d’empilements de cubes." style="background:#0066cc; color:white;" data-code="🧭🅰28" data-theme="🛠Automatismes" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Reconnaitre des vues (de dessus, dessous…) d’empilements de cubes." data-automatisme="true"><span class="auto-counter">0</span>🧭🅰28 – Reconnaitre des vues (de dessus, dessous…) d’empilements de cubes.</div><div class="objectif objectif-auto" draggable="true" title="🧭🅰29 – Dénombrer des cubes dans des empilements." style="background:#0066cc; color:white;" data-code="🧭🅰29" data-theme="🛠Automatismes" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Dénombrer des cubes dans des empilements." data-automatisme="true"><span class="auto-counter">0</span>🧭🅰29 – Dénombrer des cubes dans des empilements.</div><div class="objectif objectif-auto" draggable="true" title="🧭🅰30 – Reconnaitre un cube, un pavé représenté en perspective cavalière." style="background:#0066cc; color:white;" data-code="🧭🅰30" data-theme="🛠Automatismes" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Reconnaitre un cube, un pavé représenté en perspective cavalière." data-automatisme="true"><span class="auto-counter">0</span>🧭🅰30 – Reconnaitre un cube, un pavé représenté en perspective cavalière.</div><div class="objectif objectif-auto" draggable="true" title="🧭🅰31 – Reconnaitre un patron d’un cube." style="background:#0066cc; color:white;" data-code="🧭🅰31" data-theme="🛠Automatismes" data-sous-theme="🧊 Représentation de l’espace" data-objectif="Reconnaitre un patron d’un cube." data-automatisme="true"><span class="auto-counter">0</span>🧭🅰31 – Reconnaitre un patron d’un cube.</div></details><details style="margin-left:15px; background:#0066cc;"><summary>🔄️ Transformations</summary><div class="objectif objectif-auto" draggable="true" title="🔄🅰32 – Reconnaitre et construire le symétrique d’une figure par symétrie axiale, dont l’axe est vertical, horizontal, ou en diagonale sur quadrillage." style="background:#0066cc; color:white;" data-code="🔄🅰32" data-theme="🛠Automatismes" data-sous-theme="🔄️ Transformations" data-objectif="Reconnaitre et construire le symétrique d’une figure par symétrie axiale, dont l’axe est vertical, horizontal, ou en diagonale sur quadrillage." data-automatisme="true"><span class="auto-counter">0</span>🔄🅰32 – Reconnaitre et construire le symétrique d’une figure par symétrie axiale, dont l’axe est vertical, horizontal, ou en diagonale sur quadrillage.</div><div class="objectif objectif-auto" draggable="true" title="🔄🅰33 – Construire le symétrique, par rapport à un axe, d’un point, d’une figure, sur feuille blanche." style="background:#0066cc; color:white;" data-code="🔄🅰33" data-theme="🛠Automatismes" data-sous-theme="🔄️ Transformations" data-objectif="Construire le symétrique, par rapport à un axe, d’un point, d’une figure, sur feuille blanche." data-automatisme="true"><span class="auto-counter">0</span>🔄🅰33 – Construire le symétrique, par rapport à un axe, d’un point, d’une figure, sur feuille blanche.</div></details><details style="margin-left:15px; background:#0066cc;"><summary>📐 Angles</summary><div class="objectif objectif-auto" draggable="true" title="📐🅰34 – Reconnaitre et citer sur une configuration géométrique des angles : angle plein, plat, nul, droit ; angles opposés par le sommet, adjacents, supplémentaires, aigus, obtus." style="background:#0066cc; color:white;" data-code="📐🅰34" data-theme="🛠Automatismes" data-sous-theme="📐 Angles" data-objectif="Reconnaitre et citer sur une configuration géométrique des angles : angle plein, plat, nul, droit ; angles opposés par le sommet, adjacents, supplémentaires, aigus, obtus." data-automatisme="true"><span class="auto-counter">0</span>📐🅰34 – Reconnaitre et citer sur une configuration géométrique des angles : angle plein, plat, nul, droit ; angles opposés par le sommet, adjacents, supplémentaires, aigus, obtus.</div><div class="objectif objectif-auto" draggable="true" title="📐🅰35 – Savoir qu’un angle droit mesure 90°, qu’un angle plat mesure 180°." style="background:#0066cc; color:white;" data-code="📐🅰35" data-theme="🛠Automatismes" data-sous-theme="📐 Angles" data-objectif="Savoir qu’un angle droit mesure 90°, qu’un angle plat mesure 180°." data-automatisme="true"><span class="auto-counter">0</span>📐🅰35 – Savoir qu’un angle droit mesure 90°, qu’un angle plat mesure 180°.</div><div class="objectif objectif-auto" draggable="true" title="📐🅰36 – Reconnaitre une bissectrice." style="background:#0066cc; color:white;" data-code="📐🅰36" data-theme="🛠Automatismes" data-sous-theme="📐 Angles" data-objectif="Reconnaitre une bissectrice." data-automatisme="true"><span class="auto-counter">0</span>📐🅰36 – Reconnaitre une bissectrice.</div><div class="objectif objectif-auto" draggable="true" title="📐🅰37 – Connaitre les mesures des angles de l’équerre dont dispose l’élève (30° 60° 90° ou 45° 45° 90°)." style="background:#0066cc; color:white;" data-code="📐🅰37" data-theme="🛠Automatismes" data-sous-theme="📐 Angles" data-objectif="Connaitre les mesures des angles de l’équerre dont dispose l’élève (30° 60° 90° ou 45° 45° 90°)." data-automatisme="true"><span class="auto-counter">0</span>📐🅰37 – Connaitre les mesures des angles de l’équerre dont dispose l’élève (30° 60° 90° ou 45° 45° 90°).</div></details><details style="margin-left:15px; background:#0066cc;"><summary>🔺 Triangles</summary><div class="objectif objectif-auto" draggable="true" title="🔺🅰38 – Reconnaitre un triangle isocèle, équilatéral ou rectangle à partir d’un schéma codé." style="background:#0066cc; color:white;" data-code="🔺🅰38" data-theme="🛠Automatismes" data-sous-theme="🔺 Triangles" data-objectif="Reconnaitre un triangle isocèle, équilatéral ou rectangle à partir d’un schéma codé." data-automatisme="true"><span class="auto-counter">0</span>🔺🅰38 – Reconnaitre un triangle isocèle, équilatéral ou rectangle à partir d’un schéma codé.</div><div class="objectif objectif-auto" draggable="true" title="🔺🅰39 – Connaitre la somme des angles d’un triangle, calculer le 3e angle d’un triangle connaissant les mesures des deux autres." style="background:#0066cc; color:white;" data-code="🔺🅰39" data-theme="🛠Automatismes" data-sous-theme="🔺 Triangles" data-objectif="Connaitre la somme des angles d’un triangle, calculer le 3e angle d’un triangle connaissant les mesures des deux autres." data-automatisme="true"><span class="auto-counter">0</span>🔺🅰39 – Connaitre la somme des angles d’un triangle, calculer le 3e angle d’un triangle connaissant les mesures des deux autres.</div><div class="objectif objectif-auto" draggable="true" title="🔺🅰40 – Connaitre la notion de médiatrice, de cercle circonscrit." style="background:#0066cc; color:white;" data-code="🔺🅰40" data-theme="🛠Automatismes" data-sous-theme="🔺 Triangles" data-objectif="Connaitre la notion de médiatrice, de cercle circonscrit." data-automatisme="true"><span class="auto-counter">0</span>🔺🅰40 – Connaitre la notion de médiatrice, de cercle circonscrit.</div></details><details style="margin-left:15px; background:#0066cc;"><summary>🔷 Parallélogrammes</summary><div class="objectif objectif-auto" draggable="true" title="🔷🅰41 – Reconnaitre en justifiant un quadrilatère, un parallélogramme, un rectangle, un losange, un carré, un trapèze, un pentagone, un hexagone dans des figures complexes." style="background:#0066cc; color:white;" data-code="🔷🅰41" data-theme="🛠Automatismes" data-sous-theme="🔷 Parallélogrammes" data-objectif="Reconnaitre en justifiant un quadrilatère, un parallélogramme, un rectangle, un losange, un carré, un trapèze, un pentagone, un hexagone dans des figures complexes." data-automatisme="true"><span class="auto-counter">0</span>🔷🅰41 – Reconnaitre en justifiant un quadrilatère, un parallélogramme, un rectangle, un losange, un carré, un trapèze, un pentagone, un hexagone dans des figures complexes.</div><div class="objectif objectif-auto" draggable="true" title="🔷🅰42 – Exploiter le codage d’une figure pour identifier des parallélogrammes particuliers." style="background:#0066cc; color:white;" data-code="🔷🅰42" data-theme="🛠Automatismes" data-sous-theme="🔷 Parallélogrammes" data-objectif="Exploiter le codage d’une figure pour identifier des parallélogrammes particuliers." data-automatisme="true"><span class="auto-counter">0</span>🔷🅰42 – Exploiter le codage d’une figure pour identifier des parallélogrammes particuliers.</div></details><details style="margin-left:15px; background:#16a34a;"><summary>🎲 Probabilités</summary><div class="objectif objectif-auto" draggable="true" title="🎲🅰43 – Positionner sur une échelle de probabilité les évènements du type :
+Évènement impossible.
+Évènement certain.
+Obtenir pile en lançant une pièce équilibrée.
+Obtenir une valeur donnée en lançant un dé équilibré.
+Obtenir une couleur d’une boule lors du tirage dans une urne.
+Ne pas obtenir la bonne combinaison au loto ;
+Obtenir 10 fois de suite la valeur 1 en lançant un dé à six faces." style="background:#16a34a; color:white;" data-code="🎲🅰43" data-theme="🛠Automatismes" data-sous-theme="🎲 Probabilités" data-objectif="Positionner sur une échelle de probabilité les évènements du type :
+Évènement impossible.
+Évènement certain.
+Obtenir pile en lançant une pièce équilibrée.
+Obtenir une valeur donnée en lançant un dé équilibré.
+Obtenir une couleur d’une boule lors du tirage dans une urne.
+Ne pas obtenir la bonne combinaison au loto ;
+Obtenir 10 fois de suite la valeur 1 en lançant un dé à six faces." data-automatisme="true"><span class="auto-counter">0</span>🎲🅰43 – Positionner sur une échelle de probabilité les évènements du type :
+Évènement impossible.
+Évènement certain.
+Obtenir pile en lançant une pièce équilibrée.
+Obtenir une valeur donnée en lançant un dé équilibré.
+Obtenir une couleur d’une boule lors du tirage dans une urne.
+Ne pas obtenir la bonne combinaison au loto ;
+Obtenir 10 fois de suite la valeur 1 en lançant un dé à six faces.</div><div class="objectif objectif-auto" draggable="true" title="🎲🅰44 – Donner la probabilité sous diverses formes (fraction, décimale, pourcentage) pour les cinq premiers évènements ci-dessus." style="background:#16a34a; color:white;" data-code="🎲🅰44" data-theme="🛠Automatismes" data-sous-theme="🎲 Probabilités" data-objectif="Donner la probabilité sous diverses formes (fraction, décimale, pourcentage) pour les cinq premiers évènements ci-dessus." data-automatisme="true"><span class="auto-counter">0</span>🎲🅰44 – Donner la probabilité sous diverses formes (fraction, décimale, pourcentage) pour les cinq premiers évènements ci-dessus.</div><div class="objectif objectif-auto" draggable="true" title="🎲🅰45 – Lier l’expression « une chance sur quatre » (par exemple) et la probabilité 1/4." style="background:#16a34a; color:white;" data-code="🎲🅰45" data-theme="🛠Automatismes" data-sous-theme="🎲 Probabilités" data-objectif="Lier l’expression « une chance sur quatre » (par exemple) et la probabilité 1/4." data-automatisme="true"><span class="auto-counter">0</span>🎲🅰45 – Lier l’expression « une chance sur quatre » (par exemple) et la probabilité 1/4.</div></details><details style="margin-left:15px; background:#7e22ce;"><summary>∝ Proportionnalité</summary><div class="objectif objectif-auto" draggable="true" title="∝🅰46 – Reconnaitre si une situation donnée entre dans le cadre de la proportionnalité ou non." style="background:#7e22ce; color:white;" data-code="∝🅰46" data-theme="🛠Automatismes" data-sous-theme="∝ Proportionnalité" data-objectif="Reconnaitre si une situation donnée entre dans le cadre de la proportionnalité ou non." data-automatisme="true"><span class="auto-counter">0</span>∝🅰46 – Reconnaitre si une situation donnée entre dans le cadre de la proportionnalité ou non.</div><div class="objectif objectif-auto" draggable="true" title="∝🅰47 – Mobiliser une procédure adaptée (propriété de linéarité pour la multiplication ou l’addition, retour à l’unité) pour résoudre un problème lié à la proportionnalité dans des situations simples." style="background:#7e22ce; color:white;" data-code="∝🅰47" data-theme="🛠Automatismes" data-sous-theme="∝ Proportionnalité" data-objectif="Mobiliser une procédure adaptée (propriété de linéarité pour la multiplication ou l’addition, retour à l’unité) pour résoudre un problème lié à la proportionnalité dans des situations simples." data-automatisme="true"><span class="auto-counter">0</span>∝🅰47 – Mobiliser une procédure adaptée (propriété de linéarité pour la multiplication ou l’addition, retour à l’unité) pour résoudre un problème lié à la proportionnalité dans des situations simples.</div></details></details>
+  <div style="margin-top:auto; text-align:left; font-size:0.8em; color:#aaa; padding-top:10px;">
+    Auteur : Vincent Pantaloni, IA-IPR.<br>
+    Mode d'emploi et exemples sur
+    <a href="https://codimd.apps.education.fr/s/lo4myTCVy">cette page</a>
+  </div>
+</div>
+
+  <div id="resizer"></div>
+  
+<div id="rightPanel">
+  <div style="background-color:#ffffff; padding:0; margin:0;">
+    <div style="display:flex; align-items:center;">
+      <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyNS4yLjEsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FscXVlXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgMTQ1LjggOTIuNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTQ1LjggOTIuNDsiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4NCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9DQoJLnN0MXtmaWxsOiMyNzMzNzU7fQ0KCS5zdDJ7ZmlsbDojRTMwNjEzO30NCgkuc3Qze2ZpbGw6IzlEOUQ5Qzt9DQo8L3N0eWxlPg0KPHJlY3QgY2xhc3M9InN0MCIgd2lkdGg9IjE0NS44IiBoZWlnaHQ9IjkyLjQiLz4NCjxyZWN0IHg9IjEyIiB5PSIxMiIgY2xhc3M9InN0MCIgd2lkdGg9IjMzLjEiIGhlaWdodD0iMTIiLz4NCjxwYXRoIGNsYXNzPSJzdDEiIGQ9Ik0yNS43LDIyLjdjMC4xLTAuMSwwLjMtMC4zLDAuNC0wLjRjMC4yLTAuMywwLjUtMC41LDAuOC0wLjhjMC4xLTAuMSwwLjItMC4xLDAuMi0wLjJjMCwwLDAtMC4xLDAtMC4xDQoJYy0wLjEsMC0wLjIsMC4xLTAuMywwLjJjMCwwLDAsMCwwLDBsMC4yLTAuMmgwYzAsMCwwLDAsMCwwYy0wLjMsMC0wLjUsMC4yLTAuNywwLjNjMCwwLTAuMSwwLTAuMSwwYy0wLjMsMC4xLTAuNiwwLjQtMC45LDAuNXYwDQoJYy0wLjEsMC0wLjMsMC4xLTAuNCwwLjJjLTAuMiwwLTAuNCwwLTAuNiwwYy0wLjMsMC0wLjYsMC4xLTAuOCwwLjFoMGMtMC4xLDAtMC4zLDAuMS0wLjQsMC4ybDAsMGwwLDBjMCwwLjEtMC4xLDAuMS0wLjIsMC4xDQoJYy0wLjEsMC4xLTAuMywwLjItMC40LDAuM2MwLDAsMCwwLDAsMGMtMC4xLDAuMS0wLjIsMC4yLTAuNCwwLjNjMCwwLDAsMC0wLjEsMGwwLDBsMC4xLTAuMWMwLDAsMC0wLjEsMC4xLTAuMWMwLDAsMC4xLTAuMSwwLjEtMC4xDQoJYzAsMCwwLDAsMCwwYzAsMCwwLDAsMCwwYzAuMS0wLjEsMC4yLTAuMiwwLjQtMC4zYzAsMCwwLDAsMCwwYzAsMCwwLDAsMC0wLjFjMCwwLDAsMCwwLDBsMCwwYzAsMC0wLjEsMC0wLjEsMC4xDQoJYy0wLjEsMC0wLjEsMC4xLTAuMiwwLjFjMCwwLDAsMCwwLDBjMCwwLDAsMCwwLDB2MGwwLDBjMCwwLDAsMCwwLDBsMCwwYzAsMCwwLDAsMCwwbDAsMGwwLTAuMWwwLDBjMCwwLDAsMCwwLDBjMCwwLDAsMCwwLDANCgljMCwwLDAsMCwwLDBjMC0wLjEsMC4xLTAuMSwwLjItMC4xaDBjMC4xLDAsMC4yLTAuMSwwLjMtMC4xbDAsMGMtMC4xLDAtMC4yLDAuMS0wLjQsMC4yYzAsMCwwLDAsMCwwYzAsMCwwLDAtMC4xLDB2MA0KCWMwLDAsMC4xLTAuMSwwLjEtMC4xYzAsMCwwLDAsMCwwYzAuNy0wLjYsMS43LTAuNCwyLjYtMC43bDAuMi0wLjFjMC4xLDAsMC4yLTAuMiwwLjMtMC4yYzAuMi0wLjEsMC4zLTAuMywwLjQtMC41YzAsMCwwLDAsMCwwDQoJYy0wLjMsMC4zLTAuNiwwLjYtMSwwLjdjLTAuNSwwLjItMSwwLjItMS41LDAuM2MwLDAsMC4xLDAsMC4xLDBjMC0wLjEsMC0wLjEsMC4xLTAuMWgwLjFjMCwwLDAsMCwwLDBjMCwwLDAuMSwwLDAuMSwwDQoJYy0wLjEtMC4xLTAuMiwwLjEtMC4zLDBjMCwwLDAtMC4xLDAuMS0wLjFoMC4xYzAsMCwwLTAuMSwwLTAuMWMwLjMtMC4yLDAuNy0wLjQsMS0wLjVjLTAuMSwwLTAuMSwwLjEtMC4yLDBjMCwwLDAtMC4xLDAtMC4xDQoJYzAuMi0wLjEsMC41LTAuMiwwLjctMC4zYy0wLjEsMC0wLjIsMC4xLTAuMiwwYzAsMCwwLjEtMC4xLDAuMS0wLjFWMjBjMCwwLDAsMCwwLDBjMCwwLDAsMCwwLDBjMCwwLDAuMSwwLDAuMS0wLjFjMCwwLTAuMSwwLTAuMSwwDQoJYzAuMS0wLjEsMC4yLTAuMSwwLjMtMC4xYzAsMC0wLjEsMC0wLjEsMGMwLDAsMCwwLDAsMGgwYzAsMCwwLTAuMSwwLTAuMWMwLjEtMC4yLDAuMS0wLjQsMC4yLTAuNWMwLDAsMCwwLDAsMA0KCWMtMC4yLDAuMi0wLjYsMC4zLTAuOSwwLjRoLTAuMWMtMC4xLDAtMC4zLDAtMC40LDBjLTAuMS0wLjEtMC4yLTAuMS0wLjItMC4yYy0wLjItMC4xLTAuNC0wLjItMC42LTAuM2MtMC42LTAuMi0xLjItMC4zLTEuOC0wLjINCgljMC4yLTAuMSwwLjUtMC4xLDAuOC0wLjJjMC40LTAuMSwwLjgtMC4zLDEuMi0wLjJjLTAuMSwwLTAuMiwwLTAuMiwwYy0wLjMsMC0wLjYsMC4xLTEsMC4xYy0wLjIsMC0wLjQsMC4xLTAuNywwLjINCgljLTAuMSwwLTAuMiwwLjItMC40LDAuMnYtMC4xYzAuMi0wLjMsMC41LTAuNSwwLjktMC42YzAuNC0wLjEsMC44LDAsMS4yLDBjMC4zLDAsMC42LDAuMSwwLjksMC4yYzAuMSwwLDAuMSwwLjIsMC4yLDAuMg0KCWMwLjEsMCwwLjMsMCwwLjQsMC4xYzAsMCwwLTAuMSwwLTAuMWMwLjEtMC4xLDAuMiwwLDAuMywwYzAuMi0wLjEtMC4yLTAuMy0wLjMtMC41YzAsMCwwLDAsMCwwYzAuMiwwLjIsMC4zLDAuMywwLjUsMC41DQoJYzAuMSwwLDAuNCwwLjEsMC4zLDBjLTAuMS0wLjItMC4zLTAuNS0wLjUtMC43di0wLjFjMCwwLDAsMC0wLjEsMHYtMC4xYy0wLjEsMC0wLjEtMC4xLTAuMS0wLjJjLTAuMS0wLjEsMC0wLjMtMC4xLTAuNA0KCWMwLTAuMS0wLjEtMC4zLTAuMS0wLjRjLTAuMS0wLjQtMC4yLTAuNy0wLjItMS4xYzAtMC40LDAuMy0wLjgsMC41LTEuMmMwLjEtMC4zLDAuNC0wLjUsMC42LTAuN2MwLjEtMC4zLDAuMi0wLjUsMC40LTAuNw0KCWMwLjItMC4yLDAuNC0wLjQsMC43LTAuNWMwLjItMC4xLDAuNC0wLjIsMC42LTAuMkgxMnYxMmgxMS4xYzAuNC0wLjMsMC45LTAuNSwxLjUtMC44QzI0LjgsMjMuMiwyNS41LDIyLjksMjUuNywyMi43TDI1LjcsMjIuN3oNCgkgTTIyLjIsMjFjMCwwLTAuMSwwLTAuMSwwYzAtMC4xLDAuMi0wLjEsMC4zLTAuMmMwLDAsMC4xLTAuMSwwLjIsMGMwLDAuMSwwLjEsMCwwLjIsMC4xQzIyLjYsMjEsMjIuNCwyMC45LDIyLjIsMjFMMjIuMiwyMXoNCgkgTTE4LjcsMjAuNUMxOC43LDIwLjUsMTguNywyMC41LDE4LjcsMjAuNWMwLjMtMC40LDAuNS0wLjgsMC43LTEuMmMwLjMtMC4yLDAuNS0wLjQsMC44LTAuNmMwLjQtMC40LDAuOC0wLjcsMS4zLTENCgljMC4yLTAuMSwwLjQtMC4xLDAuNiwwYy0wLjEsMC4xLTAuMiwwLjEtMC4zLDAuMWMwLDAsMCwwLTAuMSwwYzAsMCwwLDAsMC0wLjFjLTAuMiwwLjMtMC41LDAuNC0wLjcsMC43Yy0wLjEsMC4yLTAuMiwwLjUtMC41LDAuNg0KCWMtMC4xLDAsMC0wLjEsMCwwQzE5LjgsMTkuNCwxOS4zLDE5LjksMTguNywyMC41TDE4LjcsMjAuNXogTTIwLjYsMTlDMjAuNiwxOS4xLDIwLjYsMTkuMSwyMC42LDE5Yy0wLjEsMC4xLTAuMSwwLjItMC4yLDAuMg0KCWMwLDAsMCwwLDAsMEMyMC40LDE5LjEsMjAuNSwxOSwyMC42LDE5QzIwLjYsMTksMjAuNiwxOSwyMC42LDE5TDIwLjYsMTl6IE0yMS43LDIyLjRDMjEuNywyMi41LDIxLjcsMjIuNSwyMS43LDIyLjQNCgljMCwwLjEsMCwwLjEsMCwwLjFjMCwwLjEtMC4xLDAuMS0wLjIsMC4xaDBsLTAuMSwwLjFjMCwwLTAuMiwwLTAuMSwwYzAuMS0wLjEsMC4xLTAuMSwwLjItMC4yYzAsMCwwLjEtMC4xLDAuMS0wLjFjMCwwLDAsMCwwLTAuMQ0KCUMyMS42LDIyLjQsMjEuNywyMi40LDIxLjcsMjIuNEwyMS43LDIyLjR6IE0yMS4zLDIyLjJjLTAuMSwwLjEtMC4yLDAuMS0wLjMsMC4yYy0wLjEsMC4xLTAuMiwwLjEtMC4zLDAuMWMwLDAsMCwwLDAsMA0KCWMtMC4xLDAtMC4yLDAuMS0wLjIsMC4ybC0wLjEsMC4xYzAsMCwwLDAsMCwwLjFjMCwwLDAsMCwwLDBjMCwwLTAuMSwwLTAuMSwwbDAsMGwwLDBoMGgwbC0wLjEsMC4xYzAsMC0wLjEsMC4xLTAuMSwwLjF2MGwwLDBsMCwwDQoJbDAsMGMwLDAsMCwwLDAsMHYwYzAsMCwwLDAsMCwwdjBsMC4xLTAuMWwwLDBsMCwwbDAsMGMwLDAsMC0wLjEsMC4xLTAuMWwwLDBjMCwwLDAsMCwwLDBsMCwwdjBjMCwwLDAsMCwwLTAuMXYwYzAsMCwwLDAsMCwwDQoJYzAsMCwwLDAsMCwwdjBjMCwwLDAuMS0wLjEsMC4xLTAuMWgwYzAsMC0wLjEsMC4xLTAuMSwwLjFjMCwwLTAuMSwwLDAsMGMwLDAsMCwwLDAuMSwwYzAsMCwwLDAsMCwwYzAsMCwwLjEtMC4xLDAuMS0wLjENCgljMCwwLDAsMCwwLjEtMC4xbDAsMGMwLDAsMCwwLDAuMS0wLjFjMC4yLTAuMiwwLjYtMC4yLDAuOS0wLjNjMC4xLDAsMC4yLDAsMC40LDBjMC4xLDAsMC4xLDAsMC4yLDBDMjEuNywyMiwyMS41LDIyLjEsMjEuMywyMi4yDQoJTDIxLjMsMjIuMnogTTIxLjcsMjAuN0MyMS43LDIwLjYsMjEuOCwyMC43LDIxLjcsMjAuN0wyMS43LDIwLjdjLTAuMSwwLTAuMS0wLjEtMC4xLTAuMWMtMC4xLDAtMC4zLDAuMS0wLjQsMC4xDQoJYy0wLjIsMC0wLjMsMC4yLTAuNSwwLjJjLTAuMiwwLjEtMC41LDAuMy0wLjcsMC40YzAsMCwwLDAsMCwwYzAtMC4xLDAuMS0wLjEsMC4yLTAuMmMwLDAsMCwwLDAsMGMwLjItMC4zLDAuNC0wLjQsMC43LTAuNnYtMC4xDQoJYzAuMS0wLjEsMC4yLTAuMSwwLjItMC4yYzAtMC4xLDAuMS0wLjIsMC4yLTAuMmMwLDAtMC4xLDAtMC4xLTAuMWMtMC4xLDAtMC4yLDAtMC4zLDBjMCwwLDAuMS0wLjEsMC4xLTAuMWMwLDAsMCwwLTAuMSwwDQoJYzAsMCwwLTAuMSwwLjEtMC4xYzAuMSwwLDAuMiwwLDAuMy0wLjFjLTAuMiwwLTAuMywwLTAuNSwwYzAuMS0wLjMsMC4zLTAuNSwwLjYtMC43YzAsMCwwLjEsMCwwLjEsMGMwLDAuMS0wLjEsMC4yLTAuMiwwLjINCgljMC4yLDAsMC40LDAuMSwwLjUsMC4xYzAsMC0wLjEsMC0wLjEsMGMwLjEsMC4xLDAuMywwLDAuNCwwLjFjLTAuMSwwLjEtMC4xLDAtMC4yLDBjMC43LDAuMiwxLjUsMC40LDIuMSwwLjgNCgljLTAuNSwwLjItMSwwLjQtMS42LDAuNWMtMC4xLDAtMC4xLDAtMC4yLDBjMCwwLDAsMC4xLDAsMC4xYy0wLjEsMC0wLjIsMC0wLjIsMEMyMiwyMC43LDIxLjgsMjAuNywyMS43LDIwLjdMMjEuNywyMC43eiBNMjEuNywyMC43DQoJIi8+DQo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNDUuMSwxMmgtMTNjMCwwLDAuMSwwLDAuMSwwLjFsMC4zLDAuMmMwLjIsMC4xLDAuMywwLjIsMC40LDAuNGMwLDAuMSwwLjEsMC4yLDAuMSwwLjNjMCwwLjEtMC4xLDAuMy0wLjIsMC4zDQoJYy0wLjIsMC4xLTAuMywwLjEtMC41LDBjLTAuMSwwLTAuMiwwLTAuMywwYzAuMywwLjEsMC43LDAuMywwLjksMC42YzAsMCwwLjEsMC4xLDAuMiwwLjFjMCwwLDAsMCwwLDAuMWMwLDAtMC4xLDAuMS0wLjEsMC4xaDAuMQ0KCWMwLjEsMCwwLjEtMC4zLDAuMy0wLjJjMC4xLDAuMSwwLjIsMC4yLDAuMSwwLjNjLTAuMSwwLjEtMC4yLDAuMi0wLjMsMC4yYzAsMC4xLDAsMC4xLDAsMC4yYzAuMSwwLjEsMC4xLDAuMiwwLjEsMC4zDQoJYzAuMSwwLjIsMC4xLDAuMywwLjIsMC41YzAuMSwwLjMsMC4yLDAuNywwLjIsMWMwLDAuMi0wLjEsMC4zLDAsMC41YzAuMSwwLjIsMC4xLDAuMywwLjMsMC41YzAuMSwwLjEsMC4yLDAuMiwwLjIsMC40DQoJYzAuMSwwLjIsMC40LDAuNSwwLjMsMC43Yy0wLjEsMC4yLTAuMywwLjEtMC41LDAuMmMtMC4xLDAuMSwwLDAuMywwLDAuNGMwLjEsMC4yLTAuMSwwLjMtMC4zLDAuNGMwLDAuMSwwLjEsMCwwLjIsMC4xDQoJYzAsMC4xLDAuMSwwLjIsMC4xLDAuM2MtMC4xLDAuMS0wLjQsMC4yLTAuMiwwLjRjMC4xLDAuMiwwLDAuMywwLDAuNWMtMC4xLDAuMi0wLjIsMC4zLTAuNCwwLjNjLTAuMSwwLTAuMywwLTAuNCwwYzAsMC0wLjEsMC0wLjEsMA0KCWMtMC40LDAtMC44LTAuMi0xLjItMC4yYy0wLjEsMC0wLjIsMC0wLjMsMC4xYy0wLjEsMC4xLTAuMiwwLjItMC4zLDAuMkwzMSwyMS41bDAsMGwwLDBjLTAuMSwwLjEtMC4xLDAuMi0wLjIsMC4zbDAsMGMwLDAsMCwwLDAsMA0KCWMtMC4xLDAuMS0wLjEsMC4zLTAuMiwwLjRjLTAuMiwwLjUtMC4xLDEsMCwxLjFjMCwwLDAuNywwLjMsMS4zLDAuNWMwLjIsMC4xLDAuNCwwLjIsMC41LDAuM2gxMi43TDQ1LjEsMTJ6IE00NS4xLDEyIi8+DQo8cGF0aCBjbGFzcz0ic3QzIiBkPSJNMzMsMTYuNGMwLjEsMCwwLjIsMCwwLjIsMC4xYzAsMC4yLTAuMywwLjItMC41LDAuNGgtMC4xYy0wLjEsMCwwLDAuMi0wLjEsMC4yYy0wLjEsMC0wLjEsMC0wLjIsMA0KCWMwLjEsMC4xLDAuMiwwLjIsMC4zLDAuMWMwLDAsMC4xLDAsMC4xLDAuMWMwLDAsMCwwLDAsMGMwLDAsMCwwLDAsMHYwLjFjLTAuMSwwLjEtMC4yLDAtMC4zLDAuMWMwLjIsMCwwLjMsMCwwLjUsMA0KCWMwLjEsMCwwLTAuMywwLjEtMC40YzAsMCwwLTAuMSwwLTAuMWMwLDAsMC4xLTAuMSwwLjEtMC4xYzAuMSwwLDAuMSwwLDAuMS0wLjFjMCwwLTAuMS0wLjEtMC4xLTAuMWMwLjEtMC4xLDAuMi0wLjIsMC4yLTAuNA0KCWMwLTAuMS0wLjItMC4xLTAuMy0wLjFjLTAuMSwwLTAuMywwLTAuNCwwYy0wLjEsMC0wLjIsMC4xLTAuMywwLjFjLTAuMiwwLjEtMC4zLDAuMS0wLjQsMC4yYzAuMi0wLjEsMC4zLTAuMSwwLjUtMC4xDQoJQzMyLjcsMTYuNCwzMi44LDE2LjQsMzMsMTYuNEwzMywxNi40eiBNMzMsMTYuNCIvPg0KPHBhdGggZD0iTTQxLjYsNzcuM2MwLjIsMCwwLjUsMC4yLDAuMywwLjdsLTEuMSwwLjNDNDEsNzcuNyw0MS4zLDc3LjMsNDEuNiw3Ny4zIE00Mi4yLDc5LjJINDJjLTAuMywwLjMtMC42LDAuNi0wLjksMC42DQoJYy0wLjMsMC0wLjUtMC4yLTAuNS0wLjZjMC0wLjIsMC0wLjMsMC4xLTAuNWwxLjktMC42YzAuNC0wLjgtMC4xLTEuMi0wLjYtMS4yYy0wLjksMC0xLjksMS40LTEuOSwyLjdjMCwwLjYsMC4zLDAuOSwwLjcsMC45DQoJQzQxLjIsODAuNCw0MS44LDc5LjksNDIuMiw3OS4yIE00MS44LDc2LjVsMS4zLTEuMnYtMC4xaC0wLjdsLTAuOCwxLjRINDEuOHogTTM3LjksNzcuM2gwLjZsLTEsMi43Yy0wLjEsMC4yLDAsMC41LDAuMywwLjUNCgljMC41LDAsMS40LTAuNSwxLjgtMS4zaC0wLjJjLTAuMiwwLjMtMC43LDAuNi0xLjEsMC43bDAuOS0yLjVINDBsMC4xLTAuNGgtMC45bDAuMy0xaC0wLjRsLTAuNiwxbC0wLjcsMC4xVjc3LjN6IE0zNyw3Ny4yDQoJYzAuMS0wLjEsMC0wLjMtMC4xLTAuNGMwLDAtMC4xLDAtMC4xLDBjLTAuNSwwLTEuMiwwLjUtMS40LDEuMWgwLjJjMC4yLTAuMiwwLjUtMC41LDAuNy0wLjZsLTEsMi42Yy0wLjEsMC4xLDAsMC4zLDAuMSwwLjQNCgljMCwwLDAuMSwwLDAuMSwwYzAuNSwwLDEuMS0wLjUsMS40LTEuMWgtMC4yYy0wLjIsMC4yLTAuNSwwLjUtMC43LDAuNkwzNyw3Ny4yeiBNMzcuMiw3NS45YzAuMiwwLDAuNC0wLjIsMC40LTAuNA0KCWMwLTAuMi0wLjItMC40LTAuNC0wLjRjLTAuMiwwLTAuNCwwLjItMC40LDAuNEMzNi44LDc1LjcsMzcsNzUuOSwzNy4yLDc1LjlDMzcuMiw3NS45LDM3LjIsNzUuOSwzNy4yLDc1LjkgTTMxLjQsNzkuOQ0KCWMtMC4xLDAuMywwLDAuNSwwLjMsMC41YzAuMiwwLDAuMy0wLjEsMC4zLTAuMmwwLjctMS45YzAuMy0wLjQsMS0wLjgsMS4zLTAuOGMwLjIsMCwwLjIsMC4yLDAsMC40TDMyLjksODBjLTAuMSwwLjEsMCwwLjMsMC4xLDAuNA0KCWMwLDAsMC4xLDAsMC4xLDBjMC41LDAsMS4yLTAuNSwxLjQtMS4xaC0wLjJjLTAuMiwwLjItMC41LDAuNS0wLjcsMC42bDAuOS0xLjljMC4xLTAuMiwwLjItMC40LDAuMi0wLjZjMC0wLjMtMC4yLTAuNS0wLjQtMC41DQoJYzAsMC0wLjEsMC0wLjEsMGMtMC41LDAtMC45LDAuNS0xLjUsMS4ydi0wLjVjMC0wLjQtMC4xLTAuNy0wLjQtMC43Yy0wLjIsMC0wLjQsMC4yLTAuNiwwLjR2MC4xYzAuMywwLDAuNSwwLjUsMC4zLDFMMzEuNCw3OS45eg0KCSBNMzEuMyw3Ny42YzAuMS0wLjQsMC4xLTAuOC0wLjMtMC44Yy0wLjQsMC0wLjUsMC4zLTAuOSwxLjJ2LTAuNWMwLTAuNC0wLjEtMC43LTAuNC0wLjdjLTAuNCwwLTAuNywwLjYtMSwxLjFoMC4yDQoJYzAuMi0wLjMsMC4zLTAuNCwwLjUtMC40YzAuMiwwLDAuMiwwLjIsMCwwLjhsLTAuNywxLjZjLTAuMSwwLjMsMCwwLjUsMC4zLDAuNWMwLjIsMCwwLjMtMC4xLDAuMy0wLjJsMC43LTEuOQ0KCWMwLjItMC4yLDAuNC0wLjUsMC42LTAuN0wzMS4zLDc3LjZMMzEuMyw3Ny42eiBNMjcuMyw3Ny4zYzAuMiwwLDAuNSwwLjIsMC4zLDAuN2wtMS4xLDAuM0MyNi43LDc3LjcsMjcsNzcuMywyNy4zLDc3LjMgTTI3LjksNzkuMQ0KCWgtMC4yYy0wLjMsMC4zLTAuNiwwLjYtMC45LDAuNmMtMC4zLDAtMC41LTAuMi0wLjUtMC42YzAtMC4yLDAtMC4zLDAuMS0wLjVsMS44LTAuNmMwLjQtMC44LTAuMS0xLjItMC42LTEuMg0KCWMtMC45LDAtMS45LDEuNC0xLjksMi43YzAsMC42LDAuMywwLjksMC43LDAuOUMyNi45LDgwLjQsMjcuNSw3OS45LDI3LjksNzkuMSBNMjMuNSw3Ny4zaDAuNmwtMSwyLjdjLTAuMSwwLjIsMCwwLjUsMC4zLDAuNQ0KCWMwLjUsMCwxLjQtMC41LDEuOC0xLjNIMjVjLTAuMiwwLjMtMC43LDAuNi0xLjEsMC43bDAuOS0yLjVoMC45bDAuMS0wLjRIMjVsMC4zLTFIMjVsLTAuNiwxbC0wLjgsMC4xTDIzLjUsNzcuM3ogTTIwLjIsNzkuNA0KCWMwLTAuOCwwLjktMS45LDEuNC0xLjljMC4xLDAsMC4yLDAsMC4zLDBsLTAuNSwxLjRjLTAuMywwLjQtMC44LDAuOC0xLDAuOEMyMC4zLDc5LjgsMjAuMiw3OS42LDIwLjIsNzkuNCBNMjMsNzYuN2wtMC4zLDBMMjIuNCw3Nw0KCWgtMC4xYy0xLjUsMC0yLjgsMS43LTIuOCwyLjljMCwwLjMsMC4yLDAuNSwwLjUsMC41YzAsMCwwLjEsMCwwLjEsMGMwLjQsMCwwLjgtMC42LDEuMi0xLjJsMCwwLjJjLTAuMSwwLjYsMC4xLDAuOSwwLjQsMC45DQoJYzAuNCwwLDAuNy0wLjYsMS0xLjFoLTAuMmMtMC4yLDAuMy0wLjMsMC40LTAuNSwwLjRjLTAuMSwwLTAuMi0wLjMsMC0wLjhMMjMsNzYuN3ogTTE5LjgsNzcuNmMwLjEtMC40LDAuMS0wLjgtMC4zLTAuOA0KCWMtMC40LDAtMC41LDAuMy0wLjksMS4ydi0wLjVjMC0wLjQtMC4xLTAuNy0wLjQtMC43Yy0wLjQsMC0wLjcsMC42LTEsMS4xaDAuMmMwLjItMC4zLDAuMy0wLjQsMC41LTAuNGMwLjIsMCwwLjIsMC4yLDAsMC44DQoJbC0wLjcsMS42Yy0wLjEsMC4zLDAsMC41LDAuMywwLjVjMC4yLDAsMC4zLDAsMC4zLTAuMmwwLjctMS45YzAuMi0wLjIsMC40LTAuNSwwLjYtMC43TDE5LjgsNzcuNkwxOS44LDc3LjZ6IE0xNC43LDgwLjNsMC4xLTAuMg0KCWMtMC45LTAuMi0xLTAuMi0wLjYtMS4xbDAuNC0xaDFjMC40LDAsMC40LDAuMiwwLjQsMC43aDAuM2wwLjYtMS42aC0wLjNjLTAuMiwwLjQtMC40LDAuNy0wLjksMC43aC0xbDAuNS0xLjQNCgljMC4yLTAuNCwwLjMtMC41LDAuOC0wLjVoMC40YzAuNiwwLDAuNywwLjIsMC43LDAuOGgwLjJsMC4yLTEuMWgtMy43bC0wLjEsMC4yYzAuNywwLjEsMC44LDAuMiwwLjQsMS4xTDEzLjQsNzkNCgljLTAuMywwLjktMC41LDEtMS4zLDEuMWwtMC4xLDAuMkgxNC43eiBNMTQuNyw4MC4zIi8+DQo8cGF0aCBkPSJNMzIuNyw2OWMwLjIsMCwwLjUsMC4yLDAuMywwLjdsLTEuMSwwLjNDMzIuMSw2OS40LDMyLjQsNjksMzIuNyw2OSBNMzMuMyw3MC44aC0wLjJjLTAuMywwLjMtMC42LDAuNi0wLjksMC42DQoJcy0wLjUtMC4yLTAuNS0wLjZjMC0wLjIsMC0wLjMsMC4xLTAuNWwxLjgtMC42YzAuNC0wLjgtMC4xLTEuMi0wLjYtMS4yYy0wLjksMC0xLjksMS41LTEuOSwyLjdjMCwwLjYsMC4zLDAuOSwwLjcsMC45DQoJQzMyLjMsNzIuMSwzMi45LDcxLjYsMzMuMyw3MC44IE0zMi45LDY4LjJsMS4zLTEuMnYtMC4xaC0wLjdsLTAuOCwxLjNIMzIuOXogTTI4LjksNjloMC42bC0xLDIuN2MtMC4xLDAuMiwwLDAuNCwwLjMsMC40DQoJYzAuNSwwLDEuNS0wLjUsMS44LTEuM2gtMC4yYy0wLjIsMC4zLTAuNywwLjYtMS4xLDAuN2wwLjktMi41aDAuOWwwLjEtMC40aC0wLjlsMC4zLTFoLTAuM2wtMC42LDFMMjksNjguN0wyOC45LDY5eiBNMjguMSw2OC45DQoJYzAuMS0wLjEsMC0wLjMtMC4xLTAuNGMwLDAtMC4xLDAtMC4xLDBjLTAuNSwwLTEuMiwwLjUtMS40LDEuMWgwLjJjMC4yLTAuMiwwLjUtMC41LDAuNy0wLjZsLTEsMi42Yy0wLjEsMC4xLDAsMC4zLDAuMSwwLjQNCgljMCwwLDAuMSwwLDAuMSwwYzAuNSwwLDEuMS0wLjUsMS40LTEuMWgtMC4yYy0wLjIsMC4yLTAuNSwwLjUtMC43LDAuNkwyOC4xLDY4Ljl6IE0yOC4zLDY3LjZjMC4yLDAsMC40LTAuMiwwLjQtMC40DQoJYzAtMC4yLTAuMi0wLjQtMC40LTAuNGMtMC4yLDAtMC40LDAuMi0wLjQsMC40YzAsMCwwLDAsMCwwQzI3LjksNjcuNCwyOC4xLDY3LjYsMjguMyw2Ny42QzI4LjMsNjcuNiwyOC4zLDY3LjYsMjguMyw2Ny42DQoJIE0yNC44LDcxLjVsMS45LTQuOWwtMC4xLTAuMWwtMS4yLDAuMXYwLjFsMC4yLDAuMmMwLjIsMC4yLDAuMSwwLjMsMCwwLjhsLTEuNSwzLjhjLTAuMSwwLjEsMCwwLjMsMC4xLDAuNGMwLDAsMC4xLDAsMC4xLDANCgljMC41LDAsMS4xLTAuNSwxLjMtMS4xaC0wLjJDMjUuNCw3MS4zLDI1LjEsNzEuNSwyNC44LDcxLjUgTTIxLjIsNzEuMWMwLTAuOCwwLjktMS45LDEuNC0xLjljMC4xLDAsMC4yLDAsMC4zLDBsLTAuNSwxLjQNCgljLTAuMywwLjQtMC44LDAuOC0xLDAuOEMyMS4zLDcxLjQsMjEuMiw3MS4zLDIxLjIsNzEuMSBNMjQuMSw2OC40bC0wLjMsMGwtMC4zLDAuM2gwYy0xLjUsMC0yLjgsMS43LTIuOCwyLjljMCwwLjMsMC4yLDAuNSwwLjUsMC41DQoJYzAsMCwwLjEsMCwwLjEsMGMwLjQsMCwwLjgtMC42LDEuMi0xLjJsMCwwLjJjLTAuMSwwLjYsMC4xLDAuOSwwLjQsMC45YzAuNCwwLDAuNy0wLjYsMS0xLjFoLTAuMmMtMC4yLDAuMy0wLjMsMC40LTAuNSwwLjQNCgljLTAuMSwwLTAuMi0wLjMsMC0wLjhMMjQuMSw2OC40eiBNMTcuMyw3Mi44YzAtMC40LDAuMy0wLjYsMC44LTAuOGMwLjIsMC4xLDAuNSwwLjIsMC43LDAuM2MwLjUsMC4yLDAuNywwLjIsMC43LDAuNA0KCWMwLDAuMy0wLjUsMC42LTEuMywwLjZDMTcuNiw3My4zLDE3LjMsNzMuMSwxNy4zLDcyLjggTTE4LjcsNzAuNmMtMC4yLDAtMC4zLTAuMi0wLjMtMC40YzAtMC42LDAuMy0xLjUsMC44LTEuNQ0KCWMwLjIsMCwwLjMsMC4yLDAuMywwLjRDMTkuNSw2OS44LDE5LjIsNzAuNiwxOC43LDcwLjYgTTIwLjEsNzIuNWMwLTAuNC0wLjQtMC42LTEtMC44Yy0wLjUtMC4yLTAuOC0wLjItMC44LTAuNA0KCWMwLTAuMSwwLjEtMC4zLDAuMy0wLjRjMC44LTAuMSwxLjQtMC43LDEuNC0xLjVjMC0wLjEsMC0wLjItMC4xLTAuNGgwLjdsMC4xLTAuNGgtMS4yYy0wLjEtMC4xLTAuMy0wLjEtMC41LTAuMQ0KCWMtMC44LDAtMS41LDAuNy0xLjUsMS41YzAsMC40LDAuMywwLjgsMC43LDAuOWMtMC40LDAuMi0wLjcsMC40LTAuNywwLjdjMCwwLjEsMC4xLDAuMywwLjIsMC40Yy0xLDAuMy0xLjQsMC42LTEuNCwxLjENCgljMCwwLjUsMC42LDAuNiwxLjMsMC42QzE5LjEsNzMuNywyMC4xLDczLDIwLjEsNzIuNSBNMTUuNCw2OS42YzAuNCwwLDAuNCwwLjIsMC40LDAuN2gwLjNsMC42LTEuNmgtMC4zYy0wLjIsMC40LTAuNCwwLjctMC45LDAuNw0KCWgtMWwwLjUtMS4zYzAuMi0wLjQsMC4zLTAuNSwwLjgtMC41aDAuNGMwLjYsMCwwLjcsMC4yLDAuNywwLjhoMC4ybDAuMi0xLjFoLTMuNmwtMC4xLDAuMmMwLjcsMC4xLDAuOCwwLjIsMC40LDEuMWwtMC44LDIuMg0KCWMtMC4zLDAuOS0wLjUsMS0xLjMsMS4xTDEyLDcyaDQuMWwwLjctMS4yaC0wLjNjLTAuNSwwLjQtMSwwLjktMS45LDAuOWMtMS4xLDAtMSwwLTAuNi0xbDAuNC0xLjFMMTUuNCw2OS42TDE1LjQsNjkuNnogTTE2LDY2LjgNCglsMS4zLTAuOXYtMC4xaC0wLjhsLTAuNywxSDE2eiBNMTYsNjYuOCIvPg0KPHBhdGggZD0iTTMyLjIsNjAuN2MwLjIsMCwwLjUsMC4yLDAuMywwLjdsLTEuMSwwLjNDMzEuNiw2MS4xLDMyLDYwLjcsMzIuMiw2MC43IE0zMi45LDYyLjVoLTAuMmMtMC4zLDAuMy0wLjYsMC42LTAuOSwwLjYNCglzLTAuNS0wLjItMC41LTAuNmMwLTAuMiwwLTAuMywwLjEtMC41bDEuOS0wLjZjMC40LTAuOC0wLjEtMS4yLTAuNi0xLjJjLTAuOSwwLTEuOSwxLjQtMS45LDIuN2MwLDAuNiwwLjMsMC45LDAuNywwLjkNCglDMzEuOSw2My44LDMyLjQsNjMuMywzMi45LDYyLjUgTTMyLjUsNTkuOWwxLjMtMS4ydi0wLjFoLTAuN2wtMC44LDEuNEgzMi41eiBNMjguNyw2MC43aDAuNWwtMSwyLjdjLTAuMSwwLjIsMCwwLjQsMC4zLDAuNA0KCWMwLjUsMCwxLjQtMC41LDEuOC0xLjNoLTAuMmMtMC4yLDAuMy0wLjcsMC42LTEuMSwwLjdsMC45LTIuNWgwLjlsMC4xLTAuNGgtMC45bDAuMy0xaC0wLjNsLTAuNiwxbC0wLjYsMC4xVjYwLjd6IE0yOC4yLDYxDQoJYzAuMS0wLjQsMC4xLTAuOC0wLjMtMC44Yy0wLjQsMC0wLjUsMC4zLTAuOSwxLjJ2LTAuNWMwLTAuNC0wLjEtMC43LTAuNC0wLjdjLTAuNCwwLTAuNywwLjYtMSwxLjFoMC4yYzAuMi0wLjMsMC4zLTAuNCwwLjUtMC40DQoJYzAuMiwwLDAuMiwwLjIsMCwwLjhsLTAuNywxLjZjLTAuMSwwLjMsMCwwLjUsMC4zLDAuNWMwLjIsMCwwLjMsMCwwLjMtMC4ybDAuNy0xLjljMC4yLTAuMiwwLjQtMC41LDAuNi0wLjdIMjguMnogTTI0LjEsNjAuNw0KCWMwLjIsMCwwLjUsMC4yLDAuMywwLjdsLTEuMSwwLjNDMjMuNSw2MS4xLDIzLjksNjAuNywyNC4xLDYwLjcgTTI0LjgsNjIuNWgtMC4yYy0wLjMsMC4zLTAuNiwwLjYtMC45LDAuNnMtMC41LTAuMi0wLjUtMC42DQoJYzAtMC4yLDAtMC4zLDAuMS0wLjVsMS44LTAuNmMwLjQtMC44LTAuMS0xLjItMC42LTEuMmMtMC45LDAtMS45LDEuNC0xLjksMi43YzAsMC42LDAuMywwLjksMC43LDAuOUMyMy44LDYzLjgsMjQuMyw2My4zLDI0LjgsNjIuNQ0KCSBNMjAuMiw2My4zYy0wLjIsMC0wLjQtMC4yLTAuNC0wLjNjMC0wLjIsMC4xLTAuMywwLjItMC41bDAuMy0wLjhjMC4zLTAuNCwwLjgtMC44LDEuMS0wLjhjMC4yLDAsMC4zLDAuMSwwLjMsMC40DQoJQzIxLjcsNjIsMjEsNjMuMywyMC4yLDYzLjMgTTIyLjMsNjAuOWMwLTAuNS0wLjItMC43LTAuNi0wLjdjLTAuNSwwLTAuOSwwLjUtMS4zLDEuMWwxLjEtMi45bC0wLjEtMC4xbC0xLjIsMC4xdjAuMWwwLjIsMC4yDQoJYzAuMiwwLjIsMC4xLDAuMywwLDAuOGwtMS4yLDMuMWMtMC4xLDAuMi0wLjEsMC40LTAuMiwwLjZjMCwwLjMsMC40LDAuNiwwLjgsMC42QzIwLjgsNjMuOCwyMi4zLDYyLjIsMjIuMyw2MC45IE0xOC43LDYwLjYNCgljMC4xLTAuMSwwLTAuMy0wLjEtMC40YzAsMC0wLjEsMC0wLjEsMGMtMC41LDAtMS4yLDAuNS0xLjQsMS4xaDAuMmMwLjItMC4yLDAuNS0wLjUsMC43LTAuNmwtMSwyLjZjLTAuMSwwLjEsMCwwLjMsMC4xLDAuNA0KCWMwLDAsMC4xLDAsMC4xLDBjMC41LDAsMS4xLTAuNSwxLjMtMS4xaC0wLjJjLTAuMiwwLjItMC41LDAuNS0wLjcsMC42TDE4LjcsNjAuNnogTTE4LjksNTkuM2MwLjIsMCwwLjQtMC4yLDAuNC0wLjQNCgljMC0wLjItMC4yLTAuNC0wLjQtMC40Yy0wLjIsMC0wLjQsMC4yLTAuNCwwLjRDMTguNSw1OS4xLDE4LjcsNTkuMywxOC45LDU5LjMgTTE2LjIsNTguOGgtMi40TDEzLjcsNTljMC43LDAuMSwwLjgsMC4yLDAuNCwxLjENCglsLTAuOCwyLjJjLTAuMywwLjktMC41LDEtMS4zLDEuMUwxMiw2My43aDMuN2wwLjgtMS40aC0wLjNjLTAuNSwwLjUtMSwxLjEtMS44LDEuMWMtMC42LDAtMC43LTAuMS0wLjQtMWwwLjgtMi4yDQoJYzAuMy0wLjksMC41LTEsMS4zLTEuMUwxNi4yLDU4Ljh6IE0xNi4yLDU4LjgiLz4NCjxnPg0KCTxwYXRoIGQ9Ik0xMi4xLDM5LjJoMmwwLjktMi40aDMuNmwwLjksMi40aDJMMTgsMzBoLTIuNEwxMi4xLDM5LjJ6IE0xNS41LDM1LjJsMS4yLTMuNGwxLjIsMy40SDE1LjV6IE0xNS41LDM1LjIiLz4NCgk8cGF0aCBkPSJNMjYuOCwzNy43Yy0xLjcsMC0zLTEuMy0zLTMuMWMwLTEuNywxLjItMy4xLDMtMy4xYzEsMCwxLjksMC41LDIuNCwxLjJsMS41LTEuMWMtMC44LTEuMS0yLjItMS45LTMuOC0xLjkNCgkJQzI0LDI5LjgsMjIsMzIsMjIsMzQuNmMwLDIuNiwyLDQuOCw0LjgsNC44YzEuNiwwLDMtMC43LDMuOC0xLjlsLTEuNS0xLjFDMjguNywzNy4yLDI3LjksMzcuNywyNi44LDM3LjdMMjYuOCwzNy43eiBNMjYuOCwzNy43Ii8+DQoJPHBhdGggZD0iTTMxLjIsMzkuMmgybDAuOS0yLjRoMy42bDAuOSwyLjRoMkwzNy4xLDMwaC0yLjRMMzEuMiwzOS4yeiBNMzQuNiwzNS4ybDEuMi0zLjRsMS4yLDMuNEgzNC42eiBNMzQuNiwzNS4yIi8+DQoJPHBhdGggZD0iTTQyLjEsMzkuMmgzLjZjMi45LDAsNC44LTIuMSw0LjgtNC42YzAtMi41LTItNC41LTQuOC00LjVoLTMuNlYzOS4yeiBNNDUuNywzMS43YzEuNywwLDIuOSwxLjIsMi45LDIuOQ0KCQljMCwxLjYtMS4yLDIuOS0yLjksMi45aC0xLjh2LTUuOEg0NS43eiBNNDUuNywzMS43Ii8+DQoJPHBhdGggZD0iTTU1LjksMjkuM2wxLjctMS44aC0xLjlsLTEuNSwxLjhINTUuOXogTTUyLjQsMzkuMmg1LjN2LTEuNWgtMy41di0yLjNoMi45di0xLjVoLTIuOXYtMi4yaDMuNVYzMGgtNS4zVjM5LjJ6IE01Mi40LDM5LjIiDQoJCS8+DQoJPHBhdGggZD0iTTYwLDM5LjJoMS44di02LjVsMiwzLjRoMS4zbDItMy40djYuNWgxLjlWMzBoLTIuM2wtMi4yLDMuOEw2Mi4zLDMwSDYwVjM5LjJ6IE02MCwzOS4yIi8+DQoJPHJlY3QgeD0iNzEuNyIgeT0iMzAiIHdpZHRoPSIxLjgiIGhlaWdodD0iOS4xIi8+DQoJPHBhdGggZD0iTTc2LjIsMzkuMmg1LjN2LTEuNWgtMy41di0yLjNIODF2LTEuNWgtMi45di0yLjJoMy41VjMwaC01LjNWMzkuMnogTTc2LjIsMzkuMiIvPg0KPC9nPg0KPGc+DQoJPHBhdGggZD0iTTEyLjEsNTIuMmgzLjZjMi45LDAsNC44LTIuMSw0LjgtNC42YzAtMi41LTItNC41LTQuOC00LjVoLTMuNlY1Mi4yeiBNMTUuNyw0NC44YzEuNywwLDIuOSwxLjIsMi45LDIuOQ0KCQljMCwxLjYtMS4yLDIuOS0yLjksMi45SDE0di01LjhIMTUuN3ogTTE1LjcsNDQuOCIvPg0KCTxwYXRoIGQ9Ik0yMi44LDQ2LjhsMS41LTMuOGgtMS45bC0xLjIsMy44SDIyLjh6IE0yMi44LDQ2LjgiLz4NCgk8cGF0aCBkPSJNMjkuNSw0Mi44Yy0yLjksMC00LjgsMi4yLTQuOCw0LjhjMCwyLjYsMiw0LjgsNC44LDQuOGMyLjksMCw0LjgtMi4yLDQuOC00LjhDMzQuNCw0NSwzMi40LDQyLjgsMjkuNSw0Mi44TDI5LjUsNDIuOHoNCgkJIE0yOS41LDUwLjdjLTEuNywwLTMtMS4zLTMtMy4xYzAtMS43LDEuMi0zLjEsMy0zLjFjMS43LDAsMi45LDEuMywyLjksMy4xQzMyLjQsNDkuNCwzMS4yLDUwLjcsMjkuNSw1MC43TDI5LjUsNTAuN3ogTTI5LjUsNTAuNyINCgkJLz4NCgk8cGF0aCBkPSJNMzYuMiw1Mi4yaDEuOHYtMy43aDFsMi40LDMuN2gyLjJsLTIuOS00YzAuOS0wLjQsMS41LTEuMywxLjUtMi40YzAtMS43LTEuMi0yLjctMy4yLTIuN2gtMi44VjUyLjJ6IE0zOS4xLDQ0LjYNCgkJYzAuOCwwLDEuMiwwLjUsMS4yLDEuMmMwLDAuOC0wLjUsMS4yLTEuMiwxLjJoLTF2LTIuNEgzOS4xeiBNMzkuMSw0NC42Ii8+DQoJPHBhdGggZD0iTTQ1LDUyLjJoNS4zdi0xLjdoLTMuNXYtNy40SDQ1VjUyLjJ6IE00NSw1Mi4yIi8+DQoJPHBhdGggZD0iTTU1LjUsNDIuM2wxLjctMS44aC0xLjlsLTEuNSwxLjhINTUuNXogTTUyLDUyLjJoNS4zdi0xLjVoLTMuNXYtMi4zaDIuOXYtMS41aC0yLjl2LTIuMmgzLjV2LTEuNUg1MlY1Mi4yeiBNNTIsNTIuMiIvPg0KCTxwYXRoIGQ9Ik01OC43LDUyLjJoMmwwLjktMi40aDMuNmwwLjksMi40aDJsLTMuNS05LjFoLTIuNEw1OC43LDUyLjJ6IE02Mi4xLDQ4LjNsMS4yLTMuNGwxLjIsMy40SDYyLjF6IE02Mi4xLDQ4LjMiLz4NCgk8cGF0aCBkPSJNNjkuNiw1Mi4yaDEuOHYtNi42bDQuMSw2LjZoMi40di05LjFINzZ2Ni42bC00LjEtNi42aC0yLjRWNTIuMnogTTY5LjYsNTIuMiIvPg0KCTxwYXRoIGQ9Ik03OS43LDUwLjljMC44LDEsMS44LDEuNSwzLjQsMS41YzEuNywwLDMtMSwzLTIuOGMwLTMuMS00LjEtMi43LTQuMS00LjNjMC0wLjUsMC40LTEsMS4xLTFjMC43LDAsMS4zLDAuNSwxLjgsMS4xbDEuNC0xLjINCgkJYy0wLjgtMC45LTEuOC0xLjUtMy4yLTEuNWMtMS44LDAtMywxLjItMywyLjZjMCwzLjEsNC4xLDIuNiw0LjEsNC4zYzAsMC43LTAuNCwxLTEuMiwxYy0wLjcsMC0xLjUtMC40LTItMS4xTDc5LjcsNTAuOXoNCgkJIE03OS43LDUwLjkiLz4NCgk8cmVjdCB4PSI4Ny4xIiB5PSI0OC4xIiB3aWR0aD0iMy41IiBoZWlnaHQ9IjEuNiIvPg0KCTxwYXRoIGQ9Ik05MC4yLDQ0LjhIOTN2Ny40aDEuOHYtNy40aDIuOHYtMS43aC03LjVWNDQuOHogTTkwLjIsNDQuOCIvPg0KCTxwYXRoIGQ9Ik0xMDMuMSw0Mi44Yy0yLjksMC00LjgsMi4yLTQuOCw0LjhjMCwyLjYsMiw0LjgsNC44LDQuOGMyLjksMCw0LjgtMi4yLDQuOC00LjhDMTA3LjksNDUsMTA1LjksNDIuOCwxMDMuMSw0Mi44TDEwMy4xLDQyLjgNCgkJeiBNMTAzLjEsNTAuN2MtMS43LDAtMy0xLjMtMy0zLjFjMC0xLjcsMS4yLTMuMSwzLTMuMWMxLjcsMCwyLjksMS4zLDIuOSwzLjFDMTA2LDQ5LjQsMTA0LjgsNTAuNywxMDMuMSw1MC43TDEwMy4xLDUwLjd6DQoJCSBNMTAzLjEsNTAuNyIvPg0KCTxwYXRoIGQ9Ik0xMTUuMSw0OC44YzAsMS4yLTAuNywxLjktMS44LDEuOWMtMS4yLDAtMS45LTAuNy0xLjktMS45di01LjdoLTEuOHY1LjVjMCwyLjQsMS40LDMuOCwzLjcsMy44YzIuMywwLDMuNy0xLjQsMy43LTMuOA0KCQl2LTUuNWgtMS44VjQ4Ljh6IE0xMTUuMSw0OC44Ii8+DQoJPHBhdGggZD0iTTExOS40LDUyLjJoMS44di0zLjdoMWwyLjQsMy43aDIuMmwtMi45LTRjMC45LTAuNCwxLjUtMS4zLDEuNS0yLjRjMC0xLjctMS4yLTIuNy0zLjItMi43aC0yLjhWNTIuMnogTTEyMi4zLDQ0LjYNCgkJYzAuOCwwLDEuMiwwLjUsMS4yLDEuMmMwLDAuOC0wLjUsMS4yLTEuMiwxLjJoLTF2LTIuNEgxMjIuM3ogTTEyMi4zLDQ0LjYiLz4NCgk8cGF0aCBkPSJNMTI3LjMsNTAuOWMwLjgsMSwxLjgsMS41LDMuNCwxLjVjMS43LDAsMy0xLDMtMi44YzAtMy4xLTQuMS0yLjctNC4xLTQuM2MwLTAuNSwwLjQtMSwxLjEtMWMwLjcsMCwxLjMsMC41LDEuOCwxLjENCgkJbDEuNC0xLjJjLTAuOC0wLjktMS44LTEuNS0zLjItMS41Yy0xLjgsMC0zLDEuMi0zLDIuNmMwLDMuMSw0LjEsMi42LDQuMSw0LjNjMCwwLjctMC40LDEtMS4yLDFjLTAuNywwLTEuNS0wLjQtMi0xLjFMMTI3LjMsNTAuOXoNCgkJIE0xMjcuMyw1MC45Ii8+DQo8L2c+DQo8L3N2Zz4NCg==" alt="Logo Académie Orléans-Tours" style="height:80px; margin-right:10px;">
+      <div>
+        <h2 style="margin:0;">Progression de 5e en mathématiques</h2>
+        <div id="sous-titre" contenteditable="true" oninput="updateExport()" style="font-size:1em; color:#444; margin-top:4px; font-style:italic; outline:none;">
+          Professeur, collège, version...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="toggleLeftPanel" style="position:fixed; top:5px; left:5px; z-index:1000;">☰</button>
+
+  <div style="margin-bottom:10px;">
+    <button onclick="expandAllSequences()">Tout déplier</button>
+    <button onclick="collapseAllSequences()">Tout replier</button>
+  </div>
+
+  <div id="sequencesContainer"><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Les expressions numériques<titre></titre></div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖3" title="✖3 – Diviser par un nombre décimal." style="background-color: rgb(167, 27, 61);">✖3 – Diviser par un nombre décimal.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖1" title="✖1 – Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat." style="background-color: rgb(167, 27, 61);">✖1 – Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🐱4" title="🐱4 – Calculer la valeur de formules à l’aide d’une suite d’instructions dans un langage de programmation par blocs." style="background-color: rgb(220, 12, 172);">🐱4 – Calculer la valeur de formules à l’aide d’une suite d’instructions dans un langage de programmation par blocs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖2" title="✖2 – Connaitre le sens et les situations d’emploi de ces opérations." style="background-color: rgb(167, 27, 61);">✖2 – Connaitre le sens et les situations d’emploi de ces opérations.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖4" title="✖4 – Enchainer des opérations." style="background-color: rgb(167, 27, 61);">✖4 – Enchainer des opérations.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖5" title="✖5 – Traduire un problème, une succession donnée d’opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses." style="background-color: rgb(167, 27, 61);">✖5 – Traduire un problème, une succession donnée d’opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖7" title="✖7 – Connaitre et utiliser les priorités opératoires." style="background-color: rgb(167, 27, 61);">✖7 – Connaitre et utiliser les priorités opératoires.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖6" title="✖6 – Nommer un calcul, distinguer sommes et produits, termes et facteurs." style="background-color: rgb(167, 27, 61);">✖6 – Nommer un calcul, distinguer sommes et produits, termes et facteurs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖11" title="✖11 – Mobiliser un algorithme dans le cadre du calcul numérique." style="background-color: rgb(167, 27, 61);">✖11 – Mobiliser un algorithme dans le cadre du calcul numérique.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖8" title="✖8 – Connaitre et utiliser la distributivité simple sur des exemples numériques." style="background-color: rgb(167, 27, 61);">✖8 – Connaitre et utiliser la distributivité simple sur des exemples numériques.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Géométrie du triangle</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺2" title="🔺2 – Construire des triangles à partir de données partielles." style="background-color: rgb(63, 140, 216);">🔺2 – Construire des triangles à partir de données partielles.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺3" title="🔺3 – Connaitre les propriétés des médiatrices et du cercle circonscrit dans le cas de triangles particuliers." style="background-color: rgb(63, 140, 216);">🔺3 – Connaitre les propriétés des médiatrices et du cercle circonscrit dans le cas de triangles particuliers.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺7" title="🔺7 – Définir et tracer les médianes dans un triangle." style="background-color: rgb(63, 140, 216);">🔺7 – Définir et tracer les médianes dans un triangle.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Nombres relatifs et repérage</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖1" title="➖1 – Définir les nombres relatifs." style="background-color: rgb(172, 39, 71);">➖1 – Définir les nombres relatifs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧭4" title="🧭4 – Dans le plan muni d’un repère orthogonal : placer un point de coordonnées données." style="background-color: rgb(12, 109, 206);">🧭4 – Dans le plan muni d’un repère orthogonal : placer un point de coordonnées données.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖2" title="➖2 – Définir l’opposé et la valeur absolue d’un nombre." style="background-color: rgb(172, 39, 71);">➖2 – Définir l’opposé et la valeur absolue d’un nombre.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧭3" title="🧭3 – Dans le plan muni d’un repère orthogonal :  lire les coordonnées d’un point donné." style="background-color: rgb(12, 109, 206);">🧭3 – Dans le plan muni d’un repère orthogonal :  lire les coordonnées d’un point donné.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧭2" title="🧭2 – Sur une droite graduée : placer un point d’abscisse donnée." style="background-color: rgb(12, 109, 206);">🧭2 – Sur une droite graduée : placer un point d’abscisse donnée.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈4" title="📈4 – Placer dans un repère orthogonal donné des points correspondant à un tableau de valeurs." style="background-color: rgb(138, 56, 210);">📈4 – Placer dans un repère orthogonal donné des points correspondant à un tableau de valeurs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖3" title="➖3 – Définir la notion de nombre positif, strictement positif, négatif, strictement négatif." style="background-color: rgb(172, 39, 71);">➖3 – Définir la notion de nombre positif, strictement positif, négatif, strictement négatif.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖4" title="➖4 – Utiliser les nombres relatifs pour représenter des grandeurs observables qui peuvent prendre des valeurs inférieures à zéro (température, temps, altitude, etc.), en particulier dans le cadre de la résolution de problèmes." style="background-color: rgb(172, 39, 71);">➖4 – Utiliser les nombres relatifs pour représenter des grandeurs observables qui peuvent prendre des valeurs inférieures à zéro (température, temps, altitude, etc.), en particulier dans le cadre de la résolution de problèmes.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧭1" title="🧭1 – Sur une droite graduée : lire l’abscisse d’un point donné" style="background-color: rgb(12, 109, 206);">🧭1 – Sur une droite graduée : lire l’abscisse d’un point donné<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖5" title="➖5 – Lire l’abscisse d’un nombre relatif sur une droite graduée et placer un nombre relatif d’abscisse donnée." style="background-color: rgb(172, 39, 71);">➖5 – Lire l’abscisse d’un nombre relatif sur une droite graduée et placer un nombre relatif d’abscisse donnée.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖6" title="➖6 – Comparer et ranger dans l’ordre croissant et décroissant des nombres décimaux relatifs." style="background-color: rgb(172, 39, 71);">➖6 – Comparer et ranger dans l’ordre croissant et décroissant des nombres décimaux relatifs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Nombres rationnels<titre></titre></div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖9" title="✖9 – Utiliser les notions de multiples et diviseurs." style="background-color: rgb(167, 27, 61);">✖9 – Utiliser les notions de multiples et diviseurs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="✖10" title="✖10 – Connaitre les critères de divisibilité par 3 et par 9." style="background-color: rgb(167, 27, 61);">✖10 – Connaitre les critères de divisibilité par 3 et par 9.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➗1" title="➗1 – Comparer des fractions." style="background-color: rgb(176, 51, 81);">➗1 – Comparer des fractions.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➗2" title="➗2 – Additionner et soustraire des fractions de dénominateurs quelconques." style="background-color: rgb(176, 51, 81);">➗2 – Additionner et soustraire des fractions de dénominateurs quelconques.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➗3" title="➗3 – Résoudre des problèmes avec des additions et soustractions de fractions." style="background-color: rgb(176, 51, 81);">➗3 – Résoudre des problèmes avec des additions et soustractions de fractions.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Angles et parallélisme</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📐1" title="📐1 – Caractériser le parallélisme par les angles : angles alternes internes, angles correspondants." style="background-color: rgb(51, 132, 214);">📐1 – Caractériser le parallélisme par les angles : angles alternes internes, angles correspondants.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺1" title="🔺1 – Connaitre la somme des angles d’un triangle et savoir la démontrer." style="background-color: rgb(63, 140, 216);">🔺1 – Connaitre la somme des angles d’un triangle et savoir la démontrer.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺9" title="🔺9 – Utiliser ces propriétés dans le cas de triangles particuliers." style="background-color: rgb(63, 140, 216);">🔺9 – Utiliser ces propriétés dans le cas de triangles particuliers.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Puissances</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="⬆6" title="⬆6 – Calculer la valeur d’une expression littérale contenant une puissance simple." style="background-color: rgb(181, 63, 91);">⬆6 – Calculer la valeur d’une expression littérale contenant une puissance simple.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="⬆5" title="⬆5 – Calculer la valeur numérique d’expressions contenant des puissances simples, additions, soustractions et produits." style="background-color: rgb(181, 63, 91);">⬆5 – Calculer la valeur numérique d’expressions contenant des puissances simples, additions, soustractions et produits.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="⬆4" title="⬆4 – Savoir écrire un nombre sous la forme d’une puissance 2 ou 3." style="background-color: rgb(181, 63, 91);">⬆4 – Savoir écrire un nombre sous la forme d’une puissance 2 ou 3.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="⬆3" title="⬆3 – Connaitre le cube de 10." style="background-color: rgb(181, 63, 91);">⬆3 – Connaitre le cube de 10.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="⬆2" title="⬆2 – Connaitre les carrés des entiers de 0 à 12." style="background-color: rgb(181, 63, 91);">⬆2 – Connaitre les carrés des entiers de 0 à 12.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="⬆1" title="⬆1 – Découvrir la notion de puissance d’un nombre et sa notation dans le cas du carré et du cube." style="background-color: rgb(181, 63, 91);">⬆1 – Découvrir la notion de puissance d’un nombre et sa notation dans le cas du carré et du cube.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Introduction au calcul littéral<titre></titre></div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤1" title="🔤1 – Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.)." style="background-color: rgb(186, 75, 102);">🔤1 – Produire des formules (double, triple, carré, successeur, prédécesseur, aire, périmètre, etc.).<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈1" title="📈1 – Introduire l’expression : « en fonction de » dans des contextes concrets ou mathématiques." style="background-color: rgb(138, 56, 210);">📈1 – Introduire l’expression : « en fonction de » dans des contextes concrets ou mathématiques.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🐱5" title="🐱5 – Prévoir la valeur d’une expression informatique avant son exécution." style="background-color: rgb(220, 12, 172);">🐱5 – Prévoir la valeur d’une expression informatique avant son exécution.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤2" title="🔤2 – Calculer la valeur d’une expression littérale par substitution." style="background-color: rgb(186, 75, 102);">🔤2 – Calculer la valeur d’une expression littérale par substitution.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤3" title="🔤3 – Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse." style="background-color: rgb(186, 75, 102);">🔤3 – Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤4" title="🔤4 – Déterminer si une expression littérale est une somme ou un produit." style="background-color: rgb(186, 75, 102);">🔤4 – Déterminer si une expression littérale est une somme ou un produit.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤6" title="🔤6 – Réduire une expression littérale de la forme a𝑥 + b, où a et b sont des nombres décimaux." style="background-color: rgb(186, 75, 102);">🔤6 – Réduire une expression littérale de la forme a𝑥 + b, où a et b sont des nombres décimaux.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Aires et hauteurs</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺5" title="🔺5 – Définir et tracer les hauteurs dans un triangle." style="background-color: rgb(63, 140, 216);">🔺5 – Définir et tracer les hauteurs dans un triangle.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺6" title="🔺6 – Savoir que les hauteurs d’un triangle sont concourantes." style="background-color: rgb(63, 140, 216);">🔺6 – Savoir que les hauteurs d’un triangle sont concourantes.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺4" title="🔺4 – Calculer l’aire d’un triangle." style="background-color: rgb(63, 140, 216);">🔺4 – Calculer l’aire d’un triangle.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔺8" title="🔺8 – Démontrer qu’une médiane partage un triangle en deux triangles d’aires égales." style="background-color: rgb(63, 140, 216);">🔺8 – Démontrer qu’une médiane partage un triangle en deux triangles d’aires égales.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Proportionnalité<titre></titre></div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="∝3" title="∝3 – Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles)." style="background-color: rgb(132, 45, 208);">∝3 – Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="∝4" title="∝4 – Utiliser un coefficient de proportionnalité dans des contextes concrets (prix unitaire, vitesse moyenne, échelle, etc.)." style="background-color: rgb(132, 45, 208);">∝4 – Utiliser un coefficient de proportionnalité dans des contextes concrets (prix unitaire, vitesse moyenne, échelle, etc.).<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="∝1" title="∝1 – Utiliser des proportions, des pourcentages." style="background-color: rgb(132, 45, 208);">∝1 – Utiliser des proportions, des pourcentages.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="∝2" title="∝2 – Calculer, appliquer des proportions, des pourcentages." style="background-color: rgb(132, 45, 208);">∝2 – Calculer, appliquer des proportions, des pourcentages.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Additions de nombres relatifs</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖7" title="➖7 – Additionner deux nombres décimaux relatifs." style="background-color: rgb(172, 39, 71);">➖7 – Additionner deux nombres décimaux relatifs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖8" title="➖8 – Additionner plusieurs nombres décimaux relatifs." style="background-color: rgb(172, 39, 71);">➖8 – Additionner plusieurs nombres décimaux relatifs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖10" title="➖10 – Connaitre et justifier les situations dans lesquelles des parenthèses sont indispensables au sens des écritures." style="background-color: rgb(172, 39, 71);">➖10 – Connaitre et justifier les situations dans lesquelles des parenthèses sont indispensables au sens des écritures.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖11" title="➖11 – Simplifier l’écriture de sommes comportant des parenthèses." style="background-color: rgb(172, 39, 71);">➖11 – Simplifier l’écriture de sommes comportant des parenthèses.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Symétrie centrale application</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔄1" title="🔄1 – Définir le demi-tour, ou symétrie centrale." style="background-color: rgb(38, 124, 211);">🔄1 – Définir le demi-tour, ou symétrie centrale.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔄2" title="🔄2 – Connaitre les propriétés du demi-tour." style="background-color: rgb(38, 124, 211);">🔄2 – Connaitre les propriétés du demi-tour.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷1" title="🔷1 – Définir le parallélogramme." style="background-color: rgb(76, 147, 219);">🔷1 – Définir le parallélogramme.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷2" title="🔷2 – Construire des parallélogrammes." style="background-color: rgb(76, 147, 219);">🔷2 – Construire des parallélogrammes.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Soustractions de nombres relatifs</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖12" title="➖12 – Enchainer additions et soustractions de décimaux relatifs." style="background-color: rgb(172, 39, 71);">➖12 – Enchainer additions et soustractions de décimaux relatifs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖9" title="➖9 – Soustraire deux nombres décimaux relatifs." style="background-color: rgb(172, 39, 71);">➖9 – Soustraire deux nombres décimaux relatifs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="➖13" title="➖13 – Résoudre des problèmes mobilisant addition et soustraction de nombres décimaux relatifs." style="background-color: rgb(172, 39, 71);">➖13 – Résoudre des problèmes mobilisant addition et soustraction de nombres décimaux relatifs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Equation</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤7" title="🔤7 – Démontrer une propriété générale par le calcul littéral." style="background-color: rgb(186, 75, 102);">🔤7 – Démontrer une propriété générale par le calcul littéral.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤8" title="🔤8 – Utiliser un contre-exemple pour démontrer qu’une assertion est fausse." style="background-color: rgb(186, 75, 102);">🔤8 – Utiliser un contre-exemple pour démontrer qu’une assertion est fausse.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤9" title="🔤9 – Formuler des conjectures en s’appuyant sur un langage algorithmique ou un tableur." style="background-color: rgb(186, 75, 102);">🔤9 – Formuler des conjectures en s’appuyant sur un langage algorithmique ou un tableur.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤10" title="🔤10 – Donner à la lettre le statut d’inconnue." style="background-color: rgb(186, 75, 102);">🔤10 – Donner à la lettre le statut d’inconnue.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤11" title="🔤11 – Modéliser des problèmes relevant des opérations à trous par des équations du type a𝑥 = c ou 𝑥 + b = c." style="background-color: rgb(186, 75, 102);">🔤11 – Modéliser des problèmes relevant des opérations à trous par des équations du type a𝑥 = c ou 𝑥 + b = c.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤5" title="🔤5 – Exploiter les relations k(a + b) = ka + kb ou k(a – b) = ka – kb pour factoriser, ou développer une expression littérale." style="background-color: rgb(186, 75, 102);">🔤5 – Exploiter les relations k(a + b) = ka + kb ou k(a – b) = ka – kb pour factoriser, ou développer une expression littérale.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔤12" title="🔤12 – Résoudre des équations du type a𝑥 = c ou 𝑥 + b = c par des méthodes arithmétiques s'appuyant sur les opérations inverses." style="background-color: rgb(186, 75, 102);">🔤12 – Résoudre des équations du type a𝑥 = c ou 𝑥 + b = c par des méthodes arithmétiques s'appuyant sur les opérations inverses.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Représentation graphique de la proportionnalité</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈8" title="📈8 – Caractériser graphiquement la proportionnalité." style="background-color: rgb(138, 56, 210);">📈8 – Caractériser graphiquement la proportionnalité.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="∝5" title="∝5 – Représenter une situation de proportionnalité par un tableau ou un graphique." style="background-color: rgb(132, 45, 208);">∝5 – Représenter une situation de proportionnalité par un tableau ou un graphique.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="∝6" title="∝6 – Reconnaitre une situation de proportionnalité à partir d’un tableau ou d’un graphique." style="background-color: rgb(132, 45, 208);">∝6 – Reconnaitre une situation de proportionnalité à partir d’un tableau ou d’un graphique.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="∝7" title="∝7 – Reconnaitre graphiquement qu’un nuage de points est ou n’est pas associé à une situation de proportionnalité entre données discrètes." style="background-color: rgb(132, 45, 208);">∝7 – Reconnaitre graphiquement qu’un nuage de points est ou n’est pas associé à une situation de proportionnalité entre données discrètes.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Probabilités et statistiques</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📊1" title="📊1 – Recueillir et organiser des données." style="background-color: rgb(33, 167, 83);">📊1 – Recueillir et organiser des données.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📊2" title="📊2 – Calculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage)." style="background-color: rgb(33, 167, 83);">📊2 – Calculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage).<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📊3" title="📊3 – Lire et interpréter des informations présentées sous forme de tableaux, de diagrammes et de graphiques." style="background-color: rgb(33, 167, 83);">📊3 – Lire et interpréter des informations présentées sous forme de tableaux, de diagrammes et de graphiques.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📊4" title="📊4 – Représenter, sur papier ou à l’aide d’un tableur-grapheur, des données sous la forme d’un tableau, d’un diagramme (diagramme en barres, diagramme circulaire) ou d’un graphique cartésien." style="background-color: rgb(33, 167, 83);">📊4 – Représenter, sur papier ou à l’aide d’un tableur-grapheur, des données sous la forme d’un tableau, d’un diagramme (diagramme en barres, diagramme circulaire) ou d’un graphique cartésien.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📊5" title="📊5 – Choisir une représentation adaptée à ce qu’il convient de mettre en avant." style="background-color: rgb(33, 167, 83);">📊5 – Choisir une représentation adaptée à ce qu’il convient de mettre en avant.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📊6" title="📊6 – Calculer et interpréter la moyenne simple d’une série de données." style="background-color: rgb(33, 167, 83);">📊6 – Calculer et interpréter la moyenne simple d’une série de données.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🎲1" title="🎲1 – Aborder les questions relatives au hasard à partir de problèmes simples." style="background-color: rgb(45, 172, 92);">🎲1 – Aborder les questions relatives au hasard à partir de problèmes simples.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🎲2" title="🎲2 – Utiliser le vocabulaire des probabilités dans des contextes concrets : expérience aléatoire, issue, évènement." style="background-color: rgb(45, 172, 92);">🎲2 – Utiliser le vocabulaire des probabilités dans des contextes concrets : expérience aléatoire, issue, évènement.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🎲3" title="🎲3 – Attribuer des probabilités dans des cas simples (équiprobabilité)." style="background-color: rgb(45, 172, 92);">🎲3 – Attribuer des probabilités dans des cas simples (équiprobabilité).<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🎲4" title="🎲4 – Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d’effectifs et de fréquences." style="background-color: rgb(45, 172, 92);">🎲4 – Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d’effectifs et de fréquences.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Fonctions</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈7" title="📈7 – Produire une formule simple représentant la dépendance de deux grandeurs." style="background-color: rgb(138, 56, 210);">📈7 – Produire une formule simple représentant la dépendance de deux grandeurs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈6" title="📈6 – Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d’une formule." style="background-color: rgb(138, 56, 210);">📈6 – Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d’une formule.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈5" title="📈5 – Lire et interpréter un graphique cartésien donné par une courbe ou un nuage de points." style="background-color: rgb(138, 56, 210);">📈5 – Lire et interpréter un graphique cartésien donné par une courbe ou un nuage de points.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈3" title="📈3 – Lire et interpréter un tableau de valeurs." style="background-color: rgb(138, 56, 210);">📈3 – Lire et interpréter un tableau de valeurs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="📈2" title="📈2 – Produire un tableau de valeurs." style="background-color: rgb(138, 56, 210);">📈2 – Produire un tableau de valeurs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Parallélogrammes</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷3" title="🔷3 – Connaitre les propriétés caractéristiques des côtés opposés et des diagonales." style="background-color: rgb(76, 147, 219);">🔷3 – Connaitre les propriétés caractéristiques des côtés opposés et des diagonales.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷4" title="🔷4 – Utiliser une propriété caractéristique sur les diagonales ou les côtés pour les construire ou donner la nature du quadrilatère." style="background-color: rgb(76, 147, 219);">🔷4 – Utiliser une propriété caractéristique sur les diagonales ou les côtés pour les construire ou donner la nature du quadrilatère.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷8" title="🔷8 – Résoudre des problèmes faisant appel à des conversions d’unités de longueur et d’unités d’aires." style="background-color: rgb(76, 147, 219);">🔷8 – Résoudre des problèmes faisant appel à des conversions d’unités de longueur et d’unités d’aires.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷5" title="🔷5 – Définir les parallélogrammes particuliers (rectangle, losange, carré)." style="background-color: rgb(76, 147, 219);">🔷5 – Définir les parallélogrammes particuliers (rectangle, losange, carré).<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷6" title="🔷6 – Connaitre les propriétés caractéristiques." style="background-color: rgb(76, 147, 219);">🔷6 – Connaitre les propriétés caractéristiques.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🔷7" title="🔷7 – Savoir calculer l’aire d’un parallélogramme et de figures complexes." style="background-color: rgb(76, 147, 219);">🔷7 – Savoir calculer l’aire d’un parallélogramme et de figures complexes.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">Solides et volumes</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧊5" title="🧊5 – Calculer l’aire du disque, le volume du cylindre de révolution." style="background-color: rgb(25, 117, 209);">🧊5 – Calculer l’aire du disque, le volume du cylindre de révolution.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧊1" title="🧊1 – Construire et mettre en relation différentes représentations en perspectives cavalières des solides suivants : pavé droit, cube, cylindre de révolution, prisme droit." style="background-color: rgb(25, 117, 209);">🧊1 – Construire et mettre en relation différentes représentations en perspectives cavalières des solides suivants : pavé droit, cube, cylindre de révolution, prisme droit.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧊4" title="🧊4 – Connaitre et convertir des unités usuelles (volume et capacité)." style="background-color: rgb(25, 117, 209);">🧊4 – Connaitre et convertir des unités usuelles (volume et capacité).<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧊2" title="🧊2 – Savoir mettre en relation une représentation en perspective cavalière et un patron d’un pavé, d’un prisme droit ou d’un cylindre de révolution." style="background-color: rgb(25, 117, 209);">🧊2 – Savoir mettre en relation une représentation en perspective cavalière et un patron d’un pavé, d’un prisme droit ou d’un cylindre de révolution.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🧊3" title="🧊3 – Calculer le volume du cube, du pavé droit, du prisme droit." style="background-color: rgb(25, 117, 209);">🧊3 – Calculer le volume du cube, du pavé droit, du prisme droit.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div><div class="sequence open" draggable="true">
+    <div class="sequence-header">
+      <span class="chevron" onclick="this.closest('.sequence').classList.toggle('open')">▸</span>
+      <div class="sequence-title" contenteditable="true" oninput="updateExport()">A faire en détaché</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence" onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone" ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-point"></div><div class="insertion-indicator"></div>
+    <div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🐱6" title="🐱6 – Analyser un programme simple donné et modifier ses paramètres." style="background-color: rgb(220, 12, 172);">🐱6 – Analyser un programme simple donné et modifier ses paramètres.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🐱7" title="🐱7 – Effectuer une boucle inconditionnelle simple permettant de répéter une séquence linéaire d’instructions un nombre précis de fois." style="background-color: rgb(220, 12, 172);">🐱7 – Effectuer une boucle inconditionnelle simple permettant de répéter une séquence linéaire d’instructions un nombre précis de fois.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🐱1" title="🐱1 – Manipuler des instructions simples et les séquencer." style="background-color: rgb(220, 12, 172);">🐱1 – Manipuler des instructions simples et les séquencer.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🐱3" title="🐱3 – Représenter des formules sous la forme d’une expression informatique dans un langage de programmation par blocs." style="background-color: rgb(220, 12, 172);">🐱3 – Représenter des formules sous la forme d’une expression informatique dans un langage de programmation par blocs.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div><div class="right-objectif" draggable="true" data-code="🐱2" title="🐱2 – Identifier les entrées et sorties d’un programme." style="background-color: rgb(220, 12, 172);">🐱2 – Identifier les entrées et sorties d’un programme.<span class="close-btn delete-right-objectif" title="Supprimer cet objectif">×</span></div><div class="insertion-point"></div></div>
+  </div></div>
+
+  <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:20px;">
+    <button onclick="addSequence()">➕ Séquence</button>
+    <button onclick="ajouterVacances()" style="background-color:#fff585; color:#aa6600; font-weight:bold; border:1px solid #e5a800;">
+      ➕ Vacances
+    </button>
+    <button onclick="exporterHTML()" style="background-color:#dbeafe; color:#1d4ed8; border:1px solid #93c5fd; font-weight:bold;">
+      📤 Export HTML
+    </button>
+    <button onclick="exporterCSV()" style="background-color:#d1fae5; color:#065f46; border:1px solid #6ee7b7; font-weight:bold;">
+      📊 Export tableur
+    </button>
+    <button onclick="effacerSauvegarde()" style="background-color:#fee2e2; color:#b91c1c; border:1px solid #f87171;">
+      🗑️ Réinitialiser
+    </button>
+  </div>
+</div>
+
+</div>
+
+<script>
+// =============================================================================
+//  INITIALISATION
+// =============================================================================
+window.addEventListener("load", () => {
+  restaurer();
+  updateThemeCounters();
+});
+
+let dragged         = null;
+let draggedFromLeft = false;
+
+// =============================================================================
+//  DRAG & DROP — VOLET GAUCHE
+// =============================================================================
+document.querySelectorAll('#leftPanel .objectif').forEach(el => {
+  el.addEventListener("dragstart", (e) => {
+    if (el.classList.contains("grayed")) { e.preventDefault(); return; }
+    dragged         = el;
+    draggedFromLeft = true;
+    e.dataTransfer.setData("text/plain", el.dataset.code);
+    e.dataTransfer.effectAllowed = "move";
+    e.stopPropagation(); // Empêche la remontée vers d'autres listeners
+  });
+});
+
+// =============================================================================
+//  DRAG & DROP — VOLET DROIT
+// =============================================================================
+document.querySelector("#rightPanel").addEventListener("dragstart", e => {
+  if (e.target.classList.contains("right-objectif")) {
+    dragged         = e.target;
+    draggedFromLeft = false;
+    e.dataTransfer.setData("text/plain", dragged.dataset.code);
+    e.dataTransfer.effectAllowed = "move";
+  }
+});
+
+function allowDrop(ev) {
+  ev.preventDefault();
+  document.querySelectorAll('.insertion-point').forEach(el => el.classList.remove('drag-over'));
+  const target = ev.target.closest('.insertion-point');
+  if (target) target.classList.add('drag-over');
+}
+
+document.addEventListener('dragleave', ev => {
+  if (ev.target.classList.contains("insertion-point"))
+    ev.target.classList.remove("drag-over");
+});
+
+function drop(ev) {
+  ev.preventDefault();
+  document.querySelectorAll(".insertion-point").forEach(pt => pt.classList.remove("drag-over"));
+  const point = ev.target.closest(".insertion-point");
+  if (!point) return;
+  const code = ev.dataTransfer.getData("text/plain");
+
+  if (draggedFromLeft) {
+    // Cherche UNIQUEMENT dans #leftPanel (évite confusion avec volet droit)
+    const leftEl = document.querySelector(`#leftPanel .objectif[data-code="${code}"]`);
+    if (leftEl) {
+      // dataset.objectif (pas textContent) pour exclure le compteur
+      const label   = leftEl.dataset.code + " – " + leftEl.dataset.objectif;
+      const newElem = createRightObjectif(code, label, leftEl.style.backgroundColor);
+      point.parentElement.insertBefore(newElem, point);
+      markPlaced(code);
+    }
+  } else {
+    if (dragged && dragged.classList.contains("right-objectif"))
+      point.parentElement.insertBefore(dragged, point);
+  }
+
+  updateThemeCounters();
+  updateExport();
+  updateInsertionPoints();
+}
+
+// =============================================================================
+//  ÉTATS (placé / non placé)
+// =============================================================================
+function updateLeftGrayed() {
+  const codesRight = new Set();
+  document.querySelectorAll(".right-objectif").forEach(el => codesRight.add(el.dataset.code));
+  document.querySelectorAll("#leftPanel .objectif").forEach(el => {
+    if (el.dataset.automatisme === "true") return; // automatismes : jamais grisés
+    if (codesRight.has(el.dataset.code)) {
+      el.classList.add("grayed"); el.setAttribute("draggable", "false");
+    } else {
+      el.classList.remove("grayed"); el.setAttribute("draggable", "true");
+    }
+  });
+}
+
+// Objectif normal → grisé | Automatisme → compteur ++
+function markPlaced(code) {
+  const leftEl = document.querySelector(`#leftPanel .objectif[data-code="${code}"]`);
+  if (!leftEl) return;
+  if (leftEl.dataset.automatisme === "true") {
+    const counter = leftEl.querySelector(".auto-counter");
+    if (counter) {
+      const val = (parseInt(counter.textContent) || 0) + 1;
+      counter.textContent = val; counter.classList.add("visible");
+    }
+  } else {
+    leftEl.classList.add("grayed"); leftEl.setAttribute("draggable", "false");
+  }
+  updateThemeCounters();
+}
+
+// Objectif normal → réactivé | Automatisme → compteur --
+function unmarkPlaced(code) {
+  const leftEl = document.querySelector(`#leftPanel .objectif[data-code="${code}"]`);
+  if (!leftEl) return;
+  if (leftEl.dataset.automatisme === "true") {
+    const counter = leftEl.querySelector(".auto-counter");
+    if (counter) {
+      const val = Math.max(0, (parseInt(counter.textContent) || 0) - 1);
+      counter.textContent = val;
+      if (val === 0) counter.classList.remove("visible");
+    }
+  } else {
+    leftEl.classList.remove("grayed"); leftEl.setAttribute("draggable", "true");
+  }
+  updateThemeCounters();
+}
+
+function removeItem(item) {
+  const code = item.dataset.code;
+  item.remove(); unmarkPlaced(code); updateThemeCounters(); updateInsertionPoints();
+}
+
+// Recompte les automatismes depuis le volet droit (après restauration)
+function recalculerCompteurs() {
+  document.querySelectorAll('#leftPanel .objectif[data-automatisme="true"]').forEach(el => {
+    const c = el.querySelector(".auto-counter");
+    if (c) { c.textContent = "0"; c.classList.remove("visible"); }
+  });
+  document.querySelectorAll(".right-objectif").forEach(el => {
+    const leftEl = document.querySelector(
+      `#leftPanel .objectif[data-code="${el.dataset.code}"][data-automatisme="true"]`
+    );
+    if (leftEl) {
+      const c = leftEl.querySelector(".auto-counter");
+      if (c) { c.textContent = (parseInt(c.textContent) || 0) + 1; c.classList.add("visible"); }
+    }
+  });
+}
+
+// =============================================================================
+//  CRÉATION D'ÉLÉMENTS
+// =============================================================================
+function createRightObjectif(code, text, color) {
+  const div = document.createElement("div");
+  div.className = "right-objectif";
+  div.style.backgroundColor = color;
+  div.draggable = true; div.dataset.code = code;
+  div.textContent = text; div.title = text;
+  const btn = document.createElement("span");
+  btn.textContent = "×"; btn.className = "close-btn delete-right-objectif";
+  btn.title = "Supprimer cet objectif";
+  div.appendChild(btn);
+  return div;
+}
+
+// =============================================================================
+//  SÉQUENCES
+// =============================================================================
+function addSequence(title = "Séquence <Titre>") {
+  const container = document.getElementById("sequencesContainer");
+  const wrapper   = document.createElement("div");
+  wrapper.className = "sequence open";
+  wrapper.draggable = true;
+  wrapper.innerHTML = `
+    <div class="sequence-header">
+      <span class="chevron"
+            onclick="this.closest('.sequence').classList.toggle('open')">&#9656;</span>
+      <div class="sequence-title" contenteditable="true"
+           oninput="updateExport()">${title}</div>
+      <div class="sequence-buttons">
+        <button onclick="ajouterSeparation(this)" title="Séparateur">🛠</button>
+        <button onclick="ajouterCommentaire(this)" title="Commentaire">📝</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), -1)">🔼</button>
+        <button onclick="event.stopPropagation(); moveSequence(this.closest('.sequence'), 1)">🔽</button>
+        <button class="delete-sequence"
+                onclick="event.stopPropagation(); supprimerSequence(this)">×</button>
+      </div>
+    </div>
+    <div class="sequence-content dropzone"
+         ondrop="drop(event)" ondragover="allowDrop(event)">
+      <div class="insertion-indicator"></div>
+    </div>
+  `;
+  container.appendChild(wrapper);
+  updateExport(); updateInsertionPoints();
+}
+
+function supprimerSequence(button) {
+  const sequence = button.closest('.sequence');
+  sequence.querySelectorAll('.right-objectif').forEach(obj => {
+    if (obj.dataset.code) { obj.remove(); unmarkPlaced(obj.dataset.code); }
+  });
+  sequence.remove();
+  updateThemeCounters(); updateExport(); updateInsertionPoints();
+}
+
+function moveSequence(sequenceEl, direction) {
+  const container = document.getElementById("sequencesContainer");
+  const sequences = Array.from(container.children);
+  const index     = sequences.indexOf(sequenceEl);
+  const newIndex  = index + direction;
+  if (newIndex < 0 || newIndex >= sequences.length) return;
+  container.removeChild(sequenceEl);
+  if (direction === -1) container.insertBefore(sequenceEl, sequences[newIndex]);
+  else container.insertBefore(sequenceEl, sequences[newIndex].nextSibling);
+  updateExport();
+}
+
+// =============================================================================
+//  POINTS D'INSERTION
+// =============================================================================
+function updateInsertionPoints() {
+  document.querySelectorAll(".sequence-content").forEach(zone => {
+    zone.querySelectorAll(".insertion-point").forEach(el => el.remove());
+    Array.from(zone.children)
+      .filter(c => !c.classList.contains("insertion-point"))
+      .forEach(child => {
+        const pt = document.createElement("div");
+        pt.className = "insertion-point"; pt.ondragover = allowDrop; pt.ondrop = drop;
+        zone.insertBefore(pt, child);
+      });
+    const fp = document.createElement("div");
+    fp.className = "insertion-point"; fp.ondragover = allowDrop; fp.ondrop = drop;
+    zone.appendChild(fp);
+  });
+}
+
+// =============================================================================
+//  ÉLÉMENTS SPÉCIAUX
+// =============================================================================
+function ajouterSeparation(button) {
+  const content = button.closest(".sequence").querySelector(".sequence-content");
+  const sep = document.createElement("div");
+  sep.className = "exercice-separator";
+  sep.innerHTML = `
+    <div class="separator-line">
+      <div class="separator-text" contenteditable="true"
+           oninput="updateExport()">Exos / RdP / Auto🛠</div>
+      <button class="delete-separator"
+              onclick="this.closest('.exercice-separator').remove()">×</button>
+    </div>`;
+  content.appendChild(sep); updateInsertionPoints();
+}
+
+// Crée un bloc commentaire et l'attache à une zone.
+// isOpen : état initial (ouvert/fermé)
+function _attacherBlocCommentaire(bloc) {
+  // Attache le toggle et le bouton supprimer via JS
+  // (nécessaire pour les blocs restaurés depuis localStorage)
+  const header  = bloc.querySelector(".commentaire-header");
+  const chevron = bloc.querySelector(".chevron");
+  const btnSuppr = header?.querySelector(".delete-commentaire");
+
+  if (!header || !chevron) return;
+
+  chevron.style.transform = bloc.classList.contains("open") ? "rotate(90deg)" : "rotate(0deg)";
+
+  header.onclick = function(e) {
+    if (e.target.closest(".delete-commentaire")) return;
+    bloc.classList.toggle("open");
+    chevron.style.transform = bloc.classList.contains("open") ? "rotate(90deg)" : "rotate(0deg)";
+  };
+
+  if (btnSuppr) btnSuppr.onclick = (e) => { e.stopPropagation(); bloc.remove(); };
+}
+
+function ajouterCommentaire(button) {
+  const zone = button.closest(".sequence").querySelector(".sequence-content");
+  const bloc = document.createElement("div");
+  bloc.className = "commentaire-bloc open";
+  bloc.innerHTML = `
+    <div class="commentaire-header">
+      <span class="chevron">&#9656;</span>
+      <span class="commentaire-texte" contenteditable="true"
+            oninput="updateExport()">Commentaire / Ressource</span>
+      <button class="delete-commentaire" title="Supprimer">×</button>
+    </div>
+    <div class="commentaire-content">
+      <div class="commentaire-zone" contenteditable="true"
+           oninput="scheduleSanitize(this)">Entrez votre texte ici...</div>
+    </div>`;
+  zone.appendChild(bloc);
+  _attacherBlocCommentaire(bloc); // Attache les handlers
+  updateInsertionPoints();
+}
+
+function ajouterVacances() {
+  const container = document.getElementById("sequencesContainer");
+  if (!container) return;
+  const div = document.createElement("div"); div.className = "vacances";
+  const ligneG = document.createElement("div"); ligneG.className = "ligne";
+  const ligneD = document.createElement("div"); ligneD.className = "ligne";
+  const texte  = document.createElement("div");
+  texte.className = "texte"; texte.contentEditable = "true";
+  texte.textContent = "Vacances"; texte.setAttribute("oninput", "updateExport()");
+  const btnSuppr = document.createElement("button");
+  btnSuppr.textContent = "✖"; btnSuppr.className = "delete-vacances";
+  btnSuppr.title = "Supprimer"; btnSuppr.onclick = () => div.remove();
+  div.appendChild(ligneG); div.appendChild(texte); div.appendChild(ligneD); div.appendChild(btnSuppr);
+  const all = container.querySelectorAll(".sequence, .vacances");
+  if (all.length > 0) all[all.length - 1].insertAdjacentElement('afterend', div);
+  else container.appendChild(div);
+}
+
+// =============================================================================
+//  LIENS CLIQUABLES
+// =============================================================================
+let sanitizeTimeout = null;
+function scheduleSanitize(element) {
+  clearTimeout(sanitizeTimeout);
+  sanitizeTimeout = setTimeout(() => { sanitizeLinks(element); placeCaretAtEnd(element); }, 500);
+}
+function sanitizeLinks(container) {
+  if (!container) return;
+  const selection = window.getSelection();
+  const range = selection.rangeCount > 0 ? selection.getRangeAt(0).cloneRange() : null;
+  const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null);
+  const textNodes = [];
+  while (walker.nextNode()) {
+    if (!walker.currentNode.parentNode.closest('a')) textNodes.push(walker.currentNode);
+  }
+  textNodes.forEach(node => {
+    const text = node.nodeValue;
+    const urlRegex = /((https?:\/\/|www\.)[^\s<]+)/g;
+    const replaced = text.replace(urlRegex, url => {
+      const fullUrl = url.startsWith("http") ? url : "https://" + url;
+      return `<a href="${fullUrl}" target="_blank" style="color:#0645ad;text-decoration:underline;">${url}</a>`;
+    });
+    if (replaced !== text) {
+      const span = document.createElement("span"); span.innerHTML = replaced;
+      node.parentNode.replaceChild(span, node);
+    }
+  });
+  if (range) { selection.removeAllRanges(); selection.addRange(range); }
+}
+function placeCaretAtEnd(el) {
+  el.focus();
+  const range = document.createRange(); range.selectNodeContents(el); range.collapse(false);
+  const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+}
+
+// =============================================================================
+//  COMPTEURS
+// =============================================================================
+function updateThemeCounters() {
+  document.querySelectorAll('#leftPanel .theme').forEach(themeEl => {
+    const counterSpan = themeEl.querySelector('.theme-counter');
+    const objectifs   = themeEl.querySelectorAll('.objectif');
+    let nonPlaces = 0;
+    objectifs.forEach(obj => { if (!obj.classList.contains('grayed')) nonPlaces++; });
+    const isAuto = themeEl.querySelector('.objectif-auto') !== null;
+    counterSpan.textContent = isAuto ? `(${objectifs.length})` : `(${nonPlaces}/${objectifs.length})`;
+  });
+}
+
+// =============================================================================
+//  DÉPLIER / REPLIER
+// =============================================================================
+function expandAllSequences() {
+  document.querySelectorAll('.sequence').forEach(s => s.classList.add('open'));
+  document.querySelectorAll('.commentaire-bloc').forEach(c => c.classList.add('open'));
+}
+function collapseAllSequences() {
+  document.querySelectorAll('.sequence').forEach(s => s.classList.remove('open'));
+  document.querySelectorAll('.commentaire-bloc').forEach(c => c.classList.remove('open'));
+}
+function expandAllThemes() {
+  document.querySelectorAll('#leftPanel details').forEach(d => d.setAttribute('open',''));
+}
+function collapseAllThemes() {
+  document.querySelectorAll('#leftPanel details').forEach(d => d.removeAttribute('open'));
+}
+
+// =============================================================================
+//  REDIMENSIONNEMENT
+// =============================================================================
+const resizer = document.getElementById('resizer');
+const leftPanel = document.getElementById('leftPanel');
+const containerEl = document.getElementById('container');
+let isResizing = false;
+resizer.addEventListener('mousedown', e => {
+  isResizing = true;
+  document.body.style.cursor = 'col-resize';
+  document.body.style.userSelect = 'none'; // Empêche la sélection de texte pendant le drag
+  e.preventDefault();
+});
+document.addEventListener('mousemove', e => {
+  if (!isResizing) return;
+  e.preventDefault();
+  let w = Math.max(150, Math.min(e.clientX - containerEl.offsetLeft, containerEl.clientWidth - 200));
+  leftPanel.style.width = w + 'px';
+  leftPanel.style.flexShrink = '0'; // Fige la largeur, empêche le retour élastique
+});
+document.addEventListener('mouseup', () => {
+  isResizing = false;
+  document.body.style.cursor = '';
+  document.body.style.userSelect = ''; // Réactive la sélection de texte
+});
+
+// =============================================================================
+//  BURGER
+// =============================================================================
+document.getElementById("toggleLeftPanel").addEventListener("click", () => {
+  document.getElementById('leftPanel').classList.toggle('hidden');
+  document.getElementById('rightPanel').classList.toggle('full-width');
+});
+
+// =============================================================================
+//  CLICS GLOBAUX (suppression)
+// =============================================================================
+document.addEventListener("click", function(e) {
+  const closeBtn = e.target.closest(".delete-right-objectif");
+  if (closeBtn) { const p = closeBtn.closest(".right-objectif"); if (p) removeItem(p); return; }
+  const delComment = e.target.closest(".delete-commentaire");
+  if (delComment) { delComment.closest(".commentaire-bloc")?.remove(); return; }
+  const delSep = e.target.closest(".delete-separator");
+  if (delSep) { delSep.closest(".exercice-separator")?.remove(); return; }
+  const delVac = e.target.closest(".delete-vacances");
+  if (delVac) { delVac.closest(".vacances")?.remove(); return; }
+});
+
+// =============================================================================
+//  SAUVEGARDE / RESTAURATION
+// =============================================================================
+function sauvegarder() {
+  const data = {
+    sousTitre : document.getElementById("sous-titre")?.innerHTML || "",
+    // Enfants directs uniquement → évite la ligne parasite (barre de boutons)
+    sequences : Array.from(
+      document.getElementById("sequencesContainer")?.children || []
+    ).map(el => el.outerHTML).join("")
+  };
+  localStorage.setItem("progression5e_save", JSON.stringify(data));
+}
+
+function restaurer() {
+  const raw = localStorage.getItem("progression5e_save");
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    const sousTitre = document.getElementById("sous-titre");
+    if (sousTitre && data.sousTitre) sousTitre.innerHTML = data.sousTitre;
+
+    const container = document.getElementById("sequencesContainer");
+    if (container && data.sequences) {
+      container.innerHTML = data.sequences;
+
+      // Réattacher drag & drop (perdus après innerHTML)
+      container.querySelectorAll(".sequence-content").forEach(zone => {
+        zone.ondrop = drop; zone.ondragover = allowDrop;
+      });
+      container.querySelectorAll(".insertion-point").forEach(pt => {
+        pt.ondrop = drop; pt.ondragover = allowDrop;
+      });
+
+      // Réattacher les handlers des blocs commentaires
+      // (les onclick inline sont perdus après innerHTML=)
+      container.querySelectorAll(".commentaire-bloc").forEach(bloc => {
+        _attacherBlocCommentaire(bloc);
+      });
+    }
+
+    recalculerCompteurs();
+    updateLeftGrayed();
+    updateThemeCounters();
+    updateInsertionPoints();
+  } catch(e) {
+    console.warn("Erreur lors de la restauration :", e);
+  }
+}
+
+function updateExport() { sauvegarder(); }
+
+function effacerSauvegarde() {
+  if (confirm("Effacer toutes les données sauvegardées et recommencer ?")) {
+    localStorage.removeItem("progression5e_save"); location.reload();
+  }
+}
+
+// =============================================================================
+//  EXPORT HTML
+// =============================================================================
+function exporterHTML() {
+  sauvegarder(); // S'assure que localStorage est à jour
+  const blob = new Blob(
+    ['<!DOCTYPE html>\n' + document.documentElement.outerHTML],
+    { type: "text/html;charset=utf-8" }
+  );
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "progression_exportee.html";
+  a.click();
+}
+// =============================================================================
+//  EXPORT CSV (tableur)
+// =============================================================================
+
+// Export CSV
+function creerSetOrdonne() {
+  var items = [];
+  var seen  = {};
+  return {
+    add: function(val) {
+      if (val && !seen[val]) { seen[val] = true; items.push(val); }
+    },
+    joinWith: function(sep) { return items.join(sep); }
+  };
+}
+
+function nettoyer(str) {
+  if (!str) return "";
+  return str.replace(/\t/g, " ").replace(/\r/g, " ").replace(/\n/g, " ").trim();
+}
+
+function exporterCSV() {
+  var SEP     = "\t";
+  var NEWLINE = "\r\n";
+  var lignes  = [];
+
+  lignes.push([
+    "Semaine",
+    "N seq",
+    "Titre sequence",
+    "Themes",
+    "Sous-themes",
+    "Objectifs",
+    "Automatismes",
+    "Commentaires"
+  ].join(SEP));
+
+  var enfants = Array.from(
+    document.getElementById("sequencesContainer").children
+  );
+  var numSeq = 0;
+
+  enfants.forEach(function(el) {
+    if (el.classList.contains("vacances")) {
+      var texteEl = el.querySelector(".texte");
+      var texte   = texteEl ? texteEl.textContent.trim() : "Vacances";
+      lignes.push(["", texte, texte, texte, texte, texte, texte, texte].join(SEP));
+      return;
+    }
+    if (!el.classList.contains("sequence")) return;
+    numSeq++;
+
+    var titreEl = el.querySelector(".sequence-title");
+    var titre   = titreEl ? titreEl.textContent.trim() : "";
+
+    var objectifs    = [];
+    var automatismes = [];
+
+    el.querySelectorAll(".right-objectif").forEach(function(obj) {
+      var code   = obj.dataset.code || "";
+      var leftEl = document.querySelector(
+        "#leftPanel .objectif[data-code='" + code + "']"
+      );
+      if (!leftEl) return;
+      var theme     = leftEl.dataset.theme     || "";
+      var sousTheme = leftEl.dataset.sousTheme || "";
+      if (leftEl.dataset.automatisme === "true") {
+        automatismes.push({ code: code, theme: theme, sousTheme: sousTheme });
+      } else {
+        objectifs.push({ code: code, theme: theme, sousTheme: sousTheme });
+      }
+    });
+
+    var themesSet     = creerSetOrdonne();
+    var sousThemesSet = creerSetOrdonne();
+    objectifs.forEach(function(o) {
+      themesSet.add(o.theme);
+      sousThemesSet.add(o.sousTheme);
+    });
+
+    var commentaires = [];
+    el.querySelectorAll(".commentaire-zone").forEach(function(zone) {
+      var t = zone.textContent.trim();
+      if (t) commentaires.push(t);
+    });
+
+    lignes.push([
+      "",
+      numSeq,
+      nettoyer(titre),
+      nettoyer(themesSet.joinWith(", ")),
+      nettoyer(sousThemesSet.joinWith(", ")),
+      nettoyer(objectifs.map(function(o) { return o.code; }).join(", ")),
+      nettoyer(automatismes.map(function(o) { return o.code; }).join(", ")),
+      nettoyer(commentaires.join(" | "))
+    ].join(SEP));
+  });
+
+  var bom  = "\uFEFF";
+  var blob = new Blob([bom + lignes.join(NEWLINE)], { type: "text/csv;charset=utf-8" });
+  var a    = document.createElement("a");
+  a.href   = URL.createObjectURL(blob);
+  a.download = "progression_5e.csv";
+  a.click();
+}
+</script>
+
+
+
+</body></html>

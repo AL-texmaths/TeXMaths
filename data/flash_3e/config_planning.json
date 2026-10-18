@@ -1,0 +1,20 @@
+{
+  "filtre_ics": "5MATHS2",
+  "controle": {"parite_semaine": 1, "seance": "derniere"},
+  "seances_sautees": [],
+  "deblocages": {
+    "puissances": "2026-12-01",
+    "thales": "2027-02-01",
+    "trigonometrie": "2027-03-01"
+  },
+  "ecarts_jours": [3, 12],
+  "ecart_entretien": 30,
+  "ecart_intro_theme": 3,
+  "capacite": 3,
+  "capacite_debut": 2,
+  "capacite_plein": 4,
+  "nb_seances_plein": 25,
+  "nb_seances_debut": 6,
+  "nb_bilans": 8,
+  "capacite_bilan": 4
+}

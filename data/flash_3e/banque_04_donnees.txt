@@ -1,0 +1,56 @@
+// Proportionnalité, probabilités, statistiques, lecture de données - voir le format dans banque_01_nombres.txt
+
+## D01a | titre=Reconnaître une situation de proportionnalité | consigne=La situation est-elle proportionnelle ? Justifier. | bo= | chapitre=revision | poids=3 | dnb=PF
+D01a-1 | 30 | [TABLEAU: quantité $2 ; 5 ; 10$ et prix $6 ; 15 ; 30$] | oui, coefficient $3$
+D01a-2 | 25 | L'âge d'un enfant et sa taille. | non
+D01a-3 | 40 | [TABLEAU: $3 ; 4 ; 10$ et $4{,}5 ; 6 ; 14$] | non : $\dfrac{4{,}5}{3}=1{,}5$ et $\dfrac{14}{10}=1{,}4$
+
+## D01b | titre=Proportionnalité par linéarité | consigne=Répondre en utilisant la linéarité. | bo= | chapitre=revision | poids=3 | dnb=PF
+D01b-1 | 25 | $3$ stylos coûtent $4{,}50$ €. Prix de $6$ stylos ? | $9$ €
+D01b-2 | 30 | $5$ cahiers coûtent $7{,}50$ €. Prix de $15$ cahiers ? | $22{,}50$ €
+D01b-3 | 40 | $4$ pains coûtent $6$ €. Prix de $10$ pains ? | $15$ €
+
+## D01c | titre=Proportionnalité par retour à l'unité | consigne=Répondre en utilisant le retour à l'unité. | bo= | chapitre=revision | poids=3 | dnb=PF
+D01c-1 | 30 | $4$ croissants coûtent $5$ €. Prix de $7$ croissants ? | $8{,}75$ €
+D01c-2 | 35 | $3$ kg de pommes coûtent $7{,}50$ €. Prix de $5$ kg ? | $12{,}50$ €
+D01c-3 | 45 | Une voiture consomme $24$ L pour $400$ km. Consommation pour $150$ km ? | $9$ L
+
+## D02a | titre=Appliquer une augmentation ou une diminution en pourcentage | consigne=Calculer le nouveau prix. | bo= | chapitre=revision | poids=3 | dnb=PF
+D02a-1 | 30 | Un prix de $50$ € augmente de $10\,\%$. | $55$ €
+D02a-2 | 30 | Un prix de $80$ € baisse de $25\,\%$. | $60$ €
+D02a-3 | 40 | Un article à $60$ € est soldé à $-30\,\%$. | $42$ €
+
+## D02b | titre=Coefficient multiplicateur | consigne=Répondre. | bo= | chapitre=revision | poids=2 | dnb=PF
+D02b-1 | 25 | Quel est le coefficient multiplicateur associé à une augmentation de $20\,\%$ ? | $1{,}2$
+D02b-2 | 25 | Quel est le coefficient multiplicateur associé à une baisse de $15\,\%$ ? | $0{,}85$
+D02b-3 | 35 | Quelle évolution correspond au coefficient $1{,}08$ ? | une hausse de $8\,\%$
+
+## D03a | titre=Probabilité en situation d'équiprobabilité | consigne=Calculer la probabilité de l'événement. | bo= | chapitre=revision | poids=3 | dnb=OG
+D03a-1 | 25 | Dé équilibré à $6$ faces : obtenir $4$. | $\dfrac{1}{6}$
+D03a-2 | 25 | Dé équilibré à $6$ faces : obtenir un nombre pair. | $\dfrac{1}{2}$
+D03a-3 | 40 | Sac de $3$ boules rouges, $5$ bleues et $2$ vertes : tirer une boule qui n'est pas verte. | $\dfrac{4}{5}$
+
+## D03b | titre=Fréquence | consigne=Calculer la fréquence (fraction puis décimal ou pourcentage). | bo= | chapitre=revision | poids=2 | dnb=OG
+D03b-1 | 25 | Une pièce est lancée $50$ fois : $21$ fois pile. | $\dfrac{21}{50}=0{,}42$
+D03b-2 | 25 | Un événement se produit $12$ fois sur $40$. | $\dfrac{12}{40}=0{,}3=30\,\%$
+D03b-3 | 35 | Sur $200$ ampoules testées, $6$ sont défectueuses. | $\dfrac{6}{200}=0{,}03=3\,\%$
+
+## D04a | titre=Calculer une moyenne | consigne=Calculer la moyenne. | bo= | chapitre=revision | poids=3 | dnb=OG
+D04a-1 | 25 | $10$ ; $12$ ; $14$ | $12$
+D04a-2 | 30 | $5$ ; $8$ ; $12$ ; $15$ | $10$
+D04a-3 | 40 | $12$ ; $15$ ; $9$ ; $14$ ; $10$ | $12$
+
+## D04b | titre=Déterminer une médiane | consigne=Déterminer la médiane de la série. | bo= | chapitre=revision | poids=3 | dnb=OG
+D04b-1 | 20 | $3$ ; $5$ ; $9$ | $5$
+D04b-2 | 30 | $2$ ; $7$ ; $4$ ; $9$ ; $5$ | $5$
+D04b-3 | 35 | $12$ ; $8$ ; $15$ ; $9$ | $10{,}5$
+
+## D05a | titre=Lire un tableau d'effectifs | consigne=Répondre à la question à l'aide du tableau. | bo= | chapitre=revision | poids=2 | dnb=OG
+D05a-1 | 30 | [TABLEAU: notes $8 ; 10 ; 12 ; 14$ et effectifs $3 ; 5 ; 4 ; 2$] Quel est l'effectif total ? | $14$
+D05a-2 | 30 | [TABLEAU: notes $8 ; 10 ; 12 ; 14$ et effectifs $3 ; 5 ; 4 ; 2$] Quelle est la note la plus fréquente ? | $10$
+D05a-3 | 40 | [TABLEAU: notes $8 ; 10 ; 12 ; 14$ et effectifs $3 ; 5 ; 4 ; 2$] Combien d'élèves ont au moins $12$ ? | $6$
+
+## D05b | titre=Lire un graphique | consigne=Répondre à la question à l'aide du graphique. | bo= | chapitre=revision | poids=3 | dnb=PF
+D05b-1 | 30 | [GRAPHIQUE: coût en fonction du nombre de séances, droite passant par $(0\,;0)$ et $(4\,;20)$] Coût de $2$ séances ? | $10$ €
+D05b-2 | 30 | [GRAPHIQUE: température au cours d'une journée, points $(6\,;8)$, $(12\,;15)$, $(15\,;18)$] Température à $12$ h ? | $15\,^\circ$C
+D05b-3 | 40 | [GRAPHIQUE: distance parcourue en fonction du temps, droite passant par $(0\,;0)$ et $(2\ \text{h}\,;80\ \text{km})$] Distance parcourue en $1{,}5$ h ? | $60$ km

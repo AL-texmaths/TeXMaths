@@ -1,0 +1,161 @@
+// Géométrie, grandeurs et mesures - voir le format dans banque_01_nombres.txt
+
+## G01a | titre=Lire les coordonnées d'un point | consigne=Donner les coordonnées du point $A$. | bo=B2bc | chapitre=revision | poids=2 | dnb=EG
+G01a-1 | 25 | [FIGURE: repère orthonormé ; $A$ en $(3\,;2)$] | $A(3\,;2)$
+G01a-2 | 25 | [FIGURE: repère orthonormé ; $A$ en $(-2\,;4)$] | $A(-2\,;4)$
+G01a-3 | 35 | [FIGURE: repère orthogonal, axes gradués de 2 en 2 ; $A$ en $(-4\,;6)$] | $A(-4\,;6)$
+
+## G01b | titre=Placer un point dans un repère | consigne=Placer le point dans le repère. | bo=B2bc | chapitre=revision | poids=2 | dnb=EG
+G01b-1 | 25 | [FIGURE: repère orthonormé vierge] $A(2\,;5)$ | $2$ unités vers la droite puis $5$ vers le haut
+G01b-2 | 30 | [FIGURE: repère orthonormé vierge] $B(-3\,;1)$ | $3$ unités vers la gauche puis $1$ vers le haut
+G01b-3 | 35 | [FIGURE: repère orthonormé vierge] $C(0\,;-4)$ | sur l'axe des ordonnées, $4$ unités vers le bas
+
+## G02a | titre=Triangles particuliers grâce au codage | consigne=Donner la nature du triangle. | bo=B1ea | chapitre=revision | poids=2 | dnb=EG
+G02a-1 | 25 | [FIGURE: triangle $ABC$ avec $AB$ et $AC$ codés égaux] | isocèle en $A$
+G02a-2 | 25 | [FIGURE: triangle $ABC$ avec les trois côtés codés égaux] | équilatéral
+G02a-3 | 35 | [FIGURE: triangle $ABC$ avec angle droit codé en $B$ et $BA$, $BC$ codés égaux] | rectangle isocèle en $B$
+
+## G02b | titre=Quadrilatères particuliers grâce au codage | consigne=Donner la nature du quadrilatère. | bo=B1fb | chapitre=revision | poids=2 | dnb=EG
+G02b-1 | 25 | [FIGURE: $ABCD$, côtés opposés codés égaux deux à deux, un angle droit codé] | rectangle
+G02b-2 | 25 | [FIGURE: $ABCD$, quatre côtés codés égaux, aucun angle droit] | losange
+G02b-3 | 35 | [FIGURE: $ABCD$, quatre côtés codés égaux et un angle droit codé] | carré
+
+## G02c | titre=Médiatrice : lire le codage et conclure | consigne=Que peut-on affirmer ? | bo=B1ec | chapitre=revision | poids=2 | dnb=EG
+G02c-1 | 30 | [FIGURE: segment $[AB]$ et droite $(d)$ perpendiculaire en son milieu, codés ; $M\in(d)$] | $MA=MB$
+G02c-2 | 30 | [FIGURE: $(d)$ médiatrice de $[AB]$ ; $N\in(d)$] On sait que $NA=5$ cm. | $NB=5$ cm
+G02c-3 | 40 | Un point $P$ vérifie $PA=PB$. | $P$ appartient à la médiatrice de $[AB]$
+
+## G03a | titre=Vocabulaire des angles | consigne=Donner la nature de l'angle (aigu, droit, obtus ou plat). | bo=B1da | chapitre=revision | poids=1 | dnb=EG
+G03a-1 | 15 | $35^\circ$ | aigu
+G03a-2 | 15 | $120^\circ$ | obtus
+G03a-3 | 20 | $180^\circ$ | plat
+
+## G03b | titre=Calculer un angle (90° et 180°) | consigne=Calculer la mesure de l'angle demandé. | bo=B1db | chapitre=revision | poids=2 | dnb=EG
+G03b-1 | 25 | Deux angles supplémentaires : l'un mesure $50^\circ$. Mesure de l'autre ? | $130^\circ$
+G03b-2 | 25 | Deux angles complémentaires : l'un mesure $35^\circ$. Mesure de l'autre ? | $55^\circ$
+G03b-3 | 40 | Deux droites sécantes forment un angle de $65^\circ$. Mesures des trois autres angles ? | $65^\circ$, $115^\circ$ et $115^\circ$
+
+## G03c | titre=Somme des angles d'un triangle | consigne=Calculer l'angle manquant. | bo=B1eb | chapitre=revision | poids=3 | dnb=EG
+G03c-1 | 25 | Triangle dont deux angles mesurent $50^\circ$ et $60^\circ$. | $70^\circ$
+G03c-2 | 25 | Triangle dont deux angles mesurent $90^\circ$ et $35^\circ$. | $55^\circ$
+G03c-3 | 40 | Triangle isocèle dont l'angle au sommet principal mesure $40^\circ$ : angles à la base ? | $70^\circ$ chacun
+
+## G04a | titre=Conversions de longueurs et de masses | consigne=Convertir. | bo= | chapitre=revision | poids=2 | dnb=EG
+G04a-1 | 20 | $2{,}5\,\text{m}=\dots\,\text{cm}$ | $250$
+G04a-2 | 20 | $3\,400\,\text{g}=\dots\,\text{kg}$ | $3{,}4$
+G04a-3 | 30 | $450\,\text{mm}=\dots\,\text{m}$ | $0{,}45$
+
+## G04b | titre=Conversions de durées | consigne=Convertir. | bo= | chapitre=revision | poids=2 | dnb=EG
+G04b-1 | 20 | $90$ min en heures et minutes | $1$ h $30$ min
+G04b-2 | 25 | $2{,}5$ h en heures et minutes | $2$ h $30$ min
+G04b-3 | 40 | $3\,725$ s en heures, minutes et secondes | $1$ h $2$ min $5$ s
+
+## G04c | titre=Conversions d'aires | consigne=Convertir. | bo=A1db | chapitre=revision | poids=2 | dnb=EG
+G04c-1 | 25 | $3\,\text{m}^2=\dots\,\text{dm}^2$ | $300$
+G04c-2 | 30 | $5\,000\,\text{cm}^2=\dots\,\text{m}^2$ | $0{,}5$
+G04c-3 | 40 | $2{,}4\,\text{km}^2=\dots\,\text{m}^2$ | $2\,400\,000$
+
+## G04d | titre=Conversions de volumes et de capacités | consigne=Convertir. | bo=A1dc | chapitre=revision | poids=2 | dnb=EG
+G04d-1 | 20 | $1\,\text{dm}^3=\dots\,\text{L}$ | $1$
+G04d-2 | 25 | $2\,\text{m}^3=\dots\,\text{L}$ | $2\,000$
+G04d-3 | 40 | $350\,\text{cL}=\dots\,\text{dm}^3$ | $3{,}5$
+
+## G05a | titre=Reconnaître et nommer un solide | consigne=Nommer le solide. | bo=B2ca | chapitre=revision | poids=1 | dnb=EG
+G05a-1 | 15 | [FIGURE: cube en perspective cavalière] | un cube
+G05a-2 | 20 | [FIGURE: prisme droit à base triangulaire] | un prisme droit
+G05a-3 | 20 | [FIGURE: solide à base circulaire et un seul sommet] | un cône
+
+## G05b | titre=Patrons et représentations de solides | consigne=Répondre. | bo=B1bd | chapitre=revision | poids=1 | dnb=EG
+G05b-1 | 25 | [FIGURE: patron en croix de 6 carrés] Ce patron permet-il de construire un cube ? | oui
+G05b-2 | 25 | [FIGURE: 6 carrés alignés sur une ligne] Ce patron permet-il de construire un cube ? | non
+G05b-3 | 30 | [FIGURE: patron formé d'un carré et de quatre triangles] Quel solide ce patron permet-il de construire ? | une pyramide à base carrée
+
+## G06a | titre=Périmètre d'un polygone | consigne=Calculer le périmètre. | bo= | chapitre=revision | poids=2 | dnb=EG
+G06a-1 | 20 | Rectangle de $7$ cm sur $3$ cm | $20$ cm
+G06a-2 | 20 | Carré de côté $6{,}5$ cm | $26$ cm
+G06a-3 | 30 | Triangle isocèle de base $5$ cm et de côtés égaux $8$ cm | $21$ cm
+
+## G06b | titre=Périmètre d'un disque | consigne=Donner la valeur exacte du périmètre du cercle. | bo= | chapitre=revision | poids=2 | dnb=EG
+G06b-1 | 20 | Rayon $3$ cm | $6\pi$ cm
+G06b-2 | 20 | Diamètre $10$ cm | $10\pi$ cm
+G06b-3 | 30 | Rayon $2{,}5$ cm | $5\pi$ cm
+
+## G07a | titre=Aire d'un rectangle et d'un triangle | consigne=Calculer l'aire. | bo= | chapitre=revision | poids=3 | dnb=EG
+G07a-1 | 20 | Rectangle de $8$ cm sur $5$ cm | $40\,\text{cm}^2$
+G07a-2 | 25 | Triangle de base $6$ cm et de hauteur $4$ cm | $12\,\text{cm}^2$
+G07a-3 | 30 | Triangle rectangle dont les côtés de l'angle droit mesurent $5$ cm et $12$ cm | $30\,\text{cm}^2$
+
+## G07b | titre=Aire d'un disque | consigne=Donner la valeur exacte de l'aire du disque. | bo= | chapitre=revision | poids=3 | dnb=EG
+G07b-1 | 20 | Rayon $2$ cm | $4\pi\,\text{cm}^2$
+G07b-2 | 20 | Rayon $5$ cm | $25\pi\,\text{cm}^2$
+G07b-3 | 30 | Diamètre $6$ cm | $9\pi\,\text{cm}^2$
+
+## G07c | titre=Aire d'une figure composée | consigne=Calculer l'aire de la figure. | bo= | chapitre=revision | poids=2 | dnb=EG
+G07c-1 | 40 | [FIGURE: rectangle de $6$ cm sur $4$ cm et carré de côté $2$ cm accolé] | $28\,\text{cm}^2$
+G07c-2 | 45 | [FIGURE: rectangle de $10$ cm sur $6$ cm privé d'un carré de côté $2$ cm] | $56\,\text{cm}^2$
+G07c-3 | 60 | [FIGURE: rectangle de $8$ cm sur $6$ cm avec un demi-disque de diamètre $6$ cm accolé sur un petit côté] | $(48+4{,}5\pi)\,\text{cm}^2$
+
+## G08a | titre=Volume d'un cube et d'un pavé droit | consigne=Calculer le volume. | bo=B2cb | chapitre=revision | poids=2 | dnb=EG
+G08a-1 | 20 | Cube d'arête $3$ cm | $27\,\text{cm}^3$
+G08a-2 | 25 | Pavé droit de $5$ cm sur $4$ cm sur $2$ cm | $40\,\text{cm}^3$
+G08a-3 | 30 | Pavé droit de $2{,}5$ cm sur $4$ cm sur $2$ cm | $20\,\text{cm}^3$
+
+## G08b | titre=Volume d'un prisme droit et d'un cylindre | consigne=Calculer le volume (valeur exacte). | bo=B2cb | chapitre=revision | poids=3 | dnb=EG
+G08b-1 | 25 | Prisme droit : aire de la base $12\,\text{cm}^2$, hauteur $5$ cm | $60\,\text{cm}^3$
+G08b-2 | 35 | Cylindre de rayon $3$ cm et de hauteur $10$ cm | $90\pi\,\text{cm}^3$
+G08b-3 | 45 | Cylindre de diamètre $4$ cm et de hauteur $5$ cm | $20\pi\,\text{cm}^3$
+
+## G09a | titre=Pythagore : calculer l'hypoténuse | consigne=Calculer la longueur de l'hypoténuse. | bo= | chapitre=revision | poids=3 | dnb=EG
+G09a-1 | 30 | Triangle rectangle dont les côtés de l'angle droit mesurent $3$ cm et $4$ cm | $5$ cm
+G09a-2 | 35 | Triangle rectangle dont les côtés de l'angle droit mesurent $5$ cm et $12$ cm | $13$ cm
+G09a-3 | 45 | Triangle rectangle dont les côtés de l'angle droit mesurent $2$ cm et $3$ cm | $\sqrt{13}$ cm
+
+## G09b | titre=Pythagore : calculer un côté de l'angle droit | consigne=Calculer la longueur du côté manquant. | bo= | chapitre=revision | poids=3 | dnb=EG
+G09b-1 | 30 | Triangle rectangle d'hypoténuse $10$ cm et d'un côté de $6$ cm | $8$ cm
+G09b-2 | 35 | Triangle rectangle d'hypoténuse $13$ cm et d'un côté de $5$ cm | $12$ cm
+G09b-3 | 45 | Triangle rectangle d'hypoténuse $7$ cm et d'un côté de $4$ cm | $\sqrt{33}$ cm
+
+## G10a | titre=Thalès : écrire les rapports égaux | consigne=Écrire l'égalité des trois rapports. | bo= | chapitre=thales | poids=3 | dnb=EG
+G10a-1 | 40 | [FIGURE: triangle $ABC$, $M\in[AB]$, $N\in[AC]$, $(MN)\parallel(BC)$] | $\dfrac{AM}{AB}=\dfrac{AN}{AC}=\dfrac{MN}{BC}$
+G10a-2 | 45 | [FIGURE: $(AB)\parallel(CD)$ ; $(AD)$ et $(BC)$ sécantes en $O$] | $\dfrac{OA}{OD}=\dfrac{OB}{OC}=\dfrac{AB}{DC}$
+G10a-3 | 40 | [FIGURE: triangle $EFG$, $H\in[EF]$, $K\in[EG]$, $(HK)\parallel(FG)$] | $\dfrac{EH}{EF}=\dfrac{EK}{EG}=\dfrac{HK}{FG}$
+
+## G10b | titre=Thalès : calculer une longueur | consigne=Calculer la longueur demandée. | bo= | chapitre=thales | poids=3 | dnb=EG
+G10b-1 | 45 | $M\in[AB]$, $N\in[AC]$, $(MN)\parallel(BC)$ ; $AM=2$, $AB=6$, $AN=3$. Calculer $AC$. | $AC=9$
+G10b-2 | 50 | $M\in[AB]$, $N\in[AC]$, $(MN)\parallel(BC)$ ; $AB=8$, $AM=2$, $BC=12$. Calculer $MN$. | $MN=3$
+G10b-3 | 60 | $M\in[AB]$, $N\in[AC]$, $(MN)\parallel(BC)$ ; $AM=3$, $AB=5$, $AN=4{,}5$. Calculer $AC$. | $AC=7{,}5$
+
+## G11a | titre=Pythagore ou Thalès ? | consigne=Quel théorème utiliser : Pythagore, Thalès ou aucun des deux ? | bo= | chapitre=thales | poids=3 | dnb=EG
+G11a-1 | 30 | [FIGURE: triangle $ABC$ rectangle en $A$ ; $AB$ et $AC$ connus ; on cherche $BC$] | Pythagore
+G11a-2 | 30 | [FIGURE: $(MN)\parallel(BC)$ ; $AM$, $AB$, $AN$ connus ; on cherche $AC$] | Thalès
+G11a-3 | 40 | Triangle $ABC$ quelconque avec $AB=5$ et $AC=7$ ; on cherche $BC$. | aucun des deux (pas d'angle droit, pas de parallèles)
+
+## G11b | titre=Juger la cohérence d'un résultat | consigne=Ce résultat est-il possible ? Justifier. | bo= | chapitre=thales | poids=2 | dnb=EG
+G11b-1 | 40 | Dans un triangle rectangle $ABC$ d'hypoténuse $BC$, on trouve $BC=3$ alors que $AB=4$. | non : l'hypoténuse est le plus grand côté
+G11b-2 | 40 | Un triangle a pour côtés $3$ cm, $4$ cm et $9$ cm. | non : $9>3+4$ (inégalité triangulaire)
+G11b-3 | 45 | En appliquant Pythagore, on obtient $AC^2=25-36$. | impossible : un carré ne peut pas être négatif
+
+## G12a | titre=Reconnaître le cosinus dans un triangle rectangle | consigne=Exprimer le cosinus de l'angle sous forme d'un quotient de longueurs. | bo= | chapitre=trigonometrie | poids=3 | dnb=EG
+G12a-1 | 30 | $ABC$ rectangle en $A$ : $\cos\widehat{B}$ | $\dfrac{AB}{BC}$
+G12a-2 | 30 | $ABC$ rectangle en $A$ : $\cos\widehat{C}$ | $\dfrac{AC}{BC}$
+G12a-3 | 40 | $EFG$ rectangle en $F$ : $\cos\widehat{G}$ | $\dfrac{FG}{EG}$
+
+## G12b | titre=Calculer une longueur avec le cosinus | consigne=Calculer la longueur demandée dans le triangle $ABC$ rectangle en $A$. | bo= | chapitre=trigonometrie | poids=3 | dnb=EG
+G12b-1 | 45 | $BC=10$ et $\widehat{B}=60^\circ$ ; calculer $AB$ (on donne $\cos60^\circ=0{,}5$). | $AB=5$
+G12b-2 | 45 | $BC=8$ et $\cos\widehat{B}=0{,}5$ ; calculer $AB$. | $AB=4$
+G12b-3 | 60 | $AB=6$ et $\cos\widehat{B}=0{,}75$ ; calculer $BC$. | $BC=8$
+
+## G13a | titre=Symétrie axiale : propriétés | consigne=Répondre. | bo=B1ca | chapitre=revision | poids=2 | dnb=EG
+G13a-1 | 30 | [FIGURE: point $A$ et droite $(d)$ horizontale] Placer le symétrique $A'$ de $A$ par rapport à $(d)$. | $A'$ est de l'autre côté de $(d)$, à la même distance, avec $(AA')\perp(d)$
+G13a-2 | 25 | Quel est le rôle de l'axe $(d)$ pour le segment $[AA']$ ? | $(d)$ est la médiatrice de $[AA']$
+G13a-3 | 25 | Un angle mesure $35^\circ$. Quelle est la mesure de son symétrique par symétrie axiale ? | $35^\circ$ (conservation des angles)
+
+## G13b | titre=Symétrie centrale : propriétés | consigne=Répondre. | bo=B2aa | chapitre=revision | poids=2 | dnb=EG
+G13b-1 | 25 | $A'$ est le symétrique de $A$ par rapport à $O$. Que représente $O$ pour $[AA']$ ? | son milieu
+G13b-2 | 25 | Le symétrique d'un segment de $4$ cm par symétrie centrale : longueur et direction ? | $4$ cm, segment parallèle au premier
+G13b-3 | 35 | Triangle équilatéral, parallélogramme, trapèze isocèle : lequel admet un centre de symétrie ? | le parallélogramme
+
+## G13c | titre=Translation : propriétés | consigne=Répondre. | bo= | chapitre=revision | poids=2 | dnb=EG
+G13c-1 | 25 | Dans une translation, quelle est l'image d'une droite ? | une droite parallèle
+G13c-2 | 30 | Une translation transforme $A$ en $A'$ et $B$ en $B'$. Quelle est la nature de $ABB'A'$ ? | un parallélogramme
+G13c-3 | 30 | Dans une translation, quelles grandeurs sont conservées : longueurs, angles, aires ? | les trois

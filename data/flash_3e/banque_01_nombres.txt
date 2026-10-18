@@ -1,0 +1,130 @@
+// BANQUE DE QUESTIONS FLASH 3e - format commun aux fichiers banque_*.txt (lu par src/planning_flash.py)
+// Ligne "## CODE | cle=valeur | ..." : une micro-competence (un travail cognitif precis).
+//   cles : titre (\FlashSetTitle), consigne (\FlashShowConsignes), bo (code automatisme BO 2026 cycle 4 si connu, pour \automatismes{}),
+//          chapitre (revision = disponible des septembre, sinon cle de deblocage dans config_planning.json),
+//          poids (1 a 3 = importance au DNB), dnb (NC nombres/calculs, EG espace/geometrie, OG donnees/probas, PF proportionnalite/fonctions, AP algorithmique)
+// Ligne de question : "ID | temps_s | enonce LaTeX | reponse LaTeX [| consigne specifique]"
+//   - enonce et reponse sont du LaTeX pret a coller dans \flash{temps_s}{enonce} et dans la correction.
+//   - [FIGURE: ...] ou [TABLEAU: ...] ou [GRAPHIQUE: ...] decrit une figure TikZ/tableau a coder.
+//   - 3 variantes par micro-competence : 1 = acquisition, 2 = consolidation, 3 = type DNB / piege.
+//   - le separateur " | " (espace-barre-espace) est interdit dans les enonces.
+
+## N01a | titre=Fractions simples en écriture décimale | consigne=Donner l'écriture décimale. | bo=A1cb | chapitre=revision | poids=2 | dnb=NC
+N01a-1 | 20 | $\dfrac{1}{4}$ | $0{,}25$
+N01a-2 | 20 | $\dfrac{3}{2}$ | $1{,}5$
+N01a-3 | 30 | $\dfrac{3}{4}+\dfrac{1}{2}$ | $1{,}25$
+
+## N01b | titre=Décimaux simples en fractions | consigne=Écrire sous la forme d'une fraction simple (irréductible). | bo=A1cb | chapitre=revision | poids=2 | dnb=NC
+N01b-1 | 20 | $0{,}5$ | $\dfrac{1}{2}$
+N01b-2 | 20 | $0{,}75$ | $\dfrac{3}{4}$
+N01b-3 | 30 | $2{,}5$ | $\dfrac{5}{2}$
+
+## N02a | titre=Comparer et ranger des décimaux | consigne=Comparer les nombres ou les ranger dans l'ordre croissant. | bo= | chapitre=revision | poids=2 | dnb=NC
+N02a-1 | 20 | $3{,}4$ et $3{,}25$ | $3{,}4>3{,}25$
+N02a-2 | 25 | $-0{,}5$ et $-0{,}05$ | $-0{,}5<-0{,}05$
+N02a-3 | 40 | $-2{,}1$ ; $-2{,}12$ ; $-2$ ; $-2{,}02$ | $-2{,}12<-2{,}1<-2{,}02<-2$
+
+## N02b | titre=Somme et différence de relatifs | consigne=Calculer. | bo=A2aa | chapitre=revision | poids=3 | dnb=NC
+N02b-1 | 20 | $-3+5$ | $2$
+N02b-2 | 20 | $4-9$ | $-5$
+N02b-3 | 40 | $-4-(-9)+(-6)$ | $-1$
+
+## N02c | titre=Multiplier et diviser par 10, 100, 1000, 0,1 | consigne=Calculer. | bo=A1ae | chapitre=revision | poids=2 | dnb=NC
+N02c-1 | 20 | $3{,}4\times100$ | $340$
+N02c-2 | 20 | $52\div1000$ | $0{,}052$
+N02c-3 | 30 | $0{,}07\times0{,}1\times1000$ | $7$
+
+## N03a | titre=Lire une abscisse | consigne=Lire l'abscisse du point $A$. | bo=A1cd | chapitre=revision | poids=2 | dnb=NC
+N03a-1 | 25 | [FIGURE: demi-droite graduée de 0 à 1, pas de 0,1 ; $A$ en 0,7] | $0{,}7$
+N03a-2 | 30 | [FIGURE: demi-droite graduée de 2 à 3, pas de 0,25 ; $A$ en 2,75] | $2{,}75$
+N03a-3 | 40 | [FIGURE: droite graduée de $-2$ à $2$, unité divisée en 4 ; $A$ en $-0{,}75$] | $-0{,}75$
+
+## N03b | titre=Placer une abscisse | consigne=Placer le point demandé sur la droite graduée. | bo=B2ba | chapitre=revision | poids=2 | dnb=NC
+N03b-1 | 30 | [FIGURE: droite graduée de 0 à 2, unité = 4 carreaux] Placer $B$ d'abscisse $1{,}25$. | $B$ est à 5 carreaux de l'origine
+N03b-2 | 30 | [FIGURE: droite graduée de $-3$ à $3$, unité = 2 carreaux] Placer $C$ d'abscisse $-1{,}5$. | $C$ est au milieu entre $-2$ et $-1$
+N03b-3 | 40 | [FIGURE: droite graduée de 0 à 2, unité = 6 carreaux] Placer $D$ d'abscisse $\dfrac{4}{3}$. | $D$ est à 8 carreaux de l'origine
+
+## N04a | titre=Carrés des entiers de 1 à 12 | consigne=Calculer. | bo=A3ca | chapitre=revision | poids=2 | dnb=NC
+N04a-1 | 15 | $7^2$ | $49$
+N04a-2 | 15 | $12^2$ | $144$
+N04a-3 | 30 | $9^2-8^2$ | $17$
+
+## N04b | titre=Racine carrée d'un carré parfait | consigne=Calculer ou résoudre. | bo=A3ca | chapitre=revision | poids=1 | dnb=NC
+N04b-1 | 15 | $\sqrt{49}$ | $7$
+N04b-2 | 15 | $\sqrt{144}$ | $12$
+N04b-3 | 40 | $x^2=81$ | $x=9$ ou $x=-9$
+
+## N05a | titre=Critères de divisibilité par 2, 5 et 10 | consigne=Le nombre est-il divisible par $2$ ? par $5$ ? par $10$ ? | bo=A3dd | chapitre=revision | poids=1 | dnb=NC
+N05a-1 | 20 | $145$ | par $5$ seulement
+N05a-2 | 20 | $230$ | par $2$, par $5$ et par $10$
+N05a-3 | 25 | $1\,248$ | par $2$ seulement
+
+## N05b | titre=Critères de divisibilité par 3 et 9 | consigne=Le nombre est-il divisible par $3$ ? par $9$ ? | bo=A3dd | chapitre=revision | poids=1 | dnb=NC
+N05b-1 | 25 | $123$ | par $3$ seulement ($1+2+3=6$)
+N05b-2 | 25 | $4\,572$ | par $3$ et par $9$ ($4+5+7+2=18$)
+N05b-3 | 40 | Par quel chiffre remplacer $\square$ pour que $41\square$ soit divisible par $9$ ? | $4$ car $4+1+4=9$
+
+## N06a | titre=Double, triple, moitié d'un entier $n$ | consigne=Exprimer en fonction de l'entier $n$. | bo=A2ee | chapitre=revision | poids=1 | dnb=NC
+N06a-1 | 15 | Le double de $n$ | $2n$
+N06a-2 | 15 | Le triple de $n$ | $3n$
+N06a-3 | 25 | Le double de $n$ diminué de $3$ | $2n-3$
+
+## N06b | titre=Successeur, prédécesseur, carré d'un entier $n$ | consigne=Exprimer en fonction de l'entier $n$. | bo=A2ee | chapitre=revision | poids=1 | dnb=NC
+N06b-1 | 15 | Le successeur de $n$ | $n+1$
+N06b-2 | 20 | Le prédécesseur de $2n$ | $2n-1$
+N06b-3 | 30 | Le carré du successeur de $n$ | $(n+1)^2$
+
+## N07a | titre=Simplifier une fraction | consigne=Simplifier au maximum. | bo=A3db | chapitre=revision | poids=3 | dnb=NC
+N07a-1 | 20 | $\dfrac{6}{8}$ | $\dfrac{3}{4}$
+N07a-2 | 25 | $\dfrac{15}{35}$ | $\dfrac{3}{7}$
+N07a-3 | 30 | $\dfrac{63}{14}$ | $\dfrac{9}{2}$
+
+## N07b | titre=Comparer des fractions | consigne=Comparer les deux fractions ($<$, $>$ ou $=$). | bo=A3dc | chapitre=revision | poids=3 | dnb=NC
+N07b-1 | 20 | $\dfrac{2}{7}$ et $\dfrac{5}{7}$ | $\dfrac{2}{7}<\dfrac{5}{7}$
+N07b-2 | 30 | $\dfrac{3}{4}$ et $\dfrac{5}{8}$ | $\dfrac{3}{4}>\dfrac{5}{8}$
+N07b-3 | 40 | $\dfrac{4}{5}$ et $\dfrac{7}{9}$ | $\dfrac{4}{5}>\dfrac{7}{9}$
+
+## N07c | titre=Additionner et soustraire des fractions | consigne=Calculer (résultat simplifié). | bo=A3aa | chapitre=revision | poids=3 | dnb=NC
+N07c-1 | 20 | $\dfrac{3}{5}+\dfrac{4}{5}$ | $\dfrac{7}{5}$
+N07c-2 | 30 | $\dfrac{1}{2}+\dfrac{1}{3}$ | $\dfrac{5}{6}$
+N07c-3 | 45 | $\dfrac{7}{4}-\dfrac{5}{6}$ | $\dfrac{11}{12}$
+
+## N07d | titre=Multiplier et diviser des fractions | consigne=Calculer (résultat simplifié). | bo=A3aa | chapitre=revision | poids=3 | dnb=NC
+N07d-1 | 30 | $\dfrac{2}{3}\times\dfrac{3}{5}$ | $\dfrac{2}{5}$
+N07d-2 | 30 | $\dfrac{4}{9}\times3$ | $\dfrac{4}{3}$
+N07d-3 | 45 | $\dfrac{5}{6}\div\dfrac{10}{3}$ | $\dfrac{1}{4}$
+
+## N08a | titre=Pourcentages usuels d'un nombre | consigne=Calculer. | bo=A1cj | chapitre=revision | poids=3 | dnb=NC
+N08a-1 | 20 | $50\,\%$ de $80$ | $40$
+N08a-2 | 20 | $10\,\%$ de $350$ | $35$
+N08a-3 | 30 | $75\,\%$ de $80$ | $60$
+
+## N08b | titre=Fraction simple d'un nombre | consigne=Calculer. | bo=A1ci | chapitre=revision | poids=3 | dnb=NC
+N08b-1 | 20 | $\dfrac{1}{3}$ de $18$ | $6$
+N08b-2 | 20 | $\dfrac{3}{4}$ de $20$ | $15$
+N08b-3 | 30 | $\dfrac{2}{5}$ de $45$ | $18$
+
+## N08c | titre=Pourcentage en contexte | consigne=Répondre. | bo= | chapitre=revision | poids=3 | dnb=NC
+N08c-1 | 30 | Dans une classe de $25$ élèves, $5$ sont absents. Quel pourcentage d'élèves est absent ? | $20\,\%$
+N08c-2 | 30 | Sur $30$ élèves, $12$ pratiquent un sport collectif. Quel pourcentage cela représente-t-il ? | $40\,\%$
+N08c-3 | 40 | Sur $200$ élèves, $35\,\%$ sont demi-pensionnaires. Combien cela fait-il d'élèves ? | $70$ élèves
+
+## N09a | titre=Fraction, décimal, pourcentage | consigne=Donner l'écriture décimale puis le pourcentage. | bo=A1ck | chapitre=revision | poids=2 | dnb=NC
+N09a-1 | 20 | $\dfrac{1}{2}$ | $0{,}5=50\,\%$
+N09a-2 | 25 | $\dfrac{3}{4}$ | $0{,}75=75\,\%$
+N09a-3 | 30 | $\dfrac{7}{5}$ | $1{,}4=140\,\%$
+
+## N10a | titre=Écriture décimale vers notation scientifique | consigne=Écrire en notation scientifique. | bo=A3bc | chapitre=puissances | poids=2 | dnb=NC
+N10a-1 | 25 | $4\,500$ | $4{,}5\times10^{3}$
+N10a-2 | 30 | $0{,}0072$ | $7{,}2\times10^{-3}$
+N10a-3 | 40 | $320\times10^{5}$ | $3{,}2\times10^{7}$
+
+## N10b | titre=Notation scientifique vers écriture décimale | consigne=Donner l'écriture décimale. | bo=A3bc | chapitre=puissances | poids=2 | dnb=NC
+N10b-1 | 20 | $3\times10^{2}$ | $300$
+N10b-2 | 25 | $5{,}4\times10^{-1}$ | $0{,}54$
+N10b-3 | 35 | $2{,}5\times10^{-4}$ | $0{,}000\,25$
+
+## N10c | titre=Calculs avec des puissances de 10 | consigne=Calculer (résultat sous la forme $10^n$ ou en notation scientifique). | bo=A3bb | chapitre=puissances | poids=2 | dnb=NC
+N10c-1 | 25 | $10^{3}\times10^{4}$ | $10^{7}$
+N10c-2 | 25 | $\dfrac{10^{5}}{10^{2}}$ | $10^{3}$
+N10c-3 | 45 | $(3\times10^{4})\times(2\times10^{3})$ | $6\times10^{7}$

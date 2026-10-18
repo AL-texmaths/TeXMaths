@@ -95,3 +95,4 @@ isocèle valent 45 degrés avec tangente
 ("calculer", "représenter les nombres", ...)
 
 =====================
+
