@@ -1,0 +1,40 @@
+Corrige les bugs suivants de mon code :
+
+1- BUG: Lors de la sauvegarde via CTRL+S, au lieu de sauvegarder en
+écrvant sur le fichier actuel, le logiciel se comporte comme si
+l'utilisateur avait fait CTRL+SHIFT+S (sauvegarder sous). Je
+précise que ce comportement ne survient pas sytématiquement.
+Il est problablement lié à la manière dont le "fichier actuel"
+est traité et sauvegardé dans la configuration.
+
+2- API: Dans le volet droit de l'onglet 1 (volet
+contenant l'arbre de progression) le numéro du chapitre doit
+apparaître devant le nom. Les chapitres sont numérotés de 1 à ?
+pour chaque niveau différent. Bien entendu, cela doit être fait
+dynamiquement afin que tout changement dans l'arbre conserve
+une cohérence dans la numérotation.
+
+3- BUG: CTRL+Z (undo method) referme l'arbre après avoir
+effectué le changement.
+
+4- BUG: La création d'un nouveau chapitre dans l'arbre de
+progression crée nu nouveau chapitre nommé "Nouveau chapitre",
+ce qui est très bien mais le texte "Nouveau chapitre" n'est pas
+sélectionné. Il serait plus ergonomique que le texte soit
+automatiquement sélectionné pour une modification rapide.
+
+5- Erreur lors d'une tentative d'affichage de la "Liste
+complète filtrée":
+font-family: "{colors.font}", serif;
+                   ^^^^^^^^^^^
+  File "/home/antoine/Projects/TeXMaths/.venv/lib/python3.14/site-packages/pydantic/main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+
+6- BUG anticipé: les items utilisé dans la progression sont
+sauvegardés via leur "code" (ex: A1aa, B2ed, etc.). Mais en
+admettant une insertion d'item dans la liste des codes, il y
+aura un décalage des codes. A priori je ne pense pas que ce
+décalage soit pris en compte dans le fichier de progression,
+ce qui est un problème. Peut être faut-il revoir la manière
+de sauvegarder les items ? A toi de me donner la solution la
+plus simple et la plus efficace.
