@@ -169,9 +169,9 @@
             },
             "splitter": {
                 "size": [
-                    587,
-                    224,
-                    626
+                    286,
+                    615,
+                    536
                 ]
             },
             "progression_tree": {
@@ -397,8 +397,8 @@
         "current": {
             "theme": "VSCode Dark",
             "catalogue": "Cycle 4 BO 2026",
-            "type": "Objectifs d'apprentissage",
-            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-5eme.json",
+            "type": "Prolongements",
+            "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-cycle4-26_27.json",
             "code_index_file_name": "code_index.json",
             "pdf_data_file_name": "data_index.json"
         }
