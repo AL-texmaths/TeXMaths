@@ -44,6 +44,28 @@ nécéssaire ?
 permet le passage au niveau suivant
 >>> le theme vscode dark a des tailles de box plus élevée
 (ancien bug) mais les autres themes n'ont pas cette correction
+-----------------------------
+   assistant de progression
+-----------------------------
+>>> lors de la sauvegarde via CTRL+S, au lieu de sauvegarder en
+écrvant sur le fichier actuel, le logiciel se comporte comme si
+l'utilisateur avait fait CTRL+SHIFT+S (sauvegarder sous)
+>>> dans l'onglet progression (volet de droite de l'onglet 1),
+le numéro du chapitre doit apparaître pour chaque niveau
+>>> que se passe t il si l'ont ajoute un item dans le BO ? La
+progression sauvegardée devient le obsolète puisque le code de
+chaque item change ? Il faudrait que la progression sauvegardée
+soit indépendante du code (A1ab, B3ca, etc.) de chaque item
+
+Erreur lors du choix de la liste complète filtrée :
+    font-family: "{colors.font}", serif;
+                   ^^^^^^^^^^^
+  File "/home/antoine/Projects/TeXMaths/.venv/lib/python3.14/site-packages/pydantic/main.py", line 1042, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+Attri
+
+>>> BUG: ctrl+z sur l'arbre de progression referme l'arbre après
+changement
 ------------------------------
            genialy
 ------------------------------
