@@ -27,7 +27,7 @@ class ProgressionDocumentController:
         self.undo_redo = undo_redo_service
         self.code_service = code_service
         self.paths = paths
-        self.current_file = current_file
+        self.current_file = Path(current_file) if current_file else None
 
     @property
     def has_file(self):
@@ -47,7 +47,8 @@ class ProgressionDocumentController:
             data
         )
 
-        self.current_file = self.session_controller.get_current_file()
+        self.current_file = Path(filename)
+        self.session_controller.set_current_file(str(filename))
 
         self.undo_redo.clear()
 
@@ -75,7 +76,8 @@ class ProgressionDocumentController:
             filename,
             data
         )
-        self.session_controller.set_current_file(filename)
+        self.current_file = Path(filename)
+        self.session_controller.set_current_file(str(filename))
 
         return True
 

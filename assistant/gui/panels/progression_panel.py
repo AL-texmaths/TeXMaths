@@ -11,7 +11,13 @@ from PySide6.QtWidgets import (
 
 
 class _MultilineDelegate(QStyledItemDelegate):
-    """Ajuste la hauteur des items contenant des sauts de lignes."""
+    """Ajuste la hauteur des items contenant des sauts de lignes
+    et édite le texte sans numéro/compteur ajoutés à l'affichage."""
+
+    def __init__(self, tree, raw_text):
+        super().__init__(tree)
+        self.tree = tree
+        self.raw_text = raw_text
 
     def sizeHint(self, option, index):
         size = super().sizeHint(option, index)
@@ -20,6 +26,15 @@ class _MultilineDelegate(QStyledItemDelegate):
         if n > 0:
             return QSize(size.width(), size.height() * (n + 1))
         return size
+
+    def setEditorData(self, editor, index):
+        super().setEditorData(editor, index)
+        if not isinstance(editor, QLineEdit):
+            return
+        item = self.tree.itemFromIndex(index)
+        if item is not None and item.data(0, Qt.UserRole) is None:
+            editor.setText(self.raw_text(item))
+        editor.selectAll()
 
 
 class ProgressionPanel(QWidget):
@@ -82,7 +97,10 @@ class ProgressionPanel(QWidget):
         self.progression_tree = QTreeWidget()
         self.progression_tree.setHeaderLabel("Progression annuelle")
         self.progression_tree.setUniformRowHeights(False)
-        self.progression_tree.setItemDelegate(_MultilineDelegate(self.progression_tree))
+        self.progression_tree.setItemDelegate(_MultilineDelegate(
+            self.progression_tree,
+            self.progression_service._get_raw_text
+        ))
 
         rename_shortcut = QShortcut(
             QKeySequence(Qt.CTRL | Qt.Key_Return),
@@ -100,9 +118,20 @@ class ProgressionPanel(QWidget):
         self.progression_tree.currentItemChanged.connect(
             self.update_buttons_state
         )
+        self.progression_tree.itemChanged.connect(self._on_item_changed)
         self.search_bar.textChanged.connect(
             lambda: self.search_timer.start()
         )
+
+    def _on_item_changed(self, item, column):
+        # Après un renommage, réappliquer numéros de chapitres et compteurs
+        tree = self.progression_tree
+        tree.blockSignals(True)
+        try:
+            self.progression_service.update_level_displays(tree)
+            self.progression_service.update_chapter_numbers(tree)
+        finally:
+            tree.blockSignals(False)
 
     def filter_tree(self):
         search_text = self.search_bar.text().lower()
@@ -153,7 +182,12 @@ class ProgressionPanel(QWidget):
         )
     
     def refresh_ui(self):
-        self.progression_service.update_level_displays(self.progression_tree)
+        self.progression_tree.blockSignals(True)
+        try:
+            self.progression_service.update_level_displays(self.progression_tree)
+            self.progression_service.update_chapter_numbers(self.progression_tree)
+        finally:
+            self.progression_tree.blockSignals(False)
         self.progression_service.refresh_detailed_mode(self.progression_tree)
         self.progression_service.apply_colors(
                 self.progression_tree,

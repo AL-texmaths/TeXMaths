@@ -1,23 +1,18 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-\usepackage{hyperref}
-
-\newcounter{task}
-\def\chb{\medskip\stepcounter{task}\CheckBox[name=case\thetask,width=1em,height=1em]{}\ }
+\usepackage{texmaths-tikz}
 
 \begin{document}
-
-\section*{Ma liste de contrôle}
-
-\begin{Form}
-\chb Première tâche
-
-\chb Deuxième tâche
-
-\chb Troisième tâche
-
-\chb Quatrième tâche
-\end{Form}
-
+    \begin{tikzpicture}[scale=0.8, decoration=penciline,rotate=10]
+        \coordinate[label=above right:A](A)at(5,2);
+        \coordinate[label=below right:B](B)at(5,0);
+        \coordinate[label=below right:K](K)at(2,0);
+        \coordinate[label=above left:L](L)at(2,0.8);    
+        \coordinate[label=left:C](C)at(0,0);
+        \draw[decorate,thick](A)--(B)--(C)--cycle;
+        \path(K)--(L)coordinate[pos=-1](K');
+        \path(K)--(L)coordinate[pos=2](L');
+        \draw[decorate,thick](K')--(L');
+    \end{tikzpicture}
 \end{document}

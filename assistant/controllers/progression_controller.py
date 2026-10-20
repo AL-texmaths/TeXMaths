@@ -44,41 +44,41 @@ class ProgressionController:
     def add_custom_item(self, tree, text, refresh_callback=None):
         item = self.progression_service.add_custom_item(tree)
 
-        if item:
-            tree.editItem(item, 0)
-
         if refresh_callback:
             refresh_callback()
+
+        if item:
+            tree.editItem(item, 0)
 
     @record_tree_undo
     def add_level(self, tree, refresh_callback=None):
         item = self.progression_service.add_level(tree)
 
-        if item:
-            tree.editItem(item, 0)
-
         if refresh_callback:
             refresh_callback()
+
+        if item:
+            tree.editItem(item, 0)
 
     @record_tree_undo
     def add_chapter(self, tree, catalogue, current_item, refresh_callback=None):
         item = self.progression_service.add_chapter(tree, catalogue, current_item)
 
-        if item:
-            tree.editItem(item, 0)
-
         if refresh_callback:
             refresh_callback()
+
+        if item:
+            tree.editItem(item, 0)
     
     @record_tree_undo
     def add_seance(self, tree, refresh_callback=None):
         item = self.progression_service.add_seance(tree)
 
-        if item:
-            tree.editItem(item, 0)
-
         if refresh_callback:
             refresh_callback()
+
+        if item:
+            tree.editItem(item, 0)
     
     @record_tree_undo
     def add_selected_item(

@@ -94,6 +94,7 @@ class ProgressionService:
 
         item.setFlags(item.flags() | Qt.ItemIsEditable)
         current_item.addChild(item)
+        current_item.setExpanded(True)
         tree.setCurrentItem(item)
 
         return item
@@ -293,14 +294,42 @@ class ProgressionService:
             count = item.childCount()
             item.setText(0, f"{base} ({count})")
 
+    def strip_chapter_number(self, text: str) -> str:
+        """Retire le préfixe 'n. ' ajouté aux chapitres."""
+        return re.sub(r'^\d+\.\s', '', text)
+
+    def _is_chapter_item(self, item) -> bool:
+        parent = item.parent()
+        return (
+            parent is not None
+            and parent.parent() is None
+            and item.data(0, Qt.UserRole) is None
+        )
+
+    def update_chapter_numbers(self, tree):
+        """Numérote les chapitres de 1 à n, séparément pour chaque niveau."""
+        for i in range(tree.topLevelItemCount()):
+            level = tree.topLevelItem(i)
+            number = 0
+            for j in range(level.childCount()):
+                chapter = level.child(j)
+                if not self._is_chapter_item(chapter):
+                    continue
+                number += 1
+                base = self.strip_chapter_number(chapter.text(0))
+                chapter.setText(0, f"{number}. {base}")
+
     def _get_raw_text(self, item) -> str:
-        """Retourne le texte brut d'un item (code pour les items catalogue, texte sans compteur sinon)."""
+        """Retourne le texte brut d'un item (code pour les items catalogue, texte sans compteur/numéro sinon)."""
         entry_id = item.data(0, Qt.UserRole)
         if entry_id:
             entry = self.catalogue_service.get_entry_by_id(entry_id)
             if entry is not None:
                 return entry.code
-        return self._strip_level_count(item.text(0))
+        text = self._strip_level_count(item.text(0))
+        if self._is_chapter_item(item):
+            text = self.strip_chapter_number(text)
+        return text
 
     def toggle_detailed_mode(self, tree):
         """Bascule l'affichage entre les codes et les textes détaillés."""
@@ -380,9 +409,16 @@ class ProgressionService:
             process_item(tree.topLevelItem(i), 0)
 
     def item_to_dict(self, item):
+        entry_id = item.data(0, Qt.UserRole)
+        entry = (
+            self.catalogue_service.get_entry_by_id(entry_id)
+            if entry_id and entry_id != "seance" and entry_id != "prerequis"
+            else None
+        )
         return {
             "text": self._get_raw_text(item),
-            "data": item.data(0, Qt.UserRole),
+            "data": entry_id,
+            "entry_text": entry.text if entry is not None else None,
             "tooltip": item.toolTip(0),
             "expanded": item.isExpanded(),
             "children": [
@@ -391,28 +427,69 @@ class ProgressionService:
             ],
         }
     
-    def dict_to_item(self, node):
+    def _resolve_entry(self, node, texts_index):
+        """Retrouve l'entrée catalogue d'un noeud sauvegardé.
 
-        item = self.make_item(
-            node["text"],
-            node.get("data")
-        )
+        L'identifiant (catalogue:type:code) peut avoir changé si les codes ont
+        été décalés : on compare alors le texte sauvegardé et on cherche
+        l'entrée ayant le même texte dans le même catalogue/type.
+        Retourne (entry, remapped).
+        """
+        entry_id = node.get("data")
+        saved_text = node.get("entry_text")
+        if not entry_id or not saved_text:
+            return None, False
 
-        item.setToolTip(
-            0,
-            node.get("tooltip", "")
-        )
+        entry = self.catalogue_service.get_entry_by_id(entry_id)
+        if entry is not None and entry.text == saved_text:
+            return entry, False
 
-        item.setExpanded(
-            node.get("expanded", False)
-        )
+        catalogue_key, entry_type = (entry_id.split(":") + ["", ""])[:2]
+        candidate = texts_index.get((catalogue_key, entry_type, saved_text))
+        if candidate is not None:
+            return candidate, True
+
+        print(f"WARNING: entrée introuvable ou modifiée dans la progression : {entry_id}")
+        return None, False
+
+    def _build_texts_index(self):
+        return {
+            (e.catalogue.key, e.type, e.text): e
+            for e in self.catalogue_service.entries
+        }
+
+    def dict_to_item(self, node, texts_index=None):
+        if texts_index is None:
+            texts_index = self._build_texts_index()
+
+        text = node["text"]
+        data = node.get("data")
+        tooltip = node.get("tooltip", "")
+
+        entry, remapped = self._resolve_entry(node, texts_index)
+        if remapped:
+            text = entry.code
+            data = entry.id
+            tooltip = (
+                f"Catalogue: {entry.catalogue.name}\n"
+                f"{entry.text}\n"
+            )
+
+        item = self.make_item(text, data)
+        item.setToolTip(0, tooltip)
 
         for child in node.get("children", []):
             item.addChild(
-                self.dict_to_item(child)
+                self.dict_to_item(child, texts_index)
             )
 
         return item
+
+    def _apply_saved_expansion(self, item, node):
+        """Déplie les items selon le snapshot (doit être appelé une fois l'item attaché à l'arbre)."""
+        for i, child_node in enumerate(node.get("children", [])):
+            self._apply_saved_expansion(item.child(i), child_node)
+        item.setExpanded(node.get("expanded", False))
     
     def snapshot(self, tree):
 
@@ -425,13 +502,15 @@ class ProgressionService:
         
         tree.clear()
 
+        texts_index = self._build_texts_index()
+
         for node in data:
-            tree.addTopLevelItem(
-                self.dict_to_item(node)
-            )
+            item = self.dict_to_item(node, texts_index)
+            tree.addTopLevelItem(item)
+            self._apply_saved_expansion(item, node)
     
     def _collect_expanded_paths(self, item, prefix, out):
-        path = prefix + (item.text(0),)
+        path = prefix + (self._get_raw_text(item),)
         if item.isExpanded():
             out.add(path)
 
@@ -448,7 +527,7 @@ class ProgressionService:
         return out
 
     def _apply_expanded_paths(self, item, prefix, paths):
-        path = prefix + (item.text(0),)
+        path = prefix + (self._get_raw_text(item),)
         if path in paths:
             item.setExpanded(True)
 

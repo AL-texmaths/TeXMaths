@@ -1,4 +1,6 @@
-Corrige les bugs suivants de mon code :
+Effectue les modifications suivantes de mon code. Procède
+étape par étape avec un protoole de vérification pour chaque
+étape afin d'assurer la cohérence du code.
 
 1- BUG: Lors de la sauvegarde via CTRL+S, au lieu de sauvegarder en
 écrvant sur le fichier actuel, le logiciel se comporte comme si

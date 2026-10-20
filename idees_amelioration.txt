@@ -16,17 +16,11 @@ API: clarifier le lien entre progression et BO.
 de plusieurs catalogues ? Sinon, ajouter un attribut
 "catalogue" a chaque progression et empecher l'ajout
 d'item dont le catalogue ne correspond pas)
->>> API: l'utilisateur doit pouvoir choisir de n'afficher que les items
-unused dans la liste issue de la recherche regex
->>> API: système de recherche dans l'arbre de progression
->>> API: utiliser Ctrl+Up/Ctrl+Down pour faire monter/descendre
-l'arbre en gardant le même item sélectionné
->>> API: pouvoir copier-coller/des items de l'arbre de progression
 >>> se renseigner sur une manière professionelle de créer des liens de
 dépendance verticales entre les items ainsi qu'une manière de les
 visualiser
 >>> délégation des responsabilités du script assistant de progression
->>> Intercépter l'erreur FileNotFound pour l'export des questions flash
+>>> Intercepter l'erreur FileNotFound pour l'export des questions flash
 lors du split main
 >>> Vérifier le nom des fichiers de students list au début de compilation_suivi.py
 ---> revoir cette ligne : classes = sys.argv[1:][0].split(' ') pourquoi est elle

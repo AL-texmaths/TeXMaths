@@ -153,7 +153,7 @@ window.onload = function() {{
 body {{
     background: {colors.bg};
     color: {colors.fg};
-    font-family: "{colors.font}", serif;
+    font-family: "{theme.style.font.family}", serif;
     padding: 20px;
     font-size: 18px;
 }}
