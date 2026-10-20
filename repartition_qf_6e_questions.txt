@@ -1,0 +1,837 @@
+QUESTIONS FLASH - 6e (groupe 6G2 / 6MATHS2)
+Version avec énoncé concret et réponse attendue ; une ligne de question par thème planifié.
+Format : id | niveau/compétence | question flash | réponse de référence.
+Les indications [FIGURE] signalent le petit schéma à projeter ou dessiner. Les questions de construction attendent une production graphique.
+Séances planifiées : 129 ; questions : 436 ; compétences couvertes : 114/114.
+Semaines exclues : ISO 36 (rentrée) et ISO 26 (fin d'année). Créneaux contrôle retirés : 17 sur 146 créneaux de cours admissibles.
+
+001 | lun 07/09/2026 08:30 | Nombre entiers
+  QF-A3aa-obj-01 | A3aa/obj [Nouveau] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
+
+002 | mar 08/09/2026 08:30 | Nombre entiers
+  QF-A3ab-obj-01 | A3ab/obj [Nouveau] | Combien de dixièmes y a-t-il dans 3 unités ? | Réponse : 30 dixièmes
+
+003 | mar 08/09/2026 09:30 | Nombre entiers
+  QF-A3ac-obj-01 | A3ac/obj [Nouveau] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
+
+004 | mer 09/09/2026 09:30 | Nombre entiers
+  QF-A3bb-obj-01 | A3bb/obj [Nouveau] | Quel nombre multiplié par 7 donne 5 ? | Réponse : 5/7
+
+005 | jeu 10/09/2026 13:00 | Nombre entiers
+  QF-A3bc-obj-01 | A3bc/obj [Nouveau] | Compléter : 8 × ... = 56. | Réponse : 7
+
+006 | mar 15/09/2026 08:30 | Nombre entiers
+  QF-A3aw-obj-01 | A3aw/obj [Nouveau] | Effectuer la division euclidienne de 157 par 12. | Réponse : 157 = 12 × 13 + 1 ; quotient 13, reste 1
+
+007 | mar 15/09/2026 15:00 | Nombre entiers
+  QF-A3ax-obj-01 | A3ax/obj [Nouveau] | On range 53 cartes par paquets de 8. Combien de paquets complets et combien de cartes restantes ? | Réponse : 6 paquets et 5 cartes
+
+008 | ven 18/09/2026 08:30 | Nombre entiers
+  QF-A3aa-obj-02 | A3aa/obj [Réactivation du chapitre] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
+
+009 | lun 21/09/2026 08:30 | Aborder la géométrie
+  QF-C2aa-obj-01 | C2aa/obj [Nouveau] | AB = 4,6 cm. Quelle est la distance entre A et B ? | Réponse : 4,6 cm
+  QF-A3ac-obj-02 | A3ac/obj [Rappel espacé ~3 j] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
+
+010 | mar 22/09/2026 08:30 | Aborder la géométrie
+  QF-C2ab-obj-01 | C2ab/obj [Nouveau] | M est le milieu de [AB] et AB = 9 cm. Calculer AM. | Réponse : 4,5 cm
+  QF-A3ab-obj-02 | A3ab/obj [Rappel espacé ~3 j] | Combien de dixièmes y a-t-il dans 3 unités ? | Réponse : 30 dixièmes
+
+011 | mar 22/09/2026 09:30 | Aborder la géométrie
+  QF-C2ac-obj-01 | C2ac/obj [Nouveau] | Dans un cercle de centre O, le segment [AB] passe par O et A, B sont sur le cercle. Comment s'appelle [AB] ? | Réponse : Un diamètre
+  QF-A3bb-obj-02 | A3bb/obj [Rappel espacé ~3 j] | Quel nombre multiplié par 7 donne 5 ? | Réponse : 5/7
+
+012 | mer 23/09/2026 09:30 | Aborder la géométrie
+  QF-C2ad-obj-01 | C2ad/obj [Nouveau] | Un cercle a pour centre O et rayon 3 cm. P est à 2 cm de O. P appartient-il au cercle ou au disque ? | Réponse : Au disque, mais pas au cercle
+  QF-A3bc-obj-02 | A3bc/obj [Rappel espacé ~3 j] | Compléter : 8 × ... = 56. | Réponse : 7
+
+013 | jeu 24/09/2026 13:00 | Aborder la géométrie
+  QF-C2ae-obj-01 | C2ae/obj [Nouveau] | Les points M et N sont à 5 cm de O. Quelle propriété ont-ils en commun ? | Réponse : OM = ON = 5 cm ; ils appartiennent au cercle de centre O et de rayon 5 cm
+  QF-A3ax-obj-02 | A3ax/obj [Rappel espacé ~3 j] | On range 53 cartes par paquets de 8. Combien de paquets complets et combien de cartes restantes ? | Réponse : 6 paquets et 5 cartes
+
+014 | ven 02/10/2026 09:30 | Aborder la géométrie
+  QF-C2aa-obj-02 | C2aa/obj [Réactivation du chapitre] | AB = 4,6 cm. Quelle est la distance entre A et B ? | Réponse : 4,6 cm
+  QF-A3aw-obj-02 | A3aw/obj [Rappel espacé ~3 j] | Effectuer la division euclidienne de 157 par 12. | Réponse : 157 = 12 × 13 + 1 ; quotient 13, reste 1
+
+015 | mar 06/10/2026 08:30 | Fractions
+  QF-A3bd-obj-01 | A3bd/obj [Nouveau] | Sur une droite graduée en quarts, placer 5/4. | Réponse : À 1 unité et un quart de 0
+  QF-A3aa-obj-03 | A3aa/obj [Rappel espacé ~3 j] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
+
+016 | mar 06/10/2026 09:30 | Fractions
+  QF-A3be-obj-01 | A3be/obj [Nouveau] | Partager un segment de 3 cm en 6 intervalles égaux. Quelle est la longueur d'un intervalle ? | Réponse : 0,5 cm
+  QF-C2ac-obj-02 | C2ac/obj [Rappel espacé ~3 j] | Dans un cercle de centre O, le segment [AB] passe par O et A, B sont sur le cercle. Comment s'appelle [AB] ? | Réponse : Un diamètre
+
+017 | mer 07/10/2026 09:30 | Fractions
+  QF-A3bh-obj-01 | A3bh/obj [Nouveau] | Compléter : 3/5 = .../20. | Réponse : 12
+  QF-C2ab-obj-02 | C2ab/obj [Rappel espacé ~3 j] | M est le milieu de [AB] et AB = 9 cm. Calculer AM. | Réponse : 4,5 cm
+
+018 | jeu 08/10/2026 13:00 | Fractions
+  QF-A3bi-obj-01 | A3bi/obj [Nouveau] | Comparer 5/8 et 3/4. | Réponse : 5/8 < 3/4
+  QF-C2ad-obj-02 | C2ad/obj [Rappel espacé ~3 j] | Un cercle a pour centre O et rayon 3 cm. P est à 2 cm de O. P appartient-il au cercle ou au disque ? | Réponse : Au disque, mais pas au cercle
+
+019 | mar 13/10/2026 08:30 | Fractions
+  QF-A3bj-obj-01 | A3bj/obj [Nouveau] | Ranger dans l'ordre croissant : 5/4 ; 1/2 ; 7/4. | Réponse : 1/2 < 5/4 < 7/4
+  QF-C2ae-obj-02 | C2ae/obj [Rappel espacé ~3 j] | Les points M et N sont à 5 cm de O. Quelle propriété ont-ils en commun ? | Réponse : OM = ON = 5 cm ; ils appartiennent au cercle de centre O et de rayon 5 cm
+
+020 | mar 13/10/2026 16:00 | Angles
+  QF-C2ai-obj-01 | C2ai/obj [Nouveau] | Un angle mesure 125°. Est-il aigu, droit, obtus ou plat ? | Réponse : Obtus
+  QF-C2aa-obj-03 | C2aa/obj [Rappel espacé ~3 j] | AB = 4,6 cm. Quelle est la distance entre A et B ? | Réponse : 4,6 cm
+
+021 | lun 02/11/2026 08:30 | Angles
+  QF-C2aj-obj-01 | C2aj/obj [Nouveau] | [FIGURE : angle AOB mesuré au rapporteur, graduations indiquant 65°] Quelle est la mesure de l'angle AOB ? | Réponse : 65°
+  QF-A3be-obj-02 | A3be/obj [Rappel espacé ~3 j] | Partager un segment de 3 cm en 6 intervalles égaux. Quelle est la longueur d'un intervalle ? | Réponse : 0,5 cm
+
+022 | mar 03/11/2026 08:30 | Angles
+  QF-C2ak-obj-01 | C2ak/obj [Nouveau] | Construire un angle ABC de 40° à l'aide du rapporteur. | Réponse : Tracer une demi-droite [BA), mesurer 40° en B puis tracer [BC)
+  QF-A3bd-obj-02 | A3bd/obj [Rappel espacé ~3 j] | Sur une droite graduée en quarts, placer 5/4. | Réponse : À 1 unité et un quart de 0
+
+023 | mar 03/11/2026 09:30 | Angles
+  QF-C2al-obj-01 | C2al/obj [Nouveau] | La demi-droite [OM) partage l'angle AOB en deux angles égaux. Comment s'appelle [OM) ? | Réponse : La bissectrice de l'angle AOB
+  QF-A3bh-obj-02 | A3bh/obj [Rappel espacé ~3 j] | Compléter : 3/5 = .../20. | Réponse : 12
+
+024 | mer 04/11/2026 09:30 | Angles
+  QF-C2am-obj-01 | C2am/obj [Nouveau] | L'angle AOB mesure 76°. [OM) est sa bissectrice. Calculer AOM. | Réponse : 38°
+  QF-A3bi-obj-02 | A3bi/obj [Rappel espacé ~3 j] | Comparer 5/8 et 3/4. | Réponse : 5/8 < 3/4
+
+025 | jeu 05/11/2026 13:00 | Angles
+  QF-C2ai-obj-02 | C2ai/obj [Réactivation du chapitre] | Un angle mesure 125°. Est-il aigu, droit, obtus ou plat ? | Réponse : Obtus
+  QF-A3bj-obj-02 | A3bj/obj [Rappel espacé ~3 j] | Ranger dans l'ordre croissant : 5/4 ; 1/2 ; 7/4. | Réponse : 1/2 < 5/4 < 7/4
+  QF-A3ac-obj-03 | A3ac/obj [Rappel espacé ~10 j] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
+
+026 | mar 10/11/2026 08:30 | Nombre décimaux
+  QF-A3ad-obj-01 | A3ad/obj [Nouveau] | Lequel est un nombre décimal : 7/20 ou 2/3 ? | Réponse : 7/20 = 0,35 est décimal ; 2/3 ne l'est pas
+  QF-A3bb-obj-03 | A3bb/obj [Rappel espacé ~10 j] | Quel nombre multiplié par 7 donne 5 ? | Réponse : 5/7
+  QF-A3ab-obj-03 | A3ab/obj [Rappel espacé ~10 j] | Combien de dixièmes y a-t-il dans 3 unités ? | Réponse : 30 dixièmes
+
+027 | mar 10/11/2026 16:00 | Nombre décimaux
+  QF-A3af-obj-01 | A3af/obj [Nouveau] | Écrire 1,25 en fraction décimale, nombre mixte puis pourcentage. | Réponse : 125/100 ; 1 + 1/4 ; 125 %
+  QF-A3bc-obj-03 | A3bc/obj [Rappel espacé ~10 j] | Compléter : 8 × ... = 56. | Réponse : 7
+  QF-A3ax-obj-03 | A3ax/obj [Rappel espacé ~10 j] | On range 53 cartes par paquets de 8. Combien de paquets complets et combien de cartes restantes ? | Réponse : 6 paquets et 5 cartes
+
+028 | ven 13/11/2026 09:30 | Nombre décimaux
+  QF-A3ag-obj-01 | A3ag/obj [Nouveau] | Sur une demi-droite graduée de 0 à 2, placer 1,4. | Réponse : Entre 1 et 2, à 4 dixièmes après 1
+  QF-A3aw-obj-03 | A3aw/obj [Rappel espacé ~10 j] | Effectuer la division euclidienne de 157 par 12. | Réponse : 157 = 12 × 13 + 1 ; quotient 13, reste 1
+  QF-C2ac-obj-03 | C2ac/obj [Rappel espacé ~10 j] | Dans un cercle de centre O, le segment [AB] passe par O et A, B sont sur le cercle. Comment s'appelle [AB] ? | Réponse : Un diamètre
+
+029 | lun 16/11/2026 08:30 | Nombre décimaux
+  QF-A3ah-obj-01 | A3ah/obj [Nouveau] | [FIGURE : droite graduée de 2 à 3 divisée en 10 intervalles égaux ; point M sur la 7e graduation après 2] Quelle est l'abscisse de M ? | Réponse : 2,7
+  QF-C2aj-obj-02 | C2aj/obj [Rappel espacé ~3 j] | [FIGURE : angle AOB mesuré au rapporteur, graduations indiquant 65°] Quelle est la mesure de l'angle AOB ? | Réponse : 65°
+  QF-C2al-obj-02 | C2al/obj [Rappel espacé ~3 j] | La demi-droite [OM) partage l'angle AOB en deux angles égaux. Comment s'appelle [OM) ? | Réponse : La bissectrice de l'angle AOB
+
+030 | mar 17/11/2026 08:30 | Nombre décimaux
+  QF-A3ai-obj-01 | A3ai/obj [Nouveau] | Comparer 4,08 et 4,8. | Réponse : 4,08 < 4,8
+  QF-C2ak-obj-02 | C2ak/obj [Rappel espacé ~3 j] | Construire un angle ABC de 40° à l'aide du rapporteur. | Réponse : Tracer une demi-droite [BA), mesurer 40° en B puis tracer [BC)
+  QF-C2am-obj-02 | C2am/obj [Rappel espacé ~3 j] | L'angle AOB mesure 76°. [OM) est sa bissectrice. Calculer AOM. | Réponse : 38°
+
+031 | mar 17/11/2026 09:30 | Nombre décimaux
+  QF-A3aj-obj-01 | A3aj/obj [Nouveau] | Ranger dans l'ordre croissant : 0,7 ; 0,07 ; 0,77. | Réponse : 0,07 < 0,7 < 0,77
+  QF-A3aa-obj-04 | A3aa/obj [Rappel espacé ~10 j] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
+  QF-C2ab-obj-03 | C2ab/obj [Rappel espacé ~10 j] | M est le milieu de [AB] et AB = 9 cm. Calculer AM. | Réponse : 4,5 cm
+
+032 | jeu 19/11/2026 13:00 | Nombre décimaux
+  QF-A3am-obj-01 | A3am/obj [Nouveau] | Encadrer 6,38 entre deux dixièmes consécutifs. | Réponse : 6,3 < 6,38 < 6,4
+  QF-C2ai-obj-03 | C2ai/obj [Rappel espacé ~3 j] | Un angle mesure 125°. Est-il aigu, droit, obtus ou plat ? | Réponse : Obtus
+  QF-C2ad-obj-03 | C2ad/obj [Rappel espacé ~10 j] | Un cercle a pour centre O et rayon 3 cm. P est à 2 cm de O. P appartient-il au cercle ou au disque ? | Réponse : Au disque, mais pas au cercle
+
+033 | mar 24/11/2026 08:30 | Nombre décimaux
+  QF-A3ak-obj-01 | A3ak/obj [Nouveau] | Arrondir 8,764 au dixième. | Réponse : 8,8
+  QF-C2ae-obj-03 | C2ae/obj [Rappel espacé ~10 j] | Les points M et N sont à 5 cm de O. Quelle propriété ont-ils en commun ? | Réponse : OM = ON = 5 cm ; ils appartiennent au cercle de centre O et de rayon 5 cm
+  QF-C2aa-obj-04 | C2aa/obj [Rappel espacé ~10 j] | AB = 4,6 cm. Quelle est la distance entre A et B ? | Réponse : 4,6 cm
+
+034 | mar 24/11/2026 16:00 | Nombre décimaux
+  QF-A3bf-obj-01 | A3bf/obj [Nouveau] | La fraction 9/4 représente-t-elle un entier, un décimal non entier ou un nombre non décimal ? | Réponse : Un décimal non entier : 2,25
+  QF-A3be-obj-03 | A3be/obj [Rappel espacé ~10 j] | Partager un segment de 3 cm en 6 intervalles égaux. Quelle est la longueur d'un intervalle ? | Réponse : 0,5 cm
+  QF-A3bh-obj-03 | A3bh/obj [Rappel espacé ~10 j] | Compléter : 3/5 = .../20. | Réponse : 12
+
+035 | ven 27/11/2026 09:30 | Nombre décimaux
+  QF-A3ad-obj-02 | A3ad/obj [Réactivation du chapitre] | Lequel est un nombre décimal : 7/20 ou 2/3 ? | Réponse : 7/20 = 0,35 est décimal ; 2/3 ne l'est pas
+  QF-A3bd-obj-03 | A3bd/obj [Rappel espacé ~10 j] | Sur une droite graduée en quarts, placer 5/4. | Réponse : À 1 unité et un quart de 0
+  QF-A3bi-obj-03 | A3bi/obj [Rappel espacé ~10 j] | Comparer 5/8 et 3/4. | Réponse : 5/8 < 3/4
+
+036 | lun 30/11/2026 08:30 | Symétrie axiale
+  QF-C2af-obj-01 | C2af/obj [Nouveau] | Comment définit-on la médiatrice d'un segment ? | Réponse : La droite perpendiculaire au segment passant par son milieu
+  QF-A3af-obj-02 | A3af/obj [Rappel espacé ~3 j] | Écrire 1,25 en fraction décimale, nombre mixte puis pourcentage. | Réponse : 125/100 ; 1 + 1/4 ; 125 %
+  QF-A3ag-obj-02 | A3ag/obj [Rappel espacé ~3 j] | Sur une demi-droite graduée de 0 à 2, placer 1,4. | Réponse : Entre 1 et 2, à 4 dixièmes après 1
+
+037 | mar 01/12/2026 08:30 | Symétrie axiale
+  QF-C2ag-obj-01 | C2ag/obj [Nouveau] | M appartient à la médiatrice de [AB]. Que peut-on affirmer sur MA et MB ? | Réponse : MA = MB
+  QF-A3ah-obj-02 | A3ah/obj [Rappel espacé ~3 j] | [FIGURE : droite graduée de 2 à 3 divisée en 10 intervalles égaux ; point M sur la 7e graduation après 2] Quelle est l'abscisse de M ? | Réponse : 2,7
+  QF-A3aj-obj-02 | A3aj/obj [Rappel espacé ~3 j] | Ranger dans l'ordre croissant : 0,7 ; 0,07 ; 0,77. | Réponse : 0,07 < 0,7 < 0,77
+
+038 | mar 01/12/2026 09:30 | Symétrie axiale
+  QF-C2ah-obj-01 | C2ah/obj [Nouveau] | MA = 4,2 cm et MB = 4,2 cm. Que peut-on dire de M par rapport à [AB] ? | Réponse : M appartient à la médiatrice de [AB]
+  QF-A3ai-obj-02 | A3ai/obj [Rappel espacé ~3 j] | Comparer 4,08 et 4,8. | Réponse : 4,08 < 4,8
+  QF-A3am-obj-02 | A3am/obj [Rappel espacé ~3 j] | Encadrer 6,38 entre deux dixièmes consécutifs. | Réponse : 6,3 < 6,38 < 6,4
+
+039 | mer 02/12/2026 09:30 | Symétrie axiale
+  QF-C2at-obj-01 | C2at/obj [Nouveau] | Pour construire le symétrique A' d'un point A par rapport à une droite (d), quelle relation doit vérifier (d) avec [AA'] ? | Réponse : (d) est la médiatrice de [AA']
+  QF-A3bj-obj-03 | A3bj/obj [Rappel espacé ~10 j] | Ranger dans l'ordre croissant : 5/4 ; 1/2 ; 7/4. | Réponse : 1/2 < 5/4 < 7/4
+  QF-A3bf-obj-02 | A3bf/obj [Rappel espacé ~3 j] | La fraction 9/4 représente-t-elle un entier, un décimal non entier ou un nombre non décimal ? | Réponse : Un décimal non entier : 2,25
+
+040 | jeu 03/12/2026 13:00 | Symétrie axiale
+  QF-C2au-obj-01 | C2au/obj [Nouveau] | Une figure a un périmètre de 12 cm. Quel est le périmètre de son symétrique axial ? | Réponse : 12 cm ; la symétrie conserve les longueurs
+  QF-A3ak-obj-02 | A3ak/obj [Rappel espacé ~3 j] | Arrondir 8,764 au dixième. | Réponse : 8,8
+  QF-A3ad-obj-03 | A3ad/obj [Rappel espacé ~3 j] | Lequel est un nombre décimal : 7/20 ou 2/3 ? | Réponse : 7/20 = 0,35 est décimal ; 2/3 ne l'est pas
+
+041 | mar 08/12/2026 08:30 | Symétrie axiale
+  QF-C2af-obj-02 | C2af/obj [Réactivation du chapitre] | Comment définit-on la médiatrice d'un segment ? | Réponse : La droite perpendiculaire au segment passant par son milieu
+  QF-C2al-obj-03 | C2al/obj [Rappel espacé ~10 j] | La demi-droite [OM) partage l'angle AOB en deux angles égaux. Comment s'appelle [OM) ? | Réponse : La bissectrice de l'angle AOB
+  QF-C2aj-obj-03 | C2aj/obj [Rappel espacé ~10 j] | [FIGURE : angle AOB mesuré au rapporteur, graduations indiquant 65°] Quelle est la mesure de l'angle AOB ? | Réponse : 65°
+
+042 | mar 08/12/2026 16:00 | Inititation à l'algèbre
+  QF-A3ca-obj-01 | A3ca/obj [Nouveau] | Une balance est équilibrée : 3 sachets identiques et 2 cubes pèsent 14 cubes. Combien vaut un sachet ? | Réponse : 4 cubes
+  QF-C2ah-obj-02 | C2ah/obj [Rappel espacé ~3 j] | MA = 4,2 cm et MB = 4,2 cm. Que peut-on dire de M par rapport à [AB] ? | Réponse : M appartient à la médiatrice de [AB]
+  QF-C2ag-obj-02 | C2ag/obj [Rappel espacé ~3 j] | M appartient à la médiatrice de [AB]. Que peut-on affirmer sur MA et MB ? | Réponse : MA = MB
+
+043 | ven 11/12/2026 09:30 | Inititation à l'algèbre
+  QF-A3cb-obj-01 | A3cb/obj [Nouveau] | Une suite de motifs contient 4, 7, 10 carrés aux rangs 1, 2, 3. Combien au rang 5 ? | Réponse : 16 carrés ; on ajoute 3 à chaque rang
+  QF-C2at-obj-02 | C2at/obj [Rappel espacé ~3 j] | Pour construire le symétrique A' d'un point A par rapport à une droite (d), quelle relation doit vérifier (d) avec [AA'] ? | Réponse : (d) est la médiatrice de [AA']
+  QF-C2au-obj-02 | C2au/obj [Rappel espacé ~3 j] | Une figure a un périmètre de 12 cm. Quel est le périmètre de son symétrique axial ? | Réponse : 12 cm ; la symétrie conserve les longueurs
+
+044 | lun 14/12/2026 08:30 | Sommes de nombre décimaux
+  QF-A3an-obj-01 | A3an/obj [Nouveau] | Calculer 12,7 + 3,85. | Réponse : 16,55
+  QF-C2am-obj-03 | C2am/obj [Rappel espacé ~10 j] | L'angle AOB mesure 76°. [OM) est sa bissectrice. Calculer AOM. | Réponse : 38°
+  QF-C2ak-obj-03 | C2ak/obj [Rappel espacé ~10 j] | Construire un angle ABC de 40° à l'aide du rapporteur. | Réponse : Tracer une demi-droite [BA), mesurer 40° en B puis tracer [BC)
+
+045 | mar 15/12/2026 08:30 | Sommes de nombre décimaux
+  QF-A3al-obj-01 | A3al/obj [Nouveau] | Arrondir π au centième. | Réponse : 3,14
+  QF-C2ai-obj-04 | C2ai/obj [Rappel espacé ~10 j] | Un angle mesure 125°. Est-il aigu, droit, obtus ou plat ? | Réponse : Obtus
+  QF-C2af-obj-03 | C2af/obj [Rappel espacé ~3 j] | Comment définit-on la médiatrice d'un segment ? | Réponse : La droite perpendiculaire au segment passant par son milieu
+
+046 | mar 15/12/2026 09:30 | Géométrie dans le triangle
+  QF-C2an-obj-01 | C2an/obj [Nouveau] | Construire un triangle ABC tel que AB = 5 cm, AC = 4 cm et BC = 6 cm. | Réponse : Construction au compas et à la règle : les cercles de centres A et B, rayons 4 cm et 6 cm, se coupent en C
+  QF-A3ca-obj-02 | A3ca/obj [Rappel espacé ~3 j] | Une balance est équilibrée : 3 sachets identiques et 2 cubes pèsent 14 cubes. Combien vaut un sachet ? | Réponse : 4 cubes
+  QF-A3ag-obj-03 | A3ag/obj [Rappel espacé ~10 j] | Sur une demi-droite graduée de 0 à 2, placer 1,4. | Réponse : Entre 1 et 2, à 4 dixièmes après 1
+
+047 | mer 16/12/2026 09:30 | Géométrie dans le triangle
+  QF-C2ao-obj-01 | C2ao/obj [Nouveau] | Un triangle isocèle a un angle au sommet de 40°. Combien mesure chaque angle à la base ? | Réponse : 70°
+  QF-A3cb-obj-02 | A3cb/obj [Rappel espacé ~3 j] | Une suite de motifs contient 4, 7, 10 carrés aux rangs 1, 2, 3. Combien au rang 5 ? | Réponse : 16 carrés ; on ajoute 3 à chaque rang
+  QF-A3af-obj-03 | A3af/obj [Rappel espacé ~10 j] | Écrire 1,25 en fraction décimale, nombre mixte puis pourcentage. | Réponse : 125/100 ; 1 + 1/4 ; 125 %
+
+048 | jeu 17/12/2026 13:00 | Géométrie dans le triangle
+  QF-C2ap-obj-01 | C2ap/obj [Nouveau] | Quelle est la somme des angles d'un triangle ? | Réponse : 180°
+  QF-A3am-obj-03 | A3am/obj [Rappel espacé ~10 j] | Encadrer 6,38 entre deux dixièmes consécutifs. | Réponse : 6,3 < 6,38 < 6,4
+  QF-A3aj-obj-03 | A3aj/obj [Rappel espacé ~10 j] | Ranger dans l'ordre croissant : 0,7 ; 0,07 ; 0,77. | Réponse : 0,07 < 0,7 < 0,77
+
+049 | mar 05/01/2027 08:30 | Géométrie dans le triangle
+  QF-C2aq-obj-01 | C2aq/obj [Nouveau] | Un triangle a deux angles de 48° et 67°. Calculer le troisième angle. | Réponse : 65°
+  QF-A3an-obj-02 | A3an/obj [Rappel espacé ~3 j] | Calculer 12,7 + 3,85. | Réponse : 16,55
+  QF-A3al-obj-02 | A3al/obj [Rappel espacé ~3 j] | Arrondir π au centième. | Réponse : 3,14
+  QF-A3ai-obj-03 | A3ai/obj [Rappel espacé ~10 j] | Comparer 4,08 et 4,8. | Réponse : 4,08 < 4,8
+
+050 | mar 05/01/2027 16:00 | Géométrie dans le triangle
+  QF-C2ar-obj-01 | C2ar/obj [Nouveau] | Que peut-on dire du point d'intersection des médiatrices d'un triangle ? | Réponse : Il est à égale distance des trois sommets
+  QF-A3ah-obj-03 | A3ah/obj [Rappel espacé ~10 j] | [FIGURE : droite graduée de 2 à 3 divisée en 10 intervalles égaux ; point M sur la 7e graduation après 2] Quelle est l'abscisse de M ? | Réponse : 2,7
+  QF-A3bf-obj-03 | A3bf/obj [Rappel espacé ~10 j] | La fraction 9/4 représente-t-elle un entier, un décimal non entier ou un nombre non décimal ? | Réponse : Un décimal non entier : 2,25
+  QF-A3ak-obj-03 | A3ak/obj [Rappel espacé ~10 j] | Arrondir 8,764 au dixième. | Réponse : 8,8
+
+051 | ven 08/01/2027 09:30 | Géométrie dans le triangle
+  QF-C2as-obj-01 | C2as/obj [Nouveau] | Comment construire le cercle circonscrit à un triangle ? | Réponse : Tracer deux médiatrices de côtés ; leur intersection est le centre du cercle passant par les trois sommets
+  QF-A3ad-obj-04 | A3ad/obj [Rappel espacé ~10 j] | Lequel est un nombre décimal : 7/20 ou 2/3 ? | Réponse : 7/20 = 0,35 est décimal ; 2/3 ne l'est pas
+  QF-C2ah-obj-03 | C2ah/obj [Rappel espacé ~10 j] | MA = 4,2 cm et MB = 4,2 cm. Que peut-on dire de M par rapport à [AB] ? | Réponse : M appartient à la médiatrice de [AB]
+  QF-C2ag-obj-03 | C2ag/obj [Rappel espacé ~10 j] | M appartient à la médiatrice de [AB]. Que peut-on affirmer sur MA et MB ? | Réponse : MA = MB
+
+052 | lun 11/01/2027 08:30 | Géométrie dans le triangle
+  QF-C2an-obj-02 | C2an/obj [Réactivation du chapitre] | Construire un triangle ABC tel que AB = 5 cm, AC = 4 cm et BC = 6 cm. | Réponse : Construction au compas et à la règle : les cercles de centres A et B, rayons 4 cm et 6 cm, se coupent en C
+  QF-C2au-obj-03 | C2au/obj [Rappel espacé ~10 j] | Une figure a un périmètre de 12 cm. Quel est le périmètre de son symétrique axial ? | Réponse : 12 cm ; la symétrie conserve les longueurs
+  QF-C2at-obj-03 | C2at/obj [Rappel espacé ~10 j] | Pour construire le symétrique A' d'un point A par rapport à une droite (d), quelle relation doit vérifier (d) avec [AA'] ? | Réponse : (d) est la médiatrice de [AA']
+  QF-C2af-obj-04 | C2af/obj [Rappel espacé ~10 j] | Comment définit-on la médiatrice d'un segment ? | Réponse : La droite perpendiculaire au segment passant par son milieu
+
+053 | mar 12/01/2027 08:30 | Décimaux: multiplication et divisions
+  QF-A3au-obj-01 | A3au/obj [Nouveau] | Calculer 8,4 ÷ 4. | Réponse : 2,1
+  QF-C2ao-obj-02 | C2ao/obj [Rappel espacé ~3 j] | Un triangle isocèle a un angle au sommet de 40°. Combien mesure chaque angle à la base ? | Réponse : 70°
+  QF-C2ap-obj-02 | C2ap/obj [Rappel espacé ~3 j] | Quelle est la somme des angles d'un triangle ? | Réponse : 180°
+  QF-A3ca-obj-03 | A3ca/obj [Rappel espacé ~10 j] | Une balance est équilibrée : 3 sachets identiques et 2 cubes pèsent 14 cubes. Combien vaut un sachet ? | Réponse : 4 cubes
+
+054 | mar 12/01/2027 09:30 | Décimaux: multiplication et divisions
+  QF-A3av-obj-01 | A3av/obj [Nouveau] | 2,4 kg de pommes sont répartis dans 6 sacs identiques. Quelle masse par sac ? | Réponse : 0,4 kg
+  QF-A3cb-obj-03 | A3cb/obj [Rappel espacé ~10 j] | Une suite de motifs contient 4, 7, 10 carrés aux rangs 1, 2, 3. Combien au rang 5 ? | Réponse : 16 carrés ; on ajoute 3 à chaque rang
+  QF-C2ar-obj-02 | C2ar/obj [Rappel espacé ~3 j] | Que peut-on dire du point d'intersection des médiatrices d'un triangle ? | Réponse : Il est à égale distance des trois sommets
+  QF-C2aq-obj-02 | C2aq/obj [Rappel espacé ~3 j] | Un triangle a deux angles de 48° et 67°. Calculer le troisième angle. | Réponse : 65°
+
+055 | mer 13/01/2027 09:30 | Décimaux: multiplication et divisions
+  QF-A3ao-obj-01 | A3ao/obj [Nouveau] | Calculer 3,7 × 0,01. | Réponse : 0,037
+  QF-A3ac-obj-04 | A3ac/obj [Rappel espacé ~30 j] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
+  QF-A3bc-obj-04 | A3bc/obj [Rappel espacé ~30 j] | Compléter : 8 × ... = 56. | Réponse : 7
+  QF-A3bb-obj-04 | A3bb/obj [Rappel espacé ~30 j] | Quel nombre multiplié par 7 donne 5 ? | Réponse : 5/7
+
+056 | jeu 14/01/2027 13:00 | Décimaux: multiplication et divisions
+  QF-A3ap-obj-01 | A3ap/obj [Nouveau] | Compléter : 4 500 ÷ 100 = ... | Réponse : 45 ; diviser par 100 revient à déplacer la virgule de deux rangs vers la gauche
+  QF-A3ax-obj-04 | A3ax/obj [Rappel espacé ~30 j] | On range 53 cartes par paquets de 8. Combien de paquets complets et combien de cartes restantes ? | Réponse : 6 paquets et 5 cartes
+  QF-A3ab-obj-04 | A3ab/obj [Rappel espacé ~30 j] | Combien de dixièmes y a-t-il dans 3 unités ? | Réponse : 30 dixièmes
+  QF-C2ac-obj-04 | C2ac/obj [Rappel espacé ~30 j] | Dans un cercle de centre O, le segment [AB] passe par O et A, B sont sur le cercle. Comment s'appelle [AB] ? | Réponse : Un diamètre
+
+057 | mar 19/01/2027 08:30 | Décimaux: multiplication et divisions
+  QF-A3aq-obj-01 | A3aq/obj [Nouveau] | Sans poser l'opération, 0,4 × 0,7 est-il supérieur ou inférieur à 0,4 ? | Réponse : Inférieur ; 0,4 × 0,7 = 0,28
+  QF-C2as-obj-02 | C2as/obj [Rappel espacé ~3 j] | Comment construire le cercle circonscrit à un triangle ? | Réponse : Tracer deux médiatrices de côtés ; leur intersection est le centre du cercle passant par les trois sommets
+  QF-C2an-obj-03 | C2an/obj [Rappel espacé ~3 j] | Construire un triangle ABC tel que AB = 5 cm, AC = 4 cm et BC = 6 cm. | Réponse : Construction au compas et à la règle : les cercles de centres A et B, rayons 4 cm et 6 cm, se coupent en C
+  QF-A3aw-obj-04 | A3aw/obj [Rappel espacé ~30 j] | Effectuer la division euclidienne de 157 par 12. | Réponse : 157 = 12 × 13 + 1 ; quotient 13, reste 1
+
+058 | mar 19/01/2027 16:00 | Décimaux: multiplication et divisions
+  QF-A3ar-obj-01 | A3ar/obj [Nouveau] | Calculer 1,2 × 0,5. | Réponse : 0,6
+  QF-C2ab-obj-04 | C2ab/obj [Rappel espacé ~30 j] | M est le milieu de [AB] et AB = 9 cm. Calculer AM. | Réponse : 4,5 cm
+  QF-A3aa-obj-05 | A3aa/obj [Rappel espacé ~30 j] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
+  QF-C2ad-obj-04 | C2ad/obj [Rappel espacé ~30 j] | Un cercle a pour centre O et rayon 3 cm. P est à 2 cm de O. P appartient-il au cercle ou au disque ? | Réponse : Au disque, mais pas au cercle
+
+059 | ven 22/01/2027 09:30 | Décimaux: multiplication et divisions
+  QF-A3as-obj-01 | A3as/obj [Nouveau] | Le résultat de 19,8 × 4 est-il proche de 8, 80 ou 800 ? | Réponse : De 80 ; 19,8 est proche de 20 et 20 × 4 = 80
+  QF-C2ae-obj-04 | C2ae/obj [Rappel espacé ~30 j] | Les points M et N sont à 5 cm de O. Quelle propriété ont-ils en commun ? | Réponse : OM = ON = 5 cm ; ils appartiennent au cercle de centre O et de rayon 5 cm
+  QF-C2aa-obj-05 | C2aa/obj [Rappel espacé ~30 j] | AB = 4,6 cm. Quelle est la distance entre A et B ? | Réponse : 4,6 cm
+  QF-A3bh-obj-04 | A3bh/obj [Rappel espacé ~30 j] | Compléter : 3/5 = .../20. | Réponse : 12
+
+060 | lun 25/01/2027 08:30 | Décimaux: multiplication et divisions
+  QF-A3at-obj-01 | A3at/obj [Nouveau] | Un ruban coûte 2,40 € le mètre. Combien coûtent 3,5 m ? | Réponse : 8,40 €
+  QF-A3be-obj-04 | A3be/obj [Rappel espacé ~30 j] | Partager un segment de 3 cm en 6 intervalles égaux. Quelle est la longueur d'un intervalle ? | Réponse : 0,5 cm
+  QF-A3an-obj-03 | A3an/obj [Rappel espacé ~10 j] | Calculer 12,7 + 3,85. | Réponse : 16,55
+  QF-A3al-obj-03 | A3al/obj [Rappel espacé ~10 j] | Arrondir π au centième. | Réponse : 3,14
+
+061 | mar 26/01/2027 08:30 | Décimaux: multiplication et divisions
+  QF-A3au-obj-02 | A3au/obj [Réactivation du chapitre] | Calculer 8,4 ÷ 4. | Réponse : 2,1
+  QF-A3bi-obj-04 | A3bi/obj [Rappel espacé ~30 j] | Comparer 5/8 et 3/4. | Réponse : 5/8 < 3/4
+  QF-A3bd-obj-04 | A3bd/obj [Rappel espacé ~30 j] | Sur une droite graduée en quarts, placer 5/4. | Réponse : À 1 unité et un quart de 0
+  QF-A3bj-obj-04 | A3bj/obj [Rappel espacé ~30 j] | Ranger dans l'ordre croissant : 5/4 ; 1/2 ; 7/4. | Réponse : 1/2 < 5/4 < 7/4
+
+062 | mar 26/01/2027 09:30 | Organisation et gestion de données
+  QF-D3aa-obj-01 | D3aa/obj [Nouveau] | Pour savoir quel fruit les élèves préfèrent, quelle donnée faut-il recueillir auprès de chacun ? | Réponse : Le fruit préféré de chaque élève
+  QF-A3av-obj-02 | A3av/obj [Rappel espacé ~3 j] | 2,4 kg de pommes sont répartis dans 6 sacs identiques. Quelle masse par sac ? | Réponse : 0,4 kg
+  QF-A3ao-obj-02 | A3ao/obj [Rappel espacé ~3 j] | Calculer 3,7 × 0,01. | Réponse : 0,037
+  QF-A3ap-obj-02 | A3ap/obj [Rappel espacé ~3 j] | Compléter : 4 500 ÷ 100 = ... | Réponse : 45 ; diviser par 100 revient à déplacer la virgule de deux rangs vers la gauche
+
+063 | mer 27/01/2027 09:30 | Organisation et gestion de données
+  QF-D3ac-obj-01 | D3ac/obj [Nouveau] | Créer un tableau d'effectifs pour les réponses : pomme, poire, pomme, banane, pomme. | Réponse : Pomme : 3 ; poire : 1 ; banane : 1
+  QF-A3ar-obj-02 | A3ar/obj [Rappel espacé ~3 j] | Calculer 1,2 × 0,5. | Réponse : 0,6
+  QF-A3aq-obj-02 | A3aq/obj [Rappel espacé ~3 j] | Sans poser l'opération, 0,4 × 0,7 est-il supérieur ou inférieur à 0,4 ? | Réponse : Inférieur ; 0,4 × 0,7 = 0,28
+  QF-C2al-obj-04 | C2al/obj [Rappel espacé ~30 j] | La demi-droite [OM) partage l'angle AOB en deux angles égaux. Comment s'appelle [OM) ? | Réponse : La bissectrice de l'angle AOB
+
+064 | jeu 28/01/2027 13:00 | Organisation et gestion de données
+  QF-D3ab-obj-01 | D3ab/obj [Nouveau] | On mesure trois longueurs : 12 cm, 15 cm et 13 cm. Comment les consigner clairement ? | Réponse : Dans un tableau avec une ligne par objet et une colonne « longueur (cm) »
+  QF-A3as-obj-02 | A3as/obj [Rappel espacé ~3 j] | Le résultat de 19,8 × 4 est-il proche de 8, 80 ou 800 ? | Réponse : De 80 ; 19,8 est proche de 20 et 20 × 4 = 80
+  QF-C2aj-obj-04 | C2aj/obj [Rappel espacé ~30 j] | [FIGURE : angle AOB mesuré au rapporteur, graduations indiquant 65°] Quelle est la mesure de l'angle AOB ? | Réponse : 65°
+  QF-C2ar-obj-03 | C2ar/obj [Rappel espacé ~10 j] | Que peut-on dire du point d'intersection des médiatrices d'un triangle ? | Réponse : Il est à égale distance des trois sommets
+
+065 | mar 02/02/2027 08:30 | Organisation et gestion de données
+  QF-D3ad-obj-01 | D3ad/obj [Nouveau] | Dans un tableau de notes, comment sélectionner les élèves ayant au moins 10/20 ? | Réponse : Garder les lignes dont la note est supérieure ou égale à 10
+  QF-A3at-obj-02 | A3at/obj [Rappel espacé ~3 j] | Un ruban coûte 2,40 € le mètre. Combien coûtent 3,5 m ? | Réponse : 8,40 €
+  QF-A3au-obj-03 | A3au/obj [Rappel espacé ~3 j] | Calculer 8,4 ÷ 4. | Réponse : 2,1
+  QF-C2aq-obj-03 | C2aq/obj [Rappel espacé ~10 j] | Un triangle a deux angles de 48° et 67°. Calculer le troisième angle. | Réponse : 65°
+
+066 | mar 02/02/2027 16:00 | Organisation et gestion de données
+  QF-D3aa-obj-02 | D3aa/obj [Réactivation du chapitre] | Pour savoir quel fruit les élèves préfèrent, quelle donnée faut-il recueillir auprès de chacun ? | Réponse : Le fruit préféré de chaque élève
+  QF-C2ap-obj-03 | C2ap/obj [Rappel espacé ~10 j] | Quelle est la somme des angles d'un triangle ? | Réponse : 180°
+  QF-C2ao-obj-03 | C2ao/obj [Rappel espacé ~10 j] | Un triangle isocèle a un angle au sommet de 40°. Combien mesure chaque angle à la base ? | Réponse : 70°
+  QF-C2am-obj-04 | C2am/obj [Rappel espacé ~30 j] | L'angle AOB mesure 76°. [OM) est sa bissectrice. Calculer AOM. | Réponse : 38°
+
+067 | ven 05/02/2027 09:30 | Opérations sur les fractions
+  QF-A3ba-obj-01 | A3ba/obj [Nouveau] | Écrire 7/4 sous la forme d'une division puis donner le quotient décimal. | Réponse : 7 ÷ 4 = 1,75
+  QF-D3ac-obj-02 | D3ac/obj [Rappel espacé ~3 j] | Créer un tableau d'effectifs pour les réponses : pomme, poire, pomme, banane, pomme. | Réponse : Pomme : 3 ; poire : 1 ; banane : 1
+  QF-D3ab-obj-02 | D3ab/obj [Rappel espacé ~3 j] | On mesure trois longueurs : 12 cm, 15 cm et 13 cm. Comment les consigner clairement ? | Réponse : Dans un tableau avec une ligne par objet et une colonne « longueur (cm) »
+  QF-C2ak-obj-04 | C2ak/obj [Rappel espacé ~30 j] | Construire un angle ABC de 40° à l'aide du rapporteur. | Réponse : Tracer une demi-droite [BA), mesurer 40° en B puis tracer [BC)
+
+068 | lun 22/02/2027 08:30 | Opérations sur les fractions
+  QF-A3bl-obj-01 | A3bl/obj [Nouveau] | Calculer 2/3 + 1/6. | Réponse : 5/6
+  QF-D3ad-obj-02 | D3ad/obj [Rappel espacé ~3 j] | Dans un tableau de notes, comment sélectionner les élèves ayant au moins 10/20 ? | Réponse : Garder les lignes dont la note est supérieure ou égale à 10
+  QF-D3aa-obj-03 | D3aa/obj [Rappel espacé ~3 j] | Pour savoir quel fruit les élèves préfèrent, quelle donnée faut-il recueillir auprès de chacun ? | Réponse : Le fruit préféré de chaque élève
+  QF-C2as-obj-03 | C2as/obj [Rappel espacé ~10 j] | Comment construire le cercle circonscrit à un triangle ? | Réponse : Tracer deux médiatrices de côtés ; leur intersection est le centre du cercle passant par les trois sommets
+
+069 | mar 23/02/2027 08:30 | Opérations sur les fractions
+  QF-A3bn-obj-01 | A3bn/obj [Nouveau] | Lina mange 1/4 d'une tarte et Sami 2/4. Quelle fraction de la tarte reste-t-il ? | Réponse : 1/4
+  QF-C2an-obj-04 | C2an/obj [Rappel espacé ~10 j] | Construire un triangle ABC tel que AB = 5 cm, AC = 4 cm et BC = 6 cm. | Réponse : Construction au compas et à la règle : les cercles de centres A et B, rayons 4 cm et 6 cm, se coupent en C
+  QF-A3av-obj-03 | A3av/obj [Rappel espacé ~10 j] | 2,4 kg de pommes sont répartis dans 6 sacs identiques. Quelle masse par sac ? | Réponse : 0,4 kg
+  QF-A3ap-obj-03 | A3ap/obj [Rappel espacé ~10 j] | Compléter : 4 500 ÷ 100 = ... | Réponse : 45 ; diviser par 100 revient à déplacer la virgule de deux rangs vers la gauche
+
+070 | mar 23/02/2027 09:30 | Opérations sur les fractions
+  QF-A3bo-obj-01 | A3bo/obj [Nouveau] | Inventer une question dont la résolution nécessite de calculer 3/5 de 20. | Réponse : Exemple : « 3/5 des 20 élèves viennent à vélo. Combien sont-ils ? » Réponse : 12
+  QF-A3ao-obj-03 | A3ao/obj [Rappel espacé ~10 j] | Calculer 3,7 × 0,01. | Réponse : 0,037
+  QF-A3ar-obj-03 | A3ar/obj [Rappel espacé ~10 j] | Calculer 1,2 × 0,5. | Réponse : 0,6
+  QF-A3aq-obj-03 | A3aq/obj [Rappel espacé ~10 j] | Sans poser l'opération, 0,4 × 0,7 est-il supérieur ou inférieur à 0,4 ? | Réponse : Inférieur ; 0,4 × 0,7 = 0,28
+
+071 | mer 24/02/2027 09:30 | Opérations sur les fractions
+  QF-A3bk-obj-01 | A3bk/obj [Nouveau] | Calculer et simplifier : 3/4 × 2/3. | Réponse : 1/2
+  QF-A3as-obj-03 | A3as/obj [Rappel espacé ~10 j] | Le résultat de 19,8 × 4 est-il proche de 8, 80 ou 800 ? | Réponse : De 80 ; 19,8 est proche de 20 et 20 × 4 = 80
+  QF-C2ai-obj-05 | C2ai/obj [Rappel espacé ~30 j] | Un angle mesure 125°. Est-il aigu, droit, obtus ou plat ? | Réponse : Obtus
+  QF-A3ag-obj-04 | A3ag/obj [Rappel espacé ~30 j] | Sur une demi-droite graduée de 0 à 2, placer 1,4. | Réponse : Entre 1 et 2, à 4 dixièmes après 1
+
+072 | jeu 25/02/2027 13:00 | Proportionnalité
+  QF-E3ab-aut-01 | E3ab/aut [Nouveau] | Un rectangle a une longueur 4 fois plus grande que sa largeur. Si sa largeur vaut 3 cm, quelle est sa longueur ? | Réponse : 12 cm : multiplier par 4
+  QF-A3ba-obj-02 | A3ba/obj [Rappel espacé ~3 j] | Écrire 7/4 sous la forme d'une division puis donner le quotient décimal. | Réponse : 7 ÷ 4 = 1,75
+  QF-A3af-obj-04 | A3af/obj [Rappel espacé ~30 j] | Écrire 1,25 en fraction décimale, nombre mixte puis pourcentage. | Réponse : 125/100 ; 1 + 1/4 ; 125 %
+  QF-A3am-obj-04 | A3am/obj [Rappel espacé ~30 j] | Encadrer 6,38 entre deux dixièmes consécutifs. | Réponse : 6,3 < 6,38 < 6,4
+
+073 | mar 02/03/2027 08:30 | Proportionnalité
+  QF-A3bg-obj-01 | A3bg/obj [Nouveau] | Calculer 3/4 de 20 en utilisant une multiplication. | Réponse : 3/4 × 20 = 15
+  QF-A3au-obj-04 | A3au/obj [Rappel espacé ~10 j] | Calculer 8,4 ÷ 4. | Réponse : 2,1
+  QF-A3at-obj-03 | A3at/obj [Rappel espacé ~10 j] | Un ruban coûte 2,40 € le mètre. Combien coûtent 3,5 m ? | Réponse : 8,40 €
+  QF-A3bl-obj-02 | A3bl/obj [Rappel espacé ~3 j] | Calculer 2/3 + 1/6. | Réponse : 5/6
+
+074 | mar 02/03/2027 16:00 | Proportionnalité
+  QF-A3bm-obj-01 | A3bm/obj [Nouveau] | Calculer 2/5 × 10. | Réponse : 4
+  QF-A3aj-obj-04 | A3aj/obj [Rappel espacé ~30 j] | Ranger dans l'ordre croissant : 0,7 ; 0,07 ; 0,77. | Réponse : 0,07 < 0,7 < 0,77
+  QF-D3ac-obj-03 | D3ac/obj [Rappel espacé ~10 j] | Créer un tableau d'effectifs pour les réponses : pomme, poire, pomme, banane, pomme. | Réponse : Pomme : 3 ; poire : 1 ; banane : 1
+  QF-D3ab-obj-03 | D3ab/obj [Rappel espacé ~10 j] | On mesure trois longueurs : 12 cm, 15 cm et 13 cm. Comment les consigner clairement ? | Réponse : Dans un tableau avec une ligne par objet et une colonne « longueur (cm) »
+
+075 | ven 05/03/2027 09:30 | Proportionnalité
+  QF-E3aa-obj-01 | E3aa/obj [Nouveau] | Dans une situation de proportionnalité, le prix de 1 kg est 3 €. Quel lien entre la masse et le prix ? | Réponse : Prix = 3 × masse ; le coefficient de proportionnalité est 3
+  QF-A3bo-obj-02 | A3bo/obj [Rappel espacé ~3 j] | Inventer une question dont la résolution nécessite de calculer 3/5 de 20. | Réponse : Exemple : « 3/5 des 20 élèves viennent à vélo. Combien sont-ils ? » Réponse : 12
+  QF-A3bn-obj-02 | A3bn/obj [Rappel espacé ~3 j] | Lina mange 1/4 d'une tarte et Sami 2/4. Quelle fraction de la tarte reste-t-il ? | Réponse : 1/4
+  QF-A3bk-obj-02 | A3bk/obj [Rappel espacé ~3 j] | Calculer et simplifier : 3/4 × 2/3. | Réponse : 1/2
+
+076 | lun 08/03/2027 08:30 | Proportionnalité
+  QF-E3ab-obj-01 | E3ab/obj [Nouveau] | Un taxi facture 4 € de prise en charge puis 2 € par kilomètre. Le prix est-il proportionnel à la distance ? | Réponse : Non, car le prix n'est pas nul pour 0 km
+  QF-A3bf-obj-04 | A3bf/obj [Rappel espacé ~30 j] | La fraction 9/4 représente-t-elle un entier, un décimal non entier ou un nombre non décimal ? | Réponse : Un décimal non entier : 2,25
+  QF-A3ak-obj-04 | A3ak/obj [Rappel espacé ~30 j] | Arrondir 8,764 au dixième. | Réponse : 8,8
+  QF-A3ai-obj-04 | A3ai/obj [Rappel espacé ~30 j] | Comparer 4,08 et 4,8. | Réponse : 4,08 < 4,8
+
+077 | mar 09/03/2027 08:30 | Proportionnalité
+  QF-E3ac-obj-01 | E3ac/obj [Nouveau] | 4 cahiers coûtent 6 €. Combien coûtent 10 cahiers au même tarif ? | Réponse : 15 € ; un cahier coûte 1,50 €
+  QF-A3ah-obj-04 | A3ah/obj [Rappel espacé ~30 j] | [FIGURE : droite graduée de 2 à 3 divisée en 10 intervalles égaux ; point M sur la 7e graduation après 2] Quelle est l'abscisse de M ? | Réponse : 2,7
+  QF-C2ah-obj-04 | C2ah/obj [Rappel espacé ~30 j] | MA = 4,2 cm et MB = 4,2 cm. Que peut-on dire de M par rapport à [AB] ? | Réponse : M appartient à la médiatrice de [AB]
+  QF-C2ag-obj-04 | C2ag/obj [Rappel espacé ~30 j] | M appartient à la médiatrice de [AB]. Que peut-on affirmer sur MA et MB ? | Réponse : MA = MB
+
+078 | mar 09/03/2027 09:30 | Proportionnalité
+  QF-E3ad-obj-01 | E3ad/obj [Nouveau] | Compléter le tableau de proportionnalité : 2 kg coûtent 5 € ; combien coûtent 6 kg ? | Réponse : 15 €
+  QF-A3ad-obj-05 | A3ad/obj [Rappel espacé ~30 j] | Lequel est un nombre décimal : 7/20 ou 2/3 ? | Réponse : 7/20 = 0,35 est décimal ; 2/3 ne l'est pas
+  QF-C2au-obj-04 | C2au/obj [Rappel espacé ~30 j] | Une figure a un périmètre de 12 cm. Quel est le périmètre de son symétrique axial ? | Réponse : 12 cm ; la symétrie conserve les longueurs
+  QF-C2at-obj-04 | C2at/obj [Rappel espacé ~30 j] | Pour construire le symétrique A' d'un point A par rapport à une droite (d), quelle relation doit vérifier (d) avec [AA'] ? | Réponse : (d) est la médiatrice de [AA']
+
+079 | mer 10/03/2027 09:30 | Proportionnalité
+  QF-E3ae-obj-01 | E3ae/obj [Nouveau] | Sur une carte, 1 cm représente 5 km. Quelle distance réelle représentent 4 cm ? | Réponse : 20 km
+  QF-C2af-obj-05 | C2af/obj [Rappel espacé ~30 j] | Comment définit-on la médiatrice d'un segment ? | Réponse : La droite perpendiculaire au segment passant par son milieu
+  QF-A3cb-obj-04 | A3cb/obj [Rappel espacé ~30 j] | Une suite de motifs contient 4, 7, 10 carrés aux rangs 1, 2, 3. Combien au rang 5 ? | Réponse : 16 carrés ; on ajoute 3 à chaque rang
+  QF-A3ca-obj-04 | A3ca/obj [Rappel espacé ~30 j] | Une balance est équilibrée : 3 sachets identiques et 2 cubes pèsent 14 cubes. Combien vaut un sachet ? | Réponse : 4 cubes
+
+080 | jeu 11/03/2027 13:00 | Proportionnalité
+  QF-E3ab-aut-02 | E3ab/aut [Réactivation du chapitre] | Un rectangle a une longueur 4 fois plus grande que sa largeur. Si sa largeur vaut 3 cm, quelle est sa longueur ? | Réponse : 12 cm : multiplier par 4
+  QF-A3bc-obj-05 | A3bc/obj [Rappel espacé ~30 j] | Compléter : 8 × ... = 56. | Réponse : 7
+  QF-A3bb-obj-05 | A3bb/obj [Rappel espacé ~30 j] | Quel nombre multiplié par 7 donne 5 ? | Réponse : 5/7
+  QF-A3ac-obj-05 | A3ac/obj [Rappel espacé ~30 j] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
+
+081 | mar 16/03/2027 08:30 | Longueurs
+  QF-B3aa-aut-01 | B3aa/aut [Nouveau] | Quelle unité obtient-on en divisant 1 km par 1 000 ? | Réponse : Le mètre
+  QF-A3bm-obj-02 | A3bm/obj [Rappel espacé ~3 j] | Calculer 2/5 × 10. | Réponse : 4
+  QF-A3bg-obj-02 | A3bg/obj [Rappel espacé ~3 j] | Calculer 3/4 de 20 en utilisant une multiplication. | Réponse : 3/4 × 20 = 15
+  QF-E3aa-obj-02 | E3aa/obj [Rappel espacé ~3 j] | Dans une situation de proportionnalité, le prix de 1 kg est 3 €. Quel lien entre la masse et le prix ? | Réponse : Prix = 3 × masse ; le coefficient de proportionnalité est 3
+
+082 | mar 16/03/2027 16:00 | Longueurs
+  QF-B3ab-aut-01 | B3ab/aut [Nouveau] | Compléter : 1 m = ... cm. | Réponse : 100 cm
+  QF-E3ab-obj-02 | E3ab/obj [Rappel espacé ~3 j] | Un taxi facture 4 € de prise en charge puis 2 € par kilomètre. Le prix est-il proportionnel à la distance ? | Réponse : Non, car le prix n'est pas nul pour 0 km
+  QF-E3ad-obj-02 | E3ad/obj [Rappel espacé ~3 j] | Compléter le tableau de proportionnalité : 2 kg coûtent 5 € ; combien coûtent 6 kg ? | Réponse : 15 €
+  QF-E3ac-obj-02 | E3ac/obj [Rappel espacé ~3 j] | 4 cahiers coûtent 6 €. Combien coûtent 10 cahiers au même tarif ? | Réponse : 15 € ; un cahier coûte 1,50 €
+
+083 | ven 19/03/2027 09:30 | Longueurs
+  QF-B3ac-aut-01 | B3ac/aut [Nouveau] | Convertir 2,5 m en centimètres. | Réponse : 250 cm
+  QF-E3ae-obj-02 | E3ae/obj [Rappel espacé ~3 j] | Sur une carte, 1 cm représente 5 km. Quelle distance réelle représentent 4 cm ? | Réponse : 20 km
+  QF-E3ab-aut-03 | E3ab/aut [Rappel espacé ~3 j] | Un rectangle a une longueur 4 fois plus grande que sa largeur. Si sa largeur vaut 3 cm, quelle est sa longueur ? | Réponse : 12 cm : multiplier par 4
+  QF-D3ad-obj-03 | D3ad/obj [Rappel espacé ~10 j] | Dans un tableau de notes, comment sélectionner les élèves ayant au moins 10/20 ? | Réponse : Garder les lignes dont la note est supérieure ou égale à 10
+
+084 | lun 22/03/2027 08:30 | Longueurs
+  QF-B3ae-aut-01 | B3ae/aut [Nouveau] | Un rectangle mesure 8 cm sur 3 cm. Calculer son périmètre. | Réponse : 22 cm
+  QF-D3aa-obj-04 | D3aa/obj [Rappel espacé ~10 j] | Pour savoir quel fruit les élèves préfèrent, quelle donnée faut-il recueillir auprès de chacun ? | Réponse : Le fruit préféré de chaque élève
+  QF-A3ba-obj-03 | A3ba/obj [Rappel espacé ~10 j] | Écrire 7/4 sous la forme d'une division puis donner le quotient décimal. | Réponse : 7 ÷ 4 = 1,75
+  QF-C2ac-obj-05 | C2ac/obj [Rappel espacé ~30 j] | Dans un cercle de centre O, le segment [AB] passe par O et A, B sont sur le cercle. Comment s'appelle [AB] ? | Réponse : Un diamètre
+
+085 | mar 23/03/2027 08:30 | Longueurs
+  QF-B3ad-aut-01 | B3ad/aut [Nouveau] | Avec le compas, comment reporter une longueur AB à partir du point C ? | Réponse : Ouvrir le compas à AB, piquer en C et marquer D : CD = AB
+  QF-A3ax-obj-05 | A3ax/obj [Rappel espacé ~30 j] | On range 53 cartes par paquets de 8. Combien de paquets complets et combien de cartes restantes ? | Réponse : 6 paquets et 5 cartes
+  QF-A3ab-obj-05 | A3ab/obj [Rappel espacé ~30 j] | Combien de dixièmes y a-t-il dans 3 unités ? | Réponse : 30 dixièmes
+  QF-C2ad-obj-05 | C2ad/obj [Rappel espacé ~30 j] | Un cercle a pour centre O et rayon 3 cm. P est à 2 cm de O. P appartient-il au cercle ou au disque ? | Réponse : Au disque, mais pas au cercle
+
+086 | mar 23/03/2027 09:30 | Longueurs
+  QF-B3aa-obj-01 | B3aa/obj [Nouveau] | Un disque a un diamètre de 6 cm. Son périmètre est-il proportionnel au diamètre ? | Réponse : Oui ; le quotient périmètre/diamètre est π
+  QF-C2ab-obj-05 | C2ab/obj [Rappel espacé ~30 j] | M est le milieu de [AB] et AB = 9 cm. Calculer AM. | Réponse : 4,5 cm
+  QF-A3aw-obj-05 | A3aw/obj [Rappel espacé ~30 j] | Effectuer la division euclidienne de 157 par 12. | Réponse : 157 = 12 × 13 + 1 ; quotient 13, reste 1
+  QF-A3aa-obj-06 | A3aa/obj [Rappel espacé ~30 j] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
+
+087 | mer 24/03/2027 09:30 | Longueurs
+  QF-B3ab-obj-01 | B3ab/obj [Nouveau] | Quelle formule donne le périmètre d'un disque de diamètre d ? | Réponse : P = πd
+  QF-A3bl-obj-03 | A3bl/obj [Rappel espacé ~10 j] | Calculer 2/3 + 1/6. | Réponse : 5/6
+  QF-C2ae-obj-05 | C2ae/obj [Rappel espacé ~30 j] | Les points M et N sont à 5 cm de O. Quelle propriété ont-ils en commun ? | Réponse : OM = ON = 5 cm ; ils appartiennent au cercle de centre O et de rayon 5 cm
+  QF-C2aa-obj-06 | C2aa/obj [Rappel espacé ~30 j] | AB = 4,6 cm. Quelle est la distance entre A et B ? | Réponse : 4,6 cm
+
+088 | jeu 25/03/2027 13:00 | Longueurs
+  QF-B3ac-obj-01 | B3ac/obj [Nouveau] | Calculer le périmètre exact d'un disque de diamètre 8 cm. | Réponse : 8π cm
+  QF-A3bh-obj-05 | A3bh/obj [Rappel espacé ~30 j] | Compléter : 3/5 = .../20. | Réponse : 12
+  QF-A3bo-obj-03 | A3bo/obj [Rappel espacé ~10 j] | Inventer une question dont la résolution nécessite de calculer 3/5 de 20. | Réponse : Exemple : « 3/5 des 20 élèves viennent à vélo. Combien sont-ils ? » Réponse : 12
+  QF-A3bn-obj-03 | A3bn/obj [Rappel espacé ~10 j] | Lina mange 1/4 d'une tarte et Sami 2/4. Quelle fraction de la tarte reste-t-il ? | Réponse : 1/4
+
+089 | mar 30/03/2027 08:30 | Longueurs
+  QF-B3ad-obj-01 | B3ad/obj [Nouveau] | Une figure est formée de trois côtés de 4 cm et d'un côté de 7 cm. Calculer son périmètre. | Réponse : 19 cm
+  QF-A3bk-obj-03 | A3bk/obj [Rappel espacé ~10 j] | Calculer et simplifier : 3/4 × 2/3. | Réponse : 1/2
+  QF-A3be-obj-05 | A3be/obj [Rappel espacé ~30 j] | Partager un segment de 3 cm en 6 intervalles égaux. Quelle est la longueur d'un intervalle ? | Réponse : 0,5 cm
+  QF-A3an-obj-04 | A3an/obj [Rappel espacé ~30 j] | Calculer 12,7 + 3,85. | Réponse : 16,55
+
+090 | mar 30/03/2027 16:00 | Longueurs
+  QF-B3ae-obj-01 | B3ae/obj [Nouveau] | Un ruban de 2,4 m est coupé en morceaux de 30 cm. Combien obtient-on de morceaux ? | Réponse : 8 morceaux
+  QF-A3al-obj-04 | A3al/obj [Rappel espacé ~30 j] | Arrondir π au centième. | Réponse : 3,14
+  QF-A3bj-obj-05 | A3bj/obj [Rappel espacé ~30 j] | Ranger dans l'ordre croissant : 5/4 ; 1/2 ; 7/4. | Réponse : 1/2 < 5/4 < 7/4
+  QF-A3bi-obj-05 | A3bi/obj [Rappel espacé ~30 j] | Comparer 5/8 et 3/4. | Réponse : 5/8 < 3/4
+
+091 | ven 02/04/2027 09:30 | Longueurs
+  QF-B3aa-aut-02 | B3aa/aut [Réactivation du chapitre] | Quelle unité obtient-on en divisant 1 km par 1 000 ? | Réponse : Le mètre
+  QF-A3bd-obj-05 | A3bd/obj [Rappel espacé ~30 j] | Sur une droite graduée en quarts, placer 5/4. | Réponse : À 1 unité et un quart de 0
+  QF-C2al-obj-05 | C2al/obj [Rappel espacé ~30 j] | La demi-droite [OM) partage l'angle AOB en deux angles égaux. Comment s'appelle [OM) ? | Réponse : La bissectrice de l'angle AOB
+  QF-C2ar-obj-04 | C2ar/obj [Rappel espacé ~30 j] | Que peut-on dire du point d'intersection des médiatrices d'un triangle ? | Réponse : Il est à égale distance des trois sommets
+
+092 | lun 19/04/2027 08:30 | Longueurs
+  QF-B3ab-aut-02 | B3ab/aut [Réactivation du chapitre] | Compléter : 1 m = ... cm. | Réponse : 100 cm
+  QF-E3ad-obj-03 | E3ad/obj [Rappel espacé ~10 j] | Compléter le tableau de proportionnalité : 2 kg coûtent 5 € ; combien coûtent 6 kg ? | Réponse : 15 €
+  QF-E3ac-obj-03 | E3ac/obj [Rappel espacé ~10 j] | 4 cahiers coûtent 6 €. Combien coûtent 10 cahiers au même tarif ? | Réponse : 15 € ; un cahier coûte 1,50 €
+  QF-E3ab-obj-03 | E3ab/obj [Rappel espacé ~10 j] | Un taxi facture 4 € de prise en charge puis 2 € par kilomètre. Le prix est-il proportionnel à la distance ? | Réponse : Non, car le prix n'est pas nul pour 0 km
+
+093 | mar 20/04/2027 08:30 | Pourcentages
+  QF-A3bp-obj-01 | A3bp/obj [Nouveau] | Que signifie 25 % ? | Réponse : 25 sur 100, soit un quart
+  QF-B3ac-aut-02 | B3ac/aut [Rappel espacé ~3 j] | Convertir 2,5 m en centimètres. | Réponse : 250 cm
+  QF-B3ae-aut-02 | B3ae/aut [Rappel espacé ~3 j] | Un rectangle mesure 8 cm sur 3 cm. Calculer son périmètre. | Réponse : 22 cm
+  QF-B3aa-obj-02 | B3aa/obj [Rappel espacé ~3 j] | Un disque a un diamètre de 6 cm. Son périmètre est-il proportionnel au diamètre ? | Réponse : Oui ; le quotient périmètre/diamètre est π
+
+094 | mar 20/04/2027 09:30 | Pourcentages
+  QF-A3ae-obj-01 | A3ae/obj [Nouveau] | Écrire 12 % sous forme d'une fraction sur 100. | Réponse : 12/100
+  QF-B3ad-aut-02 | B3ad/aut [Rappel espacé ~3 j] | Avec le compas, comment reporter une longueur AB à partir du point C ? | Réponse : Ouvrir le compas à AB, piquer en C et marquer D : CD = AB
+  QF-B3ab-obj-02 | B3ab/obj [Rappel espacé ~3 j] | Quelle formule donne le périmètre d'un disque de diamètre d ? | Réponse : P = πd
+  QF-B3ac-obj-02 | B3ac/obj [Rappel espacé ~3 j] | Calculer le périmètre exact d'un disque de diamètre 8 cm. | Réponse : 8π cm
+
+095 | mer 21/04/2027 09:30 | Pourcentages
+  QF-A3br-obj-01 | A3br/obj [Nouveau] | Calculer 10 % de 70 €. | Réponse : 7 €
+  QF-B3ae-obj-02 | B3ae/obj [Rappel espacé ~3 j] | Un ruban de 2,4 m est coupé en morceaux de 30 cm. Combien obtient-on de morceaux ? | Réponse : 8 morceaux
+  QF-B3ad-obj-02 | B3ad/obj [Rappel espacé ~3 j] | Une figure est formée de trois côtés de 4 cm et d'un côté de 7 cm. Calculer son périmètre. | Réponse : 19 cm
+  QF-B3aa-aut-03 | B3aa/aut [Rappel espacé ~3 j] | Quelle unité obtient-on en divisant 1 km par 1 000 ? | Réponse : Le mètre
+
+096 | jeu 22/04/2027 13:00 | Pourcentages
+  QF-A3bq-obj-01 | A3bq/obj [Nouveau] | 9 élèves sur 30 sont demi-pensionnaires. Quel pourcentage cela représente-t-il ? | Réponse : 30 %
+  QF-E3aa-obj-03 | E3aa/obj [Rappel espacé ~10 j] | Dans une situation de proportionnalité, le prix de 1 kg est 3 €. Quel lien entre la masse et le prix ? | Réponse : Prix = 3 × masse ; le coefficient de proportionnalité est 3
+  QF-A3bm-obj-03 | A3bm/obj [Rappel espacé ~10 j] | Calculer 2/5 × 10. | Réponse : 4
+  QF-A3bg-obj-03 | A3bg/obj [Rappel espacé ~10 j] | Calculer 3/4 de 20 en utilisant une multiplication. | Réponse : 3/4 × 20 = 15
+
+097 | mar 27/04/2027 08:30 | Surfaces
+  QF-B3ba-aut-01 | B3ba/aut [Nouveau] | Deux surfaces couvrent respectivement 8 et 6 carreaux identiques. Laquelle a la plus grande aire ? | Réponse : La première ; 8 carreaux contre 6
+  QF-E3ae-obj-03 | E3ae/obj [Rappel espacé ~10 j] | Sur une carte, 1 cm représente 5 km. Quelle distance réelle représentent 4 cm ? | Réponse : 20 km
+  QF-E3ab-aut-04 | E3ab/aut [Rappel espacé ~10 j] | Un rectangle a une longueur 4 fois plus grande que sa largeur. Si sa largeur vaut 3 cm, quelle est sa longueur ? | Réponse : 12 cm : multiplier par 4
+  QF-C2aj-obj-05 | C2aj/obj [Rappel espacé ~30 j] | [FIGURE : angle AOB mesuré au rapporteur, graduations indiquant 65°] Quelle est la mesure de l'angle AOB ? | Réponse : 65°
+
+098 | mar 27/04/2027 16:00 | Surfaces
+  QF-B3bb-aut-01 | B3bb/aut [Nouveau] | Quelle est l'aire d'un carré de côté 1 cm ? | Réponse : 1 cm²
+  QF-C2aq-obj-04 | C2aq/obj [Rappel espacé ~30 j] | Un triangle a deux angles de 48° et 67°. Calculer le troisième angle. | Réponse : 65°
+  QF-C2ap-obj-04 | C2ap/obj [Rappel espacé ~30 j] | Quelle est la somme des angles d'un triangle ? | Réponse : 180°
+  QF-C2ao-obj-04 | C2ao/obj [Rappel espacé ~30 j] | Un triangle isocèle a un angle au sommet de 40°. Combien mesure chaque angle à la base ? | Réponse : 70°
+
+099 | ven 30/04/2027 09:30 | Surfaces
+  QF-B3bc-aut-01 | B3bc/aut [Nouveau] | Une figure couvre 12 carreaux de 1 cm². Quelle est son aire ? | Réponse : 12 cm²
+  QF-B3ab-aut-03 | B3ab/aut [Rappel espacé ~3 j] | Compléter : 1 m = ... cm. | Réponse : 100 cm
+  QF-A3bp-obj-02 | A3bp/obj [Rappel espacé ~3 j] | Que signifie 25 % ? | Réponse : 25 sur 100, soit un quart
+  QF-A3ae-obj-02 | A3ae/obj [Rappel espacé ~3 j] | Écrire 12 % sous forme d'une fraction sur 100. | Réponse : 12/100
+
+100 | lun 03/05/2027 08:30 | Surfaces
+  QF-B3bd-aut-01 | B3bd/aut [Nouveau] | Convertir 2 m² en dm². | Réponse : 200 dm²
+  QF-A3br-obj-02 | A3br/obj [Rappel espacé ~3 j] | Calculer 10 % de 70 €. | Réponse : 7 €
+  QF-A3bq-obj-02 | A3bq/obj [Rappel espacé ~3 j] | 9 élèves sur 30 sont demi-pensionnaires. Quel pourcentage cela représente-t-il ? | Réponse : 30 %
+  QF-C2am-obj-05 | C2am/obj [Rappel espacé ~30 j] | L'angle AOB mesure 76°. [OM) est sa bissectrice. Calculer AOM. | Réponse : 38°
+
+101 | mar 04/05/2027 08:30 | Surfaces
+  QF-B3be-aut-01 | B3be/aut [Nouveau] | Combien de cm² dans 1 dm² ? | Réponse : 100 cm²
+  QF-C2ak-obj-05 | C2ak/obj [Rappel espacé ~30 j] | Construire un angle ABC de 40° à l'aide du rapporteur. | Réponse : Tracer une demi-droite [BA), mesurer 40° en B puis tracer [BC)
+  QF-C2as-obj-04 | C2as/obj [Rappel espacé ~30 j] | Comment construire le cercle circonscrit à un triangle ? | Réponse : Tracer deux médiatrices de côtés ; leur intersection est le centre du cercle passant par les trois sommets
+  QF-C2an-obj-05 | C2an/obj [Rappel espacé ~30 j] | Construire un triangle ABC tel que AB = 5 cm, AC = 4 cm et BC = 6 cm. | Réponse : Construction au compas et à la règle : les cercles de centres A et B, rayons 4 cm et 6 cm, se coupent en C
+
+102 | mar 04/05/2027 09:30 | Surfaces
+  QF-B3bf-aut-01 | B3bf/aut [Nouveau] | Combien de dm² dans 1 m² ? | Réponse : 100 dm²
+  QF-A3av-obj-04 | A3av/obj [Rappel espacé ~30 j] | 2,4 kg de pommes sont répartis dans 6 sacs identiques. Quelle masse par sac ? | Réponse : 0,4 kg
+  QF-A3ar-obj-04 | A3ar/obj [Rappel espacé ~30 j] | Calculer 1,2 × 0,5. | Réponse : 0,6
+  QF-A3aq-obj-04 | A3aq/obj [Rappel espacé ~30 j] | Sans poser l'opération, 0,4 × 0,7 est-il supérieur ou inférieur à 0,4 ? | Réponse : Inférieur ; 0,4 × 0,7 = 0,28
+
+103 | mer 05/05/2027 09:30 | Surfaces
+  QF-B3ba-obj-01 | B3ba/obj [Nouveau] | Convertir 3 m² en dm². | Réponse : 300 dm²
+  QF-A3ap-obj-04 | A3ap/obj [Rappel espacé ~30 j] | Compléter : 4 500 ÷ 100 = ... | Réponse : 45 ; diviser par 100 revient à déplacer la virgule de deux rangs vers la gauche
+  QF-A3ao-obj-04 | A3ao/obj [Rappel espacé ~30 j] | Calculer 3,7 × 0,01. | Réponse : 0,037
+  QF-C2ai-obj-06 | C2ai/obj [Rappel espacé ~30 j] | Un angle mesure 125°. Est-il aigu, droit, obtus ou plat ? | Réponse : Obtus
+
+104 | mar 11/05/2027 08:30 | Surfaces
+  QF-B3bb-obj-01 | B3bb/obj [Nouveau] | Calculer l'aire d'un rectangle de 7 cm sur 4 cm. | Réponse : 28 cm²
+  QF-A3as-obj-04 | A3as/obj [Rappel espacé ~30 j] | Le résultat de 19,8 × 4 est-il proche de 8, 80 ou 800 ? | Réponse : De 80 ; 19,8 est proche de 20 et 20 × 4 = 80
+  QF-A3ag-obj-05 | A3ag/obj [Rappel espacé ~30 j] | Sur une demi-droite graduée de 0 à 2, placer 1,4. | Réponse : Entre 1 et 2, à 4 dixièmes après 1
+  QF-A3am-obj-05 | A3am/obj [Rappel espacé ~30 j] | Encadrer 6,38 entre deux dixièmes consécutifs. | Réponse : 6,3 < 6,38 < 6,4
+
+105 | mar 11/05/2027 16:00 | Surfaces
+  QF-B3bc-obj-01 | B3bc/obj [Nouveau] | Calculer l'aire d'un carré de côté 6 cm. | Réponse : 36 cm²
+  QF-A3af-obj-05 | A3af/obj [Rappel espacé ~30 j] | Écrire 1,25 en fraction décimale, nombre mixte puis pourcentage. | Réponse : 125/100 ; 1 + 1/4 ; 125 %
+  QF-D3ac-obj-04 | D3ac/obj [Rappel espacé ~30 j] | Créer un tableau d'effectifs pour les réponses : pomme, poire, pomme, banane, pomme. | Réponse : Pomme : 3 ; poire : 1 ; banane : 1
+  QF-D3ab-obj-04 | D3ab/obj [Rappel espacé ~30 j] | On mesure trois longueurs : 12 cm, 15 cm et 13 cm. Comment les consigner clairement ? | Réponse : Dans un tableau avec une ligne par objet et une colonne « longueur (cm) »
+
+106 | ven 14/05/2027 09:30 | Surfaces
+  QF-B3ba-aut-02 | B3ba/aut [Réactivation du chapitre] | Deux surfaces couvrent respectivement 8 et 6 carreaux identiques. Laquelle a la plus grande aire ? | Réponse : La première ; 8 carreaux contre 6
+  QF-A3au-obj-05 | A3au/obj [Rappel espacé ~30 j] | Calculer 8,4 ÷ 4. | Réponse : 2,1
+  QF-A3at-obj-04 | A3at/obj [Rappel espacé ~30 j] | Un ruban coûte 2,40 € le mètre. Combien coûtent 3,5 m ? | Réponse : 8,40 €
+  QF-A3aj-obj-05 | A3aj/obj [Rappel espacé ~30 j] | Ranger dans l'ordre croissant : 0,7 ; 0,07 ; 0,77. | Réponse : 0,07 < 0,7 < 0,77
+
+107 | mar 18/05/2027 08:30 | Statistiques et probabilités
+  QF-D3ba-obj-01 | D3ba/obj [Nouveau] | Une probabilité peut-elle être égale à 1,2 ? | Réponse : Non ; elle est comprise entre 0 et 1
+  QF-B3bb-aut-02 | B3bb/aut [Rappel espacé ~3 j] | Quelle est l'aire d'un carré de côté 1 cm ? | Réponse : 1 cm²
+  QF-B3bc-aut-02 | B3bc/aut [Rappel espacé ~3 j] | Une figure couvre 12 carreaux de 1 cm². Quelle est son aire ? | Réponse : 12 cm²
+  QF-B3bd-aut-02 | B3bd/aut [Rappel espacé ~3 j] | Convertir 2 m² en dm². | Réponse : 200 dm²
+
+108 | mar 18/05/2027 09:30 | Statistiques et probabilités
+  QF-D3bb-obj-01 | D3bb/obj [Nouveau] | Un sac contient 3 boules rouges et 1 bleue. Quelle est la probabilité de tirer une boule rouge ? | Réponse : 3/4
+  QF-B3bf-aut-02 | B3bf/aut [Rappel espacé ~3 j] | Combien de dm² dans 1 m² ? | Réponse : 100 dm²
+  QF-B3be-aut-02 | B3be/aut [Rappel espacé ~3 j] | Combien de cm² dans 1 dm² ? | Réponse : 100 cm²
+  QF-B3ba-obj-02 | B3ba/obj [Rappel espacé ~3 j] | Convertir 3 m² en dm². | Réponse : 300 dm²
+
+109 | mer 19/05/2027 09:30 | Statistiques et probabilités
+  QF-D3bc-obj-01 | D3bc/obj [Nouveau] | Une pièce équilibrée donne 48 fois pile sur 100 lancers. Cette fréquence est-elle proche de la probabilité théorique ? | Réponse : Oui ; 48 % est proche de 1/2 = 50 %
+  QF-B3ac-obj-03 | B3ac/obj [Rappel espacé ~10 j] | Calculer le périmètre exact d'un disque de diamètre 8 cm. | Réponse : 8π cm
+  QF-B3ab-obj-03 | B3ab/obj [Rappel espacé ~10 j] | Quelle formule donne le périmètre d'un disque de diamètre d ? | Réponse : P = πd
+  QF-B3aa-obj-03 | B3aa/obj [Rappel espacé ~10 j] | Un disque a un diamètre de 6 cm. Son périmètre est-il proportionnel au diamètre ? | Réponse : Oui ; le quotient périmètre/diamètre est π
+
+110 | jeu 20/05/2027 13:00 | Statistiques et probabilités
+  QF-D3ba-obj-02 | D3ba/obj [Réactivation du chapitre] | Une probabilité peut-elle être égale à 1,2 ? | Réponse : Non ; elle est comprise entre 0 et 1
+  QF-B3ae-aut-03 | B3ae/aut [Rappel espacé ~10 j] | Un rectangle mesure 8 cm sur 3 cm. Calculer son périmètre. | Réponse : 22 cm
+  QF-B3ad-aut-03 | B3ad/aut [Rappel espacé ~10 j] | Avec le compas, comment reporter une longueur AB à partir du point C ? | Réponse : Ouvrir le compas à AB, piquer en C et marquer D : CD = AB
+  QF-B3ac-aut-03 | B3ac/aut [Rappel espacé ~10 j] | Convertir 2,5 m en centimètres. | Réponse : 250 cm
+
+111 | mar 25/05/2027 08:30 | Durées
+  QF-B3da-aut-01 | B3da/aut [Nouveau] | Une horloge digitale indique 14:35:08. Donner l'heure, les minutes et les secondes. | Réponse : 14 heures, 35 minutes et 8 secondes
+  QF-B3bc-obj-02 | B3bc/obj [Rappel espacé ~3 j] | Calculer l'aire d'un carré de côté 6 cm. | Réponse : 36 cm²
+  QF-B3bb-obj-02 | B3bb/obj [Rappel espacé ~3 j] | Calculer l'aire d'un rectangle de 7 cm sur 4 cm. | Réponse : 28 cm²
+  QF-B3ba-aut-03 | B3ba/aut [Rappel espacé ~3 j] | Deux surfaces couvrent respectivement 8 et 6 carreaux identiques. Laquelle a la plus grande aire ? | Réponse : La première ; 8 carreaux contre 6
+
+112 | mar 25/05/2027 16:00 | Durées
+  QF-B3db-aut-01 | B3db/aut [Nouveau] | Dessiner les aiguilles indiquant 3 h 30. | Réponse : Grande aiguille sur le 6 ; petite aiguille à mi-chemin entre 3 et 4
+  QF-B3ae-obj-03 | B3ae/obj [Rappel espacé ~10 j] | Un ruban de 2,4 m est coupé en morceaux de 30 cm. Combien obtient-on de morceaux ? | Réponse : 8 morceaux
+  QF-B3ad-obj-03 | B3ad/obj [Rappel espacé ~10 j] | Une figure est formée de trois côtés de 4 cm et d'un côté de 7 cm. Calculer son périmètre. | Réponse : 19 cm
+  QF-B3aa-aut-04 | B3aa/aut [Rappel espacé ~10 j] | Quelle unité obtient-on en divisant 1 km par 1 000 ? | Réponse : Le mètre
+
+113 | ven 28/05/2027 09:30 | Durées
+  QF-B3dc-aut-01 | B3dc/aut [Nouveau] | Convertir 2 h 15 min en minutes. | Réponse : 135 min
+  QF-D3bb-obj-02 | D3bb/obj [Rappel espacé ~3 j] | Un sac contient 3 boules rouges et 1 bleue. Quelle est la probabilité de tirer une boule rouge ? | Réponse : 3/4
+  QF-D3bc-obj-02 | D3bc/obj [Rappel espacé ~3 j] | Une pièce équilibrée donne 48 fois pile sur 100 lancers. Cette fréquence est-elle proche de la probabilité théorique ? | Réponse : Oui ; 48 % est proche de 1/2 = 50 %
+  QF-A3bp-obj-03 | A3bp/obj [Rappel espacé ~10 j] | Que signifie 25 % ? | Réponse : 25 sur 100, soit un quart
+
+114 | lun 31/05/2027 08:30 | Durées
+  QF-B3dd-aut-01 | B3dd/aut [Nouveau] | Combien de jours compte une année non bissextile ? | Réponse : 365 jours
+  QF-D3ba-obj-03 | D3ba/obj [Rappel espacé ~3 j] | Une probabilité peut-elle être égale à 1,2 ? | Réponse : Non ; elle est comprise entre 0 et 1
+  QF-A3ae-obj-03 | A3ae/obj [Rappel espacé ~10 j] | Écrire 12 % sous forme d'une fraction sur 100. | Réponse : 12/100
+  QF-B3ab-aut-04 | B3ab/aut [Rappel espacé ~10 j] | Compléter : 1 m = ... cm. | Réponse : 100 cm
+
+115 | mar 01/06/2027 08:30 | Durées
+  QF-B3de-aut-01 | B3de/aut [Nouveau] | Combien de minutes dans trois quarts d'heure ? | Réponse : 45 minutes
+  QF-A3br-obj-03 | A3br/obj [Rappel espacé ~10 j] | Calculer 10 % de 70 €. | Réponse : 7 €
+  QF-A3bq-obj-03 | A3bq/obj [Rappel espacé ~10 j] | 9 élèves sur 30 sont demi-pensionnaires. Quel pourcentage cela représente-t-il ? | Réponse : 30 %
+  QF-A3bf-obj-05 | A3bf/obj [Rappel espacé ~30 j] | La fraction 9/4 représente-t-elle un entier, un décimal non entier ou un nombre non décimal ? | Réponse : Un décimal non entier : 2,25
+
+116 | mar 01/06/2027 09:30 | Durées
+  QF-E3aa-aut-01 | E3aa/aut [Nouveau] | Une boîte contient 6 crayons. Combien de crayons dans 4 boîtes identiques ? | Réponse : 24 crayons ; 4 fois plus signifie multiplier par 4
+  QF-A3ak-obj-05 | A3ak/obj [Rappel espacé ~30 j] | Arrondir 8,764 au dixième. | Réponse : 8,8
+  QF-A3ai-obj-05 | A3ai/obj [Rappel espacé ~30 j] | Comparer 4,08 et 4,8. | Réponse : 4,08 < 4,8
+  QF-C2au-obj-05 | C2au/obj [Rappel espacé ~30 j] | Une figure a un périmètre de 12 cm. Quel est le périmètre de son symétrique axial ? | Réponse : 12 cm ; la symétrie conserve les longueurs
+
+117 | mer 02/06/2027 09:30 | Durées
+  QF-B3db-obj-01 | B3db/obj [Nouveau] | Un film commence à 14 h 25 et dure 1 h 40. À quelle heure finit-il ? | Réponse : 16 h 05
+  QF-C2at-obj-05 | C2at/obj [Rappel espacé ~30 j] | Pour construire le symétrique A' d'un point A par rapport à une droite (d), quelle relation doit vérifier (d) avec [AA'] ? | Réponse : (d) est la médiatrice de [AA']
+  QF-C2ah-obj-05 | C2ah/obj [Rappel espacé ~30 j] | MA = 4,2 cm et MB = 4,2 cm. Que peut-on dire de M par rapport à [AB] ? | Réponse : M appartient à la médiatrice de [AB]
+  QF-C2ag-obj-05 | C2ag/obj [Rappel espacé ~30 j] | M appartient à la médiatrice de [AB]. Que peut-on affirmer sur MA et MB ? | Réponse : MA = MB
+
+118 | jeu 03/06/2027 13:00 | Durées
+  QF-B3da-obj-01 | B3da/obj [Nouveau] | De 9 h 48 à 10 h 15, quelle durée s'écoule ? | Réponse : 27 minutes
+  QF-A3ah-obj-05 | A3ah/obj [Rappel espacé ~30 j] | [FIGURE : droite graduée de 2 à 3 divisée en 10 intervalles égaux ; point M sur la 7e graduation après 2] Quelle est l'abscisse de M ? | Réponse : 2,7
+  QF-A3ad-obj-06 | A3ad/obj [Rappel espacé ~30 j] | Lequel est un nombre décimal : 7/20 ou 2/3 ? | Réponse : 7/20 = 0,35 est décimal ; 2/3 ne l'est pas
+  QF-C2af-obj-06 | C2af/obj [Rappel espacé ~30 j] | Comment définit-on la médiatrice d'un segment ? | Réponse : La droite perpendiculaire au segment passant par son milieu
+
+119 | mar 08/06/2027 08:30 | Durées
+  QF-B3dc-obj-01 | B3dc/obj [Nouveau] | Convertir 3 min 20 s en secondes. | Réponse : 200 s
+  QF-A3cb-obj-05 | A3cb/obj [Rappel espacé ~30 j] | Une suite de motifs contient 4, 7, 10 carrés aux rangs 1, 2, 3. Combien au rang 5 ? | Réponse : 16 carrés ; on ajoute 3 à chaque rang
+  QF-A3ca-obj-05 | A3ca/obj [Rappel espacé ~30 j] | Une balance est équilibrée : 3 sachets identiques et 2 cubes pèsent 14 cubes. Combien vaut un sachet ? | Réponse : 4 cubes
+  QF-A3bc-obj-06 | A3bc/obj [Rappel espacé ~30 j] | Compléter : 8 × ... = 56. | Réponse : 7
+
+120 | mar 08/06/2027 16:00 | Durées
+  QF-B3da-aut-02 | B3da/aut [Réactivation du chapitre] | Une horloge digitale indique 14:35:08. Donner l'heure, les minutes et les secondes. | Réponse : 14 heures, 35 minutes et 8 secondes
+  QF-A3bb-obj-06 | A3bb/obj [Rappel espacé ~30 j] | Quel nombre multiplié par 7 donne 5 ? | Réponse : 5/7
+  QF-A3ac-obj-06 | A3ac/obj [Rappel espacé ~30 j] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
+  QF-D3ad-obj-04 | D3ad/obj [Rappel espacé ~30 j] | Dans un tableau de notes, comment sélectionner les élèves ayant au moins 10/20 ? | Réponse : Garder les lignes dont la note est supérieure ou égale à 10
+
+121 | ven 11/06/2027 09:30 | Volumes
+  QF-B3ca-obj-01 | B3ca/obj [Nouveau] | Quelle unité correspond au volume d'un cube de 1 cm d'arête ? | Réponse : 1 cm³
+  QF-B3db-aut-02 | B3db/aut [Rappel espacé ~3 j] | Dessiner les aiguilles indiquant 3 h 30. | Réponse : Grande aiguille sur le 6 ; petite aiguille à mi-chemin entre 3 et 4
+  QF-B3dc-aut-02 | B3dc/aut [Rappel espacé ~3 j] | Convertir 2 h 15 min en minutes. | Réponse : 135 min
+  QF-B3dd-aut-02 | B3dd/aut [Rappel espacé ~3 j] | Combien de jours compte une année non bissextile ? | Réponse : 365 jours
+
+122 | lun 14/06/2027 08:30 | Volumes
+  QF-B3cb-obj-01 | B3cb/obj [Nouveau] | Un pavé A contient 18 cubes unités et un pavé B en contient 24. Lequel a le plus grand volume ? | Réponse : Le pavé B
+  QF-E3aa-aut-02 | E3aa/aut [Rappel espacé ~3 j] | Une boîte contient 6 crayons. Combien de crayons dans 4 boîtes identiques ? | Réponse : 24 crayons ; 4 fois plus signifie multiplier par 4
+  QF-B3de-aut-02 | B3de/aut [Rappel espacé ~3 j] | Combien de minutes dans trois quarts d'heure ? | Réponse : 45 minutes
+  QF-B3db-obj-02 | B3db/obj [Rappel espacé ~3 j] | Un film commence à 14 h 25 et dure 1 h 40. À quelle heure finit-il ? | Réponse : 16 h 05
+
+123 | mar 15/06/2027 08:30 | Volumes
+  QF-B3cc-obj-01 | B3cc/obj [Nouveau] | Un pavé droit mesure 4 cm × 3 cm × 2 cm. Calculer son volume. | Réponse : 24 cm³
+  QF-B3da-obj-02 | B3da/obj [Rappel espacé ~3 j] | De 9 h 48 à 10 h 15, quelle durée s'écoule ? | Réponse : 27 minutes
+  QF-D3aa-obj-05 | D3aa/obj [Rappel espacé ~30 j] | Pour savoir quel fruit les élèves préfèrent, quelle donnée faut-il recueillir auprès de chacun ? | Réponse : Le fruit préféré de chaque élève
+  QF-C2ac-obj-06 | C2ac/obj [Rappel espacé ~30 j] | Dans un cercle de centre O, le segment [AB] passe par O et A, B sont sur le cercle. Comment s'appelle [AB] ? | Réponse : Un diamètre
+
+124 | mar 15/06/2027 09:30 | Volumes
+  QF-C2ba-obj-01 | C2ba/obj [Nouveau] | Un assemblage contient 2 cubes en bas et 1 cube posé sur l'un d'eux. Combien de cubes en tout ? | Réponse : 3 cubes
+  QF-A3ba-obj-04 | A3ba/obj [Rappel espacé ~30 j] | Écrire 7/4 sous la forme d'une division puis donner le quotient décimal. | Réponse : 7 ÷ 4 = 1,75
+  QF-C2ad-obj-06 | C2ad/obj [Rappel espacé ~30 j] | Un cercle a pour centre O et rayon 3 cm. P est à 2 cm de O. P appartient-il au cercle ou au disque ? | Réponse : Au disque, mais pas au cercle
+  QF-C2ab-obj-06 | C2ab/obj [Rappel espacé ~30 j] | M est le milieu de [AB] et AB = 9 cm. Calculer AM. | Réponse : 4,5 cm
+
+125 | mer 16/06/2027 09:30 | Algorithmique
+  QF-F3aa-obj-01 | F3aa/obj [Nouveau] | Dans un programme, quelle instruction vient après « avancer de 3 pas » : « tourner à droite » puis « avancer de 2 pas » ? | Réponse : Tourner à droite
+  QF-B3ba-obj-03 | B3ba/obj [Rappel espacé ~10 j] | Convertir 3 m² en dm². | Réponse : 300 dm²
+  QF-B3bf-aut-03 | B3bf/aut [Rappel espacé ~10 j] | Combien de dm² dans 1 m² ? | Réponse : 100 dm²
+  QF-B3be-aut-03 | B3be/aut [Rappel espacé ~10 j] | Combien de cm² dans 1 dm² ? | Réponse : 100 cm²
+
+126 | jeu 17/06/2027 13:00 | Algorithmique
+  QF-F3ab-obj-01 | F3ab/obj [Nouveau] | Exécuter : partir de 0, ajouter 4, puis ajouter 3. | Réponse : 7
+  QF-B3bd-aut-03 | B3bd/aut [Rappel espacé ~10 j] | Convertir 2 m² en dm². | Réponse : 200 dm²
+  QF-B3bc-aut-03 | B3bc/aut [Rappel espacé ~10 j] | Une figure couvre 12 carreaux de 1 cm². Quelle est son aire ? | Réponse : 12 cm²
+  QF-B3bb-aut-03 | B3bb/aut [Rappel espacé ~10 j] | Quelle est l'aire d'un carré de côté 1 cm ? | Réponse : 1 cm²
+
+127 | mar 22/06/2027 08:30 | Algorithmique
+  QF-F3ac-obj-01 | F3ac/obj [Nouveau] | Répéter deux fois la séquence « avancer de 3 pas, tourner à droite ». Combien de pas sont parcourus ? | Réponse : 6 pas
+  QF-B3dc-obj-02 | B3dc/obj [Rappel espacé ~3 j] | Convertir 3 min 20 s en secondes. | Réponse : 200 s
+  QF-B3da-aut-03 | B3da/aut [Rappel espacé ~3 j] | Une horloge digitale indique 14:35:08. Donner l'heure, les minutes et les secondes. | Réponse : 14 heures, 35 minutes et 8 secondes
+  QF-B3ca-obj-02 | B3ca/obj [Rappel espacé ~3 j] | Quelle unité correspond au volume d'un cube de 1 cm d'arête ? | Réponse : 1 cm³
+
+128 | mar 22/06/2027 16:00 | Algorithmique
+  QF-F3ad-obj-01 | F3ad/obj [Nouveau] | Un pion regarde vers le nord. Programmer un chemin de 2 pas vers le nord puis 1 pas vers l'est. | Réponse : Avancer 2 pas ; tourner à droite ; avancer 1 pas
+  QF-A3ax-obj-06 | A3ax/obj [Rappel espacé ~30 j] | On range 53 cartes par paquets de 8. Combien de paquets complets et combien de cartes restantes ? | Réponse : 6 paquets et 5 cartes
+  QF-A3aw-obj-06 | A3aw/obj [Rappel espacé ~30 j] | Effectuer la division euclidienne de 157 par 12. | Réponse : 157 = 12 × 13 + 1 ; quotient 13, reste 1
+  QF-A3ab-obj-06 | A3ab/obj [Rappel espacé ~30 j] | Combien de dixièmes y a-t-il dans 3 unités ? | Réponse : 30 dixièmes
+
+129 | ven 25/06/2027 09:30 | Algorithmique
+  QF-F3aa-obj-02 | F3aa/obj [Réactivation du chapitre] | Dans un programme, quelle instruction vient après « avancer de 3 pas » : « tourner à droite » puis « avancer de 2 pas » ? | Réponse : Tourner à droite
+  QF-B3cb-obj-02 | B3cb/obj [Rappel espacé ~3 j] | Un pavé A contient 18 cubes unités et un pavé B en contient 24. Lequel a le plus grand volume ? | Réponse : Le pavé B
+  QF-C2ba-obj-02 | C2ba/obj [Rappel espacé ~3 j] | Un assemblage contient 2 cubes en bas et 1 cube posé sur l'un d'eux. Combien de cubes en tout ? | Réponse : 3 cubes
+  QF-B3cc-obj-02 | B3cc/obj [Rappel espacé ~3 j] | Un pavé droit mesure 4 cm × 3 cm × 2 cm. Calculer son volume. | Réponse : 24 cm³
+
+COUVERTURE DU SÉQUENÇAGE
+
+Nombre entiers
+  [x] A3aa/obj - 6 question(s)
+  [x] A3ab/obj - 6 question(s)
+  [x] A3ac/obj - 6 question(s)
+  [x] A3bb/obj - 6 question(s)
+  [x] A3bc/obj - 6 question(s)
+  [x] A3aw/obj - 6 question(s)
+  [x] A3ax/obj - 6 question(s)
+Aborder la géométrie
+  [x] C2aa/obj - 6 question(s)
+  [x] C2ab/obj - 6 question(s)
+  [x] C2ac/obj - 6 question(s)
+  [x] C2ad/obj - 6 question(s)
+  [x] C2ae/obj - 5 question(s)
+Fractions
+  [x] A3bd/obj - 5 question(s)
+  [x] A3be/obj - 5 question(s)
+  [x] A3bh/obj - 5 question(s)
+  [x] A3bi/obj - 5 question(s)
+  [x] A3bj/obj - 5 question(s)
+Angles
+  [x] C2ai/obj - 6 question(s)
+  [x] C2aj/obj - 5 question(s)
+  [x] C2ak/obj - 5 question(s)
+  [x] C2al/obj - 5 question(s)
+  [x] C2am/obj - 5 question(s)
+Nombre décimaux
+  [x] A3ad/obj - 6 question(s)
+  [x] A3af/obj - 5 question(s)
+  [x] A3ag/obj - 5 question(s)
+  [x] A3ah/obj - 5 question(s)
+  [x] A3ai/obj - 5 question(s)
+  [x] A3aj/obj - 5 question(s)
+  [x] A3am/obj - 5 question(s)
+  [x] A3ak/obj - 5 question(s)
+  [x] A3bf/obj - 5 question(s)
+Symétrie axiale
+  [x] C2af/obj - 6 question(s)
+  [x] C2ag/obj - 5 question(s)
+  [x] C2ah/obj - 5 question(s)
+  [x] C2at/obj - 5 question(s)
+  [x] C2au/obj - 5 question(s)
+Inititation à l'algèbre
+  [x] A3ca/obj - 5 question(s)
+  [x] A3cb/obj - 5 question(s)
+Sommes de nombre décimaux
+  [x] A3an/obj - 4 question(s)
+  [x] A3al/obj - 4 question(s)
+Géométrie dans le triangle
+  [x] C2an/obj - 5 question(s)
+  [x] C2ao/obj - 4 question(s)
+  [x] C2ap/obj - 4 question(s)
+  [x] C2aq/obj - 4 question(s)
+  [x] C2ar/obj - 4 question(s)
+  [x] C2as/obj - 4 question(s)
+Décimaux: multiplication et divisions
+  [x] A3au/obj - 5 question(s)
+  [x] A3av/obj - 4 question(s)
+  [x] A3ao/obj - 4 question(s)
+  [x] A3ap/obj - 4 question(s)
+  [x] A3aq/obj - 4 question(s)
+  [x] A3ar/obj - 4 question(s)
+  [x] A3as/obj - 4 question(s)
+  [x] A3at/obj - 4 question(s)
+Organisation et gestion de données
+  [x] D3aa/obj - 5 question(s)
+  [x] D3ac/obj - 4 question(s)
+  [x] D3ab/obj - 4 question(s)
+  [x] D3ad/obj - 4 question(s)
+Opérations sur les fractions
+  [x] A3ba/obj - 4 question(s)
+  [x] A3bl/obj - 3 question(s)
+  [x] A3bn/obj - 3 question(s)
+  [x] A3bo/obj - 3 question(s)
+  [x] A3bk/obj - 3 question(s)
+Proportionnalité
+  [x] E3ab/aut - 4 question(s)
+  [x] A3bg/obj - 3 question(s)
+  [x] A3bm/obj - 3 question(s)
+  [x] E3aa/obj - 3 question(s)
+  [x] E3ab/obj - 3 question(s)
+  [x] E3ac/obj - 3 question(s)
+  [x] E3ad/obj - 3 question(s)
+  [x] E3ae/obj - 3 question(s)
+Longueurs
+  [x] B3aa/aut - 4 question(s)
+  [x] B3ab/aut - 4 question(s)
+  [x] B3ac/aut - 3 question(s)
+  [x] B3ae/aut - 3 question(s)
+  [x] B3ad/aut - 3 question(s)
+  [x] B3aa/obj - 3 question(s)
+  [x] B3ab/obj - 3 question(s)
+  [x] B3ac/obj - 3 question(s)
+  [x] B3ad/obj - 3 question(s)
+  [x] B3ae/obj - 3 question(s)
+Pourcentages
+  [x] A3bp/obj - 3 question(s)
+  [x] A3ae/obj - 3 question(s)
+  [x] A3br/obj - 3 question(s)
+  [x] A3bq/obj - 3 question(s)
+Surfaces
+  [x] B3ba/aut - 3 question(s)
+  [x] B3bb/aut - 3 question(s)
+  [x] B3bc/aut - 3 question(s)
+  [x] B3bd/aut - 3 question(s)
+  [x] B3be/aut - 3 question(s)
+  [x] B3bf/aut - 3 question(s)
+  [x] B3ba/obj - 3 question(s)
+  [x] B3bb/obj - 2 question(s)
+  [x] B3bc/obj - 2 question(s)
+Statistiques et probabilités
+  [x] D3ba/obj - 3 question(s)
+  [x] D3bb/obj - 2 question(s)
+  [x] D3bc/obj - 2 question(s)
+Durées
+  [x] B3da/aut - 3 question(s)
+  [x] B3db/aut - 2 question(s)
+  [x] B3dc/aut - 2 question(s)
+  [x] B3dd/aut - 2 question(s)
+  [x] B3de/aut - 2 question(s)
+  [x] E3aa/aut - 2 question(s)
+  [x] B3db/obj - 2 question(s)
+  [x] B3da/obj - 2 question(s)
+  [x] B3dc/obj - 2 question(s)
+Volumes
+  [x] B3ca/obj - 2 question(s)
+  [x] B3cb/obj - 2 question(s)
+  [x] B3cc/obj - 2 question(s)
+  [x] C2ba/obj - 2 question(s)
+Algorithmique
+  [x] F3aa/obj - 2 question(s)
+  [x] F3ab/obj - 1 question(s)
+  [x] F3ac/obj - 1 question(s)
+  [x] F3ad/obj - 1 question(s)

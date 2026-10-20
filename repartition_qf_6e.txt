@@ -1,0 +1,593 @@
+QUESTIONS FLASH - Répartition annuelle 6e (groupe 6G2 / 6MATHS2)
+
+Base : créneaux du groupe 6MATHS2 dans data/emploi_du_temps/emploi_du_temps.ics ; ordre des chapitres et compétences repris du séquençage Cycle 3 BO 2026 en 6e.
+Semaines exclues : semaine ISO 36 (rentrée) et semaine ISO 26 (fin d'année). Contrôles : dernier créneau 6MATHS2 d'une semaine d'enseignement sur deux, à partir de la deuxième semaine active.
+Créneaux 6MATHS2 disponibles après exclusion des semaines de rentrée/fin : 146 ; contrôles retirés : 17 ; séances planifiées : 129.
+Progression : 1 thème/question par séance pendant 8 séances, puis 2 pendant 16, 3 pendant 24, puis 4 au maximum. Les thèmes nouveaux suivent l'ordre du séquençage ; les rappels portent uniquement sur des compétences déjà abordées.
+Repères pédagogiques : récupération active sans support, retours espacés indicatifs (~3, 10 et 30 jours), puis entretien ; augmenter la difficulté et varier les représentations. Si une séance saute, déplacer son contenu au prochain cours et ne pas compresser les rappels.
+Les codes entre crochets renvoient aux compétences du BO Cycle 3 2026. « Nouveau » indique le premier passage dans ce planning ; les formulations d'objectifs sont des cibles de questions, pas des questions rédigées.
+
+Créneaux réservés aux contrôles (retirés du planning) :
+  - ven 18/09/2026 09:30
+  - ven 02/10/2026 10:30
+  - ven 16/10/2026 10:30
+  - ven 13/11/2026 10:30
+  - ven 27/11/2026 10:30
+  - ven 11/12/2026 10:30
+  - ven 08/01/2027 10:30
+  - ven 22/01/2027 10:30
+  - ven 05/02/2027 10:30
+  - ven 05/03/2027 10:30
+  - ven 19/03/2027 10:30
+  - ven 02/04/2027 10:30
+  - ven 30/04/2027 10:30
+  - ven 14/05/2027 10:30
+  - ven 28/05/2027 10:30
+  - ven 11/06/2027 10:30
+  - ven 25/06/2027 10:30
+
+  1 | lun 07/09/2026 08:30 | Nombre entiers | 1/1 thèmes
+      - [Nouveau] A3aa/obj : Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+  2 | mar 08/09/2026 08:30 | Nombre entiers | 1/1 thèmes
+      - [Nouveau] A3ab/obj : Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+  3 | mar 08/09/2026 09:30 | Nombre entiers | 1/1 thèmes
+      - [Nouveau] A3ac/obj : Connaître des grands nombres entiers
+  4 | mer 09/09/2026 09:30 | Nombre entiers | 1/1 thèmes
+      - [Nouveau] A3bb/obj : Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+  5 | jeu 10/09/2026 13:00 | Nombre entiers | 1/1 thèmes
+      - [Nouveau] A3bc/obj : Compléter des égalités à trous multiplicatives
+  6 | mar 15/09/2026 08:30 | Nombre entiers | 1/1 thèmes
+      - [Nouveau] A3aw/obj : Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+  7 | mar 15/09/2026 15:00 | Nombre entiers | 1/1 thèmes
+      - [Nouveau] A3ax/obj : Résoudre des problèmes mettant en jeu des divisions euclidiennes
+  8 | ven 18/09/2026 08:30 | Nombre entiers | 1/1 thèmes
+      - [Réactivation du chapitre] A3aa/obj : Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+  9 | lun 21/09/2026 08:30 | Aborder la géométrie | 2/2 thèmes
+      - [Nouveau] C2aa/obj : Connaître et utiliser la définition de la distance entre deux points
+      - [Rappel espacé ~3 j] A3ac/obj : Connaître des grands nombres entiers
+ 10 | mar 22/09/2026 08:30 | Aborder la géométrie | 2/2 thèmes
+      - [Nouveau] C2ab/obj : Connaître et utiliser la définition du milieu d’un segment
+      - [Rappel espacé ~3 j] A3ab/obj : Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+ 11 | mar 22/09/2026 09:30 | Aborder la géométrie | 2/2 thèmes
+      - [Nouveau] C2ac/obj : Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+      - [Rappel espacé ~3 j] A3bb/obj : Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+ 12 | mer 23/09/2026 09:30 | Aborder la géométrie | 2/2 thèmes
+      - [Nouveau] C2ad/obj : Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+      - [Rappel espacé ~3 j] A3bc/obj : Compléter des égalités à trous multiplicatives
+ 13 | jeu 24/09/2026 13:00 | Aborder la géométrie | 2/2 thèmes
+      - [Nouveau] C2ae/obj : Résoudre des problèmes mettant en jeu des distances à un point
+      - [Rappel espacé ~3 j] A3ax/obj : Résoudre des problèmes mettant en jeu des divisions euclidiennes
+ 14 | ven 02/10/2026 09:30 | Aborder la géométrie | 2/2 thèmes
+      - [Réactivation du chapitre] C2aa/obj : Connaître et utiliser la définition de la distance entre deux points
+      - [Rappel espacé ~3 j] A3aw/obj : Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+ 15 | mar 06/10/2026 08:30 | Fractions | 2/2 thèmes
+      - [Nouveau] A3bd/obj : Placer une fraction sur une demi-droite graduée dans des cas simples
+      - [Rappel espacé ~3 j] A3aa/obj : Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+ 16 | mar 06/10/2026 09:30 | Fractions | 2/2 thèmes
+      - [Nouveau] A3be/obj : Graduer un segment de longueur donnée
+      - [Rappel espacé ~3 j] C2ac/obj : Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+ 17 | mer 07/10/2026 09:30 | Fractions | 2/2 thèmes
+      - [Nouveau] A3bh/obj : Établir des égalités de fractions
+      - [Rappel espacé ~3 j] C2ab/obj : Connaître et utiliser la définition du milieu d’un segment
+ 18 | jeu 08/10/2026 13:00 | Fractions | 2/2 thèmes
+      - [Nouveau] A3bi/obj : Comparer et encadrer des fractions
+      - [Rappel espacé ~3 j] C2ad/obj : Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+ 19 | mar 13/10/2026 08:30 | Fractions | 2/2 thèmes
+      - [Nouveau] A3bj/obj : Ordonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes
+      - [Rappel espacé ~3 j] C2ae/obj : Résoudre des problèmes mettant en jeu des distances à un point
+ 20 | mar 13/10/2026 16:00 | Angles | 2/2 thèmes
+      - [Nouveau] C2ai/obj : Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+      - [Rappel espacé ~3 j] C2aa/obj : Connaître et utiliser la définition de la distance entre deux points
+ 21 | lun 02/11/2026 08:30 | Angles | 2/2 thèmes
+      - [Nouveau] C2aj/obj : Mesurer un angle
+      - [Rappel espacé ~3 j] A3be/obj : Graduer un segment de longueur donnée
+ 22 | mar 03/11/2026 08:30 | Angles | 2/2 thèmes
+      - [Nouveau] C2ak/obj : Construire un angle de mesure donnée
+      - [Rappel espacé ~3 j] A3bd/obj : Placer une fraction sur une demi-droite graduée dans des cas simples
+ 23 | mar 03/11/2026 09:30 | Angles | 2/2 thèmes
+      - [Nouveau] C2al/obj : Connaître la définition de la bissectrice d’un angle saillant
+      - [Rappel espacé ~3 j] A3bh/obj : Établir des égalités de fractions
+ 24 | mer 04/11/2026 09:30 | Angles | 2/2 thèmes
+      - [Nouveau] C2am/obj : Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes
+      - [Rappel espacé ~3 j] A3bi/obj : Comparer et encadrer des fractions
+ 25 | jeu 05/11/2026 13:00 | Angles | 3/3 thèmes
+      - [Réactivation du chapitre] C2ai/obj : Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+      - [Rappel espacé ~3 j] A3bj/obj : Ordonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes
+      - [Rappel espacé ~10 j] A3ac/obj : Connaître des grands nombres entiers
+ 26 | mar 10/11/2026 08:30 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3ad/obj : Reconnaître un nombre décimal
+      - [Rappel espacé ~10 j] A3bb/obj : Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+      - [Rappel espacé ~10 j] A3ab/obj : Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+ 27 | mar 10/11/2026 16:00 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3af/obj : Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+      - [Rappel espacé ~10 j] A3bc/obj : Compléter des égalités à trous multiplicatives
+      - [Rappel espacé ~10 j] A3ax/obj : Résoudre des problèmes mettant en jeu des divisions euclidiennes
+ 28 | ven 13/11/2026 09:30 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3ag/obj : Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+      - [Rappel espacé ~10 j] A3aw/obj : Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+      - [Rappel espacé ~10 j] C2ac/obj : Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+ 29 | lun 16/11/2026 08:30 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3ah/obj : Repérer un nombre décimal sur une demi-droite graduée
+      - [Rappel espacé ~3 j] C2aj/obj : Mesurer un angle
+      - [Rappel espacé ~3 j] C2al/obj : Connaître la définition de la bissectrice d’un angle saillant
+ 30 | mar 17/11/2026 08:30 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3ai/obj : Comparer deux nombres décimaux
+      - [Rappel espacé ~3 j] C2ak/obj : Construire un angle de mesure donnée
+      - [Rappel espacé ~3 j] C2am/obj : Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes
+ 31 | mar 17/11/2026 09:30 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3aj/obj : Ordonner une liste de nombres décimaux
+      - [Rappel espacé ~10 j] A3aa/obj : Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+      - [Rappel espacé ~10 j] C2ab/obj : Connaître et utiliser la définition du milieu d’un segment
+ 32 | jeu 19/11/2026 13:00 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3am/obj : Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+      - [Rappel espacé ~3 j] C2ai/obj : Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+      - [Rappel espacé ~10 j] C2ad/obj : Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+ 33 | mar 24/11/2026 08:30 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3ak/obj : Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+      - [Rappel espacé ~10 j] C2ae/obj : Résoudre des problèmes mettant en jeu des distances à un point
+      - [Rappel espacé ~10 j] C2aa/obj : Connaître et utiliser la définition de la distance entre deux points
+ 34 | mar 24/11/2026 16:00 | Nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3bf/obj : Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal
+      - [Rappel espacé ~10 j] A3be/obj : Graduer un segment de longueur donnée
+      - [Rappel espacé ~10 j] A3bh/obj : Établir des égalités de fractions
+ 35 | ven 27/11/2026 09:30 | Nombre décimaux | 3/3 thèmes
+      - [Réactivation du chapitre] A3ad/obj : Reconnaître un nombre décimal
+      - [Rappel espacé ~10 j] A3bd/obj : Placer une fraction sur une demi-droite graduée dans des cas simples
+      - [Rappel espacé ~10 j] A3bi/obj : Comparer et encadrer des fractions
+ 36 | lun 30/11/2026 08:30 | Symétrie axiale | 3/3 thèmes
+      - [Nouveau] C2af/obj : Connaître la définition de la médiatrice d’un segment
+      - [Rappel espacé ~3 j] A3af/obj : Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+      - [Rappel espacé ~3 j] A3ag/obj : Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+ 37 | mar 01/12/2026 08:30 | Symétrie axiale | 3/3 thèmes
+      - [Nouveau] C2ag/obj : Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment
+      - [Rappel espacé ~3 j] A3ah/obj : Repérer un nombre décimal sur une demi-droite graduée
+      - [Rappel espacé ~3 j] A3aj/obj : Ordonner une liste de nombres décimaux
+ 38 | mar 01/12/2026 09:30 | Symétrie axiale | 3/3 thèmes
+      - [Nouveau] C2ah/obj : Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice
+      - [Rappel espacé ~3 j] A3ai/obj : Comparer deux nombres décimaux
+      - [Rappel espacé ~3 j] A3am/obj : Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+ 39 | mer 02/12/2026 09:30 | Symétrie axiale | 3/3 thèmes
+      - [Nouveau] C2at/obj : Connaître la définition du symétrique d’un point par rapport à une droite
+      - [Rappel espacé ~10 j] A3bj/obj : Ordonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes
+      - [Rappel espacé ~3 j] A3bf/obj : Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal
+ 40 | jeu 03/12/2026 13:00 | Symétrie axiale | 3/3 thèmes
+      - [Nouveau] C2au/obj : Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions
+      - [Rappel espacé ~3 j] A3ak/obj : Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+      - [Rappel espacé ~3 j] A3ad/obj : Reconnaître un nombre décimal
+ 41 | mar 08/12/2026 08:30 | Symétrie axiale | 3/3 thèmes
+      - [Réactivation du chapitre] C2af/obj : Connaître la définition de la médiatrice d’un segment
+      - [Rappel espacé ~10 j] C2al/obj : Connaître la définition de la bissectrice d’un angle saillant
+      - [Rappel espacé ~10 j] C2aj/obj : Mesurer un angle
+ 42 | mar 08/12/2026 16:00 | Inititation à l'algèbre | 3/3 thèmes
+      - [Nouveau] A3ca/obj : Utiliser des modèles pré-algébriques pour résoudre des problèmes algébriques
+      - [Rappel espacé ~3 j] C2ah/obj : Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice
+      - [Rappel espacé ~3 j] C2ag/obj : Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment
+ 43 | ven 11/12/2026 09:30 | Inititation à l'algèbre | 3/3 thèmes
+      - [Nouveau] A3cb/obj : Identifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure
+      - [Rappel espacé ~3 j] C2at/obj : Connaître la définition du symétrique d’un point par rapport à une droite
+      - [Rappel espacé ~3 j] C2au/obj : Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions
+ 44 | lun 14/12/2026 08:30 | Sommes de nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3an/obj : Additionner et soustraire des nombres décimaux
+      - [Rappel espacé ~10 j] C2am/obj : Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes
+      - [Rappel espacé ~10 j] C2ak/obj : Construire un angle de mesure donnée
+ 45 | mar 15/12/2026 08:30 | Sommes de nombre décimaux | 3/3 thèmes
+      - [Nouveau] A3al/obj : Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
+      - [Rappel espacé ~10 j] C2ai/obj : Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+      - [Rappel espacé ~3 j] C2af/obj : Connaître la définition de la médiatrice d’un segment
+ 46 | mar 15/12/2026 09:30 | Géométrie dans le triangle | 3/3 thèmes
+      - [Nouveau] C2an/obj : Construire des triangles
+      - [Rappel espacé ~3 j] A3ca/obj : Utiliser des modèles pré-algébriques pour résoudre des problèmes algébriques
+      - [Rappel espacé ~10 j] A3ag/obj : Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+ 47 | mer 16/12/2026 09:30 | Géométrie dans le triangle | 3/3 thèmes
+      - [Nouveau] C2ao/obj : Connaître et utiliser les propriétés angulaires des triangles particuliers : triangle rectangle, triangle isocèle, triangle équilatéral
+      - [Rappel espacé ~3 j] A3cb/obj : Identifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure
+      - [Rappel espacé ~10 j] A3af/obj : Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+ 48 | jeu 17/12/2026 13:00 | Géométrie dans le triangle | 3/3 thèmes
+      - [Nouveau] C2ap/obj : Connaître la valeur de la somme des mesures des angles d’un triangle
+      - [Rappel espacé ~10 j] A3am/obj : Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+      - [Rappel espacé ~10 j] A3aj/obj : Ordonner une liste de nombres décimaux
+ 49 | mar 05/01/2027 08:30 | Géométrie dans le triangle | 4/4 thèmes
+      - [Nouveau] C2aq/obj : L’utiliser pour calculer des angles, effectuer des constructions et résoudre des problèmes
+      - [Rappel espacé ~3 j] A3an/obj : Additionner et soustraire des nombres décimaux
+      - [Rappel espacé ~3 j] A3al/obj : Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
+      - [Rappel espacé ~10 j] A3ai/obj : Comparer deux nombres décimaux
+ 50 | mar 05/01/2027 16:00 | Géométrie dans le triangle | 4/4 thèmes
+      - [Nouveau] C2ar/obj : Savoir que les médiatrices d’un triangle sont concourantes
+      - [Rappel espacé ~10 j] A3ah/obj : Repérer un nombre décimal sur une demi-droite graduée
+      - [Rappel espacé ~10 j] A3bf/obj : Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal
+      - [Rappel espacé ~10 j] A3ak/obj : Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+ 51 | ven 08/01/2027 09:30 | Géométrie dans le triangle | 4/4 thèmes
+      - [Nouveau] C2as/obj : Connaître et construire le cercle circonscrit à un triangle
+      - [Rappel espacé ~10 j] A3ad/obj : Reconnaître un nombre décimal
+      - [Rappel espacé ~10 j] C2ah/obj : Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice
+      - [Rappel espacé ~10 j] C2ag/obj : Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment
+ 52 | lun 11/01/2027 08:30 | Géométrie dans le triangle | 4/4 thèmes
+      - [Réactivation du chapitre] C2an/obj : Construire des triangles
+      - [Rappel espacé ~10 j] C2au/obj : Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions
+      - [Rappel espacé ~10 j] C2at/obj : Connaître la définition du symétrique d’un point par rapport à une droite
+      - [Rappel espacé ~10 j] C2af/obj : Connaître la définition de la médiatrice d’un segment
+ 53 | mar 12/01/2027 08:30 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3au/obj : Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+      - [Rappel espacé ~3 j] C2ao/obj : Connaître et utiliser les propriétés angulaires des triangles particuliers : triangle rectangle, triangle isocèle, triangle équilatéral
+      - [Rappel espacé ~3 j] C2ap/obj : Connaître la valeur de la somme des mesures des angles d’un triangle
+      - [Rappel espacé ~10 j] A3ca/obj : Utiliser des modèles pré-algébriques pour résoudre des problèmes algébriques
+ 54 | mar 12/01/2027 09:30 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3av/obj : Résoudre des problèmes mettant en jeu des divisions décimales
+      - [Rappel espacé ~10 j] A3cb/obj : Identifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure
+      - [Rappel espacé ~3 j] C2ar/obj : Savoir que les médiatrices d’un triangle sont concourantes
+      - [Rappel espacé ~3 j] C2aq/obj : L’utiliser pour calculer des angles, effectuer des constructions et résoudre des problèmes
+ 55 | mer 13/01/2027 09:30 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3ao/obj : Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
+      - [Rappel espacé ~30 j] A3ac/obj : Connaître des grands nombres entiers
+      - [Rappel espacé ~30 j] A3bc/obj : Compléter des égalités à trous multiplicatives
+      - [Rappel espacé ~30 j] A3bb/obj : Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+ 56 | jeu 14/01/2027 13:00 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3ap/obj : Connaître le lien avec la division par 10, 100 et par 1 000
+      - [Rappel espacé ~30 j] A3ax/obj : Résoudre des problèmes mettant en jeu des divisions euclidiennes
+      - [Rappel espacé ~30 j] A3ab/obj : Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+      - [Rappel espacé ~30 j] C2ac/obj : Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+ 57 | mar 19/01/2027 08:30 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3aq/obj : Comprendre le sens de la multiplication de deux nombres décimaux
+      - [Rappel espacé ~3 j] C2as/obj : Connaître et construire le cercle circonscrit à un triangle
+      - [Rappel espacé ~3 j] C2an/obj : Construire des triangles
+      - [Rappel espacé ~30 j] A3aw/obj : Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+ 58 | mar 19/01/2027 16:00 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3ar/obj : Calculer le produit de deux nombres décimaux
+      - [Rappel espacé ~30 j] C2ab/obj : Connaître et utiliser la définition du milieu d’un segment
+      - [Rappel espacé ~30 j] A3aa/obj : Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+      - [Rappel espacé ~30 j] C2ad/obj : Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+ 59 | ven 22/01/2027 09:30 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3as/obj : Contrôler les résultats à l’aide d’ordres de grandeur
+      - [Rappel espacé ~30 j] C2ae/obj : Résoudre des problèmes mettant en jeu des distances à un point
+      - [Rappel espacé ~30 j] C2aa/obj : Connaître et utiliser la définition de la distance entre deux points
+      - [Rappel espacé ~30 j] A3bh/obj : Établir des égalités de fractions
+ 60 | lun 25/01/2027 08:30 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Nouveau] A3at/obj : Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
+      - [Rappel espacé ~30 j] A3be/obj : Graduer un segment de longueur donnée
+      - [Rappel espacé ~10 j] A3an/obj : Additionner et soustraire des nombres décimaux
+      - [Rappel espacé ~10 j] A3al/obj : Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
+ 61 | mar 26/01/2027 08:30 | Décimaux: multiplication et divisions | 4/4 thèmes
+      - [Réactivation du chapitre] A3au/obj : Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+      - [Rappel espacé ~30 j] A3bi/obj : Comparer et encadrer des fractions
+      - [Rappel espacé ~30 j] A3bd/obj : Placer une fraction sur une demi-droite graduée dans des cas simples
+      - [Rappel espacé ~30 j] A3bj/obj : Ordonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes
+ 62 | mar 26/01/2027 09:30 | Organisation et gestion de données | 4/4 thèmes
+      - [Nouveau] D3aa/obj : Planifier une enquête et recueillir des données
+      - [Rappel espacé ~3 j] A3av/obj : Résoudre des problèmes mettant en jeu des divisions décimales
+      - [Rappel espacé ~3 j] A3ao/obj : Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
+      - [Rappel espacé ~3 j] A3ap/obj : Connaître le lien avec la division par 10, 100 et par 1 000
+ 63 | mer 27/01/2027 09:30 | Organisation et gestion de données | 4/4 thèmes
+      - [Nouveau] D3ac/obj : Construire un tableau simple pour présenter des données (observations, caractères)
+      - [Rappel espacé ~3 j] A3ar/obj : Calculer le produit de deux nombres décimaux
+      - [Rappel espacé ~3 j] A3aq/obj : Comprendre le sens de la multiplication de deux nombres décimaux
+      - [Rappel espacé ~30 j] C2al/obj : Connaître la définition de la bissectrice d’un angle saillant
+ 64 | jeu 28/01/2027 13:00 | Organisation et gestion de données | 4/4 thèmes
+      - [Nouveau] D3ab/obj : Réaliser des mesures et les consigner dans un tableau
+      - [Rappel espacé ~3 j] A3as/obj : Contrôler les résultats à l’aide d’ordres de grandeur
+      - [Rappel espacé ~30 j] C2aj/obj : Mesurer un angle
+      - [Rappel espacé ~10 j] C2ar/obj : Savoir que les médiatrices d’un triangle sont concourantes
+ 65 | mar 02/02/2027 08:30 | Organisation et gestion de données | 4/4 thèmes
+      - [Nouveau] D3ad/obj : Faire un choix en filtrant les données d’un tableau selon un critère
+      - [Rappel espacé ~3 j] A3at/obj : Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
+      - [Rappel espacé ~3 j] A3au/obj : Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+      - [Rappel espacé ~10 j] C2aq/obj : L’utiliser pour calculer des angles, effectuer des constructions et résoudre des problèmes
+ 66 | mar 02/02/2027 16:00 | Organisation et gestion de données | 4/4 thèmes
+      - [Réactivation du chapitre] D3aa/obj : Planifier une enquête et recueillir des données
+      - [Rappel espacé ~10 j] C2ap/obj : Connaître la valeur de la somme des mesures des angles d’un triangle
+      - [Rappel espacé ~10 j] C2ao/obj : Connaître et utiliser les propriétés angulaires des triangles particuliers : triangle rectangle, triangle isocèle, triangle équilatéral
+      - [Rappel espacé ~30 j] C2am/obj : Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes
+ 67 | ven 05/02/2027 09:30 | Opérations sur les fractions | 4/4 thèmes
+      - [Nouveau] A3ba/obj : Relier une fraction au résultat exact de la division de son numérateur par son dénominateur
+      - [Rappel espacé ~3 j] D3ac/obj : Construire un tableau simple pour présenter des données (observations, caractères)
+      - [Rappel espacé ~3 j] D3ab/obj : Réaliser des mesures et les consigner dans un tableau
+      - [Rappel espacé ~30 j] C2ak/obj : Construire un angle de mesure donnée
+ 68 | lun 22/02/2027 08:30 | Opérations sur les fractions | 4/4 thèmes
+      - [Nouveau] A3bl/obj : Additionner et soustraire des fractions
+      - [Rappel espacé ~3 j] D3ad/obj : Faire un choix en filtrant les données d’un tableau selon un critère
+      - [Rappel espacé ~3 j] D3aa/obj : Planifier une enquête et recueillir des données
+      - [Rappel espacé ~10 j] C2as/obj : Connaître et construire le cercle circonscrit à un triangle
+ 69 | mar 23/02/2027 08:30 | Opérations sur les fractions | 4/4 thèmes
+      - [Nouveau] A3bn/obj : Résoudre des problèmes mettant en jeu des fractions
+      - [Rappel espacé ~10 j] C2an/obj : Construire des triangles
+      - [Rappel espacé ~10 j] A3av/obj : Résoudre des problèmes mettant en jeu des divisions décimales
+      - [Rappel espacé ~10 j] A3ap/obj : Connaître le lien avec la division par 10, 100 et par 1 000
+ 70 | mar 23/02/2027 09:30 | Opérations sur les fractions | 4/4 thèmes
+      - [Nouveau] A3bo/obj : Inventer des problèmes mettant en jeu des fractions
+      - [Rappel espacé ~10 j] A3ao/obj : Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
+      - [Rappel espacé ~10 j] A3ar/obj : Calculer le produit de deux nombres décimaux
+      - [Rappel espacé ~10 j] A3aq/obj : Comprendre le sens de la multiplication de deux nombres décimaux
+ 71 | mer 24/02/2027 09:30 | Opérations sur les fractions | 4/4 thèmes
+      - [Nouveau] A3bk/obj : Effectuer des opérations sur les fractions
+      - [Rappel espacé ~10 j] A3as/obj : Contrôler les résultats à l’aide d’ordres de grandeur
+      - [Rappel espacé ~30 j] C2ai/obj : Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+      - [Rappel espacé ~30 j] A3ag/obj : Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+ 72 | jeu 25/02/2027 13:00 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] E3ab/aut : Il associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.
+      - [Rappel espacé ~3 j] A3ba/obj : Relier une fraction au résultat exact de la division de son numérateur par son dénominateur
+      - [Rappel espacé ~30 j] A3af/obj : Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+      - [Rappel espacé ~30 j] A3am/obj : Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+ 73 | mar 02/03/2027 08:30 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] A3bg/obj : Utiliser une multiplication pour appliquer une fraction à un nombre entier
+      - [Rappel espacé ~10 j] A3au/obj : Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+      - [Rappel espacé ~10 j] A3at/obj : Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
+      - [Rappel espacé ~3 j] A3bl/obj : Additionner et soustraire des fractions
+ 74 | mar 02/03/2027 16:00 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] A3bm/obj : Multiplier une fraction par un nombre entier
+      - [Rappel espacé ~30 j] A3aj/obj : Ordonner une liste de nombres décimaux
+      - [Rappel espacé ~10 j] D3ac/obj : Construire un tableau simple pour présenter des données (observations, caractères)
+      - [Rappel espacé ~10 j] D3ab/obj : Réaliser des mesures et les consigner dans un tableau
+ 75 | ven 05/03/2027 09:30 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] E3aa/obj : Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante
+      - [Rappel espacé ~3 j] A3bo/obj : Inventer des problèmes mettant en jeu des fractions
+      - [Rappel espacé ~3 j] A3bn/obj : Résoudre des problèmes mettant en jeu des fractions
+      - [Rappel espacé ~3 j] A3bk/obj : Effectuer des opérations sur les fractions
+ 76 | lun 08/03/2027 08:30 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] E3ab/obj : Identifier si une situation relève du « modèle » de la proportionnalité
+      - [Rappel espacé ~30 j] A3bf/obj : Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal
+      - [Rappel espacé ~30 j] A3ak/obj : Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+      - [Rappel espacé ~30 j] A3ai/obj : Comparer deux nombres décimaux
+ 77 | mar 09/03/2027 08:30 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] E3ac/obj : Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication ou l’addition, retour à l’unité
+      - [Rappel espacé ~30 j] A3ah/obj : Repérer un nombre décimal sur une demi-droite graduée
+      - [Rappel espacé ~30 j] C2ah/obj : Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice
+      - [Rappel espacé ~30 j] C2ag/obj : Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment
+ 78 | mar 09/03/2027 09:30 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] E3ad/obj : Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques
+      - [Rappel espacé ~30 j] A3ad/obj : Reconnaître un nombre décimal
+      - [Rappel espacé ~30 j] C2au/obj : Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions
+      - [Rappel espacé ~30 j] C2at/obj : Connaître la définition du symétrique d’un point par rapport à une droite
+ 79 | mer 10/03/2027 09:30 | Proportionnalité | 4/4 thèmes
+      - [Nouveau] E3ae/obj : S’initier à la résolution de problèmes d’échelles
+      - [Rappel espacé ~30 j] C2af/obj : Connaître la définition de la médiatrice d’un segment
+      - [Rappel espacé ~30 j] A3cb/obj : Identifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure
+      - [Rappel espacé ~30 j] A3ca/obj : Utiliser des modèles pré-algébriques pour résoudre des problèmes algébriques
+ 80 | jeu 11/03/2027 13:00 | Proportionnalité | 4/4 thèmes
+      - [Réactivation du chapitre] E3ab/aut : Il associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.
+      - [Rappel espacé ~30 j] A3bc/obj : Compléter des égalités à trous multiplicatives
+      - [Rappel espacé ~30 j] A3bb/obj : Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+      - [Rappel espacé ~30 j] A3ac/obj : Connaître des grands nombres entiers
+ 81 | mar 16/03/2027 08:30 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3aa/aut : L’élève connaît les significations des préfixes allant du kilo- au milli-, ainsi que les relations entre le mètre, ses multiples et ses sous-multiples, et fait le lien avec les unités de numération du système décimal.
+      - [Rappel espacé ~3 j] A3bm/obj : Multiplier une fraction par un nombre entier
+      - [Rappel espacé ~3 j] A3bg/obj : Utiliser une multiplication pour appliquer une fraction à un nombre entier
+      - [Rappel espacé ~3 j] E3aa/obj : Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante
+ 82 | mar 16/03/2027 16:00 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ab/aut : L’élève connaît les relations entre deux unités successives du système décimal, par exemple : 1 dm = 10 cm et 1 cm = $\dfrac {1}{10}$ dm = 0,1 dm.
+      - [Rappel espacé ~3 j] E3ab/obj : Identifier si une situation relève du « modèle » de la proportionnalité
+      - [Rappel espacé ~3 j] E3ad/obj : Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques
+      - [Rappel espacé ~3 j] E3ac/obj : Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication ou l’addition, retour à l’unité
+ 83 | ven 19/03/2027 09:30 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ac/aut : L’élève sait convertir en mètre une longueur donnée dans une autre unité, multiple ou sous-multiple du mètre. Inversement, l’élève sait convertir dans une unité donnée une longueur exprimée en mètre.
+      - [Rappel espacé ~3 j] E3ae/obj : S’initier à la résolution de problèmes d’échelles
+      - [Rappel espacé ~3 j] E3ab/aut : Il associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.
+      - [Rappel espacé ~10 j] D3ad/obj : Faire un choix en filtrant les données d’un tableau selon un critère
+ 84 | lun 22/03/2027 08:30 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ae/aut : Il sait que le périmètre d’une figure plane est la longueur de son contour. L’élève sait calculer le périmètre d’un carré et d’un rectangle.
+      - [Rappel espacé ~10 j] D3aa/obj : Planifier une enquête et recueillir des données
+      - [Rappel espacé ~10 j] A3ba/obj : Relier une fraction au résultat exact de la division de son numérateur par son dénominateur
+      - [Rappel espacé ~30 j] C2ac/obj : Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+ 85 | mar 23/03/2027 08:30 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ad/aut : L’élève sait utiliser le compas comme outil de report de longueurs.
+      - [Rappel espacé ~30 j] A3ax/obj : Résoudre des problèmes mettant en jeu des divisions euclidiennes
+      - [Rappel espacé ~30 j] A3ab/obj : Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+      - [Rappel espacé ~30 j] C2ad/obj : Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+ 86 | mar 23/03/2027 09:30 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3aa/obj : Savoir que le périmètre du disque est proportionnel à son diamètre.
+      - [Rappel espacé ~30 j] C2ab/obj : Connaître et utiliser la définition du milieu d’un segment
+      - [Rappel espacé ~30 j] A3aw/obj : Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+      - [Rappel espacé ~30 j] A3aa/obj : Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
+ 87 | mer 24/03/2027 09:30 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ab/obj : Connaître la formule du périmètre d’un disque.
+      - [Rappel espacé ~10 j] A3bl/obj : Additionner et soustraire des fractions
+      - [Rappel espacé ~30 j] C2ae/obj : Résoudre des problèmes mettant en jeu des distances à un point
+      - [Rappel espacé ~30 j] C2aa/obj : Connaître et utiliser la définition de la distance entre deux points
+ 88 | jeu 25/03/2027 13:00 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ac/obj : Calculer le périmètre d’un disque.
+      - [Rappel espacé ~30 j] A3bh/obj : Établir des égalités de fractions
+      - [Rappel espacé ~10 j] A3bo/obj : Inventer des problèmes mettant en jeu des fractions
+      - [Rappel espacé ~10 j] A3bn/obj : Résoudre des problèmes mettant en jeu des fractions
+ 89 | mar 30/03/2027 08:30 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ad/obj : Calculer des périmètres de figures composées.
+      - [Rappel espacé ~10 j] A3bk/obj : Effectuer des opérations sur les fractions
+      - [Rappel espacé ~30 j] A3be/obj : Graduer un segment de longueur donnée
+      - [Rappel espacé ~30 j] A3an/obj : Additionner et soustraire des nombres décimaux
+ 90 | mar 30/03/2027 16:00 | Longueurs | 4/4 thèmes
+      - [Nouveau] B3ae/obj : Résoudre des problèmes impliquant des longueurs.
+      - [Rappel espacé ~30 j] A3al/obj : Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
+      - [Rappel espacé ~30 j] A3bj/obj : Ordonner une liste de nombres écrits sous forme de fractions ou de nombres mixtes
+      - [Rappel espacé ~30 j] A3bi/obj : Comparer et encadrer des fractions
+ 91 | ven 02/04/2027 09:30 | Longueurs | 4/4 thèmes
+      - [Réactivation du chapitre] B3aa/aut : L’élève connaît les significations des préfixes allant du kilo- au milli-, ainsi que les relations entre le mètre, ses multiples et ses sous-multiples, et fait le lien avec les unités de numération du système décimal.
+      - [Rappel espacé ~30 j] A3bd/obj : Placer une fraction sur une demi-droite graduée dans des cas simples
+      - [Rappel espacé ~30 j] C2al/obj : Connaître la définition de la bissectrice d’un angle saillant
+      - [Rappel espacé ~30 j] C2ar/obj : Savoir que les médiatrices d’un triangle sont concourantes
+ 92 | lun 19/04/2027 08:30 | Longueurs | 4/4 thèmes
+      - [Réactivation du chapitre] B3ab/aut : L’élève connaît les relations entre deux unités successives du système décimal, par exemple : 1 dm = 10 cm et 1 cm = $\dfrac {1}{10}$ dm = 0,1 dm.
+      - [Rappel espacé ~10 j] E3ad/obj : Représenter une situation de proportionnalité à l’aide d’un tableau ou de notations symboliques
+      - [Rappel espacé ~10 j] E3ac/obj : Résoudre un problème de proportionnalité en choisissant une procédure adaptée : propriété de linéarité pour la multiplication ou l’addition, retour à l’unité
+      - [Rappel espacé ~10 j] E3ab/obj : Identifier si une situation relève du « modèle » de la proportionnalité
+ 93 | mar 20/04/2027 08:30 | Pourcentages | 4/4 thèmes
+      - [Nouveau] A3bp/obj : Comprendre le sens d’un pourcentage
+      - [Rappel espacé ~3 j] B3ac/aut : L’élève sait convertir en mètre une longueur donnée dans une autre unité, multiple ou sous-multiple du mètre. Inversement, l’élève sait convertir dans une unité donnée une longueur exprimée en mètre.
+      - [Rappel espacé ~3 j] B3ae/aut : Il sait que le périmètre d’une figure plane est la longueur de son contour. L’élève sait calculer le périmètre d’un carré et d’un rectangle.
+      - [Rappel espacé ~3 j] B3aa/obj : Savoir que le périmètre du disque est proportionnel à son diamètre.
+ 94 | mar 20/04/2027 09:30 | Pourcentages | 4/4 thèmes
+      - [Nouveau] A3ae/obj : Connaître la définition d’un pourcentage
+      - [Rappel espacé ~3 j] B3ad/aut : L’élève sait utiliser le compas comme outil de report de longueurs.
+      - [Rappel espacé ~3 j] B3ab/obj : Connaître la formule du périmètre d’un disque.
+      - [Rappel espacé ~3 j] B3ac/obj : Calculer le périmètre d’un disque.
+ 95 | mer 21/04/2027 09:30 | Pourcentages | 4/4 thèmes
+      - [Nouveau] A3br/obj : Appliquer un pourcentage à une grandeur ou à un nombre
+      - [Rappel espacé ~3 j] B3ae/obj : Résoudre des problèmes impliquant des longueurs.
+      - [Rappel espacé ~3 j] B3ad/obj : Calculer des périmètres de figures composées.
+      - [Rappel espacé ~3 j] B3aa/aut : L’élève connaît les significations des préfixes allant du kilo- au milli-, ainsi que les relations entre le mètre, ses multiples et ses sous-multiples, et fait le lien avec les unités de numération du système décimal.
+ 96 | jeu 22/04/2027 13:00 | Pourcentages | 4/4 thèmes
+      - [Nouveau] A3bq/obj : Calculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples
+      - [Rappel espacé ~10 j] E3aa/obj : Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante
+      - [Rappel espacé ~10 j] A3bm/obj : Multiplier une fraction par un nombre entier
+      - [Rappel espacé ~10 j] A3bg/obj : Utiliser une multiplication pour appliquer une fraction à un nombre entier
+ 97 | mar 27/04/2027 08:30 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3ba/aut : L’élève sait comparer des aires sans avoir recours à la mesure, par superposition ou par découpage et recollement de surfaces.
+      - [Rappel espacé ~10 j] E3ae/obj : S’initier à la résolution de problèmes d’échelles
+      - [Rappel espacé ~10 j] E3ab/aut : Il associe de manière automatique les expressions du type : « 4 fois plus grand, 4 fois plus petit, 5 fois plus, 5 fois moins » à une multiplication ou à une division.
+      - [Rappel espacé ~30 j] C2aj/obj : Mesurer un angle
+ 98 | mar 27/04/2027 16:00 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3bb/aut : L’élève sait que 1 cm$^2$ est l’aire d’un carré de 1 cm de côté, que 1 m$^2$ est l’aire d’un carré de 1 m de côté, que 1 dm$^2$ est l’aire d’un carré de 1 dm de côté.
+      - [Rappel espacé ~30 j] C2aq/obj : L’utiliser pour calculer des angles, effectuer des constructions et résoudre des problèmes
+      - [Rappel espacé ~30 j] C2ap/obj : Connaître la valeur de la somme des mesures des angles d’un triangle
+      - [Rappel espacé ~30 j] C2ao/obj : Connaître et utiliser les propriétés angulaires des triangles particuliers : triangle rectangle, triangle isocèle, triangle équilatéral
+ 99 | ven 30/04/2027 09:30 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3bc/aut : Dans des cas simples, l’élève sait déterminer l’aire d’une surface en s’appuyant sur un quadrillage composé de carreaux dont les côtés mesurent 1 cm.
+      - [Rappel espacé ~3 j] B3ab/aut : L’élève connaît les relations entre deux unités successives du système décimal, par exemple : 1 dm = 10 cm et 1 cm = $\dfrac {1}{10}$ dm = 0,1 dm.
+      - [Rappel espacé ~3 j] A3bp/obj : Comprendre le sens d’un pourcentage
+      - [Rappel espacé ~3 j] A3ae/obj : Connaître la définition d’un pourcentage
+100 | lun 03/05/2027 08:30 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3bd/aut : L’élève sait que : 1 m$^2$ = 1 m $\times $ 1 m = 10 dm $\times $ 10 dm = 10 $\times $ 10 dm$^2$ = 100 dm$^2$ ; 1 dm$^2$ = 1 dm $\times $ 1 dm = 10 cm $\times $ 10 cm = 10 $\times $ 10 cm$^2$ = 100 cm$^2$.
+      - [Rappel espacé ~3 j] A3br/obj : Appliquer un pourcentage à une grandeur ou à un nombre
+      - [Rappel espacé ~3 j] A3bq/obj : Calculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples
+      - [Rappel espacé ~30 j] C2am/obj : Utiliser la définition de la bissectrice d’un angle pour effectuer des constructions et résoudre des problèmes
+101 | mar 04/05/2027 08:30 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3be/aut : L’élève mémorise que 1 cm$^2$ est égal à un centième de 1 dm$^2$, qu’il écrit 1 cm$^2=\dfrac {1}{100}$
+      - [Rappel espacé ~30 j] C2ak/obj : Construire un angle de mesure donnée
+      - [Rappel espacé ~30 j] C2as/obj : Connaître et construire le cercle circonscrit à un triangle
+      - [Rappel espacé ~30 j] C2an/obj : Construire des triangles
+102 | mar 04/05/2027 09:30 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3bf/aut : L’élève mémorise que 1 dm$^2$ est égal à un centième de 1 m$^2$, qu’il écrit 1 dm$^2=\dfrac {1}{100}$ m$^2$ ou 1 dm$^2=0,001$ m$^2$.
+      - [Rappel espacé ~30 j] A3av/obj : Résoudre des problèmes mettant en jeu des divisions décimales
+      - [Rappel espacé ~30 j] A3ar/obj : Calculer le produit de deux nombres décimaux
+      - [Rappel espacé ~30 j] A3aq/obj : Comprendre le sens de la multiplication de deux nombres décimaux
+103 | mer 05/05/2027 09:30 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3ba/obj : Effectuer des conversions d’aire
+      - [Rappel espacé ~30 j] A3ap/obj : Connaître le lien avec la division par 10, 100 et par 1 000
+      - [Rappel espacé ~30 j] A3ao/obj : Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
+      - [Rappel espacé ~30 j] C2ai/obj : Connaître et utiliser les angles ainsi que le lexique et les notations qui s’y rapportent : angle droit, angle plat, angle plein, angle nul, angle aigu, angle obtus, angles opposés par le sommet, angles adjacents, angles supplémentaires
+104 | mar 11/05/2027 08:30 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3bb/obj : Connaître la formule de l’aire d’un carré ou d’un rectangle
+      - [Rappel espacé ~30 j] A3as/obj : Contrôler les résultats à l’aide d’ordres de grandeur
+      - [Rappel espacé ~30 j] A3ag/obj : Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+      - [Rappel espacé ~30 j] A3am/obj : Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+105 | mar 11/05/2027 16:00 | Surfaces | 4/4 thèmes
+      - [Nouveau] B3bc/obj : Calculer l’aire d’un carré ou d’un rectangle
+      - [Rappel espacé ~30 j] A3af/obj : Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+      - [Rappel espacé ~30 j] D3ac/obj : Construire un tableau simple pour présenter des données (observations, caractères)
+      - [Rappel espacé ~30 j] D3ab/obj : Réaliser des mesures et les consigner dans un tableau
+106 | ven 14/05/2027 09:30 | Surfaces | 4/4 thèmes
+      - [Réactivation du chapitre] B3ba/aut : L’élève sait comparer des aires sans avoir recours à la mesure, par superposition ou par découpage et recollement de surfaces.
+      - [Rappel espacé ~30 j] A3au/obj : Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+      - [Rappel espacé ~30 j] A3at/obj : Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
+      - [Rappel espacé ~30 j] A3aj/obj : Ordonner une liste de nombres décimaux
+107 | mar 18/05/2027 08:30 | Statistiques et probabilités | 4/4 thèmes
+      - [Nouveau] D3ba/obj : Savoir que la probabilité d’un évènement est un nombre compris entre 0 et 1
+      - [Rappel espacé ~3 j] B3bb/aut : L’élève sait que 1 cm$^2$ est l’aire d’un carré de 1 cm de côté, que 1 m$^2$ est l’aire d’un carré de 1 m de côté, que 1 dm$^2$ est l’aire d’un carré de 1 dm de côté.
+      - [Rappel espacé ~3 j] B3bc/aut : Dans des cas simples, l’élève sait déterminer l’aire d’une surface en s’appuyant sur un quadrillage composé de carreaux dont les côtés mesurent 1 cm.
+      - [Rappel espacé ~3 j] B3bd/aut : L’élève sait que : 1 m$^2$ = 1 m $\times $ 1 m = 10 dm $\times $ 10 dm = 10 $\times $ 10 dm$^2$ = 100 dm$^2$ ; 1 dm$^2$ = 1 dm $\times $ 1 dm = 10 cm $\times $ 10 cm = 10 $\times $ 10 cm$^2$ = 100 cm$^2$.
+108 | mar 18/05/2027 09:30 | Statistiques et probabilités | 4/4 thèmes
+      - [Nouveau] D3bb/obj : Calculer des probabilités dans des situations simples d’équiprobabilité
+      - [Rappel espacé ~3 j] B3bf/aut : L’élève mémorise que 1 dm$^2$ est égal à un centième de 1 m$^2$, qu’il écrit 1 dm$^2=\dfrac {1}{100}$ m$^2$ ou 1 dm$^2=0,001$ m$^2$.
+      - [Rappel espacé ~3 j] B3be/aut : L’élève mémorise que 1 cm$^2$ est égal à un centième de 1 dm$^2$, qu’il écrit 1 cm$^2=\dfrac {1}{100}$
+      - [Rappel espacé ~3 j] B3ba/obj : Effectuer des conversions d’aire
+109 | mer 19/05/2027 09:30 | Statistiques et probabilités | 4/4 thèmes
+      - [Nouveau] D3bc/obj : Comparer des résultats d’une expérience aléatoire répétée à une probabilité calculée
+      - [Rappel espacé ~10 j] B3ac/obj : Calculer le périmètre d’un disque.
+      - [Rappel espacé ~10 j] B3ab/obj : Connaître la formule du périmètre d’un disque.
+      - [Rappel espacé ~10 j] B3aa/obj : Savoir que le périmètre du disque est proportionnel à son diamètre.
+110 | jeu 20/05/2027 13:00 | Statistiques et probabilités | 4/4 thèmes
+      - [Réactivation du chapitre] D3ba/obj : Savoir que la probabilité d’un évènement est un nombre compris entre 0 et 1
+      - [Rappel espacé ~10 j] B3ae/aut : Il sait que le périmètre d’une figure plane est la longueur de son contour. L’élève sait calculer le périmètre d’un carré et d’un rectangle.
+      - [Rappel espacé ~10 j] B3ad/aut : L’élève sait utiliser le compas comme outil de report de longueurs.
+      - [Rappel espacé ~10 j] B3ac/aut : L’élève sait convertir en mètre une longueur donnée dans une autre unité, multiple ou sous-multiple du mètre. Inversement, l’élève sait convertir dans une unité donnée une longueur exprimée en mètre.
+111 | mar 25/05/2027 08:30 | Durées | 4/4 thèmes
+      - [Nouveau] B3da/aut : L’élève lit l’heure sur un cadran à aiguilles ou sur un affichage digital (heures, minutes et secondes).
+      - [Rappel espacé ~3 j] B3bc/obj : Calculer l’aire d’un carré ou d’un rectangle
+      - [Rappel espacé ~3 j] B3bb/obj : Connaître la formule de l’aire d’un carré ou d’un rectangle
+      - [Rappel espacé ~3 j] B3ba/aut : L’élève sait comparer des aires sans avoir recours à la mesure, par superposition ou par découpage et recollement de surfaces.
+112 | mar 25/05/2027 16:00 | Durées | 4/4 thèmes
+      - [Nouveau] B3db/aut : L’élève place les aiguilles pour qu’une horloge indique une heure donnée.
+      - [Rappel espacé ~10 j] B3ae/obj : Résoudre des problèmes impliquant des longueurs.
+      - [Rappel espacé ~10 j] B3ad/obj : Calculer des périmètres de figures composées.
+      - [Rappel espacé ~10 j] B3aa/aut : L’élève connaît les significations des préfixes allant du kilo- au milli-, ainsi que les relations entre le mètre, ses multiples et ses sous-multiples, et fait le lien avec les unités de numération du système décimal.
+113 | ven 28/05/2027 09:30 | Durées | 4/4 thèmes
+      - [Nouveau] B3dc/aut : L’élève connaît les unités de mesure de durées jour, heure, minute et seconde et les relations qui les lient.
+      - [Rappel espacé ~3 j] D3bb/obj : Calculer des probabilités dans des situations simples d’équiprobabilité
+      - [Rappel espacé ~3 j] D3bc/obj : Comparer des résultats d’une expérience aléatoire répétée à une probabilité calculée
+      - [Rappel espacé ~10 j] A3bp/obj : Comprendre le sens d’un pourcentage
+114 | lun 31/05/2027 08:30 | Durées | 4/4 thèmes
+      - [Nouveau] B3dd/aut : L’élève sait combien de jours il y a dans une année (bissextile ou non), combien d’années il y a dans un siècle, et dans un millénaire.
+      - [Rappel espacé ~3 j] D3ba/obj : Savoir que la probabilité d’un évènement est un nombre compris entre 0 et 1
+      - [Rappel espacé ~10 j] A3ae/obj : Connaître la définition d’un pourcentage
+      - [Rappel espacé ~10 j] B3ab/aut : L’élève connaît les relations entre deux unités successives du système décimal, par exemple : 1 dm = 10 cm et 1 cm = $\dfrac {1}{10}$ dm = 0,1 dm.
+115 | mar 01/06/2027 08:30 | Durées | 4/4 thèmes
+      - [Nouveau] B3de/aut : L’élève sait qu’une demi-heure c’est 30 minutes, qu’un quart d’heure c’est 15 minutes, que trois quarts d’heure c’est 45 minutes.
+      - [Rappel espacé ~10 j] A3br/obj : Appliquer un pourcentage à une grandeur ou à un nombre
+      - [Rappel espacé ~10 j] A3bq/obj : Calculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples
+      - [Rappel espacé ~30 j] A3bf/obj : Savoir que la fraction $\dfrac ab$ peut représenter un nombre entier, un nombre décimal non entier ou un nombre non décimal
+116 | mar 01/06/2027 09:30 | Durées | 4/4 thèmes
+      - [Nouveau] E3aa/aut : L’élève sait repérer des relations multiplicatives simples entre des nombres (double, quadruple, moitié, tiers, quart).
+      - [Rappel espacé ~30 j] A3ak/obj : Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+      - [Rappel espacé ~30 j] A3ai/obj : Comparer deux nombres décimaux
+      - [Rappel espacé ~30 j] C2au/obj : Connaître et utiliser les propriétés de la symétrie axiale pour effectuer des constructions
+117 | mer 02/06/2027 09:30 | Durées | 4/4 thèmes
+      - [Nouveau] B3db/obj : Résoudre des problèmes impliquant des horaires et des durées
+      - [Rappel espacé ~30 j] C2at/obj : Connaître la définition du symétrique d’un point par rapport à une droite
+      - [Rappel espacé ~30 j] C2ah/obj : Résoudre des problèmes en s’appuyant sur la propriété caractéristique de la médiatrice
+      - [Rappel espacé ~30 j] C2ag/obj : Comprendre et utiliser la propriété caractéristique de la médiatrice d’un segment
+118 | jeu 03/06/2027 13:00 | Durées | 4/4 thèmes
+      - [Nouveau] B3da/obj : Effectuer des calculs sur des horaires et des durées
+      - [Rappel espacé ~30 j] A3ah/obj : Repérer un nombre décimal sur une demi-droite graduée
+      - [Rappel espacé ~30 j] A3ad/obj : Reconnaître un nombre décimal
+      - [Rappel espacé ~30 j] C2af/obj : Connaître la définition de la médiatrice d’un segment
+119 | mar 08/06/2027 08:30 | Durées | 4/4 thèmes
+      - [Nouveau] B3dc/obj : Convertir des durées
+      - [Rappel espacé ~30 j] A3cb/obj : Identifier la structure d’un motif évolutif en repérant une régularité et en identifiant une structure
+      - [Rappel espacé ~30 j] A3ca/obj : Utiliser des modèles pré-algébriques pour résoudre des problèmes algébriques
+      - [Rappel espacé ~30 j] A3bc/obj : Compléter des égalités à trous multiplicatives
+120 | mar 08/06/2027 16:00 | Durées | 4/4 thèmes
+      - [Réactivation du chapitre] B3da/aut : L’élève lit l’heure sur un cadran à aiguilles ou sur un affichage digital (heures, minutes et secondes).
+      - [Rappel espacé ~30 j] A3bb/obj : Comprendre et connaître la définition du quotient d’un entier a par un entier b non nul
+      - [Rappel espacé ~30 j] A3ac/obj : Connaître des grands nombres entiers
+      - [Rappel espacé ~30 j] D3ad/obj : Faire un choix en filtrant les données d’un tableau selon un critère
+121 | ven 11/06/2027 09:30 | Volumes | 4/4 thèmes
+      - [Nouveau] B3ca/obj : L’élève connaît l’unité centimètre cube.
+      - [Rappel espacé ~3 j] B3db/aut : L’élève place les aiguilles pour qu’une horloge indique une heure donnée.
+      - [Rappel espacé ~3 j] B3dc/aut : L’élève connaît les unités de mesure de durées jour, heure, minute et seconde et les relations qui les lient.
+      - [Rappel espacé ~3 j] B3dd/aut : L’élève sait combien de jours il y a dans une année (bissextile ou non), combien d’années il y a dans un siècle, et dans un millénaire.
+122 | lun 14/06/2027 08:30 | Volumes | 4/4 thèmes
+      - [Nouveau] B3cb/obj : L’élève sait comparer des volumes.
+      - [Rappel espacé ~3 j] E3aa/aut : L’élève sait repérer des relations multiplicatives simples entre des nombres (double, quadruple, moitié, tiers, quart).
+      - [Rappel espacé ~3 j] B3de/aut : L’élève sait qu’une demi-heure c’est 30 minutes, qu’un quart d’heure c’est 15 minutes, que trois quarts d’heure c’est 45 minutes.
+      - [Rappel espacé ~3 j] B3db/obj : Résoudre des problèmes impliquant des horaires et des durées
+123 | mar 15/06/2027 08:30 | Volumes | 4/4 thèmes
+      - [Nouveau] B3cc/obj : L’élève sait déterminer un volume.
+      - [Rappel espacé ~3 j] B3da/obj : Effectuer des calculs sur des horaires et des durées
+      - [Rappel espacé ~30 j] D3aa/obj : Planifier une enquête et recueillir des données
+      - [Rappel espacé ~30 j] C2ac/obj : Connaître les définitions d’un cercle, d’un disque, d’un rayon, d’un diamètre, d’une corde
+124 | mar 15/06/2027 09:30 | Volumes | 4/4 thèmes
+      - [Nouveau] C2ba/obj : Voir dans l’espace des assemblages de cubes
+      - [Rappel espacé ~30 j] A3ba/obj : Relier une fraction au résultat exact de la division de son numérateur par son dénominateur
+      - [Rappel espacé ~30 j] C2ad/obj : Comprendre la définition d’un cercle et celle d’un disque sous la forme d’ensembles de points
+      - [Rappel espacé ~30 j] C2ab/obj : Connaître et utiliser la définition du milieu d’un segment
+125 | mer 16/06/2027 09:30 | Algorithmique | 4/4 thèmes
+      - [Nouveau] F3aa/obj : Identifier une instruction ou une séquence d’instructions
+      - [Rappel espacé ~10 j] B3ba/obj : Effectuer des conversions d’aire
+      - [Rappel espacé ~10 j] B3bf/aut : L’élève mémorise que 1 dm$^2$ est égal à un centième de 1 m$^2$, qu’il écrit 1 dm$^2=\dfrac {1}{100}$ m$^2$ ou 1 dm$^2=0,001$ m$^2$.
+      - [Rappel espacé ~10 j] B3be/aut : L’élève mémorise que 1 cm$^2$ est égal à un centième de 1 dm$^2$, qu’il écrit 1 cm$^2=\dfrac {1}{100}$
+126 | jeu 17/06/2027 13:00 | Algorithmique | 4/4 thèmes
+      - [Nouveau] F3ab/obj : Produire et exécuter une séquence d’instructions
+      - [Rappel espacé ~10 j] B3bd/aut : L’élève sait que : 1 m$^2$ = 1 m $\times $ 1 m = 10 dm $\times $ 10 dm = 10 $\times $ 10 dm$^2$ = 100 dm$^2$ ; 1 dm$^2$ = 1 dm $\times $ 1 dm = 10 cm $\times $ 10 cm = 10 $\times $ 10 cm$^2$ = 100 cm$^2$.
+      - [Rappel espacé ~10 j] B3bc/aut : Dans des cas simples, l’élève sait déterminer l’aire d’une surface en s’appuyant sur un quadrillage composé de carreaux dont les côtés mesurent 1 cm.
+      - [Rappel espacé ~10 j] B3bb/aut : L’élève sait que 1 cm$^2$ est l’aire d’un carré de 1 cm de côté, que 1 m$^2$ est l’aire d’un carré de 1 m de côté, que 1 dm$^2$ est l’aire d’un carré de 1 dm de côté.
+127 | mar 22/06/2027 08:30 | Algorithmique | 4/4 thèmes
+      - [Nouveau] F3ac/obj : Répéter à la main une séquence d’instructions pour accomplir une tâche imposée
+      - [Rappel espacé ~3 j] B3dc/obj : Convertir des durées
+      - [Rappel espacé ~3 j] B3da/aut : L’élève lit l’heure sur un cadran à aiguilles ou sur un affichage digital (heures, minutes et secondes).
+      - [Rappel espacé ~3 j] B3ca/obj : L’élève connaît l’unité centimètre cube.
+128 | mar 22/06/2027 16:00 | Algorithmique | 4/4 thèmes
+      - [Nouveau] F3ad/obj : Programmer la construction d’un chemin simple
+      - [Rappel espacé ~30 j] A3ax/obj : Résoudre des problèmes mettant en jeu des divisions euclidiennes
+      - [Rappel espacé ~30 j] A3aw/obj : Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+      - [Rappel espacé ~30 j] A3ab/obj : Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+129 | ven 25/06/2027 09:30 | Algorithmique | 4/4 thèmes
+      - [Réactivation du chapitre] F3aa/obj : Identifier une instruction ou une séquence d’instructions
+      - [Rappel espacé ~3 j] B3cb/obj : L’élève sait comparer des volumes.
+      - [Rappel espacé ~3 j] C2ba/obj : Voir dans l’espace des assemblages de cubes
+      - [Rappel espacé ~3 j] B3cc/obj : L’élève sait déterminer un volume.

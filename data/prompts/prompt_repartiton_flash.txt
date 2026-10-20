@@ -1,0 +1,16 @@
+Génère une répartition complète des thèmes de questions
+flash à aborder mais cette fois-ci sur le niveau 6e.
+Prends en compte mon emploi du temps avec le groupe de
+6G2. Prends en compte les remarques précédentes:
+- première et dernière semaine de l'année non prises en
+compte
+- contrôle de fin de chapitre toute les deux semaines qui
+fait perdre une séance toutes les deux semaine
+- un thème par séance puis progressivement 2, 3 et 4 au
+maximum.
+Prends en compte la répartition annuelle des chapitres
+(sequencage-Cycle_3_BO_2026-progression-6eme-structure.tex
+avec le code )
+et les recherches récentes en neurosience.
+Génère un fichier repartition_qf_6e.txt qui s'inspirera
+du fichier repartition_questions_flash_v4.txt.
