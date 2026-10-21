@@ -516,29 +516,30 @@ cycle_3_BO_2026|:|obj|:|A2gd|:|Identifier et formuler une règle de calcul pour 
 cycle_3_BO_2026|:|obj|:|A2ge|:|Identifier des régularités et poursuivre une suite de motifs évolutive
 cycle_3_BO_2026|:|obj|:|A2gf|:|Trouver le nombre d’éléments pour une étape donnée dans une suite de motifs évolutive
 cycle_3_BO_2026|:|obj|:|A3aa|:|Connaître et utiliser la valeur des chiffres selon leur rang dans l’écriture d’un nombre
-cycle_3_BO_2026|:|obj|:|A3ab|:|Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
-cycle_3_BO_2026|:|obj|:|A3ac|:|Connaître des grands nombres entiers
-cycle_3_BO_2026|:|obj|:|A3ad|:|Reconnaître un nombre décimal
-cycle_3_BO_2026|:|obj|:|A3ae|:|Connaître la définition d’un pourcentage
-cycle_3_BO_2026|:|obj|:|A3af|:|Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
-cycle_3_BO_2026|:|obj|:|A3ag|:|Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
-cycle_3_BO_2026|:|obj|:|A3ah|:|Repérer un nombre décimal sur une demi-droite graduée
-cycle_3_BO_2026|:|obj|:|A3ai|:|Comparer deux nombres décimaux
-cycle_3_BO_2026|:|obj|:|A3aj|:|Ordonner une liste de nombres décimaux
-cycle_3_BO_2026|:|obj|:|A3ak|:|Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
-cycle_3_BO_2026|:|obj|:|A3al|:|Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
-cycle_3_BO_2026|:|obj|:|A3am|:|Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
-cycle_3_BO_2026|:|obj|:|A3an|:|Additionner et soustraire des nombres décimaux
-cycle_3_BO_2026|:|obj|:|A3ao|:|Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
-cycle_3_BO_2026|:|obj|:|A3ap|:|Connaître le lien avec la division par 10, 100 et par 1 000
-cycle_3_BO_2026|:|obj|:|A3aq|:|Comprendre le sens de la multiplication de deux nombres décimaux
-cycle_3_BO_2026|:|obj|:|A3ar|:|Calculer le produit de deux nombres décimaux
-cycle_3_BO_2026|:|obj|:|A3as|:|Contrôler les résultats à l’aide d’ordres de grandeur
-cycle_3_BO_2026|:|obj|:|A3at|:|Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
-cycle_3_BO_2026|:|obj|:|A3au|:|Diviser un nombre décimal par un nombre entier non nul inférieur à 10
-cycle_3_BO_2026|:|obj|:|A3av|:|Résoudre des problèmes mettant en jeu des divisions décimales
-cycle_3_BO_2026|:|obj|:|A3aw|:|Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
-cycle_3_BO_2026|:|obj|:|A3ax|:|Résoudre des problèmes mettant en jeu des divisions euclidiennes
+cycle_3_BO_2026|:|obj|:|A3ab|:|Connaître les liens entre les unités de numération unité, dizaine, centaine, millier
+cycle_3_BO_2026|:|obj|:|A3ac|:|Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième
+cycle_3_BO_2026|:|obj|:|A3ad|:|Connaître des grands nombres entiers
+cycle_3_BO_2026|:|obj|:|A3ae|:|Reconnaître un nombre décimal
+cycle_3_BO_2026|:|obj|:|A3af|:|Connaître la définition d’un pourcentage
+cycle_3_BO_2026|:|obj|:|A3ag|:|Associer et utiliser différentes écritures d’un nombre décimal~: écriture à virgule, fraction, nombre mixte, pourcentage
+cycle_3_BO_2026|:|obj|:|A3ah|:|Placer sur une demi-droite graduée un point dont l’abscisse est un nombre décimal
+cycle_3_BO_2026|:|obj|:|A3ai|:|Repérer un nombre décimal sur une demi-droite graduée
+cycle_3_BO_2026|:|obj|:|A3aj|:|Comparer deux nombres décimaux
+cycle_3_BO_2026|:|obj|:|A3ak|:|Ordonner une liste de nombres décimaux
+cycle_3_BO_2026|:|obj|:|A3al|:|Donner la valeur arrondie à l’unité, au dixième ou au centième, d’un nombre décimal
+cycle_3_BO_2026|:|obj|:|A3am|:|Déterminer ou connaître la valeur arrondie de certains nombres non décimaux
+cycle_3_BO_2026|:|obj|:|A3an|:|Encadrer un nombre décimal par deux nombres décimaux, intercaler un nombre décimal entre deux nombres décimaux
+cycle_3_BO_2026|:|obj|:|A3ao|:|Additionner et soustraire des nombres décimaux
+cycle_3_BO_2026|:|obj|:|A3ap|:|Multiplier un nombre entier ou un nombre décimal par 0,1, par 0,01, et par 0,001
+cycle_3_BO_2026|:|obj|:|A3aq|:|Connaître le lien avec la division par 10, 100 et par 1 000
+cycle_3_BO_2026|:|obj|:|A3ar|:|Comprendre le sens de la multiplication de deux nombres décimaux
+cycle_3_BO_2026|:|obj|:|A3as|:|Calculer le produit de deux nombres décimaux
+cycle_3_BO_2026|:|obj|:|A3at|:|Contrôler les résultats à l’aide d’ordres de grandeur
+cycle_3_BO_2026|:|obj|:|A3au|:|Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux
+cycle_3_BO_2026|:|obj|:|A3av|:|Diviser un nombre décimal par un nombre entier non nul inférieur à 10
+cycle_3_BO_2026|:|obj|:|A3aw|:|Résoudre des problèmes mettant en jeu des divisions décimales
+cycle_3_BO_2026|:|obj|:|A3ax|:|Effectuer la division euclidienne d’un nombre entier par un nombre entier inférieur à 100
+cycle_3_BO_2026|:|obj|:|A3ay|:|Résoudre des problèmes mettant en jeu des divisions euclidiennes
 cycle_3_BO_2026|:|pro|:|A3aa|:|Découverte d'écritures des nombres à partir de lettres ou de dessins~: numérations acrophoniques grecque, romaine, hiéroglyphique égyptienne
 cycle_3_BO_2026|:|pro|:|A3ab|:|Découverte d'algorithmes opératoires, développés dans plusieurs traditions mathématiques, comme la multiplication par jalousies ou en tableau
 cycle_3_BO_2026|:|pro|:|A3ac|:|Manipulation d'abaques à jetons ou de bouliers pour remobiliser le principe de la numération et la notion de « base de numération »

@@ -8,13 +8,15 @@ Semaines exclues : ISO 36 (rentrée) et ISO 26 (fin d'année). Créneaux contrô
 001 | lun 07/09/2026 08:30 | Nombre entiers
   QF-A3aa-obj-01 | A3aa/obj [Nouveau] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
 
-002 | mar 08/09/2026 08:30 | Nombre entiers
+002 | mar 08/09/2026 08:30 | Nombre décimaux
   QF-A3ab-obj-01 | A3ab/obj [Nouveau] | Combien de dixièmes y a-t-il dans 3 unités ? | Réponse : 30 dixièmes
+
+002b: Combien de dizaines dans 75 milliers ?
 
 003 | mar 08/09/2026 09:30 | Nombre entiers
   QF-A3ac-obj-01 | A3ac/obj [Nouveau] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
 
-004 | mer 09/09/2026 09:30 | Nombre entiers
+004 | mer 09/09/2026 09:30 | Fractions
   QF-A3bb-obj-01 | A3bb/obj [Nouveau] | Quel nombre multiplié par 7 donne 5 ? | Réponse : 5/7
 
 005 | jeu 10/09/2026 13:00 | Nombre entiers
@@ -30,7 +32,8 @@ Semaines exclues : ISO 36 (rentrée) et ISO 26 (fin d'année). Créneaux contrô
   QF-A3aa-obj-02 | A3aa/obj [Réactivation du chapitre] | Dans 47 305, quelle est la valeur du chiffre 7 ? | Réponse : 7 000
 
 009 | lun 21/09/2026 08:30 | Aborder la géométrie
-  QF-C2aa-obj-01 | C2aa/obj [Nouveau] | AB = 4,6 cm. Quelle est la distance entre A et B ? | Réponse : 4,6 cm
+  QF-C2aa-obj-01 | C2aa/obj [Nouveau] | AB = 4,6 cm et C\in[AB] avec AC=2cm. Quelle est la distance entre B et C ? (
+    faire une figure à main levée) | Réponse : 4,6 cm
   QF-A3ac-obj-02 | A3ac/obj [Rappel espacé ~3 j] | Écrire en chiffres : quatre cent huit mille vingt-six. | Réponse : 408 026
 
 010 | mar 22/09/2026 08:30 | Aborder la géométrie

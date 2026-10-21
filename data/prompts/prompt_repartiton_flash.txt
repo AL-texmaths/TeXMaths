@@ -14,3 +14,6 @@ avec le code )
 et les recherches récentes en neurosience.
 Génère un fichier repartition_qf_6e.txt qui s'inspirera
 du fichier repartition_questions_flash_v4.txt.
+
+>>> l'IA doit également connaître le contenu des chapitres
+pour proposer des questions flash pertinenentes.

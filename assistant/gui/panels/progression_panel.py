@@ -129,6 +129,7 @@ class ProgressionPanel(QWidget):
         tree.blockSignals(True)
         try:
             self.progression_service.update_level_displays(tree)
+            self.progression_service.update_seance_displays(tree)
             self.progression_service.update_chapter_numbers(tree)
         finally:
             tree.blockSignals(False)
@@ -185,6 +186,7 @@ class ProgressionPanel(QWidget):
         self.progression_tree.blockSignals(True)
         try:
             self.progression_service.update_level_displays(self.progression_tree)
+            self.progression_service.update_seance_displays(self.progression_tree)
             self.progression_service.update_chapter_numbers(self.progression_tree)
         finally:
             self.progression_tree.blockSignals(False)

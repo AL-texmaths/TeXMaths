@@ -32,4 +32,6 @@ Convertir
 Comparer
 Justifier
 Ordonner
+Noter
+Intercaler
 ]

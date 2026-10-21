@@ -69,7 +69,7 @@ class ProgressionService:
         item = self.make_item("Nouvel élément")
         if current_item.text(0) == "Prérequis":
             item.setData(0, Qt.UserRole, "prerequis")
-        elif current_item.text(0) == "Séances":
+        elif self._strip_level_count(current_item.text(0)) == "Séances":
             item.setData(0, Qt.UserRole, "seance")
         current_item.addChild(item)
         current_item.setExpanded(True)
@@ -193,7 +193,7 @@ class ProgressionService:
             return False
 
         for i in range(chapter.childCount()):
-            if chapter.child(i).text(0) == "Séances":
+            if self._strip_level_count(chapter.child(i).text(0)) == "Séances":
                 return True
 
         return False
@@ -268,7 +268,7 @@ class ProgressionService:
 
         for i in range(chapter.childCount()):
             child = chapter.child(i)
-            if child.text(0) == "Séances":
+            if self._strip_level_count(child.text(0)) == "Séances":
                 target = child
                 break
 
@@ -293,6 +293,22 @@ class ProgressionService:
             base = self._strip_level_count(item.text(0))
             count = item.childCount()
             item.setText(0, f"{base} ({count})")
+
+    def update_seance_displays(self, tree):
+        """Met à jour le nombre de séances affiché pour chaque branche « Séances »."""
+        def update_item(item):
+            if (
+                item.data(0, Qt.UserRole) is None
+                and self._strip_level_count(item.text(0)) == "Séances"
+            ):
+                base = self._strip_level_count(item.text(0))
+                item.setText(0, f"{base} ({item.childCount()})")
+
+            for i in range(item.childCount()):
+                update_item(item.child(i))
+
+        for i in range(tree.topLevelItemCount()):
+            update_item(tree.topLevelItem(i))
 
     def strip_chapter_number(self, text: str) -> str:
         """Retire le préfixe 'n. ' ajouté aux chapitres."""
@@ -382,10 +398,11 @@ class ProgressionService:
 
         def process_item(item, depth, inherited_color=None):
             # Priorité : hérité > resolved (profondeur 2) > level_colors > défaut
+            type_name = self._strip_level_count(item.text(0))
             if inherited_color:
                 color_str = inherited_color
             elif resolved and depth == 2:
-                color_str = resolved.get(item.text(0)) or (
+                color_str = resolved.get(type_name) or (
                     level_colors[depth] if level_colors and depth < len(level_colors) else ""
                 )
             else:
@@ -398,7 +415,7 @@ class ProgressionService:
 
             # Propager la couleur de type aux enfants dès la profondeur 2
             if resolved and depth == 2:
-                next_inherited = resolved.get(item.text(0))
+                next_inherited = resolved.get(type_name)
             else:
                 next_inherited = inherited_color
 
