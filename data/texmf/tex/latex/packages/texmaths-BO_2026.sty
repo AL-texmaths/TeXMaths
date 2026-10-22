@@ -64,25 +64,25 @@
 \counterwithin{boB@obj}{boB@subtheme}
 \counterwithin{boB@pro}{boB@subtheme}
 
-\def\endthemes{\edefunivar\total[themes]{\arabic{boB@theme}}}
-\def\endlevels{\edefunivar\total[\Alph{boB@theme}]{\arabic{boB@level}}}
-\def\endsubthemes{\edefunivar\total[\Alph{boB@theme}\arabic{boB@level}]{\arabic{boB@subtheme}}}
-\def\endaut{\edefunivar\total[\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}AUT]{\arabic{boB@aut}}}
-\def\endobj{\edefunivar\total[\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}OBJ]{\arabic{boB@obj}}}
-\def\endpro{\edefunivar\total[\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}PRO]{\arabic{boB@pro}}}
+\def\endthemes{\edefunivar\total[C\arabic{boB@cycle}T]{\arabic{boB@theme}}}
+\def\endlevels{\edefunivar\total[C\arabic{boB@cycle}\Alph{boB@theme}]{\arabic{boB@level}}}
+\def\endsubthemes{\edefunivar\total[C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}]{\arabic{boB@subtheme}}}
+\def\endaut{\edefunivar\total[C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}AUT]{\arabic{boB@aut}}}
+\def\endobj{\edefunivar\total[C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}OBJ]{\arabic{boB@obj}}}
+\def\endpro{\edefunivar\total[C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}PRO]{\arabic{boB@pro}}}
 
 \def\endsubtheme{\endaut\endobj\endpro}
 
-\def\newtheme#1{\stepcounter{boB@theme}\defunivar\theme[\Alph{boB@theme}]{#1}}
+\def\newtheme#1{\stepcounter{boB@theme}\defunivar\theme[C\arabic{boB@cycle}\Alph{boB@theme}]{#1}}
 \def\newlevel#1{\stepcounter{boB@level}\defunivar\level
-    [\Alph{boB@theme}\arabic{boB@level}]{#1}}
+    [C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}]{#1}}
 \def\newsubtheme#1{\stepcounter{boB@subtheme}\defunivar\subtheme
-    [\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}]{#1}}
+    [C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}]{#1}}
 \def\newaut#1{
     \stepcounter{boB@aut}
-    \deftoks{AUT\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}occ}
-    \settoks{AUT\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}occ}{}
-    \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}}
+    \deftoks{AUTC\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}occ}
+    \settoks{AUTC\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}occ}{}
+    \edef\tmpkey{C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@aut}}
     \defunivar\aut[\tmpkey]{#1}%
 	\ifwrite
 		\immediate\write\datafile{\currentcycle_BO_2026|:|aut|:|\tmpkey|:|\unexpanded{#1}}%
@@ -90,9 +90,9 @@
     }
 \def\newobj#1{
     \stepcounter{boB@obj}
-    \deftoks{OBJ\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}occ}
-    \settoks{OBJ\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}occ}{}
-    \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}}
+    \deftoks{OBJC\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}occ}
+    \settoks{OBJC\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}occ}{}
+    \edef\tmpkey{C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@obj}}
     \defunivar\obj[\tmpkey]{#1}%
 	\ifwrite
 		\immediate\write\datafile{\currentcycle_BO_2026|:|obj|:|\tmpkey|:|\unexpanded{#1}}%
@@ -100,9 +100,9 @@
     }
 \def\newpro#1{
     \stepcounter{boB@pro}
-    \deftoks{PRO\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}occ}
-    \settoks{PRO\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}occ}{}
-    \edef\tmpkey{\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}}
+    \deftoks{PROC\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}occ}
+    \settoks{PROC\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}occ}{}
+    \edef\tmpkey{C\arabic{boB@cycle}\Alph{boB@theme}\arabic{boB@level}\alph{boB@subtheme}\alph{boB@pro}}
     \defunivar\pro[\tmpkey]{#1}%
 	\ifwrite
 		\immediate\write\datafile{\currentcycle_BO_2026|:|pro|:|\tmpkey|:|\unexpanded{#1}}%
@@ -141,6 +141,7 @@
 % --------------------
 % CYCLE 4
 % --------------------
+\setcounter{boB@cycle}{4}
 \let\currentcycle\fourthcycle
 % ---- THÈME A : Nombres et calculs ----
 \newtheme{Nombres et calculs}
@@ -985,7 +986,8 @@ $a^2 - b^2 = (a-b)(a+b)$.}
 % --------------------
 % CYCLE 3
 % --------------------
-\stepcounter{boB@cycle}
+\setcounter{boB@cycle}{3}
+\setcounter{boB@theme}{0}
 \let\currentcycle\thirdcycle
 
 % ---- THÈME A : Nombres et calculs ----

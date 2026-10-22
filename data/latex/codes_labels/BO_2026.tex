@@ -47,6 +47,7 @@
             \def\currentcycle{cycle3}
         \fi
     \fi
+    \edef\cyclekey{C#1}
 }
 
 \edef\scolaryear{\expandafter\ifnum\the\month>6\relax
@@ -98,46 +99,47 @@
 }
 
 \def\showitems{%
-    \foreach\themefor in{1,...,\total[themes]}
+    \foreach\themefor in{1,...,\total[\cyclekey T]}
     {%
         \newpage
         \def\themekey{\nbtoAlph\themefor}
+        \edef\themeid{\cyclekey\themekey}
         % register theme in ToC (only themes will be added)
         \phantomsection
-        \addcontentsline{toc}{theme}{Thème \themekey\ : \theme[\themekey]}
-        {\par\centering\LARGE\bfseries Thème \themekey\ : \theme[\themekey]\centering
+        \addcontentsline{toc}{theme}{Thème \themekey\ : \theme[\themeid]}
+        {\par\centering\LARGE\bfseries Thème \themekey\ : \theme[\themeid]\centering
             \par}\vskip8pt
-        \foreach\levelfor in{1,...,\total[\nbtoAlph\themefor]}
+        \foreach\levelfor in{1,...,\total[\cyclekey\themekey]}
         {%
-            \def\levelkey{\nbtoAlph\themefor\levelfor}
+            \edef\levelkey{\cyclekey\themekey\levelfor}
             \phantomsection
             \addcontentsline{toc}{level}{\protect\hspace*{2em}\small\level[\levelkey]}
             \tcbox[colback=\getColor\levelfor!25!white]{\ttfamily\level[\levelkey]}
-            \foreach\subthemefor in{1,...,\total[\nbtoAlph\themefor\levelfor]}
+            \foreach\subthemefor in{1,...,\total[\levelkey]}
             {%
-                \def\subthemekey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor}%
+                \edef\subthemekey{\levelkey\nbtoalph\subthemefor}%
                 \noindent\textbf{Sous-thème \subthemefor~: \subtheme[\subthemekey]}\par\medskip\noindent
-            \edef\total@aut{\total[\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor AUT]}%
+            \edef\total@aut{\total[\subthemekey AUT]}%
             \ifnum\total@aut>0\relax
                 \showtitle{Automatismes}
                 \foreach\autfor in{1,...,\total@aut}{%
-                    \def\autkey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor\nbtoalph\autfor}%
+                    \edef\autkey{\subthemekey\nbtoalph\autfor}%
                     \write@key@value{\autkey}{\aut[\autkey]}
                 }%
             \fi
-            \edef\total@obj{\total[\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor OBJ]}%
+            \edef\total@obj{\total[\subthemekey OBJ]}%
             \ifnum\total@obj>0\relax
                 \showtitle{Objectifs d'aprentissages}
                 \foreach\objfor in{1,...,\total@obj}{%
-                    \def\objkey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor\nbtoalph\objfor}%
+                    \edef\objkey{\subthemekey\nbtoalph\objfor}%
                     \write@key@value{\objkey}{\obj[\objkey]}
                 }%
             \fi
-            \edef\total@pro{\total[\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor PRO]}%
+            \edef\total@pro{\total[\subthemekey PRO]}%
             \ifnum\total@pro>0\relax
                 \showtitle{Prolongements}
                 \foreach\profor in{1,...,\total@pro}{%
-                    \def\prokey{\nbtoAlph\themefor\levelfor\nbtoalph\subthemefor\nbtoalph\profor}%
+                    \edef\prokey{\subthemekey\nbtoalph\profor}%
                     \write@key@value{\prokey}{\pro[\prokey]}
                 }%
             \fi
