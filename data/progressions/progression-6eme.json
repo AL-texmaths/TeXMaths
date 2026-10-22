@@ -592,7 +592,15 @@
                 "children": []
               },
               {
-                "text": "Vocabulaire des angles",
+                "text": "Vocabulaire des angles (nature)",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Vocabulaire des angles (opposés par le sommet, adjacents, supplémentaires)",
                 "data": "seance",
                 "entry_text": null,
                 "tooltip": "",
@@ -670,6 +678,14 @@
                 "data": "cycle_3_BO_2026:obj:A3ac",
                 "entry_text": "Connaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième",
                 "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître les liens entre les unités de numération unité, dizaine, centaine, millier, dixième, centième, millième\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ae",
+                "data": "cycle_3_BO_2026:obj:A3ae",
+                "entry_text": "Reconnaître un nombre décimal",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la définition d’un pourcentage\n",
                 "expanded": false,
                 "children": []
               },
@@ -1313,6 +1329,30 @@
             "expanded": false,
             "children": [
               {
+                "text": "A3as",
+                "data": "cycle_3_BO_2026:obj:A3as",
+                "entry_text": "Calculer le produit de deux nombres décimaux",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nContrôler les résultats à l’aide d’ordres de grandeur\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3at",
+                "data": "cycle_3_BO_2026:obj:A3at",
+                "entry_text": "Contrôler les résultats à l’aide d’ordres de grandeur",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "A3ar",
+                "data": "cycle_3_BO_2026:obj:A3ar",
+                "entry_text": "Comprendre le sens de la multiplication de deux nombres décimaux",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer le produit de deux nombres décimaux\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "A3au",
                 "data": "cycle_3_BO_2026:obj:A3au",
                 "entry_text": "Résoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux",
@@ -1345,30 +1385,6 @@
                 "children": []
               },
               {
-                "text": "A3ar",
-                "data": "cycle_3_BO_2026:obj:A3ar",
-                "entry_text": "Comprendre le sens de la multiplication de deux nombres décimaux",
-                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer le produit de deux nombres décimaux\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "A3as",
-                "data": "cycle_3_BO_2026:obj:A3as",
-                "entry_text": "Calculer le produit de deux nombres décimaux",
-                "tooltip": "Catalogue: Cycle 3 BO 2026\nContrôler les résultats à l’aide d’ordres de grandeur\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "A3at",
-                "data": "cycle_3_BO_2026:obj:A3at",
-                "entry_text": "Contrôler les résultats à l’aide d’ordres de grandeur",
-                "tooltip": "Catalogue: Cycle 3 BO 2026\nRésoudre des problèmes mettant en jeu des multiplications entre des nombres décimaux\n",
-                "expanded": false,
-                "children": []
-              },
-              {
                 "text": "A3aw",
                 "data": "cycle_3_BO_2026:obj:A3aw",
                 "entry_text": "Résoudre des problèmes mettant en jeu des divisions décimales",
@@ -1392,7 +1408,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Technique: multiplication de nombres décimaux",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Multiplication par un dixième, un centième ou un millième",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Division d'un nombre décimale par un entier",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1424,16 +1481,8 @@
             "data": null,
             "entry_text": null,
             "tooltip": "",
-            "expanded": true,
+            "expanded": false,
             "children": [
-              {
-                "text": "D3aa",
-                "data": "cycle_3_BO_2026:obj:D3aa",
-                "entry_text": "Planifier une enquête et recueillir des données",
-                "tooltip": "Catalogue: Cycle 3 BO 2026\nPlanifier une enquête et recueillir des données\n",
-                "expanded": false,
-                "children": []
-              },
               {
                 "text": "D3ac",
                 "data": "cycle_3_BO_2026:obj:D3ac",
@@ -1457,6 +1506,14 @@
                 "tooltip": "Catalogue: Cycle 3 BO 2026\nFaire un choix en filtrant les données d’un tableau selon un critère\n",
                 "expanded": false,
                 "children": []
+              },
+              {
+                "text": "D3aa",
+                "data": "cycle_3_BO_2026:obj:D3aa",
+                "entry_text": "Planifier une enquête et recueillir des données",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nPlanifier une enquête et recueillir des données\n",
+                "expanded": false,
+                "children": []
               }
             ]
           },
@@ -1474,7 +1531,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Lecture de tableaux à double entrée",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Lecture de graphiques",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Construction de tableaux à double entrée",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Statistiques",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1564,7 +1654,56 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Fraction quotient",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Produire des fractions égales",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Ajouter et soustraire: dénominateurs égaux",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Ajouter et soustraire: dénominateurs multiples simples",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Ajouter et soustraire: dénominateurs multiples simples",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution/invention de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1605,7 +1744,7 @@
             "data": null,
             "entry_text": null,
             "tooltip": "",
-            "expanded": true,
+            "expanded": false,
             "children": [
               {
                 "text": "A3bg",
@@ -1624,18 +1763,18 @@
                 "children": []
               },
               {
-                "text": "E3aa",
-                "data": "cycle_3_BO_2026:obj:E3aa",
-                "entry_text": "Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante",
-                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante\n",
-                "expanded": false,
-                "children": []
-              },
-              {
                 "text": "E3ab",
                 "data": "cycle_3_BO_2026:obj:E3ab",
                 "entry_text": "Identifier si une situation relève du « modèle » de la proportionnalité",
                 "tooltip": "Catalogue: Cycle 3 BO 2026\nIdentifier si une situation relève du « modèle » de la proportionnalité\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "E3aa",
+                "data": "cycle_3_BO_2026:obj:E3aa",
+                "entry_text": "Connaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la définition de la proportionnalité entre deux grandeurs et la mettre en lien avec des expressions de la vie courante\n",
                 "expanded": false,
                 "children": []
               },
@@ -1679,7 +1818,72 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Multipler une fraction par un entier",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Situations de proportionnalité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Linéarité multiplicative",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Linéarité multiplicative",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Linéarité additive",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Linéarité additive",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Retour à l'unité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Echelles",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1810,7 +2014,64 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Conversions unités de longeur",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Définition: périmètre d'une figure",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Périmètre d'un polygone",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Le périmètre d'un disque est proportionnel à son diamètre",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Formule du périmètre d'un disque",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calculs du périmètre de figures composées",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolutions de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1861,10 +2122,10 @@
                 "children": []
               },
               {
-                "text": "A3ae",
-                "data": "cycle_3_BO_2026:obj:A3ae",
-                "entry_text": "Reconnaître un nombre décimal",
-                "tooltip": "Catalogue: Cycle 3 BO 2026\nConnaître la définition d’un pourcentage\n",
+                "text": "A3bq",
+                "data": "cycle_3_BO_2026:obj:A3bq",
+                "entry_text": "Calculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples",
+                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples\n",
                 "expanded": false,
                 "children": []
               },
@@ -1873,14 +2134,6 @@
                 "data": "cycle_3_BO_2026:obj:A3br",
                 "entry_text": "Appliquer un pourcentage à une grandeur ou à un nombre",
                 "tooltip": "Catalogue: Cycle 3 BO 2026\nAppliquer un pourcentage à une grandeur ou à un nombre\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "A3bq",
-                "data": "cycle_3_BO_2026:obj:A3bq",
-                "entry_text": "Calculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples",
-                "tooltip": "Catalogue: Cycle 3 BO 2026\nCalculer une proportion (rapport entre une partie et le tout) et l’exprimer sous forme de pourcentage dans des cas simples\n",
                 "expanded": false,
                 "children": []
               }
@@ -1900,7 +2153,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Pourcentages: définition et sens",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolutions de problèmes, pourcentages simples",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Application de pourcentages",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Exprimer une proportion sous forme de pourcentage",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -2023,7 +2317,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Conversions unités d'aire",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Définir l'aire d'une figure plane",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Distinction aire périmètre (carreaux)",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Aire d'un rectangle",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -2097,7 +2432,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Définir la probabilité d'un événement",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Equiprobabilité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Equiprobabilité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Comparaison expérience probabilité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -2178,7 +2546,7 @@
             "data": null,
             "entry_text": null,
             "tooltip": "",
-            "expanded": false,
+            "expanded": true,
             "children": [
               {
                 "text": "B3db",
@@ -2245,7 +2613,32 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Lire l'heure sur une horloge: lien avec les fractions",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calcul d'horaires et de durées",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Conversions de durées",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -2327,7 +2720,32 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Conversions d'unités de volumes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calcul de volume pavé droit",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Problèmes de repérage dans l'espace",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -2409,7 +2827,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Séance détachée",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Séance détachée",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Séance détachée",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Séance détachée",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
