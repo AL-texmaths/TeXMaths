@@ -1,0 +1,12 @@
+{
+  "filtre_ics": "5MATHS2",
+  "reunions_tampon_par_bimestre": 3,
+  "controle_semaine_active_parite": 1,
+  "semaine_rentree_exclue": 1,
+  "semaines_fin_exclues": 2,
+  "ecarts_jours_rappel": [3, 10, 30],
+  "nb_seances_1_theme": 8,
+  "nb_seances_2_themes": 16,
+  "nb_seances_3_themes": 24,
+  "nb_bilans_fin": 4
+}

@@ -1,0 +1,118 @@
+// Géométrie, données et proportionnalité - suite de banque_01_nombres.txt
+
+// ---------- Chapitre : Découverte des nombres relatifs ----------
+## C4B1aa | titre=Placer un nombre décimal sur une demi-droite | consigne=Indiquer où placer le point. | bo=C4B1aa | chapitre=Découverte des nombres relatifs | theme=decimaux | poids=2 | dnb=NC | source=aut
+C4B1aa-1 | 20 | Sur une droite graduée de $2$ à $3$ en dixièmes, où placer $2{,}7$ ? | à la 7e graduation après $2$
+C4B1aa-2 | 20 | Sur une droite de $0$ à $1$ en dixièmes, où placer $0{,}4$ ? | à la 4e graduation après $0$
+C4B1aa-3 | 25 | Sur une droite de $1$ à $2$ en quarts, où placer $1{,}5$ ? | au milieu entre $1$ et $2$
+
+## C4B1ab | titre=Lire une abscisse décimale | consigne=Lire l'abscisse du point. | bo=C4B1ab | chapitre=Découverte des nombres relatifs | theme=decimaux | poids=2 | dnb=NC | source=aut
+C4B1ab-1 | 20 | Entre $1$ et $2$, la droite est graduée en dixièmes. $A$ est à la 6e graduation après $1$. Quelle est son abscisse ? | $1{,}6$
+C4B1ab-2 | 20 | Entre $0$ et $1$, $B$ est à la 3e graduation d'une droite graduée en dixièmes. | $0{,}3$
+C4B1ab-3 | 25 | Entre $2$ et $3$, $C$ est à la 8e graduation d'une droite graduée en dixièmes. | $2{,}8$
+
+// ---------- Chapitre : Solides et volumes ----------
+## C4B1ba | titre=Reconnaître une vue d'empilement de cubes | consigne=Répondre à partir de la description. | bo=C4B1ba | chapitre=Solides et volumes | theme=solides | poids=1 | dnb=EG | source=aut
+C4B1ba-1 | 25 | Trois cubes sont empilés verticalement en une seule colonne. Combien de cases voit-on de dessus ? | une case
+C4B1ba-2 | 25 | Quatre cubes forment une rangée au sol. Combien de carrés voit-on de dessus ? | quatre carrés
+C4B1ba-3 | 30 | [FIGURE: empilement avec deux colonnes côte à côte, chacune haute de deux cubes] Combien de cases voit-on de dessus ? | deux cases
+
+## C4B1bb | titre=Dénombrer les cubes d'un empilement | consigne=Compter tous les cubes. | bo=C4B1bb | chapitre=Solides et volumes | theme=solides | poids=2 | dnb=EG | source=aut
+C4B1bb-1 | 20 | Un empilement a $4$ cubes à sa base et $2$ cubes au-dessus. Combien contient-il de cubes ? | $6$
+C4B1bb-2 | 20 | Un pavé est constitué de $3$ rangées de $4$ cubes. Combien de cubes ? | $12$
+C4B1bb-3 | 30 | [FIGURE: deux colonnes de hauteurs 3 et 2 cubes] Combien de cubes dans l'empilement ? | $5$
+
+## C4B1bc | titre=Reconnaître un cube ou un pavé droit | consigne=Nommer le solide. | bo=C4B1bc | chapitre=Solides et volumes | theme=solides | poids=1 | dnb=EG | source=aut
+C4B1bc-1 | 20 | Un solide a 6 faces carrées identiques. Quel est-il ? | un cube
+C4B1bc-2 | 20 | Un solide a 6 faces rectangulaires et ses dimensions ne sont pas toutes égales. | un pavé droit
+C4B1bc-3 | 25 | [FIGURE: représentation en perspective d'une boîte rectangulaire] Quel solide est représenté ? | un pavé droit
+
+## C4B1bd | titre=Reconnaître un patron de cube | consigne=Dire si l'assemblage peut former un cube. | bo=C4B1bd | chapitre=Solides et volumes | theme=solides | poids=1 | dnb=EG | source=aut
+C4B1bd-1 | 25 | Six carrés identiques disposés en croix : quatre alignés, un au-dessus et un au-dessous du deuxième. Est-ce un patron de cube ? | oui
+C4B1bd-2 | 25 | Six carrés identiques sont alignés sur une seule ligne. Est-ce un patron de cube ? | non
+C4B1bd-3 | 30 | [FIGURE: patron formé de 6 carrés, disposition en T] Ce patron peut-il former un cube ? | oui
+
+// ---------- Chapitre : Symétrie centrale (rappels de symétrie axiale) ----------
+## C4B1ca | titre=Symétrie axiale sur quadrillage | consigne=Donner les coordonnées du symétrique. | bo=C4B1ca | chapitre=Symétrie centrale | theme=symetries | poids=2 | dnb=EG | source=aut
+C4B1ca-1 | 25 | Dans un repère quadrillé, l'axe est l'axe des ordonnées. Quel est le symétrique de $A(3\,;2)$ ? | $A'(-3\,;2)$
+C4B1ca-2 | 25 | L'axe de symétrie est l'axe des abscisses. Quel est le symétrique de $B(-2\,;4)$ ? | $B'(-2\,;-4)$
+C4B1ca-3 | 30 | L'axe est la droite $y=x$. Quel est le symétrique de $C(1\,;3)$ ? | $C'(3\,;1)$
+
+## C4B1cb | titre=Symétrique d'un point par rapport à une droite | consigne=Décrire la position du point symétrique. | bo=C4B1cb | chapitre=Symétrie centrale | theme=symetries | poids=2 | dnb=EG | source=aut
+C4B1cb-1 | 25 | $A$ est à $3$ cm d'un axe. Où se trouve son symétrique $A'$ ? | de l'autre côté de l'axe, à $3$ cm ; l'axe est la médiatrice de $[AA']$
+C4B1cb-2 | 25 | Quel angle forme le segment $[AA']$ avec l'axe de symétrie ? | un angle droit
+C4B1cb-3 | 30 | Un point appartient à l'axe de symétrie. Où se trouve son symétrique ? | il reste confondu avec lui-même
+
+// ---------- Chapitre : Angles et parallélisme ----------
+## C4B1da | titre=Angles alternes-internes et correspondants | consigne=Répondre. | bo=C4B1da | chapitre=Angles et parallélisme | theme=angles | poids=2 | dnb=EG | source=aut
+C4B1da-1 | 25 | Deux droites parallèles sont coupées par une sécante. Un angle correspondant mesure $68^\circ$. Mesure de son angle correspondant ? | $68^\circ$
+C4B1da-2 | 25 | Deux droites parallèles sont coupées par une sécante. Un angle alterne-interne mesure $112^\circ$. Mesure de l'autre angle alterne-interne ? | $112^\circ$
+C4B1da-3 | 35 | [FIGURE: deux droites parallèles coupées par une sécante ; angle intérieur marqué $73^\circ$] Donner la mesure de l'angle alterne-interne correspondant. | $73^\circ$
+
+## C4B1db | titre=Mesures des angles droit et plat | consigne=Compléter avec la mesure usuelle. | bo=C4B1db | chapitre=Angles et parallélisme | theme=angles | poids=1 | dnb=EG | source=aut
+C4B1db-1 | 15 | Un angle droit mesure ... | $90^\circ$
+C4B1db-2 | 15 | Un angle plat mesure ... | $180^\circ$
+C4B1db-3 | 20 | Un demi-angle plat mesure ... | $90^\circ$
+
+## C4B1dc | titre=Reconnaître une bissectrice | consigne=Compléter. | bo=C4B1dc | chapitre=Angles et parallélisme | theme=angles | poids=1 | dnb=EG | source=aut
+C4B1dc-1 | 20 | Une bissectrice partage un angle en deux angles ... | de même mesure
+C4B1dc-2 | 20 | Un angle mesure $80^\circ$ et une demi-droite le partage en deux angles égaux. Est-elle sa bissectrice ? | oui
+C4B1dc-3 | 25 | La bissectrice d'un angle de $64^\circ$ forme deux angles de quelle mesure ? | $32^\circ$ chacun
+
+## C4B1dd | titre=Angles de l'équerre | consigne=Donner la mesure demandée. | bo=C4B1dd | chapitre=Angles et parallélisme | theme=angles | poids=1 | dnb=EG | source=aut
+C4B1dd-1 | 15 | Une équerre isocèle a un angle droit. Mesure de chacun des deux autres angles ? | $45^\circ$
+C4B1dd-2 | 15 | Une équerre avec angles $30^\circ$, $60^\circ$, $90^\circ$ : quel est le plus petit angle ? | $30^\circ$
+C4B1dd-3 | 20 | Dans une équerre $30^\circ$-$60^\circ$-$90^\circ$, quelle est la mesure du plus grand angle ? | $90^\circ$
+
+## C4B1ea | titre=Reconnaître un triangle particulier grâce au codage | consigne=Nommer la nature du triangle. | bo=C4B1ea | chapitre=Angles et parallélisme | theme=triangles | poids=2 | dnb=EG | source=aut
+C4B1ea-1 | 25 | Un triangle possède un angle droit et deux côtés égaux. Quelle est sa nature ? | triangle rectangle isocèle
+C4B1ea-2 | 25 | Un triangle a trois côtés de même longueur. Quelle est sa nature ? | équilatéral
+C4B1ea-3 | 30 | Un triangle a deux angles égaux. Que peut-on en déduire ? | il est isocèle
+
+## C4B1eb | titre=Somme des angles d'un triangle | consigne=Calculer l'angle manquant. | bo=C4B1eb | chapitre=Géométrie du triangle | theme=triangles | poids=3 | dnb=EG | source=aut
+C4B1eb-1 | 25 | Deux angles mesurent $52^\circ$ et $71^\circ$. Mesure du troisième ? | $57^\circ$
+C4B1eb-2 | 25 | Deux angles mesurent $40^\circ$ et $90^\circ$. Mesure du troisième ? | $50^\circ$
+C4B1eb-3 | 30 | Un triangle isocèle a un angle au sommet de $36^\circ$. Mesure de chaque angle à la base ? | $72^\circ$
+
+## C4B1ec | titre=Médiatrice et cercle circonscrit | consigne=Compléter la propriété. | bo=C4B1ec | chapitre=Géométrie du triangle | theme=triangles | poids=2 | dnb=EG | source=aut
+C4B1ec-1 | 20 | Tout point de la médiatrice d'un segment est à la même distance de ... | ses deux extrémités
+C4B1ec-2 | 25 | Où se trouve le centre du cercle circonscrit à un triangle ? | à l'intersection des médiatrices de ses côtés
+C4B1ec-3 | 30 | $M$ est sur la médiatrice de $[AB]$ et $MA=4$ cm. Calculer $MB$. | $4$ cm
+
+// ---------- Chapitre : Parallélogrammes ----------
+## C4B1fa | titre=Reconnaître les polygones | consigne=Nommer le polygone. | bo=C4B1fa | chapitre=Parallélogrammes | theme=quadrilateres | poids=1 | dnb=EG | source=aut
+C4B1fa-1 | 15 | Un polygone possède $6$ côtés. Comment s'appelle-t-il ? | un hexagone
+C4B1fa-2 | 15 | Un polygone possède $5$ côtés. Comment s'appelle-t-il ? | un pentagone
+C4B1fa-3 | 20 | Un polygone possède $8$ côtés. Comment s'appelle-t-il ? | un octogone
+
+## C4B1fb | titre=Parallélogrammes particuliers grâce au codage | consigne=Identifier le quadrilatère. | bo=C4B1fb | chapitre=Parallélogrammes | theme=quadrilateres | poids=2 | dnb=EG | source=aut
+C4B1fb-1 | 20 | Un parallélogramme a quatre côtés de même longueur et un angle droit. Quelle est sa nature ? | un carré
+C4B1fb-2 | 25 | Un parallélogramme a un angle droit. Quelle est sa nature ? | un rectangle
+C4B1fb-3 | 25 | Un parallélogramme a quatre côtés de même longueur. Quelle est sa nature ? | un losange
+
+// ---------- Chapitre : Probabilité et statistiques ----------
+## C4C1ba | titre=Échelle de probabilité | consigne=Qualifier l'événement : impossible, possible ou certain. | bo=C4C1ba | chapitre=Probabilité et statistiques | theme=probabilites | poids=2 | dnb=OG | source=aut
+C4C1ba-1 | 15 | On lance un dé équilibré à six faces. Obtenir $8$ est un événement ... | impossible
+C4C1ba-2 | 15 | Tirer une boule d'une urne contenant uniquement des boules rouges et obtenir une boule rouge est ... | certain
+C4C1ba-3 | 20 | Lancer une pièce équilibrée et obtenir pile est ... | possible
+
+## C4C1bb | titre=Écrire une probabilité sous plusieurs formes | consigne=Donner la fraction, le décimal et le pourcentage. | bo=C4C1bb | chapitre=Probabilité et statistiques | theme=probabilites | poids=2 | dnb=OG | source=aut
+C4C1bb-1 | 25 | Une issue a une probabilité de $\dfrac{3}{4}$. | $0{,}75=75\,\%$
+C4C1bb-2 | 25 | Une issue a une probabilité de $\dfrac{1}{5}$. | $0{,}2=20\,\%$
+C4C1bb-3 | 30 | Une issue a une probabilité de $0{,}6$. | $\dfrac{3}{5}=60\,\%$
+
+## C4C1bc | titre=Traduire « une chance sur quatre » | consigne=Donner la probabilité sous forme fractionnaire. | bo=C4C1bc | chapitre=Probabilité et statistiques | theme=probabilites | poids=2 | dnb=OG | source=aut
+C4C1bc-1 | 15 | Une issue a « une chance sur quatre » de se produire. Quelle est sa probabilité ? | $\dfrac{1}{4}$
+C4C1bc-2 | 15 | Une issue a « une chance sur deux » de se produire. | $\dfrac{1}{2}$
+C4C1bc-3 | 20 | Une issue a « trois chances sur dix » de se produire. | $\dfrac{3}{10}$
+
+// ---------- Chapitre : Proportionnalité ----------
+## C4D1aa | titre=Reconnaître une situation de proportionnalité | consigne=Répondre oui ou non et justifier brièvement. | bo=C4D1aa | chapitre=Proportionnalité | theme=proportionnalite | poids=3 | dnb=PF | source=aut
+C4D1aa-1 | 25 | Un kilogramme de pommes coûte $2{,}40$ €. Le prix est-il proportionnel à la masse si le prix au kilogramme est fixe ? | oui ; prix = $2{,}40\times$ masse
+C4D1aa-2 | 25 | Un taxi facture $4$ € de prise en charge puis $2$ € par kilomètre. Le prix est-il proportionnel à la distance ? | non ; pour $0$ km le prix est $4$ €
+C4D1aa-3 | 30 | $3$ cahiers coûtent $6$ € et $5$ cahiers coûtent $10$ €. La situation est-elle proportionnelle ? | oui ; le prix unitaire est $2$ €
+
+## C4D1ab | titre=Résoudre un problème de proportionnalité | consigne=Calculer en utilisant une procédure adaptée. | bo=C4D1ab | chapitre=Proportionnalité | theme=proportionnalite | poids=3 | dnb=PF | source=aut
+C4D1ab-1 | 25 | $4$ kg de farine coûtent $6$ €. Combien coûtent $7$ kg au même prix au kilogramme ? | $10{,}50$ €
+C4D1ab-2 | 25 | $3$ stylos coûtent $4{,}50$ €. Combien coûtent $8$ stylos ? | $12$ €
+C4D1ab-3 | 30 | Une recette pour $4$ personnes utilise $300$ g de farine. Quelle quantité faut-il pour $6$ personnes ? | $450$ g

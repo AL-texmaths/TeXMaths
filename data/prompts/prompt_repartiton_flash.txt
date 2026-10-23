@@ -17,3 +17,25 @@ du fichier repartition_questions_flash_v4.txt.
 
 >>> l'IA doit également connaître le contenu des chapitres
 pour proposer des questions flash pertinenentes.
+
+>>>
+
+Tu as effectuée une excellente répartition des questions
+flash pour le niveau 6e. A présent tu dois effectuer le même
+travail mais pour le niveau 5e. Tu t'appuyeras sur les données
+suivantes:
+1- les crénaux horaires du groupe de 5G2 comme précédemment sachant
+que la deuxième semaine de l'année est comptabilisée comme effective.
+2- le sequencage du niveau 5eme que tu trouveras dans le fichier
+data/progressions/progression-cycle4-26_27.json
+3- les automatismes à travailler que tu trouveras dans le fichier
+data/latex/catalogues/code_index.json. Ils sont déterminés par
+les codes C4[A-Z]1 des "aut" du BO cycle 4 2026 (le 1 du code
+correspond au niveau 5e).
+4- tu établieras donc une banque de question flash sous la forme
+d'une description équivalente aux descriptions du fichier
+data/flash_3e/banque_01_nombres.txt
+5- ensuite tu génèreras une répartiton annuelle détaillée sur les
+crénaux effectifs disponibles tout en respectant les règle
+précédentes dont notamment les dernières recherches en neuro sciences
+liées à l'apprentissage et la mémorisation.

@@ -4,7 +4,7 @@
     "data": null,
     "entry_text": null,
     "tooltip": "",
-    "expanded": false,
+    "expanded": true,
     "children": [
       {
         "text": "Expressions numériques",
@@ -29,24 +29,32 @@
             "expanded": false,
             "children": [
               {
+                "text": "C4A1ag",
+                "data": "cycle_4_BO_2026:obj:C4A1ag",
+                "entry_text": "Nommer un calcul, distinguer sommes et produits, termes et facteurs.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nNommer un calcul, distinguer sommes et produits, termes et facteurs.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4A1ah",
+                "data": "cycle_4_BO_2026:obj:C4A1ah",
+                "entry_text": "Connaitre et utiliser les priorités opératoires.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nConnaitre et utiliser les priorités opératoires.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4A1ae",
+                "data": "cycle_4_BO_2026:obj:C4A1ae",
+                "entry_text": "Enchainer des opérations.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nEnchainer des opérations.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "C4A1ac",
                 "data": "cycle_4_BO_2026:obj:C4A1ac",
-                "entry_text": "Diviser par un nombre décimal.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nDiviser par un nombre décimal.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1aa",
-                "data": "cycle_4_BO_2026:obj:C4A1aa",
-                "entry_text": "Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nAdditionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1ab",
-                "data": "cycle_4_BO_2026:obj:C4A1ab",
                 "entry_text": "Connaitre le sens et les situations d'emploi de ces opérations.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nConnaitre le sens et les situations d'emploi de ces opérations.\n",
                 "expanded": false,
@@ -61,50 +69,42 @@
                 "children": []
               },
               {
-                "text": "C4A1ad",
-                "data": "cycle_4_BO_2026:obj:C4A1ad",
-                "entry_text": "Enchainer des opérations.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nEnchainer des opérations.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1ae",
-                "data": "cycle_4_BO_2026:obj:C4A1ae",
+                "text": "C4A1af",
+                "data": "cycle_4_BO_2026:obj:C4A1af",
                 "entry_text": "Traduire un problème, une succession donnée d'opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nTraduire un problème, une succession donnée d'opérations, un programme de calcul, en une seule expression, en faisant appel ou non à des parenthèses.\n",
                 "expanded": false,
                 "children": []
               },
               {
-                "text": "C4A1af",
-                "data": "cycle_4_BO_2026:obj:C4A1af",
-                "entry_text": "Nommer un calcul, distinguer sommes et produits, termes et facteurs.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nNommer un calcul, distinguer sommes et produits, termes et facteurs.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1ag",
-                "data": "cycle_4_BO_2026:obj:C4A1ag",
-                "entry_text": "Connaitre et utiliser les priorités opératoires.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nConnaitre et utiliser les priorités opératoires.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1ah",
-                "data": "cycle_4_BO_2026:obj:C4A1ah",
+                "text": "C4A1ai",
+                "data": "cycle_4_BO_2026:obj:C4A1ai",
                 "entry_text": "Connaitre et utiliser la distributivité simple sur des exemples numériques.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nConnaitre et utiliser la distributivité simple sur des exemples numériques.\n",
                 "expanded": false,
                 "children": []
               },
               {
-                "text": "C4A1ak",
-                "data": "cycle_4_BO_2026:obj:C4A1ak",
+                "text": "C4A1al",
+                "data": "cycle_4_BO_2026:obj:C4A1al",
                 "entry_text": "Mobiliser un algorithme dans le cadre du calcul numérique.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nMobiliser un algorithme dans le cadre du calcul numérique.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4A1ab",
+                "data": "cycle_4_BO_2026:obj:C4A1ab",
+                "entry_text": "Additionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nAdditionner, soustraire, multiplier et diviser pour résoudre des problèmes et contrôler la vraisemblance de son résultat.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4A1ad",
+                "data": "cycle_4_BO_2026:obj:C4A1ad",
+                "entry_text": "Diviser par un nombre décimal.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nDiviser par un nombre décimal.\n",
                 "expanded": false,
                 "children": []
               }
@@ -124,7 +124,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Vocabulaire des opérations",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Priorités opératoires",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calculs astucieux",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Traduction d'un algorithme numérique",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -189,7 +230,7 @@
             "data": null,
             "entry_text": null,
             "tooltip": "",
-            "expanded": true,
+            "expanded": false,
             "children": [
               {
                 "text": "C4B1eb",
@@ -207,7 +248,32 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Construction de triangles",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Médiatrice et cercle circonscrit",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Médianes d'un triangle",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -239,21 +305,13 @@
             "data": null,
             "entry_text": null,
             "tooltip": "",
-            "expanded": false,
+            "expanded": true,
             "children": [
               {
                 "text": "C4A1ba",
                 "data": "cycle_4_BO_2026:obj:C4A1ba",
                 "entry_text": "Définir les nombres relatifs.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nDéfinir les nombres relatifs.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1bb",
-                "data": "cycle_4_BO_2026:obj:C4A1bb",
-                "entry_text": "Définir l'opposé et la valeur absolue d'un nombre.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nDéfinir l'opposé et la valeur absolue d'un nombre.\n",
                 "expanded": false,
                 "children": []
               },
@@ -274,6 +332,14 @@
                 "children": []
               },
               {
+                "text": "C4A1bb",
+                "data": "cycle_4_BO_2026:obj:C4A1bb",
+                "entry_text": "Définir l'opposé et la valeur absolue d'un nombre.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nDéfinir l'opposé et la valeur absolue d'un nombre.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "C4A1be",
                 "data": "cycle_4_BO_2026:obj:C4A1be",
                 "entry_text": "Lire l'abscisse d'un nombre relatif sur une droite graduée et placer un nombre relatif d'abscisse donnée.",
@@ -282,18 +348,18 @@
                 "children": []
               },
               {
-                "text": "C4A1bf",
-                "data": "cycle_4_BO_2026:obj:C4A1bf",
-                "entry_text": "Comparer et ranger dans l'ordre croissant et décroissant des nombres décimaux relatifs.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nComparer et ranger dans l'ordre croissant et décroissant des nombres décimaux relatifs.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
                 "text": "C4B1aa",
                 "data": "cycle_4_BO_2026:obj:C4B1aa",
                 "entry_text": "Sur une droite graduée : lire l'abscisse d'un point donné ; placer un point d'abscisse donnée.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nSur une droite graduée : lire l'abscisse d'un point donné ; placer un point d'abscisse donnée.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4A1bf",
+                "data": "cycle_4_BO_2026:obj:C4A1bf",
+                "entry_text": "Comparer et ranger dans l'ordre croissant et décroissant des nombres décimaux relatifs.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nComparer et ranger dans l'ordre croissant et décroissant des nombres décimaux relatifs.\n",
                 "expanded": false,
                 "children": []
               },
@@ -330,7 +396,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Définition des nombres relatifs",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Opposés, valeur absolue",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Comparer des nombres relatifs",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Placer des nombres relatifs dans un repère",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -365,6 +464,22 @@
             "expanded": true,
             "children": [
               {
+                "text": "C4A1aj",
+                "data": "cycle_4_BO_2026:obj:C4A1aj",
+                "entry_text": "Utiliser les notions de multiples et diviseurs.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nUtiliser les notions de multiples et diviseurs.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4A1ak",
+                "data": "cycle_4_BO_2026:obj:C4A1ak",
+                "entry_text": "Connaitre les critères de divisibilité par 3 et par 9.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nConnaitre les critères de divisibilité par 3 et par 9.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "C4A1ca",
                 "data": "cycle_4_BO_2026:obj:C4A1ca",
                 "entry_text": "Comparer des fractions.",
@@ -385,22 +500,6 @@
                 "data": "cycle_4_BO_2026:obj:C4A1cc",
                 "entry_text": "Résoudre des problèmes avec des additions et soustractions de fractions.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nRésoudre des problèmes avec des additions et soustractions de fractions.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1ai",
-                "data": "cycle_4_BO_2026:obj:C4A1ai",
-                "entry_text": "Utiliser les notions de multiples et diviseurs.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nUtiliser les notions de multiples et diviseurs.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4A1aj",
-                "data": "cycle_4_BO_2026:obj:C4A1aj",
-                "entry_text": "Connaitre les critères de divisibilité par 3 et par 9.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nConnaitre les critères de divisibilité par 3 et par 9.\n",
                 "expanded": false,
                 "children": []
               }
@@ -429,7 +528,56 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Multiples et diviseurs",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Critères de divisibilité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Mise au même dénominateur (dénominateurs multiples)",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Mise au même dénominateur (dénominateurs quelconque)",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Comparaison de fractions",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Addition et soustraction de fractions",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -503,7 +651,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Vocabulaire: angles correspondants, alternes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Caractérisation angulaire du parallélisme",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Caractérisation angulaire du parallélisme",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Démonstration de la somme des angles d'un triangle",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Triangles particuliers",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -593,7 +782,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Définition de puissance",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calcul mental: carrés et cube d'entier",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calculs d'expression numériques",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problèmes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -628,10 +850,10 @@
             "expanded": false,
             "children": [
               {
-                "text": "C4A1df",
-                "data": "cycle_4_BO_2026:obj:C4A1df",
-                "entry_text": "Calculer la valeur d'une expression littérale contenant une puissance simple.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer la valeur d'une expression littérale contenant une puissance simple.\n",
+                "text": "C4A1ed",
+                "data": "cycle_4_BO_2026:obj:C4A1ed",
+                "entry_text": "Déterminer si une expression littérale est une somme ou un produit.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nDéterminer si une expression littérale est une somme ou un produit.\n",
                 "expanded": false,
                 "children": []
               },
@@ -652,18 +874,18 @@
                 "children": []
               },
               {
-                "text": "C4A1ec",
-                "data": "cycle_4_BO_2026:obj:C4A1ec",
-                "entry_text": "Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nTester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.\n",
+                "text": "C4A1df",
+                "data": "cycle_4_BO_2026:obj:C4A1df",
+                "entry_text": "Calculer la valeur d'une expression littérale contenant une puissance simple.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer la valeur d'une expression littérale contenant une puissance simple.\n",
                 "expanded": false,
                 "children": []
               },
               {
-                "text": "C4A1ed",
-                "data": "cycle_4_BO_2026:obj:C4A1ed",
-                "entry_text": "Déterminer si une expression littérale est une somme ou un produit.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nDéterminer si une expression littérale est une somme ou un produit.\n",
+                "text": "C4A1ec",
+                "data": "cycle_4_BO_2026:obj:C4A1ec",
+                "entry_text": "Tester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nTester si une égalité entre expressions algébriques comportant une variable est vraie ou fausse.\n",
                 "expanded": false,
                 "children": []
               },
@@ -691,7 +913,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Définition d'une expression littérale",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Production de formules",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calcul par substitution",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Tester une égalité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Réduction",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -726,18 +989,10 @@
             "expanded": false,
             "children": [
               {
-                "text": "C4B1be",
-                "data": "cycle_4_BO_2026:obj:C4B1be",
-                "entry_text": "Calculer l'aire du disque",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer l'aire du disque\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4B1ed",
-                "data": "cycle_4_BO_2026:obj:C4B1ed",
-                "entry_text": "Calculer l'aire d'un triangle.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer l'aire d'un triangle.\n",
+                "text": "C4B1fh",
+                "data": "cycle_4_BO_2026:obj:C4B1fh",
+                "entry_text": "Résoudre des problèmes faisant appel à des conversions d'unités de longueur et d'unités d'aires.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nRésoudre des problèmes faisant appel à des conversions d'unités de longueur et d'unités d'aires.\n",
                 "expanded": false,
                 "children": []
               },
@@ -758,6 +1013,14 @@
                 "children": []
               },
               {
+                "text": "C4B1ed",
+                "data": "cycle_4_BO_2026:obj:C4B1ed",
+                "entry_text": "Calculer l'aire d'un triangle.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer l'aire d'un triangle.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "C4B1eh",
                 "data": "cycle_4_BO_2026:obj:C4B1eh",
                 "entry_text": "Démontrer qu'une médiane partage un triangle en deux triangles d'aires égales.",
@@ -766,10 +1029,10 @@
                 "children": []
               },
               {
-                "text": "C4B1fh",
-                "data": "cycle_4_BO_2026:obj:C4B1fh",
-                "entry_text": "Résoudre des problèmes faisant appel à des conversions d'unités de longueur et d'unités d'aires.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nRésoudre des problèmes faisant appel à des conversions d'unités de longueur et d'unités d'aires.\n",
+                "text": "C4B1be",
+                "data": "cycle_4_BO_2026:obj:C4B1be",
+                "entry_text": "Calculer l'aire du disque",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer l'aire du disque\n",
                 "expanded": false,
                 "children": []
               }
@@ -789,7 +1052,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Conversions d'unités de longueurs et d'aires",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Hauteur dans un triangle",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Aire d'un triangle",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Aire d'un disque",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Médiane d'un triangle",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -824,6 +1128,14 @@
             "expanded": false,
             "children": [
               {
+                "text": "C4D1ac",
+                "data": "cycle_4_BO_2026:obj:C4D1ac",
+                "entry_text": "Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nIdentifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "C4D1aa",
                 "data": "cycle_4_BO_2026:obj:C4D1aa",
                 "entry_text": "Utiliser des proportions, des pourcentages.",
@@ -836,14 +1148,6 @@
                 "data": "cycle_4_BO_2026:obj:C4D1ab",
                 "entry_text": "Calculer, appliquer des proportions, des pourcentages.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer, appliquer des proportions, des pourcentages.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4D1ac",
-                "data": "cycle_4_BO_2026:obj:C4D1ac",
-                "entry_text": "Identifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nIdentifier des situations de proportionnalité dans des contextes concrets (prix, recettes, distances, échelles).\n",
                 "expanded": false,
                 "children": []
               },
@@ -879,7 +1183,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Situation de proportionnalité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Appliquer une proportion",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calculer une proportion",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Pourcentages",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Tableau de proportionnalité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -945,7 +1290,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Somme de deux nombres relatifs",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Enlever les parenthèses pour calculer",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Somme de plusieurs nombres relatifs",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problème",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1011,7 +1389,48 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Rappel symétrie axiale",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Définition symétrie centrale",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Construction de la symétrie centrale (carreaux)",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Propriétés de conservation",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Construction de la symétrie centrale",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1093,7 +1512,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Règle des signes",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Séance de calcul",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calculs avec plusieurs opérations",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Résolution de problème",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1216,7 +1668,64 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Vocabulaire des équations",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Méthode de résolution",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Méthode de résolution",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Mise en équation",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Développer",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Factoriser",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Démontrer, conjecturer",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1251,10 +1760,26 @@
             "expanded": false,
             "children": [
               {
+                "text": "C4D1ae",
+                "data": "cycle_4_BO_2026:obj:C4D1ae",
+                "entry_text": "Reconnaitre une situation de proportionnalité à partir d'un tableau ou d'un graphique.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nReconnaitre une situation de proportionnalité à partir d'un tableau ou d'un graphique.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "C4D1af",
                 "data": "cycle_4_BO_2026:obj:C4D1af",
                 "entry_text": "Reconnaitre graphiquement qu'un nuage de points est ou n'est pas associé à une situation de proportionnalité entre données discrètes.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nReconnaitre graphiquement qu'un nuage de points est ou n'est pas associé à une situation de proportionnalité entre données discrètes.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4D1ad",
+                "data": "cycle_4_BO_2026:obj:C4D1ad",
+                "entry_text": "Représenter une situation de proportionnalité par un tableau ou un graphique.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nReprésenter une situation de proportionnalité par un tableau ou un graphique.\n",
                 "expanded": false,
                 "children": []
               },
@@ -1282,7 +1807,32 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Rappels sur la proportionnalité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Caractérisation graphique de la proportionnalité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Caractérisation graphique de la proportionnalité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1325,10 +1875,26 @@
                 "children": []
               },
               {
+                "text": "C4C1bd",
+                "data": "cycle_4_BO_2026:obj:C4C1bd",
+                "entry_text": "Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d'effectifs et de fréquences.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nRépéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d'effectifs et de fréquences.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
                 "text": "C4C1ab",
                 "data": "cycle_4_BO_2026:obj:C4C1ab",
                 "entry_text": "Calculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage).",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer des effectifs et des fréquences (exprimées sous forme décimale, fractionnaire ou de pourcentage).\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4C1af",
+                "data": "cycle_4_BO_2026:obj:C4C1af",
+                "entry_text": "Calculer et interpréter la moyenne simple d'une série de données.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer et interpréter la moyenne simple d'une série de données.\n",
                 "expanded": false,
                 "children": []
               },
@@ -1357,14 +1923,6 @@
                 "children": []
               },
               {
-                "text": "C4C1af",
-                "data": "cycle_4_BO_2026:obj:C4C1af",
-                "entry_text": "Calculer et interpréter la moyenne simple d'une série de données.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nCalculer et interpréter la moyenne simple d'une série de données.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
                 "text": "C4C1ba",
                 "data": "cycle_4_BO_2026:obj:C4C1ba",
                 "entry_text": "Aborder les questions relatives au hasard à partir de problèmes simples.",
@@ -1387,14 +1945,6 @@
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nAttribuer des probabilités dans des cas simples (équiprobabilité).\n",
                 "expanded": false,
                 "children": []
-              },
-              {
-                "text": "C4C1bd",
-                "data": "cycle_4_BO_2026:obj:C4C1bd",
-                "entry_text": "Répéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d'effectifs et de fréquences.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nRépéter matériellement une expérience aléatoire simple. Enregistrer les résultats observés dans un tableau d'effectifs et de fréquences.\n",
-                "expanded": false,
-                "children": []
               }
             ]
           },
@@ -1412,7 +1962,56 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Vocabulaire: effectif et fréquence",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Calcul de moyenne et interprétation",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Diagrammes en barre",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Diagrammes circulaires",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Probabilités: vocabulaire",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Probabilités: équiprobabilité",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1429,7 +2028,7 @@
         "data": null,
         "entry_text": null,
         "tooltip": "",
-        "expanded": false,
+        "expanded": true,
         "children": [
           {
             "text": "Automatismes",
@@ -1446,6 +2045,22 @@
             "tooltip": "",
             "expanded": false,
             "children": [
+              {
+                "text": "C4D1bg",
+                "data": "cycle_4_BO_2026:obj:C4D1bg",
+                "entry_text": "Produire une formule simple représentant la dépendance de deux grandeurs.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nProduire une formule simple représentant la dépendance de deux grandeurs.\n",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "C4D1bf",
+                "data": "cycle_4_BO_2026:obj:C4D1bf",
+                "entry_text": "Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d'une formule.",
+                "tooltip": "Catalogue: Cycle 4 BO 2026\nTraduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d'une formule.\n",
+                "expanded": false,
+                "children": []
+              },
               {
                 "text": "C4D1ba",
                 "data": "cycle_4_BO_2026:obj:C4D1ba",
@@ -1485,22 +2100,6 @@
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nLire et interpréter un graphique cartésien donné par une courbe ou un nuage de points.\n",
                 "expanded": false,
                 "children": []
-              },
-              {
-                "text": "C4D1bf",
-                "data": "cycle_4_BO_2026:obj:C4D1bf",
-                "entry_text": "Traduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d'une formule.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nTraduire la relation de dépendance entre deux grandeurs par un tableau de valeurs à partir d'une formule.\n",
-                "expanded": false,
-                "children": []
-              },
-              {
-                "text": "C4D1bg",
-                "data": "cycle_4_BO_2026:obj:C4D1bg",
-                "entry_text": "Produire une formule simple représentant la dépendance de deux grandeurs.",
-                "tooltip": "Catalogue: Cycle 4 BO 2026\nProduire une formule simple représentant la dépendance de deux grandeurs.\n",
-                "expanded": false,
-                "children": []
               }
             ]
           },
@@ -1518,7 +2117,40 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Produire une formule",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Produire un tableau de valeurs",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Lien graphique-tableau de valeurs",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Interprétation graphique",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -1837,7 +2469,32 @@
             "entry_text": null,
             "tooltip": "",
             "expanded": false,
-            "children": []
+            "children": [
+              {
+                "text": "Séance détachée 1",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Séance détachée 2",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              },
+              {
+                "text": "Séance détachée 3",
+                "data": "seance",
+                "entry_text": null,
+                "tooltip": "",
+                "expanded": false,
+                "children": []
+              }
+            ]
           },
           {
             "text": "Prérequis",
@@ -2087,7 +2744,7 @@
               {
                 "text": "C4B2db",
                 "data": "cycle_4_BO_2026:obj:C4B2db",
-                "entry_text": "Faire le lien avec les parallélogrammes, les angles.",
+                "entry_text": "Faire le lien entre la translation et les parallélogrammes, les angles.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nFaire le lien avec les parallélogrammes, les angles.\n",
                 "expanded": false,
                 "children": []
@@ -3210,7 +3867,7 @@
               {
                 "text": "C4A3ab",
                 "data": "cycle_4_BO_2026:obj:C4A3ab",
-                "entry_text": "Rendre irréductible une fraction.",
+                "entry_text": "Résoudre des problèmes faisant appel à des fractions.",
                 "tooltip": "Catalogue: Cycle 4 BO 2026\nRendre irréductible une fraction.\n",
                 "expanded": false,
                 "children": []

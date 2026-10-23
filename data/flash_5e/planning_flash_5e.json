@@ -1,0 +1,2484 @@
+{
+  "seances": [
+    {
+      "numero": 1,
+      "date": "2026-09-07",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1ae",
+          "id": "C4A1ae-1",
+          "statut": "Nouveau",
+          "enonce": "$4{,}26\\times100$ et $53{,}7\\div1\\,000$",
+          "reponse": "$426$ et $0{,}0537$"
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "date": "2026-09-07",
+      "heure": "15:00",
+      "fin": "16:00",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1ac",
+          "id": "C4A1ac-1",
+          "statut": "Nouveau",
+          "enonce": "$42=\\dots\\times\\dots$",
+          "reponse": "$6\\times7$"
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "date": "2026-09-09",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1af",
+          "id": "C4A1af-1",
+          "statut": "Nouveau",
+          "enonce": "$5{,}8+2{,}7$ et $6{,}3-1{,}9$",
+          "reponse": "$8{,}5$ et $4{,}4$"
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "date": "2026-09-10",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1ab",
+          "id": "C4A1ab-1",
+          "statut": "Nouveau",
+          "enonce": "$83$ divisé par $9$",
+          "reponse": "$83=9\\times9+2$ ; quotient $9$, reste $2$"
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "date": "2026-09-17",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1ad",
+          "id": "C4A1ad-1",
+          "statut": "Nouveau",
+          "enonce": "$0{,}7\\times8$ et $30\\times0{,}04$",
+          "reponse": "$5{,}6$ et $1{,}2$"
+        }
+      ]
+    },
+    {
+      "numero": 6,
+      "date": "2026-09-21",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1ba",
+          "id": "C4A1ba-1",
+          "statut": "Nouveau",
+          "enonce": "$3{,}6+1{,}25$ ; $8{,}4-2{,}6$ ; $1{,}2\\times3$",
+          "reponse": "$4{,}85$ ; $5{,}8$ ; $3{,}6$"
+        }
+      ]
+    },
+    {
+      "numero": 7,
+      "date": "2026-09-21",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1bb",
+          "id": "C4A1bb-1",
+          "statut": "Nouveau",
+          "enonce": "$2{,}4\\times1{,}5$",
+          "reponse": "$3{,}6$"
+        }
+      ]
+    },
+    {
+      "numero": 8,
+      "date": "2026-09-24",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Expressions numériques",
+      "capacite": 1,
+      "questions": [
+        {
+          "code": "C4A1bc",
+          "id": "C4A1bc-1",
+          "statut": "Nouveau",
+          "enonce": "$27+\\dots=64$",
+          "reponse": "$37$"
+        }
+      ]
+    },
+    {
+      "numero": 9,
+      "date": "2026-10-01",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Expressions numériques",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1ca",
+          "id": "C4A1ca-1",
+          "statut": "Nouveau",
+          "enonce": "$8\\times7$ et $12\\times6$",
+          "reponse": "$56$ et $72$"
+        },
+        {
+          "code": "C4A1ae",
+          "id": "C4A1ae-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$0{,}82\\times10$ et $35\\div100$",
+          "reponse": "$8{,}2$ et $0{,}35$"
+        }
+      ]
+    },
+    {
+      "numero": 10,
+      "date": "2026-10-02",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Expressions numériques",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1da",
+          "id": "C4A1da-1",
+          "statut": "Nouveau",
+          "enonce": "$7\\times9$",
+          "reponse": "$63$"
+        },
+        {
+          "code": "C4A1ac",
+          "id": "C4A1ac-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$54=\\dots\\times\\dots$",
+          "reponse": "$6\\times9$"
+        }
+      ]
+    },
+    {
+      "numero": 11,
+      "date": "2026-10-07",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Expressions numériques",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "X5E01",
+          "id": "X5E01-1",
+          "statut": "Nouveau",
+          "enonce": "$3+4\\times5$",
+          "reponse": "$23$"
+        },
+        {
+          "code": "C4A1af",
+          "id": "C4A1af-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$4{,}6+3{,}8$ et $7{,}2-2{,}5$",
+          "reponse": "$8{,}4$ et $4{,}7$"
+        }
+      ]
+    },
+    {
+      "numero": 12,
+      "date": "2026-10-08",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Expressions numériques",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1ab",
+          "id": "C4A1ab-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$157$ divisé par $12$",
+          "reponse": "$157=12\\times13+1$ ; quotient $13$, reste $1$"
+        },
+        {
+          "code": "C4A1ad",
+          "id": "C4A1ad-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$0{,}6\\times9$ et $20\\times0{,}03$",
+          "reponse": "$5{,}4$ et $0{,}6$"
+        }
+      ]
+    },
+    {
+      "numero": 13,
+      "date": "2026-10-15",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Géométrie du triangle",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4B1eb",
+          "id": "C4B1eb-1",
+          "statut": "Nouveau",
+          "enonce": "Deux angles mesurent $52^\\circ$ et $71^\\circ$. Mesure du troisième ?",
+          "reponse": "$57^\\circ$"
+        },
+        {
+          "code": "C4A1ba",
+          "id": "C4A1ba-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$2{,}35+4{,}7$ ; $6{,}2-3{,}45$ ; $0{,}8\\times5$",
+          "reponse": "$7{,}05$ ; $2{,}75$ ; $4$"
+        }
+      ]
+    },
+    {
+      "numero": 14,
+      "date": "2026-10-16",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Géométrie du triangle",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4B1ec",
+          "id": "C4B1ec-1",
+          "statut": "Nouveau",
+          "enonce": "Tout point de la médiatrice d'un segment est à la même distance de ...",
+          "reponse": "ses deux extrémités"
+        },
+        {
+          "code": "C4A1bb",
+          "id": "C4A1bb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$3{,}2\\times0{,}4$",
+          "reponse": "$1{,}28$"
+        }
+      ]
+    },
+    {
+      "numero": 15,
+      "date": "2026-11-02",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Géométrie du triangle",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "X5E02",
+          "id": "X5E02-1",
+          "statut": "Nouveau",
+          "enonce": "Construire $ABC$ tel que $AB=5$ cm, $AC=4$ cm et $BC=6$ cm.",
+          "reponse": "Tracer $[AB]$ ; tracer les cercles de centres $A$ et $B$, rayons $4$ et $6$ cm ; leur intersection donne $C$."
+        },
+        {
+          "code": "C4A1bc",
+          "id": "C4A1bc-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$3{,}8+\\dots=10$",
+          "reponse": "$6{,}2$"
+        }
+      ]
+    },
+    {
+      "numero": 16,
+      "date": "2026-11-02",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Découverte des nombres relatifs",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4B1aa",
+          "id": "C4B1aa-1",
+          "statut": "Nouveau",
+          "enonce": "Sur une droite graduée de $2$ à $3$ en dixièmes, où placer $2{,}7$ ?",
+          "reponse": "à la 7e graduation après $2$"
+        },
+        {
+          "code": "C4A1ca",
+          "id": "C4A1ca-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$9\\times8$ et $7\\times12$",
+          "reponse": "$72$ et $84$"
+        }
+      ]
+    },
+    {
+      "numero": 17,
+      "date": "2026-11-04",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Découverte des nombres relatifs",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4B1ab",
+          "id": "C4B1ab-1",
+          "statut": "Nouveau",
+          "enonce": "Entre $1$ et $2$, la droite est graduée en dixièmes. $A$ est à la 6e graduation après $1$. Quelle est son abscisse ?",
+          "reponse": "$1{,}6$"
+        },
+        {
+          "code": "C4A1da",
+          "id": "C4A1da-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$8\\times12$",
+          "reponse": "$96$"
+        }
+      ]
+    },
+    {
+      "numero": 18,
+      "date": "2026-11-05",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Découverte des nombres relatifs",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "X5E03",
+          "id": "X5E03-1",
+          "statut": "Nouveau",
+          "enonce": "Une température de $6$ degrés sous zéro.",
+          "reponse": "$-6\\,^{\\circ}\\mathrm{C}$"
+        },
+        {
+          "code": "X5E01",
+          "id": "X5E01-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$(12-4)\\div2$",
+          "reponse": "$4$"
+        }
+      ]
+    },
+    {
+      "numero": 19,
+      "date": "2026-11-12",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Nombres rationnels",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1cb",
+          "id": "C4A1cb-1",
+          "statut": "Nouveau",
+          "enonce": "$\\dfrac{7}{4}$ et $\\dfrac{3}{2}$",
+          "reponse": "$1{,}75$ et $1{,}5$"
+        },
+        {
+          "code": "C4B1eb",
+          "id": "C4B1eb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Deux angles mesurent $40^\\circ$ et $90^\\circ$. Mesure du troisième ?",
+          "reponse": "$50^\\circ$"
+        }
+      ]
+    },
+    {
+      "numero": 20,
+      "date": "2026-11-16",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Nombres rationnels",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1cc",
+          "id": "C4A1cc-1",
+          "statut": "Nouveau",
+          "enonce": "$5\\times\\dots=3$",
+          "reponse": "$\\dfrac{3}{5}$"
+        },
+        {
+          "code": "C4B1ec",
+          "id": "C4B1ec-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Où se trouve le centre du cercle circonscrit à un triangle ?",
+          "reponse": "à l'intersection des médiatrices de ses côtés"
+        }
+      ]
+    },
+    {
+      "numero": 21,
+      "date": "2026-11-16",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Nombres rationnels",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1aa",
+          "id": "C4A1aa-1",
+          "statut": "Nouveau",
+          "enonce": "Parmi $246$, $315$ et $470$, quels nombres sont divisibles par $2$, par $5$ et par $10$ ?",
+          "reponse": "$246$ par $2$ ; $315$ par $5$ ; $470$ par $2$, $5$ et $10$"
+        },
+        {
+          "code": "X5E02",
+          "id": "X5E02-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Construire un triangle isocèle en $A$ de base $BC=4$ cm et $AB=5$ cm.",
+          "reponse": "Tracer $[BC]$, puis les deux arcs de rayon $5$ cm centrés en $B$ et $C$ ; leur intersection est $A$."
+        }
+      ]
+    },
+    {
+      "numero": 22,
+      "date": "2026-11-19",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Nombres rationnels",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1cd",
+          "id": "C4A1cd-1",
+          "statut": "Nouveau",
+          "enonce": "Entre $0$ et $1$, une droite est partagée en $4$ intervalles égaux. $M$ est sur la troisième graduation. Quelle est son abscisse ?",
+          "reponse": "$\\dfrac{3}{4}$"
+        },
+        {
+          "code": "C4B1aa",
+          "id": "C4B1aa-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Sur une droite de $0$ à $1$ en dixièmes, où placer $0{,}4$ ?",
+          "reponse": "à la 4e graduation après $0$"
+        }
+      ]
+    },
+    {
+      "numero": 23,
+      "date": "2026-11-26",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Nombres rationnels",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1ce",
+          "id": "C4A1ce-1",
+          "statut": "Nouveau",
+          "enonce": "$\\dfrac{5}{8}=\\dfrac{\\dots}{24}$",
+          "reponse": "$15$"
+        },
+        {
+          "code": "C4B1ab",
+          "id": "C4B1ab-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Entre $0$ et $1$, $B$ est à la 3e graduation d'une droite graduée en dixièmes.",
+          "reponse": "$0{,}3$"
+        }
+      ]
+    },
+    {
+      "numero": 24,
+      "date": "2026-11-30",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Nombres rationnels",
+      "capacite": 2,
+      "questions": [
+        {
+          "code": "C4A1cf",
+          "id": "C4A1cf-1",
+          "statut": "Nouveau",
+          "enonce": "$\\dfrac{5}{6}$ et $\\dfrac{7}{9}$",
+          "reponse": "$\\dfrac{5}{6}>\\dfrac{7}{9}$"
+        },
+        {
+          "code": "X5E03",
+          "id": "X5E03-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un ascenseur descend de $4$ étages par rapport au rez-de-chaussée.",
+          "reponse": "$-4$"
+        }
+      ]
+    },
+    {
+      "numero": 25,
+      "date": "2026-11-30",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Nombres rationnels",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1cg",
+          "id": "C4A1cg-1",
+          "statut": "Nouveau",
+          "enonce": "$\\dfrac{23}{6}$",
+          "reponse": "$3+\\dfrac{5}{6}$"
+        },
+        {
+          "code": "C4A1ae",
+          "id": "C4A1ae-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$6{,}4\\times1\\,000$ et $7{,}2\\div10$",
+          "reponse": "$6\\,400$ et $0{,}72$"
+        },
+        {
+          "code": "C4A1ac",
+          "id": "C4A1ac-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$72=\\dots\\times\\dots$",
+          "reponse": "$8\\times9$"
+        }
+      ]
+    },
+    {
+      "numero": 26,
+      "date": "2026-12-02",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Nombres rationnels",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1ch",
+          "id": "C4A1ch-1",
+          "statut": "Nouveau",
+          "enonce": "$\\dfrac{2}{7}+\\dfrac{3}{7}$",
+          "reponse": "$\\dfrac{5}{7}$"
+        },
+        {
+          "code": "C4A1af",
+          "id": "C4A1af-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$9{,}5-3{,}8$ et $2{,}4+6{,}9$",
+          "reponse": "$5{,}7$ et $9{,}3$"
+        },
+        {
+          "code": "C4A1ab",
+          "id": "C4A1ab-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$245$ divisé par $16$",
+          "reponse": "$245=16\\times15+5$ ; quotient $15$, reste $5$"
+        }
+      ]
+    },
+    {
+      "numero": 27,
+      "date": "2026-12-03",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Nombres rationnels",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1ck",
+          "id": "C4A1ck-1",
+          "statut": "Nouveau",
+          "enonce": "$1{,}6=\\dfrac{\\dots}{10}=\\dfrac{\\dots}{5}=\\dots\\,\\%$",
+          "reponse": "$\\dfrac{16}{10}=\\dfrac{8}{5}=160\\,\\%$"
+        },
+        {
+          "code": "C4A1aa",
+          "id": "C4A1aa-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$1\\,035$ est-il divisible par $2$, $5$ et $10$ ?",
+          "reponse": "par $5$ seulement"
+        },
+        {
+          "code": "C4A1ad",
+          "id": "C4A1ad-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$0{,}8\\times7$ et $50\\times0{,}06$",
+          "reponse": "$5{,}6$ et $3$"
+        }
+      ]
+    },
+    {
+      "numero": 28,
+      "date": "2026-12-11",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Nombres rationnels",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1ed",
+          "id": "C4A1ed-1",
+          "statut": "Nouveau",
+          "enonce": "Quel nombre multiplié par $8$ donne $13$ ?",
+          "reponse": "$\\dfrac{13}{8}$"
+        },
+        {
+          "code": "C4A1ba",
+          "id": "C4A1ba-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$5{,}8+0{,}75$ ; $10-4{,}65$ ; $1{,}5\\times4$",
+          "reponse": "$6{,}55$ ; $5{,}35$ ; $6$"
+        },
+        {
+          "code": "C4A1ca",
+          "id": "C4A1ca-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$6\\times11$ et $9\\times7$",
+          "reponse": "$66$ et $63$"
+        }
+      ]
+    },
+    {
+      "numero": 29,
+      "date": "2026-12-14",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Nombres rationnels",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "X5E04",
+          "id": "X5E04-1",
+          "statut": "Nouveau",
+          "enonce": "$7$ est-il un diviseur de $56$ ?",
+          "reponse": "Oui, car $56=7\\times8$."
+        },
+        {
+          "code": "C4A1cb",
+          "id": "C4A1cb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$\\dfrac{1}{4}$ et $\\dfrac{5}{2}$",
+          "reponse": "$0{,}25$ et $2{,}5$"
+        },
+        {
+          "code": "C4A1bb",
+          "id": "C4A1bb-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$0{,}75\\times2{,}8$",
+          "reponse": "$2{,}1$"
+        }
+      ]
+    },
+    {
+      "numero": 30,
+      "date": "2026-12-14",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Nombres rationnels",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1cc",
+          "id": "C4A1cc-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$7\\times\\dots=4$",
+          "reponse": "$\\dfrac{4}{7}$"
+        },
+        {
+          "code": "C4A1bc",
+          "id": "C4A1bc-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$\\dots+14{,}5=20$",
+          "reponse": "$5{,}5$"
+        },
+        {
+          "code": "C4A1da",
+          "id": "C4A1da-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$6\\times7$",
+          "reponse": "$42$"
+        }
+      ]
+    },
+    {
+      "numero": 31,
+      "date": "2026-12-16",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Angles et parallélisme",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4B1da",
+          "id": "C4B1da-1",
+          "statut": "Nouveau",
+          "enonce": "Deux droites parallèles sont coupées par une sécante. Un angle correspondant mesure $68^\\circ$. Mesure de son angle correspondant ?",
+          "reponse": "$68^\\circ$"
+        },
+        {
+          "code": "C4A1cd",
+          "id": "C4A1cd-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "De $0$ à $2$, chaque unité est partagée en $3$ intervalles. $A$ est à la quatrième graduation après $0$.",
+          "reponse": "$\\dfrac{4}{3}$"
+        },
+        {
+          "code": "X5E01",
+          "id": "X5E01-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$18-2\\times(3+4)$",
+          "reponse": "$4$"
+        }
+      ]
+    },
+    {
+      "numero": 32,
+      "date": "2026-12-17",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Angles et parallélisme",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4B1ea",
+          "id": "C4B1ea-1",
+          "statut": "Nouveau",
+          "enonce": "Un triangle possède un angle droit et deux côtés égaux. Quelle est sa nature ?",
+          "reponse": "triangle rectangle isocèle"
+        },
+        {
+          "code": "C4A1ce",
+          "id": "C4A1ce-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$\\dfrac{3}{7}=\\dfrac{\\dots}{21}$",
+          "reponse": "$9$"
+        },
+        {
+          "code": "C4B1aa",
+          "id": "C4B1aa-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Sur une droite de $1$ à $2$ en quarts, où placer $1{,}5$ ?",
+          "reponse": "au milieu entre $1$ et $2$"
+        }
+      ]
+    },
+    {
+      "numero": 33,
+      "date": "2027-01-07",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Angles et parallélisme",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4B1db",
+          "id": "C4B1db-1",
+          "statut": "Nouveau",
+          "enonce": "Un angle droit mesure ...",
+          "reponse": "$90^\\circ$"
+        },
+        {
+          "code": "C4A1cf",
+          "id": "C4A1cf-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$\\dfrac{3}{8}$ et $\\dfrac{5}{8}$",
+          "reponse": "$\\dfrac{3}{8}<\\dfrac{5}{8}$"
+        },
+        {
+          "code": "X5E04",
+          "id": "X5E04-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Donner trois multiples de $9$ inférieurs à $50$.",
+          "reponse": "$9$, $18$, $27$ (ou $36$, $45$)."
+        }
+      ]
+    },
+    {
+      "numero": 34,
+      "date": "2027-01-08",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Angles et parallélisme",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4B1dc",
+          "id": "C4B1dc-1",
+          "statut": "Nouveau",
+          "enonce": "Une bissectrice partage un angle en deux angles ...",
+          "reponse": "de même mesure"
+        },
+        {
+          "code": "C4A1cg",
+          "id": "C4A1cg-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$\\dfrac{14}{5}$",
+          "reponse": "$2+\\dfrac{4}{5}$"
+        },
+        {
+          "code": "C4B1ea",
+          "id": "C4B1ea-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un triangle a trois côtés de même longueur. Quelle est sa nature ?",
+          "reponse": "équilatéral"
+        }
+      ]
+    },
+    {
+      "numero": 35,
+      "date": "2027-01-11",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Angles et parallélisme",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4B1dd",
+          "id": "C4B1dd-1",
+          "statut": "Nouveau",
+          "enonce": "Une équerre isocèle a un angle droit. Mesure de chacun des deux autres angles ?",
+          "reponse": "$45^\\circ$"
+        },
+        {
+          "code": "C4A1ch",
+          "id": "C4A1ch-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$1-\\dfrac{3}{5}$",
+          "reponse": "$\\dfrac{2}{5}$"
+        },
+        {
+          "code": "C4B1eb",
+          "id": "C4B1eb-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Un triangle isocèle a un angle au sommet de $36^\\circ$. Mesure de chaque angle à la base ?",
+          "reponse": "$72^\\circ$"
+        }
+      ]
+    },
+    {
+      "numero": 36,
+      "date": "2027-01-11",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Angles et parallélisme",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "X5E05",
+          "id": "X5E05-1",
+          "statut": "Nouveau",
+          "enonce": "Deux droites parallèles sont coupées par une sécante. Un angle correspondant mesure $72^\\circ$. Mesure de l'angle correspondant ?",
+          "reponse": "$72^\\circ$"
+        },
+        {
+          "code": "C4A1ck",
+          "id": "C4A1ck-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$0{,}75=\\dfrac{\\dots}{100}=\\dfrac{\\dots}{4}=\\dots\\,\\%$",
+          "reponse": "$\\dfrac{75}{100}=\\dfrac{3}{4}=75\\,\\%$"
+        },
+        {
+          "code": "C4B1ec",
+          "id": "C4B1ec-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$M$ est sur la médiatrice de $[AB]$ et $MA=4$ cm. Calculer $MB$.",
+          "reponse": "$4$ cm"
+        }
+      ]
+    },
+    {
+      "numero": 37,
+      "date": "2027-01-14",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Angles et parallélisme",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1ed",
+          "id": "C4A1ed-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Quel nombre multiplié par $5$ donne $12$ ?",
+          "reponse": "$\\dfrac{12}{5}$"
+        },
+        {
+          "code": "C4B1da",
+          "id": "C4B1da-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Deux droites parallèles sont coupées par une sécante. Un angle alterne-interne mesure $112^\\circ$. Mesure de l'autre angle alterne-interne ?",
+          "reponse": "$112^\\circ$"
+        },
+        {
+          "code": "X5E02",
+          "id": "X5E02-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Peut-on construire un triangle de côtés $2$ cm, $3$ cm et $6$ cm ?",
+          "reponse": "Non, car $2+3<6$."
+        }
+      ]
+    },
+    {
+      "numero": 38,
+      "date": "2027-01-21",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Puissances",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "X5E06",
+          "id": "X5E06-1",
+          "statut": "Nouveau",
+          "enonce": "$5^2$",
+          "reponse": "$25$"
+        },
+        {
+          "code": "C4B1ab",
+          "id": "C4B1ab-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Entre $2$ et $3$, $C$ est à la 8e graduation d'une droite graduée en dixièmes.",
+          "reponse": "$2{,}8$"
+        },
+        {
+          "code": "X5E03",
+          "id": "X5E03-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Un plongeur est à $12$ m sous le niveau de la mer.",
+          "reponse": "$-12$ m"
+        }
+      ]
+    },
+    {
+      "numero": 39,
+      "date": "2027-01-22",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Puissances",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1aa",
+          "id": "C4A1aa-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Quel chiffre peut remplacer $\\square$ dans $43\\square$ pour que le nombre soit divisible par $10$ ?",
+          "reponse": "$0$"
+        },
+        {
+          "code": "C4B1db",
+          "id": "C4B1db-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un angle plat mesure ...",
+          "reponse": "$180^\\circ$"
+        },
+        {
+          "code": "C4A1cb",
+          "id": "C4A1cb-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$\\dfrac{3}{4}$ et $\\dfrac{4}{2}$",
+          "reponse": "$0{,}75$ et $2$"
+        }
+      ]
+    },
+    {
+      "numero": 40,
+      "date": "2027-01-25",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Introduction au calcul littéral",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1ea",
+          "id": "C4A1ea-1",
+          "statut": "Nouveau",
+          "enonce": "Une suite contient $5$, $8$, $11$, $14$ carrés. Combien au motif suivant ?",
+          "reponse": "$17$ carrés ; on ajoute $3$"
+        },
+        {
+          "code": "C4B1dc",
+          "id": "C4B1dc-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un angle mesure $80^\\circ$ et une demi-droite le partage en deux angles égaux. Est-elle sa bissectrice ?",
+          "reponse": "oui"
+        },
+        {
+          "code": "C4A1cc",
+          "id": "C4A1cc-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$3\\times\\dfrac{7}{3}=\\dots$",
+          "reponse": "$7$"
+        }
+      ]
+    },
+    {
+      "numero": 41,
+      "date": "2027-01-27",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Introduction au calcul littéral",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1eb",
+          "id": "C4A1eb-1",
+          "statut": "Nouveau",
+          "enonce": "À chaque étape, une rangée gagne $3$ carrés. L'étape $1$ en a $4$. Combien l'étape $7$ en a-t-elle ?",
+          "reponse": "$22$ carrés"
+        },
+        {
+          "code": "C4B1dd",
+          "id": "C4B1dd-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Une équerre avec angles $30^\\circ$, $60^\\circ$, $90^\\circ$ : quel est le plus petit angle ?",
+          "reponse": "$30^\\circ$"
+        },
+        {
+          "code": "C4A1cd",
+          "id": "C4A1cd-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "De $0$ à $1$, la droite est partagée en $10$ intervalles. $B$ est à la septième graduation.",
+          "reponse": "$0{,}7$"
+        }
+      ]
+    },
+    {
+      "numero": 42,
+      "date": "2027-01-28",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Introduction au calcul littéral",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1ec",
+          "id": "C4A1ec-1",
+          "statut": "Nouveau",
+          "enonce": "Une suite contient $4$, $7$, $10$, ... carrés. Combien à l'étape $n$ ?",
+          "reponse": "$3n+1$"
+        },
+        {
+          "code": "X5E05",
+          "id": "X5E05-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Deux droites parallèles sont coupées par une sécante. Un angle intérieur mesure $115^\\circ$. Mesure de l'angle intérieur du même côté ?",
+          "reponse": "$65^\\circ$ (angles supplémentaires)"
+        },
+        {
+          "code": "C4A1ce",
+          "id": "C4A1ce-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$\\dfrac{4}{9}=\\dfrac{20}{\\dots}$",
+          "reponse": "$45$"
+        }
+      ]
+    },
+    {
+      "numero": 43,
+      "date": "2027-02-04",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Introduction au calcul littéral",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "X5E07",
+          "id": "X5E07-1",
+          "statut": "Nouveau",
+          "enonce": "Écrire le double de $x$ augmenté de $5$.",
+          "reponse": "$2x+5$"
+        },
+        {
+          "code": "X5E06",
+          "id": "X5E06-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$2^3$",
+          "reponse": "$8$"
+        },
+        {
+          "code": "C4A1cf",
+          "id": "C4A1cf-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$\\dfrac{7}{4}$ et $\\dfrac{9}{5}$",
+          "reponse": "$\\dfrac{7}{4}<\\dfrac{9}{5}$"
+        }
+      ]
+    },
+    {
+      "numero": 44,
+      "date": "2027-02-22",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Aires et hauteurs",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1db",
+          "id": "C4A1db-1",
+          "statut": "Nouveau",
+          "enonce": "$1\\,\\text{m}^2=\\dots\\,\\text{dm}^2$",
+          "reponse": "$100\\,\\text{dm}^2$"
+        },
+        {
+          "code": "C4A1ea",
+          "id": "C4A1ea-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Une suite contient $2$, $6$, $10$ carrés. Combien au motif suivant ?",
+          "reponse": "$14$ carrés ; on ajoute $4$"
+        },
+        {
+          "code": "X5E04",
+          "id": "X5E04-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$35$ est-il un multiple de $6$ ?",
+          "reponse": "Non."
+        }
+      ]
+    },
+    {
+      "numero": 45,
+      "date": "2027-02-22",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Aires et hauteurs",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "X5E08",
+          "id": "X5E08-1",
+          "statut": "Nouveau",
+          "enonce": "Un triangle a une base de $8$ cm et la hauteur correspondante mesure $5$ cm. Calculer son aire.",
+          "reponse": "$20\\,\\mathrm{cm}^2$"
+        },
+        {
+          "code": "C4A1eb",
+          "id": "C4A1eb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "L'étape $1$ contient $2$ carrés et on en ajoute $5$ à chaque étape. Combien à l'étape $6$ ?",
+          "reponse": "$27$ carrés"
+        },
+        {
+          "code": "C4A1cg",
+          "id": "C4A1cg-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$\\dfrac{19}{4}$",
+          "reponse": "$4+\\dfrac{3}{4}$"
+        }
+      ]
+    },
+    {
+      "numero": 46,
+      "date": "2027-02-24",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Proportionnalité",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4D1aa",
+          "id": "C4D1aa-1",
+          "statut": "Nouveau",
+          "enonce": "Un kilogramme de pommes coûte $2{,}40$ €. Le prix est-il proportionnel à la masse si le prix au kilogramme est fixe ?",
+          "reponse": "oui ; prix = $2{,}40\\times$ masse"
+        },
+        {
+          "code": "C4A1ec",
+          "id": "C4A1ec-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Une suite contient $2$, $6$, $10$, ... carrés. Combien à l'étape $n$ ?",
+          "reponse": "$4n-2$"
+        },
+        {
+          "code": "C4B1ea",
+          "id": "C4B1ea-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Un triangle a deux angles égaux. Que peut-on en déduire ?",
+          "reponse": "il est isocèle"
+        }
+      ]
+    },
+    {
+      "numero": 47,
+      "date": "2027-02-25",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Proportionnalité",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4D1ab",
+          "id": "C4D1ab-1",
+          "statut": "Nouveau",
+          "enonce": "$4$ kg de farine coûtent $6$ €. Combien coûtent $7$ kg au même prix au kilogramme ?",
+          "reponse": "$10{,}50$ €"
+        },
+        {
+          "code": "X5E07",
+          "id": "X5E07-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Réduire $3x+4x$.",
+          "reponse": "$7x$"
+        },
+        {
+          "code": "C4A1ch",
+          "id": "C4A1ch-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$\\dfrac{3}{4}+\\dfrac{1}{6}$",
+          "reponse": "$\\dfrac{11}{12}$"
+        }
+      ]
+    },
+    {
+      "numero": 48,
+      "date": "2027-03-04",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Proportionnalité",
+      "capacite": 3,
+      "questions": [
+        {
+          "code": "C4A1ci",
+          "id": "C4A1ci-1",
+          "statut": "Nouveau",
+          "enonce": "$\\dfrac{3}{5}$ de $25$",
+          "reponse": "$15$"
+        },
+        {
+          "code": "C4B1da",
+          "id": "C4B1da-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "[FIGURE: deux droites parallèles coupées par une sécante ; angle intérieur marqué $73^\\circ$] Donner la mesure de l'angle alterne-interne correspondant.",
+          "reponse": "$73^\\circ$"
+        },
+        {
+          "code": "C4A1db",
+          "id": "C4A1db-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$3\\,\\text{dm}^2=\\dots\\,\\text{cm}^2$",
+          "reponse": "$300\\,\\text{cm}^2$"
+        }
+      ]
+    },
+    {
+      "numero": 49,
+      "date": "2027-03-05",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Proportionnalité",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4A1cj",
+          "id": "C4A1cj-1",
+          "statut": "Nouveau",
+          "enonce": "$10\\,\\%$ de $350$",
+          "reponse": "$35$"
+        },
+        {
+          "code": "C4A1ck",
+          "id": "C4A1ck-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$2{,}4=\\dfrac{\\dots}{10}=\\dfrac{\\dots}{5}=\\dots\\,\\%$",
+          "reponse": "$\\dfrac{24}{10}=\\dfrac{12}{5}=240\\,\\%$"
+        },
+        {
+          "code": "C4B1db",
+          "id": "C4B1db-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Un demi-angle plat mesure ...",
+          "reponse": "$90^\\circ$"
+        },
+        {
+          "code": "X5E08",
+          "id": "X5E08-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un triangle a une aire de $24\\,\\mathrm{cm}^2$ et une base de $8$ cm. Quelle est la hauteur correspondante ?",
+          "reponse": "$6$ cm"
+        }
+      ]
+    },
+    {
+      "numero": 50,
+      "date": "2027-03-08",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Proportionnalité",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E09",
+          "id": "X5E09-1",
+          "statut": "Nouveau",
+          "enonce": "$3$ kg coûtent $7{,}50$ €. Combien coûtent $5$ kg ?",
+          "reponse": "$12{,}50$ €"
+        },
+        {
+          "code": "C4A1ed",
+          "id": "C4A1ed-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Quel nombre multiplié par $7$ donne $3$ ?",
+          "reponse": "$\\dfrac{3}{7}$"
+        },
+        {
+          "code": "C4B1dc",
+          "id": "C4B1dc-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "La bissectrice d'un angle de $64^\\circ$ forme deux angles de quelle mesure ?",
+          "reponse": "$32^\\circ$ chacun"
+        },
+        {
+          "code": "C4A1ae",
+          "id": "C4A1ae-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$4{,}26\\times100$ et $53{,}7\\div1\\,000$",
+          "reponse": "$426$ et $0{,}0537$"
+        }
+      ]
+    },
+    {
+      "numero": 51,
+      "date": "2027-03-08",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Proportionnalité",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1dd",
+          "id": "C4B1dd-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Dans une équerre $30^\\circ$-$60^\\circ$-$90^\\circ$, quelle est la mesure du plus grand angle ?",
+          "reponse": "$90^\\circ$"
+        },
+        {
+          "code": "C4D1aa",
+          "id": "C4D1aa-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un taxi facture $4$ € de prise en charge puis $2$ € par kilomètre. Le prix est-il proportionnel à la distance ?",
+          "reponse": "non ; pour $0$ km le prix est $4$ €"
+        },
+        {
+          "code": "C4A1ac",
+          "id": "C4A1ac-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$42=\\dots\\times\\dots$",
+          "reponse": "$6\\times7$"
+        },
+        {
+          "code": "C4A1af",
+          "id": "C4A1af-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$5{,}8+2{,}7$ et $6{,}3-1{,}9$",
+          "reponse": "$8{,}5$ et $4{,}4$"
+        }
+      ]
+    },
+    {
+      "numero": 52,
+      "date": "2027-03-10",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Addition de nombres relatifs",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E10",
+          "id": "X5E10-1",
+          "statut": "Nouveau",
+          "enonce": "$(-3)+(+8)$",
+          "reponse": "$5$"
+        },
+        {
+          "code": "C4D1ab",
+          "id": "C4D1ab-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$3$ stylos coûtent $4{,}50$ €. Combien coûtent $8$ stylos ?",
+          "reponse": "$12$ €"
+        },
+        {
+          "code": "X5E05",
+          "id": "X5E05-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Deux angles alternes-internes sont égaux. Que peut-on conclure sur les deux droites ?",
+          "reponse": "Elles sont parallèles."
+        },
+        {
+          "code": "X5E06",
+          "id": "X5E06-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$2^3+3^2$",
+          "reponse": "$17$"
+        }
+      ]
+    },
+    {
+      "numero": 53,
+      "date": "2027-03-18",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Addition de nombres relatifs",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4A1ci",
+          "id": "C4A1ci-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$\\dfrac{2}{3}$ de $18$",
+          "reponse": "$12$"
+        },
+        {
+          "code": "C4A1cj",
+          "id": "C4A1cj-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$50\\,\\%$ de $84$",
+          "reponse": "$42$"
+        },
+        {
+          "code": "C4A1ab",
+          "id": "C4A1ab-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$83$ divisé par $9$",
+          "reponse": "$83=9\\times9+2$ ; quotient $9$, reste $2$"
+        },
+        {
+          "code": "C4A1ad",
+          "id": "C4A1ad-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$0{,}7\\times8$ et $30\\times0{,}04$",
+          "reponse": "$5{,}6$ et $1{,}2$"
+        }
+      ]
+    },
+    {
+      "numero": 54,
+      "date": "2027-03-19",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Symétrie centrale",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1ca",
+          "id": "C4B1ca-1",
+          "statut": "Nouveau",
+          "enonce": "Dans un repère quadrillé, l'axe est l'axe des ordonnées. Quel est le symétrique de $A(3\\,;2)$ ?",
+          "reponse": "$A'(-3\\,;2)$"
+        },
+        {
+          "code": "X5E09",
+          "id": "X5E09-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Une recette pour $4$ personnes demande $200$ g de riz. Combien pour $10$ personnes ?",
+          "reponse": "$500$ g"
+        },
+        {
+          "code": "C4A1ba",
+          "id": "C4A1ba-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$3{,}6+1{,}25$ ; $8{,}4-2{,}6$ ; $1{,}2\\times3$",
+          "reponse": "$4{,}85$ ; $5{,}8$ ; $3{,}6$"
+        },
+        {
+          "code": "C4A1ca",
+          "id": "C4A1ca-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$8\\times7$ et $12\\times6$",
+          "reponse": "$56$ et $72$"
+        }
+      ]
+    },
+    {
+      "numero": 55,
+      "date": "2027-03-22",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Symétrie centrale",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1cb",
+          "id": "C4B1cb-1",
+          "statut": "Nouveau",
+          "enonce": "$A$ est à $3$ cm d'un axe. Où se trouve son symétrique $A'$ ?",
+          "reponse": "de l'autre côté de l'axe, à $3$ cm ; l'axe est la médiatrice de $[AA']$"
+        },
+        {
+          "code": "X5E10",
+          "id": "X5E10-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$(-6)+(-5)$",
+          "reponse": "$-11$"
+        },
+        {
+          "code": "C4A1bb",
+          "id": "C4A1bb-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$2{,}4\\times1{,}5$",
+          "reponse": "$3{,}6$"
+        },
+        {
+          "code": "C4A1da",
+          "id": "C4A1da-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$7\\times9$",
+          "reponse": "$63$"
+        }
+      ]
+    },
+    {
+      "numero": 56,
+      "date": "2027-03-22",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Symétrie centrale",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E11",
+          "id": "X5E11-1",
+          "statut": "Nouveau",
+          "enonce": "$O$ est le centre de symétrie de $A$ et $A'$. Quel est le rôle de $O$ pour $[AA']$ ?",
+          "reponse": "$O$ est le milieu de $[AA']$."
+        },
+        {
+          "code": "C4A1bc",
+          "id": "C4A1bc-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$27+\\dots=64$",
+          "reponse": "$37$"
+        },
+        {
+          "code": "X5E01",
+          "id": "X5E01-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$3+4\\times5$",
+          "reponse": "$23$"
+        },
+        {
+          "code": "C4A1ea",
+          "id": "C4A1ea-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Une suite contient $1$, $4$, $9$, $16$ carrés. Quel est le nombre suivant ?",
+          "reponse": "$25$ carrés"
+        }
+      ]
+    },
+    {
+      "numero": 57,
+      "date": "2027-03-25",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Soustraction de nombres relatifs",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E12",
+          "id": "X5E12-1",
+          "statut": "Nouveau",
+          "enonce": "$5-(-3)$",
+          "reponse": "$8$"
+        },
+        {
+          "code": "C4B1aa",
+          "id": "C4B1aa-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Sur une droite graduée de $2$ à $3$ en dixièmes, où placer $2{,}7$ ?",
+          "reponse": "à la 7e graduation après $2$"
+        },
+        {
+          "code": "C4A1eb",
+          "id": "C4A1eb-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "L'étape $1$ contient $3$ carrés et on en ajoute $2$ à chaque étape. Combien à l'étape $10$ ?",
+          "reponse": "$21$ carrés"
+        },
+        {
+          "code": "C4B1eb",
+          "id": "C4B1eb-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Deux angles mesurent $52^\\circ$ et $71^\\circ$. Mesure du troisième ?",
+          "reponse": "$57^\\circ$"
+        }
+      ]
+    },
+    {
+      "numero": 58,
+      "date": "2027-04-01",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Soustraction de nombres relatifs",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1ca",
+          "id": "C4B1ca-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "L'axe de symétrie est l'axe des abscisses. Quel est le symétrique de $B(-2\\,;4)$ ?",
+          "reponse": "$B'(-2\\,;-4)$"
+        },
+        {
+          "code": "C4A1ec",
+          "id": "C4A1ec-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Une suite contient $5$, $9$, $13$, ... carrés. Combien à l'étape $n$ ?",
+          "reponse": "$4n+1$"
+        },
+        {
+          "code": "C4A1db",
+          "id": "C4A1db-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$2{,}5\\,\\text{m}^2=\\dots\\,\\text{cm}^2$",
+          "reponse": "$25\\,000\\,\\text{cm}^2$"
+        },
+        {
+          "code": "X5E08",
+          "id": "X5E08-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Dans un triangle, quelle droite passe par un sommet et est perpendiculaire au côté opposé ?",
+          "reponse": "La hauteur issue de ce sommet."
+        }
+      ]
+    },
+    {
+      "numero": 59,
+      "date": "2027-04-02",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Equation",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E13",
+          "id": "X5E13-1",
+          "statut": "Nouveau",
+          "enonce": "$x+7=12$",
+          "reponse": "$x=5$"
+        },
+        {
+          "code": "C4B1cb",
+          "id": "C4B1cb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Quel angle forme le segment $[AA']$ avec l'axe de symétrie ?",
+          "reponse": "un angle droit"
+        },
+        {
+          "code": "X5E07",
+          "id": "X5E07-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Écrire le périmètre d'un rectangle de longueur $x+2$ et largeur $x$.",
+          "reponse": "$2(x+2)+2x=4x+4$"
+        },
+        {
+          "code": "C4B1ec",
+          "id": "C4B1ec-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Tout point de la médiatrice d'un segment est à la même distance de ...",
+          "reponse": "ses deux extrémités"
+        }
+      ]
+    },
+    {
+      "numero": 60,
+      "date": "2027-04-19",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Equation",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E11",
+          "id": "X5E11-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un segment mesure $7$ cm. Quelle est la longueur de son image par symétrie centrale ?",
+          "reponse": "$7$ cm."
+        },
+        {
+          "code": "X5E12",
+          "id": "X5E12-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$-6-8$",
+          "reponse": "$-14$"
+        },
+        {
+          "code": "X5E13",
+          "id": "X5E13-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "$4x=28$",
+          "reponse": "$x=7$"
+        },
+        {
+          "code": "C4D1aa",
+          "id": "C4D1aa-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$3$ cahiers coûtent $6$ € et $5$ cahiers coûtent $10$ €. La situation est-elle proportionnelle ?",
+          "reponse": "oui ; le prix unitaire est $2$ €"
+        }
+      ]
+    },
+    {
+      "numero": 61,
+      "date": "2027-04-21",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Représentation graphique de la proportionnalité",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E14",
+          "id": "X5E14-1",
+          "statut": "Nouveau",
+          "enonce": "[GRAPHIQUE: droite passant par l'origine et le point $(4\\,;12)$] Quelle valeur de $y$ correspond à $x=2$ ?",
+          "reponse": "$y=6$"
+        },
+        {
+          "code": "C4A1ci",
+          "id": "C4A1ci-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$\\dfrac{5}{8}$ de $32$",
+          "reponse": "$20$"
+        },
+        {
+          "code": "X5E02",
+          "id": "X5E02-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Construire $ABC$ tel que $AB=5$ cm, $AC=4$ cm et $BC=6$ cm.",
+          "reponse": "Tracer $[AB]$ ; tracer les cercles de centres $A$ et $B$, rayons $4$ et $6$ cm ; leur intersection donne $C$."
+        },
+        {
+          "code": "C4B1ab",
+          "id": "C4B1ab-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Entre $1$ et $2$, la droite est graduée en dixièmes. $A$ est à la 6e graduation après $1$. Quelle est son abscisse ?",
+          "reponse": "$1{,}6$"
+        }
+      ]
+    },
+    {
+      "numero": 62,
+      "date": "2027-04-22",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Représentation graphique de la proportionnalité",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4D1ab",
+          "id": "C4D1ab-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Une recette pour $4$ personnes utilise $300$ g de farine. Quelle quantité faut-il pour $6$ personnes ?",
+          "reponse": "$450$ g"
+        },
+        {
+          "code": "X5E10",
+          "id": "X5E10-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$(+4)+(-9)$",
+          "reponse": "$-5$"
+        },
+        {
+          "code": "C4A1cb",
+          "id": "C4A1cb-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$\\dfrac{7}{4}$ et $\\dfrac{3}{2}$",
+          "reponse": "$1{,}75$ et $1{,}5$"
+        },
+        {
+          "code": "C4A1aa",
+          "id": "C4A1aa-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Parmi $246$, $315$ et $470$, quels nombres sont divisibles par $2$, par $5$ et par $10$ ?",
+          "reponse": "$246$ par $2$ ; $315$ par $5$ ; $470$ par $2$, $5$ et $10$"
+        }
+      ]
+    },
+    {
+      "numero": 63,
+      "date": "2027-04-29",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Probabilité et statistiques",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4C1ba",
+          "id": "C4C1ba-1",
+          "statut": "Nouveau",
+          "enonce": "On lance un dé équilibré à six faces. Obtenir $8$ est un événement ...",
+          "reponse": "impossible"
+        },
+        {
+          "code": "C4A1cj",
+          "id": "C4A1cj-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$1\\,\\%$ de $600$",
+          "reponse": "$6$"
+        },
+        {
+          "code": "X5E03",
+          "id": "X5E03-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Une température de $6$ degrés sous zéro.",
+          "reponse": "$-6\\,^{\\circ}\\mathrm{C}$"
+        },
+        {
+          "code": "C4A1cc",
+          "id": "C4A1cc-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$5\\times\\dots=3$",
+          "reponse": "$\\dfrac{3}{5}$"
+        }
+      ]
+    },
+    {
+      "numero": 64,
+      "date": "2027-04-30",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Probabilité et statistiques",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4C1bb",
+          "id": "C4C1bb-1",
+          "statut": "Nouveau",
+          "enonce": "Une issue a une probabilité de $\\dfrac{3}{4}$.",
+          "reponse": "$0{,}75=75\\,\\%$"
+        },
+        {
+          "code": "X5E09",
+          "id": "X5E09-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$6$ objets coûtent $15$ €. Quel est le prix de $1$ objet ?",
+          "reponse": "$2{,}50$ €"
+        },
+        {
+          "code": "C4A1cd",
+          "id": "C4A1cd-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Entre $0$ et $1$, une droite est partagée en $4$ intervalles égaux. $M$ est sur la troisième graduation. Quelle est son abscisse ?",
+          "reponse": "$\\dfrac{3}{4}$"
+        },
+        {
+          "code": "C4B1ca",
+          "id": "C4B1ca-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "L'axe est la droite $y=x$. Quel est le symétrique de $C(1\\,;3)$ ?",
+          "reponse": "$C'(3\\,;1)$"
+        }
+      ]
+    },
+    {
+      "numero": 65,
+      "date": "2027-05-03",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Probabilité et statistiques",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4C1bc",
+          "id": "C4C1bc-1",
+          "statut": "Nouveau",
+          "enonce": "Une issue a « une chance sur quatre » de se produire. Quelle est sa probabilité ?",
+          "reponse": "$\\dfrac{1}{4}$"
+        },
+        {
+          "code": "X5E14",
+          "id": "X5E14-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "[GRAPHIQUE: droite ne passant pas par l'origine] La situation représentée est-elle proportionnelle ?",
+          "reponse": "Non."
+        },
+        {
+          "code": "C4A1ce",
+          "id": "C4A1ce-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$\\dfrac{5}{8}=\\dfrac{\\dots}{24}$",
+          "reponse": "$15$"
+        },
+        {
+          "code": "C4B1cb",
+          "id": "C4B1cb-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Un point appartient à l'axe de symétrie. Où se trouve son symétrique ?",
+          "reponse": "il reste confondu avec lui-même"
+        }
+      ]
+    },
+    {
+      "numero": 66,
+      "date": "2027-05-03",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Probabilité et statistiques",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E15",
+          "id": "X5E15-1",
+          "statut": "Nouveau",
+          "enonce": "Dans une classe de $25$ élèves, $10$ portent des lunettes. Quelle est la fréquence ?",
+          "reponse": "$10/25=0{,}4=40\\,\\%$"
+        },
+        {
+          "code": "C4A1cf",
+          "id": "C4A1cf-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$\\dfrac{5}{6}$ et $\\dfrac{7}{9}$",
+          "reponse": "$\\dfrac{5}{6}>\\dfrac{7}{9}$"
+        },
+        {
+          "code": "X5E04",
+          "id": "X5E04-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$7$ est-il un diviseur de $56$ ?",
+          "reponse": "Oui, car $56=7\\times8$."
+        },
+        {
+          "code": "C4B1ea",
+          "id": "C4B1ea-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Un triangle possède un angle droit et deux côtés égaux. Quelle est sa nature ?",
+          "reponse": "triangle rectangle isocèle"
+        }
+      ]
+    },
+    {
+      "numero": 67,
+      "date": "2027-05-05",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Fonctions",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E16",
+          "id": "X5E16-1",
+          "statut": "Nouveau",
+          "enonce": "Une course coûte $3$ € de frais fixes puis $2$ € par kilomètre. Écrire le prix $P$ en fonction de $x$ kilomètres.",
+          "reponse": "$P=3+2x$"
+        },
+        {
+          "code": "C4A1cg",
+          "id": "C4A1cg-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$\\dfrac{23}{6}$",
+          "reponse": "$3+\\dfrac{5}{6}$"
+        },
+        {
+          "code": "C4B1da",
+          "id": "C4B1da-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Deux droites parallèles sont coupées par une sécante. Un angle correspondant mesure $68^\\circ$. Mesure de son angle correspondant ?",
+          "reponse": "$68^\\circ$"
+        },
+        {
+          "code": "C4C1ba",
+          "id": "C4C1ba-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Tirer une boule d'une urne contenant uniquement des boules rouges et obtenir une boule rouge est ...",
+          "reponse": "certain"
+        }
+      ]
+    },
+    {
+      "numero": 68,
+      "date": "2027-05-13",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Fonctions",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4C1bb",
+          "id": "C4C1bb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Une issue a une probabilité de $\\dfrac{1}{5}$.",
+          "reponse": "$0{,}2=20\\,\\%$"
+        },
+        {
+          "code": "X5E15",
+          "id": "X5E15-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Calculer la moyenne de $8$, $12$ et $16$.",
+          "reponse": "$12$"
+        },
+        {
+          "code": "X5E16",
+          "id": "X5E16-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Pour $y=3x$, calculer $y$ lorsque $x=4$.",
+          "reponse": "$12$"
+        },
+        {
+          "code": "C4A1ch",
+          "id": "C4A1ch-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$\\dfrac{2}{7}+\\dfrac{3}{7}$",
+          "reponse": "$\\dfrac{5}{7}$"
+        }
+      ]
+    },
+    {
+      "numero": 69,
+      "date": "2027-05-19",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Parallélogrammes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1fa",
+          "id": "C4B1fa-1",
+          "statut": "Nouveau",
+          "enonce": "Un polygone possède $6$ côtés. Comment s'appelle-t-il ?",
+          "reponse": "un hexagone"
+        },
+        {
+          "code": "C4C1bc",
+          "id": "C4C1bc-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Une issue a « une chance sur deux » de se produire.",
+          "reponse": "$\\dfrac{1}{2}$"
+        },
+        {
+          "code": "X5E11",
+          "id": "X5E11-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Le symétrique d'une droite par symétrie centrale lui est-il parallèle ?",
+          "reponse": "Oui (ou confondu avec elle)."
+        },
+        {
+          "code": "X5E12",
+          "id": "X5E12-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$-2-(-7)+(-3)$",
+          "reponse": "$2$"
+        }
+      ]
+    },
+    {
+      "numero": 70,
+      "date": "2027-05-20",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Parallélogrammes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1fb",
+          "id": "C4B1fb-1",
+          "statut": "Nouveau",
+          "enonce": "Un parallélogramme a quatre côtés de même longueur et un angle droit. Quelle est sa nature ?",
+          "reponse": "un carré"
+        },
+        {
+          "code": "X5E13",
+          "id": "X5E13-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "$3x-5=10$",
+          "reponse": "$x=5$"
+        },
+        {
+          "code": "C4A1ck",
+          "id": "C4A1ck-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$1{,}6=\\dfrac{\\dots}{10}=\\dfrac{\\dots}{5}=\\dots\\,\\%$",
+          "reponse": "$\\dfrac{16}{10}=\\dfrac{8}{5}=160\\,\\%$"
+        },
+        {
+          "code": "C4B1db",
+          "id": "C4B1db-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Un angle droit mesure ...",
+          "reponse": "$90^\\circ$"
+        }
+      ]
+    },
+    {
+      "numero": 71,
+      "date": "2027-05-27",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Parallélogrammes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E17",
+          "id": "X5E17-1",
+          "statut": "Nouveau",
+          "enonce": "Dans un parallélogramme, deux côtés opposés mesurent respectivement $6$ cm et $9$ cm. Quelles sont les longueurs des deux autres côtés ?",
+          "reponse": "$6$ cm et $9$ cm"
+        },
+        {
+          "code": "C4A1ae",
+          "id": "C4A1ae-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$0{,}82\\times10$ et $35\\div100$",
+          "reponse": "$8{,}2$ et $0{,}35$"
+        },
+        {
+          "code": "C4A1ac",
+          "id": "C4A1ac-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$54=\\dots\\times\\dots$",
+          "reponse": "$6\\times9$"
+        },
+        {
+          "code": "C4A1ed",
+          "id": "C4A1ed-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Quel nombre multiplié par $8$ donne $13$ ?",
+          "reponse": "$\\dfrac{13}{8}$"
+        }
+      ]
+    },
+    {
+      "numero": 72,
+      "date": "2027-05-28",
+      "heure": "14:00",
+      "fin": "15:00",
+      "chapitre": "Solides et volumes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1ba",
+          "id": "C4B1ba-1",
+          "statut": "Nouveau",
+          "enonce": "Trois cubes sont empilés verticalement en une seule colonne. Combien de cases voit-on de dessus ?",
+          "reponse": "une case"
+        },
+        {
+          "code": "C4B1fa",
+          "id": "C4B1fa-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un polygone possède $5$ côtés. Comment s'appelle-t-il ?",
+          "reponse": "un pentagone"
+        },
+        {
+          "code": "C4A1af",
+          "id": "C4A1af-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$4{,}6+3{,}8$ et $7{,}2-2{,}5$",
+          "reponse": "$8{,}4$ et $4{,}7$"
+        },
+        {
+          "code": "C4B1dc",
+          "id": "C4B1dc-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Une bissectrice partage un angle en deux angles ...",
+          "reponse": "de même mesure"
+        }
+      ]
+    },
+    {
+      "numero": 73,
+      "date": "2027-05-31",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Solides et volumes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1bb",
+          "id": "C4B1bb-1",
+          "statut": "Nouveau",
+          "enonce": "Un empilement a $4$ cubes à sa base et $2$ cubes au-dessus. Combien contient-il de cubes ?",
+          "reponse": "$6$"
+        },
+        {
+          "code": "C4B1fb",
+          "id": "C4B1fb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un parallélogramme a un angle droit. Quelle est sa nature ?",
+          "reponse": "un rectangle"
+        },
+        {
+          "code": "C4B1dd",
+          "id": "C4B1dd-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Une équerre isocèle a un angle droit. Mesure de chacun des deux autres angles ?",
+          "reponse": "$45^\\circ$"
+        },
+        {
+          "code": "X5E14",
+          "id": "X5E14-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "[GRAPHIQUE: nuage de points alignés sur une droite passant par l'origine] La situation est-elle proportionnelle ?",
+          "reponse": "Oui."
+        }
+      ]
+    },
+    {
+      "numero": 74,
+      "date": "2027-06-02",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Solides et volumes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1bc",
+          "id": "C4B1bc-1",
+          "statut": "Nouveau",
+          "enonce": "Un solide a 6 faces carrées identiques. Quel est-il ?",
+          "reponse": "un cube"
+        },
+        {
+          "code": "X5E05",
+          "id": "X5E05-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Deux droites parallèles sont coupées par une sécante. Un angle correspondant mesure $72^\\circ$. Mesure de l'angle correspondant ?",
+          "reponse": "$72^\\circ$"
+        },
+        {
+          "code": "X5E06",
+          "id": "X5E06-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "$5^2$",
+          "reponse": "$25$"
+        },
+        {
+          "code": "C4C1ba",
+          "id": "C4C1ba-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Lancer une pièce équilibrée et obtenir pile est ...",
+          "reponse": "possible"
+        }
+      ]
+    },
+    {
+      "numero": 75,
+      "date": "2027-06-03",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Solides et volumes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1bd",
+          "id": "C4B1bd-1",
+          "statut": "Nouveau",
+          "enonce": "Six carrés identiques disposés en croix : quatre alignés, un au-dessus et un au-dessous du deuxième. Est-ce un patron de cube ?",
+          "reponse": "oui"
+        },
+        {
+          "code": "C4A1ab",
+          "id": "C4A1ab-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$157$ divisé par $12$",
+          "reponse": "$157=12\\times13+1$ ; quotient $13$, reste $1$"
+        },
+        {
+          "code": "C4A1ad",
+          "id": "C4A1ad-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$0{,}6\\times9$ et $20\\times0{,}03$",
+          "reponse": "$5{,}4$ et $0{,}6$"
+        },
+        {
+          "code": "C4A1ca",
+          "id": "C4A1ca-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$9\\times8$ et $7\\times12$",
+          "reponse": "$72$ et $84$"
+        }
+      ]
+    },
+    {
+      "numero": 76,
+      "date": "2027-06-10",
+      "heure": "08:30",
+      "fin": "09:30",
+      "chapitre": "Solides et volumes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4A1dc",
+          "id": "C4A1dc-1",
+          "statut": "Nouveau",
+          "enonce": "$1\\,\\text{dm}^3=\\dots\\,\\text{L}$",
+          "reponse": "$1\\,\\text{L}$"
+        },
+        {
+          "code": "X5E17",
+          "id": "X5E17-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un parallélogramme a une base de $8$ cm et une hauteur correspondante de $5$ cm. Calculer son aire.",
+          "reponse": "$40\\,\\mathrm{cm}^2$"
+        },
+        {
+          "code": "C4B1ba",
+          "id": "C4B1ba-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Quatre cubes forment une rangée au sol. Combien de carrés voit-on de dessus ?",
+          "reponse": "quatre carrés"
+        },
+        {
+          "code": "C4C1bb",
+          "id": "C4C1bb-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Une issue a une probabilité de $0{,}6$.",
+          "reponse": "$\\dfrac{3}{5}=60\\,\\%$"
+        }
+      ]
+    },
+    {
+      "numero": 77,
+      "date": "2027-06-14",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Solides et volumes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E18",
+          "id": "X5E18-1",
+          "statut": "Nouveau",
+          "enonce": "Un pavé droit mesure $4$ cm, $3$ cm et $5$ cm. Calculer son volume.",
+          "reponse": "$60\\,\\mathrm{cm}^3$"
+        },
+        {
+          "code": "C4B1bb",
+          "id": "C4B1bb-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un pavé est constitué de $3$ rangées de $4$ cubes. Combien de cubes ?",
+          "reponse": "$12$"
+        },
+        {
+          "code": "X5E15",
+          "id": "X5E15-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Les notes sont $10$, $12$, $14$, $14$. Quelle est la moyenne ?",
+          "reponse": "$12{,}5$"
+        },
+        {
+          "code": "X5E16",
+          "id": "X5E16-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Pour $y=2x+1$, compléter la valeur de $y$ pour $x=0$ puis $x=3$.",
+          "reponse": "$1$ puis $7$"
+        }
+      ]
+    },
+    {
+      "numero": 78,
+      "date": "2027-06-14",
+      "heure": "13:00",
+      "fin": "14:00",
+      "chapitre": "Solides et volumes",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4B1bc",
+          "id": "C4B1bc-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Un solide a 6 faces rectangulaires et ses dimensions ne sont pas toutes égales.",
+          "reponse": "un pavé droit"
+        },
+        {
+          "code": "C4A1ba",
+          "id": "C4A1ba-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$2{,}35+4{,}7$ ; $6{,}2-3{,}45$ ; $0{,}8\\times5$",
+          "reponse": "$7{,}05$ ; $2{,}75$ ; $4$"
+        },
+        {
+          "code": "C4A1da",
+          "id": "C4A1da-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$8\\times12$",
+          "reponse": "$96$"
+        },
+        {
+          "code": "X5E01",
+          "id": "X5E01-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$(12-4)\\div2$",
+          "reponse": "$4$"
+        }
+      ]
+    },
+    {
+      "numero": 79,
+      "date": "2027-06-16",
+      "heure": "10:30",
+      "fin": "11:30",
+      "chapitre": "Algorithmique",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "X5E19",
+          "id": "X5E19-1",
+          "statut": "Nouveau",
+          "enonce": "Choisir $4$, multiplier par $3$, puis ajouter $2$. Quel résultat ?",
+          "reponse": "$14$"
+        },
+        {
+          "code": "C4B1bd",
+          "id": "C4B1bd-2",
+          "statut": "Rappel ~3 j",
+          "enonce": "Six carrés identiques sont alignés sur une seule ligne. Est-ce un patron de cube ?",
+          "reponse": "non"
+        },
+        {
+          "code": "C4A1bb",
+          "id": "C4A1bb-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$3{,}2\\times0{,}4$",
+          "reponse": "$1{,}28$"
+        },
+        {
+          "code": "C4A1ea",
+          "id": "C4A1ea-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "Une suite contient $5$, $8$, $11$, $14$ carrés. Combien au motif suivant ?",
+          "reponse": "$17$ carrés ; on ajoute $3$"
+        }
+      ]
+    },
+    {
+      "numero": 80,
+      "date": "2027-06-17",
+      "heure": "16:00",
+      "fin": "17:00",
+      "chapitre": "Algorithmique",
+      "capacite": 4,
+      "questions": [
+        {
+          "code": "C4A1bc",
+          "id": "C4A1bc-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "$3{,}8+\\dots=10$",
+          "reponse": "$6{,}2$"
+        },
+        {
+          "code": "C4C1bc",
+          "id": "C4C1bc-3",
+          "statut": "Rappel ~10 j",
+          "enonce": "Une issue a « trois chances sur dix » de se produire.",
+          "reponse": "$\\dfrac{3}{10}$"
+        },
+        {
+          "code": "C4B1eb",
+          "id": "C4B1eb-2",
+          "statut": "Rappel ~30 j",
+          "enonce": "Deux angles mesurent $40^\\circ$ et $90^\\circ$. Mesure du troisième ?",
+          "reponse": "$50^\\circ$"
+        },
+        {
+          "code": "C4A1eb",
+          "id": "C4A1eb-1",
+          "statut": "Rappel ~30 j",
+          "enonce": "À chaque étape, une rangée gagne $3$ carrés. L'étape $1$ en a $4$. Combien l'étape $7$ en a-t-elle ?",
+          "reponse": "$22$ carrés"
+        }
+      ]
+    }
+  ]
+}
