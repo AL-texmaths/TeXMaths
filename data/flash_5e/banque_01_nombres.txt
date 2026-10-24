@@ -4,137 +4,164 @@
 // ID | secondes | question flash | réponse attendue
 // Les indications [FIGURE: ...], [TABLEAU: ...] sont des éléments à dessiner/projeter.
 
-## C4A1aa | titre=Critères de divisibilité par 2, 5 et 10 | consigne=Répondre sans poser de division. | bo=C4A1aa | chapitre=Nombres rationnels | theme=divisibilite | poids=2 | dnb=NC | source=aut
+✅## C4A1aa | titre=Critères de divisibilité par 2, 5 et 10 | consigne=Répondre sans poser de division. | bo=C4A1aa | chapitre=Nombres rationnels | theme=divisibilite | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-criteres_de_divisibilite-1.tex
 C4A1aa-1 | 20 | Parmi $246$, $315$ et $470$, quels nombres sont divisibles par $2$, par $5$ et par $10$ ? | $246$ par $2$ ; $315$ par $5$ ; $470$ par $2$, $5$ et $10$
 C4A1aa-2 | 20 | $1\,035$ est-il divisible par $2$, $5$ et $10$ ? | par $5$ seulement
 C4A1aa-3 | 25 | Quel chiffre peut remplacer $\square$ dans $43\square$ pour que le nombre soit divisible par $10$ ? | $0$
 
-## C4A1ab | titre=Division euclidienne | consigne=Donner le quotient et le reste. | bo=C4A1ab | chapitre=Expressions numériques | theme=divisions | poids=2 | dnb=NC | source=aut
+✅## C4A1ab | titre=Division euclidienne | consigne=Donner le quotient et le reste. | bo=C4A1ab | chapitre=Expressions numériques | theme=divisions | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-division_euclidienne-1.tex
 C4A1ab-1 | 20 | $83$ divisé par $9$ | $83=9\times9+2$ ; quotient $9$, reste $2$
 C4A1ab-2 | 25 | $157$ divisé par $12$ | $157=12\times13+1$ ; quotient $13$, reste $1$
 C4A1ab-3 | 30 | $245$ divisé par $16$ | $245=16\times15+5$ ; quotient $15$, reste $5$
 
-## C4A1ac | titre=Factoriser un entier avec les tables | consigne=Écrire comme produit de deux entiers supérieurs à $1$. | bo=C4A1ac | chapitre=Expressions numériques | theme=divisions | poids=2 | dnb=NC | source=aut
+✅## C4A1ac | titre=Factoriser un entier avec les tables | consigne=Écrire comme produit de deux entiers supérieurs à $1$. | bo=C4A1ac | chapitre=Expressions numériques | theme=divisions | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-factoriser_un_entier-1.tex
 C4A1ac-1 | 15 | $42=\dots\times\dots$ | $6\times7$
 C4A1ac-2 | 20 | $54=\dots\times\dots$ | $6\times9$
 C4A1ac-3 | 25 | $72=\dots\times\dots$ | $8\times9$
 
-## C4A1ad | titre=Produits de décimaux liés aux tables | consigne=Calculer mentalement. | bo=C4A1ad | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+✅## C4A1ad | titre=Produits de décimaux liés aux tables | consigne=Calculer mentalement. | bo=C4A1ad | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-multiplication_decimaux-1.tex
 C4A1ad-1 | 20 | $0{,}7\times8$ et $30\times0{,}04$ | $5{,}6$ et $1{,}2$
 C4A1ad-2 | 20 | $0{,}6\times9$ et $20\times0{,}03$ | $5{,}4$ et $0{,}6$
 C4A1ad-3 | 25 | $0{,}8\times7$ et $50\times0{,}06$ | $5{,}6$ et $3$
 
-## C4A1ae | titre=Multiplier et diviser par 10, 100, 1 000 | consigne=Calculer. | bo=C4A1ae | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+✅## C4A1ae | titre=Multiplier et diviser par 10, 100, 1 000 | consigne=Calculer. | bo=C4A1ae | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-multiplier_diviser_10_100_1000-1.tex
 C4A1ae-1 | 20 | $4{,}26\times100$ et $53{,}7\div1\,000$ | $426$ et $0{,}0537$
 C4A1ae-2 | 20 | $0{,}82\times10$ et $35\div100$ | $8{,}2$ et $0{,}35$
 C4A1ae-3 | 25 | $6{,}4\times1\,000$ et $7{,}2\div10$ | $6\,400$ et $0{,}72$
 
-## C4A1af | titre=Addition et soustraction de décimaux simples | consigne=Calculer mentalement. | bo=C4A1af | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+✅## C4A1af | titre=Addition et soustraction de décimaux simples | consigne=Calculer mentalement. | bo=C4A1af | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-addition_soustraction_decimaux-1.tex
 C4A1af-1 | 20 | $5{,}8+2{,}7$ et $6{,}3-1{,}9$ | $8{,}5$ et $4{,}4$
 C4A1af-2 | 20 | $4{,}6+3{,}8$ et $7{,}2-2{,}5$ | $8{,}4$ et $4{,}7$
 C4A1af-3 | 25 | $9{,}5-3{,}8$ et $2{,}4+6{,}9$ | $5{,}7$ et $9{,}3$
 
-## C4A1ba | titre=Opérations sur les décimaux | consigne=Effectuer les calculs mentalement. | bo=C4A1ba | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+✅## C4A1ba | titre=Opérations sur les décimaux | consigne=Effectuer les calculs mentalement. | bo=C4A1ba | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-operations_decimaux-1.tex
 C4A1ba-1 | 25 | $3{,}6+1{,}25$ ; $8{,}4-2{,}6$ ; $1{,}2\times3$ | $4{,}85$ ; $5{,}8$ ; $3{,}6$
 C4A1ba-2 | 25 | $2{,}35+4{,}7$ ; $6{,}2-3{,}45$ ; $0{,}8\times5$ | $7{,}05$ ; $2{,}75$ ; $4$
 C4A1ba-3 | 30 | $5{,}8+0{,}75$ ; $10-4{,}65$ ; $1{,}5\times4$ | $6{,}55$ ; $5{,}35$ ; $6$
 
 ## C4A1bb | titre=Multiplier des décimaux | consigne=Calculer. | bo=C4A1bb | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-multiplier_decimaux_c4a1bb-1.tex
 C4A1bb-1 | 20 | $2{,}4\times1{,}5$ | $3{,}6$
 C4A1bb-2 | 25 | $3{,}2\times0{,}4$ | $1{,}28$
 C4A1bb-3 | 30 | $0{,}75\times2{,}8$ | $2{,}1$
 
 ## C4A1bc | titre=Addition à trou | consigne=Trouver le nombre manquant. | bo=C4A1bc | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-addition_a_trou-1.tex
 C4A1bc-1 | 20 | $27+\dots=64$ | $37$
 C4A1bc-2 | 20 | $3{,}8+\dots=10$ | $6{,}2$
 C4A1bc-3 | 25 | $\dots+14{,}5=20$ | $5{,}5$
 
 ## C4A1ca | titre=Tables de multiplication | consigne=Répondre rapidement. | bo=C4A1ca | chapitre=Expressions numériques | theme=tables | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-tables_de_multiplication_c4a1ca-1.tex
 C4A1ca-1 | 10 | $8\times7$ et $12\times6$ | $56$ et $72$
 C4A1ca-2 | 10 | $9\times8$ et $7\times12$ | $72$ et $84$
 C4A1ca-3 | 10 | $6\times11$ et $9\times7$ | $66$ et $63$
 
 ## C4A1cb | titre=Fractions simples en écriture décimale | consigne=Écrire sous forme décimale. | bo=C4A1cb | chapitre=Nombres rationnels | theme=fractions | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-fractions_ecriture_decimale-1.tex
 C4A1cb-1 | 20 | $\dfrac{7}{4}$ et $\dfrac{3}{2}$ | $1{,}75$ et $1{,}5$
 C4A1cb-2 | 20 | $\dfrac{1}{4}$ et $\dfrac{5}{2}$ | $0{,}25$ et $2{,}5$
 C4A1cb-3 | 25 | $\dfrac{3}{4}$ et $\dfrac{4}{2}$ | $0{,}75$ et $2$
 
 ## C4A1cc | titre=Multiplication à trou et nombre quotient | consigne=Compléter avec le nombre quotient. | bo=C4A1cc | chapitre=Nombres rationnels | theme=fractions | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-nombre_quotient_multiplication_a_trou-1.tex
 C4A1cc-1 | 20 | $5\times\dots=3$ | $\dfrac{3}{5}$
 C4A1cc-2 | 25 | $7\times\dots=4$ | $\dfrac{4}{7}$
 C4A1cc-3 | 25 | $3\times\dfrac{7}{3}=\dots$ | $7$
 
 ## C4A1cd | titre=Lire une fraction sur une droite graduée | consigne=Déterminer l'abscisse du point décrit. | bo=C4A1cd | chapitre=Nombres rationnels | theme=fractions | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-fraction_droite_graduee-1.tex
 C4A1cd-1 | 20 | Entre $0$ et $1$, une droite est partagée en $4$ intervalles égaux. $M$ est sur la troisième graduation. Quelle est son abscisse ? | $\dfrac{3}{4}$
 C4A1cd-2 | 25 | De $0$ à $2$, chaque unité est partagée en $3$ intervalles. $A$ est à la quatrième graduation après $0$. | $\dfrac{4}{3}$
 C4A1cd-3 | 25 | De $0$ à $1$, la droite est partagée en $10$ intervalles. $B$ est à la septième graduation. | $0{,}7$
 
 ## C4A1ce | titre=Fractions égales | consigne=Compléter l'égalité. | bo=C4A1ce | chapitre=Nombres rationnels | theme=fractions | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-fractions_egales-1.tex
 C4A1ce-1 | 20 | $\dfrac{5}{8}=\dfrac{\dots}{24}$ | $15$
 C4A1ce-2 | 20 | $\dfrac{3}{7}=\dfrac{\dots}{21}$ | $9$
 C4A1ce-3 | 25 | $\dfrac{4}{9}=\dfrac{20}{\dots}$ | $45$
 
 ## C4A1cf | titre=Comparer des fractions | consigne=Comparer en utilisant $<$, $>$ ou $=$. | bo=C4A1cf | chapitre=Nombres rationnels | theme=fractions | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-comparer_fractions-1.tex
 C4A1cf-1 | 20 | $\dfrac{5}{6}$ et $\dfrac{7}{9}$ | $\dfrac{5}{6}>\dfrac{7}{9}$
 C4A1cf-2 | 25 | $\dfrac{3}{8}$ et $\dfrac{5}{8}$ | $\dfrac{3}{8}<\dfrac{5}{8}$
 C4A1cf-3 | 30 | $\dfrac{7}{4}$ et $\dfrac{9}{5}$ | $\dfrac{7}{4}<\dfrac{9}{5}$
 
 ## C4A1cg | titre=Décomposer une fraction en entier et fraction | consigne=Écrire comme la somme d'un entier et d'une fraction inférieure à $1$. | bo=C4A1cg | chapitre=Nombres rationnels | theme=fractions | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-decomposer_fraction-1.tex
 C4A1cg-1 | 20 | $\dfrac{23}{6}$ | $3+\dfrac{5}{6}$
 C4A1cg-2 | 20 | $\dfrac{14}{5}$ | $2+\dfrac{4}{5}$
 C4A1cg-3 | 25 | $\dfrac{19}{4}$ | $4+\dfrac{3}{4}$
 
 ## C4A1ch | titre=Additionner et soustraire des fractions | consigne=Calculer et simplifier si possible. | bo=C4A1ch | chapitre=Nombres rationnels | theme=fractions | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-addition_soustraction_fractions-1.tex
 C4A1ch-1 | 25 | $\dfrac{2}{7}+\dfrac{3}{7}$ | $\dfrac{5}{7}$
 C4A1ch-2 | 25 | $1-\dfrac{3}{5}$ | $\dfrac{2}{5}$
 C4A1ch-3 | 35 | $\dfrac{3}{4}+\dfrac{1}{6}$ | $\dfrac{11}{12}$
 
 ## C4A1ci | titre=Prendre une fraction d'une quantité | consigne=Calculer mentalement. | bo=C4A1ci | chapitre=Proportionnalité | theme=fractions | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-fraction_d_une_quantite-1.tex
 C4A1ci-1 | 20 | $\dfrac{3}{5}$ de $25$ | $15$
 C4A1ci-2 | 20 | $\dfrac{2}{3}$ de $18$ | $12$
 C4A1ci-3 | 25 | $\dfrac{5}{8}$ de $32$ | $20$
 
 ## C4A1cj | titre=Pourcentages usuels | consigne=Calculer mentalement. | bo=C4A1cj | chapitre=Proportionnalité | theme=proportionnalite | poids=3 | dnb=PF | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-pourcentages_usuels-1.tex
 C4A1cj-1 | 20 | $10\,\%$ de $350$ | $35$
 C4A1cj-2 | 20 | $50\,\%$ de $84$ | $42$
 C4A1cj-3 | 25 | $1\,\%$ de $600$ | $6$
 
 ## C4A1ck | titre=Écritures équivalentes d'un nombre | consigne=Compléter les écritures équivalentes. | bo=C4A1ck | chapitre=Nombres rationnels | theme=fractions | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-ecritures_equivalentes-1.tex
 C4A1ck-1 | 25 | $1{,}6=\dfrac{\dots}{10}=\dfrac{\dots}{5}=\dots\,\%$ | $\dfrac{16}{10}=\dfrac{8}{5}=160\,\%$
 C4A1ck-2 | 25 | $0{,}75=\dfrac{\dots}{100}=\dfrac{\dots}{4}=\dots\,\%$ | $\dfrac{75}{100}=\dfrac{3}{4}=75\,\%$
 C4A1ck-3 | 30 | $2{,}4=\dfrac{\dots}{10}=\dfrac{\dots}{5}=\dots\,\%$ | $\dfrac{24}{10}=\dfrac{12}{5}=240\,\%$
 
 ## C4A1da | titre=Entretenir les tables de multiplication | consigne=Calculer rapidement. | bo=C4A1da | chapitre=Expressions numériques | theme=tables | poids=3 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-tables_de_multiplication_c4a1da-1.tex
 C4A1da-1 | 10 | $7\times9$ | $63$
 C4A1da-2 | 10 | $8\times12$ | $96$
 C4A1da-3 | 10 | $6\times7$ | $42$
 
 ## C4A1db | titre=Unités d'aire | consigne=Compléter l'égalité de conversion. | bo=C4A1db | chapitre=Aires et hauteurs | theme=mesures | poids=2 | dnb=EG | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-unites_aire-1.tex
 C4A1db-1 | 20 | $1\,\text{m}^2=\dots\,\text{dm}^2$ | $100\,\text{dm}^2$
 C4A1db-2 | 20 | $3\,\text{dm}^2=\dots\,\text{cm}^2$ | $300\,\text{cm}^2$
 C4A1db-3 | 25 | $2{,}5\,\text{m}^2=\dots\,\text{cm}^2$ | $25\,000\,\text{cm}^2$
 
 ## C4A1dc | titre=Unités de volume et capacité | consigne=Compléter. | bo=C4A1dc | chapitre=Solides et volumes | theme=mesures | poids=2 | dnb=EG | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-unites_volume_capacite-1.tex
 C4A1dc-1 | 20 | $1\,\text{dm}^3=\dots\,\text{L}$ | $1\,\text{L}$
 C4A1dc-2 | 20 | $2\,\text{m}^3=\dots\,\text{L}$ | $2\,000\,\text{L}$
 C4A1dc-3 | 25 | $750\,\text{cm}^3=\dots\,\text{mL}$ | $750\,\text{mL}$
 
 ## C4A1ea | titre=Poursuivre une suite de motifs | consigne=Décrire la régularité et poursuivre la suite. | bo=C4A1ea | chapitre=Introduction au calcul littéral | theme=algebre | poids=2 | dnb=AP | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-suite_de_motifs-1.tex
 C4A1ea-1 | 25 | Une suite contient $5$, $8$, $11$, $14$ carrés. Combien au motif suivant ? | $17$ carrés ; on ajoute $3$
 C4A1ea-2 | 25 | Une suite contient $2$, $6$, $10$ carrés. Combien au motif suivant ? | $14$ carrés ; on ajoute $4$
 C4A1ea-3 | 30 | Une suite contient $1$, $4$, $9$, $16$ carrés. Quel est le nombre suivant ? | $25$ carrés
 
 ## C4A1eb | titre=Nombre d'éléments à une étape donnée | consigne=Déterminer le nombre de carrés à l'étape demandée. | bo=C4A1eb | chapitre=Introduction au calcul littéral | theme=algebre | poids=2 | dnb=AP | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-motif_etape_donnee-1.tex
 C4A1eb-1 | 25 | À chaque étape, une rangée gagne $3$ carrés. L'étape $1$ en a $4$. Combien l'étape $7$ en a-t-elle ? | $22$ carrés
 C4A1eb-2 | 25 | L'étape $1$ contient $2$ carrés et on en ajoute $5$ à chaque étape. Combien à l'étape $6$ ? | $27$ carrés
 C4A1eb-3 | 30 | L'étape $1$ contient $3$ carrés et on en ajoute $2$ à chaque étape. Combien à l'étape $10$ ? | $21$ carrés
 
 ## C4A1ec | titre=Exprimer la structure d'un motif | consigne=Exprimer le nombre d'éléments à l'étape $n$. | bo=C4A1ec | chapitre=Introduction au calcul littéral | theme=algebre | poids=2 | dnb=AP | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-structure_motif-1.tex
 C4A1ec-1 | 25 | Une suite contient $4$, $7$, $10$, ... carrés. Combien à l'étape $n$ ? | $3n+1$
 C4A1ec-2 | 25 | Une suite contient $2$, $6$, $10$, ... carrés. Combien à l'étape $n$ ? | $4n-2$
 C4A1ec-3 | 30 | Une suite contient $5$, $9$, $13$, ... carrés. Combien à l'étape $n$ ? | $4n+1$
 
 ## C4A1ed | titre=Nombre quotient | consigne=Donner le nombre qui, multiplié par le diviseur, donne le dividende. | bo=C4A1ed | chapitre=Nombres rationnels | theme=fractions | poids=2 | dnb=NC | source=aut
+// file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-nombre_quotient-1.tex
 C4A1ed-1 | 20 | Quel nombre multiplié par $8$ donne $13$ ? | $\dfrac{13}{8}$
 C4A1ed-2 | 20 | Quel nombre multiplié par $5$ donne $12$ ? | $\dfrac{12}{5}$
 C4A1ed-3 | 25 | Quel nombre multiplié par $7$ donne $3$ ? | $\dfrac{3}{7}$
