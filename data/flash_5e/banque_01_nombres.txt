@@ -46,31 +46,31 @@ C4A1ba-1 | 25 | $3{,}6+1{,}25$ ; $8{,}4-2{,}6$ ; $1{,}2\times3$ | $4{,}85$ ; $5{
 C4A1ba-2 | 25 | $2{,}35+4{,}7$ ; $6{,}2-3{,}45$ ; $0{,}8\times5$ | $7{,}05$ ; $2{,}75$ ; $4$
 C4A1ba-3 | 30 | $5{,}8+0{,}75$ ; $10-4{,}65$ ; $1{,}5\times4$ | $6{,}55$ ; $5{,}35$ ; $6$
 
-## C4A1bb | titre=Multiplier des décimaux | consigne=Calculer. | bo=C4A1bb | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+✅## C4A1bb | titre=Multiplier des décimaux | consigne=Calculer. | bo=C4A1bb | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
 // file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-multiplier_decimaux_c4a1bb-1.tex
 C4A1bb-1 | 20 | $2{,}4\times1{,}5$ | $3{,}6$
 C4A1bb-2 | 25 | $3{,}2\times0{,}4$ | $1{,}28$
 C4A1bb-3 | 30 | $0{,}75\times2{,}8$ | $2{,}1$
 
-## C4A1bc | titre=Addition à trou | consigne=Trouver le nombre manquant. | bo=C4A1bc | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
+✅## C4A1bc | titre=Addition à trou | consigne=Trouver le nombre manquant. | bo=C4A1bc | chapitre=Expressions numériques | theme=decimaux | poids=2 | dnb=NC | source=aut
 // file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-addition_a_trou-1.tex
 C4A1bc-1 | 20 | $27+\dots=64$ | $37$
 C4A1bc-2 | 20 | $3{,}8+\dots=10$ | $6{,}2$
 C4A1bc-3 | 25 | $\dots+14{,}5=20$ | $5{,}5$
 
-## C4A1ca | titre=Tables de multiplication | consigne=Répondre rapidement. | bo=C4A1ca | chapitre=Expressions numériques | theme=tables | poids=3 | dnb=NC | source=aut
+✅## C4A1ca | titre=Tables de multiplication | consigne=Répondre rapidement. | bo=C4A1ca | chapitre=Expressions numériques | theme=tables | poids=3 | dnb=NC | source=aut
 // file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-tables_de_multiplication_c4a1ca-1.tex
 C4A1ca-1 | 10 | $8\times7$ et $12\times6$ | $56$ et $72$
 C4A1ca-2 | 10 | $9\times8$ et $7\times12$ | $72$ et $84$
 C4A1ca-3 | 10 | $6\times11$ et $9\times7$ | $66$ et $63$
 
-## C4A1cb | titre=Fractions simples en écriture décimale | consigne=Écrire sous forme décimale. | bo=C4A1cb | chapitre=Nombres rationnels | theme=fractions | poids=3 | dnb=NC | source=aut
+✅## C4A1cb | titre=Fractions simples en écriture décimale | consigne=Écrire sous forme décimale. | bo=C4A1cb | chapitre=Nombres rationnels | theme=fractions | poids=3 | dnb=NC | source=aut
 // file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-fractions_ecriture_decimale-1.tex
 C4A1cb-1 | 20 | $\dfrac{7}{4}$ et $\dfrac{3}{2}$ | $1{,}75$ et $1{,}5$
 C4A1cb-2 | 20 | $\dfrac{1}{4}$ et $\dfrac{5}{2}$ | $0{,}25$ et $2{,}5$
 C4A1cb-3 | 25 | $\dfrac{3}{4}$ et $\dfrac{4}{2}$ | $0{,}75$ et $2$
 
-## C4A1cc | titre=Multiplication à trou et nombre quotient | consigne=Compléter avec le nombre quotient. | bo=C4A1cc | chapitre=Nombres rationnels | theme=fractions | poids=2 | dnb=NC | source=aut
+✅## C4A1cc | titre=Multiplication à trou et nombre quotient | consigne=Compléter avec le nombre quotient. | bo=C4A1cc | chapitre=Nombres rationnels | theme=fractions | poids=2 | dnb=NC | source=aut
 // file:///home/antoine/Projects/TeXMaths/data/latex/flash/flash-nombre_quotient_multiplication_a_trou-1.tex
 C4A1cc-1 | 20 | $5\times\dots=3$ | $\dfrac{3}{5}$
 C4A1cc-2 | 25 | $7\times\dots=4$ | $\dfrac{4}{7}$

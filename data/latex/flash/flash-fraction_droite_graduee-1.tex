@@ -1,4 +1,5 @@
 \documentclass[17pt]{flash}
+\usepackage{tkz-euclide}
 \startdatakeys
     \BO{2026}
     \cycle{4}
@@ -7,20 +8,62 @@
 \enddatakeys
 \begin{document}
 
-\flashvisibletimertrue
-\FlashSetItemSep{0pt}
-\FlashSetVtop{0em}
+\flashvisibletimerfalse
+\FlashSetItemSep{40pt}
+\FlashSetVtop{-1em}
 \FlashSetTitle{Lire une fraction sur une droite graduée}
 \FlashShowConsignes{%
     \item Déterminer l'abscisse du point décrit.
 }
 \flashlist{
-    \flashitem{45}{Entre $0$ et $1$, une droite est partagée en $4$
-        intervalles égaux. $M$ est sur la troisième graduation.}
-    \flashitem{45}{De $0$ à $2$, chaque unité est partagée en $3$
-        intervalles égaux. $A$ est à la quatrième graduation après $0$.}
-    \flashitem{45}{De $0$ à $1$, la droite est partagée en $10$
-        intervalles égaux. $B$ est à la septième graduation.}
+    \flashitem{45}{
+        \begin{tikzpicture}[scale=1]
+            \coordinate(O)at(0,0);
+            \node at([shift={(-90:0.4)}]O){0};
+            \coordinate(A)at(4,0);
+            \node at([shift={(-90:0.4)}]A){1};
+            \foreach\x in{1,2,3}{
+                \draw(\x,-0.1)--(\x,0.1);
+            }
+            \draw[line width=1pt](0,-0.15)--(0,0.15);
+            \draw[line width=1pt](4,-0.15)--(4,0.15);
+            \tkzDrawLine[add=0.1 and 0.25, -Stealth](O,A)
+            \coordinate(B)at(1,0);
+            \node at([shift={(90:0.4)}]B){\mathspoint{M}};
+        \end{tikzpicture}
+    }
+    \flashitem{45}{
+        \begin{tikzpicture}[scale=0.4]
+            \coordinate(O)at(0,0);
+            \node at([shift={(-90:0.8)}]O){\small 0};
+            \coordinate(A)at(10,0);
+            \node at([shift={(-90:0.8)}]A){\small 1};
+            \foreach\x in{1,...,10}{
+                \draw[line width=0.8pt](\x,-0.1)--(\x,0.1);
+            }
+            \draw[line width=1pt](0,-0.15)--(0,0.15);
+            \draw[line width=1pt](10,-0.15)--(10,0.15);
+            \tkzDrawLine[add=0.1 and 0.25, -Stealth](O,A)
+            \coordinate(B)at(7,0);
+            \node at([shift={(90:0.8)}]B){\small\mathspoint{M}};
+        \end{tikzpicture}
+    }
+    \flashitem{45}{
+        \begin{tikzpicture}[scale=0.6]
+            \coordinate(O)at(0,0);
+            \node at([shift={(-90:0.8)}]O){\small 0};
+            \coordinate(A)at(6,0);
+            \node at([shift={(-90:0.8)}]A){\small 2};
+            \foreach\x in{1,...,5}{
+                \draw[line width=0.8pt](\x,-0.1)--(\x,0.1);
+            }
+            \draw[line width=1pt](0,-0.15)--(0,0.15);
+            \draw[line width=1pt](4,-0.15)--(4,0.15);
+            \tkzDrawLine[add=0.1 and 0.25, -Stealth](O,A)
+            \coordinate(B)at(4,0);
+            \node at([shift={(90:0.8)}]B){\small\mathspoint{M}};
+        \end{tikzpicture}
+    }
 }
 
 \end{document}
