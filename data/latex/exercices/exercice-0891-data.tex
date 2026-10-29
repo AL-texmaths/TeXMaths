@@ -1,0 +1,54 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C1bc,C4C2bd}
+    \motsCles{probabilité}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Un jeu est constitué de quatre familles de cartes:
+banane ;
+prune ;
+citron ;
+fraise.
+
+Voici la répartition des cartes de la famille banane.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{3.5cm}|*{5}{>{\centering \arraybackslash}X|}}\hline
+Nombre de banane(s)	&1&2&3&4&5\\ \hline
+Nombre de cartes	&5&3&3&2&1\\ \hline
+\end{tabularx}
+\end{center}
+
+La répartition est la même pour les cartes avec les autres fruits.
+
+\medskip
+
+\begin{enumerate}
+\item Montrer que ce jeu a $56$ cartes.
+
+Joanne mélange toutes les cartes. Son frère Jack prend une carte au hasard. On admet que chaque carte a la même chance d'être choisie.
+
+Soit $P$ l'évènement: \og Jack obtient une carte de la famille prune \fg.
+\item Quelle est la probabilité de l'évènement $P$ ?
+\item
+	\begin{enumerate}
+		\item Quel est l'évènement contraire de $P$ ?
+		\item Quelle est la probabilité de l'évènement contraire de $P$ ?
+	\end{enumerate}
+\item Quelle est la probabilité d'obtenir une carte avec quatre fruits ?
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

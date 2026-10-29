@@ -1,0 +1,96 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{25GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Pythagore,Thalès,réciproque de Thalès,aire,proportionnalité}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\euro{\texteuro}%
+
+\medskip
+
+Un agriculteur souhaite cultiver un champ représenté par le triangle ABC ci-contre.
+
+Sur la figure qui n'est pas à l'échelle, on a les informations suivantes :
+
+\begin{minipage}{0.48\linewidth}
+\begin{itemize}[label=$\bullet~$]
+\item le triangle ABC est rectangle en B ;
+\item les points C, E et A sont alignés ;
+\item les points C, D et B sont alignés ;
+\item AB $= 600$ m ; BC $= 450$ m ; CD $= 270$ m.
+\end{itemize}
+
+\emph{Les parties {\rm A} et {\rm B} sont indépendantes}
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(9,5.6)
+\pspolygon(0.4,1)(5.9,1)(5.9,5.3)%ABC
+\psline(5.9,2.5)(2.3,2.5)%DE
+\psframe(5.9,2.5)(5.7,2.7)\psframe(5.9,1)(5.7,1.2)
+\uput[l](0.4,1){A}\uput[r](5.9,1){B}\uput[u](5.9,5.3){C}\uput[dr](5.9,2.5){D}\uput[ul](2.3,2.5){E}
+\psline[linewidth=0.8pt]{<->}(0.4,0.8)(5.9,0.8)\uput[d](3.15,0.8){600 m}
+\psline[linewidth=0.8pt]{<->}(6.3,2.5)(6.3,5.3)\rput{90}(6.5,3.9){270 m}
+\psline[linewidth=0.8pt]{<->}(6.7,1)(6.7,5.3)\rput{90}(6.9,3.15){450 m}
+\end{pspicture}
+\end{minipage}
+
+\textbf{Partie A : étude géométrique du terrain}
+
+\medskip
+
+\begin{enumerate}
+\item Montrer que le segment [AC] mesure $750$ mètres.
+\item 
+	\begin{enumerate}
+		\item Montrer que les droites (ED) et (AB) sont parallèles.
+		\item Montrer que le segment [DE] mesure 360 mètres.
+	\end{enumerate}
+\item Montrer que l'aire du triangle CDE est \np{48600}~m$^2$.
+\end{enumerate}
+
+\medskip
+
+\textbf{Partie B : étude du prix du mélange de graines}
+
+\medskip
+
+L'agriculteur souhaite semer un mélange de graines (blé, seigle et pois) en respectant les indications suivantes.
+
+\medskip
+
+\begin{tabularx}{\linewidth}{Xm{0.5cm}X}
+Indication 1 : prix au kilo pour chaque type de graine&&Indication 2 : répartition du type de graines pour une surface de \np{10000}~m$^2$\\
+\end{tabularx}
+\begin{tabularx}{\linewidth}{|X|m{0.5cm}|X|}\cline{1-1}\cline{3-3}
+$\bullet~$ Blé: 1,40 \euro/kg		&	&$\bullet~$ Blé : 80 kg\\ 
+$\bullet~$ Seigle: 1,30 \euro/kg	&	&$\bullet~$ Seigle : 60 kg\\
+$\bullet~$ Pois: 2,10 \euro/kg		&	&$\bullet~$ Pois: 50 kg\\ \cline{1-1}\cline{3-3}
+\end{tabularx}
+
+\medskip
+
+\begin{enumerate}
+\item Un vendeur lui propose des sacs contenant un mélange de blé, seigle, et pois selon le ratio 16 : 12 : 8. Montrer que la composition de ce sac ne respecte pas l'indication 2.
+\item L'agriculteur souhaite semer le mélange de graines sur la partie du champ représentée par le triangle CDE dont l'aire mesure \np{48600}~m$^2$. Il a calculé qu'il doit prévoir $388,80$~kg de blé pour respecter la répartition indiquée dans l'énoncé.
+
+Justifier le calcul de l'agriculteur.
+\item L'agriculteur dispose d'un budget de \np{1500}~\euro{} pour semer le mélange de graines sur la totalité des \np{48600} m$^2$ de terrain.
+
+Il a calculé qu'il doit acheter 388,80 kg de blé, 291,6 kg de seigle et 243 kg de pois pour respecter la répartition indiquée dans l'énoncé.
+
+L'agriculteur dispose-t-il d'un budget suffisant?
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

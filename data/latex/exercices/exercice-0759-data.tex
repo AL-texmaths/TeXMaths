@@ -1,0 +1,81 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage[np]{numprint}%
+\usepackage{graphicx}%
+\startdatakeys
+    \source{24GENMATMEAG2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{aire,volume,débit,durée}
+\enddatakeys
+\begin{document}%
+\graphicspath{{../brevet/2024/}}
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+\begin{minipage}{0.48\linewidth}
+Pour obtenir l'octogone  EFGHIJKL ci-contre, on retire quatre triangles rectangles isocèles identiques des coins d'un carré ABCD de côté 5~m.
+
+On donne :
+
+AD $= 5$ m ; EF $= 2,2$ m.
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+\psset{unit=0.8cm,arrowsize=2pt 3}
+\begin{pspicture}(8.6,8.6)
+%\psgrid
+\def\barc{\psline(0,-0.1)(0,0.1)}
+\def\bara{\psline(-0.05,-0.1)(-0.05,0.1)\psline(0.05,-0.1)(0.05,0.1)}
+\def\barb{\psline(-0.05,-0.1)(-0.05,0.1)\psline(0,-0.1)(0,0.1)\psline(0.05,-0.1)(0.05,0.1)}
+\psframe(1.4,0.5)(8.4,7.5)%DCBA
+\pspolygon[linewidth=1.25pt](3.4,0.5)(6.4,0.5)(8.4,2.5)(8.4,5.5)(6.4,7.5)(3.4,7.5)(1.4,5.5)(1.4,2.5)
+\rput(5,7.5){\bara}\rput(5,0.5){\bara}\rput{90}(8.4,4){\bara}\rput{90}(1.4,4){\bara}
+\rput{45}(2.4,6.5){\barb}\rput{-45}(7.4,6.5){\barb}\rput{45}(7.4,1.5){\barb}\rput{-45}(2.4,1.5){\barb}
+\rput(2.4,7.5){\barc}\rput(7.4,7.5){\barc}
+\rput(2.4,0.5){\barc}\rput(7.4,0.5){\barc}
+\rput{90}(1.4,6.5){\barc}\rput{90}(8.4,6.5){\barc}
+\rput{90}(1.4,1.5){\barc}\rput{90}(8.4,1.5){\barc}
+\psframe(1.4,0.5)(1.65,0.75)\psframe(1.4,7.5)(1.65,7.25)\psframe(8.4,7.5)(8.15,7.25)\psframe(8.4,0.5)(8.15,0.75)
+\uput[ul](0.4,7.5){A} \uput[ur](8.4,7.5){B} \uput[dr](8.4,0.5){C} \uput[dl](1.4,0.5){D}
+\uput[u](3.4,7.5){E} \uput[u](6.4,7.5){F} \uput[r](8.4,5.5){G} \uput[r](8.4,2.5){H}
+\uput[d](6.4,0.5){I} \uput[d](3.4,0.5){J} \uput[l](1.4,2.5){K} \uput[l](1.4,5.5){L}
+\psline[linewidth=0.6pt]{<->}(3.4,8)(6.4,8)\uput[u](5,8){2,2 m}
+\psline[linewidth=0.6pt]{<->}(0.8,0.5)(0.8,7.5)\rput{90}(0.5,4){5 m}
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item 
+	\begin{enumerate}
+		\item Montrer que la longueur AE est égale à 1,4 m.
+		\item Montrer que l'aire du triangle AEL est égale à 0,98 m$^2$.
+		\item En déduire que l'aire de l'octogone grisé est égale à $21,08$ m$^2$.
+	\end{enumerate}
+\begin{minipage}{0.62\linewidth}
+\item  Cet octogone a les mêmes dimensions que la surface d'une piscine de hauteur 1,50 m.
+
+On souhaite remplir cette piscine aux trois quarts de sa hauteur.
+
+\end{minipage}\hfill
+\begin{minipage}{0.25\linewidth}
+\includegraphics[width=3.5cm]{piscine.eps}
+\end{minipage}
+
+	\begin{enumerate}
+		\item  Montrer que le volume d'eau nécessaire est environ égal à $24~\text{m}^3$.
+		\item  Sachant que le débit du robinet utilisé pour remplir la piscine est de $12$~ L/min, calculer la
+durée de remplissage de ces $24~\text{m}^3$ d'eau.
+
+Donner le résultat en heures et minutes.
+
+\emph{Rappel}: 1 m$^3 = \np{1000}$~L.
+	\end{enumerate}
+\end{enumerate}
+\showthesource
+\end{document}

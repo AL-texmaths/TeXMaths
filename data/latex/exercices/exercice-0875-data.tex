@@ -1,0 +1,69 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{scratch3}%
+\startdatakeys
+    \source{21GENMATMEAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2ba,C4A2ed}
+    \motsCles{programme de calcul,Scratch,expression littérale,factorisation,équation produit}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\parbox{0.45\linewidth}{Voici un programme de calcul:}
+\hfill
+\parbox{0.45\linewidth}{\begin{tabular}{|l|}\hline
+Choisir un nombre.\\
+Prendre le carré du nombre de départ.\\
+Ajouter le triple du nombre de départ.\\
+Soustraire 10 au résultat.\\ \hline
+\end{tabular}}
+
+\medskip
+
+\begin{enumerate}
+\item Vérifier que si on choisit 4 comme nombre de départ, on obtient 18.
+\item Appliquer ce programme de calcul au nombre $- 3$.
+\item Vous trouverez ci-dessous un script, écrit avec scratch.
+
+\begin{scratch}[num blocks]
+\blockinit{Quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Choisis un nombre } et attendre}
+\blockpen{mettre \selectmenu{x} à \ovalsensing{Réponse}}
+\blockpen{mettre \selectmenu{y} à \ovaloperator{\ovalnum{x}*\ovalnum{x}}}
+\blockpen{mettre \selectmenu{z} à \ovalnum{y} + \ovaloperator{\ovalnum{}*\ovalnum{}}}
+\blockpen{mettre \selectmenu{Résultat} à \ovaloperator{\ovalnum{} - \ovalnum{}}}
+\blocklook{dire \ovaloperator{regroupe \ovalnum{Le nombre final}  est \ovaloperator{Résultat} pendant \ovalnum{2} secondes}}
+\end{scratch}
+
+\medskip
+
+Compléter sur l'ANNEXE  les lignes 5 et 6 pour que ce script corresponde au programme de calcul.
+
+\item On veut déterminer le nombre à choisir au départ pour obtenir zéro comme résultat.
+	\begin{enumerate}
+		\item On appelle $x$ le nombre de départ. Exprimer en fonction de $x$ le résultat final.
+		\item Vérifier que ce résultat peut aussi s'écrire sous la forme $(x + 5)(x - 2)$.
+		\item Quel(s) nombre(s) doit-on choisir au départ pour obtenir le nombre $0$ à l'arrivée ?
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+\vspace{2cm}
+
+\begin{scratch}[num blocks]
+\blockinit{Quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Choisis un nombre } et attendre}
+\blockpen{mettre \selectmenu{x} à \ovalsensing{Réponse}}
+\blockpen{mettre \selectmenu{y} à \ovaloperator{\ovalnum{x}*\ovalnum{x}}}
+\blockpen{mettre \selectmenu{z} à \ovalnum{y} + \ovaloperator{\ovalnum{}*\ovalnum{}}}
+\blockpen{mettre \selectmenu{Résultat} à \ovaloperator{\ovalnum{} - \ovalnum{}}}
+\blocklook{dire \ovaloperator{regroupe \ovalnum{Le nombre final} est \ovaloperator{Résultat} pendant \ovalnum{2} secondes}}
+\end{scratch}
+
+\showthesource
+\end{document}

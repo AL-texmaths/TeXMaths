@@ -1,0 +1,59 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\startdatakeys
+    \source{24GENMATMEAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{programme de calcul,Scratch,expression littérale,développement,factorisation}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\begin{tabularx}{\linewidth}{|X|l|}\hline
+Programme A &Programme B\\ \hline
+\begin{itemize}
+\item Choisir un nombre.
+\item Prendre le carré du nombre choisi.
+\item Multiplier le résultat par 2.
+\item Ajouter le double du nombre
+de départ.
+\item Soustraire 4 au résultat.
+\end{itemize}&\begin{scratch}[num blocks,scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockvariable{demander \ovalnum{Choisir un nombre} et attendre}
+\blockvariable{mettre \selectmenu{Nombre choisi} à \ovaloperator{réponse}}
+\blockvariable{mettre \selectmenu{Résultat 1} à \ovaloperator{\ovalvariable{nombre choisi} + \ovalnum{2}}}
+\blockvariable{mettre \selectmenu{Résultat 2} à \ovaloperator{\ovalvariable{nombre choisi} -- \ovalnum{1}}}
+\blocklook{Dire \ovaloperator{regrouper \ovalnum{Le résultat est} et \ovaloperator{\ovalcontrol{Résultat 1} * \ovalcontrol{Résultat 2}}}}
+\end{scratch}
+\\ \hline
+\end{tabularx}
+
+\medskip
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Vérifier que, si on choisit 5 comme nombre de départ, le résultat du programme A est 56.
+		\item Quel résultat obtient-on avec le programme B si on choisit $-9$ comme nombre de départ ?
+	\end{enumerate}
+\item On choisit un nombre quelconque $x$ comme nombre de départ.
+	\begin{enumerate}
+		\item Parmi les trois propositions ci-dessous, recopier l’expression qui donne le résultat obtenu par le programme B ?
+		
+\[E_1 = (x + 2) - 1\qquad E_2 = (x + 2) \times (x - 1)\qquad  E_3 = x + 2 \times x - 1\]
+ 
+		\item Exprimer en fonction de $x$ le résultat obtenu avec le programme A.
+	\end{enumerate}
+\item Démontrer que, quel que soit le nombre choisi au départ, le résultat du programme A est toujours le double du résultat du programme B.
+\end{enumerate}
+
+\medskip
+
+\bigskip
+\showthesource
+\end{document}

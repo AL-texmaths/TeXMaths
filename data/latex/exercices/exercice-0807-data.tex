@@ -1,0 +1,59 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{25GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Thalès,réciproque de Pythagore,trigonométrie,angle}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+\medskip
+
+\begin{minipage}{0.45\linewidth}
+\begin{itemize}[label=$\bullet~$]
+\item ABC un triangle rectangle en B ;
+\item les points B, E et C sont alignés ainsi que
+les points A, D, F et C ;
+\item les droites (BD) et (EF) sont parallèles :
+\item AB = 10 cm, BC = 7,5 cm, BE = 3 cm,
+
+BD = 6 cm et CF = 2,7 cm.
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+\psset{unit=0.9cm}
+\begin{pspicture}(-0.5,-0.5)(8.5,6.5)
+%\psgrid
+\pspolygon(0,0)(7.8,0)(0,5.8)
+\psline(2.78,3.75)
+\psline(0,2.4)(1.63,4.6)
+\uput[d](7.8,0){A}\uput[dl](0,0){B}\uput[ul](0,5.8){C}\uput[ur](2.78,3.75){D}
+\uput[l](0,2.4){E}\uput[ur](1.63,4.6){F}
+\psframe(0.3,0.3)
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Montrer que CE $= 4,5$ cm.
+		\item Démontrer que la longueur EF est égale à $3,6$ cm.
+	\end{enumerate}
+\item Démontrer que le triangle CEF est rectangle en F.
+\item
+	\begin{enumerate}
+		\item Calculer la mesure de l'angle $\widehat{\text{BCA}}$. Arrondir au degré.
+		\item Les triangles ABC et CEF sont-ils semblables ?
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

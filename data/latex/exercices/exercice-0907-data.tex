@@ -1,0 +1,110 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{scratch3}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage{eurosym}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{22GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2ae,C4D2ba,C4E1ag}
+    \motsCles{pourcentage,proportionnalité,Scratch,programme,variable}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Une boutique en ligne vend des photos et affiche les tarifs suivants :
+
+\begin{tabularx}{\linewidth}{|m{6cm}|>{\centering \arraybackslash}X|}\hline
+Nombre de photos commandées & Prix à payer\\ \hline
+De 1 à 100 photos & 0,17 \euro{} par photo\\
+Plus de 100 photos & 17~\euro{} pour l’ensemble des 100 premières photos
+et 0,13~\euro{} par photo supplémentaire\\ \hline
+\end{tabularx}
+
+
+\begin{enumerate}
+	\item \begin{enumerate}
+		\item Quel est le prix à payer pour 35 photos ?
+		\item Vérifier que le prix à payer pour 150 photos est 23,50 \euro{}.
+		\item On dispose d’un budget de 10 \euro{}. Combien de photos peut-on commander au maximum ?
+	\end{enumerate}
+\end{enumerate}
+
+On a commencé à construire un programme qui doit permettre de calculer le prix à payer en fonction du nombre de photos commandées :
+
+\smallskip
+
+\begin{tabularx}{\linewidth}{|X|p{5cm}|}\hline
+	\begin{scratch}[num blocks,scale=0.9]
+		\blockinit{quand \greenflag est cliqué}
+		\blocksensing{demander \ovalnum{Nombre de photos à commander ?} et attendre}
+		\blockvariable{mettre \selectmenu{Nb photos} à \ovalsensing{réponse}}
+		\blockifelse{si \booloperator{\ovalvariable{Nb photos} < \ovalnum{}}}
+		{\blockvariable{mettre \selectmenu{Prix} à \ovaloperator{\ovalvariable{Nb photos} * \ovalnum{}}}}
+		{\blockvariable{mettre \selectmenu{Nb photos supplémentaires} à \ovaloperator{\ovalvariable{Nb photos} - \ovalnum{100}}}
+		\blockvariable{mettre \selectmenu{Prix} à \ovaloperator{\ovalnum{} + \ovalvariable{Nb photos supplémentaires} * \ovalnum{0.13}}}}
+		\blocklook{dire \ovaloperator{regrouper \ovalnum{Prix à payer en euros} et \selectmenu{Prix}}}
+	\end{scratch} &\textbf{Informations :}
+
+Le programme comporte trois variables :
+
+
+\bigskip
+
+$\bullet~~$\ovalvariable{Nb photos}
+
+Nombre de photos commandées
+
+\bigskip
+
+$\bullet~~$\ovalvariable{Nb photos supplémentaires}
+
+Nombre de photos commandées au-delà des 100 premières photos commandées.
+
+\bigskip
+
+$\bullet~~$\ovalvariable{Prix}\\ \hline
+	\end{tabularx}
+
+\smallskip
+
+\begin{enumerate}[resume]
+	\item \emph{Dans cette question, aucune justification n'est attendue.}
+
+Par quelles valeurs peut-on compléter les instructions des lignes 4, 5 et 8 pour que le programme permette de calculer le prix à payer en fonction du nombre de photos commandées ?
+
+	\textbf{\emph{Sur la copie, écrire le numéro de chaque ligne à compléter et la valeur correspondante.}}
+
+	\item En période des soldes, le site offre une réduction de 30\,\% sur le prix à payer, pour toute commande supérieure à 20 \euro{}.
+	\begin{enumerate}
+		\item Calculer le prix a payer pour $150$ photos en période des soldes.
+
+		\item \emph{Dans cette question, aucune justification n’est attendue.}
+
+\begin{minipage}[t]{8 cm}
+On modifie le programme pour qu’il donne le prix à payer en période des soldes en insérant le bloc ci-contre entre les lignes 8 et  9.
+
+Dans la liste suivante, indiquer une proposition qui convient pour compléter la case vide :
+		\end{minipage} \hfill
+		\begin{scratch}
+			\blockif{si \booloperator{\ovalvariable{Prix} > \ovalnum{20} } alors}
+			{\blockvariable{mettre \selectmenu{Prix} à \ovalnum{}}}
+		\end{scratch}
+\begin{tabular}{l l l l}\hline
+			Proposition 1 :&\ovaloperator{\ovalvariable{Prix} - \ovalnum{30}}&
+			Proposition 2 :&\ovaloperator{\ovalvariable{Prix} - \ovaloperator{\ovalvariable{Prix} * \ovalnum{0.3}}}\\
+			Proposition 3 :&\ovaloperator{\ovalvariable{Prix} * \ovaloperator{\ovalnum{30} / \ovalnum{100}}}&
+			Proposition 4 :&\ovaloperator{\ovalvariable{Prix} * \ovalnum{0.7}}\\
+\end{tabular}
+	\end{enumerate}
+\end{enumerate}
+
+\medskip
+
+\showthesource
+\end{document}

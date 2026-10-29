@@ -1,0 +1,70 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{scratch3}%
+\usepackage{array}%
+\usepackage{eurosym}%
+\startdatakeys
+    \source{22GENMATMEAG2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D3bf,C4E1ag}
+    \motsCles{fonction affine,image,antécédent,Scratch,programme}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Un club de sport propose une nouvelle formule annuelle pour ses adhérents :
+
+\og Achat d'une carte d'adhésion à 32~\euro{} donnant droit à un tarif de 4,50~\euro{} par séance \fg.
+
+\medskip
+
+\begin{enumerate}
+\item Déterminer le coût à payer pour dix séances dans l'année avec cette formule.
+\item Noé a un budget annuel de $95$~\euro{} pour se rendre dans cette salle de sport.
+
+Combien de séances pourrait-il effectuer ?
+\item On note $p$ la fonction qui, au nombre $x$ de séances pratiquées, associe le prix à payer pour $x$ séances pratiquées dans l'année.
+	\begin{enumerate}
+		\item Donner l'expression de $p(x)$.
+		\item Vérifier que $p(27) = 153,5$.
+		\item Interpréter par une phrase l'égalité précédente.
+\end{enumerate}
+\item On s'intéresse au programme qui permet de donner le prix à payer en fonction du nombre de séances pratiquées dans cette salle de sport.
+
+\begin{center}
+\begin{scratch}[num blocks]
+\blockinit{Quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Choisir un nombre de séances} et attendre}
+\blockvariable{mettre \ovalvariable{nombre de séances} à \ovaloperator{\ovalvariable{réponse}}}
+\blockvariable{mettre \ovalvariable{résultat} à \ovaloperator{\ovalvariable{nombre de séances}*\ovalnum{\ldots \ldots}}}
+\blockvariable{mettre \ovalvariable{résultat} à \ovaloperator{\ovalnum{\ldots \ldots}+\ovalvariable{resultat}}}
+\blocklook{dire \ovaloperator{regrouper \ovalnum{le prix à payer est} et \ovalvariable{résultat}} pendant \ovalnum{2} secondes}
+\end{scratch}
+\end{center}
+
+Compléter sur l'ANNEXE  les lignes 4 et 5 pour que ce script corresponde au programme souhaité.
+\end{enumerate}
+
+\bigskip
+
+
+\textbf{Annexe de l'exercice 3}
+
+\medskip
+
+\begin{scratch}[num blocks]
+\blockinit{Quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Choisir un nombre de séances} et attendre}
+\blockvariable{mettre \ovalvariable{nombre de séances} à \ovaloperator{\ovalvariable{réponse}}}
+\blockvariable{mettre \ovalvariable{résultat} à \ovaloperator{\ovalvariable{nombre de séances}*\ovalnum{\ldots \ldots}}}
+\blockvariable{mettre \ovalvariable{résultat} à \ovaloperator{\ovalnum{\ldots \ldots}+\ovalvariable{resultat}}}
+\blocklook{dire \ovaloperator{regrouper \ovalnum{le prix à payer est} et \ovalvariable{résultat}} pendant \ovalnum{2} secondes}
+\end{scratch}
+
+\bigskip
+
+\showthesource
+\end{document}

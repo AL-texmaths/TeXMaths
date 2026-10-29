@@ -1,0 +1,91 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{enumitem}%
+\usepackage{textcomp}%
+\usepackage{amsmath}%
+\startdatakeys
+    \source{22GENMATMEAG2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2eb,C4C2bc,C4A2eb}
+    \motsCles{probabilité,réciproque de Pythagore,fraction,développement,angle}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Voici cinq affirmations. Pour chacune d'entre elles, dire si elle est vraie ou fausse. Chaque réponse doit être justifiée.
+
+\begin{minipage}{0.6\linewidth}
+\begin{enumerate}
+\item Lors d'une fête foraine, un stand propose de faire tourner une roue pour gagner un lot (porte-clés, ballon ou peluche). Les 8 secteurs angulaires sont de même mesure.
+
+\textbf{Affirmation 1 :} La probabilité de l'évènement \og gagner une peluche \fg{} est égale à $\dfrac12$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.36\linewidth}
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(-2.8,-2.6)(2.8,3.3)
+\pscircle(0,0){2.6}
+\multido{\n=0+45}{8}{\psline(2.6;\n)}
+\rput(1.6;22.5){Porte-clés}
+\rput(1.6;67.5){Peluche}
+\rput(1.9;112.5){Porte-clés}
+\rput(1.8;157.5){Ballon}
+\rput(1.8;202.5){Peluche}
+\rput(1.9;247.5){Porte-clés}
+
+\rput(1.6;-22.5){Peluche}
+\rput(1.6;-67.5){Peluche}
+\pspolygon*(-0.15,3.3)(-0.15,2.9)(-0.2,2.9)(0,2.7)(0.2,2.9)(0.15,2.9)(0.15,3.3)
+\end{pspicture}
+\end{center}
+\end{minipage}
+
+\begin{enumerate}[start=2]
+\item \textbf{Affirmation 2 :} Le triangle ABC ci-dessous est un triangle rectangle.
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(5.8,4.3)
+\pspolygon(0.6,0.3)(5.1,0.3)(0.6,3.8)%%ACB
+\uput[dl](0.6,0.3){A} \uput[ul](0.6,3.8){B} \uput[dr](5.1,0.3){C}
+\uput[d](2.85,0.3){6} \uput[l](0.6,2.05){4,5} \uput[ur](2.85,2.05){7,5}
+\end{pspicture}
+\end{center}
+
+
+\item Pour son anniversaire, Chloé invite deux de ses amis, Hakim et Manon.
+
+Quand arrive l'heure du gâteau, les trois enfants indiquent:
+
+$\bullet~~$Hakim : \og Je souhaite en manger les $\dfrac37$ \fg{} ;
+
+$\bullet~~$Manon: \og Cela me fait plaisir d'en manger les $\dfrac25$ \fg{} ;
+
+$\bullet~~$Chloé: \og $\dfrac17$ du gâteau me convient parfaitement \fg.
+
+\textbf{Affirmation 3 :}  Les trois amis ont mangé la totalité du gâteau.
+
+\item \textbf{Affirmation 4 :}
+
+\[(2x + 3)(5x - 4) - 5(3x - 2) = 10x^2 - 8x - 2\]
+
+\item Les angles d'un triangle DEF sont tels que :
+
+$\bullet~~$$\widehat{\text{DFE}} = 30\degres$
+
+$\bullet~~$La mesure de l'angle $\widehat{\text{DEF}}$ est le quadruple de celle de l'angle $\widehat{\text{FDE}}$.
+
+\textbf{Affirmation 5 :} Le triangle DEF est un triangle isocèle.
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

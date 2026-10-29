@@ -1,0 +1,112 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{moyenne,pourcentage,Pythagore,trigonométrie,angle,vitesse,durée}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+\emph{Les parties {\rm A} et {\rm B} de cet exercice sont indépendantes.}
+
+\medskip
+
+Le tableau ci-dessous donne le nombre total de médailles obtenues par 3 nations européennes, l'Italie, la France et la Norvège, lors de six éditions des Jeux Olympiques d'hiver.
+
+\begin{center}
+\begin{tblr}{colspec={|X[c]|*{6}{X[c]|}},row{1}={font=\bfseries},column{1}={font=\bfseries}}
+	\hline
+	Médailles & 2002 & 2006 & 2010 & 2014 & 2018 & 2022 \\ \hline
+	Italie    & 13   & 11   & 5    & 8    & 10   & 17   \\ \hline
+	France    & 11   & 9    & 11   & 15   & 15   & 14   \\ \hline
+	Norvège   & 25   & 19   & 23   & 27   & 39   & 37   \\ \hline
+\end{tblr}
+\end{center}
+
+\subsection*{Partie A}
+
+\begin{enumerate}
+	\item Donner le nombre de médailles obtenues par la France en 2010.
+	\item Calculer la moyenne des médailles obtenues par la France lors de ces 6 jeux olympiques.
+	\item Lors des jeux olympiques de 2002, la Norvège a terminé à la première place des nations. Elle avait obtenu au total 25 médailles dont 13 médailles en or.
+
+	Calculer le pourcentage de médailles d'or gagnées par la Norvège en 2002 par rapport au nombre total des médailles qu'elle a obtenues cette année-là.
+\end{enumerate}
+
+\subsection*{Partie B}
+
+Pour accéder au point de départ d'une épreuve, les skieurs utilisent un téléphérique dont le schéma ci-dessous représente le déplacement entre les points A et B.
+
+%Début Tikz
+\begin{center}
+\begin{tikzpicture}[line cap=round, line join=round]
+	\coordinate (A) at (0,0);
+	\coordinate (H) at (8,0);
+	\coordinate (B) at (8,4.3);
+	\draw[line width=1.2pt,red,fill=red!30] (H) rectangle ++(-0.4,0.4);
+	\draw[line width=1.2pt] (A) -- (H) -- (B) -- cycle;
+	\node[below left] at (A) {A};
+	\node[below right] at (H) {H};
+	\node[above] at (B) {B};
+	\draw[<->, line width=0.8pt, > = stealth,shift={(118.26:0.5)}] (A) -- (B) node[pos=0.5,above,sloped]{\np{1600}~m};
+\end{tikzpicture}
+\end{center}
+%Fin Tikz
+
+La longueur AB est égale à \np{1600}~m.
+
+L'altitude du point A est \np{1814}~m et celle du point B est \np{2359}~m.
+
+Les points A et H sont à la même altitude.
+
+\begin{enumerate}
+	\item Montrer que la différence d'altitude entre les points H et B, c'est-à-dire la longueur HB, est égale à 545~m.
+	\item Pour respecter les normes de sécurité du téléphérique, la mesure de l'angle $\widehat{\mathrm{BAH}}$ doit être inférieure à 30\degres.
+
+	Cette norme est-elle respectée ?\\
+	\textbf{Détailler la réponse en précisant la démarche.}
+	\item La vitesse du téléphérique est égale à 5~m/s.
+
+	Quelle est la durée du trajet entre A et B ? Donner le résultat en minutes et secondes.
+\end{enumerate}
+
+\needspace{10\baselineskip}
+\medskip
+\showthesource
+\end{document}

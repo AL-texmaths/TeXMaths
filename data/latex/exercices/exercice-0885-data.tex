@@ -1,0 +1,151 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{scratch3}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2ba,C4B2da}
+    \motsCles{Scratch,programme,construction,échelle}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\emph{Dans tout cet exercice, aucune justification n'est demandée}
+
+\smallskip
+
+On donne le programme suivant :
+
+\begin{center}
+\begin{tabular}{l l}
+Script principal&le bloc Carré\\
+\begin{scratch}
+\blockinit{quand \greenflag est cliqué}
+\blocklook{effacer tout}
+\blockmove{aller à x: \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à \ovaloperator{\selectmenu{90}}}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmoreblocks{Carré}
+\blockmove{avancer de \ovalnum{50}}
+}
+\end{scratch}&\begin{scratch}
+\initmoreblocks{définir \namemoreblocks{Carré}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmove{avancer de \ovalnum{50}}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}\\
+\end{tabular}
+\end{center}
+
+On rappelle que l'instruction \begin{scratch}\blockmove{s'orienter à \ovalnum{90}}\end{scratch}
+signifie que l'on s'oriente vers la droite.
+
+\begin{enumerate}
+\item On lance le programme.
+
+Construire la figure obtenue en prenant 1 cm pour 25 unités de longueur.
+
+\smallskip
+
+On modifie le Script principal et on obtient deux scripts ci-dessous:
+
+\begin{center}
+\begin{tabular}{l l}
+Script principal A&Script principal B\\
+\begin{scratch}
+\blockinit{quand \greenflag est cliqué}
+\blocklook{effacer tout}
+\blockmove{aller à x: \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à \ovaloperator{\selectmenu{90}}}
+\blockrepeat{répéter \ovalnum{3} fois}
+{\blockmoreblocks{Carré}
+\blockmove{avancer de \ovalnum{25}}
+}
+\end{scratch}&\begin{scratch}
+\blockinit{quand \greenflag est cliqué}
+\blocklook{effacer tout}
+\blockmove{aller à x: \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à \ovaloperator{\selectmenu{90}}}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmoreblocks{Carré}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\end{scratch}\\
+\end{tabular}
+\end{center}
+
+\item Parmi les trois figures ci-dessous, associer sur votre copie chacun des deux scripts principaux A et B à la figure qu'il permet de réaliser:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{*{3}{>{\centering \arraybackslash}X}}
+Figure 1 &Figure 2 &Figure 3\\
+\psset{unit=1.25cm}
+\begin{pspicture}(0,0)(2,2)
+\psgrid[gridlabels=0pt,subgriddiv=1,gridwidth=1.2pt]
+\end{pspicture}&\psset{xunit=0.6cm,yunit=1.2cm}
+\begin{pspicture}(4,1)
+\psgrid[gridlabels=0pt,subgriddiv=1,gridwidth=1.2pt]
+\end{pspicture}&\psset{unit=1.25cm}
+\begin{pspicture}(3,2)
+\psgrid[gridlabels=0pt,subgriddiv=1,gridwidth=1.2pt]
+\end{pspicture}\\
+\end{tabularx}
+
+\end{center}
+
+\bigskip
+
+On souhaite réaliser la figure suivante :
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(-1.5,-1.5)(1.5,1.5)
+\psframe(-1,-1)(1,1)\psline(-1,0)(1,0)\psline(0,-1)(0,1)
+\rput{45}(0,0){\psframe(-1,-1)(1,1)\psline(-1,0)(1,0)\psline(0,-1)(0,1)}
+\end{pspicture}
+\end{center}
+
+\smallskip
+
+Le point de départ se situe au centre de la figure.
+\item Compléter le nouveau script principal ci-dessous en recopiant sur la copie uniquement les lignes 5 et 7. Pour mémoire, l'énoncé rappelle ci-dessous à droite le descriptif du bloc Carré.
+
+\begin{center}
+\begin{tabular}{r l l}
+Numéros de ligne \psset{arrowsize=2pt 3}\psline{->}(0,0)(0.55,-0.8)&Script principal&le bloc Carré\\
+&\begin{scratch}[num blocks]
+\blockinit{quand \greenflag est cliqué}
+\blocklook{effacer tout}
+\blockmove{aller à x: \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à \ovaloperator{\selectmenu{90}}}
+\blockrepeat{répéter \ovalnum{\ldots\ldots} fois}
+{\blockmoreblocks{Carré}
+\blockmove{\ldots\ldots\ldots}
+}
+\end{scratch}&\begin{scratch}
+\initmoreblocks{définir \namemoreblocks{Carré}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmove{avancer de \ovalnum{50}}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}\\
+\end{tabular}
+\end{center}
+
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

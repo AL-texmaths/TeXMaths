@@ -1,0 +1,77 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{22GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2ae,C4D3ba,C4C2ag}
+    \motsCles{pourcentage,pourcentage d'augmentation,lecture graphique,tableur}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Le diagramme ci-dessous représente la production d'énergie solaire photovoltaïque en TWh (Térawattheure) des cinq plus gros producteurs dans l'Union européenne qui compte vingt-huit pays en 2019.
+
+\begin{center}
+\psset{xunit=1.15cm,yunit=0.167cm,arrowsize=2pt 3}
+\begin{pspicture*}(-1,-5)(11,60)
+\multido{\n=0+5}{11}{\psline[linewidth=0.2pt](0,\n)(11,\n)}
+\psframe[fillstyle=solid,fillcolor=lightgray](1,0)(2,47.5)
+\psframe[fillstyle=solid,fillcolor=lightgray](3,0)(4,23.7)
+\psframe[fillstyle=solid,fillcolor=lightgray](5,0)(6,12.75)
+\psframe[fillstyle=solid,fillcolor=lightgray](7,0)(8,11.6)
+\psframe[fillstyle=solid,fillcolor=lightgray](9,0)(10,9.5)
+\uput[r](0,55){Production (en TWh)}
+\rput(5.5,59){\textbf{Production photovoltaïque des cinq plus gros producteurs}}
+\rput(5.5,56){ \textbf{dans l'Union européenne en 2019}}
+\uput[d](1.5,0){Pays A}\uput[d](3.5,0){Pays B}
+\uput[d](5.5,0){Pays C} \uput[d](7.5,0){Pays D}  \uput[d](9.5,0){Pays E}
+\psline[linewidth=1.25pt]{->}(11,0)(0,0)(0,60)
+\multido{\n=0+5}{11}{\uput[l](0,\n){\n}}
+\end{pspicture*}
+\end{center}
+
+\begin{enumerate}
+\item Avec la précision permise par le graphique, donner approximativement la production photovoltaïque enTWh du pays E.
+\item La production photovoltaïque totale des $28$ pays de l'Union européenne en 2019 est de $131,8$~TWh.
+	\begin{enumerate}
+		\item Montrer que les pays A et B totalisent à eux seuls environ 54\,\% de la production européenne.
+		\item La production photovoltaïque totale des $28$ pays de l'Union européenne était de $122,3$~TWh en 2018.
+
+Quel est le pourcentage d'augmentation de la production photovoltaïque totale entre 2018 et 2019 ?
+
+Arrondir le résultat au dixième.
+	\end{enumerate}
+\item On veut étudier dans le pays D l'évolution de la production électrique par type d'énergie de 2017 à 2019. On utilise alors le tableur pour réaliser le tableau suivant.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|m{4cm}|*{3}{>{\centering \arraybackslash}X|}}\hline
+&A&B&C&D\\ \hline
+1&Type d'énergie&\multicolumn{3}{c|}{Production électrique (en TWh)}\\ \cline{3-5}
+2&				&en 2017		&en 2018&en 2019\\ \hline
+3&Nucléaire		&379,1	&393,2	&379,5\\ \hline
+4&Thermique (gaz, fioul, charbon)	&53,9&39,4&42,6\\ \hline
+5&Hydraulique	&53,5	&68,3	&60\\ \hline
+6&Éolien		&24,1	&27,8	&34,1\\ \hline
+7&Solaire		&9,2	&10,2	&11,6\\ \hline
+8&Bioénergies	&9,5	&9,7	&9,9\\ \hline\hline
+9&Total			&529,3	&548,6	&537,7\\ \hline
+\end{tabularx}
+\end{center}
+
+	\begin{enumerate}
+		\item Citer les types d'énergie dont la production a augmenté chaque année de 2017 à 2019.
+		\item Quelle formule a-t-on pu saisir dans la cellule B9 avant de l'étirer jusqu'à la cellule D9 ?
+	\end{enumerate}
+\end{enumerate}
+
+\medskip
+
+\showthesource
+\end{document}

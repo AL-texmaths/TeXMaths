@@ -1,0 +1,106 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{étendue,tableur,pourcentage}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Voici un tableau des températures moyennes annuelles à Paris, mesurées par une station météorologique entre 2015 et 2024. Les températures sont exprimées en degré Celsius ($^{\circ}$C).
+
+\begin{center}
+\begin{tblr}{hline{1,3}=1pt,vlines,colspec={|c|c|c|c|c|c|c|c|c|c|c|}}
+	\hline
+Année & 2015 & 2016 & 2017 & 2018 & 2019 & 2020 & 2021 & 2022 & 2023 & 2024 \\
+	\hline
+Température ($^{\circ}$C) & 13,47 & 12,87 & 13,39 & 13,91 & 13,66 & 14,28 & 12,86 & 14,30 & 14,27 & 13,50 \\
+	\hline
+\end{tblr}
+\end{center}
+\small{Source : \url{https://opendata.paris.fr/explore/dataset/temperature_moyenne_paris/table/?sort=annee}}
+%\normalsize
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Calculer l'étendue de la série des températures moyennes annuelles de 2015 à 2024.
+		\item Recopier sur la copie la formule qui doit être saisie dans la cellule L2 pour obtenir la température minimale de 2015 à 2024.
+		
+\begin{center}
+\begin{tblr}{*{4}{|X[c]}|}
+			\hline
+			\texttt{=MIN(B1:K1)} & \texttt{=MIN(B2:K2)} & \texttt{=MIN(B2:L2)} & \texttt{=MIN(B1:L1)} \\
+			\hline
+\end{tblr}
+\end{center}
+	\end{enumerate}
+\item La température moyenne annuelle à Paris en 1924 était de $10{,}73^{\circ}$C tandis que celle de 2024 était de $13{,}50^{\circ}$C. Un élève affirme qu'en passant de 10,73 à 13,50, l'augmentation est supérieure à $25\,\%$. A-t-il raison ? Argumenter votre réponse en expliquant la démarche.
+\end{enumerate}
+
+Pour la suite du problème, on estime que la température moyenne annuelle à Paris augmente d'environ $0{,}025^{\circ}$C chaque année.
+
+\begin{enumerate}
+	\setcounter{enumi}{2}
+	\item En 2024, la température moyenne à Paris était de $13{,}50^{\circ}$C. En se basant sur l'estimation annoncée ci-dessus, vérifier que la température moyenne à Paris en 2034 est estimée à $13{,}75^{\circ}$C.
+	\item \textbf{(Question algorithmique)}\\
+	L'objectif du programme ci-dessous, réalisé avec le logiciel Scratch, est d'estimer la température moyenne à Paris pour une année choisie.
+
+	\begin{center}
+	\begin{scratch}[scale=0.9,num blocks]
+		\blockinit{Quand \greenflag est cliqué}
+		\blocksensing{demander \ovalnum{Choisir un nombre supérieur à 2024} et attendre}
+		\blockvariable{mettre \selectmenu{Nombre d'années d'écart} à \ovaloperator{\ovalvariable{réponse} - \ovalnum{2024}}}
+		\blockvariable{mettre \selectmenu{Température} à \ovaloperator{\ovalnum{13.5} + \ovalnum{0.025} * \ovalvariable{Nombre d'années d'écart}}}
+		\blocklook{dire \ovaloperator{regrouper\ovalnum{ La température en degré Celsius sera de} et {\ovalvariable{Température}}}}
+	\end{scratch}
+	\end{center}
+
+	Un utilisateur choisit 2044 comme nombre de départ. Quelle valeur est alors stockée dans la variable \texttt{Nombre d'années d'écart} ?
+	\item 
+	\begin{enumerate}
+		\item Résoudre l'équation : $13{,}5 + 0{,}025x = 15$.
+		\item En quelle année la température moyenne annuelle à Paris sera-t-elle estimée à $15^{\circ}$C ?
+	\end{enumerate}
+\end{enumerate}
+
+\needspace{10\baselineskip}
+\medskip
+\showthesource
+\end{document}

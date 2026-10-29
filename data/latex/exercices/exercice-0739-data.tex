@@ -1,0 +1,66 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\startdatakeys
+\source{24GENMATG11}
+\BO{2026}
+\cycle{4}
+\competencesDuSocle{CA,RA}
+\objectifsApprentissage{C4B2cb,C4B3cb,C4D2ac,C4D2ae,C4D2af}
+\motsCles{cône,Pythagore,patron,arc,cercle,volume,pourcentage}
+\enddatakeys
+\begin{document}%
+\def\up#1{\textsuperscript{#1}}%
+\def\wideparen#1{\overset{\frown}{#1}}%
+\textbf{Partie A}
+
+Léo veut fabriquer un chapeau en forme de cône. Le rayon OM de la base
+mesure $\np[cm]{9}$ et la hauteur OS mesure $\np[cm]{30}$.
+
+\begin{center}
+\begin{tikzpicture}
+    \draw(0,0)ellipse(2 and .5);
+    \draw(2,0)--(0,5)--(-2,0);
+    \draw[dashed](0,0)--(0,5);
+    \node[left]at(0,0){O};\node[right]at(2,0){M};\node[above]at(0,5){S};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item Démontrer que la longueur MS, arrondie au dixième de centimètre,
+    est $\np[cm]{31,3}$.
+    \item Léo a un tour de tête de $\np[cm]{56}$. Les dimensions choisies
+    sont-elles adaptées ?
+    \item Le patron est un secteur de cercle de rayon $SM$. L'arc
+    $\wideparen{\mathrm{M'M}}$ mesure $\np[cm]{56,5}$.
+    \begin{enumerate}
+        \item Démontrer que le cercle de centre S et de rayon SM a une
+        longueur, arrondie au dixième, de $\np[cm]{196,7}$.
+        \item Calculer la mesure de l'angle $\widehat{\mathrm{M'SM}}$
+        correspondant à cet arc, arrondie au degré.
+    \end{enumerate}
+\end{enumerate}
+
+\textbf{Partie B}
+
+On rappelle que la hauteur du chapeau mesure $\np[cm]{30}$.
+\begin{enumerate}
+    \item Montrer que le volume total du chapeau, arrondi au $\mathrm{cm^3}$,
+    est $\np[cm^3]{2545}$.
+
+    \begin{center}
+    \fbox{\begin{minipage}{.8\linewidth}
+    Le volume d'un cône de rayon $R$ et de hauteur $h$ est
+    \[
+        V=\dfrac13\times(\pi R^2)\times h.
+    \]
+    \end{minipage}}
+    \end{center}
+
+    \item Les bonbons atteignent le milieu de la hauteur du chapeau.
+    Léo pense que leur volume représente moins de 15\,\% du volume total.
+    Est-ce exact ? Justifier.
+\end{enumerate}
+\showthesource
+\end{document}

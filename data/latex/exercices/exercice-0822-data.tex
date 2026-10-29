@@ -1,0 +1,224 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Scratch,programme,carré,triangle équilatéral,angle}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Dans cet exercice, aucune justification n'est demandée.
+
+Un élève souhaite réaliser une figure constituée de carrés et de triangles équilatéraux, à l'aide d'un logiciel de programmation. Pour cela, il crée les trois blocs ci-dessous :
+
+\vspace{10pt}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{X|}}\hline
+\multicolumn{1}{|c|}{\textbf{Bloc 1}} &
+\multicolumn{1}{|c|}{\textbf{Bloc 2}} &\multicolumn{1}{|c|}{\textbf{Bloc 3}}\\ \hline
+\smallskip
+\begin{scratch}[scale=0.86]
+\initmoreblocks{définir \namemoreblocks{Initialisation}}
+\blockmove{aller à x : \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à ~\ovalnum{90}}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\end{scratch}
+&
+\smallskip
+\begin{scratch}[scale=0.86]
+\initmoreblocks{définir \namemoreblocks{carré}}
+\blockrepeat{répéter \ovalnum{\textbf{A}} fois}
+{
+\blockmove{avancer de \ovalnum{50} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{\textbf{B}} degrés}
+}
+\end{scratch}
+&
+\smallskip
+\begin{scratch}[scale=0.86]
+\initmoreblocks{définir \namemoreblocks{triangle équilatéral}}
+\blockrepeat{répéter \ovalnum{\textbf{C}} fois}
+{
+\blockmove{avancer de \ovalnum{50} pas}
+\blockmove{tourner \turnright{} de \ovalnum{\textbf{D}} degrés}
+}
+\end{scratch}
+\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+
+L'instruction \og s'orienter à 90 \fg{} signifie que le lutin se dirige vers la droite.
+
+\begin{enumerate}
+\item Quelles sont les coordonnées du lutin après l'exécution du Bloc 1\,?
+\item Dans les blocs 2 et 3, on a remplacé certaines valeurs par les lettres \textbf{A}, \textbf{B}, \textbf{C} et \textbf{D}.
+
+Sur la copie, indiquer la lettre et sa valeur correspondante.
+\item L'élève a construit trois figures avec les trois programmes ci-dessous.
+
+Associer chaque figure au programme correspondant.
+\end{enumerate}
+
+\medskip
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{X|}}\hline
+\multicolumn{1}{|c|}{\textbf{Programme 1}} &
+\multicolumn{1}{|c|}{\textbf{Programme 2}} &\multicolumn{1}{|c|}{\textbf{Programme 3}}\\ \hline
+\begin{scratch}[scale=0.9]
+\blockinit{quand \greenflag est cliqué}
+\blockmoreblocks{Initialisation}
+\blockmoreblocks{triangle équilatéral}
+\blockrepeat{répéter \ovalnum{\textbf{3}} fois}
+{
+\blockmoreblocks{carré}
+\blockmove{avancer de \ovalnum{50} pas}
+\blockmove{tourner \turnright{} de \ovalnum{\textbf{120}} degrés}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.9]
+\blockinit{quand \greenflag est cliqué}
+\blockmoreblocks{Initialisation}
+\blockmoreblocks{carré}
+\blockrepeat{répéter \ovalnum{\textbf{4}} fois}
+{
+\blockmoreblocks{triangle équilatéral}
+\blockmove{avancer de \ovalnum{50} pas}
+\blockmove{\turnleft{} de \ovalnum{\textbf{90}} degrés}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.9]
+\blockinit{quand \greenflag est cliqué}
+\blockmoreblocks{Initialisation}
+\blockmoreblocks{triangle équilatéral}
+\blockrepeat{répéter \ovalnum{\textbf{3}} fois}
+{
+\blockmove{avancer de \ovalnum{50} pas}
+\blockmove{tourner \turnright{} \ovalnum{\textbf{60}} degrés}
+\blockmoreblocks{triangle équilatéral}
+\blockmove{tourner \turnright{} \ovalnum{\textbf{60}} degrés}
+}
+\end{scratch}\\ \hline
+\end{tabularx}
+
+\vspace{14pt}
+
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Figure A} & \textbf{Figure B} &\textbf{Figure C}\\ \hline
+\begin{center}
+%%début Tikz
+%\begin{tikzpicture}[scale=0.4]
+%% Triangle du bas
+%\draw[thick] (0,0) -- (2,0) -- (1,1.732) -- cycle;
+%% Triangle gauche
+%\draw[thick] (0,0) -- (-2,0) -- (-1,1.732) -- cycle;
+%% Triangle droit
+%\draw[thick] (2,0) -- (4,0) -- (3,1.732) -- cycle;
+%% Triangle du bas central inversé (ligne commune)
+%% Petit triangle central pointe en bas
+%\draw[thick] (0,1.732) -- (2,1.732) -- (1,0) -- cycle;
+%\end{tikzpicture}
+%Fin Tikz
+%PSTricks
+\psset{unit=1cm}
+\begin{pspicture}(-1.5,-1.5)(1.5,1.5)
+\pspolygon(1;-30)(1;90)(1;210)
+\pspolygon(0.5;30)(0.5;150)(0.5;270)
+\end{pspicture}
+%fin PSTricks
+\end{center}
+\vspace{4pt}
+&
+\vspace{6pt}
+\begin{center}
+%%début Tikz
+%\begin{tikzpicture}[scale=0.4]
+%% Figure B : carré + triangles sur chaque côté, répété 4 fois (style losange)
+%\draw[thick] (0,0) -- (2,0) -- (2,2) -- (0,2) -- cycle;
+%\draw[thick] (0,0) -- (-1,-1.732) -- (1,-1.732) -- (2,0);
+%\draw[thick] (2,0) -- (3.732,1) -- (2.732,2.732) -- (2,2);
+%\end{tikzpicture}
+%Fin Tikz
+%PSTricks
+\psset{unit=1cm}
+\begin{pspicture}(-1.5,-1.5)(1.5,1.5)
+%\pspolygon(1;-30)(1;90)(1;210)
+\pspolygon(0.45;30)(0.45;150)(0.45;270)
+\def\car{\psframe(-0.42,-0.42)(0.42,0.4)}
+\multido{\n=90+120}{3}{\rput{\n}(0.66;\n){\car}}
+\end{pspicture}
+%fin PSTricks
+\end{center}
+\vspace{4pt}
+&
+\vspace{6pt}
+\begin{center}
+%%début Tikz
+%\begin{tikzpicture}[scale=0.4]
+%% Figure C : deux triangles se croisant (étoile)
+%\draw[thick] (-1.5,0) -- (1.5,0) -- (0,2.6) -- cycle;
+%\draw[thick] (-1.5,1.3) -- (1.5,1.3) -- (0,-1.3) -- cycle;
+%\end{tikzpicture}
+%Fin Tikz
+%PSTricks
+\psset{unit=1cm}
+\begin{pspicture}(-1.5,-1.5)(1.5,1.5)
+%\pspolygon(1;-30)(1;90)(1;210)
+\def\tri{\pspolygon(0.57;-30)(0.57;90)(0.57;210)}
+%\def\car{\psframe(-0.42,-0.42)(0.42,0.4)}
+\psframe(-0.49,-0.49)(0.49,0.49)
+%\multido{\n=0+90}{4}{\rput{\n}(0.66;\n){\tri}}
+\rput(0,0.768){\tri}\rput{90}(-0.768,0){\tri}
+\rput{180}(0,-0.768){\tri}\rput{-90}(0.768,0){\tri}
+\end{pspicture}
+%fin PSTricks
+\end{center}
+\vspace{6pt}\\ \hline
+\end{tabularx}
+\end{center}
+\medskip
+\showthesource
+\end{document}

@@ -1,0 +1,125 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\usepackage{texmaths-colors}%
+\usepackage{enumitem}%
+\usepackage{pst-plot}%
+\startdatakeys
+    \source{24GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{fonction affine,équation,expression littérale,graphique}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\euro{\texteuro}%
+
+
+Des amis habitent Strasbourg et préparent leurs vacances.
+
+Cette année ils ont décidé de partir découvrir une grande ville française pendant une semaine. 
+
+Pour s'y rendre, ils louent une voiture. Une fois arrivés sur place, ils feront ensuite tous leurs trajets à pied ou en transport en commun.
+
+Une agence de location de voitures propose les trois formules suivantes pour une location sur une semaine :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{*{3}{>{\centering \arraybackslash}X}}\hline
+Formule A&Formule B&Formule C\\ \hline
+0,50~\euro{} pour chaque kilomètre parcouru&
+ Forfait fixe de 300~\euro{}
+puis 0,25~\euro{} pour chaque kilomètre parcouru&
+Forfait fixe de 900~\euro{} pour un kilométrage illimité.\\ \hline
+\end{tabularx}
+
+\bigskip
+
+\textbf{Tableau indicatif des distances (en km) entre des villes françaises}
+\medskip
+
+\begin{tabularx}{\linewidth}{*{7}{>{\centering \arraybackslash}X}}
+Bordeaux&&&&&&\\ \cline{1-1}
+675& Grenoble&&&&&\\ \cline{1-2}
+792& 771& Lille&&&&\\ \cline{1-3}
+ 555 &280&1005&Marseille&&&\\ \cline{1-4}
+338 &741&584& 909& Nantes&&\\ \cline{1-5}
+546& 585&215 &772& 379& Paris&\\ \cline{1-6}
+907 &506& 498 &803& 864& 442&Strasbourg\\ \cline{1-7}
+\end{tabularx}
+\end{center}
+
+Exemple: la distance la plus courte entre Nantes et Grenoble est de 741 km.
+
+\medskip
+
+\textbf{PARTIE A} : Les amis souhaitent se rendre à Marseille. Ils ont un budget de \np{1000} \euro{} pour le voyage.
+
+\medskip
+
+\begin{enumerate}
+\item Quelle distance, en km, vont-ils parcourir pour le trajet aller-retour ?
+\item En choisissant la formule B, montrer que la location de voiture coûtera $701,50$~\euro.
+\item Quelle est la formule la plus avantageuse ?
+\item Voici des informations pour le voyage :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+Information 1&Information 2&Information 3\\ \hline
+\small Prix moyen du gazole en 2023 &\small Voiture proposée&\small  Coût total pour les péages\\
+\small 1,87~\euro{} par litre&\small Type de carburant: gazole. Consommation: 5,6~L pour 100 km&\small  115,80~\euro \\ \hline
+\end{tabularx}
+\end{center}
+
+Leur budget sera-t-il suffisant ?
+
+\emph{Dans cette question, toute trace de recherche sera prise en compte dans la correction}.
+\end{enumerate}
+\medskip
+
+\medskip
+
+\textbf{PARTIE B }: Étude des formules 
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+Formule A&Formule B&Formule C\\ \hline
+0,50~\euro{} pour chaque kilomètre parcouru&Forfait fixe de 300~\euro{}
+puis 0,25~\euro{} pour chaque kilomètre parcouru&Forfait fixe de $900$~\euro{} pour un kilométrage illimité.\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}[resume]
+\item Soit $x$ le nombre de kilomètres parcourus, exprimer en fonction de $x$ le prix payé pour chaque formule de location.
+\item On a représenté ci-dessous, pour chacune des formules, le coût de la location (en euros) en fonction de la distance parcourue (en kilomètres).
+
+Associer chaque courbe à la formule de location correspondante. \emph{Ne pas justifier}.
+
+\begin{center}
+\psset{xunit=0.004cm,yunit=0.0075cm,arrowsize=2pt 3,labels=none}
+\begin{pspicture}(-200,-50)(2600,1300)
+\uput[r](0,1250){Coût de la location (en \euro)}
+\uput[d](1800,0){Distance parcourue (en km)}
+\psaxes[linewidth=1.25pt,labels=none,Dx=200,Dy=200]{->}(0,0)(0,0)(2600,1300)
+\psaxes[linewidth=1.25pt,labels=none,Dx=200,Dy=200](0,0)(0,0)(2600,1300)
+\psline[linewidth=1.25pt,linecolor=blue](2600,1300)\rput{45}(300,120){\blue Courbe 3}
+\psline[linewidth=1.25pt,linecolor=red](0,300)(2600,950)\rput{25}(400,380){\red Courbe 2}
+\psline[linewidth=1.25pt,linecolor=cyan](0,900)(2600,900)\uput[u](400,900){\cyan Courbe 1}
+\uput[d](200,0){200}\uput[l](0,200){200}
+\end{pspicture}
+\end{center}
+
+\item Résoudre l'équation 
+\[0,25x + 300 = 0,5x.\]
+ Interpréter ce résultat.
+\item 
+	\begin{enumerate}
+		\item Si la distance parcourue est de \np{2500}~km, quelle formule doit-on choisir pour payer le moins cher ? Ne pas justifier.
+		\item Donner une distance parcourue pour laquelle la formule A est la plus intéressante. Ne pas justifier.
+		\item Déterminer graphiquement quelle formule de location est la moins chère en fonction de la distance parcourue pour une distance inférieure à \np{2600}~km.
+	\end{enumerate}
+\end{enumerate}
+\showthesource
+\end{document}

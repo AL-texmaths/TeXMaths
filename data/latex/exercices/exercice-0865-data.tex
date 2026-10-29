@@ -1,0 +1,104 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pstricks-add}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATAA2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C1ac,C4C1ab}
+    \motsCles{pourcentage,moyenne,tableur,lecture graphique}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Une station de ski compte $30$ pistes. Ces pistes de ski sont soit vertes, soit bleues, soit rouges, soit noires. La couleur de la piste définit son niveau de difficulté pour skier.
+
+\smallskip
+
+Chaque piste de ski peut être soit ouverte, soit fermée.
+
+\smallskip
+
+Sur le site internet de la station de ski, on a pu trouver les informations suivantes :
+
+\begin{center}
+\begin{tabular}{|m{4cm} m{2.7cm}|m{4cm} m{2.7cm}|}\hline
+\multicolumn{4}{|m{13.4cm}|}{\textbf{Lundi 17 février 2020}}\\ \hline
+\multicolumn{2}{|m{6.7cm}|}{\textbf{Pistes vertes}}&\multicolumn{2}{|m{6.7cm}|}{\textbf{Pistes bleues}}\\
+Les 7 pistes vertes sont toutes ouvertes.&\psset{unit=1cm}
+\begin{pspicture}(-1.3,-1.3)(1.3,1.3)
+\pscircle[fillstyle=solid,fillcolor=lightgray](0,0){1.3}
+\psline(1.3;90)
+\end{pspicture}&Nombre de pistes bleues : 8&\begin{pspicture}(-1.3,-1.3)(1.3,1.3)
+\psline(1.3;90)
+\pscircle(0,0){1.3}
+\pswedge[fillstyle=solid,fillstyle=hlines](0,0){1.3}{90}{180}
+\pswedge[fillstyle=solid,fillcolor=lightgray](0,0){1.3}{-180}{90}
+\psframe(0,0)(-0.2,0.2)
+\end{pspicture}\\ \hline
+\multicolumn{2}{|c|}{\textbf{Pistes rouges}}&\multicolumn{2}{|c|}{\textbf{Pistes noires}}\\
+Parmi les 10 pistes rouges, 8 pistes rouges sont ouvertes.&\begin{pspicture}(-1.3,-1.3)(1.3,1.3)
+\pswedge[fillstyle=solid,fillcolor=lightgray](0,0){1.3}{162}{90}
+\pswedge[fillstyle=hlines](0,0){1.3}{90}{162}
+\end{pspicture}&Parmi les 5 pistes noires, 3 pistes noires sont ouvertes.&
+\begin{pspicture}(-1.3,-1.3)(1.3,1.3)
+\pswedge[fillstyle=solid,fillcolor=lightgray](0,0){1.3}{-126}{90}
+\pswedge[fillstyle=hlines](0,0){1.3}{90}{234}
+\end{pspicture}\\ \hline
+\multicolumn{4}{|l|}{\emph{Information} : \psframe[fillstyle=hlines](1.2,0.5) \qquad\qquad Pistes fermées \qquad\qquad\qquad  \psframe[fillstyle=solid,fillcolor=lightgray](1.2,0.5) \qquad\qquad Pistes ouvertes}\rule[-3mm]{0mm}{12mm}\\ \hline
+\end{tabular}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Déterminer le nombre de pistes rouges fermées le lundi 17 février 2020.
+\item Justifier qu’il y a six pistes bleues ouvertes le lundi 17 février 2020.
+\item Parmi les pistes noires, quel est le pourcentage de pistes noires ouvertes le lundi 17 février 2020 ?
+\item Le mercredi 19 février 2020, la nouvelle répartition affichée sur le site internet est la suivante :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Pistes vertes}&\textbf{Pistes bleues}&\textbf{Pistes rouges}&\textbf{Pistes noires}\\
+Nombre de pistes : 7&Nombre de pistes : 8&Nombre de pistes : 10&Nombre de pistes : 5\\
+Nombre de pistes ouvertes : 5&Nombre de pistes ouvertes : 4&Nombre de pistes ouvertes : 3&Nombre de pistes ouvertes : 1\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+Sur le site de la station on peut lire :
+
+\og Votre forfait du jour est remboursé si plus de 50\,\% des pistes de la station sont fermées. \fg
+
+Une cliente demande le remboursement de son forfait du jour du mercredi 19 février 2020.
+
+La station de ski doit-elle effectuer ce remboursement ?
+\item On a mesuré les hauteurs maximales de neige dans la station, exprimées en centimètre, pour chaque mois, de novembre 2018 à mars 2019.
+
+On saisit ces mesures dans une feuille de calcul dont voici une copie d’écran :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|l|*{6}{>{\centering \arraybackslash}X|}}\hline
+	&A				&B			&C		&D		&E		&F		&G\\ \hline
+1	&				&Nov.	&Déc.&Janvier&Février&Mars	&\small Moyenne\\ \hline
+2	&Saison 2018-2019&90		&120	&130	&120	&75		&107\\ \hline
+3	&Saison 2019-2020&105		&130	&115	&140	&60		&\\ \hline
+\end{tabularx}
+\end{center}
+
+	\begin{enumerate}
+		\item Quelle formule a pu être saisie dans la cellule G2 avant d’être étirée jusqu’à la cellule G3 ?
+		\item La moyenne des cinq hauteurs maximales de neige de la saison 2019-2020 est-elle supérieure à celle de la saison 2018-2019 ?
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

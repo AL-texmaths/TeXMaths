@@ -1,0 +1,64 @@
+\documentclass[exercice, a4]{thedocument}%
+\usepackage[np]{numprint}%
+\usepackage{pstricks}%
+\startdatakeys
+    \source{24GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C1af,C4C2ab,C4C1bc,C4D2aa,C4B2cd}
+    \motsCles{moyenne,médiane,vitesse,probabilité,nombre premier,homothétie,aire}
+\enddatakeys
+\begin{document}%
+    Voici cinq affirmations. Pour chacune d'entre elles, dire si elle est
+    vraie ou fausse. On rappelle que chaque réponse doit être justifiée.
+
+    \begin{enumerate}
+        \item Voici les prix en euros d'un vêtement relevés dans différents
+        magasins.
+
+        \[
+            12~;~15~;~10~;~7~;~13
+        \]
+
+        \textbf{Affirmation A :} La moyenne des prix est 11,40~\euro.
+
+        \textbf{Affirmation B :} La médiane des prix est 10~\euro.
+
+        \item Lors d'un entraînement, une élève court $\np[m]{20}$ en
+        6 secondes.
+
+        \textbf{Affirmation C :} Lors de cet entraînement, sa vitesse moyenne
+        était de 14~km/h.
+
+        \item Une urne contient 15 boules indiscernables numérotées de 1 à 15.
+
+        \textbf{Affirmation D :} La probabilité de tirer au hasard une boule
+        sur laquelle apparaît un nombre premier est $\dfrac{7}{15}$.
+
+        \item Le triangle A$'$B$'$C$'$ est l'image du triangle ABC par
+        l'homothétie de centre O et de rapport $(-3)$.
+
+        \begin{center}
+            \psset{unit=0.8cm}
+            \begin{pspicture}(-3.5,-2.6)(9.2,4.5)
+                \uput[dl](-1.4,-0.4){A}
+                \uput[d](-0.6,-1.4){B}
+                \uput[u](-0.4,0.7){C}
+                \uput[u](0,0){O}
+                \psdots[dotstyle=+,dotscale=2,dotangle=45]%
+                    (0,0)(-1.4,-0.4)(-0.6,-1.4)(-0.4,0.7)
+                    (3.6,1.2)(1.8,4.2)(1.2,-2.1)
+                \pspolygon(-1.4,-0.4)(-0.6,-1.4)(-0.4,0.7)
+                \uput[dr](3.6,1.2){A$'$}
+                \uput[u](1.8,4.2){B$'$}
+                \uput[d](1.2,-2.1){C$'$}
+                \pspolygon(3.6,1.2)(1.8,4.2)(1.2,-2.1)
+            \end{pspicture}
+        \end{center}
+
+        \textbf{Affirmation E :} L'aire du triangle A$'$B$'$C$'$ est égale à
+        3 fois l'aire du triangle ABC.
+    \end{enumerate}
+\showthesource
+\end{document}

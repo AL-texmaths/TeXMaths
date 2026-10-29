@@ -1,0 +1,60 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\startdatakeys
+    \source{24GENMATMEAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Thalès,réciproque de Pythagore,aire,cercle,pourcentage}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+Sur la figure ci-dessous, on a :
+
+\medskip
+
+\begin{itemize}
+\item $\mathcal{C}$ est un cercle de centre O et de rayon $4,5$~cm ;
+\item $[\text{AB}]$ est un diamètre de ce cercle et D est un point du cercle ;
+\item les points B, E, A sont alignés, ainsi que les points D, F{}, A ;
+\item les droites (BD) et (EF) sont parallèles ;
+\item BD $= 5,4$ cm ~;~ DA $= 7,2$ cm \:et\: AE $= 2,7$ cm.
+\end{itemize}
+
+\begin{center}
+\psset{unit=0.75cm}
+\begin{pspicture}(-4,-4)(4,4.5)
+%\psgrid
+\pscircle(0,0){4}\uput[ur](4;50){$\mathcal{C}$}
+\pspolygon(4;0)(4;100)(4;180)%ADB
+\uput[r](4;0){A} \uput[l](4;180){B} \uput[ul](4;100){D}
+\uput[d](1.3,0){E} \uput[ur](2.4,1.34){F} \uput[d](0,0){O}
+\psline(1.3,0)(2.4,1.34)
+\psdots[dotstyle=+,dotangle=45,dotscale=1.5](0,0)
+\end{pspicture}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Justifier que le diamètre [AB] mesure 9 cm.
+\item Démontrer que le triangle ABD est rectangle en D.
+\item Calculer AF{}.
+\item 
+	\begin{enumerate}
+		\item Justifier que l’aire du triangle ABD est égale à $19,44~\text{cm}^2$.
+		\item Calculer l’aire du disque, arrondie au centième.
+	\end{enumerate}
+	
+\emph{Rappel} : l’aire du disque est égale à $\pi \times R^2$, où $R$ est le rayon du disque. 
+\item Quel pourcentage de l’aire du disque représente l’aire du triangle ABD ?
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

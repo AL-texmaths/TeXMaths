@@ -1,0 +1,89 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{array}%
+\usepackage[np]{numprint}%
+\usepackage{eurosym}%
+\usepackage{amsmath}%
+\startdatakeys
+    \source{22GENMATMEAG2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B3ca,C4B1ed,C4B1bf}
+    \motsCles{Thalès,droites parallèles,volume,cylindre,aire,agrandissement}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+La tour de la Vade est un monument de Carcassonne.
+
+\begin{minipage}{0.6\linewidth}
+Représentation schématique de la tour de la Vade (sans le toit).
+\end{minipage}\hfill
+\begin{minipage}{0.38\linewidth}
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(-1,-2.3)(1,0.4)
+\psellipse(0,0)(1,0.4)
+\psline(-1,0)(-1,-1.8)\psline(1,0)(1,-1.8)
+\psellipticarc(0,-1.8)(1,0.4){180}{360}
+\psellipticarc[linestyle=dashed](0,-1.8)(1,0.4){0}{180}
+\end{pspicture}
+\end{center}
+\end{minipage}
+
+\begin{enumerate}
+\item Afin de déterminer la hauteur de cette tour, Romane et Maël se sont positionnés comme indiqué sur la figure ci-dessous, et ont effectué plusieurs mesures.
+
+L'oeil de Maël est au point M ; le segment [FG] représente Romane.
+
+La figure n'est pas à l'échelle.
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(9,3.6)
+\pspolygon(1,0.4)(8.4,0.4)(8.4,3.1)(7.1,3.1)%MCDA
+\psframe[fillstyle=solid,fillcolor=lightgray](7.1,0.4)(8.4,3.1)
+\psline[linewidth=1.5pt](3.3,0.4)(3.3,1.45)%GF
+\uput[u](7.1,3.1){A} \uput[d](7.1,0.4){B} \uput[dr](8.4,0.4){C} \uput[u](8.4,3.1){D}
+\uput[ul](3.3,1.45){F} \uput[d](3.3,0.4){G} \uput[ul](1,0.4){M}
+\uput[d](1,0.4){Maël}\rput{90}(3.5,0.9){\small Romane}\rput(7.75,1.75){Tour}
+\psframe(3.3,0.4)(3.1,0.6)\psframe(7.1,0.4)(6.9,0.6)
+\end{pspicture}
+\end{center}
+
+Les points M, F et A ainsi que les points M, G et B sont alignés.
+
+Romane et Maël ont mesuré : MG $= 3$~m
+
+\phantom{Romane et Maël ont mesuré : }FG $= 1,4$ m
+
+\phantom{Romane et Maël ont mesuré : }GB $= 51$ m
+
+	\begin{enumerate}
+		\item Montrer que les droites (FG) et (AB) sont parallèles.
+		\item Vérifier que la hauteur AB de la tour est de $25,2$~m.
+	\end{enumerate}
+\item La tour de la Vade a une base circulaire de diamètre proche de $14$~m.
+
+Montrer que son volume est d'environ \np{3880}~m$^3$.
+\item Romane a acheté une maquette de cette tour à l'échelle $\dfrac{1}{20}$.
+
+Quel est le volume de cette maquette, réduction de la tour de la Vade ?
+\item La tour doit être entretenue ; il faut passer un traitement contre la moisissure sur toute sa
+surface. Le coût du traitement est de $39$~\euro{} par m$^2$.
+
+Combien va coûter le traitement de la tour ?
+
+On rappelle que :
+
+\begin{tabular}{|l|}\hline
+Aire latérale d'un cylindre $= 2 \times \pi \times \text{rayon} \times \text{hauteur}$\\
+Volume d'un cylindre $= \text{aire de la base} \times  \text{hauteur}$\\ \hline
+\end{tabular}
+\end{enumerate}
+
+\showthesource
+\end{document}

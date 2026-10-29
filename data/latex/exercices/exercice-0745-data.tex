@@ -1,0 +1,106 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{textcomp}%
+\usepackage{pst-plot}%
+\startdatakeys
+    \source{24GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{réciproque de Pythagore,fonction,transformation,ratio,PGCD}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\no{\textsuperscript{o}}%
+
+
+\medskip
+
+Cet exercice est un questionnaire à choix multiples (QCM).
+
+Pour chaque question, quatre affirmations sont proposées. \textbf{Une seule affirmation est exacte.}
+
+\textbf{Sur la copie}, écrire le numéro de la question et l'affirmation choisie. Aucune justification n'est attendue.
+
+\medskip
+
+\begin{enumerate}
+\item ABC est un triangle tel que AB $= 20$~cm, BC $= 21$~cm et AC $= 29$~cm. On peut affirmer que:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\small}X|}}\hline
+ABC est un triangle rectangle en A&ABC est un triangle rectangle en B&
+ABC est un triangle rectangle en C &ABC n'est pas un triangle rectangle\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{minipage}{0.49\linewidth}
+\item Voici la représentation graphique d'une fonction $f$.
+
+
+La fonction $f$ est définie par:
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\psset{unit=0.8cm,arrowsize=2pt 3}
+\begin{pspicture}(-4,-1)(3.5,3.5)
+\psgrid[gridlabels=0pt,subgriddiv=1,gridwidth=0.15pt]
+\psaxes[linewidth=1.25pt, labelFontSize=\scriptstyle]{->}(0,0)(-4,-1)(3.5,3.5)
+\psplot[plotpoints=600,linewidth=1.25pt,linecolor=red]{-4}{3.5}{x 0.5 mul 1 add}
+\end{pspicture}
+\end{minipage}
+
+\begin{center}
+\renewcommand\arraystretch{1.9}
+\begin{tabularx}{\linewidth}{|*{4}{X|}}\hline
+$f(x) = 2x - 2$&$f(x) = 2x + 1$&$f(x) = \dfrac x2 - 2$&$f(x) = \dfrac x2 + 1$\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{minipage}{0.55\linewidth}
+\item Sur la figure ci-contre, le carré \no 2 est l'image du carré \no 1 par :
+\end{minipage}\hfill
+\begin{minipage}{0.42\linewidth}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(-2,-2)(4,1)
+\psframe[linewidth=1.5pt](-2,0)(-1,1)
+\psframe[linewidth=1.5pt](2,0)(4,-2)
+\psline(-1,1)(2,-2)\psline(-0.55,-0.1)(-0.55,0.1)\psline(-0.5,-0.1)(-0.5,0.1)
+\psline(0.55,-0.1)(0.55,0.1)\psline(0.5,-0.1)(0.5,0.1)\psline(1.55,-0.1)(1.55,0.1)\psline(1.5,-0.1)(1.5,0.1)
+\psline(-1,0)(2,0)
+\rput(-1.5,0.5){1}\rput(3,-1){2}
+\uput[d](-1,0){C}\uput[ur](0,0){O}\uput[u](2,0){E}
+\end{pspicture}
+\end{minipage}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\small}X|}}\hline
+la symétrie centrale de centre O&la translation qui transforme C en E&l'homothétie de centre O et de rapport 2&l'homothétie de centre O et de rapport $- 2$\\ \hline
+\end{tabularx}
+\end{center}
+
+\item Le cocktail Bora-Bora est composé de jus d'ananas, de jus de fruit de la passion et de jus de citron dans le ratio de 10~:~6~:~2. Pour réaliser $90$ cL de ce cocktail, il faut prévoir exactement :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{X|}}\hline
+6 cL de jus de fruit de la passion&30 cL de jus de fruit de
+la passion&54 cl de jus de fruit de la passion&45 cL de jus de fruit de 
+la passion\\ \hline
+\end{tabularx}
+\end{center}
+
+\item  Un maraîcher a cueilli $408$ pommes et $168$ poires. Il décide de remplir des sacs pour ses clients comportant chacun le même nombre de pommes et le même nombre de poires, en utilisant tous les fruits cueillis.
+
+Le plus grand nombre de sacs qu'il peut ainsi remplir est :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{X|}}\hline
+48 sacs&24 sacs&8 sacs&6 sacs\\ \hline
+\end{tabularx}
+\end{center}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

@@ -1,0 +1,228 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{array}%
+\usepackage{scratch3}%
+\usepackage[french]{babel}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{25GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Scratch,programme,polygone,triangle équilatéral,hexagone,angle}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\degres{\textsuperscript{\textdegree}}%
+
+Dans cet exercice, aucune justification n'est attendue.
+
+\medskip
+
+\textbf{Rappel}
+
+L'instruction~~ \begin{scratch}\blockmove{s'orienter à 90}\end{scratch} ~~signifie que le lutin se dirige vers la droite.
+
+\bigskip
+
+\textbf{PARTIE A}
+
+\medskip
+
+\begin{minipage}{0.67\linewidth}Un élève souhaite tracer un hexagone à partir de 6 triangles équilatéraux comme sur la figure ci-contre.
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+\psset{linecolor=blue}
+\begin{pspicture}(-2,-1.5)(2,1)
+%\psgrid
+\psline[linewidth=1pt](-1.6,0)(1.6,0)\psline[linewidth=1pt](-0.8,-1.384)(0.8,1.384)\psline[linewidth=1pt](-0.8,1.384)(0.8,-1.384)
+\psline[linewidth=1pt](-1.6,0)(-0.8,1.384)\psline[linewidth=1pt](-1.6,0)(-0.8,-1.384)
+\psline[linewidth=1pt](1.6,0)(0.8,1.384)\psline[linewidth=1pt](1.6,0)(0.8,-1.384)
+\psline[linewidth=1pt](-0.8,1.384)(0.8,1.384)
+\psline[linewidth=1pt](-0.8,-1.384)(0.8,-1.384)
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+Pour cela, il commence par écrire le script ci-dessous du motif \og triangle équilatéral\fg :
+
+\medskip
+
+\begin{minipage}[]{0.1\linewidth}
+~~
+\end{minipage}
+\begin{minipage}[]{0.4\linewidth}
+\begin{scratch}[num blocks]
+\blockinit{définir triangle équilatéral}
+\blockrepeat{répéter \ovalnum{} fois}
+{
+\blockmove{avancer de \ovalnum{} pas}
+\blockmove{tourner de \turnleft{} de \ovalnum{} degrés}
+}
+\end{scratch}
+\end{minipage}
+%\hspace{3em}
+\begin{minipage}[]{0.2\linewidth}
+\psset{unit=1.3cm,linecolor=blue}
+\begin{pspicture}(-1,-1)(2,2)
+\psline[linewidth=0.5pt](0,0)(0.8,1.384)\psline[linewidth=0.5pt](1.6,0)(0.8,1.384)\psline[linewidth=0.5pt](0,0)(1.6,0)
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item Compléter et recopier sur la copie les lignes 2, 3 et 4 du script pour que le lutin dessine un triangle équilatéral de côté 50 pas.
+\item Cet élève teste les deux programmes A et B. Il obtient les deux dessins ci-dessous.\\
+Quel programme permet de tracer l'hexagone souhaité ?
+
+\medskip
+
+\begin{minipage}{9cm}
+\begin{tabular}{|c|c|}\hline
+\multicolumn{2}{|c|}{Programmes testés}\\\hline
+Programme A & Programme B\\
+&\\
+\begin{minipage}[]{4cm}
+\begin{scratch}[scale=0.8]
+\blockinit{quand la touche A est pressée}
+\blockmove{aller à x: \ovalmove{ 0} y: \ovalmove{0}}
+\blockmove{s'orienter à \ovalnum{90}}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{6} fois}
+{
+\blockmoreblocks{triangle équilatéral}
+\blockmove{tourner \turnleft{} de \ovalnum{60} degrés}
+}
+\end{scratch}
+\end{minipage}
+&
+\begin{minipage}[]{4cm}
+\begin{scratch}[scale=0.8]
+\blockinit{quand la touche B est pressée}
+\blockmove{aller à x: \ovalmove{ 0} y: \ovalmove{0}}
+\blockmove{s'orienter à \ovalnum{90}}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{6} fois}
+{
+\blockmoreblocks{triangle équilatéral}
+\blockmove{tourner \turnleft{} de \ovalnum{120} degrés}
+}
+\end{scratch}
+\end{minipage}\\
+&\\
+\hline
+\end{tabular}
+\end{minipage}
+\hspace*{1em}
+\begin{minipage}[]{3cm}
+\begin{tabular}{|c|}
+\hline
+Dessins obtenus\\
+\hline
+\psset{linecolor=blue}
+\begin{pspicture}(-2,-2.39)(2,2.4)
+\psline[linewidth=0.5pt](-1.6,0)(1.6,0)\psline[linewidth=0.5pt](-0.8,-1.384)(0.8,1.384)\psline[linewidth=0.5pt](-0.8,1.384)(0.8,-1.384)
+\psline[linewidth=0.5pt](-1.6,0)(-0.8,1.384)\psline[linewidth=0.5pt](-1.6,0)(-0.8,-1.384)
+\psline[linewidth=0.5pt](1.6,0)(0.8,1.384)\psline[linewidth=0.5pt](1.6,0)(0.8,-1.384)
+\psline[linewidth=0.5pt](-0.8,1.384)(0.8,1.384)\psline[linewidth=0.5pt](-0.8,-1.384)(0.8,-1.384)
+\end{pspicture}\\
+\hline
+\psset{linecolor=blue}
+\begin{pspicture}(-2,-2.39)(2,2.4)
+\psline[linewidth=0.5pt](-1.6,0)(1.6,0)\psline[linewidth=0.5pt](-0.8,-1.384)(0.8,1.384)\psline[linewidth=0.5pt](-0.8,1.384)(0.8,-1.384)
+\psline[linewidth=0.5pt](-1.6,0)(-0.8,1.384)
+%\psline[linewidth=0.5pt](-1.6,0)(-0.8,-1.384)
+\psline[linewidth=0.5pt](1.6,0)(0.8,1.384)%\psline[linewidth=0.5pt](1.6,0)(0.8,-1.384)
+\psline[linewidth=0.5pt](-0.8,-1.384)(0.8,-1.384)
+\end{pspicture}\\
+\hline
+\end{tabular}
+\end{minipage}
+\end{enumerate}
+
+\newpage
+
+\textbf{PARTIE B}
+
+Un autre élève souhaite tracer un hexagone régulier de 50 pas de côté comme sur la figure ci-dessous:
+
+\bigskip
+
+\begin{minipage}{1cm}
+~~
+\end{minipage}
+\begin{minipage}[]{6.5cm}
+\begin{tabular}{|c|}
+\hline
+Figure obtenue\\
+\hline
+\begin{pspicture}(-3,-2)(3,1.7)
+%\psgrid
+\multido{\i=0+60,\I=60+60}{6}{\psline(1.5;\i)(1.5;\I)}
+\uput[r](-3,-0.9){\footnotesize Point de} 
+\psline[linewidth=1.5pt,arrowsize=2pt 3]{->}(-2,-1.3)(-0.8,-1.3)
+\uput[r](-3,-1.7){\footnotesize coordonnées (0\,;\,0)}
+\end{pspicture}\\
+\hline
+\multicolumn{1}{c}{~~}\\
+\hline
+Informations sur les hexagones \\
+\hline
+\begin{pspicture}(-3,-1.7)(3,1.7)
+\pspolygon[fillstyle=solid,fillcolor=lightgray!40](1.5;0)(1.5;60)(1.5;120)(1.5;180)(1.5;240)(1.5;300)(1.5;360)
+%\psarc{arrows}(x,y){radius}{angleA}{angleB}
+\multido{\ia=0+60,\ib=120+60,\ic=240+60,\I=30+60}{6}{
+\pswedge[fillstyle=solid,fillcolor=lightgray!80](1.5;\ia){0.3}{\ib}{\ic}
+%\rput{\ib}(1.3;\I){$\boldmath{\parallel}$}
+\rput{\I}(1.3;\I){$\pmb{=}$}
+\rput{\ia}(1.2;\ia){$\pmb{-}$}
+}%% 
+\rput(0.9;-60){\tiny $120\degres$}
+\end{pspicture}\\
+\hline
+\end{tabular} 
+\end{minipage}
+%\hfill
+\begin{minipage}[]{6cm}
+{Il a écrit le programme suivant :}
+
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{quand \greenflag est cliqué}
+\blockmove{aller à x: \ovalmove{ 0} y:  \ovalmove{0}}
+\blockmove{s'orienter à \ovalnum{90}}
+\blockpen{stylo en position d'écriture}
+\blockpen{effacer tout}
+\blockrepeat{répéter \ovalnum{A} fois}
+{
+\blockspace[0.5]
+}
+\end{scratch}
+\end{center}
+\end{minipage}
+
+\bigskip
+
+%\begin{enumerate}
+%\item 
+Sur la copie, recopier le bloc \og répéter\fg en remplaçant A par sa valeur et en le complétant avec 2 instructions choisies parmi les 6 instructions proposées ci-dessous:
+%\end{enumerate}
+
+\bigskip
+
+\begin{scratch}
+\blockmove{avancer de \ovalnum{50} pas} \end{scratch}\hfill \begin{scratch}\blockmove{tourner \turnright{} de \ovalnum{120} degrés}\end{scratch}\hfill \begin{scratch} \blockmove{tourner \turnleft{} de \ovalnum{60} degrés}\end{scratch}
+
+\medskip
+
+\begin{scratch}\blockmove{avancer de \ovalnum{5} pas}\end{scratch}\hfill \begin{scratch}\blockmove{tourner \turnleft{} de \ovalnum{120} degrés} \end{scratch} \hfill \begin{scratch}\blockmove{tourner \turnright{} de \ovalnum{60} degrés}\end{scratch}
+
+\bigskip
+\showthesource
+\end{document}

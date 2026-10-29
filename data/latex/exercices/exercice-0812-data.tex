@@ -1,0 +1,123 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[french]{babel}%
+\startdatakeys
+    \source{25GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Scratch,programme,triangle équilatéral,angle}
+\enddatakeys
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Dans cet exercice, aucune justification n'est attendue
+
+Une élève utilise un logiciel de programmation pour réaliser des dessins à partir d'un triangle équilatéral. Elle crée le bloc \og triangle \fg ci-contre.% 
+
+\medskip
+
+\begin{minipage}{0.62\linewidth}
+\begin{enumerate}
+\item Sur la copie, recopier et compléter les lignes 3 et 5 du bloc \og triangle \fg{} afin qu'il dessine un triangle équilatéral.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.30\linewidth}
+\begin{scratch}[scale=0.8,num blocks, num start=1,baseline=2]]
+\initmoreblocks{ %
+{definir triangle}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{\phantom{aa}} fois}
+{
+\blockmove{avancer de \ovalvariable{côté} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{\phantom{aa}} degrés}
+}
+
+\end{scratch}
+\end{minipage}
+
+\medskip
+
+Elle utilise maintenant le bloc \og triangle \fg{} pour l'intégrer dans différents programmes.
+
+\medskip
+
+\begin{enumerate}[start=2]
+\item Associer chaque programme au dessin qu'il permet de réaliser.
+
+\emph{On indiquera sur la copie, le numéro du dessin et la lettre du programme associé.}
+\end{enumerate}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{2}{>{\centering \arraybackslash}X|}*{1}{>{\centering \arraybackslash}X}}\cline{1-2}
+\textbf{Programme A}&\textbf{Programme B}&~\\
+\begin{scratch}[scale=0.9]
+\blockinit{quand \greenflag est cliqué}
+\blockmove{s’orienter à \ovalnum{90} degrés}
+\blockvariable{mettre \ovalvariable{côté} à \ovalnum{20}}
+\blockrepeat{répéter \ovalnum{4} fois}
+{
+\blockmoreblocks{triangle}
+\blockmove{tourner \turnleft de \ovalnum{90} degrés}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockmove{s’orienter à \ovalnum{90} degrés}
+\blockvariable{mettre \ovalvariable{côté} à \ovalnum{20}}
+\blockrepeat{répéter \ovalnum{4} fois}
+{
+\blockmoreblocks{triangle}
+\blockmove{avancer de \ovalvariable{côté} pas}
+}
+\end{scratch}& \emph{On rappelle que l'instruction}
+
+\begin{scratch}\blockmove{s’orienter à \ovalnum{90} degrés} \end{scratch}
+permet de s'orienter vers la droite\\ \cline{1-2}
+\end{tabularx}
+\end{center}
+
+\medskip
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+\psset{unit=.4cm,arrowsize=2pt 3}
+\begin{pspicture}(-3,-2)(5,2)
+\def\tri{\pspolygon(-1,0)(1,0)(0,1.732)}
+\multido{\n=-3.0+2.5}{4}{\rput(\n,0){\tri}}
+\end{pspicture} &
+\psset{unit=.4cm,arrowsize=2pt 3}
+\begin{pspicture}(-3,-2)(3,2)
+\pspolygon(0,0)(2,0)(1,1.732)\pspolygon(0,0)(0,2)(-1.732,1)
+\pspolygon(0,0)(-2,0)(-1,-1.732)\pspolygon(0,0)(0,-2)(1.732,-1)
+\pspolygon(0,0)(2,0)(1,1.732)
+\end{pspicture}
+&
+\psset{unit=0.4cm,arrowsize=2pt 3}
+\begin{pspicture}(-3,-2)(3,2)
+\def\tri{\pspolygon(-1,0)(1,0)(0,1.732)}
+\multido{\n=-3+2}{4}{\rput(\n,0){\tri}}
+\end{pspicture}\\ \hline
+Dessin 1 &Dessin 2 &Dessin 3 \\ \hline
+\end{tabularx}
+
+\bigskip
+
+\begin{enumerate}[start=3]
+\item On s'intéresse maintenant au programme ci-dessous. En prenant 1~cm pour 10 pas, construire sur la copie le dessin obtenu lorsque le programme s'exécute.
+\end{enumerate}
+
+\begin{center}
+\begin{scratch}[scale=0.8]\blockinit{Quand \greenflag est cliqué}
+\blockmove{s’orienter à \ovalnum{90} degrés}
+\blockvariable{mettre \ovalvariable{côté} à \ovalnum{20}}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmoreblocks{triangle}
+\blockvariable{mettre \ovalvariable{côté} à \ovalvariable{côté} * \ovalnum{2} }}
+\end{scratch}
+\end{center}
+\showthesource
+\end{document}

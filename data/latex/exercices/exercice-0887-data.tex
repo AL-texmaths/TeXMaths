@@ -1,0 +1,68 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{textcomp}%
+\usepackage{pstricks}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{21GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A3aa,C4D2ae,C4A1aa}
+    \motsCles{pourcentage,fraction,équation,boule,volume,trigonométrie,angle}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Pour chaque affirmation répondre par vrai ou faux. Justifier chaque réponse.
+
+\medskip
+
+\textbf{Affirmation 1 :} 50\,\% de \np{10350} c'est \np{10300}.
+
+\medskip
+
+\textbf{Affirmation 2 :} $\dfrac73$ est la forme irréductible de $\dfrac{42}{18}$.
+
+\medskip
+
+\textbf{Affirmation 3 :} L'équation $2x - 4 = -x + 5$ a pour solution $3$.
+
+\medskip
+
+\textbf{Affirmation 4 :} L'arrondi à l'unité près du volume d'une boule de diamètre $21,6$~cm est \np{42213}~cm$^3$.
+
+\smallskip
+
+\emph{On rappelle la formule du volume d'une boule } $V = \dfrac43 \pi R^3$.
+
+\medskip
+
+\begin{minipage}{0.52\linewidth}
+\textbf{Affirmation 5 :} Dans la figure codée ci-contre, la  mesure de l'angle $\widehat{\text{DNB}}$, arrondie à l'unité près, est $18\degres$.
+\end{minipage}\hfill
+\begin{minipage}{0.38\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(5.5,2.4)
+\pspolygon(0.4,0.2)(5.1,0.2)(0.4,1.9)%BND
+\psframe(0.4,0.2)(0.6,0.4)
+\uput[dl](0.4,0.2){B} \uput[dr](5.1,0.2){N} \uput[u](0.4,1.9){D} \uput[l](0.4,1.05){4 cm} \uput[d](2.75,0.2){12 cm}
+\end{pspicture}
+\end{minipage}
+
+\bigskip
+
+\textbf{Affirmation 6 :} On peut composer 6 codes différents avec un cadenas à 3 chiffres qui respecte les conditions suivantes :
+
+\begin{itemize}
+\item[$\bullet~~$]les deux premiers chiffres sont choisis parmi 1 ; 2 et 3 ;
+\item[$\bullet~~$]un chiffre peut apparaître deux fois;
+\item[$\bullet~~$]le dernier chiffre est 6.
+\end{itemize}
+
+\bigskip
+
+\showthesource
+\end{document}

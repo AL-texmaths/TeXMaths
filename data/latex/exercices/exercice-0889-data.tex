@@ -1,0 +1,56 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{21GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2eb,C4B3ca}
+    \motsCles{Pythagore,conversion,proportionnalité}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+BAI est un triangle rectangle en A tel que BA $= 210$~cm et AI $= 155$~cm.
+
+\medskip
+
+\begin{enumerate}
+\item Déterminer la longueur BI au cm près.
+
+\textbf{Rédiger la réponse en faisant apparaître les différentes étapes.}
+
+L'immeuble de Joanne possède 15 vitres rectangulaires.
+
+Chaque vitre a pour longueur 210 cm et pour largeur 155 cm.
+
+Lors d'une préalerte cyclonique Joanne pose de l'adhésif sur les deux diagonales de chaque vitre de l'immeuble.
+\begin{center}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(6,6.8)
+%\psgrid
+\psframe(1.5,1.8)(4.5,6.3)
+\psline(1.5,1.8)(4.5,6.3)\psline(4.5,1.8)(1.5,6.3)
+\uput[d](3,6.3){$155$~cm}\uput[r](4.5,4.05){210 cm}
+\rput(3,0.2){Une bande d'adhésif est assimilée à une diagonale du rectangle}
+\rput(3,6.6){Schéma de la situation}
+\psline{->}(3,0.6)(2.3,3)\psline{->}(3,0.6)(3.7,3)
+\end{pspicture}
+\end{center}
+
+\item Justifier que Joanne a besoin d'environ $5,22$ m d'adhésif pour une vitre.
+\end{enumerate}
+
+Joanne a 7 rouleaux d'adhésif de $10$ m chacun.
+
+\begin{enumerate}[resume]
+\item A-t-elle assez d'adhésif pour toutes les vitres ? Justifier la réponse.
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

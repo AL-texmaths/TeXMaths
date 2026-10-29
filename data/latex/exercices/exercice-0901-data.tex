@@ -1,0 +1,56 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{22GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2aa,C4C2ab,C4C2ac,C4D2ae}
+    \motsCles{moyenne,médiane,étendue,pourcentage,vitesse,durée}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Paris-Nice est une course cycliste qui se déroule chaque année et qui mène les coureurs de la région parisienne à la région niçoise. L'édition 2021 s'est déroulée en 7 étapes décrites ci-dessous:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|c|c|>{\small}X|c|}\hline
+\textbf{Étape} &\textbf{Date}&\textbf{Profil}&\textbf{Parcours}&\textbf{Distance}
+\\ \hline
+1&Dimanche 7 mars&Accidenté&\footnotesize Saint-Cyr-l'École$\to$Saint-Cyr-l'École&166 km\\ \hline
+2&Lundi 8 mars&Plat&Oinville-sur-Montcient$\to$Amilly&188 km\\ \hline
+3&Mercredi 10 mars&Accidenté& Chalon-sur-Saône$\to$Chiroubles&187,5 km\\ \hline
+4&Jeudi 11 mars &Plat&Vienne$\to$Bollène&200 km\\ \hline
+5&Vendredi 12 mars&Accidenté&Brignoles$\to$Biot&202,5 km\\ \hline
+6&Samedi 13 mars&Montagneux&Le Broc$\to$Valdeblore La Colmiane&119,5 km\\ \hline
+7&Dimanche 14 mars&Accidenté& Le Plan-du-Var$\to$Levens&93 km\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}
+\item On étudie la série des distances parcourues par étape.
+	\begin{enumerate}
+		\item Calculer la distance moyenne parcourue par étape, arrondie au dixième de km.
+		\item Calculer la médiane des distances parcourues par étape.
+		\item Calculer l'étendue de la série formée par les distances parcourues par étape.
+	\end{enumerate}
+\item Un journaliste affirme: \og Environ 57\,\% du nombre total d'étapes de cette édition se sont déroulées sur un parcours accidenté. \fg{}
+
+A-t-il raison ? Expliquer votre réponse.
+\item L'Allemand Maximilian SCHACHMANN a remporté la course en 28~h 50~min.
+
+Le dernier au classement général a effectué l'ensemble du parcours en 30~h 12~min.
+
+Combien de retard le dernier au classement a-t-il accumulé par rapport au vainqueur ?
+\item L'Irlandais Sam BENNETI a remporté la première étape en 3~h 51~min.
+
+Déterminer sa vitesse moyenne en km/h, arrondie à l'unité, lors de cette étape.
+\end{enumerate}
+
+\medskip
+
+\showthesource
+\end{document}

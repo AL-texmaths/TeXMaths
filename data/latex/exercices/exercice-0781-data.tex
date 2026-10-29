@@ -1,0 +1,52 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\startdatakeys
+    \source{25GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{graphique,vitesse,proportionnalité}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+À l'approche d'une course organisée par son collège, Malo s'entraîne sur un parcours de $13,5$~km.
+
+La courbe ci-dessous représente la distance parcourue par Malo (en kilomètres) en fonction du temps écoulé (en minutes).
+
+\begin{center}
+\psset{xunit=0.125cm,yunit=0.6cm,arrowsize=2pt 3}
+\begin{pspicture}(-5,-1)(95,16)
+{\psset{linecolor=gray}
+\multido{\n=0+5}{20}{\psline[linewidth=0.2pt](\n,0)(\n,16)}
+\multido{\n=0+1}{17}{\psline[linewidth=0.2pt](0,\n)(95,\n)}
+\multido{\n=0.5+1.0}{16}{\psline[linewidth=0.15pt](0,\n)(95,\n)}}
+\psaxes[linewidth=1.25pt,Dx=10,labelFontSize=\scriptstyle]{->}(0,0)(0,0)(95,16)
+\psline[linewidth=1.25pt,linecolor=magenta](0,0)(10,2)(20,4.5)(30,6.5)(40,6.5)(50,9)(60,11)(80,13.5)
+\uput[u](84,0){Temps (en min)}\uput[r](0,15.75){Distance (en km)}
+\end{pspicture}
+\end{center}
+
+\begin{enumerate}
+\item Le temps et la distance parcourue par Malo sont-ils proportionnels ?
+\item Quelle distance Malo a-t-il parcourue au bout de 20 minutes ?
+
+Aucune justification n'est attendue.
+\item Combien de temps a-t-il mis pour faire les 9 premiers kilomètres ?
+
+Aucune justification n'est attendue.
+\item Quelle est la vitesse moyenne de Malo lors de cette course? Exprimer le résultat au dixième de km/h près.
+\item Louise et Hillal ont couru sur le même parcours de $13,5$ km. Louise à une vitesse régulière égale à $12$~km/h et Hillal a une vitesse régulière égale à $10$ km/h
+	\begin{enumerate}
+		\item Sachant que Louise et Hillal sont partis en même temps, qui a été le premier à
+franchir la ligne d'arrivée?
+		\item Quelle distance sépare Louise et Hillal, lorsque le premier des deux franchit la ligne d'arrivée ?
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\showthesource
+\end{document}

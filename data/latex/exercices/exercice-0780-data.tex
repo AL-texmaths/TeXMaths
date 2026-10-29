@@ -1,0 +1,78 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{25GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{probabilité,facteurs premiers,pourcentage,agrandissement,moyenne}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\euro{\texteuro}%
+
+\emph{Dans cet exercice, les cinq situations sont indépendantes. Il est rappelé que chaque réponse doit être justifiée sauf indication contraire.}
+
+\medskip
+\begin{itemize}[label=$\bullet~~$]
+\item \textbf{Situation 1}
+
+Dans une urne de $40$ boules indiscernables au toucher, $5$ sont rouges, $20$ sont vertes et $15$ sont blanches. L'expérience consiste à tirer au hasard une boule de l'urne et à noter sa couleur.
+
+\smallskip
+
+Calculer la probabilité d'obtenir une boule verte.
+\item \textbf{Situation 2}
+
+Décomposer en produit de facteurs premiers le nombre \np{1050}.
+
+\emph{Aucune justification n'est attendue}.
+\item \textbf{Situation 3}
+
+Un article coûte $25$~\euro. Calculer son prix après une augmentation de $14\,\%$.
+\item \textbf{Situation 4}
+
+\begin{tabularx}{\linewidth}{X|X}
+Le polygone 2 est un agrandissement du polygone 1.
+
+Le coefficient de cet agrandissement est $2,5$.
+
+L'aire du polygone 1 est égale à $7,5$~cm$^2$.
+
+Calculer l'aire du polygone 2.&\emph{La figure ci-dessous n'est pas à l'échelle}.
+
+\begin{center}
+\psset{unit=0.7cm}
+\begin{pspicture}(0,-1)(6,4)
+\pspolygon(0,0)(3,0)(3,2)(1,3)(0,2)
+\pspolygon(4.7,0.7)(5.7,0.7)(5.7,1.4)(5.1,1.7)(4.7,1.4)
+\rput(1.5,-1){Polygone 2}\rput(5.2,-1){Polygone 1}
+\end{pspicture}
+\end{center}
+\end{tabularx}
+\item \textbf{Situation 5}
+
+\medskip
+
+Dans une classe de 3\up{e} on note la répartition des tailles des élèves dans le tableau suivant:
+
+\begin{tabularx}{\linewidth}{|m{1.25cm}|*{8}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Taille (en cm)}&152&157& 160& 162& 165&170& 174& 180\\ \hline
+\textbf{ Effectif}& 2& 4& 2& 5& 2&4&6&5\\ \hline
+\end{tabularx}
+
+\medskip
+
+\begin{enumerate}
+\item Quelle est la moyenne des tailles des élèves de cette classe ?
+\item Quelle est la médiane des tailles des élèves de cette classe ?
+\end{enumerate}
+\end{itemize}
+
+\newpage
+\showthesource
+\end{document}

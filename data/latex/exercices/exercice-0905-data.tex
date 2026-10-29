@@ -1,0 +1,59 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{texmaths-tikz}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{22GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B1ed}
+    \motsCles{Thalès,réciproque de Pythagore,homothétie,agrandissement,aire}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\begin{minipage}[t]{10cm}
+\emph{La figure ci-contre est réalisée à main levée.}
+
+Les droites (AB) et (CD) sont parallèles.
+
+Les droites (AD) et (BC) sont sécantes en E.
+
+On a : \begin{tabular}[t]{ll}
+	ED = 3,6 cm & CD = 6 cm \\
+	EB = 7,2 cm & AB = 9 cm
+\end{tabular}
+
+\begin{enumerate}
+	\item Démontrer que le segment [EC] mesure 4,8 cm.
+
+	\item Le triangle ECD est-il rectangle ?
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{tikzpicture}[pencildraw/.style={	smooth,black, decorate, decoration={random steps,segment length=10pt,amplitude=1.2pt}},baseline=(B.base)]
+	\draw[pencildraw] (0,0) node [below left] {A}
+			--(2.6,1.2) node [above right=0.2] {E}
+			--(4.5,1.8) node [above right] {D}
+			--(3.7,-1) node [below] {C}
+			--(2.6,1.2)
+			--(1.3,4.7)node[above] (B) {B}--cycle;
+\end{tikzpicture}
+
+\begin{enumerate}[resume]
+	\item Parmi les transformations ci-dessous, quelle est celle qui permet d’obtenir le triangle ABE à partir du triangle ECD ?
+
+	\emph{Recopier la réponse sur la copie. Aucune justification n’est attendue.}
+
+\begin{center}\fbox{Symétrie axiale}\quad  \fbox{Homothétie}\quad  \fbox{Rotation}\quad  \fbox{Symétrie centrale}\quad  \fbox{Translation}\end{center}
+	\item On sait que la longueur BE est 1,5 fois plus grande que la longueur EC.
+
+L’affirmation suivante est-elle vraie ? \emph{On rappelle que la réponse doit être justifiée.}
+
+	\textbf{Affirmation :} \og L’aire du triangle ABE est 1,5 fois plus grande que l’aire du triangle ECD. \fg
+\end{enumerate}
+
+\showthesource
+\end{document}

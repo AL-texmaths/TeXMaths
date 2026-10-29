@@ -1,0 +1,94 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[french]{babel}%
+\startdatakeys
+    \source{24GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{pourcentage,moyenne,médiane,étendue,graphique}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+Les jeux Olympiques (JO) d'été ont généralement lieu tous les 4 ans.
+
+Dans cet exercice, on s'intéresse aux coûts d'organisation des dernières éditions des JO d'été.
+
+On rappelle que le coût est l'ensemble des dépenses entraînées par l'organisation des JO.
+
+On précise que :
+
+\begin{itemize}
+\item le \textbf{coût prévisionnel} désigne les dépenses prévues par les organisateurs avant l'édition des JO ;
+\item le \textbf{coût réel} désigne les dépenses réelles qui ont été nécessaires pour l'organisation des JO.
+\end{itemize}
+
+Le graphique ci-dessous compare ces deux coûts pour les dernières éditions des JO d'été.
+
+\medskip
+
+\begin{tabularx}{\linewidth}{|>{\centering \arraybackslash}X|}\hline
+\textbf{Comparaison entre le coût prévisionnel et le coût réel de chaque édition des JO depuis 1992, en milliard d'euros}\\
+
+\psset{xunit=0.9cm,hatchsep=2pt,yunit=1.25cm}
+\begin{pspicture}(0,-1)(15,4)
+%\psgrid
+\psline(0,1.4)(15,1.4)
+\psframe*[linecolor=gray](0.5,1.4)(0.7,1.575)\uput[u](0.6,1.575){\footnotesize 3,5}
+\psframe*[linecolor=gray](2.3,1.4)(2.5,1.49)\uput[u](2.4,1.49){\footnotesize 1,8}
+\psframe*[linecolor=gray](4.1,1.4)(4.3,1.55)\uput[u](4.2,1.55){\footnotesize 3}
+\psframe*[linecolor=gray](5.9,1.4)(6.1,1.65)\uput[u](6.,1.65){\footnotesize 5,3}
+\psframe*[linecolor=gray](7.7,1.4)(7.9,1.53)\uput[u](7.8,1.53){\footnotesize 2,6}
+\psframe*[linecolor=gray](9.5,1.4)(9.7,1.64)\uput[u](9.6,1.64){\footnotesize 4,8}
+\psframe*[linecolor=gray](11.3,1.4)(11.5,1.85)\uput[u](11.4,1.85){\footnotesize 9}
+\psframe*[linecolor=gray](13.1,1.4)(13.3,2.05)\uput[u](13.2,2.05){\footnotesize 13}
+\psframe[fillstyle=hlines](1,1.4)(1.2,1.865)\uput[u](1.1,1.865){\footnotesize 9,3}
+\psframe[fillstyle=hlines](2.8,1.4)(3,1.55)\uput[u](2.9,1.55){\footnotesize 2,3}
+\psframe[fillstyle=hlines](4.6,1.4)(4.8,1.65)\uput[u](4.7,1.65){\footnotesize 5,5}
+\psframe[fillstyle=hlines](6.4,1.4)(6.6,1.9)\uput[u](6.5,1.9){\footnotesize 10}
+\psframe[fillstyle=hlines](8.2,1.4)(8.4,1.865)\uput[u](8.3,1.865){\footnotesize 31}
+\psframe[fillstyle=hlines](10,1.4)(10.2,1.9)\uput[u](10.1,1.9){\footnotesize 11}
+\psframe[fillstyle=hlines](11.8,1.4)(12,2.2)\uput[u](11.9,2.2){\footnotesize 16,5}
+\psframe[fillstyle=hlines](13.6,1.4)(13.8,2)\uput[u](13.7,2){\footnotesize 12,1}
+\psframe*[linecolor=gray](5,3.4)(5.3,3.7)\psframe[fillstyle=hlines](10,3.4)(10.3,3.7)
+\rput(7.2,3.5){Coût prévisionnel}\rput(11.8,3.5){Coût réel}
+\rput(0.8,1){Barcelone}\rput(0.8,0.5){1992}
+\rput(2.6,1){Atlanta}\rput(2.6,0.5){1996}
+\rput(4.4,1){Sydney}\rput(4.4,0.5){2000}
+\rput(6.2,1){Athènes}\rput(6.2,0.5){2004}
+\rput(8,1){Pékin}\rput(8,0.5){2008}
+\rput(9.8,1){Londres}\rput(9.8,0.5){2012}
+\rput(11.6,1){Rio de}\rput(11.6,0.5){Janeiro}\rput(11.6,0){2016}
+\rput(13.4,1){Tokyo}\rput(13.4,0.5){2021}
+\rput(7.5,-0.5){\emph{La crise sanitaire de la Covid-$19$ a décalé à $2021$ les Jeux Olympiques de Tokyo prévus en $2020$.}}
+\end{pspicture}\\ \hline
+\end{tabularx}
+
+\medskip
+
+\begin{enumerate}
+\item Entre 1992 et 2021, combien d'éditions ont eu un coût réel supérieur ou égal à $10$ milliards d'euros ?
+\item Calculer le pourcentage d'augmentation entre le coût prévisionnel et le coût réel lors de l'édition des JO de Rio de Janeiro 2016, arrondi à l'unité.
+\item Montrer que le coût réel moyen entre 1992 et 2021 est $12,2$~milliards d'euros, arrondi au dixième de milliard.
+\item \textbf{Questions de journalistes}
+	\begin{enumerate}
+		\item Un journaliste mentionne que le coût réel moyen des JO sur la période 1992 à 2021 est de $12,2$~milliards d'euros. Il poursuit en affirmant: \og Cela signifie que la moitié des éditions entre 1992 et 2021 ont un coût réel supérieur à 12,2 milliards d'euros. \fg
+		
+Que penser de cette affirmation ?
+		\item Le coût prévisionnel moyen entre 1992 et 2024 est de l'ordre de $5,5$ milliards d'euros.
+		
+Une journaliste cherche à connaître le coût prévisionnel des JO de Paris 2024 pour préparer son intervention télévisée.
+		
+Calculer le coût prévisionnel des JO de Paris 2024 qu'elle devrait annoncer.
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

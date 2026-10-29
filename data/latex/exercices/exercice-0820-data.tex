@@ -1,0 +1,131 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{fonction,image,antécédent,tableur,graphique,équation}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+%-------------------------------------------------------------
+
+On considère les fonctions $f$ et $g$ définies par :
+$f(x) = (x-1)(x+3)$ \quad et \quad $g(x) = 2x+1$.
+
+\begin{enumerate}
+\item Calculer $f(-4)$.
+\item Déterminer l'antécédent de 2 par la fonction $g$.
+\item On utilise un tableur pour donner les images des nombres entiers de 0 à 8 par les fonctions $f$ et $g$.
+
+\vspace{6pt}
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|*{10}{>{\centering \arraybackslash}X|}}\hline
+& \textbf{A} & \textbf{B} & \textbf{C} & \textbf{D} & \textbf{E} & \textbf{F} & \textbf{G} & \textbf{H} & \textbf{I} & \textbf{J} \\\hline
+\textbf{1} & $x$ & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\\hline
+\textbf{2} & $f(x)$ & $-3$ & 0 & 5 & 12 & 21 & 32 & 45 & 60 & 77 \\\hline
+\textbf{3} & $g(x)$ & 1 & 3 & 5 & 7 & 9 & 11 & 13 & 15 & 17 \\\hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}[label=\alph*)]
+\item Quelle formule doit-on saisir en cellule B3 puis étirer vers la droite pour compléter la ligne 3\,?\\
+\textit{Aucune justification n'est demandée.}
+\item Par lecture du tableau ci-dessus, donner une solution de l'équation $f(x) = g(x)$.\\
+\textit{Aucune justification n'est demandée.}
+\end{enumerate}
+
+\item On représente graphiquement chacune de ces fonctions.
+
+\medskip
+
+\begin{minipage}[t]{0.52\textwidth}
+\begin{center}
+%début Tikz
+%\begin{tikzpicture}
+%\begin{axis}[
+%axis lines=center,
+%xmin=-4.5, xmax=3.5,
+%ymin=-5.5, ymax=5.5,
+%xtick={-4,-3,...,3},
+%ytick={-5,-4,...,5},
+%tick label style={font=\small},
+%grid=both,
+%grid style={line width=0.3pt, draw=gray!40},
+%width=7.5cm, height=8.5cm,
+%]
+%% C1 = courbe parabolique f(x)=(x-1)(x+3)
+%\addplot[thick, domain=-4.2:3.2, samples=80] {(x-1)*(x+3)};
+%\node[above left, font=\small] at (axis cs:-3.8,4.5) {$\mathcal{C}_1$};
+%% C2 = droite g(x)=2x+1
+%\addplot[thick, domain=-4.2:3.2, samples=2] {2*x+1};
+%\node[below right, font=\small] at (axis cs:2,4) {$\mathcal{C}_2$};
+%\end{axis}
+%\end{tikzpicture}
+%Fin Tikz
+%début PSTricks
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture*}(-4.5,-5.5)(3.5,5.5)
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle]{->}(0,0)(-4.5,-5.5)(3.5,5.5)
+\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=red]{-4}{2.5}{x 1 sub x 3 add mul}
+\uput[r](-3.5,3.5){\red $\mathcal{C}_1$}
+\psplot[plotpoints=200,linewidth=1.25pt]{-4}{2.5}{x 2 mul 1 add}\uput[r](-2.7,-4.5){ $\mathcal{C}_2$}
+\end{pspicture*}
+%fin PSTricks
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.44\textwidth}
+\vspace{20pt}
+\begin{enumerate}[label=\alph*)]
+\item Associer à chacune des fonctions $f$ et $g$ sa représentation graphique.\\
+\textit{Aucune justification n'est demandée.}
+\item Par lecture graphique, déterminer les deux solutions de l'équation $f(x) = g(x)$.\\
+\textit{Aucune justification n'est demandée.}
+\end{enumerate}
+\end{minipage}
+
+\item Lola affirme que les solutions de l'équation $f(x) = g(x)$ sont les mêmes que les solutions de l'équation $x^2 - 4 = 0$. A-t-elle raison\,? Justifier.
+\end{enumerate}
+
+\newpage
+
+%%%%%%%%%
+\medskip
+\showthesource
+\end{document}

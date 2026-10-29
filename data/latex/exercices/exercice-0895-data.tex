@@ -1,0 +1,88 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{array}%
+\usepackage{amsmath}%
+\startdatakeys
+    \source{22GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B3ca,C4B3cb,C4B1ed}
+    \motsCles{réciproque de Pythagore,Thalès,trigonométrie,angle,homothétie,transformation,agrandissement,aire}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+La figure ci-dessous n'est pas à l'échelle.
+
+\setlength\parindent{10mm}
+\begin{itemize}
+\item[$\bullet~~$] les points M, A et S sont alignés
+\item[$\bullet~~$] les points M, T et H sont alignés
+\item[$\bullet~~$] MH = 5 cm
+\item[$\bullet~~$] MS = 13 cm
+\item[$\bullet~~$] MT = 7 cm
+\end{itemize}
+\setlength\parindent{0mm}
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(12.5,5.8)
+\pspolygon(0.2,0.2)(7,0.2)(7,5.2)(11.8,5.2)%ATHS
+\psframe(7,0.2)(6.75,0.45)\psframe(7,5.2)(7.25,4.95)
+\uput[dl](0.2,0.2){A} \uput[dr](7,0.2){T} \uput[ul](7,5.2){H} \uput[r](11.8,5.2){S}
+\uput[ul](7,3.16){M}
+\end{pspicture}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item Démontrer que la longueur HS est égale à $12$~cm.
+\item Calculer la longueur AT.
+\item Calculer la mesure de l'angle $\widehat{\text{HMS}}$. On arrondira le résultat au degré près.
+\item Parmi les transformations suivantes quelle est celle qui permet d'obtenir le triangle MAT à partir du triangle MHS ?
+
+\emph{Dans cette question, aucune justification n'est attendue.}
+
+Recopier la réponse sur la copie.
+
+
+\begin{minipage}{2.35cm}
+\begin{tabular}{|m{2.35cm}|}\hline
+Une symétrie centrale\\ \hline
+\end{tabular}
+\end{minipage}\quad
+\begin{minipage}{2.35cm}
+\begin{tabular}{|m{2.35cm}|}\hline
+Une symétrie axiale\\ \hline
+\end{tabular}
+\end{minipage}\quad
+\begin{minipage}{2.15cm}
+\begin{tabular}{|m{2.15cm}|}\hline
+Une rotation~~~~~~~\\ \hline
+\end{tabular}
+\end{minipage}\quad
+\begin{minipage}{2.35cm}
+\begin{tabular}{|m{2.35cm}|}\hline
+Une translation\\ \hline
+\end{tabular}
+\end{minipage}\quad
+\begin{minipage}{2.35cm}
+\begin{tabular}{|m{2.35cm}|}\hline
+Une homothétie\\ \hline
+\end{tabular}
+\end{minipage}
+
+
+\item Sachant que la longueur MT est 1,4 fois plus grande que la longueur HM, un élève affirme: \og L'aire du triangle MAT est $1,4$ fois plus grande que l'aire du triangle MHS. \fg
+
+Cette affirmation est-elle vraie ? On rappelle que la réponse doit être justifiée.
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

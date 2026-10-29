@@ -1,0 +1,115 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATMEAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{lecture graphique,volume,boule,masse volumique}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+\textbf{Dans cet exercice, les parties A et B sont indépendantes.}
+
+\medskip
+
+\begin{minipage}[t]{0.47\linewidth}
+\subsection*{Partie A}
+On a tracé ci-contre la courbe représentative de la fonction qui donne le volume d'une boule en~$\mathrm{cm}^{3}$ en fonction de son rayon en~cm.
+
+\begin{enumerate}
+	\item Déterminer graphiquement l'image de 3,6 par cette fonction.
+
+	\item Le volume d'une boule est égal à \np[cm^3]{660}.
+
+	Lire graphiquement son rayon.
+\end{enumerate}
+\end{minipage}
+\hfill~
+\begin{tikzpicture}[x=9mm,y=0.08mm,baseline={(vol.base)},> =stealth]
+	\draw [color = gray!75, line width = 0.25pt, xstep=0.2, ystep = 20] (0,0) grid (8,860);
+	\draw [color = gray, line width = 0.5pt, xstep=1, ystep = 100] (0,0) grid (8,860);
+	\draw[->,line width=1pt] (0,0) -- (8.2,0);
+	\node[left] at (8.2,-25pt) {Rayon en cm};
+	\foreach \x in {1,...,8}
+	\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below, fill = white] {\footnotesize $\np{\x}$};
+	\draw[->,line width=1pt] (0,0) -- (0,860);
+	\node[right] (vol) at (5pt,830) {Volume en $\mathrm{cm}^3$};
+	\foreach \y in {100,200,...,800}
+	\draw[shift={(0,\y)},color=black] (2pt,0pt) -- (-2pt,0pt) node[left, fill = white] {\footnotesize $\np{\y}$};
+	\draw[color=black] (-2pt,-2pt) node[below left] {{\footnotesize 0}};
+	\clip (0,-2pt) rectangle (8,860);
+	\draw[line width=1.2pt,color=red,smooth,samples=100,domain= 0:6] plot(\x,{4.18879*\x*\x*\x});
+\end{tikzpicture}
+\hfill~
+
+
+%%%% pstricks
+%\begin{flushright}
+%\psset{xunit=1cm,yunit=0.01cm,linewidth=1.5pt,arrowsize=2pt 3,comma}
+%\def\xmin{-1}   \def\xmax{8.4} \def\ymin{-100}   \def\ymax{880}
+%\begin{pspicture*}(\xmin,\ymin)(\xmax,\ymax)
+%\psgrid[yunit=1cm,subgriddiv=5,  gridlabels=0, subgridcolor=lightgray!50,gridcolor=lightgray](0,0)(\xmax,9)
+%\psaxes[labelFontSize=\footnotesize,Dy=100, ticksize=-2pt 2pt,]{->}(0,0)(0,0)(\xmax,\ymax)
+%\psplot[linecolor=blue,plotpoints=3000]{0}{\xmax}{4 3.14159 mul x 3 exp mul 3 div}
+%\uput[r](0.4,840){Volume en cm$^3$}
+%\uput[d](7,-40){Rayon en cm}
+%\end{pspicture*}
+%\end{flushright}
+
+\subsection*{Partie B}
+On souhaite fabriquer avec une imprimante 3D, des boules pleines en plastique, de rayon de \np[cm]{2,5}.
+
+\begin{enumerate}
+	\item Montrer que le volume d'une boule, arrondi à l'unité, est égal à \np[cm^3]{65}.
+
+	\emph{On rappelle que le volume $V$ d'une boule de rayon $R$ est donné par la formule :}
+
+	$V=\dfrac{4}{3} \times \pi \times R^{3}$
+
+	\item Pour utiliser cette imprimante, on dispose d'une bobine de \np[cm^3]{1000} de plastique.
+
+	Combien de boules peut-on fabriquer au maximum ?
+
+	\item Sachant que la masse volumique de ce plastique est égale à \np[g/cm^3]{0,9}, calculer la masse d'une boule.
+\end{enumerate}
+
+\needspace{10\baselineskip}
+% saut de page si moins de 10 lignes disponibles
+\medskip
+\showthesource
+\end{document}

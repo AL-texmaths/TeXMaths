@@ -1,0 +1,59 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage{amsmath}%
+\startdatakeys
+    \source{22GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2bc,C4D3ac,C4A1aj,C4D2ab,C4B1bc}
+    \motsCles{probabilité,ratio,fonction linéaire,facteurs premiers,volume,prisme}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\emph{Dans cet exercice, aucune justification n'est attendue.}
+
+\medskip
+
+Cet exercice est un questionnaire à choix multiple. Pour chaque question, une seule des quatre réponses est exacte.
+
+\medskip
+
+\textbf{Sur la copie}, écrire le numéro de la question et la réponse choisie.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|m{4.5cm}|*{4}{>{\centering \arraybackslash}X|}}\hline
+&&\textbf{Réponse A} &\textbf{Réponse B} &\textbf{Réponse C} &\textbf{Réponse D}\\ \hline
+1&On lance un dé équilibré à 20 faces numérotées de 1 à 20. La probabilité pour que le numéro tiré soit inférieur ou égal à 5 est \ldots&$\dfrac{1}{20}$&$\dfrac{1}{4}$&$\dfrac{1}{5}$&$\dfrac{5}{6}$\\ \hline
+2&Une boisson est composée de sirop et d'eau dans la proportion d'un volume de sirop pour sept volumes d'eau (c'est-à-dire dans le ratio 1~:~7).
+
+La quantité d'eau nécessaire pour préparer $560$ mL de cette boisson est \ldots&70 mL
+&80 mL&400 mL&490 mL\\ \hline
+3&La fonction linéaire $f$ telle
+que $f\left(\dfrac45\right) = 1$ est \ldots&$f(x) = x + \dfrac15$&$f(x) = \dfrac45 x$&$f(x) = \dfrac54 x$&$f(x) = x  - \dfrac15$\\ \hline
+4&La décomposition en produit de facteurs premiers de $195$ est \ldots&$5\times 39$&$3 \times 5 \times 13$&\footnotesize $1 \times 100 + 9~\times~10 + 5$&$3 \times 65$\\ \hline
+5&\psset{unit=1cm}
+\begin{pspicture}(4,3)
+\pspolygon(0.6,0.6)(2.2,0.6)(0.6,1.6)
+\psline(2.2,0.6)(3.9,1.9)(2.2,2.9)(0.6,1.6)
+\psline[linestyle=dotted,linewidth=1.6pt](0.6,0.6)(2.2,1.9)(3.9,1.9)
+\psline[linestyle=dotted,linewidth=1.6pt](2.2,1.9)(2.2,2.9)
+\psframe(2.2,1.9)(2.35,2.05)\psframe(0.6,0.6)(0.75,0.75)
+\psline[linewidth=0.6pt]{<->}(0.6,0.4)(2.2,0.4)\uput[d](1.4,0.4){\small 5 cm}
+\psline[linewidth=0.6pt]{<->}(2.3,0.5)(4,1.8)\uput[dr](3.15,1.15){\small 8 cm}
+\psline[linewidth=0.6pt]{<->}(0.4,0.6)(0.4,1.6)\rput{90}(0.2,1.1){\small 3 cm}
+\end{pspicture}
+
+Le volume de ce prisme droit est \ldots&40 cm$^3$&60 cm$^3$&64 cm$^3$&120 cm$^3$\\ \hline
+\end{tabularx}
+\end{center}
+
+\bigskip
+
+\showthesource
+\end{document}

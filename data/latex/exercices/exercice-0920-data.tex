@@ -1,0 +1,79 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\startdatakeys
+    \source{22GENMATMEAG2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2aa,C4D3ac,C4D3ba}
+    \motsCles{lecture graphique,fonction linéaire,vitesse,durée}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Le Tour de France 2021 est une compétition de cyclisme s'étant déroulée du 26 juin au 18 juillet 2021.
+
+L'étape 5 était un contre-la-montre individuel de $27,2$~km. Le graphique ci-dessous indique le temps effectué par Tadej Pogacar en fonction de la distance parcourue sur son trajet (source : https://www.letour.fr).
+
+\medskip
+
+On répondra aux questions suivantes à l'aide de ce graphique reproduit en annexe.
+
+On laissera les traits de construction éventuels sur le graphique de l'annexe.
+
+\begin{center}
+\psset{xunit=0.2cm,yunit=0.15cm,arrowsize=2pt 3}
+\begin{pspicture}(-5,-5)(32,43)
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle,Dx=5,Dy=5]{->}(0,0)(0,0)(32,43)
+\multido{\n=0+1}{33}{\psline[linewidth=0.1pt](\n,0)(\n,43)}
+\multido{\n=0+5}{7}{\psline[linewidth=0.5pt](\n,0)(\n,43)}
+\multido{\n=0+1}{44}{\psline[linewidth=0.1pt](0,\n)(32,\n)}
+\multido{\n=0+5}{9}{\psline[linewidth=0.5pt](0,\n)(32,\n)}
+\psline[linewidth=1.25pt,linecolor=blue](27.2,32)
+\uput[u](26,0){distance (en km)}\uput[r](0,42){durée (en minutes)}
+\end{pspicture}
+\end{center}
+
+\begin{enumerate}
+\item Quelle distance approximative Tadej POGACAR a-t-il parcouru en 20 minutes ?
+\item En combien de temps environ Tadej POGACAR a-t-il effectué les $27,2$ km du parcours ?
+\item Le cycliste Bryan Coquard a lui aussi effectué ce contre-la-montre.
+
+Le temps, en minutes, mis par Bryan Coquard pour parcourir la distance $x$, exprimée en km, peut être représenté par la fonction linéaire $f$ d'expression algébrique:
+
+\[f(x) = 1,4x.\]
+
+	\begin{enumerate}
+		\item Représenter la fonction $f$ sur le graphique en annexe.
+		\item Lequel de ces deux coureurs a été classé avant l'autre ?
+	\end{enumerate}
+\item Est-il vrai que la vitesse moyenne de Tadej Pogacar sur l'ensemble du parcours est
+supérieure à $50$ km/h ? Justifier.
+\end{enumerate}
+
+\bigskip
+
+
+\textbf{Annexe de l'exercice 4}
+
+\medskip
+
+\begin{center}
+\psset{xunit=0.3cm,yunit=0.2cm,arrowsize=2pt 3}
+\begin{pspicture}(-5,-5)(32,43)
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle,Dx=5,Dy=5]{->}(0,0)(0,0)(32,43)
+\multido{\n=0+1}{33}{\psline[linewidth=0.1pt](\n,0)(\n,43)}
+\multido{\n=0+5}{7}{\psline[linewidth=0.5pt](\n,0)(\n,43)}
+\multido{\n=0+1}{44}{\psline[linewidth=0.1pt](0,\n)(32,\n)}
+\multido{\n=0+5}{9}{\psline[linewidth=0.5pt](0,\n)(32,\n)}
+\psline[linewidth=1.25pt,linecolor=blue](27.2,32)
+\uput[u](27,0){distance (en km)}\uput[r](0,42){durée (en minutes)}
+\end{pspicture}
+\end{center}
+
+\showthesource
+\end{document}

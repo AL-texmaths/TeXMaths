@@ -1,0 +1,196 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{périmètre,expression littérale,équation,Scratch,programme}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Dans cet exercice. $x$ représente un nombre supérieur ou égal à 5.
+
+Voici, ci-dessous, deux figures géométriques : un rectangle ABCD et un triangle isocèle
+IJK.
+
+\begin{center}
+%%Début PSTriks
+%\psset{unit=0.8cm,arrowsize=2pt 3}
+%\begin{pspicture}(14,4.4)
+%\psframe(1.7,0.5)(7,1.9)%DCBA
+%\uput[dl](1.7,0.5){D}\uput[dr](7,0.5){C}\uput[ur](7,1.9){B}\uput[ul](1.7,1.9){A}
+%\psframe(1.7,0.5)(1.95,0.75)\psframe(7,0.5)(6.75,0.75)\psframe(7,1.9)(6.75,1.65)
+%\psframe(1.7,1.9)(1.95,1.65)
+%\psline[linewidth=0.7pt]{<->}(1.7,2.2)(7,2.2)\uput[u](4.35,2.2){$3x + 1$}
+%\psline[linewidth=0.7pt]{<->}(1.5,1.9)(1.5,0.5)\uput[l](1.5,1.2){$x - 2$}
+%\pspolygon(10,1)(15.2,1)(12.6,3.3)%IJK
+%\uput[dl](10,1){I}\uput[dr](15.2,1){J}\uput[u](12.6,3.3){K}
+%\psline[linewidth=0.7pt]{<->}(9.9,1.15)(12.5,3.45)\uput[ul](11.2,2.3){$2x$}
+%\psline[linewidth=0.7pt]{<->}(10,0.8)(15.2,0.8)\uput[d](12.6,0.8){$2x + 9$}
+%\def\barre{\psline(-0.05,-.2)(-0.05,.1)}%\rput{35}(11.3,2.2){$2x$}
+%\rput{35}(11.3,2.2){\barre}\rput{-35}(13.9,2.2){\barre}
+%\end{pspicture}
+%%Fin PSTricks
+
+%Début Tikz
+\begin{minipage}[t]{0.45\linewidth}\vspace{0mm}
+	\begin{adjustbox}{max width=1\linewidth,max totalheight=255mm}
+		\begin{tikzpicture}[>=stealth]
+			\draw[fill=blue!40](0,0)rectangle(0.4,0.4)(6,0)rectangle(5.6,0.4)(6,2.5)rectangle(5.6,2.1)(0,2.5)rectangle(0.4,2.1);
+			\draw[line width=0.3mm](0,0)node[below left]{D}--(6,0)node[below right]{C}--(6,2.5)node [above right]{B}--(0,2.5)node[above left]{A}--cycle;
+			\draw[<->](0.0,2.8)--(6,2.8)node[midway, above]{$3x+1$};
+			\draw[<->](-0.3,0)--(-0.3,2.5)node[midway, left]{$x-2$};
+		\end{tikzpicture}
+	\end{adjustbox}
+\end{minipage}\hspace{0.05\linewidth}\begin{minipage}[t]{0.45\linewidth}\vspace{0mm}
+	\begin{adjustbox}{max width=1\linewidth,max totalheight=255mm}
+		\begin{tikzpicture}[>=stealth]
+			\draw[line width=0.3mm](0,0)node[below left]{I}--(6,0)node[below right]{J}--(3,2.5)node [above]{K}node[midway, sloped]{||}--(0,0)node[midway, sloped]{||};
+			\draw[<->](0,-0.3)--(6,-0.3)node[midway, below]{$2x+9$};
+			\draw[<->](-0.1,0.3)--(2.8,2.8)node[midway, above left]{$2x$};
+
+		\end{tikzpicture}
+	\end{adjustbox}
+\end{minipage}
+%Fin Tikz
+\end{center}
+
+
+
+\subsection*{Partie A}
+
+\medskip
+
+\begin{enumerate}
+\item
+Calculer la longueur AB pour $x = 10$.
+
+Justifier que le périmètre du rectangle ABCD vaut $78$ pour $x = 10$.
+
+\item Montrer que le périmètre du rectangle ABCD, en fonction de $x$, est $8x - 2$.
+\end{enumerate}
+
+
+
+\subsection*{Partie B}
+
+\medskip
+
+Nour a exprimé, en fonction de $x$, le périmètre du triangle isocèle IJK et a obtenu $6x + 9$.
+
+Nour souhaite trouver pour quelle valeur de $x$ le périmètre du rectangle ABCD et le périmètre du triangle IJK sont égaux.
+
+Pour cela, Nour a créé le programme Scratch ci-contre qui permet de tester, pour une valeur donnée de $x$, si les périmètres sont égaux :
+
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Combien vaut $x$ ?} et attendre}
+\blockvariable{mettre \selectmenu{Périmètre ABCD} à \ovaloperator{\ovalnum{8} * \ovalnum{x} -\ovalnum{2}}}
+\blockvariable{mettre \selectmenu{Périmètre IJK} à \ovaloperator{\ovalnum{6} * \ovalnum{x} +\ovalnum{9}}}
+\blockifelse{Si \ovalnum{Périmètre ABCD} = \ovalnum{Périmètre IJK} alors}
+	{\blocklook{dire \ovalnum{Les deux périmètres sont égaux} pendant \ovalnum{2} secondes}}
+	{\blocklook{dire \ovalnum{Les deux périmètres ne sont pas égaux} pendant \ovalnum{2} secondes}}
+\end{scratch}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item \textbf{Question algorithmique}
+
+Que renvoie le programme si Nour saisit $7$ ?
+
+\item Avec le programme précédent, Nour n'a pas réussi à trouver une valeur exacte de $x$ pour laquelle le périmètre du rectangle et le périmètre du triangle sont égaux.
+
+Nour décide d'utiliser un tableur et les formules trouvées précédemment :
+
+\begin{itemize}[label=$\bullet~$]
+\item $8x - 2$ pour le périmètre du rectangle ABCD ;
+\item $6x + 9$ pour le périmètre du triangle isocèle IJK.
+\end{itemize}
+
+Voici ci-dessous un extrait de la feuille de calcul dans laquelle Nour a fait afficher le périmètre du rectangle et le périmètre du triangle pour différentes valeurs de $x$.
+
+\begin{center}
+\begin{tblr}{colspec={|X[7mm,c,font=\sffamily]|X[1cm,c]|X[4cm,c]|X[4cm,c]|},row{1}={font=\sffamily}}
+\hline
+ & \textbf{A} & \textbf{B} & \textbf{C} \\
+\hline
+1 & $x$ & Périmètre de ABCD & Périmètre de IJK \\
+
+2 & 5  & 38  & 39 \\
+3 & 6  & 46  & 45 \\
+4 & 7  & 54  & 51 \\
+5 & 8  & 62  & 57 \\
+6 & 9  & 70  & 63 \\
+7 & 10 & 78  & 69 \\
+8 & 11 & 86  & 75 \\
+9 & 12 & 94  & 81 \\
+10 & 13 & 102 & 87 \\
+\hline
+\end{tblr}
+\end{center}
+
+ \begin{enumerate}
+ 	\item Recopier sur la copie la formule que Nour a saisie dans la cellule \textsf{B2} avant de l'étirer vers le bas pour obtenir les résultats affichés.
+
+\medskip
+\begin{tblr}{colspec={*{4}{X[c,font=\sffamily]}},hlines, vlines}
+= 8 * 5 - 2 &
+= 8 * A2 - 2 &
+= 8 * B2 - 2 &
+= 8 * A1 - 2 \\
+\end{tblr}
+
+\medskip
+\item En observant sa feuille de calcul, Nour affirme : \og S'il existe une valeur de $x$ pour laquelle le périmètre du rectangle ABCD et le périmètre du triangle IJK sont égaux, elle est comprise entre $5$ et $6$. \fg
+
+Expliquer le raisonnement de Nour.
+
+\textbf{\textbf{Argumenter la réponse en précisant la démarche.}}
+
+\end{enumerate}
+
+\item Comme elle n'a pas obtenu la solution exacte avec les méthodes précédentes, Nour propose de résoudre algébriquement l'équation $8x - 2 = 6x + 9$.
+
+Résoudre cette équation afin de déterminer la valeur exacte de $x$ pour laquelle le périmètre du rectangle et le périmètre du triangle sont égaux.
+\end{enumerate}
+\medskip
+\showthesource
+\end{document}

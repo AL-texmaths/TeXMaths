@@ -1,0 +1,119 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{array}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[french]{babel}%
+\usepackage{multido}%
+\usepackage{pst-plot}%
+\startdatakeys
+    \source{24GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{volume,débit,fonction,antécédent,graphique}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+La piscine du camping \og le Rocher\fg{} dispose d'un bassin circulaire de forme cylindrique de rayon $3,60$~m et de hauteur $1,50$~m. En fin de saison, on utilise une pompe dont le débit est de $14,1$~m$^3$/h pour vider l'eau de la piscine.
+
+\medskip
+
+\begin{enumerate}
+\item Montrer que le volume du bassin, arrondi au dixième de m$^3$, est 61,1m$^3$.
+\item Le bassin est plein. On met en route la pompe. Au bout de 2 heures, quel volume d'eau en m$^3$ reste-t-il à vider ?
+	\end{enumerate}
+
+On considère la fonction $V\::\: t \longmapsto  61,1 - 0,235 t$.
+
+	\begin{enumerate}[resume]
+\item 
+	\begin{enumerate}
+		\item Montrer que l'expression $V(t)$ permet de déterminer le volume d'eau en m$^3$ qu'il reste à vider dans le bassin en fonction de la durée $t$, exprimée en minute, d'utilisation de la pompe.
+		\item Calculer le temps nécessaire pour que le volume d'eau restant à vider soit égal à $30$ m$^3$.
+		
+On donnera une valeur approchée à la minute près.
+	\end{enumerate}
+	
+\item On a tracé ci-dessous une partie de la représentation graphique de la fonction $V$.
+
+\begin{center}
+\psset{unit=0.04cm,arrowsize=3pt 3}
+\begin{pspicture*}(-20,-20)(330,120)
+\psgrid[unit=2cm,subgriddiv=5,gridlabels=0,gridcolor=gray,subgridcolor=lightgray](-1,-1)(7,3)
+\psaxes[linewidth=1.25pt,Dx=50,Dy=50,labelFontSize=\scriptstyle]{->}(0,0)(-20,-20)(330,120)
+%\multido{\n=0+10}{32}{\psline[linewidth=0.1pt](\n,0)(\n,110)}
+%\multido{\n=0+10}{12}{\psline[linewidth=0.1pt](0,\n)(330,\n)}
+%\multido{\n=0+50}{6}{\psline[linewidth=0.7pt](\n,0)(\n,110)}
+%\multido{\n=0+50}{3}{\psline[linewidth=0.7pt](0,\n)(330,\n)}
+\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=blue]{-20}{330}{61.1 0.235 x mul sub}
+\uput[u](305,0){$t$}\uput[r](0,105){$V(t)$}
+\end{pspicture*}
+\end{center}
+
+Répondre aux questions suivantes par une lecture graphique.
+	\begin{enumerate}
+		\item Déterminer l'antécédent de 40 par la fonction $V$. Interpréter le résultat.
+		\item Déterminer le temps nécessaire pour que la pompe vide complètement le bassin.
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\begin{center}\textbf{\large ANNEXE}\end{center}
+
+\medskip
+
+
+\vspace{1cm}
+
+\begin{tabular}{c c c}
+\textbf{Question 2. a.}&&\textbf{Question 2. b.}\\%[7pt]
+\\
+\begin{scratch}[scale=1]
+\initmoreblocks{définir \namemoreblocks{pentagone}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{\hspace*{0.7cm}} fois}
+{\blockmove{avancer de \ovalnum{longueur} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{\hspace*{0.7cm}} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}
+&&
+{\renewcommand{\arraystretch}{1.6}
+\begin{tabular}[t]{|m{1.5cm}|m{1.3cm}|m{3.5cm}|}
+\multicolumn{3}{c}{~~}\\
+\hline
+Nom de\newline l'élève&Numéro\newline de la\newline copie d'écran&Nom de la\newline transformation\\ \hline
+Camille&&\\ \hline 
+Lou &&\\ \hline 
+Zoé&&\\ \hline 
+\end{tabular}}\\
+\end{tabular}
+
+\vspace{1cm}
+
+\textbf{Question 2. c.}
+
+\bigskip
+
+\begin{center}
+\begin{tabular}{|l| p{7cm}|}\hline
+Instruction&Ordre d'apparition de l'instruction dans le programme de Sofia\\ \hline
+\begin{scratch}[scale=0.8]\blockpen{effacer tout} \end{scratch}&\\ \hline
+\begin{scratch}[scale=0.8]\blockmove{s'orienter à \ovalnum{90} } \end{scratch}&\\ \hline
+\begin{scratch}[scale=0.8]\blockmoreblocks{pentagone} \end{scratch}&\multicolumn{1}{|c|}{6\up{e}}\\ \hline
+\begin{scratch}[scale=0.8]\blockinit{Quand \greenflag est cliqué} \end{scratch}&\multicolumn{1}{|c|}{1\up{re}}\\ \hline
+\begin{scratch}[scale=0.8]\blockvariable{mettre \selectmenu{longueur} à \ovalnum{60}} \end{scratch}&\\ \hline
+\begin{scratch}[scale=0.8]\blockmove{aller à x : \ovalnum{0} y : \ovalnum{0}} \end{scratch}&\\ \hline
+\begin{scratch}[scale=0.8]\blockmoreblocks{pentagone} \end{scratch}&\\ \hline
+\begin{scratch}[scale=0.8]\blockvariable{mettre \selectmenu{longueur} à \ovaloperator{\ovalvariable{longueur} *\ovalnum{1.5}}} \end{scratch}&\\ \hline
+\end{tabular}
+\end{center}
+\showthesource
+\end{document}

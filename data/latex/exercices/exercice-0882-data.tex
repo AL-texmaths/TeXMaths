@@ -1,0 +1,58 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{textcomp}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\startdatakeys
+    \source{21GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4D2ae,C4B2eb}
+    \motsCles{multiple,développement,antécédent,moyenne,Pythagore,Thalès}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Pour chacune des six affirmations suivantes, indiquer si elle est vraie ou fausse.
+
+On rappelle que toutes les réponses doivent être justifiées.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|X|}\hline
+\textbf{Affirmation 1}: 72 est un multiple commun des nombres 12 et 18.\\ \hline
+\textbf{Affirmation 2} : pour tout nombre $n$, on a l'égalité suivante: $(n - 5)^2 = n^2 - 5^2$.\rule[-3mm]{0mm}{8mm}\\ \hline
+On considère la fonction $f$ définie par $f(x) = 2x +5$.\\
+\textbf{Affirmation 3}: l'antécédent de 6 par la fonction $f$ est égal à $\dfrac{1}{2}$.\\ \hline
+Voici les températures relevées en degré Celsius (noté \degres C) pendant six jours dans une même ville: 5~\degres C, 7~\degres C, 11~\degres C, 8~\degres C, 5~\degres C et 6~\degres C.\\
+\textbf{Affirmation 4} : la moyenne de ces six températures est égale à 6,5~\degres C.\\ \hline
+\parbox{0.48\linewidth}{Les points B, D et A sont alignés.
+
+Les points B, E et C sont alignés.
+
+Le triangle ABC est rectangle en B.
+
+BA $= 12$ cm ; BC $= 9$ cm ;
+
+BD $= 8$ cm et BE $= 6$ cm.
+
+\emph{La figure ci-contre n'est pas à l'échelle.}}
+\hfill \parbox{0.43\linewidth}{\psset{unit=0.6cm}
+\begin{pspicture}(9.5,6.4)
+\pspolygon(2.9,0)(9.5,0)(9.5,4)%DBE
+\pspolygon(0,0)(9.5,0)(9.5,6)%ABC
+\psframe(9.5,0)(9.2,0.3)
+\uput[d](0,0){A}\uput[d](9.5,0){B}\uput[r](9.5,6){C}
+\uput[d](2.9,0){D}\uput[r](9.5,4){E}
+\end{pspicture}}\\
+\textbf{Affirmation 5}: la longueur AC est égale à $15$~cm.\\
+\textbf{Affirmation 6}: les droites (AC) et (DE) sont parallèles.\\ \hline
+\end{tabularx}
+\end{center}
+
+\bigskip
+
+\showthesource
+\end{document}

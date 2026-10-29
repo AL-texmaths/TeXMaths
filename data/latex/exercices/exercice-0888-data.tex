@@ -1,0 +1,41 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C1ac,C4C2aa,C4C2ab}
+    \motsCles{moyenne,étendue,médiane,pourcentage}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+On étudie les précipitations (hauteurs de pluies) sur la ville de Nouméa entre avril et décembre 2020.
+
+On obtient le tableau suivant:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{3.5cm}|*{9}{>{\centering \arraybackslash}X|}}\hline
+Mois 				&Avril 	&Mai &Juin 	&Juillet &Août 	&Sept 	&Oct &Nov 	&Déc.\\ \hline
+Précipitations en mm&147 	&199 &40 	&67 	&47 	&54 	&104 &45 	&63\\ \hline
+\multicolumn{10}{r}{\footnotesize Source: https://www.historigue-meteo.net/oceanie/nouvelle-caledonie/noumea/2020}\\
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Calculer la moyenne des précipitations. Arrondir le résultat au mm près.
+\item Quelle est l'étendue des précipitations ?
+\item Déterminer la médiane des précipitations.
+\item Calculer le pourcentage de mois pour lesquels les précipitations sont supérieures à $100$~mm. Arrondir le résultat à l'unité près.
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

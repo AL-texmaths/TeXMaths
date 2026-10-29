@@ -1,0 +1,87 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{22GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2bc,C4C2ab,C4C2ac,C4D2ae,C4B1ed}
+    \motsCles{médiane,étendue,probabilité,pourcentage,aire,volume,conversion}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\emph{Les deux parties de cet exercice sont indépendantes}
+
+\medskip
+
+Une entreprise produit et vend des jus de fruit contenus dans des briques en carton qui ont la forme d'un pavé droit.
+
+\bigskip
+
+\textbf{PARTIE A : Briques de jus de pomme}
+
+\medskip
+
+Ces briques sont fabriquées pour contenir 350 mL de jus de pomme.
+
+\smallskip
+
+Lors d'un contrôle, 24 briques sont prélevées au hasard et analysées.
+
+Le tableau ci-dessous donne le volume de jus de pomme (en mL) contenu dans ces briques :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{2.5cm}|*{11}{>{\centering \arraybackslash}X|}}\hline
+Volume en mL&344 &347 &348 &349 &350 &351& 352 &353 &354 &356 &357\\ \hline
+Effectif &1&2 &4 &4 &2 &3 &1&2 &3 &1 &1\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Déterminer la médiane des volumes de cette série. Interpréter ce résultat.
+\item Calculer l'étendue de cette série
+\item On prélève au hasard une brique parmi celles contrôlées, quelle est la probabilité qu'elle contienne exactement $350$~mL de jus de pomme ?
+\item Lorsque le volume de jus de pomme contenu dans une brique est compris entre $345$~mL et $355$~mL, cette brique peut être vendue.
+
+Quel est le pourcentage de briques que l'entreprise peut vendre parmi les briques contrôlées ?
+\end{enumerate}
+
+\bigskip
+
+\textbf{PARTIE B : Briques de jus de raisin}
+
+\medskip
+
+\begin{minipage}{0.67\linewidth}
+L'entreprise souhaite commercialiser une nouvelle brique en forme de pavé droit pour le jus de raisin. Sa base est un rectangle de longueur $6,4$ cm et de largeur $5$ cm.
+
+\medskip
+
+\begin{enumerate}
+\item Calculer l'aire de la base de cette brique
+\item Quelle doit être la hauteur de cette brique pour que son volume soit de $400$~cm$^3$ ?
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.28\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(3.4,4.5)
+\pspolygon(0,3.8)(0,0.8)(2,0.1)(2,3.1)
+\psline(2,0.1)(3.4,0.7)(3.4,3.7)(2,3.1)
+\psline(3.4,3.7)(1.4,4.4)(0,3.8)
+\psline[linestyle=dashed](0,0.8)(1.4,1.4)(3.4,0.7)
+\psline[linestyle=dashed](1.4,1.4)(1.4,4.4)
+\uput[d](1,0.42){6,4 cm}\uput[d](2.7,0.35){5 cm}
+\end{pspicture}
+\end{minipage}
+
+\bigskip
+
+\showthesource
+\end{document}

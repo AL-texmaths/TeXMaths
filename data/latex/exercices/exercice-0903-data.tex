@@ -1,0 +1,87 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage{amsmath}%
+\startdatakeys
+    \source{22GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aj,C4B1ed,C4B3bd}
+    \motsCles{facteurs premiers,PGCD,volume,boule,solides}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Pour fêter les 25 ans de sa boutique, un chocolatier souhaite offrir aux premiers clients de la journée une boîte contenant des truffes au chocolat.
+
+\medskip
+
+\begin{enumerate}
+\item Il a confectionné $300$ truffes: $125$ truffes parfumées au café et $175$ truffes enrobées de noix de coco. Il souhaite fabriquer ces boîtes de sorte que:
+
+\setlength\parindent{1cm}
+\begin{itemize}
+\item[$\bullet~~$] Le nombre de truffes parfumées au café soit le même dans chaque boîte;
+\item[$\bullet~~$] Le nombre de truffes enrobées de noix de coco soit le même dans chaque boîte;
+\item[$\bullet~~$] Toutes les truffes soient utilisées.
+\end{itemize}
+\setlength\parindent{0cm}
+
+	\begin{enumerate}
+		\item Décomposer $125$ et $175$ en produit de facteurs premiers.
+		\item En déduire la liste des diviseurs communs à $125$ et $175$.
+		\item Quel nombre maximal de boîtes pourra-t-il réaliser ?
+		\item Dans ce cas, combien y aura-t-il de truffes de chaque sorte dans chaque boîte?
+	\end{enumerate}
+\item Le chocolatier souhaite fabriquer des boîtes contenant $12$ truffes. Pour cela, il a le choix entre deux types de boites qui peuvent contenir les $12$ truffes, et dont les caractéristiques sont données ci-dessous:
+
+\begin{center}
+\begin{tabularx}{0.75\linewidth}{|*{2}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Type A}&\textbf{Type B}\\
+\psset{unit=1cm}
+\begin{pspicture}(4,3.4)
+\pspolygon(0,0)(2.9,0)(3.7,1)(1.85,3.2)(2.9,0)
+\psline(0,0)(1.85,3.2)
+\psline[linestyle=dashed](0,0)(0.8,1)(3.7,1)
+\psline[linestyle=dashed](0.8,1)(1.85,3.2)
+\end{pspicture}&
+\psset{unit=1cm}
+\begin{pspicture}(4,3.4)
+\psframe(0.4,0.2)(3.1,2.1)
+\psline(3.1,0.2)(3.7,1.1)(3.7,3)(3.1,2.1)
+\psline(3.7,3)(1,3)(0.4,2.1)
+\psline[linestyle=dashed](0.4,0.2)(1,1.1)(3.7,1.1)
+\psline[linestyle=dashed](1,1.1)(1,3)
+\end{pspicture}\\ \hline
+Pyramide à base carrée&Pavé droit\\
+de côté 4,8 cm&de longueur 5 cm,\\
+et de hauteur 5 cm& de largeur 3,5 cm\\
+&et de hauteur 3,5 cm\\ \hline
+\end{tabularx}
+\end{center}
+
+Dans cette question, chacune des $12$ truffes est assimilée à une boule de diamètre $1,5$~cm.
+
+À l'intérieur d'une boîte, pour que les truffes ne s'abîment pas pendant le transport, le volume occupé par les truffes doit être supérieur au volume non occupé par les truffes.
+
+Quel(s) type(s) de boîte le chocolatier doit-il choisir pour que cette condition soit respectée?
+\end{enumerate}
+
+\medskip
+
+\begin{center}
+\renewcommand\arraystretch{2}
+\begin{tabularx}{\linewidth}{|X|}\hline
+\textbf{Rappels :}\\
+Le volume d'une boule de rayon $r$ est: $\dfrac43 \times \pi \times r^3$\\
+Le volume d'une pyramide est : $\dfrac{\text{aire de la base} \times \text{hauteur}}{3}$\\
+Le volume d'un pavé droit est : longueur $\times$ largeur $\times$ hauteur\\ \hline
+\end{tabularx}
+\end{center}
+
+\showthesource
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}{../brevet/2026/DNB_generale_Sujet_2026-09-07_polynesie-FB/}}%
+\startdatakeys
+    \source{26GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{vitesse,durée,symétrie centrale,proportionnalité}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Pour ses vacances, Riley se rend à Madrid en voiture et empruntera des autoroutes à péages.
+
+\begin{enumerate}
+	\item Le GPS lui indique un temps de trajet de 10 heures en voiture et une distance de 950 km entre son domicile et Madrid. Calculer la vitesse moyenne du trajet.
+	\item Voici 6 panneaux que Riley a aperçu sur le trajet. Indiquer sur la copie les numéros des panneaux possédant un centre de symétrie.
+\begin{center}
+\begin{tblr}{*{6}{|X[c]}|}
+		\hline
+		Panneau 1 & Panneau 2 & Panneau 3 & Panneau 4 & Panneau 5 & Panneau 6 \\
+		\hline
+\rule[-9pt]{0pt}{10mm}\includegraphics[width=0.1\linewidth]{sens_interdit} & \rule[-6pt]{0pt}{10mm}\includegraphics[width=0.1\linewidth]{interdit_dangereux}
+ &\rule[-6pt]{0pt}{10mm} \includegraphics[width=0.1\linewidth]{interdit_doubler} 
+ &\rule[-6pt]{0pt}{10mm} \includegraphics[width=0.1\linewidth]{priorite_droite} 
+ &\rule[-6pt]{0pt}{10mm} \includegraphics[width=0.1\linewidth]{interdit_arret} 
+ &\rule[-6pt]{0pt}{10mm} \includegraphics[width=0.1\linewidth]{route_prioritaire} 
+ \\ \hline
+\end{tblr}
+\small{Source : \url{https://fr.wikipedia.org/wiki/Panneau_de_signalisation_routi\`ere_en_France}}
+\normalsize
+\end{center}
+
+
+	\item Riley s'interroge sur le budget nécessaire au trajet aller-retour. Voici les informations récoltées :
+	
+	\begin{center}
+	\begin{tabularx}{\textwidth}{|X|X|}
+		\hline
+		\textbf{Information 1} & \textbf{Information 2} \\
+		Distance parcourue en km (Domicile - Madrid) : 950~km \newline Carburant utilisé : Diesel & Dire qu'une voiture consomme 5,5 L/100 km signifie que pour parcourir 100 km elle a besoin de 5,5 litres (L) de carburant. \\
+		\hline
+		\textbf{Information 3} & \textbf{Information 4} \\
+		Carburant : Diesel \newline Prix moyen : $1{,}70$~\euro/L \newline Consommation moyenne : 5,5 L/100 km & Le coût du péage pour une voiture est de $65$~\euro{} dans le sens aller, et de $65$~\euro{} dans le sens retour. \\
+		\hline
+	\end{tabularx}
+	\end{center}
+
+	\begin{enumerate}
+		\item Calculer la distance totale, en kilomètre, parcourue pour le trajet aller-retour par Riley.
+		\item Le budget de Riley est de 311 euros. En effectuant un trajet aller-retour à Madrid en voiture, ce budget est-il suffisant ? Argumenter votre réponse en expliquant la démarche.
+	\end{enumerate}
+\end{enumerate}
+\medskip
+\showthesource
+\end{document}

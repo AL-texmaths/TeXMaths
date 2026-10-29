@@ -1,0 +1,132 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{multido}%
+\startdatakeys
+    \source{24GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{probabilité,solides,Thalès,homothétie}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\bigskip
+
+Cet exercice est un Q.C.M. (questionnaire à choix multiple).
+
+Pour chacune des cinq questions, trois réponses sont proposées et une seule convient.
+
+Pour chacune des cinq questions, écrire sur la copie le numéro de la question et la lettre correspondant à la réponse choisie.
+
+\textbf{Aucune justification n'est attendue.}
+
+Une réponse fausse ou l'absence de réponse ne retire pas de point.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|m{4.5cm}|*{3}{>{\centering \arraybackslash}X|}}\hline
+	&&A&B&C\\ \hline
+1	&Une urne contient trois jetons verts et deux jetons blancs. On tire un jeton au hasard.
+
+Quelle est la probabilité d'obtenir un jeton blanc?&
+$\dfrac23$&$\dfrac35$&$\dfrac25$\\ \hline
+2	&
+\psset{unit=0.6cm,arrowsize=2pt 3}
+\begin{pspicture}(-1,-1)(5.5,1.3)
+\psframe(3,1)\psline(1,1)(1,0)\psline(2,1)(2,0)
+\psline(3,0)(3.4,0.35)(3.4,1.35)(3,1)
+\psline(3.4,1.35)(3.8,1.7)
+\psline{->}(5.5,1)(4,1)
+\psline(1,1)(1.4,1.35)(3.4,1.35)
+\psline(2,1)(2.8,1.7)(3.8,1.7)(3.8,0.7)(3.4,0.35)
+\psline(3.8,0.7)(3.8,-0.3)(3.4,-0.65)(3.4,0.35)
+\psline(3.4,-0.65)(2.4,-0.65)(2.4,0)
+\psline(1.4,1.35)(1.4,3.35)(0.4,3.35)(0,3)(1,3)(1,1)
+\psline(1,3)(1.4,3.35)\psline(0,2)(1,2)(1.4,2.35)
+\psline(0,3)(0,1)
+\end{pspicture}
+
+Quelle est la vue de droite de ce solide ? 
+&
+\psset{unit=0.6cm}
+\begin{pspicture}(3,5.5)
+\psframe(0,1)(1,5)
+\psline(0,2)(1,2)\psline(0,3)(1,3)
+\psline(1,1)(3,1)(3,2)(1,2)\psline(2,1)(2,0)(3,0)(3,1)\psline(0,4)(1,4)\psline(2,1)(2,2)\end{pspicture}
+&
+\psset{unit=0.6cm}
+\begin{pspicture}(3,5)\psframe(0,1)(1,4) \psframe(0,1)(2,2)\psline(0,3)(1,3)\psline(1,1)(1,0)(2,0)(2,1) \end{pspicture}
+&
+\psset{unit=0.6cm}
+\begin{pspicture}(3,5)\psframe(0,1)(2,2)\psframe(1,0)(2,4)\psline(1,3)(2,3) \end{pspicture}\\ \hline
+3&
+\psset{unit=0.9cm}
+\begin{pspicture}(-0.5,-0.3)(3.5,2.6)
+\pspolygon(0.2,2.3)(0.5,0.2)(3.6,0.2)%ABC
+\uput[l](0.2,2.3){\footnotesize A} \uput[dl](0.5,0.2){\footnotesize B} \uput[dr](3.6,0.2){\footnotesize C} \uput[ur](1,0.2){\footnotesize D} \uput[l](0.44,0.53){\footnotesize H}
+\psline(1,0.2)(0.44,0.53)
+\end{pspicture}
+
+ B, H et A sont alignés.
+
+B, D et C sont alignés.
+
+BD = 2 cm ; BC = 10 cm  ; 
+
+AC = 16 cm; (DH) // (AC).
+
+Quelle est la longueur du segment [DH] ?
+&3,2 cm&4 cm&4,8 cm\\ \hline
+
+\end{tabularx}
+\end{center}
+
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|m{4.5cm}|*{3}{>{\centering \arraybackslash}X|}}\hline
+&&A&B&C\\ \hline
+4& \parbox{4cm}{\centering Voici un engrenage:\rule{0pt}{15pt}\\ \hspace*{3mm}12~dents \hspace*{6mm} 9~dents}
+\psset{unit=0.3cm}
+\begin{pspicture}(-4.5,-3.5)(10,4.5)
+%\psgrid
+\def\denta{\psline(2;78)(2;82)(2.3;82)(3;88)(3;92)(2.3;98)(2;98)(2;102)}
+\multido{\n=90+30,\na=0+30}{12}{\rput{\na}(0.7;\n){\denta}}
+\multido{\i=97+30,\I=113+30}{12}{\psarc(0,0){2.67}{\i}{\I}}
+\def\dentb{\psline(1.5;-12)(1.5;-8)(1.725;-8)(2.25;-2)(2.25;2)(1.725;8)(1.5;8)(1.5;12)}
+\def\roued{\multido{\n=-5+40,\na=0+40}{9}{\rput{\na}(0.2;\n){\dentb}}}%
+\multido{\i=8+40,\I=32+40}{9}{\psarc(5.75,0){1.67}{\i}{\I}}
+%\pscircle(0,0){2.57}
+%\pscircle(5.75,0){1.6}
+\rput(5.75,0){\roued}
+\end{pspicture}
+
+ Si la petite roue effectue exactement 4 tours complets, combien de tours complets effectue la grande roue ?&3 tours complets&4 tours complets&6 tours complets\\ \hline
+5&\psset{unit=0.7cm}
+\begin{center}
+\begin{pspicture}(3.3,3.3)
+\psframe(2,2)\psframe(2,2)(3,3)
+\psline(0,2)(2,0)\psline(2,3)(3,2)
+\uput[dl](0,0){\footnotesize F} \uput[d](2,0){\footnotesize E} \uput[l](0,2){\footnotesize G} \uput[ul](2,2){\footnotesize A}
+\uput[r](3,2){\footnotesize D} \uput[ur](3,3){\footnotesize C} \uput[ul](2,3){\footnotesize B}
+\multido{\n=0+1}{4}{\psline[linewidth=0.2pt](\n,0)(\n,3)}
+\multido{\n=0+1}{4}{\psline[linewidth=0.2pt](0,\n)(3.2,\n)}
+\end{pspicture}
+\end{center}
+
+\medskip
+
+Le carré AGFE est l'image du carré ADCB par une homothétie de centre A.
+
+Le triangle EGF est l'image d'un triangle par cette même homothétie.
+
+Quel est ce triangle ?
+&GEA&ABD&BDC\\ \hline
+\end{tabularx}
+\end{center}
+
+\bigskip
+\showthesource
+\end{document}

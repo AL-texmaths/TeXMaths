@@ -1,0 +1,121 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Pythagore,droites parallèles,Thalès,périmètre,construction}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Dans cet exercice, on considère la figure ci-contre.
+
+	\medskip
+
+	\begin{minipage}{0.47\linewidth}
+Les points A, B et M sont alignés.
+
+Les points A, C et N sont alignés.
+
+Le triangle ABC est rectangle en B.
+
+Le triangle AMN est rectangle en M.
+\end{minipage}\hfill
+%%début PSTricks
+%\begin{minipage}{0.49\linewidth}
+%\psset{unit=1cm,arrowsize=2pt 3}
+%\begin{pspicture}(7,4.8)
+%	%\psgrid
+%	\psline(0,0.6)(7,4.7)
+%	\psline(1,1.2)(6,1.2)(6,4.1)%AMN
+%	\psline(4,1.2)(4,2.96)%BC
+%	\uput[dl](1,1.2){A} \uput[r](6,1.2){M} \uput[dr](6,4.1){N}
+%	\uput[ur](4,1.2){B} \uput[ur](3.9,3.13){C}
+%	\psline[linewidth=0.8pt]{<->}(1,0.8)(4,0.8)\uput[d](2.5,0.8){6,4 cm}
+%	\psline[linewidth=0.8pt]{<->}(4,0.8)(6,0.8)\uput[d](5,0.8){3,2 cm}
+%	\psline[linewidth=0.8pt]{<->}(0.9,1.3)(3.95,3.11)\rput{31}(2.5,2.45){8 cm}
+%	\psframe(4,1.2)(3.75,1.45)
+%	\psline(6,1.2)(6,0)%M..
+%\end{pspicture}
+%\end{minipage}
+%%Fin PSTricks
+%Tikz
+\begin{tikzpicture}[baseline={(current bounding box.center)},line join=round, line cap=round]
+\coordinate (A) at (0,0);
+\coordinate (B) at (4,0);
+\coordinate (M) at (5.5,0);
+\coordinate (C) at (4,2.4);
+\coordinate (N) at (5.5,3.3);
+\draw[line width=1.2pt,red,fill=red!30] (4,0) rectangle ++(-0.4,0.4)
+ 	(5.5,0) rectangle ++(-0.4,0.4) ;
+\draw[line width=1.2pt]
+	(A) -- (M)
+	(B) -- (C)
+	(-1,-0.6) -- (6.5,3.9)
+	(5.5,-0.8) -- (5.5,3.9);
+\foreach \coor/\nom/\pos in {(A)/A/below, (B)/B/{above right},
+	(C)/C/above, (M)/M/{below right}, (N)/N/{below right}}
+	{\draw[line width=1pt, shift={\coor}] (2pt,2pt)--(-2pt,-2pt) (2pt,-2pt)--(-2pt,2pt) (0,0) node[\pos]{\nom} ;}
+	\draw[<->, line width=0.8pt, > = stealth,shift={(0,-0.5)}] (0,0) -- (4,0) node[pos=0.5,below,sloped]{6,4 cm} ;
+	\draw[<->, line width=0.8pt, > = stealth,shift={(0,-0.5)}] (5.5,0) -- (4,0) node[pos=0.5,below,sloped]{3,2 cm} ;
+	\draw[<->, line width=0.8pt, > = stealth,shift={(120:0.5)}] (0,0) -- (4,2.4) node[pos=0.5,above,sloped]{8 cm} ;
+\end{tikzpicture}\hfill~
+%Fin tikz
+
+
+\medskip
+
+On donne :
+
+AB $= 6,4$ cm ; BM $= 3,2$ cm et AC $= 8$ cm.
+
+\emph{La figure n'est pas en vraie grandeur.}
+
+\begin{enumerate}
+\item Tracer sur la copie le triangle ABC en vraie grandeur et en laissant les traits de construction.
+\item Démontrer que BC $= 4,8$ cm.
+\item Justifier que les droites (BC) et (MN) sont parallèles.
+\item Démontrer que MN $= 7,2$ cm et AN $= 12$ cm.
+\item Le périmètre du triangle ABC et le périmètre du quadrilatère BMNC sont-ils égaux ?\\
+\textbf{Argumenter la réponse en précisant la démarche.}
+\end{enumerate}
+
+\needspace{10\baselineskip}
+\medskip
+\showthesource
+\end{document}

@@ -1,0 +1,117 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D1be,C4D2aa}
+    \motsCles{proportionnalité,lecture graphique,tableur,vitesse}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\textbf{Les parties 1 et 2 sont indépendantes}
+
+\bigskip
+
+\textbf{Partie 1 : Distance de réaction}
+
+\medskip
+
+La distance de réaction d'un véhicule est la distance parcourue par ce véhicule entre l'instant où le conducteur voit un obstacle et l'instant où il appuie sur la pédale de frein.
+
+On considère un conducteur en bonne santé.
+
+La distance de réaction, en mètre, en fonction de la vitesse du véhicule est représentée par le graphique de l'annexe.
+
+\medskip
+
+\begin{enumerate}
+\item Cette représentation graphique traduit-elle une situation de proportionnalité ?
+
+Justifier la réponse.
+\item Compléter, par lecture graphique, le tableau de l'annexe.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Partie 2 : Distance de freinage sur route sèche}
+
+\medskip
+
+La distance de freinage d'un véhicule est la distance parcourue par ce véhicule entre l'instant où le conducteur appuie sur la pédale de frein et l'instant où la voiture s'arrête complètement.
+
+La distance de freinage en mètre, pour un véhicule en bon état, est déterminée en fonction de la vitesse du véhicule par la formule :
+
+\begin{center}$d = \dfrac{v^2}{203,2}$ \:  où $v$ est la vitesse exprimée en km/h\end{center}
+
+On utilise un tableur  pour calculer les distances de freinage en fonction de la vitesse :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|m{3.5cm}|*{3}{>{\centering \arraybackslash}X|}}\hline
+&A&B&C&D\\ \hline
+1 &vitesse (km/h) &10 &20 &30\\ \hline
+2 &distance de freinage (m)&&&\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Recopier parmi les formules trois suivantes, celle qu'il faut saisir dans la cellule B2 puis étirer vers la droite:
+
+\begin{center}\fbox{= 2*B1/203.2}\qquad  \fbox{= B1*B1/203.2} \qquad  \fbox{= B1+B1/203.2}\end{center}
+
+\item Un véhicule roule à $90$ km/h.
+
+Montrer que sa distance de freinage est environ $40$~m.
+
+\end{enumerate}
+
+\bigskip
+
+\textbf{Partie 3 : Distance d'arrêt sur route sèche}
+
+\medskip
+
+La distance d'arrêt d'un véhicule est la distance parcourue par ce véhicule entre l'instant où le conducteur voit un obstacle et l'instant où la voiture s'arrête complètement.
+
+Distance d'arrêt = Distance de réaction $+$ Distance de freinage
+
+Calculer la distance d'arrêt d'un véhicule roulant à $90$ km/h.
+
+\bigskip
+
+\medskip
+
+\begin{center}
+\psset{xunit=0.1cm,yunit=0.2cm,arrowsize=2pt 3}
+\begin{pspicture}(-10,-2.5)(120,40)
+\multido{\n=0+2}{61}{\psline[linewidth=0.1pt](\n,0)(\n,35)}
+\multido{\n=0+1}{36}{\psline[linewidth=0.1pt](0,\n)(120,\n)}
+\uput[r](0,36.5){Distance (m)}\uput[u](105,0){Vitesse (km/h)}
+\rput(60,38){Distance de réaction en fonction de la vitesse}
+\psaxes[linewidth=1.25pt,Dx=10,Dy=5]{->}(0,0)(0,0)(120,35)
+\psplot[plotpoints=500,linewidth=1.25pt,linecolor=blue]{0}{110}{0.27777 x mul}
+\end{pspicture}
+\end{center}
+\bigskip
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|l| *{3}{>{\centering \arraybackslash}X|}}\hline
+Vitesse (km/h)			&0 		&\ldots	&90\\ \hline
+Distance de réaction (m)&\ldots	&15		&\ldots\\ \hline
+\end{tabularx}
+\end{center}
+
+\bigskip
+
+\showthesource
+\end{document}

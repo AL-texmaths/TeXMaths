@@ -1,0 +1,79 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{array}%
+\usepackage[np]{numprint}%
+\usepackage{graphicx}%
+\usepackage{multicol}%
+\usepackage{amsmath}%
+\graphicspath{{../brevet/2022/}}%
+\startdatakeys
+    \source{22GENMATMEAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2aa,C4D2ae,C4B1bf}
+    \motsCles{volume,cylindre,conversion,pourcentage,proportionnalité}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Dans une habitation, la consommation d'eau peut être anormalement élevée lorsqu’il y a une fuite d'eau.
+
+On considère la situation suivante :
+\begin{itemize}
+\item Une salle de bain est équipée d'une vasque de forme cylindrique, comme l'illustre l'image ci-dessous.
+
+\item Le robinet fuit à raison d'une goutte par seconde.
+
+\item En moyenne, 20 gouttes d'eau correspondent à un millilitre (\np[ml]{1} ).
+\end{itemize}
+
+\begin{multicols}{2}
+\begin{minipage}[7cm]{8cm}
+\phantom{x}
+\includegraphics[scale=0.5]{vasque2}
+\end{minipage}
+
+\columnbreak
+
+~\\\\\\
+
+\begin{tabular}{|l|}\hline
+
+Caractéristiques de la vasque :\\
+
+\hspace{2em}Diamètre intérieur : \np[cm]{40}\\
+
+\hspace{2em}Hauteur intérieure : \np[cm]{15} \\
+
+\hspace{2em}Masse : \np[kg]{25} \\\hline
+\end{tabular}
+\end{multicols}
+\medskip
+
+Rappels : \hspace{4em} \begin{tabular}{|c|}\hline
+
+Volume du cylindre = $\pi \times \text{rayon}^2 \times \text{hauteur}$\\
+
+\hspace{2.5em} \np[dm^3]{1} = 1 litre\\
+\hline
+\end{tabular}
+
+\begin{enumerate}
+\item En raison de la fuite, montrer qu'il tombe \np{86400}~gouttes dans la vasque en une journée complète.
+
+\item Calculer, en litres, le volume d'eau qui tombe dans la vasque en une semaine en raison de la fuite.
+
+\item  Montrer que la vasque  a un volume de \np{18.85}~litres, arrondi au centilitre près.
+
+\item L'évacuation de la vasque est fermée et le logement inoccupé pendant une semaine. L'eau va-t-elle déborder de la vasque ? Justifier la réponse.
+\item  À la fin du XIX\ieme{} siècle, la consommation domestique d'eau par habitant en France était d'environ 17 litres par jour. Elle a fortement augmenté avec la généralisation de la distribution d'eau par le robinet dans les domiciles : elle est passée à $165$~litres par jour et par habitant en 2004.
+
+En 2018, la consommation des Français baisse légèrement pour atteindre $148$~litres d'eau par jour et par habitant.
+
+Calculer le pourcentage de diminution de la consommation quotidienne d'eau par habitant entre 2004 et 2018. On arrondira ce pourcentage à l'unité.
+\end{enumerate}
+
+\showthesource
+\end{document}

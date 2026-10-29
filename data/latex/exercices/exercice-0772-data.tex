@@ -1,0 +1,56 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\usepackage{graphicx}%
+\startdatakeys
+    \source{24GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{probabilité,vitesse,durée,pourcentage,coordonnées géographiques}
+\enddatakeys
+\begin{document}%
+\graphicspath{{../brevet/2024/}}
+
+\medskip
+
+\begin{enumerate}
+\item Le tableau ci-dessous présente, pour quatre félins étudiés, les probabilités d'attraper leur proie quand ils la poursuivent.
+
+\begin{center}
+\begin{tabularx}{0.75\linewidth}{|*{2}{>{\centering \arraybackslash}X|}}\hline
+Félin étudié &
+Probabilité d'attraper la proie qu'il poursuit\\ \hline
+Le lion&25\,\%\\ \hline
+Le guépard&$\dfrac12$\rule[-10pt]{0pt}{28pt}\\ \hline
+Le tigre&$0,1$\\ \hline
+Le chat à pieds noirs&$\dfrac{6}{10}$\rule[-10pt]{0pt}{28pt}\\ \hline
+\end{tabularx}
+\end{center}
+
+Vérifier que, parmi les quatre félins étudiés, le chat à pieds noirs a la probabilité la plus élevée d'attraper sa proie quand il la poursuit.
+\item  Le plus souvent, le guépard est le félin le plus rapide avec une vitesse pouvant atteindre 115 km/h.
+À cette vitesse, en combien de secondes le guépard parcourt-il 100 mètres?
+On donnera une valeur approchée au centième de seconde près.
+
+ Dans un pays d'Afrique, on estimait à :
+
+\begin{itemize}[label=$\bullet~$]
+\item \np{1200} guépards en 1999.
+\item 170 guépards en 2016.
+\end{itemize}
+
+Dans ce pays, est-il vrai que le nombre de guépards a baissé d'environ 86\,\% entre 1999 et 2016 ?
+
+\item Dans le parc national d'Etosha en Namibie, on peut observer des lions et des guépards.
+À l'aide de la carte ci-dessous, donner approximativement la latitude et la longitude du parc national d'Etosha.
+
+\includegraphics[width=14cm]{mappemonde.eps}
+
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

@@ -1,0 +1,134 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\usepackage{diagbox}%
+\startdatakeys
+    \source{24GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{fonction,image,antécédent,tableur,algorithme,équation,factorisation}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+Dans cet exercice, les deux parties sont indépendantes.
+
+On considère les fonctions $f$ et $g$ définies par 
+
+\begin{center} $f(x) = (x + 2)^2 - x$\quad et \quad  $g(x) = 7x + 4$.\end{center}
+
+\smallskip
+
+\textbf{Partie A}
+
+\medskip
+
+\begin{enumerate}
+\item Calculer $f(- 4)$.
+\item Déterminer un antécédent de $3$ par la fonction $g$.
+\end{enumerate}
+
+\medskip
+
+\textbf{Partie B}
+
+\medskip
+
+Trois élèves, Paul, Jane et Morgane, cherchent à résoudre l'équation $f(x) = g(x)$ par trois méthodes différentes.
+
+\medskip
+
+\begin{enumerate}
+\item Paul utilise un tableur.
+
+Il calcule ainsi les images des entiers compris entre $-3$ et $3$ par les fonctions $f$ et $g$.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|l|*{8}{>{\centering \arraybackslash}X|}}\hline
+&A &B&C&D&E &F &G &H \\ \hline
+1&{\Huge \rput{45}(0,0.5){+}}\vspace{-0.25cm}&$-3$&$ -2$& $-1$& 0 &1 &2 &3\\ \hline
+2&$f(x)$&4&2 &2&4&8&14&22\\ \hline
+3& $g(x)$& $-17$& $-10$& $-3$& 4& 11& 18& 25\\ \hline
+\end{tabularx}
+\end{center}
+
+	\begin{enumerate}
+		\item Quelle formule a-t-il saisie en cellule B3 puis étirée vers la droite pour compléter la ligne 3 du tableau ?
+		\item Avec cette méthode, quelle(s) solution(s) trouve-t-il à l'équation $f(x) = g(x)$ ?
+	\end{enumerate}
+\item Jane utilise un logiciel de programmation.
+
+Le programme qu'elle a créé permet de tester l'égalité $f(x) = g(x)$ pour une valeur de $x$ choisie par l'utilisateur. Ce programme se trouve en ANNEXE.
+
+Elle décide de tester toutes les valeurs entières entre $-5$ et 3.
+	\begin{enumerate}
+		\item Compléter sur l'ANNEXE, à rendre avec la copie, la ligne 4 du programme de Jane afin d'obtenir l'image par la fonction $g$ du nombre choisi.
+		\item Quelle réponse donne le programme si le nombre choisi est $0$ ?
+		\item En déduire une solution de l'équation $f(x) = g(x)$.
+	\end{enumerate}
+\item Morgane décide de résoudre cette équation par le calcul.
+	\begin{enumerate}
+		\item Démontrer que l'équation $f(x) = g(x)$ peut se ramener à l'équation $x^2 - 4x = 0$. 
+		\item Factoriser l'expression $x^2 - 4x$.
+		\item En déduire les solutions de l'équation $f(x) = g(x)$.
+	\end{enumerate}
+\item Dire pour chaque élève s'il a résolu l'équation $f(x) = g(x)$.
+
+Expliquer pourquoi.
+\end{enumerate}
+
+\newpage
+
+\begin{center}
+
+{\huge \textbf{ANNEXE}}
+
+\medskip
+
+{\large \textbf{(à rendre avec la copie)}}
+
+\bigskip
+
+\end{center}
+
+
+\medskip
+
+\begin{minipage}{0.6\linewidth}
+\begin{tabularx}{\linewidth}{|l|*{2}{>{\centering \arraybackslash}X|}}\hline
+\diagbox{1\up{er} tirage}{2\up{e} tirage}&3&5\\ \hline
+5	& 	& \\ \hline
+2	&	&10\\ \hline
+3	&	& \\ \hline
+\end{tabularx}
+\end{minipage}\hfill
+\begin{minipage}{0.37\linewidth}
+\begin{pspicture}(-1.5,-0.7)(1.5,0.7)
+\rput(0,0){\psellipticarc(1.2,0.8){190}{175}}
+\psline(1.2;175)(3;190)(1.2;190)\rput(0,0){$2 \times 5 = 10$}
+\end{pspicture}
+\end{minipage}
+
+\bigskip
+
+%itshape
+
+\vspace{0.5cm}
+\begin{scratch}[num blocks]
+\renewcommand*\numblock[1]{ligne #1}
+\blockinit{quand \greenflag est cliqué}
+\blockmove{demander \ovalnum{Choisir un nombre} et attendre}
+\blockvariable{mettre \selectmenu{image par f} à \ovaloperator{\ovaloperator{\ovalmove{réponse}+\ovalnum{2}}*\ovaloperator{\ovalmove{réponse}+\ovalnum{2}}-\ovalmove{réponse}}}
+\blockvariable{mettre \selectmenu{image par g} à \ovaloperator{\ovalnum{}*\ovalmove{réponse}}+\ovalnum{}}
+ \blockifelse{si\ovaloperator{\ovalvariable{image par f} =\ovalvariable{image par g}}  alors}
+ {\blocklook{dire \ovalnum{le nombre choisi est une solution de f(x)=g(x)} pendant \ovalnum{2} secondes}}
+ {\blocklook{dire \ovalnum{le nombre choisi n'est pas une solution de f(x)=g(x)} pendant \ovalnum{2} secondes}}
+\end{scratch}
+\showthesource
+\end{document}

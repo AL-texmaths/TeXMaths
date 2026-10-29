@@ -1,0 +1,131 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{25GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{volume,aire,pourcentage,trigonométrie,Pythagore,Thalès}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\euro{\texteuro}%
+    \def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Lorsque la neige vient à manquer en montagne, certaines stations de ski utilisent des canons à neige pour enneiger les pistes.
+
+\medskip
+
+\textbf{Les parties 1 et 2 sont indépendantes}
+
+\medskip
+
+\textbf{Partie 1}
+
+\medskip
+
+On cherche à estimer le coût de l’eau nécessaire pour l'utilisation de canons à neige sur les pistes françaises pour produire une hauteur de 30~cm de neige.
+
+\textbf{Information 1}
+
+Pour produire 2,5 m$^3$ de neige, il faut 1 m$^3$ d’eau.
+
+\textbf{Information 2}
+
+Le prix de l’eau pour 1 m$^3$ est 4,30~\euro.
+
+{\small \emph{Source : www.technoalpin.com/fr}}
+
+On rappelle que 1 hectare $= \np{10000}~m^2$.
+
+On donne la formule $V = S \times h$ pour calculer le volume de neige à produire en fonction de l’aire de la piste et de la hauteur de neige souhaitée.
+
+\begin{itemize}[label=$\bullet~$]
+\item $V$ représente le volume de neige à produire exprimé en m$^3$ ;
+\item $S$ représente l’aire de la piste exprimée en m$^2$ ;
+\item $h$ représente la hauteur de neige exprimée en m.
+\end{itemize}
+
+\medskip
+
+\begin{enumerate}
+\item On s’intéresse à une piste dont l’aire est 1 hectare.
+	\begin{enumerate}
+		\item Vérifier que pour enneiger cette piste sur une hauteur de $30$~cm, il faut prévoir \np{3000}~m$^3$ de neige.
+		\item En déduire qu’il faut prévoir \np{1200}~m$^3$ d'eau pour enneiger cette piste sur une hauteur de $30$~cm.
+		\item Montrer que le coût de \np{1200}~m$^3$ d’eau est \np{5160}~\euro.
+	\end{enumerate}
+\item 
+	\begin{enumerate}
+		\item L’ensemble des pistes de ski françaises occupent une surface de \np{25000} hectares.
+
+Quel serait le coût de l’eau si on utilisait les canons à neige sur l’ensemble des pistes françaises ?
+		\item En réalité, les canons à neige ne sont utilisés que sur \np{9250}~hectares de pistes.
+
+Calculer le pourcentage de la surface totale des pistes de ski sur laquelle sont utilisés des canons à neige.
+	\end{enumerate}
+\end{enumerate}
+
+\medskip
+
+\textbf{Partie 2}
+
+\medskip
+
+Un skieur qui pratique le ski de fond dispose d’un plan représenté par la figure ci-dessous.
+
+\begin{center}
+\psset{unit=0.95cm,arrowsize=2pt 3}
+\begin{pspicture}(0,-0.1)(15.8,7)
+%\psgrid
+\rput(7.9,0){\emph{La figure n’est pas représentée à l’échelle}}
+\psline(1,5)(1,1)(7.7,1)(15.2,1)(11.5,5)(7.8,1)
+\psline[linestyle=dashed](11.5,5)(11.5,1)
+\psline[linewidth=2pt](1,5)(4,1)(11.5,1)(13.4,3)%AFDK
+\psline[linewidth=0.5pt]{<->}(0.6,1)(0.6,5)\rput{90}(0.3,3){400 m}
+\psline[linewidth=0.5pt]{<->}(11.3,1)(11.3,5)\rput{90}(11,3){400 m}
+\psline[linewidth=0.5pt]{<->}(7.8,0.8)(11.5,0.8)\uput[d](9.65,0.8){300 m}
+\psframe(1,1)(1.3,1.3)\psframe(11.5,1)(11.2,1.3)
+\psarc(1,5){0.8}{-90}{-57}\rput(1.35,3.9){$30\degres$}
+\psline(5.8,1.1)(5.8,0.9)\psline(5.9,1.1)(5.9,0.9)
+\psline(9.6,1.1)(9.6,0.9)\psline(9.7,1.1)(9.7,0.9)
+\psline(11.3,1.1)(11.3,0.9)\psline(11.4,1.1)(11.4,0.9)
+\uput[u](1,5){A} \uput[dl](1,1){C} \uput[d](4,1){F} \uput[d](7.8,1){E} 
+\uput[u](11.5,5){B} \uput[d](11.5,1){D} \uput[ur](13.4,3){K} \uput[dr](15.2,1){H} 
+\end{pspicture}
+
+Sur cette figure :
+
+\begin{itemize}[label=$\bullet~$]
+\item le triangle ACF est rectangle en C tel que AC $= 400$~m et la mesure de l’angle $\widehat{\text{CAF}}$ est égale à $30\degres$ ;
+\item le triangle BED est rectangle en D tel que ED $= 300$ m et BD $= 400$ m ;
+\item FE = ED = DH ;
+\item les points C, F, E, D et H sont alignés ;
+\item le point K appartient au segment [BH] ;
+\item les droites (EB) et (KD) sont parallèles.
+\end{itemize}
+
+\medskip
+
+\begin{enumerate}
+\item Quelle est la longueur du segment [FD] ?
+\item Calculer la longueur du segment [AF] arrondie au m.
+\item 
+	\begin{enumerate}
+		\item Montrer que la longueur du segment [EB] est égale à $500$~m.
+		\item Calculer la longueur du segment [DK].
+	\end{enumerate}
+\item En déduire la longueur du parcours qui passe par les points A, F, E, D et K.
+\end{enumerate}
+
+\end{center}
+
+\bigskip
+\showthesource
+\end{document}

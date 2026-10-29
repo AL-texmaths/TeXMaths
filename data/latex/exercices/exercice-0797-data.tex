@@ -1,0 +1,73 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{25GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Pythagore,trigonométrie,angle,réciproque de Thalès,Thalès,vitesse,durée}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+\medskip
+
+Le jardin botanique d'une ville peut être représenté par le quadrilatère ABCD ci-dessous.
+
+\begin{minipage}{0.55\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(8.8,5.6)
+%\psgrid
+\pspolygon[fillstyle=solid,fillcolor=lightgray,linewidth=0pt](0.3,5)(2.9,5)(2.25,3.87)(0.3,5)%%ABE
+\pspolygon[fillstyle=solid,fillcolor=lightgray,linewidth=0pt](8.4,0.3)(0.3,0.3)(2.25,3.87)(8.4,0.3)%%% CDE
+\pspolygon(0.3,5)(2.9,5)(8.4,0.3)(0.3,0.3)%ABCD
+\psline[linewidth=1.75pt,linestyle=dotted](0.3,0.3)(2.9,5)
+\psline[linewidth=1.75pt,linestyle=dotted](0.3,5)(8.4,0.3)
+\psframe(0.3,5)(0.5,4.8)\psframe(0.3,0.3)(0.5,0.5)
+\rput{-28}(2.25,3.87){\psframe(0.2,0.2)}
+\uput[ul](0.3,5){A} \uput[ur](2.9,5){B} \uput[dr](8.4,0.3){C} \uput[dl](0.3,0.3){D}
+\uput{10pt}[190](2.25,3.87){E}
+\end{pspicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+On sait que :
+\smallskip
+
+$\bullet~$ AB $= 500$ m, BE $= 250$ m et DE $= 750$ m ;
+
+\smallskip
+
+$\bullet~$ les segments [AC] et [BD] se coupent au point E.
+
+\smallskip
+
+\emph{La figure ci-contre n'est pas à l'échelle.}
+\end{minipage}
+
+\begin{enumerate}
+\item Quelle est la longueur du segment [DB] ?
+\item En raisonnant dans le triangle rectangle ABD, montrer que la longueur du segment [AD], arrondie au mètre, est égale à environ $866$~m.
+\item 
+	\begin{enumerate}
+		\item Calculer le sinus de l'angle $\widehat{\text{EAB}}$.
+		\item En déduire la mesure en degrés de l'angle $\widehat{\text{EAB}}$.
+	\end{enumerate}
+\item 
+	\begin{enumerate}
+		\item Montrer que les droites (AB) et (DC) sont parallèles.
+		\item Montrer que la longueur du segment [CD] est égale à \np{1500}~m.
+	\end{enumerate}
+\item Un piéton fait le tour du jardin botanique en marchant à la vitesse moyenne de 1,1~m/s.
+
+Il lit sur son plan que la longueur du segment [BC] est environ égale à \np{1323}~m.
+
+Le temps mis par le piéton pour faire le tour du jardin botanique est-il inférieur à une heure ?
+
+\end{enumerate}
+
+\newpage
+\showthesource
+\end{document}

@@ -169,9 +169,9 @@
             },
             "splitter": {
                 "size": [
-                    286,
-                    539,
-                    612
+                    411,
+                    1026,
+                    0
                 ]
             },
             "progression_tree": {
@@ -188,8 +188,8 @@
                 }
             },
             "documents_tab": {
-                "vertical_splitter": 251,
-                "horizontal_splitter": 1083
+                "vertical_splitter": 0,
+                "horizontal_splitter": 1178
             }
         },
         "pedago_service": {

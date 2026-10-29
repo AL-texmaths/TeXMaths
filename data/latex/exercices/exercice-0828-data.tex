@@ -1,0 +1,141 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{volume,cylindre,boule,conversion,proportionnalité}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+\emph{Les deux parties de l'exercice sont indépendantes.}
+
+\subsection*{Partie A}
+
+Une confiserie fabrique des bonbons multicolores au goût réglisse. Ces bonbons de longueur totale 15 mm ont la forme de gélules constituées de trois parties : un cylindre et deux demi-boules identiques de rayon $R = 2{,}5$ mm comme le montre le schéma ci-dessous.
+
+\begin{minipage}{0.48\linewidth}
+%%Début Tikz
+\begin{center}
+\begin{tikzpicture}[rotate=-35]
+ \draw[line width=1.2pt] (-1.2,4.8) arc(180:0:1.2)--(1.2,0) arc (0:-180:1.2) -- cycle
+ (-1.2,4.8) arc(-180:0:1.2 and 0.45)
+ (-1.2,0) arc(-180:0:1.2 and 0.45);
+ \draw[line width=1.2pt,dash pattern=on 6pt off 6pt]
+ (-1.2,4.8) arc(180:0:1.2 and 0.45)
+ (-1.2,0) arc(180:0:1.2 and 0.45);
+ \draw[line width=0.8pt,dash pattern=on 3pt off 3pt]
+ (-1.2,4.8) -- (0,4.8) node[pos=0.5,text width=1.2mm, align=center,rotate=-35,scale=0.8]{2,5 mm};
+ \draw[<->, line width=0.8pt, > = stealth,shift={(-0.5,0)}] (-1.2,0)--(-1.2,4.8) node[pos=0.5,left]{$h$};
+ \draw[<->, line width=0.8pt, > = stealth,shift={(0.5,0)}] (1.2,-1.2)--(1.2,6) node[pos=0.5,below, sloped,rotate=-35]{15 mm};
+ \draw[line width=0.8pt] (-2pt,-2pt)--(2pt,2pt) (-2pt,2pt)--(2pt,-2pt);
+ \draw[line width=0.8pt,shift={(0,4.8)}] (-2pt,-2pt)--(2pt,2pt) (-2pt,2pt)--(2pt,-2pt);
+\end{tikzpicture}
+\end{center}
+%%Fin Tikz
+%%%Début PSTricks
+%\psset{unit=1cm,arrowsize=2pt 3}
+%\begin{pspicture}(-2,-1.5)(2,6)
+%	\psellipticarc(0,0)(1.1,0.4){180}{360}
+%	\psellipticarc[linestyle=dashed](0,0)(1.1,0.4){0}{180}
+%	\psarc(0,0){1.1}{180}{360}
+%	\psline(1.1,0)(1.1,4.7)
+%	\psline(-1.1,0)(-1.1,4.7)
+%	\psellipticarc(0,4.7)(1.1,0.4){180}{360}
+%	\psellipticarc[linestyle=dashed](0,4.7)(1.1,0.4){0}{180}
+%	\psarc(0,4.7){1.1}{0}{180}
+%	\psline[linewidth=0.8pt]{<->}(-1.5,0)(-1.5,4.7)\uput[l](-1.5,2.35){$h$}
+%	\psline[linewidth=0.8pt]{<->}(1.5,-1.1)(1.5,5.8)\rput{90}(1.8,2.35){15 mm}
+%	\psdots[dotstyle=+,dotangle=45](0,0)(0,4.7)
+%	\psline[linestyle=dashed](0,4.7)(-1.1,4.7)\uput[u](-0.55,4.7){\footnotesize 2,5 mm}
+%\end{pspicture}
+%%%Fin PSTricks
+%\emph{(Gélule : cylindre de hauteur $h$ flanqué de deux demi-sphères de rayon $2,5$ mm ; longueur totale $15$ mm.)}
+\end{minipage}\hfill
+\fbox{
+	\begin{minipage}{0.4\textwidth}
+	\textbf{Rappels}
+
+	\begin{itemize}
+		\item Volume d'un cylindre de rayon $R$ et de hauteur $h$ :
+		\[ V = \pi \times R^2 \times h \]
+
+		\item Volume d'une boule de rayon $R$ :
+		\[ V = \frac{4}{3} \times \pi \times R^3 \]
+
+		\item $1\text{ L} = 1\text{ dm}^3$
+	\end{itemize}
+\end{minipage}}\hfill~
+
+\begin{enumerate}
+	\item Montrer que la hauteur $h$ du cylindre est égale à $10$ mm.
+	\item \begin{enumerate}
+		\item Montrer que le volume de la partie cylindrique d'un bonbon est environ égal à $196$ mm$^3$.
+		\item Léa affirme que le volume total d'un bonbon est compris entre $260$ et $262$ mm$^3$.
+
+		A-t-elle raison ?
+	\end{enumerate}
+	\item Pour réaliser ces bonbons, la confiserie fabrique un mélange d'ingrédients qui est chauffé puis versé dans des moules en forme de gélule avant d'être refroidi.
+
+	La confiserie fabrique chaque jour $83$L de mélange.
+
+	Avec cette quantité de mélange, peut-elle produire plus de \np{300000} bonbons par jour ?
+\end{enumerate}
+
+\subsection*{Partie B}
+
+Dans un magasin, les bonbons sont vendus en deux formats possibles :
+
+\medskip
+	\begin{tblr}{colspec={|X[c]|X[c]|},row{1}={font=\bfseries,cmd={\underline}}}
+		\hline
+		Format A          & Format B          \\
+		Sachet de 500 g de bonbons & Sachet de 250 g de bonbons \\
+		7,90~\euro{} le sachet     & 4,30~\euro{} le sachet     \\
+		                           & \emph{\textbf{Offre promotionnelle} : pour 3 sachets achetés, le quatrième est à moitié prix.} \\ \hline
+	\end{tblr}
+
+\medskip
+Léa veut acheter 1 kg de bonbons.
+
+Quel format doit-elle choisir pour payer le moins cher possible ? \textbf{Argumenter la réponse en précisant la démarche.}
+
+\needspace{10\baselineskip}
+\medskip
+\showthesource
+\end{document}

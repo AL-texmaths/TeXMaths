@@ -1,0 +1,41 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage[np]{numprint}%
+\startdatakeys
+\source{24GENMATG11}
+\BO{2026}
+\cycle{4}
+\competencesDuSocle{CA,RA}
+\objectifsApprentissage{C4B3ca,C4B3cb,C4D2ab,C4D3ac}
+\motsCles{Thalès,Pythagore,trigonométrie,angle,homothétie}
+\enddatakeys
+\begin{document}%
+Sur la figure ci-dessous :
+\begin{itemize}
+    \item les points E, A et F sont alignés ;
+    \item les points E, B et D sont alignés ;
+    \item les droites (FD) et (AB) sont parallèles ;
+    \item $\mathrm{AE}=\np[cm]{4,4}$, $\mathrm{EB}=\np[cm]{3,3}$,
+    $\mathrm{AB}=\np[cm]{5,5}$ et $\mathrm{BD}=\np[cm]{6,6}$.
+\end{itemize}
+
+\begin{center}
+\begin{tikzpicture}
+    \draw(0,0)node[below left]{E}--(3.6,0)node[below right]{D}
+        --(0,4.5)node[above left]{F}--cycle;
+    \draw(0,1.5)node[left]{A}--(1.2,0)node[below]{B};
+    \node at(1.8,-1){\emph{La figure n'est pas en grandeur réelle}};
+\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}
+    \item Démontrer que le triangle ABE est rectangle.
+    \item Calculer la mesure de l'angle $\widehat{\mathrm{ABE}}$, arrondie
+    au degré.
+    \item Calculer la longueur FD.
+    \item Une homothétie de centre E transforme le triangle EAB en le
+    triangle EFD. Quel est le rapport de cette homothétie ? Aucune
+    justification n'est attendue.
+\end{enumerate}
+\showthesource
+\end{document}

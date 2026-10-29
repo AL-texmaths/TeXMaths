@@ -1,0 +1,67 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{21GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2bc,C4D3bf}
+    \motsCles{pourcentage,tableur,proportionnalité,ratio,probabilité}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Un club de handball souhaite commander des maillots avec le nom du club inscrit dessus. À l'issue de sa commande, le club veut recevoir exactement $350$~maillots.
+
+Après quelques recherches, deux sites internet ont été sélectionnés:
+
+\setlength\parindent{1cm}
+\begin{itemize}
+\item[$\bullet~~$] sur le site A : les maillots sont vendus à 12~\euro{} l'unité;
+\item[$\bullet~~$] sur le site B : les maillots sont vendus à 13~\euro{} l'unité, avec la promotion :
+
+\begin{center}\og 10 maillots offerts pour 100 achetés \fg.\end{center}
+\end{itemize}
+\setlength\parindent{0cm}
+
+\medskip
+
+\begin{enumerate}
+\item Déterminer le montant, exprimé en euro, de la commande du club envisagée sur le site A.
+\item Un tableur ci-dessous présente des exemples de dépenses en fonction du nombre de maillots payés sur le site B. Voici une copie d'écran de ce tableur.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|>{\small}p{4cm}|*{8}{>{\centering \arraybackslash}X|}}\hline
+ &A								&B	&C	&D	&E		& F	& G	& H	&I\\ \hline
+1&Nombre de maillots payés		&50 &100&150&200 &250	&300&350&400\\ \hline
+2&Nombre de maillots offerts	&0	&10	&10	&20	&20	&30	&30	&40\\ \hline
+3&Nombre total de maillots reçus&50 &110 &160	&220	&270&330&380 &440\\ \hline
+4&Coût total (en \euro)			&650&\np{1300}&\np{1950}&\np{2600}&\np{3250}&\np{3900}&\np{4550}& \np{5200}\\ \hline
+\end{tabularx}
+\end{center}
+
+	\begin{enumerate}
+		\item À la lecture de ce tableur, le trésorier du club affirme que le montant de la commande
+sera compris entre \np{3900}~\euro{} et \np{4550}~\euro. Son affirmation est-elle vraie ?
+		\item Sachant que les lignes 1 et 2 du tableur ont été complétées auparavant, quelle formule a-t-on pu saisir ensuite dans la cellule B3 avant de l'étirer jusqu'à la cellule I3, pour remplir la ligne 3 du tableur ?
+		\item Le coût total exprimé en euro est-il proportionnel au nombre de maillots reçus ?
+	\end{enumerate}
+\item Sur quel site le club doit-il passer sa commande pour recevoir exactement $350$~maillots, tout en payant le moins cher ?
+\item Le club souhaite que ces $350$~maillots soient répartis entre des maillots noirs et des maillots rouges dans le ratio 5 : 2.
+
+Combien faut-il commander de maillots noirs et de maillots rouges ?
+\item Le club a aussi commandé des gourdes. Les cartons reçus sont indiscernables tant par leurs dimensions que par leur forme.
+
+Il y a 4 cartons de gourdes blanches et 3 cartons de gourdes bleues.
+
+On ouvre un carton au hasard. Quelle est la probabilité qu'il contienne des gourdes bleues ?
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

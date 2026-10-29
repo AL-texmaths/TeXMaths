@@ -1,0 +1,69 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{22GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2ab,C4D2ae,C4C2ag}
+    \motsCles{tableur,pourcentage,pourcentage d'augmentation}
+\enddatakeys
+\begin{document}%
+
+\medskip
+Lors des Jeux paralympiques de 2021, les médias ont proposé un classement des pays en
+fonction de la répartition des médailles obtenues. Voici le classement obtenu pour les 15 premiers pays :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|m{2.75cm}|*{5}{>{\centering \arraybackslash}X|}}\hline
+&A  &B  &C  &D  &E  &F\\ \hline
+	1  & Nations &Classement &Or &Argent &Bronze &Total\\ \hline
+	2  & Chine      &1  &96 &60 &51 &207 \\ \hline
+	3  & Grande-Bretagne           &2  &41 &38 &45 &124 \\ \hline
+	4  & Etats-Unis                &3  &37 &36 &31 &104 \\ \hline
+	5  & Comité paralympique Russe &4  &36 &33 &49 &118 \\ \hline
+	6  & Pays-Bas                  &5  &25 &17 &17 &59 \\ \hline
+	7  & Ukraine                   &6  &24 &47 &27 &98 \\ \hline
+	8  & Brésil                    &7  &22 &20 &30 &72 \\ \hline
+	9  & Australie                 &8  &21 &29 &30 &80 \\ \hline
+	10 & Italie                    &9  &14 &29 &   &69 \\ \hline
+	11 & Azerbaïdjan               &10 &14 &1  &4  &19 \\ \hline
+	12 & Japon                     &11 &13 &15 &23 &51 \\ \hline
+	13 & Allemagne                 &12 &13 &12 &18 &43 \\ \hline
+	14 & Iran                      &13 &12 &11 &1  &24 \\ \hline
+	15 & France                    &14 &11 &15 &28 &54 \\ \hline
+	16 & Espagne                   &15 &9  &15 &12 &36 \\ \hline
+\end{tabularx}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+	\item Combien de médailles d’argent l’Australie a-t-elle obtenues ?
+	\item Calculer le nombre de médailles de bronze obtenues par l'Italie.
+	\item Quelle formule a pu être saisie en \textsf{F2} avant d’être étirée vers le bas ?
+	\item Pour chacune des deux affirmations suivantes, indiquer si elle est vraie ou fausse.
+
+	\emph{On rappelle que les réponses doivent être justifiées.}
+
+	\textbf{Affirmation 1:}
+
+	\og 20\,\% des médailles obtenues par l’équipe de France sont en or. \fg{}
+
+	\smallskip
+
+	\textbf{Affirmation 2:}
+
+	\og La médiane du nombre de médailles d'argent obtenues par ces 15 pays est 29. \fg{}
+
+	\item Aux Jeux paralympiques de Rio en 2016, la prime pour une médaille d’or française était de \np{50000} euros. Pour ceux de Tokyo en 2021, cette prime était de \np{65000} euros.
+
+Quel est le pourcentage d’augmentation de cette prime entre 2016 et 2021 ?
+
+\end{enumerate}
+
+\showthesource
+\end{document}

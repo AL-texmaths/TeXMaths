@@ -1,0 +1,96 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{21GENMATAA2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D3ac,C4D1be}
+    \motsCles{fonction,image,antécédent,Thalès,vitesse}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+On considère la fonction $f$ définie par $f(x) = - \dfrac{3}{19}x + 3$ pour tout nombre $x$ compris entre 0 et 19.
+
+\medskip
+
+\begin{enumerate}
+\item Calculer l’image de 6 par la fonction $f$.
+\item Déterminer l’antécédent de $0$ par la fonction $f$.
+\end{enumerate}
+
+\medskip
+
+Un joueur de tennis effectue un service.
+
+Voici une figure, qui n’est pas à l’échelle, représentant la trajectoire de la balle lors de ce service.
+
+Le triangle ABC est rectangle en A.
+
+Le triangle EDC est rectangle en E.
+
+Les droites (AE) et (BD) se coupent au point C.
+
+AB $= 3$ m ; AC $= 19$ m ; AE $= 12$ m
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(14.5,3)
+\pscircle(0.3,2){0.15}
+\psline(0.3,1.85)(0.3,1)(0.5,0.3)
+\psline(0.3,1)(0.2,0.3)
+\psline(0.3,1.4)(0.6,1.6)(0.5,1.8)
+\psline(0.3,1.4)(0,1.7)(0.2,2)
+\pspolygon[linewidth=1.25pt](0.5,0.3)(13.8,0.3)(0.5,2.5)%ACB
+\psline[linewidth=1.25pt](8.9,0.3)(8.9,1.13)%ED
+\psframe(0.5,0.3)(0.75,0.55)\psframe(8.9,0.3)(9.15,0.55)
+\psline[linewidth=1.25pt](0.2,2)(0.4,2.35)
+\rput{60}(0.5,2.5){\psellipse(0,0)(0.25,0.1)}
+\uput[d](0.5,0.3){A} \uput[ul](0.5,2.5){B} \uput[d](13.8,0.3){C} \uput[ur](8.9,1.13){D} \uput[d](8.9,0.3){E}
+\end{pspicture}
+\end{center}
+
+Le joueur est positionné au point A.
+
+On considère que la balle lancée en B effectue un trajet en ligne droite, qu’elle passe au-dessus du filet en D et qu’elle touche le terrain adverse en C.
+
+La longueur DE représente la hauteur de la balle lorsque celle-ci passe au-dessus du filet.
+
+Voici une représentation graphique de la fonction $f$ qui modélise la trajectoire de la balle lors de ce service. On rappelle que $f(x) = - \dfrac{3}{19}x + 3$, pour tout nombre $x$ compris entre 0 et 19.
+
+\begin{center}
+\psset{unit=0.6cm}
+\begin{pspicture}(-1,-1)(20,5)
+\psgrid[gridlabels=0pt,subgriddiv=1,gridwidth=0.2pt](0,0)(20,5)
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle]{->}(0,0)(0,0)(20,5)
+\psline[linewidth=1.25pt,linecolor=blue](0,3)(19,0)
+\uput[ur](0,0){A}\uput[ur](19,0){C}\uput[ur](0,3){B}
+\uput[d](19.5,0){$x$} \uput[l](0,4.75){$y$}
+\end{pspicture}
+\end{center}
+
+Tout point de cette représentation graphique a pour abscisse $x$ et pour ordonnée $f(x)$ où $x$
+
+est un nombre compris entre $0$ et $19$.
+
+Dans le repère, le point A a pour coordonnées (0~;~0), le point B a pour coordonnées (0~;~3) et
+
+le point C a pour coordonnées $(19~;~0)$.
+
+\medskip
+
+\begin{enumerate}[resume]
+\item On considère le point d’abscisse 6 de la représentation graphique de la fonction $f$. Déterminer l’ordonnée de ce point.
+\item On admet que la distance BC parcourue par la balle lors de ce service est d’environ $19,2$ m. Lors de ce service, la balle a mis $0,34$ seconde pour parcourir la distance BC.
+
+Un commentateur affirme que la vitesse moyenne de la balle lors de ce service est de $208$ km/h. Cette affirmation est-elle vraie ?
+\item Déterminer la hauteur de la balle, exprimée en mètre, lorsque celle-ci passe au-dessus du filet.
+\end{enumerate}
+
+\showthesource
+\end{document}

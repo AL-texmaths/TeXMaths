@@ -1,0 +1,71 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\startdatakeys
+    \source{25GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{programme de calcul,expression littérale,équation,fonction affine,graphique}
+\enddatakeys
+\begin{document}%
+\medskip
+
+On considère le programme de calcul suivant :
+
+\begin{center}
+\begin{tabular}{|l|}\hline
+$\bullet~~$Choisir un nombre\\
+$\bullet~~$Multiplier le nombre choisi par $-2$\\
+$\bullet~~$Ajouter 4 au résultat\\
+$\bullet~~$Multiplier le résultat obtenu par 4\\ \hline
+\end{tabular}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item Montrer que si l'on choisit 1 comme nombre de départ dans le programme, le résultat obtenu est 8.
+\item Quel est le résultat si le nombre de départ est $- 2$ ?
+\item Si l'on note $x$ le nombre de départ, montrer que le résultat peut s'écrire $-8x + 16$.
+\item 
+	\begin{enumerate}
+		\item Résoudre l'équation $-8x + 16 = 4$.
+		\item En déduire le nombre de départ qu'il faut choisir pour obtenir 4 comme résultat.
+	\end{enumerate}
+\item Parmi les trois représentations graphiques ci-dessous, quelle est celle qui représente la fonction $f$ définie par $f(x) =-8x + 16$ ? Expliquer la démarche.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+Représentation graphique 1& Représentation graphique 2& Représentation graphique 3\\ \hline
+\psset{xunit=1cm,yunit=0.25cm,arrowsize=2pt 3,comma=true}
+\begin{pspicture*}(-2.8,-2.25)(0.5,19)
+\multido{\n=-2.5+0.5}{8}{\psline[linewidth=0.2pt](\n,-2)(\n,19)}
+\multido{\n=-2+2}{11}{\psline[linewidth=0.2pt](-2.5,\n)(0.5,\n,)}
+\psaxes[linewidth=1.25pt,Dx=0.5,Dy=2,labelFontSize=\scriptstyle](0,0)(-2.5,-2)(0.5,19)
+\psplot[plotpoints=2000,linewidth=1.25pt]{-2.5}{0.5}{8 x mul 16  add}
+\end{pspicture*}&
+\psset{unit=1cm,yunit=0.25cm,arrowsize=2pt 3,comma}
+\begin{pspicture*}(-1.8,-2.25)(1.5,19)
+\multido{\n=-1.5+0.5}{7}{\psline[linewidth=0.2pt](\n,-2)(\n,19)}
+\multido{\n=-2+2}{11}{\psline[linewidth=0.2pt](-1.5,\n)(1.5,\n,)}
+\psaxes[linewidth=1.25pt,Dx=0.5,Dy=2,labelFontSize=\scriptstyle](0,0)(-1.5,-2)(1.5,19)
+\psplot[plotpoints=2000,linewidth=1.25pt]{-1.5}{1.5}{8  8 x mul sub}
+\end{pspicture*}&
+\psset{unit=1cm,yunit=0.25cm,arrowsize=2pt 3,comma}
+\begin{pspicture*}(-0.8,-2.25)(2.5,19)
+\multido{\n=-1+0.5}{9}{\psline[linewidth=0.2pt](\n,-2)(\n,19)}
+\multido{\n=-2+2}{11}{\psline[linewidth=0.2pt](-1,\n)(2.5,\n,)}
+\psaxes[linewidth=1.25pt,Dx=0.5,Dy=2,labelFontSize=\scriptstyle](0,0)(-0.5,-2)(2.5,19)
+\psplot[plotpoints=2000,linewidth=1.25pt]{-0.5}{2.5}{16 8 x mul sub}
+\end{pspicture*}\\ \hline 
+\end{tabularx}
+\end{center}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

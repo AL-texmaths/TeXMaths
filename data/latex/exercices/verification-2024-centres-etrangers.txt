@@ -1,0 +1,9 @@
+Exercices du DNB 2024 — Centres étrangers, 10 juin 2024
+
+Ouvrir les fichiers avec Ctrl+clic dans VS Code :
+
+✅[Exercice 1 — exercice-0735-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0735-data.tex)
+✅[Exercice 2 — exercice-0736-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0736-data.tex)
+✅[Exercice 3 — exercice-0737-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0737-data.tex)
+✅[Exercice 4 — exercice-0738-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0738-data.tex)
+[Exercice 5 — exercice-0739-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0739-data.tex)

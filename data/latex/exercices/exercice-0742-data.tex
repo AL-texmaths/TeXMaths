@@ -1,0 +1,72 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{enumitem}%
+
+\usepackage{textcomp}%
+\startdatakeys
+    \source{24GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Pythagore,trigonométrie,angle,aire,cercle}
+\enddatakeys
+\begin{document}%
+    \def\degres{\textsuperscript{\textdegree}}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\begin{minipage}{0.45\linewidth}Trois élèves construisent chacun en vraie grandeur une même figure puis la découpent.
+
+Ils obtiennent ainsi, à eux trois, trois pièces identiques, comme ci-contre.
+\end{minipage}\hfill
+\begin{minipage}{0.51\linewidth}
+\psset{unit=1cm}
+\def\logo{\begin{pspicture}(-1.732,0)(1.732,2)
+\pspolygon(-1.732,1)(0,0)(1.732,1)\psarc(0,0){2}{30}{150}\psline(0,0)(0,1)
+\end{pspicture}}
+\begin{pspicture}(6.6,5)
+\rput(1.8,2.6){\logo}\rput{-80}(5,2.4){\logo}\rput{170}(3,1){\logo}
+\end{pspicture}
+
+\end{minipage}
+
+Le schéma ci-dessous représente la pièce construite par chaque élève avec les indications suivantes:
+
+\begin{itemize}[label=$\bullet~$]
+\item Les droites (AB) et (CG) sont perpendiculaires ;
+\item Les points A, C et B sont alignés;
+\item L'arc de cercle qui relie le point A au point B a pour centre le point G;
+\item AC = CB;
+\item CG = 10 cm et BG = 20 cm.
+\end{itemize}
+\begin{center}
+\psset{unit=1.8cm}
+\begin{pspicture}(-1.732,0)(1.732,2)
+\pspolygon(-1.732,1)(0,0)(1.732,1)\psarc(0,0){2}{30}{150}
+\psframe(0,1)(-0.2,0.8)
+\uput[l](-1.732,1){A} \uput[r](1.732,1){B} \uput[u](0,1){C} \uput[d](0,0){G} 
+\psline(-0.876,1.1)(-0.876,0.9)\psline(-0.846,1.1)(-0.846,0.9)
+\psline(0.846,1.1)(0.846,0.9)\psline(0.876,1.1)(0.876,0.9)
+\psline(0,0)(0,1)
+\end{pspicture}
+\end{center}
+%dessin au dessous
+
+\medskip
+
+\begin{enumerate}
+\item Démontrer que la longueur BC mesure environ 17,3 cm.
+\item Quelle est l'aire du triangle BAG ? \emph{On donnera une valeur arrondie à l'unité}.
+\item 
+	\begin{enumerate}
+		\item Montrer que l'angle $\widehat{\text{CGB}}$ mesure exactement $60\degres$.
+		\item En déduire la mesure de l'angle $\widehat{\text{AGB}}$.
+	\end{enumerate}
+\item Les trois élèves pensent qu'ils peuvent former un disque complet avec leurs 3 pièces.
+
+Expliquer pourquoi ils ont raison.
+\item En déduire l'aire de la pièce obtenue par chacun des élèves. On donnera une valeur arrondie à l'unité.
+\end{enumerate}
+\showthesource
+\end{document}

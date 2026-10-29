@@ -1,0 +1,74 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\startdatakeys
+    \source{21GENMATAA2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4D2ae,C4C1bc}
+    \motsCles{facteurs premiers,équation,développement,volume,boule}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Voici quatre affirmations. Pour chacune d’entre elles, indiquer si elle est vraie ou fausse.
+
+\textbf{On rappelle que la réponse doit être justifiée.}
+
+\medskip
+
+\begin{enumerate}
+\item \textbf{Affirmation 1} : $364$ admet comme décomposition en produit de facteurs premiers : $4 \times 7 \times 13$.
+\item \textbf{Affirmation 2} : le nombre $-3$ est une solution de l’équation
+$x^2 + 2 = 11$.
+\item \textbf{Affirmation 3} : pour tout nombre $x$, les expressions $(x + 3)^2 - 4$ et $(x + 1)(x + 3)$ sont égales.
+\item \textbf{Affirmation 4} : les deux solides suivants ont le même volume :
+\end{enumerate}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|p{4cm}|p{4cm}|X}\cline{1-2}
+Demi-boule de rayon $3$~cm
+
+\psset{unit=1cm}
+\begin{pspicture}(-1.7,-1.7)(1.7,0.6)
+\psellipse(0,0)(1.7,0.35)
+\psarc(0,0){1.7}{180}{360}
+\psline[linestyle=dashed](0,0)(1.7,0)
+\uput[d](0.85,0){3 cm}
+\end{pspicture}
+&
+Cylindre de diamètre 3 cm
+et de hauteur 8 cm.
+
+\psset{unit=1cm}
+\begin{pspicture}(-1.7,-3.6)(1.7,0.6)
+\psellipse(0,0)(1.7,0.35)
+\psline(-1.7,0)(-1.7,-3.3)\psline(1.7,0)(1.7,-3.3)
+\psline(-1.7,0)(1.7,0)
+\psellipticarc(0,-3.3)(1.7,0.35){180}{360}
+\psellipticarc[linestyle=dashed](0,-3.3)(1.7,0.35){0}{180}
+\uput[u](0,0){3 cm}\uput[r](-1.7,-1.65){8 cm}
+\end{pspicture}
+&On rappelle les formules suivantes :
+
+Volume d’une boule :
+
+$V= \dfrac43 \times \pi \times \text{rayon} \times \text{rayon} \times \text{rayon}$
+
+Volume d’un cylindre :
+
+$V = \text{Aire de la base} \times \text{hauteur}$
+
+Aire d’un disque :
+
+$A = \pi \times  \text{rayon} \times \text{rayon}$\\ \cline{1-2}
+\end{tabularx}
+\end{center}
+
+\bigskip
+
+\showthesource
+\end{document}

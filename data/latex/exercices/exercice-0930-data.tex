@@ -1,0 +1,56 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{22GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2aa,C4C2ac,C4D2ae,C4C2ag}
+    \motsCles{tableur,moyenne,étendue,pourcentage,vitesse,durée,conversion}
+\enddatakeys
+\begin{document}%
+
+\bigskip
+
+Voici le nombre de passages de véhicules au péage du pont de l'île de Ré au cours de l'année 2020, reporté dans une feuille de calcul :
+
+\begin{center}
+\begin{tabularx}{0.5\linewidth}{|c|*{2}{>{\centering \arraybackslash}X|}}\hline
+	&A		&B\\ \hline
+1 	&Mois 	&Nombre de passages\\ \hline
+2 	&Janvier&\np{210320}\\ \hline
+3 	&Février&\np{218464}\\ \hline
+4 	&Mars 	&\np{138395}\\ \hline
+5 	&Avril 	&\np{62930}\\ \hline
+6 	&Mai 	&\np{179699}\\ \hline
+7 	&Juin 	&\np{295333}\\ \hline
+8 	&Juillet&\np{389250}\\ \hline
+9 	&Août	&\np{376551}\\ \hline
+10 	&Septembre&\np{313552}\\ \hline
+11 	&Octobre &\np{267864}\\ \hline
+12 	&Novembre&\np{142152}\\ \hline
+13 	&Décembre&\np{206662}\\ \hline
+14 	&Total&\np{2801172}\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}
+\item Quelle formule a-t-on saisi dans la cellule B14 pour obtenir le nombre total de passages en 2020?
+\item Calculer le nombre moyen de passages par mois.
+\item Donner l'étendue de la série.
+\item Afin d'étudier les effets du confinement de 2020, on souhaite comparer le nombre de
+passages de véhicules sur le pont de l'île de Ré du mois de mai 2020 avec celui du mois de mai 2021.
+
+En mai 2021, \np{305214} véhicules ont passé le péage du pont.
+
+Calculer le pourcentage d'augmentation du nombre de passages de véhicules entre mai 2020 et mai 2021. Arrondir à l'unité.
+\item Sachant que le pont a une longueur de \np{3000} mètres, quelle est la vitesse moyenne, exprimée en km/h, d'un cycliste qui le traverse en $10$~minutes ?
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\startdatakeys
+    \source{22GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2bc}
+    \motsCles{probabilité}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\begin{minipage}{0.6\linewidth}
+Gabriel lance deux fois de suite un dé équilibré à quatre faces numérotées de 1 à 4 et il relève le numéro qui figure sur la face cachée du dé.
+
+Si Gabriel obtient 2 au premier lancer puis 4 au second, il note (2~;~4).
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(4.5,3.7)
+\pspolygon[fillstyle=solid,fillcolor=red](0,0.2)(1.95,3.6)(4.15,1.1)(4,0)
+\psline[linewidth=2pt,linecolor=white](1.95,3.6)(4,0)
+\rput(2,1.5){\white \Huge 3}
+\rput{28}(3.4,1.5){\white \Huge 1}
+\end{pspicture}
+\end{center}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item Gabriel a noté (3 ; 2).
+	\begin{enumerate}
+		\item Quel numéro a-t-il obtenu au premier lancer ?
+		\item Quel numéro a-t-il obtenu au second lancer ?
+	\end{enumerate}
+\item Quelles sont les $16$ issues possibles de ce jeu ?
+\item Que dire de l'évènement $A$ : \og Obtenir 1 en additionnant les deux numéros obtenus\fg{} ?
+
+L'évènement $B$ : \og Obtenir 7 en additionnant les deux numéros obtenus \fg{} peut être réalisé avec l'issue (3~;~4) ou avec l'issue (4~;~3).
+\item Donner les quatre issues possibles qui réalisent l'évènement $C$ : \og Obtenir 5 en additionnant les deux numéros obtenus \fg.
+\item Quelle est la probabilité que l'évènement $C$ se réalise?
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

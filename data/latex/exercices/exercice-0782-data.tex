@@ -1,0 +1,265 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[french]{babel}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{25GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Scratch,polygone,rotation,programme}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\degres{\textsuperscript{\textdegree}}%
+    \def\no{\textsuperscript{o}}%
+
+\emph{Dans cet exercice, aucune justification n'est attendue}
+
+\medskip
+
+\textbf{Partie 1 : les motifs}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+Script 1&Script 2&Script 3\\ \hline
+&&\\
+\begin{scratch}[scale=0.8]
+\initmoreblocks{définir \namemoreblocks{Motif 1}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{3} fois}
+{
+\blockmove{avancer de \ovalvariable{30} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{120} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}&
+\begin{scratch}[scale=0.8]
+\initmoreblocks{définir \namemoreblocks{Motif 2}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{6} fois}
+{
+\blockmove{avancer de \ovalvariable{30} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{60} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}&
+\begin{scratch}[scale=0.8]
+\initmoreblocks{définir \namemoreblocks{Motif 3}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{2} fois}
+{\blockmove{avancer de \ovalvariable{30} pas}
+\blocklook{Partie du script effacée}
+\blocklook{(voir question 2)}
+}
+\blockpen{relever le stylo}
+\end{scratch}\\ 
+&&\\ \hline
+\end{tabularx}
+\rput(4.9,2.5){
+\psellipse[fillstyle=solid,fillcolor=lightgray,linecolor=lightgray](-0.5,0)(1.6,0.8)
+\psellipse[fillstyle=solid,fillcolor=lightgray,linecolor=lightgray](0.5,0)(1.6,0.8)}
+\rput(4.9,2.5){
+\parbox{3cm}{\centering{}Partie du\\script effacée\\(voir question 2)}}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Les scripts 1 et 2 permettent chacun d'obtenir un des dessins ci-dessous. Associer chacun des scripts à son dessin.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{2}{>{\centering \arraybackslash}X|}}\hline
+Dessin 1&Dessin 2\\ \hline
+\psset{unit=0.9cm}
+\begin{pspicture}(-1.5,-1.5)(1.5,1.3)
+\pspolygon(1.5;0)(1.5;60)(1.5;120)(1.5;180)(1.5;240)(1.5;300)
+\end{pspicture}&
+\psset{unit=1cm}
+\begin{pspicture}(-1.8,-1)(1.8,1.8)
+\pspolygon(1.4;-30)(1.4;90)(1.4;210)
+\end{pspicture}\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{minipage}{0.55\linewidth}
+\item Le script 3 permet d'obtenir le losange ci-contre.
+
+La partie du script effacée contient les 3 instructions A, B et C ci-dessous.
+
+Sur votre copie, recopier dans le bon ordre les instructions cachées.
+%\end{enumerate}
+\textbf{Chaque instruction ne doit être utilisée qu'une seule fois.}
+\end{minipage}\hfill
+\begin{minipage}{0.38\linewidth}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(0,-1)(5.5,3.5)
+\pspolygon(2,0)(5.2,0)(3.6,2.77)(0.4,2.77)
+\psarc(5.2,0){0.4}{120}{180}\psarc(2,0){0.4}{0}{120}
+\rput(0,0){Départ}\uput[d](3.6,0){30 pas} \uput[ur](4.4,1.38){30 pas}
+\rput(4.5,0.4){$60\degres$}\rput(2.8,0.4){$120\degres$}
+\psline{->}(0.7,0)(2,0)
+\end{pspicture}
+\end{minipage}
+
+\begin{center}
+%\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+\begin{tabular}{|c|c|c|}
+\hline
+Instruction A &Instruction B& Instruction C\\
+ \hline
+ &&\\
+\begin{scratch}
+\blockmove{tourner \turnleft{} de \ovalnum{60} degrés}
+\end{scratch}
+&
+\begin{scratch}\blockmove{tourner \turnleft{} de \ovalnum{120} degrés}
+\end{scratch}
+&
+\begin{scratch}\blockmove{avancer de \ovalnum{30} pas}
+\end{scratch}\\
+&&\\
+ \hline
+\end{tabular}
+%\end{tabularx}
+\end{center}
+\end{enumerate}
+
+\newpage
+
+\textbf{Partie 2 : le script principal}
+%\vspace{4cm}
+
+%\setdefaultscratch{scale=0.8}
+%\begin{tabularx}{\linewidth}{|X|m{7.55cm}|}
+\begin{tabular}[l]{m{5cm} m{7.55cm}}
+%\hline
+\begin{scratch}[scale=0.9]
+\blockinit{Quand \greenflag est cliqué}
+\blockmove{aller à x: \ovalnum{- 200} y: \ovalnum{0}}
+\blockpen{effacer tout}
+\blockmove{s'orienter à \ovalnum{90}}
+\blockvariable{mettre \ovalvariable{Motif} à nombre aléatoire entre \ovalnum{1} et \ovalnum{3}}
+\blockifelse{si \booloperator{\ovalmove{Motif} = \ovalnum{3}} alors}
+{\blockrepeat{répéter \ovalnum{6} fois}
+	{
+\blocklook{Motif 3}
+\blockmove{avancer de \ovalnum{60} pas}
+	}
+\blocklook{dire \ovalnum{Voici le dessin !}}
+}
+{%\blocklook{sinon}
+\blocklook{dire \ovalnum{Perdu !}}}
+\end{scratch}
+&%\vspace*{5cm}
+\psframe[linewidth=0pt,linecolor=white](5,5)
+
+\begin{tabular}{|c|}\hline
+%\multicolumn{1}{c}{~}\\
+%\multicolumn{1}{c}{~}\\
+%\multicolumn{1}{c}{~}\\
+%\multicolumn{1}{c}{~}\\
+%\multicolumn{1}{c}{~}\\
+%\multicolumn{1}{c}{~}\\
+%\multicolumn{1}{c}{~}\\
+%\multicolumn{1}{c}{~}\\
+
+
+Rappels\\
+\hline
+\\
+\begin{scratch}[scale=1]
+%\blockmoreblocks{nombre aléatoire entre \ovalnum{1} et \ovalnum{3}}
+\blockvariable{nombre aléatoire entre \ovalnum{1} et \ovalnum{3}}
+\end{scratch}\\
+{\small donne un nombre entier au hasard parmi 1 ; 2 et 3.}\\ 
+\\
+\hline
+\\
+\begin{scratch}[scale=1]
+\blockmove{s'orienter à \ovalnum{90}}
+\end{scratch}\\
+{\small oriente le lutin horizontalement vers la droite.}\\ 
+\\
+\hline
+\end{tabular}\\ 
+%\hline
+\end{tabular}
+%\end{tabularx}
+
+\medskip
+
+\begin{enumerate}[start=3]
+\item Quelles sont les coordonnées du point de départ du lutin ?
+\item Parmi les 5 captures d'écran proposées ci-dessous, seules deux sont possibles. Lesquelles?
+
+\begin{center}
+\small
+%\begin{tabularx}{\linewidth}{|l|X|}
+\begin{tabular}{|l|m{9.7cm}|}
+\hline
+Capture d'écran \no 1&\psset{unit=0.8cm}
+\def\losan{\pspolygon(0,0)(1,0)(0.5,0.866)(-0.5,0.866)}
+\begin{pspicture}(-1,0)(5,1.5)
+\multido{\n=0+1}{6}{\rput(\n,0){\losan}}
+\rput(2.5,1.25){Voici le dessin !}
+\end{pspicture}
+\\ \hline
+Capture d'écran \no 2&\psset{unit=0.8cm}
+\def\losan{\pspolygon(0,0)(1,0)(0.5,0.866)(-0.5,0.866)}
+\begin{pspicture}(-1,0)(5,1.5)
+\multido{\n=0+2}{6}{\rput(\n,0){\losan}}
+\rput(2.5,1.25){Voici le dessin !}
+\end{pspicture}
+\\ \hline
+Capture d'écran \no 3&\psset{unit=0.8cm}
+\def\losan{\pspolygon(0,0)(1,0)(0.5,0.866)(-0.5,0.866)}
+\begin{pspicture}(-1,0)(5,1.5)
+%\multido{\n=0+1}{5}{\rput(\n,0){\losan}}
+\rput(2.5,1.25){Perdu !}
+\end{pspicture}
+\\ \hline
+Capture d'écran \no 4&\psset{unit=0.8cm}
+\def\losan{\pspolygon(0,0)(1,0)(0.5,0.866)(-0.5,0.866)}
+\begin{pspicture}(-1,0)(5,1.5)
+\multido{\n=0+2}{3}{\rput(\n,0){\losan}}
+\rput(2.5,1.25){Voici le dessin !}
+\end{pspicture}
+\\ \hline
+Capture d'écran \no 5&\psset{unit=0.8cm}
+\def\losan{\pspolygon(1,0)(0.5,0.866)(-0.5,0.866)(0,0)}
+\begin{pspicture}(-2.5,-2)(4,2)
+\rput(4.5,0){Voici le dessin !}
+\multido{\n=-60+60,\na=0+60}{6}{\rput{\n}(1.;\na){\losan}}
+\end{pspicture}
+\\ \hline
+\end{tabular}
+%\end{tabularx}
+\end{center}
+
+\newpage
+
+\item On clique sur le drapeau vert, et on observe le message affiché.
+
+Quelle est la probabilité que le message affiché soit « Voici le dessin! » ?
+\item On lance de nouveau le programme 100 fois et on regroupe les résultats obtenus dans le tableau suivant:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+Message du lutin&« Voici le dessin! »& « Perdu! »\\ \hline
+Effectif&40&60\\ \hline
+\end{tabularx}
+\end{center}
+
+	\begin{enumerate}
+		\item Calculer la fréquence de l'affichage \og Voici le dessin! \fg.
+		\item Pourquoi ce résultat est-il différent de celui obtenu à la question 5 ?
+	\end{enumerate}
+\end{enumerate}
+\showthesource
+\end{document}

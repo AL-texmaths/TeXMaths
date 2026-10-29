@@ -1,0 +1,95 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{25GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{programme de calcul,expression littérale,fonction affine,proportionnalité,équation,grandeurs}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\euro{\texteuro}%
+    \def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+M. Durand vient de faire construire une piscine. Afin de se baigner dans une eau de bonne qualité, il est important de faire fonctionner la filtration de la piscine tous les jours durant l'été. Le temps quotidien de filtration idéal (en heure) est donné en fonction de la température de l'eau de la piscine (en degré Celsius, noté \degres~C). La méthode ci-dessous permet de calculer ce temps de filtration :
+
+\begin{center}
+\begin{tabularx}{0.67\linewidth}{|X|}\hline
+$\bullet~$Prendre la température de l'eau (en degré Celsius)\\
+$\bullet~$Lui ajouter $4$\\
+$\bullet~$Multiplier le résultat par $0,5$\\
+
+Le résultat obtenu correspond au temps de filtration (en heure).\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}
+\item Vérifier que pour une température de l'eau de $26~\degres$ C, le temps de filtration est de $15$~h.
+\item On note $x$ la température de l'eau de la piscine (en degré Celsius).
+
+Montrer que le temps de filtration, en heure, peut s'écrire $0,5x + 2$.
+\item On donne ci-dessous la courbe représentative de la fonction $f$ définie par
+
+\[f(x) = 0,5x + 2\]
+
+où $x$ désigne la température de l'eau (en $\degres$ C) et $f(x)$ le temps de filtration (en h).
+
+\begin{center}
+\psset{xunit=0.6cm,yunit=0.4cm,arrowsize=2pt 3,dash=1mm 1mm}
+\begin{pspicture}(-1,-1.2)(18,14)
+\multido{\n=0+1}{19}{\psline[linewidth=0.25pt,linestyle=dashed](\n,0)(\n,14)}
+\multido{\n=0+1}{15}{\psline[linewidth=0.15pt,linestyle=dashed](0,\n)(18,\n)}
+\psaxes[linewidth=1.25pt,Dy=2,labelFontSize=\scriptstyle]{->}(0,0)(0,0)(18,14)
+\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=blue]{0}{18}{0.5 x mul 2 add}
+\uput[u](17.5,0){$x$}\uput[r](0,13.5){$f(x)$}
+\end{pspicture}
+\end{center}
+	\begin{enumerate}
+		\item Le temps de filtration est-il proportionnel à la température de l'eau de la piscine ?
+		\item Quelle est l'image de 10 par la fonction ? Aucune justification n'est demandée.
+	\end{enumerate}
+\item Résoudre l'équation $0,5x + 2 = 17$ et interpréter ce résultat dans le contexte du problème.
+\item M. Durand a décidé de filtrer sa piscine 16~h par jour, tous les jours du 1\up{er} juillet au 31 août inclus.
+
+À l'aide des documents ci-dessous, calculer la dépense liée au fonctionnement de la filtration au cours de cette période.
+
+\emph{Laisser toute trace de recherche, même si elle n'a pas abouti.}
+
+\bigskip
+
+\begin{minipage}{0.5\linewidth}
+\begin{tabular}{|l|}\hline
+\textbf{Document 1 : Puissance}\\
+Puissance de la pompe : 0,8 kW\\
+kW signifie kiloWatt\\ \hline
+\end{tabular}
+\end{minipage} \hspace{2.27cm}
+\begin{minipage}{0.5\linewidth}
+\begin{tabular}{|l|}\hline
+\textbf{Document 2 : Prix}\\
+Prix d'un kWh : $0,23$~\euro\\
+kWh signifie kiloWatt-heure\\ \hline
+\end{tabular}
+\end{minipage}
+
+\medskip
+
+\begin{minipage}{\linewidth}
+\begin{tabular}{|l|}\hline
+\textbf{Document 3 : Calcul de la consommation électrique de la pompe (en kWh)}\\
+Puissance de la pompe (en kW) $\times$ nombre d'heures d'utilisation par jour $\times$ nombre de jours\\ \hline
+\end{tabular}
+\end{minipage}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

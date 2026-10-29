@@ -1,0 +1,114 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\startdatakeys
+    \source{25GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Scratch,programme,polygone,angle}
+\enddatakeys
+\begin{document}%
+\medskip
+
+\begin{enumerate}
+\item 
+Associer à chaque script ci-dessous la figure qui lui correspond.
+
+\textbf{Sur la copie, indiquer le numéro du script et la figure correspondante.}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+\textbf{SCRIPT 1}&\textbf{SCRIPT 2}&\textbf{SCRIPT 3}\\ %
+\begin{scratch}[scale=0.7]
+\blockinit{quand \greenflag est cliqué}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{3} fois}
+{\blockmove{avancer de \ovalnum{100} pas}
+\blockmove{tourner \turnright{} de \ovalnum{60} degrés}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.7]
+\blockinit{quand \greenflag est cliqué}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{3} fois}
+{\blockmove{avancer de \ovalnum{100} pas}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.7]
+\blockinit{quand \greenflag est cliqué}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{3} fois}
+{\blockmove{avancer de \ovalnum{100} pas}
+\blockmove{tourner \turnright{} de \ovalnum{120} degrés}
+}
+\end{scratch}\\
+&&\\
+\hline
+&&\\
+FIGURE A&FIGURE B&FIGURE C\\ %\hline
+\psset{unit=1cm}
+\begin{pspicture}(1.5,1.5)
+\psline(0,1)(1,1)(1,0)(0,0)
+\end{pspicture}&
+\psset{unit=1.414cm}
+\begin{pspicture}(1.5,1.5)
+\pspolygon(0,1)(1,1)(0.5,0.134)
+\end{pspicture}
+&\psset{unit=1cm}
+\begin{pspicture}(0,-1)(1.5,1)
+\psline(1;120)(1;60)(1;0)(1;-60)
+\end{pspicture}\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+Le script ci-dessous commande la construction de la figure D.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{p{4.5cm}p{2cm}X}
+\begin{scratch}[scale=0.8]
+\blockinit{quand \greenflag est cliqué}
+\blockpen{stylo en position d'écriture}
+\blockmove{avancer de \ovalnum{20} pas}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{40} pas}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{60} pas}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{80} pas}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\end{scratch}
+&
+\psset{unit=0.009cm}
+\begin{pspicture}(-100,-100)(40,180)
+\rput(-10,180){FIGURE D}
+\psline(0,0)(40,0)(40,-100)(-100,-100)(-100,100)
+\end{pspicture}
+&
+\psset{unit=0.9cm}
+\begin{pspicture}(-3,-3)(4,4)
+\psline[linewidth=1pt](0,0)(0.5,0)(0.5,-1)(-1,-1)(-1,1)(1.5,1)(1.50,-2)(-2,-2)(-2,2)(2.50,2)(2.50,-3)(-3,-3)(-3,3)(3.5,3)
+\rput(.50,4){FIGURE E}
+\end{pspicture}\\
+\end{tabularx}
+\end{center}
+
+\item
+Completer le script sur l'annexe 2 qui commande la construction de la figure E.
+\end{enumerate}
+
+\newpage
+
+\begin{center}
+\textbf{ANNEXE À RENDRE AVEC LA COPIE }
+\end{center}
+\bigskip
+\showthesource
+\end{document}

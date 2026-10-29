@@ -1,0 +1,55 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{array}%
+\usepackage{scratch3}%
+\startdatakeys
+    \source{24GENMATMEAG2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{programme de calcul,Scratch,développement,équation produit}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+On considère le programme de calcul ci-dessous :
+
+\begin{center}
+\begin{tabular}{|l|}\hline
+$\bullet~$Choisir un nombre\\
+$\bullet~$Mettre ce nombre au carré\\
+$\bullet~$Soustraire le triple du nombre de départ\\
+$\bullet~$Soustraire 4\\ \hline
+\end{tabular}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item Montrer que si on choisit 5 comme nombre de départ, le résultat du programme est 6.
+\item On choisit $x$ comme nombre de départ.
+
+Exprimer le résultat du programme en fonction de $x$.
+\item Vérifier que l'on peut écrire ce résultat sous la forme $(x + 1)(x - 4)$.
+\item Déterminer les nombres à choisir au départ pour que le résultat du programme soit 0.
+\item Juliette a écrit le programme ci-dessous :
+
+\begin{scratch}[num blocks]
+\blockinit{quand \greenflag est cliqué}
+\blockmove{demander \ovalnum{Choisir un nombre} et attendre}
+\blockvariable{mettre \selectmenu{x} à \ovalmove{réponse}}
+\blockvariable{mettre \selectmenu{y} à \ovaloperator{\ovalnum{\ldots}*\ovalnum{\ldots}}}
+\blockvariable{mettre \selectmenu{z} à \ovaloperator{\ovalnum{3}*\ovalnum{x}}}
+\blockvariable{mettre \selectmenu{Résultat} à \ovaloperator{\ovalnum{\ldots}$-$ \ovalnum{\ldots} $- 4$}}
+\blocklook{dire \ovalnum{Résultat } pendant \ovalnum{5}secondes}
+\end{scratch}
+\end{enumerate}
+
+\medskip
+
+Recopier et compléter sur la copie les lignes 4 et 6 du programme afin que celui-ci corresponde au programme de calcul encadré.
+
+\bigskip
+\showthesource
+\end{document}

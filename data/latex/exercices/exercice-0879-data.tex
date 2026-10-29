@@ -1,0 +1,68 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1af,C4D2ba,C4A2ed}
+    \motsCles{programme de calcul,tableur,expression littérale,développement}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\parbox{0.48\linewidth}{On considère le programme de calcul ci-contre.}\hfill
+\parbox{0.48\linewidth}{\begin{tabularx}{\linewidth}{|X|}\hline
+$\bullet~~$Choisir un nombre.\\
+$\bullet~~$Ajouter 2 à ce nombre.\\
+$\bullet~~$Prendre le carré du résultat précédent.\\
+$\bullet~~$Soustraire le carré du nombre de départ au résultat précédent.\\ \hline
+\end{tabularx}}
+
+\medskip
+
+On a utilisé la feuille de calcul ci-dessous pour appliquer ce programme de calcul au nombre 5 ; le résultat obtenu est 24.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|l|X|}\hline
+&A&B\\ \hline
+1& Programme&Résultat\\ \hline
+2& Choisir un nombre &5\\ \hline
+3& Ajouter 2 à ce nombre &7\\ \hline
+4& Prendre le carré du résultat précédent &49\\ \hline
+5& Soustraire le carré du nombre de départ au résultat précédent &24\\ \hline
+\end{tabularx}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item Pour les questions suivantes, faire apparaître les calculs sur la copie.
+	\begin{enumerate}
+		\item Si on choisit 2 comme nombre de départ, vérifier qu'on obtient 12 comme résultat.
+		\item Si on choisit $- 8$ comme nombre de départ, quel résultat obtient-on ?
+	\end{enumerate}
+\item Parmi les trois propositions suivantes, recopier sur votre copie la formule qui a été saisie dans la cellule B5.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+=B4 $-$ B2 * B2& =B2 + 2 &= B3 * B3\\ \hline
+\end{tabularx}
+\end{center}
+
+\item
+	\begin{enumerate}
+		\item Si l'on choisit $x$ comme nombre de départ, exprimer en fonction de $x$, le résultat final de ce programme de calcul.
+		\item Montrer que $(x + 2)^2 - x^2 = 4x + 4$.
+	\end{enumerate}
+\item Si on choisit un nombre entier au départ, est-il exact que le résultat du programme est toujours un multiple de 4 ? Justifier.
+\end{enumerate}
+Résultat
+
+\medskip
+
+\showthesource
+\end{document}

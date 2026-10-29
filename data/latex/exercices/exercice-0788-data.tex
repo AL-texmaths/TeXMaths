@@ -1,0 +1,82 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{enumitem}%
+\usepackage[french]{babel}%
+\startdatakeys
+    \source{25GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{moyenne,médiane,probabilité,volume,grandeurs}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+\medskip
+
+L'entreprise \og Transport Rapide \fg{} doit livrer cinq colis nommés A, B, C, D et E ayant des masses différentes précisées dans le tableau ci-dessous:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|l|*{5}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Nom du colis}& A& B& C& D& E\\ \hline
+\textbf{Masse en kg}& 4& 9& 2& 7& 11\\ \hline
+\end{tabularx}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item Calculer la moyenne des masses des colis en kg.
+\item Déterminer la médiane des masses des colis en kg. Interpréter ce résultat.
+\item Le transporteur choisit au hasard un colis parmi les cinq (A, B, C, D ou E) pour une livraison express.
+
+Calculer la probabilité pour qu'il sélectionne un colis dont la masse est inférieure à $8$ kg.
+\end{enumerate}
+
+Les colis ont la forme d'un pavé droit de longueur $L$, de largeur $l$ et de hauteur $h$, représenté ci-dessous.
+
+\begin{center}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(11,4.4)
+\psframe(3,0.7)(10.5,1.8)\psline(3,0.7)(0.8,2.8)(0.8,3.9)(3,1.8)%gauche
+\psline(0.8,3.9)(8.3,3.9)(10.5,1.8)
+\psline[linestyle=dashed](0.8,2.8)(8.3,2.8)(8.3,3.9)\psline[linestyle=dashed](8.3,2.8)(10.5,0.7)
+\psline{<->}(3,0.4)(10.5,0.4)\uput[d](6.75,0.4){$L$}
+\psline{<->}(0.6,2.8)(0.6,3.9)\uput[l](0.6,3.35){$h$}
+\psline{<->}(0.8,2.6)(3,0.5)\uput[dl](1.9,1.55){$l$}
+\end{pspicture}
+\end{center}
+
+Voici les dimensions des cinq colis.
+
+\begin{center}
+\begin{tabularx}{0.87\linewidth}{|c|*{3}{>{\centering \arraybackslash}X|}}\hline
+Colis&Longueur L en mètre&Largeur $l$ en mètre&Hauteur h en mètre \\ \hline
+A &0,4&0,3&0,5\\ \hline
+B &0,5&0,4&0,8\\ \hline
+C &0,3&0,1&0,5\\ \hline
+D & 0,4 & 0,3 &0,7\\ \hline
+E & 0,5&0,4&0,6\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}[resume]
+\item
+	\begin{enumerate}
+		\item Vérifier que le volume du colis E est de $0,12$~m$^3$.
+		\item L'entreprise souhaite calculer la masse volumique d'un colis dont la formule est rappelée
+ci-dessous. Montrer que la masse volumique du colis E arrondie au dixième est $91,7$~kg/m$^3$.
+
+On rappelle que la formule qui permet de calculer la masse volumique d'un objet en kg/m$^3$ est:
+
+\begin{center} $\dfrac{\text{masse (en kg)}}{\text{volume (en m}^3)}$\end{center}
+
+		\item Le transporteur affirme \og Le colis E est plus lourd que le colis C, donc la masse volumique du colis E est plus grande que celle du colis C \fg. A-t-il raison ?
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

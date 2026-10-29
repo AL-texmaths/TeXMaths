@@ -1,0 +1,113 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{textcomp}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{scratch3}%
+\usepackage{tabularx}%
+\startdatakeys
+    \source{21GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2ba,C4A1af}
+    \motsCles{Scratch,programme,variable}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+On donne le programme suivant:
+
+\medskip
+
+\begin{tabularx}{\linewidth}{m{9cm} m{0.25cm} X}
+\begin{scratch}
+\setscratch{num blocks=true}
+\blockinit{quand \greenflag est cliqué}
+\blockmove{aller à  x : \ovalnum{190} y : \ovalnum{0}}
+\blockmove{s'orienter à \ovalnum{90} \degres}
+\blockvariable{mettre{\selectmenu{Longueur} à \ovalnum{30}}}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blocklook{Motif}
+\blockpen{relever le stylo}
+\blockmove{avancer de \ovalmoreblocks{Longueur} * \ovalnum{2} + \ovalnum{10}}
+\blockmove{ajouter à \selectmenu{Longueur} \ovalnum{10}}}
+\end{scratch}&
+\renewcommand{\arraystretch}{2}
+\begin{tabular}{l}
+~\\
+A\\
+B\\
+C\\
+D\\
+E\\
+\end{tabular}&
+\renewcommand{\arraystretch}{1}
+\begin{scratch}
+%\newcommand*\numblock[1]{\color{black}\footnotesize\bfseries#1}
+\initmoreblocks{définir \namemoreblocks{Motif}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{6} fois}
+{\blockmove{avancer de \ovalmoreblocks{Longueur}}
+\blockmove{tourner \turnright{} de \ovalnum{60} degres}
+}
+\end{scratch}
+\end{tabularx}
+
+\medskip
+
+On rappelle que \og s'orienter à 90 \fg{} signifie que l'on est orienté vers la droite.
+
+\medskip
+
+\begin{enumerate}
+\item On prendra dans cette question $1$~mm pour un pixel.
+
+Représenter en vraie grandeur sur votre copie la figure que trace le bloc Motif lorsque Longueur
+vaut $30$ pixels.
+\item Ce programme utilise une variable, quel est son nom ? À quoi correspond-elle sur la figure
+réalisée par le bloc Motif ?
+\item Laquelle de ces trois figures obtient-on lorsqu'on exécute ce programme ? Indiquer sur la copie le numéro de la bonne proposition parmi les trois suivantes. On expliquera son choix.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|p{2.25cm}|X|X|}\hline
+\psset{unit=1cm}
+\begin{pspicture}(2,-2)
+\rput(1,-0.2){1}
+\def\motif{\pspolygon(0.4;0)(0.4;60)(0.4;120)(0.4;180)(0.4;240)(0.4;300)}
+\rput(0.4,-0.8){\motif}
+\rput(0.46,-0.86){\psscalebox{1.2 1.2}{\motif}}
+\rput(0.53,-0.93){\psscalebox{1.44 1.44}{\motif}}
+\rput(0.6,-1){\psscalebox{1.728 1.728}{\motif}}
+\end{pspicture}&\begin{pspicture}(6.5,-2)
+\rput(2.5,-0.2){2}
+\def\motif{\pspolygon(0.4;0)(0.4;60)(0.4;120)(0.4;180)(0.4;240)(0.4;300)}
+\rput(0.4,-0.9){\motif}\rput(1.5,-0.98){\pspolygon(0.48;0)(0.48;60)(0.48;120)(0.48;180)(0.48;240)(0.48;300)}\rput(2.75,-1.076){\pspolygon(0.576;0)(0.576;60)(0.576;120)(0.576;180)(0.576;240)(0.576;300)}\rput(4.2,-1.1912){\pspolygon(0.6912;0)(0.6912;60)(0.6912;120)(0.6912;180)(0.6912;240)(0.6912;300)}
+\end{pspicture}&\begin{pspicture}(6.5,-2)
+\rput(2.5,-0.2){3}
+\rput(0.5,-1.1912){\pspolygon(0.6912;0)(0.6912;60)(0.6912;120)(0.6912;180)(0.6912;240)(0.6912;300)}\rput(2,-1.1){\pspolygon(0.576;0)(0.576;60)(0.576;120)(0.576;180)(0.576;240)(0.576;300)}
+\rput(3.3,-1){\pspolygon(0.48;0)(0.48;60)(0.48;120)(0.48;180)(0.48;240)(0.48;300)}
+\rput(4.5,-0.95){\pspolygon(0.4;0)(0.4;60)(0.4;120)(0.4;180)(0.4;240)(0.4;300)}
+\end{pspicture}\\ \hline
+\end{tabularx}
+\end{center}
+\item Modifier le programme précédent pour obtenir la figure ci-dessous. Pour cela, indiquer les numéros des instructions à supprimer ou à modifier, et préciser les modifications à apporter:
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(0,-0.5)(9.5,0.5)
+%\psgrid
+\def\motif{\pspolygon(0.4;0)(0.4;60)(0.4;120)(0.4;180)(0.4;240)(0.4;300)}
+\multido{\n=2.00+1.25}{6}{\rput(\n,0){\motif}}
+\end{pspicture}
+\end{center}
+
+\item On souhaite modifier le bloc Motif afin qu'il permette de tracer un carré. Pour cela, indiquer les lettres des instructions à supprimer ou à modifier, et préciser les modifications à apporter.
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

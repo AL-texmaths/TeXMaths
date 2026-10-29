@@ -1,0 +1,47 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{texmaths-colors}%
+\startdatakeys
+    \source{25GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{probabilité,issues}
+\enddatakeys
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+    \def\red{\color{red}}%
+    \def\green{\color{green}}%
+    \def\blue{\color{blue}}%
+\medskip
+
+Dans un jeu, les candidats doivent tirer une bille dans une boite et noter sa couleur, puis ils doivent ensuite lancer un dé de la couleur de la bille tirée et noter le résultat obtenu.
+
+Les issues de cette expérience sont donc des couples du type (couleur~;~nombre).
+
+Le matériel est le suivant :
+
+\begin{description}
+\item[ ] La boite contient des billes indiscernables au toucher :  {\red 15 rouges}, {\green 10 vertes} et  {\blue 5 bleues}.
+\item[ ] Le dé rouge a 10 faces numérotées de 0 à 9. Le dé vert a 6 faces numérotées de 1 à 6.
+\item[ ] Le dé bleu a 4 faces numérotées de 1 à 4.
+\end{description}
+
+\textbf{Pour gagner au jeu il faut obtenir 1 au lancé de dé.}
+
+\begin{enumerate}
+\item Quelle est la probabilité de tirer une bille bleue dans la boîte ?
+\item Amandine a tiré une bille verte et Alexis a tiré une bille rouge.
+
+Qui a le plus de chance de gagner à ce jeu ? Justifier.
+\item Donner l'ensemble des issues possibles de ce jeu.
+
+On notera \og R \fg pour rouge, \og V \fg pour vert et \og B \fg pour bleu.
+
+Par exemple : l'issue (R~;~3) correspond à : \og la bille tirée est rouge et le résultat du lancer de dé est 3 \fg.
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

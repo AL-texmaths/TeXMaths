@@ -1,0 +1,145 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{programme de calcul,tableur,expression littérale,développement,factorisation,équation}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+On considère les deux programmes de calcul suivants.
+
+\begin{center}
+	\fbox{\begin{minipage}[t]{0.4\textwidth}
+		{\centering \textbf{Programme A}\par}
+		\begin{itemize}[nosep]
+			\item Choisir un nombre.
+			\item Lui ajouter 3.
+			\item Calculer le carré de la somme obtenue.
+			\item Soustraire 9 au résultat.
+		\end{itemize}
+	\end{minipage}}
+	\hfill
+	\fbox{\begin{minipage}[t]{0.48\textwidth}
+		{\centering \textbf{Programme B}\par}
+		\begin{itemize}[nosep]
+			\item Choisir un nombre.
+			\item Lui ajouter 6.
+			\item Multiplier le résultat obtenu par le nombre de départ.
+		\end{itemize}
+	\end{minipage}}
+\end{center}
+
+\begin{enumerate}
+	\item On choisit 4 comme nombre de départ.
+	\begin{enumerate}
+		\item Montrer qu'on obtient 40 avec le programme A.
+		\item Quel résultat obtient-on avec le programme B ?
+	\end{enumerate}
+	\item On utilise un tableur pour obtenir d'autres résultats.
+
+	\begin{center}
+	\begin{tikzpicture}
+		\tableur*[3]{A/4cm,B/1.2cm,C/1.2cm,D/1.2cm,E/1.2cm,F/1.2cm,G/1.2cm}
+		\celtxt[width=4cm]{A}{1}{Nombre de départ}
+		\celtxt[width=4cm]{A}{2}{Programme A}
+		\celtxt[width=4cm]{A}{3}{Programme B}
+		\celtxt*[width=1.2cm,align=center]{B}{1}{$-3$}
+		\celtxt*[width=1.2cm,align=center]{C}{1}{$-1$}
+		\celtxt[width=1.2cm,align=center]{D}{1}{1}
+		\celtxt[width=1.2cm,align=center]{E}{1}{3}
+		\celtxt[width=1.2cm,align=center]{F}{1}{7}
+		\celtxt[width=1.2cm,align=center]{G}{1}{9}
+		\celtxt*[width=1.2cm,align=center]{B}{2}{$-9$}
+		\celtxt*[width=1.2cm,align=center]{C}{2}{$-5$}
+		\celtxt[width=1.2cm,align=center]{D}{2}{7}
+		\celtxt[width=1.2cm,align=center]{E}{2}{27}
+		\celtxt[width=1.2cm,align=center]{F}{2}{91}
+		\celtxt[width=1.2cm,align=center]{G}{2}{135}
+		\selecCell{B}{3}
+	\end{tikzpicture}
+	\end{center}
+
+	Quelle formule doit-on saisir dans la cellule B3 afin qu'elle soit étirée vers la droite pour compléter le tableau ?
+\end{enumerate}
+
+\begin{minipage}[t]{0.52\linewidth}
+\begin{enumerate}[start=3]
+	\item Soit $f$ la fonction qui, à un nombre de départ $x$, associe le nombre obtenu par le programme B. La courbe ci-contre représente la fonction $f$.
+	\begin{enumerate}
+		\item Déterminer graphiquement l'image de $-3$ par la fonction $f$.
+		\item Déterminer graphiquement les antécédents de $-5$ par la fonction $f$.
+	\end{enumerate}
+	\item Déterminer par le calcul tous les nombres permettant d'obtenir 0 par le programme B.
+	\item On désigne par $x$ le nombre choisi au départ.
+	\begin{enumerate}
+		\item Démontrer que : $(x + 3)(x + 3) = x^2 + 6x + 9$.
+		\item Montrer que les deux programmes donnent le même résultat quel que soit le nombre $x$ choisi au départ.
+	\end{enumerate}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}
+\vspace{0pt}
+%Début Tikz
+\begin{center}
+	\begin{tikzpicture}%compiler avec pgfplots
+		\begin{axis}[axis lines=middle,
+			x={5mm}, y={5mm},
+			xmin = -6.6, xmax = 3.2,
+			ymin = -9.6, ymax = 6.3,
+			xtick = {-6,...,3}, ytick = {-9,...,6},
+			xticklabels = {}, yticklabels = {},
+			grid=major,
+			grid style={line width=1pt,gray!50},
+			xlabel={$x$}, ylabel={$f(x)$},
+			xlabel style={anchor=north east},
+			ylabel style={anchor=north east},
+			>=stealth, axis line style={line width=1pt,->}]
+			\addplot [line width=1.2pt,color=red,smooth,samples=120,domain=-6.9:0.9]{x^2+6*x};
+			\node[below right,font=\small] at (axis cs:0.8,0) {1};
+			\node[left,font=\small] at (axis cs:0,1) {1};
+			\node[below left,font=\small] at (axis cs:0,0) {0};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+%Fin Tikz
+\end{minipage}
+\medskip
+\showthesource
+\end{document}

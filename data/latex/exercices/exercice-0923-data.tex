@@ -1,0 +1,77 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{enumitem}%
+\usepackage{amsmath}%
+\startdatakeys
+    \source{22GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2eb}
+    \motsCles{Pythagore,trigonométrie,angle,Thalès,vitesse,durée}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\begin{minipage}{0.53\linewidth}
+Un poteau électrique vertical [BC] de $5,2$ m de haut est retenu par un câble métallique [AC] comme montré sur le schéma 1 qui n'est pas en vraie grandeur.
+\end{minipage}\hfill
+\begin{minipage}{0.43\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(5.5,5)
+\psline[linewidth=1.5pt](3.7,0.3)(3.7,4.7)%BC
+\psline(3.7,4.7)(0.5,0.3)(3.7,0.3)%CAB
+\psframe(3.7,0.3)(3.5,0.5)
+\uput[r](3.7,2.5){Poteau : 5,2 m}
+\uput[d](2.1,0.3){Sol : 3,9 m}
+\uput[ul](2.1,2.5){Câble}
+\rput(1.7,4){\textbf{Schéma 1}}
+\uput[dl](0.5,0.3){A} \uput[dr](3.7,0.3){B} \uput[ur](3.7,4.7){C}
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item Montrer que la longueur du câble [AC] est égale à $6,5$~m.
+\item Calculer la mesure de l'angle $\widehat{\text{ACB}}$ au degré près.
+\end{enumerate}
+
+Deux araignées se trouvant au sommet du poteau (point C) décident de rejoindre le bas du câble (point A) par deux chemins différents.
+
+\begin{enumerate}[resume]
+\item La première araignée se déplace le long du câble [AC] à une vitesse de $0,2$~m/s.
+
+Vérifier qu'il lui faut 32,5 secondes pour atteindre le bas du câble.
+\item La deuxième araignée décide de parcourir le chemin CFHA indiqué en pointillés sur le schéma 2 (qui n'est pas en vraie grandeur) : elle suit le morceau de câble [CF] en marchant, puis descend verticalement le long de [FH] grâce à son fil et enfin marche sur le sol le long de [HA].
+
+Calculer les longueurs FH et HA.
+
+\begin{center}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(7,6.8)
+\psline[linewidth=1.5pt](5.4,0.8)(5.4,6.1)%BC
+\psline(3.9,4.1)(1.5,0.8)%FA
+\psline[linestyle=dashed,ArrowInside=->](5.4,6.1)(3.9,4.1)(3.9,0.8)(1.5,0.8)%CFHA
+\psline(3.9,0.8)(5.4,0.8)%HB
+\uput[dl](1.5,0.8){A} \uput[dr](5.4,0.8){B} \uput[ur](5.4,6.1){C} \uput[r](3.9,4.1){F} \uput[ur](3.9,0.8){H}
+\rput(1.4,6){\textbf{Schéma 2}}
+\psline[linewidth=0.6pt]{<->}(5.8,0.8)(5.8,6.1)\rput{90}(6,3.45){5,2 m}
+\psline[linewidth=0.6pt]{<->}(1.5,0.4)(5.4,0.4)\uput[d](3.45,0.4){3,9 m}
+\psline[linewidth=0.6pt]{<->}(1.3,1)(3.7,4.3)\rput{57.03}(2.4,2.7){4 m}
+\psline[linewidth=0.6pt]{<->}(1,1.4)(4.9,6.7)\rput{57.03}(2.8,4.2){6,5 m}
+\psframe(3.9,0.8)(3.7,1)\psframe(5.4,0.8)(5.2,1)
+\end{pspicture}
+\end{center}
+
+\item La deuxième araignée marche à une vitesse de 0,2 m/s le long des segments [CF] et [HA] et descend le long du segment [FH] à une vitesse de 0,8 m/s.
+
+Laquelle des deux araignées met le moins de temps à arriver en A ?
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

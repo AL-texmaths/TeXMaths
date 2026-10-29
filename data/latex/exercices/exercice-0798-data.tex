@@ -1,0 +1,61 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\startdatakeys
+    \source{25GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{puissance,facteurs premiers,aire,expression littérale}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+\medskip
+
+Cet exercice est un questionnaire à choix multiple (QCM).
+
+Pour chaque question, quatre réponses sont proposées. \textbf{Une seule réponse est exacte}.
+
+Recopier sur la copie le numéro de la question et la réponse choisie. Aucune justification n'est demandée.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{5cm}|*{4}{>{\centering \arraybackslash}X|}}\hline
+Questions&Réponse A& Réponse B& Réponse C& Réponse D\\ \hline
+\textbf{1.} $(- 3)^2$ est égal à&$-9$& $-6$ &6& 9\\ \hline
+\textbf{2.} La décomposition en produit de facteurs premiers du nombre 360 est&$2^3 \times 9 \times 5$&$8 \times 3^2 \times 5$&$2^3 \times 3^2 \times 7$&$2^3 \times 3^2 \times 5$\\ \hline
+\textbf{3.} Un rectangle d'aire $135$ cm$^2$ a pour largeur 3 cm. Combien mesure sa longueur ?&15 cm&45 cm&132 cm&405 cm\\ \hline
+\textbf{4.} Quelle expression littérale correspond à la longueur du segment [BG] ?
+
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(4.8,1.4)
+%\psgrid
+\psline(0,0.7)(4.7,0.7)\psline(0.1,0.6)(0.1,0.8)\psline(1.3,0.6)(1.3,0.8)
+\psline(2.4,0.6)(2.4,0.8)\psline(4.6,0.6)(4.6,0.8)
+\psline(0.5,0.6)(0.7,0.8)\psline(1.75,0.6)(1.95,0.8)
+\psline{<->}(0.1,0.5)(1.3,0.5)\psline{<->}(2.4,0.5)(4.6,0.5)
+\uput[u](0.1,0.7){B}\uput[u](1.3,0.7){D}\uput[u](2.4,0.7){E}\uput[u](4.6,0.7){G}
+\uput[d](0.7,0.5){$x$}\uput[d](3.5,0.5){3}
+\end{pspicture}&$3x^2$&$2x^2 + 3$&$5x$&$2x + 3$\\ \hline
+\textbf{5.} Le rectangle ADCB est partagé en neuf rectangles identiques.
+
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(4.7,2.9)
+%\psgrid
+\psframe(0.3,0.3)(4.5,2.4)\psline(0.3,1)(4.5,1)\psline(0.3,1.7)(4.5,1.7)
+\psline(1.7,0.3)(1.7,2.4)\psline(3.1,0.3)(3.1,2.4)
+\uput[ul](0.3,2.4){\footnotesize A}\uput[u](1.7,2.4){\footnotesize G}\uput[u](3.1,2.4){\footnotesize I}\uput[ur](4.5,2.4){\footnotesize D}
+\uput[l](0.3,1.7){\footnotesize E}\uput[ur](1.7,1.7){\footnotesize F}\uput[ur](3.1,1.7){\footnotesize H}\uput[r](4.5,1.7){\footnotesize J}
+\uput[l](0.3,1){\footnotesize K}\uput[ur](1.7,1){\footnotesize L}\uput[ur](3.1,1){\footnotesize M}\uput[r](4.5,1){\footnotesize N}
+\uput[dl](0.3,0.3){\footnotesize B}\uput[d](1.7,0.3){\footnotesize O}\uput[d](3.1,0.3){\footnotesize P}\uput[dr](4.5,0.3){\footnotesize C}
+\end{pspicture}
+
+L'image du rectangle GFHI par la translation qui transforme D en M est le rectangle&EKLF&
+HMNJ&KBOL&MPCN\\ \hline
+\end{tabularx}
+\end{center}
+
+\newpage
+\showthesource
+\end{document}

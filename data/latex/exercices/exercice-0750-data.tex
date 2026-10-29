@@ -1,0 +1,98 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{pst-plot}%
+\startdatakeys
+    \source{24GENMATMEAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{probabilité}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+Au casino, la roulette est un jeu de hasard pour lequel chaque joueur mise au choix sur un ou plusieurs numéros.
+
+On lance une bille sur une roue qui tourne, numérotée de 0 à 36.
+
+La bille a la même probabilité de s’arrêter sur chaque numéro.
+
+\begin{center}
+\psset{unit=1cm}
+\def\ray{3cm}
+\def\xmin {-4}  \def\xmax{4}
+\def\ymin{-4}  \def\ymax{4}
+\begin{pspicture}(\xmin,\ymin)(\xmax,\ymax)
+%\psgrid[subgriddiv=1,gridlabels=0, gridcolor=lightgray] 
+%\psaxes[arrowsize=3pt 3, ticksize=-2pt 2pt, labels=none](0,0)(\xmin,\ymin)(\xmax,\ymax)
+\pscircle(0,0){\ray}
+\multido{\na=90.00+19.46,\nb=99.73+19.46}{18}{
+\pswedge[fillcolor=black,fillstyle=solid](0,0){\ray}{\na}{\nb}}
+\psline(0,0)(\ray;80.27)
+\pscircle[fillcolor=white,fillstyle=solid](0,0){1.5}
+\pscircle(0,0){2.25} \pscircle[linewidth=5pt](0,0){3.3}
+\bfseries
+{\white
+\uput[94.875]{4.875}(2.3;94.875){\scalebox{0.7}[1.5]{\textsf{26}}}
+\uput[114.375]{24.375}(2.3;114.375){\scalebox{0.7}[1.5]{\textsf{35}}}
+\uput[133.875]{43.875}(2.3;133.875){\scalebox{0.7}[1.5]{\textsf{28}}}
+\uput[153.375]{63.375}(2.3;153.375){\scalebox{0.7}[1.5]{\textsf{29}}}
+\uput[172.875]{82.875}(2.3;172.875){\scalebox{0.7}[1.5]{\textsf{22}}}
+\uput[192.375]{102.375}(2.3;192.375){\scalebox{0.7}[1.5]{\textsf{31}}}
+\uput[211.875]{121.875}(2.3;211.875){\scalebox{0.7}[1.5]{\textsf{20}}}
+\uput[231.375]{141.375}(2.3;231.375){\scalebox{0.7}[1.5]{\textsf{33}}}
+\uput[250.875]{160.875}(2.3;250.875){\scalebox{0.7}[1.5]{\textsf{24}}}
+\uput[270.375]{180.375}(2.3;270.375){\scalebox{0.7}[1.5]{\textsf{10}}}
+\uput[289.875]{199.875}(2.3;289.875){\scalebox{0.7}[1.5]{\textsf{8}}}
+\uput[309.375]{219.375}(2.3;309.375){\scalebox{0.7}[1.5]{\textsf{11}}}
+\uput[328.875]{238.875}(2.3;328.875){\scalebox{0.7}[1.5]{\textsf{13}}}
+\uput[348.375]{258.375}(2.3;348.375){\scalebox{0.7}[1.5]{\textsf{6}}}
+\uput[367.875]{277.875}(2.3;367.875){\scalebox{0.7}[1.5]{\textsf{17}}}
+\uput[387.375]{297.375}(2.3;387.375){\scalebox{0.7}[1.5]{\textsf{2}}}
+\uput[406.875]{316.875}(2.3;406.875){\scalebox{0.7}[1.5]{\textsf{4}}}
+\uput[426.375]{336.375}(2.3;426.375){\scalebox{0.7}[1.5]{\textsf{15}}}
+}
+\uput[104.625]{14.625}(2.3;104.625){\scalebox{0.7}[1.5]{\textsf{3}}}
+\uput[124.125]{34.125}(2.3;124.125){\scalebox{0.7}[1.5]{\textsf{12}}}
+\uput[143.625]{53.625}(2.3;143.625){\scalebox{0.7}[1.5]{\textsf{7}}}
+\uput[163.125]{73.125}(2.3;163.125){\scalebox{0.7}[1.5]{\textsf{18}}}
+\uput[182.625]{92.625}(2.3;183.625){\scalebox{0.7}[1.5]{\textsf{9}}}
+\uput[202.125]{112.125}(2.3;202.125){\scalebox{0.7}[1.5]{\textsf{14}}}
+\uput[221.625]{131.625}(2.3;221.625){\scalebox{0.7}[1.5]{\textsf{1}}}
+\uput[241.125]{151.125}(2.3;241.125){\scalebox{0.7}[1.5]{\textsf{16}}}
+\uput[260.625]{170.625}(2.3;260.625){\scalebox{0.7}[1.5]{\textsf{5}}}
+\uput[280.125]{190.125}(2.3;280.125){\scalebox{0.7}[1.5]{\textsf{23}}}
+\uput[299.625]{209.625}(2.3;299.625){\scalebox{0.7}[1.5]{\textsf{30}}}
+\uput[319.125]{229.125}(2.3;319.125){\scalebox{0.7}[1.5]{\textsf{36}}}
+\uput[338.625]{248.625}(2.3;338.625){\scalebox{0.7}[1.5]{\textsf{27}}}
+\uput[358.125]{268.125}(2.3;358.125){\scalebox{0.7}[1.5]{\textsf{34}}}
+\uput[377.625]{287.625}(2.3;377.625){\scalebox{0.7}[1.5]{\textsf{25}}}
+\uput[397.125]{307.125}(2.3;397.125){\scalebox{0.7}[1.5]{\textsf{21}}}
+\uput[416.625]{326.625}(2.3;416.625){\scalebox{0.7}[1.5]{\textsf{19}}}
+\uput[436.125]{346.125}(2.3;436.125){\scalebox{0.7}[1.5]{\textsf{32}}}
+\uput[445.875]{355.875}(2.3;445.875){\scalebox{0.7}[1.5]{\textsf{0}}}
+\psdots[dotscale=1.5](1.9;85.5)
+\end{pspicture}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Expliquer pourquoi la probabilité que la bille s’arrête sur le numéro 7 est $\dfrac{1}{37}$.
+\item Déterminer la probabilité que la bille s’arrête sur une case à la fois noire et paire.
+\item 
+	\begin{enumerate}
+		\item Déterminer la probabilité que la bille s’arrête sur un numéro inférieur ou égal à 6.
+		\item En déduire la probabilité que la bille s’arrête sur un numéro supérieur ou égal à 7.
+		\item Un joueur affirme qu’on a plus de 3 chances sur 4 d’obtenir un numéro supérieur ou égal à 7. A-t-il raison ?
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

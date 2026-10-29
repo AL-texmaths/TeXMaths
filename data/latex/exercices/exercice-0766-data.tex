@@ -1,0 +1,77 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\usepackage{multido}%
+\startdatakeys
+    \source{24GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Thalès,Pythagore,aire,proportionnalité}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+\begin{minipage}{0.5\linewidth}
+Un agriculteur possède un champ de blé ayant la forme
+d'un triangle ABC rectangle en B représenté ci-contre.
+
+On donne AB $= 200$ m et BC $= 150$ m.
+
+Pour moissonner son champ, il utilise une moissonneuse batteuse qui, à chaque passage, coupe
+des bandes de 12 mètres de large parallèles à la droite (AB). On a donc BE~$=~12$~m.
+
+Il commence à passer le long du côté [AB]. Le segment en pointillés [DE] représente la limite du premier passage de la moissonneuse batteuse.
+
+Après avoir fait 5 passages, il a moissonné le quadrilatère ABGF{}.
+
+\medskip
+
+\begin{enumerate}
+\item 
+	\begin{enumerate}
+		\item Montrer que BG $= 60$ m.
+		\item En déduire que CG $= 90$ m.
+	\end{enumerate}	
+\item Démontrer que la longueur GF est de $120$ m.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(6.2,10.2)
+%\psgrid
+\pspolygon(0.1,0.2)(6.1,0.2)(0.1,10.3)
+\uput[dr](6.1,0.2){C}
+\psline(2.4,0.2)(2.4,6.4)
+\psline[linestyle=dashed](0.56,0.2)(0.56,9.5)
+\psline[linestyle=dashed](1.02,0.2)(1.02,8.8)
+\psline[linestyle=dashed](1.48,0.2)(1.48,8)
+\psline[linestyle=dashed](1.94,0.2)(1.94,7.2)
+\multido{\n=0.33+0.46}{5}{\rput(\n,0.2){/}}
+\uput[ul](0.1,10.3){A}\uput[dl](0.1,0.2){B}\psframe(0.1,0.2)(0.3,0.4)\psframe(2.4,0.2)(2.6,0.4)
+\uput[d](0.56,0.2){E}\uput[ur](0.56,9.5){D}
+\uput[d](2.4,0.2){G}\uput[ur](2.4,6.4){F}
+\end{pspicture}
+\end{minipage}
+
+\begin{enumerate}[start=3]
+\item
+	\begin{enumerate}
+		\item Démontrer que l'aire du triangle rectangle CGF est de \np{5400}~m$^2$.
+		\item Le quadrilatère ABGF a une surface de \np{9600} m$^2$ qui a été moissonnée en 80 minutes.
+		
+On admet que le temps de travail de la moissonneuse batteuse est proportionnel à la surface moissonnée.
+
+Calculer le temps de travail qu'il faut pour moissonner la partie restante CGF de son champ.
+	\end{enumerate}
+\item L'année suivante, il décide de clôturer son champ ABC afin d'y mettre des animaux pour l'été. Quelle longueur de clôture doit-il acheter ?
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

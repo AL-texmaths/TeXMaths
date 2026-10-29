@@ -1,0 +1,55 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularx}%
+\usepackage[french]{babel}%
+\startdatakeys
+    \source{25GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{moyenne,étendue,pourcentage,tableur,durée}
+\enddatakeys
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+    \def\up#1{\textsuperscript{#1}}%
+
+Dans cet exercice, les deux parties sont indépendantes. Des élèves de 3\up{e} réalisent une enquête au sein de leur collège pour connaître le temps quotidien passé par leurs camarades sur les réseaux sociaux.
+
+\subsection*{Partie 1}
+Voici la liste des durées (en minutes) recueillies auprès d'un groupe d'élèves :
+\[135~;~82~;~104~;~200~;~102~;~17~;~143~;~118~;~62\]
+
+\begin{enumerate}
+\item Combien y a-t-il d'élèves dans ce groupe ? (\textbf{sans justifier})
+\item Calculer le temps moyen passé sur les réseaux sociaux par les élèves de ce groupe.
+\item Calculer l'étendue de cette série.
+\item L'affirmation suivante est-elle vraie ? \og Plus de 50\,\% des élèves de ce groupe passent au moins 1 h~30 min par jour sur les réseaux sociaux. \fg
+\end{enumerate}
+
+\subsection*{Partie 2}
+
+Le collège dans lequel l'enquête a été menée compte $640$ élèves au total. $400$ élèves ont répondu à l'enquête.
+
+\begin{enumerate}
+\item Vérifier que le nombre d'élèves ayant répondu représente plus de 60\,\% de l'effectif total du collège.
+
+Les résultats obtenus auprès des $400$ élèves interrogés sont organisés par niveaux (6\up{e}, 5\up{e}, 4\up{e} et 3\up{e}) dans un fichier tableur dont voici une copie d'écran :
+
+\begin{center}%
+\begin{tabularx}{\linewidth}{|l|c|*{5}{>{\centering \arraybackslash}X|}}\hline
+	&A	&B&C&D&E&F\\ \hline
+1	&	&\footnotesize Moins d'une heure &\footnotesize Entre 1 h et 1~h~29 &\footnotesize Entre 1 h 30 et 1 h 59 &\footnotesize 2 h ou plus 2&\footnotesize Nombre total de réponses \\ \hline
+2	&En 6\up{e} & 30 & 18 & 29 & 13 & \\ \hline
+3	&En 5\up{e} & 12 & 21 & 52 & 35 & \\\hline
+4	&En 4\up{e} & 1 & 23 & 19 & 37 & \\ \hline
+5	&En 3\up{e} & 7 & 39 & 18 & 46 & \\ \hline
+6	&Total		& & 101 & 118 & 131 & 400 \\ \hline
+\end{tabularx}
+\end{center}
+
+\item Quelle formule peut-on entrer dans la cellule F2 afin de la recopier vers le bas jusqu'à la cellule F5 ? (\textbf{sans justifier})
+\item Combien d'élèves, ayant répondu, passent moins de 1~h par jour sur les réseaux sociaux ?
+\item Calculer le pourcentage d'élèves ayant répondu, qui passent moins de 1~h~30~min par jour sur les réseaux sociaux.
+\end{enumerate}
+\showthesource
+\end{document}

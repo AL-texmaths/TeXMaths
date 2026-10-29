@@ -1,0 +1,129 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\usepackage[french]{babel}%
+\startdatakeys
+    \source{24GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{angle,polygone,Scratch,programme,translation,symétrie centrale,rotation}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+\begin{enumerate}
+\item Sur la figure ci-dessous, DEFGH est un pentagone régulier et le point E appartient à la demi-droite [D$y$). On admet que tous les angles du pentagone régulier mesurent $108$ degrés.
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(-2,-2)(3.5,2.1)
+\pspolygon(1.7;18)(1.7;90)(1.7;162)(1.7;234)(1.7;306)%FGHDE
+\uput[dl](1.7;234){D} \uput[d](1.7;306){E} \uput[r](1.7;18){F}
+\uput[u](1.7;90){G} \uput[l](1.7;162){H} \uput[d](3.2,-1.39){$y$}
+\psline(1.7;306)(3.3,-1.39)
+\psarc(1.7;306){0.7}{0}{72}
+\end{pspicture}
+\end{center}
+
+\medskip
+
+Justifier que l'angle $\widehat{\text{FE}y}$ mesure $72$ degrés.
+\item Dans la suite de cet exercice, aucune justification n'est attendue.
+	\begin{enumerate}
+		\item Compléter le bloc \og pentagone \fg{} en ANNEXE, à rendre avec la copie, pour obtenir un pentagone régulier. La variable \og longueur \fg{} permet de modifier la longueur des côtés du pentagone.
+		\item Camille, Lou et Zoé ont chacun codé un programme qui trace un pentagone et son image par l'une des transformations suivantes : translation, symétrie centrale, rotation.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{X|}}
+\hline
+Programme de Camille&Programme de Lou&Programme de Zoé\\ 
+\hline
+\begin{scratch}[num blocks,scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockmove{aller à x : \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à ~\ovalnum{90}}
+\blockvariable{mettre \selectmenu{longueur} à \ovalnum{60}}
+\blockmoreblocks{pentagone}
+\blockmove{avancer de \ovalnum{120} pas}
+\blockmoreblocks{pentagone}
+\end{scratch}
+&
+\begin{scratch}[num blocks,scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockmove{aller à x : \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à ~\ovalnum{90}}
+\blockvariable{mettre \selectmenu{longueur} à \ovalnum{60}}
+\blockmoreblocks{pentagone}
+\blockmove{tourner \turnleft{} de \ovalnum{60} degrés}
+\blockmoreblocks{pentagone}
+\end{scratch}
+&
+\begin{scratch}[num blocks,scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockmove{aller à x : \ovalnum{0} y : \ovalnum{0}}
+\blockmove{s'orienter à ~\ovalnum{90}}
+\blockvariable{mettre \selectmenu{longueur} à \ovalnum{60}}
+\blockmoreblocks{pentagone}
+\blockmove{tourner \turnleft{} de \ovalnum{180} degrés}
+\blockmoreblocks{pentagone}
+\end{scratch}\\ 
+\hline
+\end{tabularx}
+\end{center}
+
+On rappelle que l'instruction \og s'orienter à 90 \fg{} signifie que l'on s'oriente vers la droite.
+
+Les trois élèves ont effectué une copie d'écran de ce qu'ils ont obtenu sans indiquer ni leur
+prénom ni le nom de la transformation choisie.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{X|}}\hline
+Copie d'écran 1 &Copie d'écran 2& Copie d'écran 3\\ \hline
+\begin{center}
+\psset{unit=0.75cm}
+\begin{pspicture}(-2,-2)(2,2)
+\def\penta{\pspolygon(1.;18)(1.;90)(1.;162)(1.;234)(1.;306)}
+\rput{-12}(-0.3945,0.1045){\penta}\rput(0.6,0.){\penta}
+\end{pspicture}
+\end{center}
+&
+\begin{center}
+\psset{unit=0.75cm}
+\begin{pspicture}(-2,-2)(2,2)
+\def\penta{\pspolygon(1.;18)(1.;90)(1.;162)(1.;234)(1.;306)}
+\rput(0.6,0.6){\penta}\rput{180}(-0.6,-1){\penta}
+\end{pspicture}
+\end{center}
+&
+\begin{center}
+\psset{unit=0.75cm}
+\begin{pspicture}(-2,-2)(2,2)
+\def\penta{\pspolygon(1.;18)(1.;90)(1.;162)(1.;234)(1.;306)}
+\rput(-1.2,0){\penta}\rput(1.2,0){\penta}
+\end{pspicture}
+\end{center}\\ \hline
+\end{tabularx}
+\end{center}
+
+Compléter le tableau en ANNEXE, à rendre avec la copie, en associant le prénom de l'élève au numéro de sa copie d'écran ainsi qu'au nom de la transformation qu'il a choisie.
+\item Sofia souhaite illustrer à l'aide d'un programme l'effet d'une homothétie sur un pentagone. 
+
+Le tableau en ANNEXE donne, dans le désordre, toutes les instructions utiles pour écrire ce programme. L'ordre d'apparition dans le programme de deux instructions est précisé.
+
+Compléter ce tableau sur l'ANNEXE, à rendre avec la copie, en indiquant l'ordre d'apparition de chacune des instructions dans le programme de Sofia.
+	\end{enumerate}
+\end{enumerate}
+
+%\bigskip
+\newpage
+\showthesource
+\end{document}

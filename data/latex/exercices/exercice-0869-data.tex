@@ -1,0 +1,41 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\startdatakeys
+    \source{21GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B3ca}
+    \motsCles{Pythagore,aire,trigonométrie,angle,périmètre,Thalès}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\parbox{0.6\linewidth}{Sur la figure ci-contre, qui n'est pas en vraie grandeur, le point C est le point d'intersection des droites (BE) et (AD).
+
+\medskip
+
+\begin{enumerate}
+\item Démontrer que le triangle ABC est rectangle en C.
+\item Calculer l'aire du triangle ABC.
+\item Calculer une valeur approchée au degré près de l'angle $\widehat{\text{BAC}}$.
+\item Calculer le périmètre du triangle CDE.
+\item Les droites (AB) et (DE) sont-elles parallèles ?
+\end{enumerate}
+}\hfill
+\parbox{0.35\linewidth}{
+\psset{unit=0.75cm}
+\begin{pspicture}(-3.3,-4.5)(2.5,5.8)
+\pspolygon[linewidth=1.25pt](-3,0)(0,5.3)(0,-4.2)(2.4,0)%ABED
+\uput[l](-3,0){A} \uput[u](0,5.3){B} \uput[d](0,-4.2){E} \uput[r](2.4,0){D} \uput[dl](0,0){C}
+\uput[u](-1.5,0){8 cm} \rput{90}(-0.3,-2.1){12~cm}\rput{60}(1.2,-2.6){13~cm}
+\rput{90}(0.3,2.65){15~cm}\rput{60}(-1.5,3.15){17~cm}
+\end{pspicture}
+}
+
+\bigskip
+
+\showthesource
+\end{document}

@@ -1,0 +1,130 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[french]{babel}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{25GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{facteurs premiers,tableur,homothétie,factorisation,trigonométrie}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Cet exercice est un questionnaire à choix multiple (QCM).
+
+Pour chaque question, quatre réponses sont proposées. \textbf{Une seule réponse est exacte}.
+
+Recopier sur la copie le numéro de la question et la réponse choisie. Aucune justification
+n'est demandée.
+
+\medskip
+
+\textbf{Question 1}
+
+La décomposition en produit de facteurs premiers de 120 est:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+$2~\times~3~\times~4~\times~5$& $15~\times~2~\times~2~\times~2$& $2^3 ~\times~3~\times~5$& $53 + 67$\\ \hline
+\end{tabularx}
+\end{center}
+\medskip
+
+\textbf{Question 2}
+
+\begin{minipage}{0.5\linewidth}
+Dans la cellule A2, la formule \og = $-$ 4 * A1 - 12 \fg{} a été saisie.
+
+On l'étire jusqu'à la cellule B2.
+
+La valeur obtenue dans la cellule B2 est .:
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\begin{tabularx}{\linewidth}{|c|*{2}{>{\centering \arraybackslash}X|}}\hline
+&A &B\\ \hline
+1&2&5\\ \hline
+2& $-20$& \\ \hline
+\end{tabularx}
+\end{minipage}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+$- 32$& $- 20$& $8$& $68$\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\textbf{Question 3}
+
+\begin{minipage}{0.67\linewidth}
+Sur la figure ci-contre, le rapport de l'homothétie de centre O qui transforme le carré A en le carré B est:
+\end{minipage}\hfill
+\begin{minipage}{0.31\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(-0.5,-1)(4,1)
+\psgrid[subgriddiv=2,gridwidth=0.2pt,subgridwidth=0.2pt,gridlabels=0pt](-0.5,-1)(4,1)
+\psdot[dotstyle=+,dotangle=45,dotsize=10pt](0,0)
+\pspolygon[linewidth=1.25pt](1,0)(1.5,-0.5)(3,1)(4,0)(3,-1)(1.5,0.5)
+\rput(1.5,0){A}\rput(3,0){B}\uput[d](0,0){O}
+\end{pspicture}
+\end{minipage}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+$-2$&$-0,5$&0,5&2\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\textbf{Question 4}
+
+Une écriture factorisée de $4x^2 - 1$ est :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+$(2x - 1)(2x + 1)$&$(4x - 1)(4x + 1)$&$4(x - 1)(x + 1)$&$(2x - 1)^2$\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\textbf{Question 5}
+
+\begin{minipage}{0.5\linewidth}
+Dans le triangle TER ci-contre, la mesure de la longueur RE 
+arrondie au centième de cm est :
+\end{minipage}\hfill
+\begin{minipage}{0.47\linewidth}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(-2.4,-0.3)(3.5,3.3)
+\pspolygon(0;0)(4.1;39)(3.3;129)
+\rput{39}(0,0){\psframe(0.3,0.3)}
+\psline[linewidth=0.8pt]{<->}(-2.1,2.9)(3.2,2.9)
+\uput[u](0.6,2.9){7,4 cm}\psarc(4.1;39){0.5}{180}{219}
+\uput[l](3.3;129){T}\uput[r](4.1;39){E}\uput[d](0,0){R}\uput[dl](2.6,2.45){$39\degres$}
+\end{pspicture}
+\end{minipage}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Réponse A}&\textbf{Réponse B}&\textbf{Réponse C}&\textbf{Réponse D}\\ \hline
+4,66 cm&5,75 cm&9,52 cm&11,76 cm\\ \hline
+\end{tabularx}
+\end{center}
+
+\bigskip
+\showthesource
+\end{document}

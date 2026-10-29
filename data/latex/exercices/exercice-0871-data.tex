@@ -1,0 +1,88 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{21GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D3bf,C4D2bc,C4A2ee}
+    \motsCles{lecture graphique,proportionnalité,fonction linéaire,fonction affine,équation}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Nora veut ouvrir un magasin de souvenirs à Paris et proposer à la vente des tours Eiffel miniatures.
+
+Elle contacte deux fournisseurs qui lui envoient chacun sous forme de graphiques le prix à leur payer en fonction du nombre de tours Eiffel achetées.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{*{2}{>{\centering \arraybackslash}X}}
+\psset{unit=0.01cm}
+\begin{pspicture}(-100,-100)(450,1000)
+\multido{\n=0+100}{5}{\psline[linewidth=0.1pt](\n,0)(\n,900)}
+\multido{\n=0+100}{10}{\psline[linewidth=0.1pt](0,\n)(500,\n)}
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle,Dx=100,Dy=100]{->}(0,0)(0,0)(450,1000)
+\psline[linewidth=1.25pt,linecolor=red](360,900)
+\uput[d](250,-50){\small Nombre de tours Eiffel}
+\uput[r](0,920){\small Prix en euros}
+\uput[u](250,950){FOURNISSEUR A}
+\end{pspicture}&
+\psset{unit=0.005cm}
+\begin{pspicture}(-100,-200)(1200,1900)
+\multido{\n=0+100}{12}{\psline[linewidth=0.1pt](\n,0)(\n,1900)}
+\multido{\n=0+100}{19}{\psline[linewidth=0.1pt](0,\n)(1200,\n)}
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle,Dx=100,Dy=100]{->}(0,0)(0,0)(1200,1900)
+\pscurve[linewidth=1.25pt,linecolor=blue](0,0)(100,250)(200,500)(400,925)(600,1300)(900,1700)(1000,1800)(1100,1890)
+\uput[d](600,-100){\small Nombre de tours Eiffel}
+\uput[r](0,1850){\small Prix en euros}
+\uput[u](600,1880){FOURNISSEUR B}
+\end{pspicture}
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Par lecture graphique, avec la précision qu'elle permet, et sans justification,
+	\begin{enumerate}
+		\item Déterminer le prix à payer pour acheter $200$ tours Eiffel chez le fournisseur A.
+		\item Nora a dépensé \np{1300} euros chez le fournisseur B. Combien de tours Eiffel lui a-t-elle achetées ?
+	\end{enumerate}
+\item Ces fournisseurs proposent-ils des prix proportionnels au nombre de tours Eiffel achetées?
+\item
+	\begin{enumerate}
+		\item Pour le fournisseur A, on admet que le prix des tours Eiffel est donné par la fonction linéaire $f$ représentée ci-dessus. On a en particulier $f(100) = 250$.
+
+Déterminer l'expression de $f(x)$ en fonction de $x$.
+		\item Calculer $f(\np{1000})$.
+		\item Nora veut acheter \np{1000} tours Eiffel. Quel est le fournisseur le moins cher dans ce cas-là?
+	\end{enumerate}
+\item  Nora contacte un troisième fournisseur, le fournisseur C, qui lui demande un paiement initial de $150$ euros pour avoir accès à ses articles, en plus d'un prix unitaire de 2 euros par tour Eiffel.
+	\begin{enumerate}
+		\item Remplir le tableau des tarifs sur l'ANNEXE à rendre avec la copie.
+		\item Avec $580$ euros, combien de tours Eiffel peut acheter Nora chez le fournisseur C ?
+		\item Résoudre l'équation suivante : $2,5x = 150 + 2x$.
+
+Expliquer à quoi correspond la solution trouvée.
+	\end{enumerate}
+\end{enumerate}
+
+\medskip
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{3.5cm}|*{5}{>{\centering \arraybackslash}X|}}\hline
+Nombre de tours Eiffel	&1	&100	&200&\np{1000}	&$x$\\ \hline
+Prix payé en euros avec le
+ fournisseur C			&152& 350	&	&			&\\ \hline
+\end{tabularx}
+\end{center}
+
+\showthesource
+\end{document}

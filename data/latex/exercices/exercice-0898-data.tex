@@ -1,0 +1,102 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{scratch3}%
+\usepackage{array}%
+\startdatakeys
+    \source{22GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2bc,C4E1ag}
+    \motsCles{Scratch,programme,échelle,probabilité}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\emph{Dans cet exercice, aucune justification n'est attendue.}
+
+\smallskip
+
+On a créé un jeu de hasard à l'aide d'un logiciel de programmation.
+
+Lorsqu'on appuie sur le drapeau, le lutin dessine trois motifs côte à côte.
+
+Chaque motif est dessiné aléatoirement: soit c'est une croix, soit c'est un rectangle.
+
+Le joueur gagne si l'affichage obtenu comporte trois motifs identiques.
+
+Au lancement du programme, le lutin est orienté horizontalement vers la droite:
+
+\begin{center}
+\begin{tabular}{|p{9cm}|p{5cm}|}\hline
+\textbf{Programme principal}
+
+\begin{scratch}[num blocks]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockmove{aller à x: \ovalnum{-110} y: \ovalnum0}
+\blockrepeat{répéter \ovalnum{3} fois}
+{\blockifelse{si \booloperator{\ovaloperator{nombre aléatoire entre \ovalnum{1} et \ovalnum{2}} = \ovalnum{1}} alors}
+{\blockmove{croix}} %sinon
+{\blockmove{rectangle}}
+\blockmove{avancer de \ovalnum{100} pas}
+}
+\end{scratch}
+&\textbf{Bloc \og~rectangle~\fg}
+
+\begin{scratch}
+\initmoreblocks{définir \namemoreblocks{rectangle}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{2} fois}
+{\blockmove{avancer de \ovalnum{60} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{80} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}
+
+\textbf{Bloc \og croix \fg}
+
+Le script n'est pas donné.\\ \hline
+\multicolumn{2}{|m{14cm}|}{Explication de l'instruction \og  nombre aléatoire entre ... \fg{} sur un exemple:}\\
+\multicolumn{2}{|m{14cm}|}{\ovaloperator{nombre aléatoire entre \ovalnum{1} et \ovalnum{4}}~ renvoie un nombre au hasard parmi 1, 2, 3 et 4.}\\ \hline
+\end{tabular}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item En prenant pour échelle 1 cm pour 20 pas, représenter le motif obtenu par le bloc \og rectangle \fg.
+\item ~
+
+\begin{minipage}{0.65\linewidth}
+Voici un exemple d'affichage obtenu en exécutant le programme principal :
+
+Quelle est la distance $d$ entre les deux rectangles sur l'affichage, exprimée en pas ?
+\end{minipage}\hfill
+\begin{minipage}{0.34\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(5.2,2)
+\psline(0,0.5)(1.2,2)\psline(1.2,0.5)(0,2)
+\psframe(1.8,0.5)(2.9,2)\psframe(3.6,0.5)(4.7,2)
+\psline{<->}(2.9,0.5)(3.6,0.5)\uput[d](3.25,0.5){$d$}
+\end{pspicture}
+\end{minipage}
+\item Quelle est la probabilité que le premier motif dessiné par le lutin soit une croix ?
+\item Dessiner à main levée les 8 affichages différents que l'on pourrait obtenir avec le programme principal.
+\item On admettra que les 8 affichages ont la même probabilité d'apparaître. Quelle est la probabilité que le joueur gagne ?
+\item On souhaite désormais que, pour chaque motif, il y ait deux fois plus de chances d'obtenir un rectangle qu'une croix. Pour cela, il faut modifier l'instruction dans la ligne 5.
+
+\textbf{Sur la copie}, recopier l'instruction suivante en complétant les cases:
+
+\begin{center}\booloperator{\ovaloperator{nombre aléatoire entre \ovalnum{~~} et \ovalnum{~~}} = \ovalnum{~~}}
+\end{center}
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

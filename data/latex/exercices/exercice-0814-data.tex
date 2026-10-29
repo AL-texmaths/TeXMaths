@@ -1,0 +1,89 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{enumitem}%
+\usepackage{graphicx}%
+\startdatakeys
+    \source{25GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{volume,pavé droit,cylindre,aire,conversion}
+\enddatakeys
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+\graphicspath{{../brevet/2025/}}
+    \def\up#1{\textsuperscript{#1}}%
+
+\emph{Dans cet exercice, les deux parties sont indépendantes}
+
+\subsection*{Rappels}
+\begin{itemize}[label=$\bullet~~$]
+\item Volume du cylindre = Aire de la base $\times$ Hauteur du cylindre
+\item Aire du disque = $\pi \times$ (rayon)$^2$
+\item $1$\,cm$^3 = 1$\,mL
+\end{itemize}
+
+Pour un anniversaire, on veut préparer des cocktails de jus de fruits.
+
+\subsection*{Partie 1 : Étude des glaçons}
+
+\textbf{Document} : photo du moule à glaçons utilisé et caractéristiques des glaçons :
+
+\medskip
+
+\begin{minipage}{0.48\linewidth}
+\begin{center}
+
+\includegraphics[width=6cm]{moule1}
+\end{center}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+Chaque glaçon a la forme d'un pavé droit :
+\begin{itemize}[label=$\bullet~~$]
+\item de longueur 5 cm ;
+\item de largeur 2,5 cm ;
+\item de hauteur 1,5 cm.
+\end{itemize}
+\end{minipage}
+\begin{enumerate}
+\item On possède 12 moules à glaçons de ce type. Combien peut-on faire de glaçons en même temps ?
+\item Montrer que le volume d'un glaçon est d'environ $19$~mL.
+\item 5 litres d'eau sont-ils suffisants pour remplir ces 12 moules à glaçons ?
+\end{enumerate}
+
+\subsection*{Partie 2 : Le service}
+
+\begin{minipage}{0.68\linewidth}
+On souhaite servir le cocktail dans des verres cylindriques.
+
+\begin{enumerate}[resume]
+\item Montrer que le verre a un volume total d'environ $295$~mL.
+\item Pour verser précisément $25$ cL de cocktail, on utilise des verres avec un repère indiquant une contenance de $25$~cL.
+	\begin{enumerate}
+		\item On a préparé $30$ litres de cocktail. Combien peut-on remplir de verres contenant $25$ cL de cocktail ?
+		\item En versant $25$ cL de cocktail dans le verre, à quelle hauteur $h$ du verre, le liquide arrive-t-il ?
+
+Arrondir au dixième.
+	\end{enumerate}
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.3\linewidth}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(-2.7,0)(2.7,7.7)
+\psellipse[linewidth=1.5pt](0,1.4)(1.05,0.3)
+\psellipse[linewidth=1.5pt](0,1.45)(1.05,0.3)
+\psellipse[linewidth=1.5pt](0,6.6)(1.05,0.3)
+\psellipse[linewidth=1.5pt](0,6.65)(1.05,0.3)
+\psline[linewidth=1.5pt](-1.05,1.4)(-1.05,6.65)
+\psline[linewidth=1.5pt](1.05,1.4)(1.05,6.65)
+\psellipse[linewidth=1.5pt,linestyle=dotted](0,5.7)(1.05,0.3)
+\rput(0,7.6){Caractéristiques d'un verre}
+\rput(1.8,6.3){Repère}\psline[linewidth=0.9pt]{->}(1.3,6.2)(0.6,5.44)
+\psline[linewidth=0.9pt]{<->}(-1.5,1.4)(-1.5,6.6)\uput[l](-1.5,4){15 cm}
+\psline[linewidth=0.9pt]{<->}(1.3,1.4)(1.3,5.6)\uput[r](1.3,3.5){$h$}
+\psline[linewidth=0.9pt]{<->}(-1.05,0.8)(1.05,0.8)\uput[d](0,0.8){5 cm}
+\end{pspicture}
+\end{minipage}
+\showthesource
+\end{document}

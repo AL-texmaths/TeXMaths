@@ -1,0 +1,52 @@
+Exercices du DNB 2024 - sujets 3 à 9
+
+Ouvrir les fichiers avec Ctrl+clic dans VS Code :
+
+Asie, 18 juin 2024
+[Exercice 1 - exercice-0740-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0740-data.tex)
+[Exercice 2 - exercice-0741-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0741-data.tex)
+[Exercice 3 - exercice-0742-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0742-data.tex)
+[Exercice 4 - exercice-0743-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0743-data.tex)
+[Exercice 5 - exercice-0744-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0744-data.tex)
+
+Polynésie, 27 juin 2024
+[Exercice 1 - exercice-0745-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0745-data.tex)
+[Exercice 2 - exercice-0746-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0746-data.tex)
+[Exercice 3 - exercice-0747-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0747-data.tex)
+[Exercice 4 - exercice-0748-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0748-data.tex)
+[Exercice 5 - exercice-0749-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0749-data.tex)
+
+Métropole, Guadeloupe-Guyane, 1er juillet 2024
+[Exercice 1 - exercice-0750-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0750-data.tex)
+[Exercice 2 - exercice-0751-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0751-data.tex)
+[Exercice 3 - exercice-0752-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0752-data.tex)
+[Exercice 4 - exercice-0753-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0753-data.tex)
+[Exercice 5 - exercice-0754-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0754-data.tex)
+
+Martinique, 3 juillet 2024
+[Exercice 1 - exercice-0755-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0755-data.tex)
+[Exercice 2 - exercice-0756-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0756-data.tex)
+[Exercice 3 - exercice-0757-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0757-data.tex)
+[Exercice 4 - exercice-0758-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0758-data.tex)
+[Exercice 5 - exercice-0759-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0759-data.tex)
+
+Polynésie, septembre 2024
+[Exercice 1 - exercice-0760-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0760-data.tex)
+[Exercice 2 - exercice-0761-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0761-data.tex)
+[Exercice 3 - exercice-0762-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0762-data.tex)
+[Exercice 4 - exercice-0763-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0763-data.tex)
+[Exercice 5 - exercice-0764-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0764-data.tex)
+
+Métropole-Antilles-Guyane-Mayotte, 19 septembre 2024
+[Exercice 1 - exercice-0765-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0765-data.tex)
+[Exercice 2 - exercice-0766-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0766-data.tex)
+[Exercice 3 - exercice-0767-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0767-data.tex)
+[Exercice 4 - exercice-0768-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0768-data.tex)
+[Exercice 5 - exercice-0769-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0769-data.tex)
+
+Amérique du Sud, 2 décembre 2024
+[Exercice 1 - exercice-0770-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0770-data.tex)
+[Exercice 2 - exercice-0771-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0771-data.tex)
+[Exercice 3 - exercice-0772-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0772-data.tex)
+[Exercice 4 - exercice-0773-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0773-data.tex)
+[Exercice 5 - exercice-0774-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0774-data.tex)

@@ -1,0 +1,83 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\usepackage{textcomp}%
+\usepackage{amsmath}%
+\usepackage{lscape}%
+\startdatakeys
+    \source{22GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2eb,C4B1bc}
+    \motsCles{Pythagore,trigonométrie,angle,volume}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\bigskip
+
+Lya passe la journée dans un parc aquatique.
+
+Elle y trouve une cabane dans un chêne d'où part une tyrolienne qui mène au-dessus d'une piscine.
+
+Le câble de la tyrolienne relie la cabane et le pied du peuplier situé juste derrière la piscine.
+
+\medskip
+
+\begin{center}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(0,-1)(12,5)
+\psframe[fillstyle=solid,fillcolor=blue!30](5,-0.8)(8.5,0.8)
+\rput(6,4.7){\textbf{Document 1} : schéma de la situation}
+\pspolygon(1,0)(1,2.8)(11.6,0)%BAC
+\psframe(1,0)(1.2,0.2)\psline(7,0)(7,1.2)
+\psframe(7,0)(7.2,0.2)\uput[dl](7,0){D}\uput[ul](7,1.2){E}
+\rput{90}(6.8,0.6){1,50 m}
+\rput(2,3.6){Départ}\rput(8,2.4){Arrivée}
+\psline{->}(2,3.4)(1,2.8)\psline{->}(8,2.2)(7,1.2)
+\uput[ul](1,0){B} \uput[ul](1,2.8){A} \uput[dr](11.6,0){C}
+\rput{90}(11.6,01){peuplier}\rput{90}(0.8,3.8){chêne}
+\rput{90}(0.8,1.4){5,50 m}\rput(7,-0.6){Piscine}
+\psline[linewidth=0.6pt]{<->}(1,-0.6)(5,-0.6)\uput[d](3,-0.6){12,20 m}
+\psline[linewidth=0.6pt]{<->}(8.5,-0.6)(11.6,-0.6)\uput[d](10.05,-0.6){1,80 m}
+\end{pspicture}
+\end{center}
+
+\textbf{Document 2 :}  La réglementation exige que l'angle formé par le câble de la tyrolienne et l'horizontale ait une mesure inférieure à $30\degres$.
+
+\textbf{Document 3 :} La piscine a la forme d'un parallélépipède rectangle de longueur
+$6$~m, largeur $6$~m et profondeur $1,60$~m.
+
+\textbf{Document 4 :}  Lorsque Lya est suspendue à la tyrolienne, corps et bras tendus, elle mesure exactement $1,50$~m.
+
+\medskip
+
+\begin{enumerate}
+\item Vérifier par un calcul que BC $= 20$~m.
+\item Le positionnement de la tyrolienne est-il conforme à la réglementation en vigueur ?
+\item Déterminer la longueur AC, en mètres, de câble nécessaire. Arrondir à l'unité.
+\item Lya est suspendue à la tyrolienne verticalement. À quelle distance DC du peuplier,
+en mètres, les pieds de Lya toucheront-ils l'eau de la piscine ? Arrondir au centième.
+\item  Calculer le volume de la piscine, en m$^3$ ?
+
+\emph{Rappel: Le volume d'un parallélépipède rectangle est } \:$V = \text{Longueur} \times \text{largeur} \times  \text{hauteur}$.
+\end{enumerate}
+
+\begin{landscape}
+\psset{xunit=0.0325cm,yunit=0.05cm}
+\begin{center}
+\begin{pspicture}(600,260)
+\multido{\n=0+20}{31}{\psline[linewidth=0.15pt](\n,0)(\n,260)}
+\multido{\n=0+20}{14}{\psline[linewidth=0.15pt](0,\n)(600,\n)}
+\psaxes[linewidth=1.25pt,Dx=40,Dy=40]{->}(0,0)(0,0)(600,260)
+\uput[u](528,0){distance parcourue en km}
+\uput[r](0,255){Coût en euro}
+\end{pspicture}
+\end{center}
+\end{landscape}
+
+\showthesource
+\end{document}

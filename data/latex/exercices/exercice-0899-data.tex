@@ -1,0 +1,96 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{22GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2ba,C4C2ag}
+    \motsCles{programme de calcul,tableur,expression littérale,factorisation,multiple}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\begin{minipage}{0.48\linewidth}
+On considère le programme de calcul suivant, appliqué à des nombres entiers:
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(-3.7,0)(3.7,-6.5)
+\rput(0,-0.4){Nombre choisi}\rput(0,-0.8){ au départ}
+\psframe(-1.4,-0.2)(1.4,-1)
+\psline[linewidth=4.5pt]{->}(0,-1)(0,-1.8)
+\rput(0,-2.){Programme de calcul}\rput(0,-2.4){$\bullet~~$Calculer le carré du nombre de départ}
+\rput(0,-2.8){$\bullet~~$Ajouter le nombre de départ}
+\psline[linewidth=4.5pt]{->}(0,-3)(0,-3.9)
+\psframe(-3.4,-1.8)(3.4,-3)\rput(0,-4.1){Nombre obtenu à}
+\rput(0,-4.5){l'arrivée}
+\psframe(-1.6,-3.9)(1.6,-4.8)
+\end{pspicture}
+\end{center}
+\end{minipage}
+
+\medskip
+
+\begin{center}
+\textbf{PARTIE A}
+\end{center}
+
+\begin{enumerate}
+\item Vérifier que si le nombre de départ est 15, alors le nombre obtenu à l'arrivée est 240.
+\end{enumerate}
+
+\begin{minipage}{0.48\linewidth}
+\begin{enumerate}[resume]
+\item Voici un tableau de valeurs réalisé à l'aide d'un tableur:
+
+Il donne les résultats obtenus par le programme de calcul en fonction de quelques valeurs du nombre choisi au départ.
+
+Quelle formule a pu être saisie dans la cellule B2 avant d'être étirée vers le bas ?
+
+\emph{Aucune justification n'est attendue}.
+\item On note $x$ le nombre de départ.
+
+Écrire, en fonction de $x$, une expression du résultat obtenu avec ce programme de calcul.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\begin{tabularx}{\linewidth}{|c|*{2}{>{\centering \arraybackslash}X|}}\hline
+&A&B\\ \hline
+1&Nombre choisi au départ&Nombre obtenu à l'arrivée\\ \hline
+2&0&0 \\ \hline
+3&1&2\\ \hline
+4&2&6\\ \hline
+5& 3& 12\\ \hline
+6& 4& 20\\ \hline
+7& 5& 30\\ \hline
+8& 6& 42\\ \hline
+9& 7& 56\\ \hline
+10& 8& 72\\ \hline
+11&9& 90\\ \hline
+12&10& 110\\ \hline
+\end{tabularx}
+\end{minipage}
+
+\begin{center}
+\textbf{PARTIE B}
+\end{center}
+
+On considère l'affirmation suivante:
+
+\og Pour obtenir le résultat du programme de calcul, il suffit de multiplier le nombre de départ par le nombre entier qui suit. \fg
+
+\begin{enumerate}[resume]
+\item Vérifier que cette affirmation est vraie lorsque le nombre entier choisi au départ est 9.
+\item Démontrer que cette affirmation est vraie quel que soit le nombre entier choisi au départ.
+\item Démontrer que le nombre obtenu à l'arrivée par le programme de calcul est un nombre pair quel que soit le nombre entier choisi au départ.
+\end{enumerate}
+
+\showthesource
+\end{document}

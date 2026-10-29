@@ -1,0 +1,68 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\startdatakeys
+    \source{22GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2eb,C4C2bc,C4C2aa,C4C2ab,C4D3bf}
+    \motsCles{probabilité,médiane,vitesse,durée,image,développement,Pythagore}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Voici six affirmations. Pour chacune d'entre elles, dire si elle est vraie ou fausse.
+
+\smallskip
+
+\textbf{On rappelle que chaque réponse doit être justifiée}
+
+\medskip
+
+\begin{enumerate}
+\item Deux urnes opaques contiennent des boules de couleur, indiscernables au toucher.
+
+Voici la composition de chaque urne :
+
+\begin{itemize}
+\item[$\bullet~~$] Urne A : $20$ boules dont $8$ boules bleues
+\item[$\bullet~~$] Urne B : $11$ boules bleues et $14$ boules vertes
+\end{itemize}
+
+\textbf{Affirmation 1} : on a plus de chance de tirer au hasard une boule bleue dans l'urne B que dans l'urne A.
+\item Voici une série statistique: 14 ; 12 ; 3 ; 14 ; 7 ; 11 ; 7 ; 12 ; 14.
+
+\textbf{Affirmation 2} : la médiane de cette série statistique est 11.
+\item Lors d'une course à pied, un coureur a parcouru $36$~km en 3~h~20.
+
+\textbf{Affirmation 3} : sa vitesse moyenne est de $11,25$~km/h.
+\item On considère deux fonctions $f$ et $g$.
+
+La fonction $f$ est définie par : $f(x)= - 4x - 5$.
+
+Voici la représentation graphique de la fonction $g$ :
+
+\begin{center}
+\psset{unit=1.25cm,arrowsize=2pt 3}
+\begin{pspicture*}(-3,-3)(2.5,4.5)
+\psgrid[gridlabels=0pt,subgriddiv=2,gridwidth=0.2pt,subgridwidth=0.1pt]
+\uput[u](2.3,0){$x$} \uput[r](0,4.3){$y$}
+\psaxes[linewidth=1.25pt]{->}(0,0)(-2.99,-2.99)(2.5,4.5)
+\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=blue]{-3}{2.5}{ x dup mul x 2 div add 1.5 sub}
+\end{pspicture*}
+\end{center}
+
+\textbf{Affirmation 4} : l'image de $-1$ par la fonction $f$ est inférieure à l'image de $-1$ par la fonction $g$.
+\item \textbf{Affirmation 5} : pour tout nombre $x$, on a : $(x + 5)^2- 4 = (x + 1)(x + 9)$.
+\item On considère un carré de longueur de côté 6 mètres.
+
+\textbf{Affirmation 6} : les diagonales de ce carré mesurent $\sqrt{72}$ mètres.
+\end{enumerate}
+
+\medskip
+
+\showthesource
+\end{document}

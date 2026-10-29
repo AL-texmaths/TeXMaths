@@ -1,0 +1,53 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\startdatakeys
+    \source{21GENMATAA2}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2eb,C4B3ca}
+    \motsCles{Pythagore,Thalès,réciproque de Pythagore}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+\begin{minipage}{0.45\linewidth}
+Sur la figure ci-contre :
+
+\begin{itemize}
+\item[$\bullet~~$]le triangle DCB est rectangle en C ;
+\item[$\bullet~~$]les points A, C et B sont alignés ;
+\item[$\bullet~~$]les points D, E et B sont alignés ;
+\item[$\bullet~~$]AC = 3,2 cm;
+\item[$\bullet~~$]CB = 6,8 cm ;
+\item[$\bullet~~$]BD = 8,5 cm;
+\item[$\bullet~~$]BE = 5,8 cm.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.5\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(7.4,7)
+\uput[u](3.7,6){La figure n'est pas à l'échelle}
+\pspolygon(0.3,1.4)(7,0.4)(2.7,5.4)%ABD
+\psline(2.7,5.4)(2.1,1.1)%DC
+\psline(1.6,0.2)(4.6,5.3)%CE
+\rput{-13}(2.1,1.17){\psframe(0.25,0.25)}
+\uput[l](0.3,1.4){A} \uput[dr](7,0.4){B} \uput[dr](2.2,1){C} \uput[u](2.7,5.4){D} \uput[r](3.9,4){E}
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item Démontrer que la longueur DC est égale à $5,1$ cm.
+\item Calculer l’aire du triangle DCB en cm$^2$.
+\item À l’aide de la calculatrice, calculer une valeur approchée de la mesure de l’angle $\widehat{\text{ADC}}$, au degré près.
+\item Les droites (AD) et (CE) sont-elles parallèles ?
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

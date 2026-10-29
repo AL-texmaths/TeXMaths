@@ -1,0 +1,62 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{array}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{25GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{droites parallèles,Thalès,aire,agrandissement,construction}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+La figure ci-dessous n'est pas à l'échelle.
+
+\begin{minipage}{0.4\linewidth}
+\begin{tabular}{|l|}\hline
+On donne :\\
+~\\ 
+AE = 6 cm \\
+AD = 15 cm\\
+BE = 4 cm\\
+$\widehat{\text{BEA}} = \widehat{\text{CDA}} = 110\degres$\\
+Les points A, B et C sont alignés\\
+Les points A, E et D sont alignés\\ \hline
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}{0.65\linewidth}
+\psset{unit=0.72cm,arrowsize=2pt 3}
+\begin{pspicture}(11.6,7)
+%\psgrid
+\pspolygon(0.2,1)(9,1)(11.45,6.7)%ADC
+\psline(3.6,1)(4.4,3.16)%EB
+\uput[l](0.2,1){A} \uput[ul](4.9,3.4){B} \uput[ur](11.5,6.7){C} \uput[dr](9,1){D} \uput[dr](3.6,1){E}
+\psline[linewidth=0.6pt]{<->}(0.2,0.8)(3.6,0.8)\uput[d](1.9,0.9){\small 6 cm}
+\psline[linewidth=0.6pt]{<->}(0.2,0.3)(9,0.3)\uput[d](4.6,0.3){\small 15 cm}
+\psarc(9,1){0.6}{70}{180}\uput[ul](8.8,1.3){$110\degres$}
+\psarc(3.6,1){0.6}{70}{180}\uput[ul](3.4,1.3){$110\degres$}
+\rput{70}(4.25,2.08){4 cm}
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item Prouver que les droites(BE) et (CD)sont parallèles. 
+\item Calculer CD.
+
+\textbf{Rédiger la réponse en faisant apparaitre les différentes étapes.}
+\item L'aire du triangle ABE, arrondie au dixième, est égale à $11,3$cm$^2$.
+En déduire l'aire du triangle ACD arrondie au dixième.
+\item Construire cette figure en vraie grandeur sur l'annexe 1.
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

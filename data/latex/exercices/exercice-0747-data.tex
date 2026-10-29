@@ -1,0 +1,105 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+
+\usepackage{multido}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{24GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Thalès,Pythagore,trigonométrie,proportionnalité}
+\enddatakeys
+\begin{document}%
+    \def\degres{\textsuperscript{\textdegree}}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+La construction du Centre Aquatique Olympique de Saint-Denis a débuté en 2021 pour accueillir les épreuves de natation artistique des jeux Olympiques de Paris 2024.
+
+Alyssa et Jules visitent le Centre Aquatique Olympique et s'installent dans les gradins.
+
+On a schématisé leurs positions par rapport à la piscine olympique sur la figure ci-dessous, qui modélise la situation : Alyssa est installée dans les gradins Nord au point A et Jules est assis dans les gradins Sud au point J.
+
+\emph{La figure n'est pas à l'échelle.}
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(0,-0.8)(10.8,2.6)
+%\psgrid
+\pspolygon(0.2,0)(10.5,0)(10.5,2.3)(6.8,0)(3.6,0)(0.2,1.9)%CEFDBAC
+\psframe[fillstyle=vlines](6.8,0)(3.8,-0.4)
+\psline(10.5,1.35)(8.93,1.35)
+\psframe(0.2,0)(0.4,0.2)\psframe(10.5,0)(10.3,.20)\psframe(10.5,1.35)(10.3,1.55)
+\uput[d](1.7,0){Gradins Nord}\uput[d](8.65,0){Gradins Sud}\uput[d](5.3,-0.4){Piscine olympique}
+\uput[ul](0.2,1.9){A} \uput[ur](3.6,0){B} \uput[dl](0.2,0){C} \uput[ul](6.8,0){D}
+\uput[dr](10.5,0){E} \uput[ur](10.5,2.3){F} \uput[r](10.5,1.35){H} \uput[ul](8.93,1.35){J}
+\end{pspicture}
+\end{center}
+
+On donne : AC = FJ $= 15$ m ; BC $= 27$ m ; FH $= 7$ m ; EF $= 18$ m.
+
+Les points F{}, J et D sont alignés.
+
+Les points F{}, H, et E sont alignés.
+
+Les points C, B, D, E sont alignés.
+
+\medskip
+
+\begin{enumerate}
+\item Jules et Alyssa discutent entre eux pour savoir qui est le mieux placé pour assister à l'événement.
+	\begin{enumerate}
+		\item Calculer la distance entre Alyssa et le bord de la piscine, c'est-à-dire calculer la longueur AB.
+		
+Arrondir le résultat au mètre près.
+		\item Vérifier que la distance entre Jules et le bord de la piscine, c'est-à-dire la longueur JD, est de $24$~m, arrondie au mètre près.
+		\item En déduire lequel des deux amis est le plus proche d'un bord de la piscine.
+	\end{enumerate}	
+\item Pour respecter les normes de sécurité, l'angle d'inclinaison $\widehat{\text{ABC}}$ des gradins Nord ne doit pas dépasser $35\degres$. Les gradins Nord respectent-ils cette norme ?
+\item Le toit du Centre Aquatique Olympique a une surface de \np{5000}~m$^2$.
+
+On estime que \np{4678,4}~m$^2$ de ce toit est recouvert de panneaux photovoltaïques. 
+
+Voici les caractéristiques d'un panneau photovoltaïque standard fournies par le constructeur:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{5cm} X|}\hline
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(4.8,2.4)
+\psframe*[linecolor=gray](0.7,0)(4.4,1.5)
+\multido{\na=0.20+0.35}{4}
+{\multido{\n=0.80+0.37}{10}{\pscircle[fillstyle=solid,fillcolor=white](\n,\na){0.05}}}
+\psline[linewidth=0.5pt]{<->}(0.7,1.6)(4.4,1.6)\uput[u](2.55,1.6){1,7~m}
+\psline[linewidth=0.5pt]{<->}(0.6,0)(0.6,1.5)\rput{90}(0.4,0.75){1~m}
+\end{pspicture}&\textbf{Dimensions :} 1 m de large et 1,7 m de long 
+
+\textbf{Énergie produite:} environ $350$~kWh par an\\ \hline
+\end{tabularx}
+\end{center}
+
+Montrer que la quantité annuelle d'énergie produite par l'ensemble des panneaux photovoltaïques du toit du Centre Aquatique Olympique est de \np{963200} kilowattheures (kWh).
+\item La température règlementaire de l'eau contenue dans la piscine lors des jeux Olympiques doit être comprise entre 25\degres{} et 28\degres. Pour respecter cette réglementation, on souhaite que l'eau contenue dans la piscine olympique de Saint-Denis soit à une température de 26\degres. On admet que l'eau contenue dans cette piscine occupe un pavé droit dont les dimensions sont:
+
+\begin{itemize}
+\item Longueur : 50 m
+\item Largeur: 25 m
+\item Profondeur: 3 m
+\end{itemize}
+
+On suppose qu'avant la première mise en chauffe de la piscine olympique, l'eau est à 18\degres.
+
+On estime qu'il faut environ $9,3$ kWh pour chauffer 1 m$^3$ d'eau de 18\degres{} jusqu'à 26\degres.
+
+Quelle quantité d'énergie, en kWh, sera nécessaire pour chauffer toute l'eau de la piscine olympique jusqu'à 26\degres ?
+
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

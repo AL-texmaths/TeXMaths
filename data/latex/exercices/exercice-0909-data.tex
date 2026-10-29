@@ -1,0 +1,67 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\startdatakeys
+    \source{22GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D3ac,C4D3ba}
+    \motsCles{fonction linéaire,image,antécédent,lecture graphique}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Le graphique ci-dessous représente les deux tarifs pratiqués dans une salle de sport, selon le nombre d'heures effectuées :
+
+\setlength\parindent{9mm}
+\begin{itemize}
+\item[$\bullet~~$] la droite $\left(d_1\right)$ est la représentation graphique du tarif \og liberté \fg
+\item[$\bullet~~$]la droite $\left(d_2\right)$ est la représentation graphique du tarif \og abonné \fg
+\end{itemize}
+\setlength\parindent{0mm}
+
+\begin{center}
+\psset{xunit=1cm,yunit=0.2cm}
+\begin{pspicture}(-1,-4)(11,35)
+\multido{\n=0+1}{12}{\psline[linewidth=0.4pt](\n,0)(\n,35)}
+\multido{\n=0+5}{8}{\psline[linewidth=0.4pt](0,\n)(11,\n)}
+\psaxes[linewidth=1.25pt,Dy=5,labelFontSize=\scriptstyle]{->}(0,0)(0,0)(11,35)
+\psplot[plotpoints=400,linewidth=1.25pt,linecolor=red]{0}{11}{2.5 x mul 7.5 add}
+\psplot[plotpoints=400,linewidth=1.25pt,linecolor=blue]{0}{7}{5 x mul}
+\uput[u](6.5,33){\blue $\left(d_1\right)$}
+\uput[u](10.3,33){\red $\left(d_2\right)$}
+\rput{90}(-1,26){Prix payé en euro}
+\uput[d](9,-2){Nombres d'heures effectuées}
+\end{pspicture}
+\end{center}
+
+\begin{enumerate}
+\item Le prix payé avec le tarif \og liberté \fg{} est-il proportionnel au nombre d'heures effectuées dans la salle de sport ? Expliquer la réponse.
+\item On appelle:
+
+\setlength\parindent{9mm}
+\begin{itemize}
+\item[$\bullet~~$]$f$ la fonction qui, au nombre d'heures effectuées, associe le prix payé en euro avec le tarif \og liberté \fg
+\item[$\bullet~~$]$g$ la fonction qui, au nombre d'heures effectuées, associe le prix payé en euro avec le tarif \og abonné \fg
+\end{itemize}
+\setlength\parindent{0mm}
+
+Répondre aux questions suivantes par lecture graphique :
+	\begin{enumerate}
+		\item Quelle est l'image de 5 par la fonction $f$ ?
+		\item Quel est l'antécédent de 10 par la fonction $g$ ?
+	\end{enumerate}
+\item À l'aide du graphique, indiquer le tarif parmi les deux proposés qui est le plus avantageux pour une personne selon le nombre d'heures qu'elle souhaite effectuer dans la salle de sport.
+\item Déterminer le prix payé avec le tarif \og liberté \fg{} pour $15$ heures effectuées.
+
+Expliquer la démarche, même si elle n'est pas aboutie.
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

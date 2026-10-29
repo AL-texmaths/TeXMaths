@@ -1,0 +1,84 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage{eurosym}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{22GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B1bc}
+    \motsCles{volume,prix,conversion}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+On souhaite construire un carré potager en utilisant des planches en bois et en suivant le montage ci-dessous.
+
+Le carré potager souhaité n'a pas de fond et il a la forme d'un pavé droit de base carrée et de hauteur $30$~cm.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|X|}\hline
+\textbf{Vue de dessus} &\textbf{Plan et indications pour le montage}
+
+Prévoir dans chaque angle une équerre à visser avec 8 vis pour assembler les 4 planches formant l'angle.\\
+\psset{unit=1cm}
+\begin{pspicture}(4.8,5)
+\psframe(0,0.6)(4.4,4.9)
+\psline(0.2,0.8)(0.2,4.7)\psline(4.2,0.8)(4.2,4.7)
+\psline(0,4.7)(4.4,4.7)
+\psline(0,0.8)(4.2,0.8) \psline(4.2,0.6)(4.2,4.7)
+\psline[linestyle=dashed]{<->}(0,0.4)(4.2,0.4)\uput[d](2.1,0.4){1,20~m}
+\psline[linestyle=dashed]{<->}(4.4,0.4)(4.2,0.4)\uput[d](4.3,0.4){2 cm}
+\end{pspicture}&\psset{unit=0.9cm}
+\begin{pspicture}(9.5,4.5)
+\psframe(0,0.8)(5.2,2.1)\psline(0,1.45)(5.3,1.45)(7.9,3.75)\psline(7.1,3.75)(2.6,3.75)(0.8,2.1)
+\pspolygon(5.3,0.8)(7.9,3.1)(7.9,4.4)(5.3,2.1)
+\psline(7.9,4.4)(2.6,4.4)(0,2.1)
+\psline(5.2,2.1)(7.7,4.3)(2.6,4.3)(0.15,2.1)
+\psline(2.6,4.3)(2.6,3.1)
+\psline(6.3,3.1)(2.6,3.1)(1.6,2.1)
+\psline(5.2,2.1)(5.3,2.1)\psline(5.2,0.8)(5.3,0.8)
+\rput(0.7,4.2){2 planches}
+\psline{->}(0.7,4)(2.2,3.6)
+\psline{->}(0.7,4)(2,2.8)
+\psline[linestyle=dashed]{<->}(0,0.6)(5.2,0.6)\uput[d](2.6,0.6){1,20~m}
+\psline[linestyle=dashed]{<->}(5.5,0.7)(8.1,3.1)\uput[dr](6.8,1.9){1,20~m}
+\psline[linestyle=dashed]{<->}(8.1,3.1)(8.1,4.4)\uput[r](8.1,3.75){30~cm}
+\rput(5.4,0.4){2 cm}\rput(8.4,2.7){2 cm}
+\end{pspicture}\\ \hline
+\end{tabularx}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+\multicolumn{4}{|c|}{\textbf{Prix}}\\\hline
+Équerre à 8 trous &Planche en bois&Vis&\small Sac de terre végétale\\
+&{\footnotesize 250 cm $\times$ 15 cm $\times$ 2 cm}&Lot de 100&40 L\\
+2,90~\euro{} la pièce&5,60~\euro{} la pièce&5,70~\euro{} le lot&6,90~\euro{} le sac\\ \hline
+\end{tabularx}
+\end{center}
+
+\smallskip
+
+\begin{enumerate}
+\item À l'achat, les planches en bois mesurent $2,50$~m de longueur.
+	\begin{enumerate}
+		\item Combien de planches devra-t-on acheter ?
+		\item Déterminer le budget nécessaire (hors coût de la terre) pour réaliser ce carré potager.
+	\end{enumerate}
+\end{enumerate}
+
+On remplit le carré potager de terre végétale au minimum jusqu'aux deux tiers de sa hauteur.
+
+On dispose la terre afin qu'elle forme un pavé droit dont la longueur du côté de la base carrée est de $118$~cm.
+
+\begin{enumerate}[resume]
+\item Sept sacs de terre végétale seront-ils suffisants pour compléter au minimum le carré potager ?
+
+On rappelle que : 1~L = 1dm$^3$.
+\end{enumerate}
+
+\showthesource
+\end{document}

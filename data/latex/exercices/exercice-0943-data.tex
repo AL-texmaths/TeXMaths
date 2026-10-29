@@ -1,0 +1,77 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{scratch3}%
+\usepackage{array}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{22GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4E1ag}
+    \motsCles{Scratch,programme,translation}
+\enddatakeys
+\begin{document}%
+\def\no{n\textsuperscript{o}}%
+
+\medskip
+
+\begin{minipage}{0.6\linewidth}
+\begin{enumerate}
+\item Dessiner sur la copie le motif correspondant au script Scratch
+ci-contre, le stylo étant en position d'écriture.
+
+On prendra 1 cm pour $10$ pas.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\begin{scratch}
+\initmoreblocks{définir \namemoreblocks{motif de base}}
+\blockmove{avancer de \ovalnum{60} pas}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmove{avancer de \ovalnum{40} pas}
+\blockcontrol{attendre \ovalnum{0,5} seconde}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+}
+\end{scratch}
+\end{minipage}
+
+\begin{enumerate}[start=2]
+\item \textbf{Sur l'annexe}, compléter les informations manquantes du script \no 2 qui permet d'obtenir la figure ci-dessous.
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(-2.5,-2.5)(2.5,2.5)
+\def\drapeau{\psline[linecolor=blue](0,0)(2.1,0)(2.1,-0.8)(1.3,-0.8)(1.3,0)}
+\multido{\n=0+45}{8}{\rput{\n}(0,0){\drapeau}}
+\end{pspicture}
+\end{center}
+\end{enumerate}
+
+
+
+\textbf{Exercice 8 : question 2}
+
+\medskip
+
+\begin{center}
+\textbf{Script \no 2}
+
+\begin{scratch}
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\blockmove{aller à x: \ovalnum0 y: \ovalnum0}
+\blockrepeat{répéter \ovalnum{} fois}
+{\blockmoreblocks{motif de base}
+\blockmove{aller à x: \ovalnum{} y: \ovalnum{} }
+\blockmove{tourner \turnright{} de \ovalnum{} degrés}
+\blockcontrol{attendre \ovalnum{0,5} seconde}
+}
+\end{scratch}
+\end{center}
+
+\showthesource
+\end{document}

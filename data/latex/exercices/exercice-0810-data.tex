@@ -1,0 +1,70 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{array}%
+\startdatakeys
+    \source{25GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{facteurs premiers,trigonométrie,probabilité,fonction linéaire,image,développement}
+\enddatakeys
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+    \def\up#1{\textsuperscript{#1}}%
+
+Les 5 situations suivantes sont indépendantes. On rappelle que, sauf indications contraires, les réponses doivent être justifiées.
+
+\subsection*{Situation 1}
+Décomposer 390 en produit de facteurs premiers.
+
+\subsection*{Situation 2}
+ABC est un triangle rectangle en A avec AB = 10\,cm et BC = 20\,cm.
+
+Quelle est la mesure de l'angle $\widehat{\text{ABC}}$ ?
+
+\subsection*{Situation 3}
+Une urne contient 12 jetons numérotés de 1 à 12 indiscernables au toucher. On pioche un jeton au hasard dans cette urne.
+
+Quelle est la probabilité d'obtenir un nombre inférieur ou égal à 5 ?
+
+\subsection*{Situation 4}
+On considère la fonction $f$ dont on donne un tableau de valeurs et la représentation graphique ci-dessous :
+
+\parbox{.4\textwidth}{\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x$ & 0 & 1 & 2 \\
+\hline
+$f(x)$ & 1 & $-1$ & $-3$ \\
+\hline
+\end{tabular}
+\end{center}}\hfill\parbox{.5\textwidth}{\psset{unit=.5cm,arrowsize=2pt 3}
+\begin{pspicture}(-3.7,-3.7)(3,8)
+\psline[linewidth=2pt] (-3,7)(2.25,-3.5)
+\psgrid[gridlabels=0pt,subgriddiv=0,gridwidth=0.15pt](-4,-4)(3,7)
+\uput[ur](1,0){\scriptsize 1}
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle](0,0)(0,1)
+\psaxes[linewidth=1.25pt,labelFontSize=\scriptstyle,Dx=10,Dy=10]{->}(0,0)(-4,-4)(3,7)
+\rput(0,8){\small Représentation graphique de la fonction $f$}
+\end{pspicture}}
+
+\medskip
+
+\begin{enumerate}
+\item Quelle est l'image de 2 par la fonction $f$ ? (\textbf{sans justifier})
+\item Quelle est l'image de $- 1$ par la fonction $f$ ? (\textbf{sans justifier})
+\item La fonction $f$ est-elle une fonction linéaire ?
+\end{enumerate}
+
+\subsection*{Situation 5}
+
+On considère l'égalité suivante : $(2x - 3)(4x + 5) = 8x^2 - 2x - 15$.
+
+\begin{enumerate}
+\item Montrer que cette égalité est vraie pour $x = 2$.
+\item Cette égalité est-elle vraie quelle que soit la valeur de $x$ ?
+\end{enumerate}
+\showthesource
+\end{document}

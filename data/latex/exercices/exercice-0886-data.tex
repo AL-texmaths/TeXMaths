@@ -1,0 +1,111 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\startdatakeys
+    \source{21GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2cb,C4D1ad}
+    \motsCles{volume,cylindre,masse volumique,solides}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Une usine de fabrication de bougies reçoit des cubes de cire d'abeille d'arête 6 cm.
+
+Ils sont disposés dans des cartons remplis (sans espace vide).
+
+\begin{center}
+\begin{tabular}{l p{5mm} l}
+\begin{tabular}{|p{5cm}|}\hline
+\textbf{Informations sur les cartons:}\\
+Forme: pavé droit\\
+Dimensions : \\
+\begin{itemize}
+\item largeur : 60 cm
+\item hauteur : 36 cm
+\item profondeur : 36 cm
+\end{itemize}\\
+(On ne tient pas compte de l'épaisseur des cartons)\\ \hline
+\end{tabular} &~&
+\begin{tabular}{|p{5cm}|}\hline
+\textbf{Information sur la cire d'abeille:}\\
+Masse volumique: 0,95 g/cm$^3$\\ \hline
+\end{tabular}
+\end{tabular}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Montrer que chaque carton contient 360 cubes de cire d'abeille.
+		\item Quelle est la masse de cire d'abeille contenue dans un carton rempli de cubes? On donnera la réponse en kg, arrondie à l'unité près, en ne tenant pas compte de la masse du carton.
+	\end{enumerate}
+\item À l'usine, on découpe les cubes de cire d'abeille afin d'obtenir des cylindres de hauteur 6 cm et de diamètre 6 cm avec lesquels on fera des bougies en installant une mèche.
+
+\begin{center}
+\begin{tabular}{|*{5}{c}|}\hline
+\psset{unit=1cm,arrowsize=15pt,arrowinset=0.8}
+\begin{pspicture}(3,3)
+%\psgrid
+\pspolygon(0,0.6)(1,0)(2.7,0.3)(2.7,2.1)(1.7,2.8)(0,2.5)
+\psline(2.7,2.1)(1,1.8)(0,2.5)\psline(1,0)(1,1.8)
+\psline[linestyle=dotted](0,0.6)(1.7,0.9)(2.7,0.3)
+\psline[linestyle=dotted](1.7,0.9)(1.7,2.8)
+\end{pspicture}&\begin{pspicture}(1.5,3)\psline[linewidth=5pt,arrowsize=15pt,arrowlength=0.5,arrowinset=0.1]{->}(0,1.5)(1.5,1.5)\end{pspicture}&\begin{pspicture}(3,3)
+\pspolygon(0,0.6)(1,0)(2.7,0.3)(2.7,2.1)(1.7,2.8)(0,2.5)
+\psline(2.7,2.1)(1,1.8)(0,2.5)\psline(1,0)(1,1.8)
+\psline[linestyle=dotted](0,0.6)(1.7,0.9)(2.7,0.3)
+\psline[linestyle=dotted](1.7,0.9)(1.7,2.8)
+\def\bougie{
+\psset{unit=1cm}
+\begin{pspicture}(-1,-0.5)(1,2.3)
+\psline(-0.95,0)(-0.95,1.8)\psline(0.95,0)(0.95,1.8)
+\psellipse(0,1.8)(0.95,0.4)
+\psellipticarc[linewidth=1.25pt,linestyle=dotted](0,0)(0.95,0.4){0}{180}
+\psellipticarc[linewidth=1.25pt](0,0)(0.95,0.4){180}{360}
+\end{pspicture}}
+\rput(1.28,1.43){\bougie}
+\end{pspicture}&\begin{pspicture}(1.5,3)\psline[linewidth=5pt,arrowsize=15pt,arrowlength=0.5,arrowinset=0.1]{->}(0,1.5)(1.5,1.5)\end{pspicture}&
+\begin{pspicture}(-1,-0.5)(1,2.3)
+%\psgrid
+\psline(-1,0)(-1,2)\psline(1,0)(1,2)
+\psellipse(0,2)(1,0.37)
+\psellipticarc[linewidth=1.25pt,linestyle=dotted](0,0)(1,0.37){0}{180}
+\psellipticarc[linewidth=1.25pt](0,0)(1,0.37){180}{360}
+\end{pspicture}\\
+Cube de cire	&&&&Bougie cylindrique\\
+d'abeille		&&&&(sans sa mèche)\\
+Arête: 6 cm		&&&& Hauteur : 6 cm\\
+				&&&& Diamètre: 6 cm\\ \hline
+\end{tabular}
+\end{center}
+
+\emph{On ne tiendra pas compte de la masse, du volume et du prix de Ja mèche dans la suite de l'exercice.}
+
+\medskip
+
+	\begin{enumerate}
+		\item Montrer que le volume d'une bougie est d'environ $170$~cm$^3$.
+
+		\smallskip
+
+On rappelle que le volume d'un cylindre de rayon $r$ et de hauteur $h$ est donné par la formule :
+
+\[V = \pi \times  r^2 \times h.\]
+
+		\item En découpant les cubes de cire d'abeille d'arête 6~cm pour former des bougies cylindriques, la cire perdue est réutilisée pour former à nouveau d'autres cubes de cire d'abeille d'arête 6~cm.
+
+Combien de cubes au départ doit-on découper pour pouvoir reconstituer un cube de cire d'abeille d'arête 6~cm, avec la cire perdue ?
+	\end{enumerate}
+\item Un commerçant vend les bougies de cette usine au prix de $9,60$~\euro{} l'unité. Il les vend 20\,\% plus chères qu'il ne les achète à l'usine.
+
+Combien paie-t-il à l'usine pour l'achat d'une bougie ?
+\end{enumerate}
+
+\showthesource
+\end{document}

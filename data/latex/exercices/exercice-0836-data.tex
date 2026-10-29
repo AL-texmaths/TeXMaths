@@ -1,0 +1,141 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{fonction linéaire,fonction affine,graphique}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Un centre de loisirs organise pour les jeunes d'une commune des activités pendant les vacances.
+
+Pour s'inscrire dans ce centre de loisirs, plusieurs tarifs sont proposés :
+\begin{itemize}
+	\item Tarif A : on paie 5,50~\euro{} par demi-journée passée dans le centre de loisirs ;
+	\item Tarif B : on paie un abonnement annuel de 15~\euro{} puis 3,50~\euro{} pour chaque demi-journée passée dans le centre ;
+	\item Tarif C : on paie un forfait annuel de 64~\euro{} donnant accès à autant de demi-journées que l'on veut.
+\end{itemize}
+
+\begin{enumerate}
+	\item Quel est le prix pour 12 demi-journées avec le tarif B ?
+	\item On désigne par $x$ le nombre de demi-journées passées dans le centre de loisirs.
+	On considère les trois fonctions $f,\, g$, et $h$ suivantes :
+
+	\[f : x \longmapsto 15 + 3,5x \qquad\qquad g : x \longmapsto 64 \qquad\qquad h : x \longmapsto 5,5x\]
+
+	Sans justifier, associer chacune de ces fonctions au tarif qu'elle représente.
+
+	\item Le graphique ci-dessous représente les fonctions $f,\, g$, et $h$.
+	Sans justifier, associer à chaque représentation graphique ($d_1$), ($d_2$) et ($d_3$) la fonction $f$, $g$ ou $h$ correspondante.
+
+	\begin{center}
+		%Début Tikz
+		\begin{tikzpicture}[x=11mm, y=1.1mm, >=stealth]
+		\draw[color = gray!35, line width = 0.3pt, xstep=0.2, ystep = 2] (0,0) grid (11.4,84);
+		\draw[color = gray!55, line width = 0.5pt, xstep=1, ystep = 10] (0,0) grid (11.4,84);
+		\draw[->,line width=1pt] (0,0) -- (11.4,0) node[above left,text width=2.4cm,align = center] {\footnotesize Nombre de demi-journées};
+		\draw[->,line width=1pt] (0,0) -- (0,84) node[below right] {Prix en \euro{}};
+		\foreach \x in {1,...,11}
+			\draw (\x,2pt) -- (\x,-2pt) node[below] {\np{\x}};
+		\foreach \y in {10,20,...,80}
+			\draw (2pt,\y) -- (-2pt,\y) node[left] {\np{\y}};
+		\draw[teal,line width=1.4pt] (0,64) -- (11.4,64) node[pos=0.4,above]{$(d_2)$};
+		\draw[blue,line width=1.4pt] (0,0) -- (11.4,62.7) node[pos=0.4,below]{$(d_3)$};
+		\draw[red,line width=1.4pt] (0,15) -- (11.4,54.9)
+		node[pos=0.4,above]{$(d_1)$};
+		\end{tikzpicture}
+		%Fin Tikz
+%		%Début PSTricks
+%		\psset{xunit=1cm,yunit=0.1cm,arrowsize=2pt 3}
+%		\begin{pspicture}(-0.6,-5)(11,85)
+%			\psaxes[linewidth=1.25pt,Dy=10,labelFontSize=\scriptstyle]{->}(0,0)(0,0)(11,85)
+%			\multido{\n=0+1}{12}{\psline[linewidth=0.15pt](\n,0)(\n,85)}
+%			\multido{\n=0+10}{9}{\psline[linewidth=0.15pt](0,\n)(11,\n)}
+%			\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=red]{0}{11}{3.5 x mul 15 add}
+%			\psplot[plotpoints=2000,linewidth=1.25pt,linecolor=blue]{0}{11}{5.5 x mul}
+%			\psline[linewidth=1.25pt,linecolor=green](0,64)(11,64)
+%			\uput[u](9,0){\footnotesize Nombre de demi-journées}
+%			\uput[r](0,83){\footnotesize Prix en \euro}
+%			\rput(3,14){\blue $(d_3)$}\rput(3,30){\red $(d_1)$}\rput(3,66){\green $(d_2)$}
+%		\end{pspicture}
+		%Fin PSTricks
+	\end{center}
+
+	\item La droite ($d_1$) représente-t-elle une situation de proportionnalité ?
+
+	\textit{Détailler la réponse en précisant la démarche.}
+
+	\item Lire graphiquement le nombre de demi-journées à partir duquel le tarif B devient plus avantageux que le tarif A. Aucune justification n'est demandée.
+
+	\needspace{10\lineskip}
+	\item On a réalisé dans un tableur le tableau de valeurs correspondant au tarif B suivant le nombre de demi-journées de présence.
+
+	\begin{tblr}{hlines, vlines, colsep=1pt,
+			colspec={*{18}{X}},
+			columns={c,font=\sffamily},	rows={m},
+			cell{2-Z}{2-Z}={font=\small \sffamily},
+			row{1}={rowsep=0pt,ht=7mm, bg=gray9},
+			column{1}={colsep=0pt,7mm,bg=gray9},
+			column{2}={2.8cm},
+			cell{1}{1}={gray9,halign=r,valign=b,cmd={\tikz[baseline={(0,0.15)}]{\clip(0,0) rectangle (0.6,0.5) ;\fill[gray!50] (0,0)--(0.5,0.5)--(0.5,0);}}}
+			}
+		  & A                                   & B    & C  & D    & E  & F    & G  & H    & I  & J    & K  & L    & M  & N    & O  & P    & Q   \\
+		1 & Nombre de demi-journées d'activités & 1    & 2  & 3    & 4  & 5    & 6  & 7    & 8  & 9    & 10 & 11   & 12 & 13   & 14 & 15   & 16  \\
+		2 & Tarif B en \euro                    & 18,5 & 22 & 25,5 & 29 & 32,5 & 36 & 39,5 & 43 & 46,5 & 50 & 53,5 & 57 & 60,5 & 64 & 67,5 & 71
+	\end{tblr}
+
+	\begin{enumerate}
+		\item Parmi les trois formules proposées ci-dessous, recopier celle qui a été saisie dans la cellule \textsf{B2}, puis étirée vers la droite pour compléter le tableau.
+
+		\begin{center}
+			\begin{tblr}{colspec={*{3}{X[c,font=\sffamily]}},hlines, vlines}
+				=15+3,5*$x$ & =15+3,5*1 & =15+3,5*B1 \\
+			\end{tblr}
+		\end{center}
+
+		\item En utilisant le tableau de valeurs ci-dessus, déterminer le nombre de demi-journées à partir duquel le tarif C devient plus avantageux que le tarif B. Aucune justification n'est demandée.
+	\end{enumerate}
+\end{enumerate}
+
+%---------------------------------------------------------
+% Fin du document
+%---------------------------------------------------------
+\medskip
+\showthesource
+\end{document}

@@ -1,0 +1,61 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{tabularx}%
+\usepackage{tabularray}%
+\usepackage[np]{numprint}%
+\startdatakeys
+\source{24GENMATG11}
+\BO{2026}
+\cycle{4}
+\competencesDuSocle{CA,CO}
+\objectifsApprentissage{C4A3bc,C4D2aa,C4C1bc,C4C2ab,C4C3aa}
+\motsCles{écriture scientifique,vitesse,probabilité,moyenne,médiane,fraction}
+\enddatakeys
+\begin{document}%
+Cet exercice est un questionnaire à choix multiples (QCM). Aucune
+justification n'est demandée. Pour chaque question, quatre réponses sont
+proposées : une seule réponse est exacte.
+
+\begin{enumerate}
+    \item Donner l'écriture scientifique de $0,193\times10^{-100}$.
+
+    \begin{tblr}{hlines,vlines,colspec={*{4}{X[c]}}}
+        $1,93\times10^{-99}$ & $1,93\times10^{-101}$ &
+        $193\times10^{-103}$ & $193\times10^{-97}$
+    \end{tblr}
+
+    \item Lili parcourt $\np[km]{480}$ en $\np[h]{5}~\np[min]{42}$.
+    Quelle est sa vitesse moyenne en $\mathrm{km}/\mathrm{h}$, arrondie au
+    dixième ?
+
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering\arraybackslash}X|}}\hline
+        88,6 & 84,2 & 1,4 & 23,4\\ \hline
+    \end{tabularx}
+
+    \item Une roue comporte quinze secteurs équiprobables. Les nombres
+    indiqués sont, dans l'ordre, $2$, un nombre effacé, $2$, $1$, $1$, $2$,
+    $2$, $1$, $2$, $1$, $1$, $1$, $2$, $2$, $2$.
+    Est-il possible d'écrire un nombre dans le secteur effacé pour que la
+    probabilité d'obtenir 2 soit $\dfrac35$ ?
+
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering\arraybackslash}X|}}\hline
+        Oui, en écrivant 1 & Oui, en écrivant 2 &
+        Ce n'est pas possible & Oui, en laissant le secteur vide\\ \hline
+    \end{tabularx}
+
+    \item Pour la liste $5~;~1~;~3~;~10~;~17~;~11~;~10$, que représente le
+    nombre 5 ?
+
+    \begin{tabularx}{\linewidth}{|*{4}{>{\centering\arraybackslash}X|}}\hline
+        La médiane & L'étendue & La moyenne & Rien de particulier\\ \hline
+    \end{tabularx}
+
+    \item Léa paye $\dfrac15$ du prix de son vélo, puis le reste en trois
+    paiements égaux. Quelle fraction du prix représente l'un de ces paiements ?
+
+    \begin{tblr}{hlines,vlines,colspec={*{4}{X[c]}}}
+        $\dfrac{12}{5}$ & $\dfrac1{15}$ & $\dfrac4{15}$ & $\dfrac35$
+    \end{tblr}
+\end{enumerate}
+\showthesource
+\end{document}

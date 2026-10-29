@@ -1,0 +1,111 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\usepackage{colortbl}%
+\startdatakeys
+    \source{25GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{périmètre,expression littérale,tableur,équation}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+Dans cet exercice, toutes les longueurs sont exprimées en centimètres.
+
+On considère :
+\begin{itemize}[label=$\bullet$]
+\item le rectangle ABCD tel que AD = $x$ et AB = $16 - 2x$ ;
+\item le carré EFGH tel que EF $= 2x$.
+\end{itemize}
+
+\psset{unit=0.85cm,arrowsize=2pt 3}
+\begin{center}
+\begin{pspicture}(0,-1)(15,5)
+%\psgrid
+\psframe(0,2)(10,4)
+\uput[d](0,2){A}\uput[u](0,4){D}\uput[d](10,2){B}\uput[u](10,4){C}
+\psline[linewidth=0.8pt]{<->}(-0.5,2)(-0.5,4) \uput[l](-0.5,3){$x$}
+\psline[linewidth=0.8pt]{<->}(0,1)(10,1) \uput[d](5,1){$16 - 2x$}
+\psframe(0,2)(0.2,2.2)\psframe(0,4)(0.2,3.8)
+\psframe(10,4)(9.8,3.8) \psframe(10,2)(9.8,2.2)
+{\psset{linecolor=blue}
+\multido{\n=4.9+0.1}{3}{\psline(\n,1.8)(\n,2.2)}
+\multido{\n=4.9+0.1}{3}{\psline(\n,3.8)(\n,4.2)}
+\multido{\n=2.9+0.1,\na=3.1+0.1}{2}{\psline(-0.2,\n)(0.2,\na)}
+\multido{\n=2.9+0.1,\na=3.1+0.1}{2}{\psline(9.8,\n)(10.2,\na)}
+}
+\psframe(11,0)(15,4)
+\psline[linewidth=0.8pt]{<->}(11,-0.8)(15,-0.8) \uput[d](13,-0.8){$2x$}
+\uput[d](11,0){E}\uput[u](11,4){H}\uput[d](15,0){F}\uput[u](15,4){G}
+\psframe(11,0)(11.2,0.2) \psframe(15,0)(14.8,0.2)
+\psframe(15,4)(14.8,3.8) \psframe(11,4)(11.2,3.8)
+{\psset{linecolor=blue}
+\multido{\n=0.9+0.1,\na=1.1+0.1}{2}{\psline(10.8,\n)(11.2,\na)}
+\multido{\n=2.9+0.1,\na=3.1+0.1}{2}{\psline(10.8,\n)(11.2,\na)}
+\multido{\n=0.9+0.1,\na=1.1+0.1}{2}{\psline(14.8,\n)(15.2,\na)}
+\multido{\n=2.9+0.1,\na=3.1+0.1}{2}{\psline(14.8,\n)(15.2,\na)}
+\multido{\n=-0.15+0.10,\na=0.05+0.10}{2}{\psline(11.8,\n)(12.2,\na)}
+\multido{\n=-0.15+0.10,\na=0.05+0.10}{2}{\psline(13.8,\n)(14.2,\na)}
+\multido{\n=3.85+0.10,\na=4.05+0.10}{2}{\psline(11.8,\n)(12.2,\na)}
+\multido{\n=3.85+0.10,\na=4.05+0.10}{2}{\psline(13.8,\n)(14.2,\na)}}
+\psline(13,-0.2)(13,0.2) \psline(13,3.8)(13,4.2) 
+\psline(10.8,2)(11.2,2) \psline(14.8,2)(15.2,2) 
+\end{pspicture}
+\end{center}
+
+\bigskip
+
+\textbf{PARTIE A :} Dans cette partie, $x = \np[cm]{1,5}$.
+
+\medskip
+
+\begin{enumerate}
+\item Calculer le périmètre du carré EFGH.
+\item Calculer AB.
+\item Construire en vraie grandeur le rectangle ABCD.
+\item Les périmètres de ABCD et EFGH sont-ils égaux ?
+\end{enumerate}
+
+\bigskip
+
+\textbf{PARTIE B :} Dans cette partie, on cherche pour quelle(s) valeur(s) de $x$, le périmètre du rectangle est égal au périmètre du carré.
+
+\medskip
+
+\begin{enumerate}
+\item Pour essayer de répondre au problème, on utilise la feuille de calcul suivante:
+
+\smallskip
+
+\begin{center}
+\renewcommand \arraystretch {1}
+\begin{tabularx}{\linewidth}{|>{\cellcolor{lightgray}} c|m{3.85cm}|*{6}{>{\centering \arraybackslash}X|}}
+\cline{2-8}
+\rowcolor[gray]{0.7}\multicolumn{1}{c|}{\cellcolor{white}}&\centering A&B&C&D&E&F&G\\\hline
+1&Valeur de $x$&1&2&3&4&5&6\\\hline
+2&Périmètre du carré&8&16&24&32&40&48\\\hline
+3&Périmètre du rectangle&30&28&26&24&22&20\\\hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}
+\item Quel formule a-t-on pu saisir dans la cellule B2 avant de l'étirer jusqu'à G2?
+\item Ce tableau nous permet-il de trouver une valeur de $x$ pour laquelle les deux périmètres sont égaux ?
+\end{enumerate}
+
+\item 
+	\begin{enumerate}
+		\item Montrer que le périmètre du rectangle peut s'écrire $-2x + 32$.
+		\item Déterminer la solution au problème par la résolution d'une équation.
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\showthesource
+\end{document}

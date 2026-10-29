@@ -1,0 +1,55 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\startdatakeys
+    \source{22GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C2ab,C4D2ae}
+    \motsCles{fréquence,pourcentage,médiane}
+\enddatakeys
+\begin{document}%
+\def\up#1{\textsuperscript{#1}}%
+
+\medskip
+
+On a relevé la vitesse du vent à 13 heures du 1\up{er} au 15 novembre sur une plage de Nouvelle- Calédonie.
+
+Les vitesses approchées sont données, en nœuds, dans le tableau ci-dessous :
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{3cm}|*{15}{>{\centering \arraybackslash}X|}}\hline
+Jours du 1\up{er} au 15 novembre&1 &2 &3 &4 &5 &6 &7 &8 &9 &10 &11 &12 &13 &14 &15\\ \hline
+Vitesse du vent en nœuds& 10 &15 &20 &20 &15 &10 &10 &20 &15 &25 &25 &25 &20 &15 &15\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}
+\item À partir des données ci-dessus, compléter le tableau figurant sur l'annexe.
+\item Calculer le pourcentage de jours où la vitesse de vent est supérieure ou égale à 15 nœuds sur la plage, entre le 1\up{er} et le 15 novembre.
+\item Déterminer la vitesse médiane du vent sur la plage durant cette période.
+\end{enumerate}
+
+\bigskip
+
+
+\begin{center}\textbf{ANNEXE À RENDRE AVEC LA COPIE} \end{center}
+
+\medskip
+
+\textbf{Exercice 3 : question 1}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{6.5cm}|*{4}{>{\centering \arraybackslash}X|}}\hline
+Vitesse du vent (en nœuds)	&10 &15 &20 &25\\ \hline
+Nombre de jours				&3	&	&	&3\\ \hline
+Fréquence en \,\% arrondie à l'unité&&33&&\\ \hline
+\end{tabularx}
+\end{center}
+
+\bigskip
+
+\showthesource
+\end{document}

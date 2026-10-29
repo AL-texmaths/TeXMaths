@@ -1,0 +1,164 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+
+\usepackage{multido}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{24GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{losange,triangle équilatéral,angle,Scratch,programme,rotation}
+\enddatakeys
+\begin{document}%
+    \def\degres{\textsuperscript{\textdegree}}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+La quadrilatère ABCD ci-dessous est constitué de deux triangles équilatéraux de côté 5 cm.
+
+\psset{unit=0.75cm}
+\begin{center}
+\begin{pspicture}(6.5,5)
+%\psgrid
+\pspolygon(0.2,0.2)(5.2,0.2)(7.5,4.53)(2.7,4.53)%BCDA
+\psline(5.2,0.2)(2.7,4.53)
+\uput[ul](2.7,4.53){A} \uput[dl](0.2,0.2){B} \uput[dr](5.2,0.2){C} \uput[ur](7.5,4.53){D} \uput[d](2.7,0.2){5 cm}
+\psline(2.7,0.3)(2.7,0.1)
+\def\marque{\psline(0,0.1)(0,-0.1)}
+\rput{60}(1.45,2.36){\marque}\rput{-60}(3.95,2.36){\marque}\rput{60}(6.35,2.36){\marque}
+\rput(5.1,4.53){\marque}
+\end{pspicture}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Reproduire le quadrilatère ABCD en vraie grandeur.
+		\item Quelle est sa nature ?
+		\item Démontrer que l'angle $\widehat{\text{BCD}}$ mesure $120\degres$.
+	\end{enumerate}	
+\item Le programme ci-dessous permet de créer le bloc Motif qui trace le quadrilatère ABCD.
+
+Recopier et compléter les lignes 5 et 6 de ce programme.
+
+On utilise l'échelle suivante : 10 pas dans le programme représentent 1 cm dans la réalité.
+
+\medskip
+
+\begin{minipage}{0.55\linewidth}
+\begin{scratch}[scale=0.75,num blocks]
+\renewcommand*\numblock[1]{\large #1~~}
+\initmoreblocks{d\'efinir \namemoreblocks{Motif}}
+\blockrepeat{r\'ep\'eter \ovalnum{2} fois}
+{
+\blockmove{avancer de \ovalnum{50 } pas}
+\blockmove{tourner \turnleft{} de \ovalnum{60} degr\'es}
+\blockmove{avancer de \ovalnum{\ldots } pas}
+\blockmove{tourner \turnleft{} de \ovalnum{\ldots} degr\'es}
+}
+\end{scratch}
+\end{minipage}\hfill
+\begin{minipage}{0.45\linewidth}
+\psset{unit=0.5cm,arrowsize=2pt 3}
+\def\losan{\pspolygon(0.2,0.2)(5.2,0.2)(7.5,4.53)(2.7,4.53)}
+\psset{unit=0.25cm,arrowsize=2pt 3}
+\begin{pspicture}(4,3.8)
+\rput(1.3,2.){\losan}
+\rput(1.3,-2.4){Point de départ}
+\psline[linecolor=blue]{->}(1.3,-1.4)(1.3,2)
+\end{pspicture} 
+
+\end{minipage}
+
+\item Recopier et compléter les trois phrases suivantes afin d'associer chaque figure au programme qui permet de la tracer.
+
+Le programme A permet de tracer la figure \ldots.
+
+Le programme B permet de tracer la figure \ldots.
+
+Le programme C permet de tracer la figure \ldots.
+\end{enumerate}
+
+\medskip
+
+\begin{center}
+\psset{linecolor=blue}
+\begin{tabularx}{\linewidth}{*{3}{>{\centering \arraybackslash}X}}
+\fbox{Programme A} & \fbox{Programme B} & \fbox{Programme C}\\
+& & \\
+\begin{scratch}[scale=0.75]
+\blockinit{quand \greenflag est cliqu\'e}
+\blockmove{aller à x: \ovalnum{0} y: \ovalnum{0}}
+\blockmove{s'orienter à \ovalnum{90}}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'\'ecriture}
+\blockrepeat{r\'ep\'eter \ovalnum{5} fois}
+{
+\blockevent{Motif}
+\blockmove{tourner \turnleft{} de \ovalnum{72} degr\'es}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.75]
+\blockinit{quand \greenflag est cliqu\'e}
+\blockmove{aller à x: \ovalnum{0} y: \ovalnum{0}}
+\blockmove{s'orienter à \ovalnum{90}}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'\'ecriture}
+\blockrepeat{r\'ep\'eter \ovalnum{5} fois}
+{
+\blockevent{Motif}
+\blockmove{tourner \turnleft{} de \ovalnum{72} degr\'es}
+\blockmove{avancer de \ovalnum{25 } pas}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.75]
+\blockinit{quand \greenflag est cliqu\'e}
+\blockmove{aller à x: \ovalnum{0} y: \ovalnum{0}}
+\blockmove{s'orienter à \ovalnum{90}}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{r\'ep\'eter \ovalnum{5} fois}
+{
+\blockevent{Motif}
+\blockmove{avancer de \ovalnum{25 } pas}
+}
+\end{scratch}\\
+&& \\
+&& \\
+Figure 1&Figure 2&Figure 3\\
+\psset{unit=0.25cm}
+\def\losan{\pspolygon(-1.8,7.2)(3.2,7.2)(5.7,11.53013)(0.7,11.53013)}
+\begin{pspicture}(0,0)(2.5,10)
+\multido{\n=-5+2.5}{5}{\rput(\n,0){\losan}}
+\end{pspicture}
+&
+\psset{unit=0.25cm}
+\def\losan{\pspolygon(-1.8,0.2)(3.2,0.2)(5.7,4.53013)(0.7,4.53013)}
+\begin{pspicture}(-2,-10)(2,10)
+\def\losan{\pspolygon(0,0)(5,0)(7.5,4.33013)(2.5,4.33013)}
+\multido{\n=0+72}{5}{\rput{\n}(0,0){\losan}}
+\end{pspicture}
+&
+\psset{unit=0.25cm}
+\def\losan{\pspolygon(0,0)(5,0)(7.5,4.33013)(2.5,4.33013)}
+\begin{pspicture}(-7,-10)(4,12)
+%\psgrid
+\multido{\i=18+72,\I=90+72,\n=72+72}{5}{
+\psline(2.13;\i)(2.13;\I)
+\rput{\n}(2.13;\i){\losan}}
+\end{pspicture}
+\\
+\end{tabularx}
+\end{center}
+\showthesource
+\end{document}

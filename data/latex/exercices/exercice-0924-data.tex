@@ -1,0 +1,220 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-node}%
+\usepackage{multido}%
+\usepackage{scratch3}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{22GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4E1ag}
+    \motsCles{Scratch,programme,translation,symétrie centrale,symétrie axiale,rotation}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+On utilise un logiciel de programmation.
+
+On rappelle que \og s'orienter à $0\degres$ \fg{} signifie qu'on oriente le stylo vers le haut.
+
+On considère les deux scripts suivants:
+
+\begin{center}
+\begin{tabularx}{\linewidth}{X X}
+\multicolumn{1}{c}{Script 1}&\multicolumn{1}{c}{Script 2}\\
+\begin{scratch}
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\blockmove{s’orienter à \ovalnum{0} }
+\blockrepeat{répéter \ovalnum{2} fois}
+{\blockmove{avancer de \ovalnum{20}}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{40}}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\end{scratch}&
+\begin{scratch}
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\blockmove{s’orienter à \ovalnum{0} }
+\blockvariable{mettre \selectmenu{longueur} à \ovalnum{20}}
+\blockrepeat{répéter \ovalnum{2} fois}
+{\blockmove{avancer de \selectmenu{longueur}}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \selectmenu{longueur}}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+\blockvariable{ajouter à \selectmenu{longueur} \ovalnum{20}}
+}
+\end{scratch}\\
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item On exécute le script 1 ci-dessus.
+
+Représenter le chemin parcouru par le stylo sur l'ANNEXE à rendre avec la copie.
+\item Quel dessin parmi les trois ci-dessous correspond au script 2 ?
+
+On expliquera pourquoi les deux autres dessins ne correspondent pas au script 2.
+
+Chaque côté de carreau mesure 20 pixels.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{*{3}{>{\centering \arraybackslash}X}}
+\textbf{Dessin 1}&\textbf{Dessin 2} &\textbf{Dessin 3}\\
+\psset{unit=4.5mm,arrowsize=2pt 3}
+\begin{pspicture}(9,12)
+\multido{\n=0+1}{10}{\psline[linewidth=0.2pt](\n,3)(\n,12)}
+\multido{\n=3+1}{10}{\psline[linewidth=0.2pt](0,\n)(9,\n)}
+\psframe(9,2)
+\rput(4.5,1){Position de départ}
+\psline[linewidth=1.5pt](1,4)(1,5)(2,5)(2,6)(3,6)
+\psline{->}(4.5,2)(1,4)
+\end{pspicture}&
+\psset{unit=4.5mm,arrowsize=2pt 3}
+\begin{pspicture}(9,12)
+\multido{\n=0+1}{10}{\psline[linewidth=0.2pt](\n,3)(\n,12)}
+\multido{\n=3+1}{10}{\psline[linewidth=0.2pt](0,\n)(9,\n)}
+\psframe(9,2)
+\rput(4.5,1){Position de départ}
+\psline[linewidth=1.5pt](1,4)(1,5)(2,5)(2,7)(4,7)
+\psline{->}(4.5,2)(1,4)
+\end{pspicture}&
+\psset{unit=4.5mm,arrowsize=2pt 3}
+\begin{pspicture}(9,12)
+\multido{\n=0+1}{10}{\psline[linewidth=0.2pt](\n,3)(\n,12)}
+\multido{\n=3+1}{10}{\psline[linewidth=0.2pt](0,\n)(9,\n)}
+\psframe(9,2)
+\rput(4.5,1){Position de départ}
+\psline[linewidth=1.5pt](1,4)(2,4)(2,5)(4,5)(4,7)
+\psline{->}(4.5,2)(1,4)
+\end{pspicture}
+\end{tabularx}
+\end{center}
+
+\item On souhaite maintenant obtenir le motif représenté sur le dessin 4 :
+
+\begin{center}
+\psset{unit=4.5mm,arrowsize=2pt 3}
+\begin{pspicture}(9,13)
+\multido{\n=0+1}{10}{\psline[linewidth=0.2pt](\n,3)(\n,12)}
+\multido{\n=3+1}{10}{\psline[linewidth=0.2pt](0,\n)(9,\n)}
+\psframe(9,2)
+\uput[u](4.5,12){\textbf{Dessin 4}}
+\rput(4.5,1){Position de départ}
+\pspolygon[linewidth=1.5pt](1,4)(1,5)(3,5)(3,9)(5,9)(5,10)(6,10)(6,4)
+\psline{->}(4.5,2)(1,4)
+\end{pspicture}
+\end{center}
+
+Compléter sans justifier les trois cases du script 3 donné en ANNEXE à rendre avec la copie, permettant d'obtenir le dessin 4.
+\item À partir du motif représenté sur le dessin 4, on peut obtenir le pavage ci-dessous :
+
+\begin{center}
+\psset{unit=4.5mm}
+\begin{pspicture}(24,18)
+\psline[linewidth=1.5pt](0,0)(1,0)(1,1)(3,1)(3,5)(5,5)(5,7)(3,7)(3,11)(1,11)(1,13)(3,13)(3,17)(5,17)(5,18)(7,18)(7,17)(9,17)(9,13)(11,13)(11,11)(9,11)(9,7)(7,7)(7,5)(9,5)(9,1)(11,1)(11,0)(13,0)
+\psline[linewidth=1.5pt](13,0)(13,1)(15,1)(15,5)(17,5)(17,7)(15,7)(15,11)(13,11)(13,13)(15,13)(15,17)(17,17)(17,18)(19,18)(19,17)(21,17)(21,13)(23,13)(23,11)(21,11)(21,7)(19,7)(19,5)(21,5)(21,1)(23,1)(23,0)(25,0)
+\psframe[linewidth=1.5pt](18,12)\psframe[linewidth=1.5pt](6,0)(12,18)
+\psframe[linewidth=1.5pt](18,6)
+\psline[linewidth=1.5pt](6,12)(6,18)\psline[linewidth=1.5pt](12,12)(12,18)
+\psline[linewidth=1.5pt](18,12)(18,18)
+\psline[linewidth=1.5pt](12,18)(19,18)\psline[linewidth=1.5pt](18,12)(23,12)
+\psline[linewidth=1.5pt](18,6)(19,6)\psline[linewidth=1.5pt](18,0)(23,0)
+\uput[ul](1,12){A} \uput[ul](6,12){B} \uput[dl](12,18){C} \uput[ur](13,12){D}
+\uput[ur](18,12){E} \uput[ur](0,6){F} \uput[ur](12,6){G}
+\multido{\n=4.5+3.0,\na=1+1}{6}{\rput(\n,14){\na}}
+\multido{\n=2.+3.0,\na=7+1}{7}{\rput(\n,9){\na}}
+\multido{\n=2.+3.0,\na=14+1}{7}{\rput(\n,3){\na}}
+\end{pspicture}
+\end{center}
+
+Répondre aux questions suivantes sur votre copie en indiquant le numéro du motif qui convient (on ne demande pas de justifier la réponse) :
+
+	\begin{enumerate}
+		\item Quelle est l'image du motif 1 par la translation qui transforme le point B en E ?
+		\item Quelle est l'image du motif 1 par la symétrie de centre B ?
+		\item Quelle est l'image du motif 16 par la symétrie de centre G ?
+		\item Quelle est l'image du motif 2 par la symétrie d'axe (CG) ?
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+
+\begin{center}
+\textbf{\large ANNEXE à compléter et à rendre avec la copie }
+\end{center}
+
+\bigskip
+
+\textbf{Exercice 3. Question 1}
+
+\medskip
+
+\begin{minipage}{0.48\linewidth}
+\psset{unit=5mm,arrowsize=2pt 3}
+\begin{pspicture}(10,12)
+\multido{\n=0+1}{10}{\psline[linewidth=0.2pt](\n,3)(\n,12)}
+\multido{\n=3+1}{10}{\psline[linewidth=0.2pt](0,\n)(9,\n)}
+\multido{\n=0+1}{10}{\multido{\na=3+1}{10}{\psdots(\n,\na)}}
+\psframe(9,2)
+\rput(4.5,1){Position de départ}
+\psline{->}(4.5,2)(1,4)
+\end{pspicture}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+Chaque côté de carreau mesure 20 pixels.
+
+La position de départ du stylo est indiquée sur la figure ci-contre.
+\end{minipage}
+
+\bigskip
+
+\textbf{Exercice 3. Question 3}
+
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(12,12)
+\rput(1,11.5){Script 3}\psframe(0,11)(2,12)
+\psline{->}(8,6)(2,6)
+\psline{->}(8,1.5)(2,1.5)
+\psline{->}(8,-1.5)(2,-1.5)
+\rput(8,2.25){\psscaleboxto(1,8){\}}}
+\rput(2,4){\begin{scratch}[scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockpen{stylo en position d'écriture}
+\blockmove{s’orienter à \ovalnum{0}}
+\blockmove{avancer de \ovalnum{20}}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de ~~}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{80}}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{40}}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+\blockmove{avancer de ~~}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{20}}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de ~~}
+\blockmove{tourner \turnright{} de \ovalnum{90} degrés}
+\blockmove{avancer de \ovalnum{100}}
+\end{scratch}}
+\rput(10.5,2.2){Trois cases à compléter}
+\psframe(8.5,1.7)(13,2.7)
+\end{pspicture}
+
+\showthesource
+\end{document}

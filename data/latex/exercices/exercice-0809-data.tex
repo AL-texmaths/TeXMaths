@@ -1,0 +1,114 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\usepackage{scratch3}%
+\startdatakeys
+    \source{25GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{aire,pourcentage,transformation,Scratch,programme}
+\enddatakeys
+\begin{document}%
+    \def\no{\textsuperscript{o}}%
+
+\medskip
+
+Le dessus d'une table carrée, de côté $80$~cm, est composé de quatre plaques rectangulaires en bois identiques et d'une plaque carrée en verre au centre. Chaque plaque en bois a pour longueur $60$~cm et pour largeur $20$~cm.
+
+Voici la vue du dessus de la table :
+
+\begin{center}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(14,5)
+%\psgrid
+\psframe[fillstyle=solid,fillcolor=lightgray](4.5,0)(8.1,1.2)
+\rput(6.3,0.6){1}
+\psframe[fillstyle=solid,fillcolor=lightgray](8,0)(9.2,3.6)
+\rput(8.6,1.8){2}
+\psframe[fillstyle=solid,fillcolor=lightgray](9.2,3.6)(5.6,4.8)
+\psframe[fillstyle=solid,fillcolor=lightgray](5.6,4.8)(4.5,1.2)
+\rput(2.6,1.4){Plaque en bois}\rput(11,3.2){Plaque en verre}
+\psline{->}(3.7,1.2)(5.5,0.6)
+\psline{->}(9.8,3.2)(6.8,2.5)
+\end{pspicture}
+\end{center}
+
+\begin{enumerate}
+\item Montrer que l'aire du dessus de la table est égale à
+\np{6400} cm$^2$.
+\item Montrer que l'aire de la plaque en verre représente 25\,\% de l'aire totale du dessus de la table.
+\item Quel est le nom de la transformation géométrique permettant de passer du rectangle \no 1 au rectangle \no 2 ? Aucune justification n'est demandée.
+\item On souhaite réaliser un dessin du dessus de cette table avec le logiciel Scratch.
+
+Le lutin est orienté vers la droite.
+
+On a créé le bloc ci-dessous permettant de dessiner le rectangle \no 1 de la figure précédente, dans lequel 1 pas correspond à 1~cm.
+	\begin{enumerate}
+		\item Recopier et compléter les lignes 3, 5 et 6 du bloc.
+
+\begin{scratch}[num blocks]
+\initmoreblocks{définir \namemoreblocks{Rectangle}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{ } fois}
+{\blockmove{avancer de \ovalvariable{60} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{ } degrés}
+\blockmove{avancer de \ovalnum{ } pas}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}
+		\item Parmi les trois programmes ci-dessous, lequel permet de tracer la vue du dessus de la table ?
+
+\begin{center}
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(14,5)
+\psframe[fillstyle=solid,fillcolor=lightgray](4.5,0)(8.1,1.2)
+\psframe[fillstyle=solid,fillcolor=lightgray](8,0)(9.2,3.6)
+\psframe[fillstyle=solid,fillcolor=lightgray](9.2,3.6)(5.6,4.8)
+\psframe[fillstyle=solid,fillcolor=lightgray](5.6,4.8)(4.5,1.2)
+\end{pspicture}
+\end{center}
+
+\medskip
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+Programme A&Programme B&Programme C\\ \hline
+\begin{scratch}[scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmoreblocks{Rectangle}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmoreblocks{Rectangle}
+\blockmove{avancer de \ovalvariable{60} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\end{scratch}
+&
+\begin{scratch}[scale=0.8]
+\blockinit{Quand \greenflag est cliqué}
+\blockpen{effacer tout}
+\blockrepeat{répéter \ovalnum{4} fois}
+{\blockmoreblocks{Rectangle}
+\blockmove{avancer de \ovalvariable{80} pas}
+\blockmove{tourner \turnleft{} de \ovalnum{90} degrés}
+}
+\end{scratch}
+\\ \hline
+\end{tabularx}
+\end{center}
+	\end{enumerate}
+\end{enumerate}
+\showthesource
+\end{document}

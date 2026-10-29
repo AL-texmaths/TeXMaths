@@ -1,0 +1,82 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[french]{babel}%
+\startdatakeys
+    \source{25GENMATMEAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{programme de calcul,Scratch,expression littérale,équation}
+\enddatakeys
+\begin{document}%
+Au club \og Mathsetmagie \fg{}, on s'amuse à créer des programmes de calcul plus ou moins magiques.
+
+\begin{minipage}{0.5\linewidth}
+\subsection*{Partie A : Le programme de Zoé}
+
+Voici le programme de calcul de Zoé :
+\end{minipage}
+\hfill
+\begin{tabularx}{0.3\linewidth}{|X|} \hline
+\textbf{Programme de Zoé :}\\
+\textbullet~~ Choisir un nombre\\
+\textbullet~~ Soustraire 4\\
+\textbullet~~ Multiplier par 2 \\
+\textbullet~~ Ajouter 8.\\ \hline
+\end{tabularx}
+\hfill~
+
+	\begin{enumerate}
+	\item Vérifier que si on choisit 10 comme nombre de départ, on obtient 20 avec ce programme.
+	\item Quel résultat obtient-t-on avec ce programme si on choisit $-7$ comme nombre de départ?
+	\item Zoé prétend que son programme est \og magique \fg{} car, quel que soit le nombre choisi, le résultat est toujours le double du nombre de départ. A-t-elle raison?
+	\end{enumerate}
+
+\subsection*{Partie  B : Le programme de Fred}
+
+\begin{minipage}[t]{0.55\linewidth}
+Fred décide de faire son programme de calcul sur Scratch :
+
+\begin{enumerate}[start=4]
+\item Démontrer que si le nombre de départ est $x$, le résultat obtenu avec le programme de Fred est $20 x+50$.
+
+\item Quel nombre faut-il choisir au départ pour obtenir 75 avec le programme de Fred ?
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{scratch}[scale=0.8]
+\blockinit{quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Choisir un nombre} et attendre}
+\blockvariable{mettre \selectmenu{résultat} à \ovaloperator{\ovalsensing{réponse} * \ovalnum{4}}}
+\blockvariable{mettre \selectmenu{résultat} à
+\ovaloperator{\ovalvariable{résultat} + \ovalnum{10}}}
+\blockvariable{mettre \selectmenu{résultat} à
+\ovaloperator{\ovalvariable{résultat} * \ovalnum{5}}}
+\blocklook{dire \ovalvariable{résultat}}
+	\end{scratch}
+
+\begin{scratch}[scale=0.8,baseline=4]
+	\blockinit{quand \greenflag est cliqué}
+	\blocksensing{demander \ovalnum{Choisir un nombre} et attendre}
+	\blockvariable{mettre \selectmenu{résultat} à \ovaloperator{\ovalsensing{réponse} * \ovalnum{4}}}
+	\blockvariable{mettre \selectmenu{résultat} à
+	\ovaloperator{\ovalvariable{résultat} + \ovalnum{10}}}
+	\blockvariable{mettre \selectmenu{résultat} à
+	\ovaloperator{\ovalvariable{résultat} * \ovalnum{5}}}
+	\blockvariable{mettre \selectmenu{résultat} à
+	\ovaloperator{\ovalnum{~\quad~} - \ovalnum{~\quad~}}}
+	\blocklook{dire \ovalvariable{résultat}}
+\end{scratch}
+	\hfill
+	\begin{minipage}{0.6\linewidth}
+		\begin{enumerate}[start=6]
+		\item Constatant que son programme n'a rien de magique, Fred souhaite le modifier afin que le résultat soit toujours 20 fois plus grand que le nombre de départ. Recopier et compléter sur la copie la sixième ligne du programme pour que ce soit le cas.
+	\end{enumerate}
+	\end{minipage}
+
+\bigskip
+\showthesource
+\end{document}

@@ -1,0 +1,117 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pstricks-add}%
+\startdatakeys
+    \source{21GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D2ae,C4A2ee}
+    \motsCles{pourcentage,Thalès,Pythagore}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Une famille a acheté une étagère qu'elle souhaite placer le long d'un mur.
+
+\medskip
+
+\begin{enumerate}
+\item L'étagère était affichée au prix de $139,90$~\euro. La famille a obtenu une réduction de 10\,\%.
+
+Quel a été le montant de cette réduction ?
+\item Voici l'image de profil qu'on peut voir sur le guide de montage de l'étagère; ce dessin n'est
+pas à l'échelle.
+
+\begin{center}
+\psset{unit=0.8cm,arrowsize=2pt 3}
+\begin{pspicture}(17.2,7.6)
+\def\fleche{\psline[linewidth=1pt]{->}(-4.5,0.6)(-4.5,1.6)}
+%\psgrid
+\psline(0,7.6)(17.2,7.6)
+\psline(0,7)(17.2,7)\rput(8.6,7.3){Plafond}
+\psline(0,0.6)(17.2,0.6)
+\rput(2.2,3.7){AB = AB$' = 0,80$~m}
+\rput(2.2,3){BC = B$'$C$' = 2,25$~m}
+\pspolygon[fillstyle=solid,fillcolor=gray!20](4.5,0.6)(10.4,0.6)(9.4,3.1)
+%\pscircle(7,0.6){2.5}\pscircle(9.5,0.6){2.8}
+\psarc[linestyle=dotted,linewidth=1.25pt](10.4,0.6){5.9}{61}{180}
+\psline(13.1,0.6)(13.1,7)
+\psline(13.8,0.6)(13.8,7)
+\pspolygon[fillstyle=penrose,psscale=0.3](13.1,0.6)(13.1,7)(13.8,7)(13.8,0.6)
+\uput[r](13.8,3.8){Mur}
+\psline{<->}(15.3,0.6)(15.3,7)\uput[r](15.3,3.8){2,40 m}
+\rput(7.6,0.9){\small Position 1}
+\rput(8,0.3){Sol de la pièce}
+\pspolygon[linestyle=dashed,fillstyle=solid,fillcolor=gray!30](10.4,0.6)(11,3.5)(6.2,4.8)
+\pspolygon[linestyle=dashed,fillstyle=solid,fillcolor=gray!40](10.4,0.6)(12.8,2)(10.4,6.5)
+\pspolygon[linestyle=dashed,fillstyle=solid,fillcolor=gray!50](10.4,0.6)(13.1,0.6)(13.1,5.7)
+\pspolygon(4.5,0.6)(10.4,0.6)(9.4,3.1)
+\pspolygon[linestyle=dashed](10.4,0.6)(11,3.5)(6.2,4.8)
+\pspolygon[linestyle=dashed](10.4,0.6)(12.8,2)(10.4,6.5)
+\pspolygon[linestyle=dashed](10.4,0.6)(13.1,0.6)(13.1,5.7)
+\rput(12.1,0.9){\small Position 2}
+%\rput{-20}(10.4,0.6){\fleche}
+%\rput{-55}(10.4,0.6){\fleche}
+%\rput{-90}(10.4,0.6){\fleche}
+\psarc{<-}(10.4,0.6){4.5}{140}{160}
+\psarc{<-}(10.4,0.6){4.5}{95}{115}
+\psarc{<-}(10.4,0.6){4.5}{65}{75}
+\rput{-154}(9.4,3.1){\psframe(0.35,0.35)}
+\uput[d](4.5,0.6){C}\uput[d](10.4,0.6){A}\uput[u](9.4,3.1){B}\uput[l](6.2,4.8){D}\uput[u](10.4,6.5){E}
+\uput[ul](13.1,5.7){C$'$}\uput[d](13.1,0.6){B$'$}
+\rput{27}(7.1,2.2){2,25~m}\rput{-69}(10.1,2.1){0,80~m}
+\end{pspicture}
+\end{center}
+
+L'étagère a été montée à plat sur le sol de la pièce ; elle est donc en position 1.
+
+On veut s'assurer qu'elle ne touchera pas le plafond au moment de la relever pour atteindre la position 2.
+
+On ne dispose d'aucun instrument de mesure.
+
+Avec les données du schéma précédent, vérifier que l'étagère ne touchera pas le plafond.
+
+\item Dans cette question, on supposera que le meuble a pu être disposé contre le mur.
+
+On installe maintenant quatre tablettes horizontales régulièrement espacées et représentées ici par les segments [DE], [FG], [HI] et [JK].
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(5,6.8)
+%\psgrid
+\psline(0,0.8)(5,0.8)%AB'
+\psline(4,0.8)(4,6.8)(0.6,0.8)
+\psframe(4,0.8)(3.7,1.1)
+\psline(4,2)(1.26,2)%KJ
+\psline(4,3.2)(1.94,3.2)%IH
+\psline(4,4.4)(2.62,4.4)%GF
+\psline(4,5.6)(3.3,5.6)%ED
+\rput(2.5,0.1){Sol de la pièce}
+\uput[d](0.6,0.8){A} \uput[d](4,0.8){B$'$} \uput[u](4,6.8){C$'$} \uput[l](3.3,5.6){D}
+\uput[r](4,5.6){E} \uput[l](2.62,4.4){F} \uput[r](4,4.4){G} \uput[l](1.94,3.2){H}
+\uput[r](4,3.2){I} \uput[l](1.26,2){J} \uput[r](4,2){K}
+\def\doublebarre{\psline(-0.1,-0.05)(0.1,-0.05)\psline(-0.1,0.05)(0.1,0.05)}
+\multirput(4,1.4)(0,1.2){5}{\doublebarre}
+\end{pspicture}
+\end{center}
+
+	\begin{enumerate}
+		\item Calculer la longueur C$'$E.
+		\item Calculer la longueur de la tablette [DE].
+		\item Calculer la longueur de la tablette [HI].
+	\end{enumerate}
+
+\begin{center}
+	\begin{tabular}{|l|}\hline
+Rappels des données :\\
+B$'$C$' = 2,25$ m\\
+AB$' = 0,80$ m\\ \hline
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\showthesource
+\end{document}

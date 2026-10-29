@@ -1,0 +1,55 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{21GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2cb,C4B1fg}
+    \motsCles{aire,volume,conversion,proportionnalité}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+On doit appliquer deux couches de peinture sur le sol et les parois intérieures d'une piscine rectangulaire dont les dimensions sont données dans le document 2.
+
+À l'aide des documents ci-dessous, calculer le budget que l'on doit prévoir pour les travaux de peinture.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{5.6cm}|X|}\hline
+\textbf{Document 1 :} pot de peinture
+
+Surface pouvant être peinte: $35$ m$^2$
+
+Prix : \np{12000}~F&
+\textbf{Document 2 :} piscine de base rectangulaire
+
+Longueur : 8~m Largeur : 4~m Profondeur : 1,70~m
+
+\begin{center}
+\psset{unit=0.8cm}
+\begin{pspicture}(0,-1.4)(7.8,3.5)
+%\psgrid
+\pspolygon(0,1.4)(5.8,0)(6.5,2.3)(0.7,3.7)
+\psline(0.7,3.7)(0.7,2.3)(6.1,1)
+\psline(0,1.4)(0,0)(5.8,-1.4)(5.8,0)
+\psline(5.8,-1.4)(6.5,0.9)(6.5,2.3)
+\psline(0.7,2.3)(0.4,1.3)
+\rput(3.6,3.4){8 m}
+\rput(0,2.8){4 m}
+\uput[r](6.5,1.6){1,70 m}
+\end{pspicture}
+\end{center}\\ \hline
+\end{tabularx}
+\end{center}
+
+\textbf{Toute trace de recherche même non aboutie sera prise en compte dans la notation.}
+
+\bigskip
+
+\showthesource
+\end{document}

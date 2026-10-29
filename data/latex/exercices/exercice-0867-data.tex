@@ -1,0 +1,92 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{textcomp}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{graphicx}%
+\usepackage[np]{numprint}%
+\startdatakeys
+    \source{21GENMATPO1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2da}
+    \motsCles{transformation,développement,équation,facteurs premiers,fraction,coordonnées géographiques}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\graphicspath{{../brevet/2021/}}
+
+\medskip
+
+Cet exercice est constitué de 5 questions indépendantes.
+
+\medskip
+
+\begin{enumerate}
+\item Sur la figure ci-dessous, chacun des quadrilatères quad1, quad2 et quad3 est l'image du quadrilatère TRAP par une transformation.
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(0,-0.4)(7,8)
+%\psgrid
+\def\quad{\pspolygon(1.8,0)(0.8,1.4)(0,1.4)(0,0)\psframe(0.15,0.15)\psframe(0,1.4)(0.15,1.25)}%PART
+\psframe(2.3,4)(2.1,3.8)
+\rput(0.5,4){\quad}
+\uput[dl](0.5,4){\small P}\uput[ur](2.3,4){\small A}\uput[ur](1.3,5.4){\small R}\uput[ul](0.5,5.4){\small T}
+\psline(1,0)(7,6)\uput[dr](3.6,2.6){D}\uput[dr](6,5){E}
+\psdots[dotstyle=+,dotangle=45](3.6,2.6)(6,5)\rput{90}(2.3,2.2){\quad}
+\rput{-90}(5.4,-0.2){\psscalebox{-1 1}{\quad}}\rput(5.9,0.6){quad1}
+\rput(2.9,6.4){\quad}\rput(3.6,6.9){quad2}\rput(1.7,3){quad3}
+\end{pspicture}
+\end{center}
+
+Recopier les trois phrases ci-dessous sur la copie et compléter, sans justifier, chacune d'elles par le numéro de l'une des transformations proposées dans le tableau qui suit:
+	\begin{enumerate}
+		\item Le quadrilatère quad1 est l'image du quadrilatère TRAP par la transformation numéro \ldots
+		\item Le quadrilatère quad2 est l'image du quadrilatère TRAP par la transformation numéro \ldots
+		\item Le quadrilatère quad3 est l'image du quadrilatère TRAP par la transformation numéro \ldots
+ 	\end{enumerate}
+
+\medskip
+
+\begin{tabularx}{\linewidth}{|X|X|}\hline
+\textbf{Transformation numéro 1} : translation qui transforme le point D en le point E.&
+\textbf{Transformation numéro 4} : translation qui transforme le point E en le point D.\\ \hline
+\textbf{Transformation numéro 2} : rotation de centre A et d'angle 90\degres{} dans le sens contraire des aiguilles d'une montre.&
+\textbf{Transformation numéro 5} : rotation de centre A et d'angle 120\degres{} dans le sens contraire des aiguilles d'une montre.\\ \hline
+\textbf{Transformation numéro 3} : symétrie centrale de centre D.&
+\textbf{Transformation numéro 6} : symétrie axiale d'axe (DE).\\ \hline
+\end{tabularx}
+
+\item Développer et réduire l'expression suivante:
+
+\[(2x - 3)(- 5 + 2x) - 4 + 6x.\]
+
+\item Résoudre l'équation suivante :
+
+\[(x - 6)(5x - 2) = 0.\]
+
+\item
+	\begin{enumerate}
+		\item Décomposer, sans justifier, en produit de facteurs premiers les nombres \np{1386} et \np{1716}.
+		\item En déduire la forme irréductible de la fraction : $\dfrac{\np{1386}}{\np{1716}}$.
+	\end{enumerate}
+\item Les coordonnées géographiques de la ville appelée Jokkmokk sont environ: 67\degres{} Nord et 19\degres{} Est.
+
+Placer approximativement la ville de Jokkmokk sur le planisphère en ANNEXE à rendre avec la copie.
+\end{enumerate}
+
+\bigskip
+
+\medskip
+
+\begin{center}
+\includegraphics[width=12cm]{Mappemonde_Polynesie2_2021}
+\end{center}
+
+\vspace{1.5cm}
+
+\showthesource
+\end{document}

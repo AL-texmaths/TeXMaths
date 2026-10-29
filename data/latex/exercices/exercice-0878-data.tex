@@ -1,0 +1,67 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{graphicx}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D1be,C4D2aa}
+    \motsCles{étendue,moyenne,médiane,pourcentage,coordonnées géographiques}
+\enddatakeys
+\begin{document}%
+
+\graphicspath{{../brevet/2021/}}
+
+\medskip
+
+Sur l'île de Madagascar, un scientifique mène une étude sur les tortues vertes.
+
+La tortue verte a pour nom scientifique: \og Chelonia Mydas \fg.
+
+La carapace mesure en moyenne $115$~cm et l'animal pèse entre $80$ et $130$~kg.
+
+Elle est classée comme espèce \og En Danger».
+
+\medskip
+
+Afin de surveiller la bonne santé des tortues, elles sont régulièrement pesées. Voici les données relevées par ce scientifique en mai 2021.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|m{3cm}|*{7}{>{\centering \arraybackslash}X|}}\hline
+Lettres de marquage&A-001&A-002&A-003&A-004&A-005&A-006&A-007\\ \hline
+Sexe de la tortue&Mâle&Femelle&Femelle&Femelle&Mâle& Femelle&Femelle\\ \hline
+Masse (en kg)&113&96&125&87&117&104&101\\ \hline
+\end{tabularx}
+\end{center}
+
+\begin{enumerate}
+\item Calculer l'étendue de cette série statistique.
+\item Calculer la masse moyenne de ces 7 tortues. Arrondir le résultat à l'unité.
+\item Déterminer la médiane de cette série statistique. Interpréter le résultat.
+\item Est-il vrai que les mâles représentent moins de 20\,\% de cet échantillon ?
+\item L'île de Madagascar a pour coordonnées géographiques (20 Sud ; 45 Est).
+
+Placer une croix sur le planisphère fourni en annexe afin de marquer la position de l'île de Madagascar.
+\smallskip
+
+L'annexe est à rendre avec la copie.
+\end{enumerate}
+
+\medskip
+
+\begin{center}
+\vspace{3cm}
+
+\begin{pspicture}(15,10)
+%\psgrid
+\rput(7.5,5){\includegraphics[width=14.cm]{Mappemonde_Metropole_sept_2021}}
+\psdots[linecolor=yellow,dotscale=1.](2.8,6.7)(7.22,7.18)(8.9,4)(12.2,6.675)
+\end{pspicture}
+\end{center}
+
+\showthesource
+\end{document}

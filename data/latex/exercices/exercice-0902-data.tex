@@ -1,0 +1,142 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{multido}%
+\usepackage{scratch3}%
+\usepackage{tabularx}%
+\usepackage{array}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{22GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4E1ag}
+    \motsCles{Scratch,programme,polygone}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Dans cet exercice, toutes les longueurs sont exprimées en pixel.
+
+\medskip
+
+\textbf{Partie A :}
+
+\medskip
+
+Un professeur donne à ses élèves un motif en forme de parallélogramme et le script, en partie rédigé, qui permet de tracer ce motif.
+
+On précise que le lutin est au point de départ, comme indiqué sur la figure ci- dessous, et qu'il est orienté vers la droite:
+
+\begin{tabularx}{\linewidth}{m{8cm} X}
+\textbf{Parallélogramme obtenu :}&\textbf{Script du motif}\\
+\psset{unit=1cm}
+\begin{pspicture}(8,2.4)
+\rput(1,0.2){Départ $\to$}
+\pspolygon(1.9,0.2)(5.6,0.2)(7.7,2)(4,2)
+\psarc(1.9,0.2){0.4}{0}{40}\psarc(5.6,0.2){0.4}{40}{180}
+\uput[u](5.5,2){40 pixels}\uput[r](6.5,0.9){30 pixels}
+\rput(2.55,0.4){$40\degres$}\rput(5.3,0.75){$140\degres$}
+\end{pspicture}&\begin{scratch}
+\initmoreblocks{définir \namemoreblocks{motif}}
+{
+\blockrepeat{répéter \ovalnum{2} fois }
+{
+\blockmove{avancer de \ovalnum{40}}
+\blockspace[1]
+}
+}
+\end{scratch}\\
+\end{tabularx}
+
+Recopier dans le bon ordre, sur votre copie, les instructions suivantes à insérer dans le script du motif permettant de tracer le parallélogramme ci-dessus:
+
+\begin{scratch}
+\blockmove{avancer de \ovalnum{30}}\end{scratch}\quad
+\begin{scratch}\blockmove{tourner \turnleft{} de \ovalnum{40} degrés}\end{scratch}\quad
+\begin{scratch}\blockmove{tourner \turnleft{} de \ovalnum{140} degrés}
+\end{scratch}
+
+
+\medskip
+
+\textbf{Partie B :}
+
+\medskip
+
+Le professeur demande ensuite à ses élèves d'intégrer ce script dans un programme de leur choix permettant de tracer des figures composées de plusieurs de ces motifs.
+
+Voici les programmes écrits par deux élèves.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{*{2}{X}}
+\textbf{Programme de l'élève A}& \textbf{Programme de l'élève B}\\
+\begin{scratch}[num blocks]
+\blockinit{Quand \selectmenu{flèche droite} est cliqué}
+\blockpen{effacer tout}
+\blockmove{aller à x: \ovalnum{-230} y: \ovalnum{-170}}
+\blockmove{s'orienter à \ovalnum{90} degrés}
+\blockrepeat{répéter \ovalnum{9} fois}
+{\blockpen{stylo en position d'écriture}
+\blocklook{Motif}
+\blockpen{relever le stylo}
+\blockmove{avancer de \ovalnum{50}}}
+\end{scratch}&
+\begin{scratch}[num blocks]
+\blockinit{Quand \selectmenu{espace} est cliqué}
+\blockpen{effacer tout}
+\blockmove{aller à x: \ovalnum{0} y: \ovalnum{0}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{9} fois}
+{\blocklook{Motif}
+\blockmove{tourner \turnleft{} de \ovalnum{40} degrés}}
+\blockpen{relever le stylo}
+\end{scratch}\\
+\end{tabularx}
+\end{center}
+
+On rappelle que \og s'orienter à 90 \fg{} signifie que l'on est orienté vers la droite.
+
+\medskip
+
+\begin{enumerate}
+\item Quelle action au clavier permet de lancer le programme de l'élève B ?
+\item Parmi les figures suivantes, indiquer, ici \textbf{sans justifier }:
+	\begin{enumerate}
+		\item laquelle est obtenue avec le programme de l'élève A ?
+		\item laquelle est obtenue avec le programme de l'élève B ?
+	\end{enumerate}
+\end{enumerate}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|>{\centering \arraybackslash}X|}\hline
+\textbf{Figure 1}&\textbf{Figure 2}\\
+\psset{unit=0.8cm}
+\def\losange{\pspolygon(0,0)(1.058,0)(1.666,0.51)(0.608,0.51)}
+\begin{pspicture}(0,-1.9)(12,1.9)
+\multido{\n=0.00+1.258}{9}{\rput(\n,0){\losange}}
+\end{pspicture}&
+\psset{unit=1cm}
+\def\losange{\pspolygon(0,0)(1.058,0)(1.666,0.51)(0.608,0.51)}
+\begin{pspicture}(-1.9,-1.9)(1.9,1.9)
+\pspolygon(0.48;-70)(0.48;-30)(0.48;10)(0.48;50)(0.48;90)(0.48;130)(0.48;170)(0.48;210)(0.48;250)
+\multido{\n=-110+40,\na=-40+40}{9}{\rput{\na}(0.5;\n){\losange}}
+\end{pspicture}\\ \hline
+\textbf{Figure 3}&\textbf{Figure 4}\\
+\psset{unit=0.8cm}
+\def\losange{\pspolygon(0,0)(1.058,0)(1.666,0.51)(0.608,0.51)}
+\begin{pspicture}(0,-1.9)(12,1.9)
+\multido{\n=0.00+1.058}{9}{\rput(\n,0){\losange}}
+\end{pspicture}&\psset{unit=1cm}
+\def\losange{\pspolygon(0,0)(1.058,0)(1.666,0.51)(0.608,0.51)}
+\begin{pspicture}(-1.9,-1.9)(1.9,1.9)
+\multido{\n=0+40}{9}{\rput{\n}(0;\n){\losange}}
+\end{pspicture}\\ \hline
+\end{tabularx}
+\end{center}
+
+\showthesource
+\end{document}

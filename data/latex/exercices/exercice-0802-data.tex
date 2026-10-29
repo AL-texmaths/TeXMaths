@@ -1,0 +1,130 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{textcomp}%
+\startdatakeys
+    \source{25GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{trigonométrie,vitesse,échelle,coordonnées géographiques}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+    \def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Cet exercice est un questionnaire à choix multiple (QCM).
+
+Pour chaque question, quatre réponses sont proposées. \textbf{Une seule réponse est exacte}.
+
+Recopier sur la copie le numéro de la question et la réponse choisie. Aucune justification n'est demandée.
+
+\medskip
+
+\textbf{Question 1}
+
+La formule qui permet d’obtenir la pointure de chaussure $p$ à partir de la longueur $L$ du pied, exprimée en centimètres, est  $p = 1,5(L + 1)$.
+
+Quelle est la pointure d’un pied de longueur 25 cm ?
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+37,5& 38& 38,5&39\\ \hline
+\end{tabularx}
+\end{center}
+
+\textbf{Question 2}
+
+\begin{minipage}{0.6\linewidth}
+Le triangle MUR, rectangle en U, qui est représenté ci-contre n’est pas en vraie grandeur.
+
+Quelle est la mesure de l'angle $\widehat{\text{RMU}}$ arrondie au degré ?
+\end{minipage}\hfill
+\begin{minipage}{0.35\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(5,3.3)
+\pspolygon(0.3,0.3)(3.8,0.3)(3.8,2.8)
+\psframe(3.8,0.3)(3.5,0.6)
+\psarc(0.3,0.3){0.9}{0}{37}
+\uput[dl](0.3,0.3){M} \uput[dr](3.8,0.3){U}\uput[ur](3.8,2.8){R}\uput[ul](1.8,1.6){9,7 cm}\uput[r](3.8,1.55){7,2 cm}\uput[ur](1.4,0.5){?}
+\end{pspicture}
+\end{minipage}
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+$37\degres$& $42\degres$&$48\degres$&$53\degres$\\ \hline
+\end{tabularx}
+\end{center}
+
+\textbf{Question 3}
+
+Un coureur a remporté la course du 100~m en 10 secondes exactement.
+
+À quelle vitesse moyenne en km/h a-t-il parcouru cette distance ?
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+10 km/h &36 km/h& 44 km/h&60 km/h\\ \hline
+\end{tabularx}
+\end{center}
+
+\textbf{Question 4}
+
+Roxane a acheté le modèle réduit d’un tableau célèbre à l’échelle $\dfrac{1}{20}$.
+
+La largeur du modèle réduit est 7 cm. Quelle est la largeur réelle du tableau ?
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+ 14 cm &27 cm& 35 cm&140 cm\\ \hline
+\end{tabularx}
+\end{center}
+
+\textbf{Question 5}
+
+\begin{minipage}{0.45\linewidth}
+Trois points nommés A, B, et C sont positionnés sur la sphère ci-contre.
+\end{minipage}\hfill
+\begin{minipage}{0.53\linewidth}
+\psset{unit=1cm}
+\begin{pspicture}(8,4.7)
+\pscircle(2.5,2.4){2}
+\psdots[dotstyle=+,dotangle=45,dotscale=2.2](1.48,3.4)(1.85,0.75)(3.04,3.35)
+\uput[ur](1.48,3.4){\small A}\uput[ur](3.04,3.35){\small C}\uput[ur](1.85,0.75){\small B}
+\psellipticarc(2.5,2.4)(2,0.4){-180}{0}
+\psellipticarc[linestyle=dashed](2.5,2.4)(2,0.4){0}{180}
+\psellipticarc(2.5,1.6)(1.85,0.4){-180}{0}
+\psellipticarc[linestyle=dashed](2.5,1.6)(1.85,0.4){0}{180}
+\psellipticarc(2.5,1.)(1.38,0.3){-180}{0}
+\psellipticarc[linestyle=dashed](2.5,1)(1.38,0.3){0}{180}
+\psellipticarc(2.5,3.6)(1.58,0.3){-180}{0}
+\psellipticarc[linestyle=dashed](2.5,3.6)(1.58,0.3){0}{180}
+\psellipticarc(2.5,2.4)(1.2,2){90}{270}
+\psellipticarc(2.5,2.4)(0.6,2){-90}{90}
+\psellipticarc(2.5,2.4)(1.2,2){-90}{90}
+\psellipticarc(2.5,2.4)(0.3,2){90}{-90}
+\rput(4.4,3.6){\footnotesize $65\degres$}\rput(4.7,2.4){\footnotesize $0\degres$}\rput(4.6,1.5){\footnotesize $40\degres$}\rput(4.2,0.8){\footnotesize $65\degres$}
+\rput(2.5,4.6){\footnotesize N}\rput(2.5,0.2){\footnotesize S}\rput(0.2,2.4){\footnotesize O}
+\rput(5,2.4){\footnotesize E}
+\uput[r](5.4,3.6){N : Nord} \uput[r](5.4,2.8){S : Sud}
+\uput[r](5.4,2){O : Ouest} \uput[r](5.4,1.2){E : Est}
+\rput{90}(1.1,2.4){\footnotesize $30\degres$}\rput{90}(2,2.2){\footnotesize $0\degres$}
+\rput{90}(2.8,2.3){\footnotesize $30\degres$}\rput{90}(3.5,2.4){\footnotesize $50\degres$}
+\end{pspicture}
+
+\end{minipage}
+
+Quel point a pour coordonnées ($65\degres$ N~;~$30\degres$ O) ?
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{4}{>{\centering \arraybackslash}X|}}\hline
+A &B& C& Aucun\\ \hline
+\end{tabularx}
+\end{center}
+
+\bigskip
+\showthesource
+\end{document}

@@ -1,0 +1,116 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{tabularx}%
+\usepackage{scratch3}%
+\usepackage[french]{babel}%
+\usepackage{multido}%
+\startdatakeys
+    \source{24GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Scratch,programme,losange,angle,rotation}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\bigskip
+
+Dans cet exercice, aucune justification n'est attendue pour les réponses apportées aux questions 1. et 2.
+
+À l'aide d'un logiciel de programmation, on définit un bloc \og Losange\fg{} pour construire un losange.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{2}{>{\centering \arraybackslash}X|}}\hline
+\textbf{Bloc \og Losange \fg }\rule{0pt}{15pt}&\textbf{Losange obtenu}\\
+&\\
+\parbox{5cm}{
+\begin{scratch}[pre text=\bf\sffamily,scale=0.75]
+\initmoreblocks{définir \namemoreblocks{Losange}}
+\blockpen{stylo en position d'écriture}
+\blockrepeat{répéter \ovalnum{2} fois}
+{
+\blockmove{avancer de \ovalnum{20}}
+\blockmove{tourner \turnright{} de \ovalnum{60} degrés}
+\blockmove{avancer de \ovalnum{$a$}}
+\blockmove{tourner \turnright{} de \ovalnum{$b$} degrés}
+}
+\blockpen{relever le stylo}
+\end{scratch}
+}% fin du parbox
+&
+\parbox{5cm}{
+\psset{unit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(0,-5)(4.2,1.3)
+\pspolygon(3.3,0.7)(4.1,0.7)(4.45,0)(3.65,0)
+%\psgrid 
+\psline{->}(2.6,0.7)(3.3,0.7)
+\uput[r](0,1.1){Point et}
+\uput[r](0,0.7){orientation de}
+\uput[r](0,0.3){départ}
+\end{pspicture}
+}
+\\ 
+&\\
+ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Dans le bloc \og Losange \fg, par quelles valeurs faut-il remplacer $a$ et $b$ pour obtenir le losange ci-dessus ?
+\item On définit ensuite un nouveau bloc nommé \og Motif A \fg{} :
+
+\begin{center}
+\begin{scratch}[pre text=\bf\sffamily,scale=0.75]
+\initmoreblocks{définir \namemoreblocks{Motif A}}
+\blockrepeat{répéter \ovalnum{3} fois}
+{
+\blockmove{Losange}
+\blockmove{tourner \turnright{} de \ovalnum{60} degrés}
+}
+\end{scratch}
+\end{center}
+
+Parmi les figures suivantes, quelle est celle qui est obtenue en exécutant le bloc \og Motif A\fg{} ?
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|*{3}{>{\centering \arraybackslash}X|}}\hline
+Figure 1& Figure 2& Figure 3\\ \hline
+\psset{unit=1cm}
+\begin{pspicture}(-2,-2)(2,2)
+\def\petale{\pspolygon(0,0)(1;0)(1.732;-30)(1;-60)}
+\multido{\n=0+-45}{3}{\rput{\n}(0,0){\petale}}
+
+\end{pspicture}&
+\psset{unit=1cm}
+\begin{pspicture}(-2,-2)(2,2)
+\def\petale{\pspolygon(0,0)(1;0)(1.732;30)(1;60)}
+\multido{\n=0+60}{6}{\rput{\n}(0,0){\petale}}
+\end{pspicture}&\psset{unit=1cm}
+\begin{pspicture}(-2,-2)(2,2)
+\def\petale{\pspolygon(0,0)(1;0)(1.732;-30)(1;-60)}
+\multido{\n=0+-60}{3}{\rput{\n}(0,0){\petale}}
+
+\end{pspicture}\\ \hline
+\end{tabularx}
+\end{center}
+
+\item On a défini un nouveau bloc nommé \og Motif B \fg. En l'exécutant, on a obtenu la figure ci-dessous:
+
+\begin{center}
+\psset{unit=1cm}
+\begin{pspicture}(0,-1)(6,0.1)
+%\psgrid
+\def\petale{\pspolygon(0,0)(1;0)(1.732;-30)(1;-60)}
+\multido{\n=0+2}{3}{\rput(\n,0){\petale}}
+\end{pspicture}
+\end{center}
+
+Écrire un script du bloc \og Motif B \fg.
+\end{enumerate}
+\showthesource
+\end{document}

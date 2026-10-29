@@ -1,0 +1,52 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularx}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{24GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{fonction,image,antécédent,tableur,développement,équation produit}
+\enddatakeys
+\begin{document}%
+
+\bigskip
+
+On considère deux fonctions $f$ et $g$ définies par :
+
+\[f(x) = x^2 - x - 6 \qquad \qquad g(x) = -2x.\]
+
+\begin{enumerate}
+\item 
+	\begin{enumerate}
+		\item Montrer que l'image de 5 par la fonction $f$ est 14.
+		\item Déterminer l'antécédent de 4 par la fonction $g$.
+		\end{enumerate}		
+Pour calculer des images de nombres par les fonctions $f$et $g$, on utilise un tableur et on obtient la copie d'écran suivante:
+
+\begin{center}
+\begin{tabularx}{0.9\linewidth}{|c|c|*{7}{>{\centering \arraybackslash}X|}}\hline
+	&\text{A}&B&C&D&E&F&G&H\\ \hline
+1	&$x$&$-4$&$-3$&$-2$&$-1$&0&1&2\\ \hline
+2	&$f(x) = x^2 - x - 6$&14&6&0&$-4$&$-6$&$-6$&$-4$\\ \hline
+3	&$g(x) = -2x$&8&6&4&2&0&$-2$&$-4$\\ \hline
+\end{tabularx}
+\end{center}
+
+	\begin{enumerate}[resume]
+		\item À l'aide des informations précédentes, citer deux antécédents de 14 par la fonction $f$.
+		
+		\item  Quelle formule a-t-on pu saisir dans la cellule B2 avant de l'étirer vers la droite jusqu'à la cellule H2 ?
+		\item Existe-t-il un nombre qui a la même image par la fonction $f$ et par la fonction $g$ ?
+		\end{enumerate}
+\item 
+	\begin{enumerate}
+		\item Montrer que, pour tout nombre $x,\, f(x)$ est égal à $(x + 2)(x - 3)$. 
+		\item Résoudre l'équation $f(x) = 0$.
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

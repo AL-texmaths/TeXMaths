@@ -1,0 +1,78 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{22GENMATNC1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D3bf,C4D3ba,C4E1ag}
+    \motsCles{fonction affine,expression littérale,lecture graphique,équation}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Juliette désire apprendre la planche à voile, elle prend des renseignements auprès d'un club qui propose trois tarifs mensuels.
+
+\begin{itemize}
+\item[$\bullet~~$] \textbf{e tarif découverte} à \np{1600}~F par heure de cours.
+\item[$\bullet~~$] \textbf{Le tarif personnalisé} qui comprend une carte d'adhérent à \np{4800}~F et un prix fixe de $600$~F par heure de cours.
+\item[$\bullet~~$] \textbf{Le tarif renforcé} à \np{9600}~F pour un nombre illimité d'heures de cours.
+\end{itemize}
+
+\medskip
+
+\begin{enumerate}
+\item Calculer le prix à payer pour $4$ heures de cours avec le tarif découverte.
+\item
+	\begin{enumerate}
+		\item Montrer que $4$ heures de cours avec le tarif personnalisé coûtent \np{7200}~F.
+		\item Calculer le prix à payer pour $10$ heures de cours avec le tarif personnalisé.
+
+On désigne par $x$ le nombre d'heures de cours. On note $P(x)$ le prix à payer en francs avec le tarif personnalisé.
+		\item Exprimer $P(x)$ en fonction de $x$.
+	\end{enumerate}
+\end{enumerate}
+
+Les fonctions donnant les prix à payer avec les tarifs découverte et renforcé sont représentées sur l'annexe.
+
+\begin{enumerate}[resume]
+\item
+	\begin{enumerate}
+		\item Pour combien d'heures de cours ces deux tarifs sont-ils égaux?
+		\item Tracer la représentation graphique de la fonction $P$ définie par $P(x) = 600x + \np{4800}$ sur l'annexe.
+		\item Quel est le tarif le plus économique pour Juliette si elle décide de prendre $7$ heures de cours ? Justifier la réponse.
+	\end{enumerate}
+\item Pour combien d'heures de cours Juliette paie-t-elle le même prix avec le tarif personnalisé et le tarif renforcé ?
+\end{enumerate}
+
+\bigskip
+
+
+\textbf{Exercice 5 : question 3}
+
+\begin{center}
+\psset{xunit=0.8cm,yunit=0.0005cm,arrowsize=2pt 3}
+\begin{pspicture}(-1,-1000)(16.5,16000)
+\multido{\n=0+1}{17}{\psline[linewidth=0.1pt](\n,0)(\n,16000)}
+\multido{\n=0+2000}{8}{\psline[linewidth=0.1pt](0,\n)(16.5,\n)}
+\multido{\n=0+2000}{8}{\uput[l](0,\n){\np{\n}}}
+\psaxes[linewidth=1.25pt,Dy=16000]{->}(0,0)(0,0)(16.5,16000)
+\psline(0,9600)(16.5,9600)
+\psplot[plotpoints=500]{0}{9.8}{1600 x mul}
+\rput{45}(8.75,13500){Tarif découverte}
+\uput[d](15,9600){Tarif renforcé}
+\uput[u](15,0){Durée en heures}
+\uput[r](0,15500){Tarif en F}
+\end{pspicture}
+\end{center}
+
+\bigskip
+
+\showthesource
+\end{document}

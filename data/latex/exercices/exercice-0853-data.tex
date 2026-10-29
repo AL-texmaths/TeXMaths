@@ -1,0 +1,72 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{tabularx}%
+\usepackage{diagbox}%
+\usepackage{array}%
+\startdatakeys
+    \source{21GENMATG11}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4C1bc,C4C2bd,C4B2eb}
+    \motsCles{probabilité}
+\enddatakeys
+\begin{document}%
+
+\textbf{Partie 1}
+
+\medskip
+Dans cette première partie, on lance un dé bien équilibré à six faces numérotées de 1 à 6, puis on note le numéro de la face du dessus.
+
+	\begin{enumerate}
+		\item Donner sans justification les issues possibles.
+
+		\item Quelle est la probabilité de l'évènement A : \og On obtient 2 \fg{} ?
+
+		\item Quelle est la probabilité de l'évènement B : \og On obtient un nombre impair \fg{} ?
+	\end{enumerate}
+
+	\textbf{Partie 2}
+
+\medskip
+
+Dans cette deuxième partie, on lance simultanément deux dés bien équilibrés à six faces, un rouge et un vert. On appelle \og score \fg{} la somme des numéros obtenus sur chaque dé.
+
+	\begin{enumerate}
+		\item Quelle est la probabilité de l'évènement C : \og le score est 13 \fg{} ? Comment appelle-t-on un tel évènement ?
+
+		\item Dans le tableau à double entrée donné en ANNEXE, on remplit chaque case avec la somme des numéros obtenus sur chaque dé.
+
+		\begin{enumerate}
+			\item Compléter, sans justifier, le tableau donné en ANNEXE à rendre avec la copie.
+
+			\item Donner la liste des scores possibles.
+		\end{enumerate}
+
+		\item \begin{enumerate}
+			\item Déterminer la probabilité de l'évènement D : \og le score est 10 \fg.
+
+			\item Déterminer la probabilité de l'évènement E : \og le score est un multiple de 4 \fg.
+
+			\item Démontrer que le score obtenu a autant de chance d'être un nombre premier qu'un nombre strictement plus grand que 7.
+		\end{enumerate}
+	\end{enumerate}
+
+\vspace{0,5cm}
+
+\begin{center}
+	\begin{tabularx}{0.8\linewidth}{|>{\centering \arraybackslash}p{3cm}|*{6}{>{\centering \arraybackslash \rule[-3mm]{0mm}{10mm}}X|}}  \hline
+	\backslashbox{\rule{0mm}{6mm}Dé rouge}{Dé vert}&1&2&3&4&5&6\\ \hline
+	1& & & & & & \\ \hline
+	2& & & & & & \\ \hline
+	3& & & &7& & \\ \hline
+	4& &6& & & & \\ \hline
+	5& & & & & & \\ \hline
+	6& & & & & & \\ \hline
+\end{tabularx}
+\end{center}
+
+\vspace{5mm}
+
+\showthesource
+\end{document}

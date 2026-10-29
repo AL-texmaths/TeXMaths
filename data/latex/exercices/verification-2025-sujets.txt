@@ -1,0 +1,65 @@
+Vérification des exercices du DNB 2025
+
+Amérique du Nord — 25GENMATAN1
+- [exercice-0659-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0659-data.tex) — réutilisé
+- [exercice-0698-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0698-data.tex) — réutilisé
+- [exercice-0780-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0780-data.tex)
+- [exercice-0781-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0781-data.tex)
+- [exercice-0782-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0782-data.tex)
+
+Asie — 25GENMATAA1
+- [exercice-0701-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0701-data.tex) — réutilisé
+- [exercice-0783-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0783-data.tex)
+- [exercice-0784-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0784-data.tex)
+- [exercice-0785-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0785-data.tex)
+- [exercice-0786-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0786-data.tex)
+
+Centres étrangers — 25GENMATG11
+- [exercice-0787-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0787-data.tex)
+- [exercice-0788-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0788-data.tex)
+- [exercice-0789-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0789-data.tex)
+- [exercice-0790-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0790-data.tex)
+- [exercice-0791-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0791-data.tex)
+
+Métropole — 25GENMATMEAG1
+- [exercice-0715-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0715-data.tex) — réutilisé
+- [exercice-0792-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0792-data.tex)
+- [exercice-0793-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0793-data.tex)
+- [exercice-0794-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0794-data.tex)
+- [exercice-0795-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0795-data.tex)
+
+Polynésie juin — 25GENMATPO1
+- [exercice-0796-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0796-data.tex)
+- [exercice-0797-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0797-data.tex)
+- [exercice-0798-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0798-data.tex)
+- [exercice-0799-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0799-data.tex)
+- [exercice-0800-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0800-data.tex)
+
+Polynésie septembre — 25GENMATPO3
+- [exercice-0700-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0700-data.tex) — réutilisé
+- [exercice-0801-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0801-data.tex)
+- [exercice-0802-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0802-data.tex)
+- [exercice-0803-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0803-data.tex)
+- [exercice-0804-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0804-data.tex)
+
+Métropole septembre — 25GENMATMEAG3
+- [exercice-0805-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0805-data.tex)
+- [exercice-0806-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0806-data.tex)
+- [exercice-0807-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0807-data.tex)
+- [exercice-0808-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0808-data.tex)
+- [exercice-0809-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0809-data.tex)
+
+Amérique du Sud — 25GENMATAS1
+- [exercice-0810-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0810-data.tex)
+- [exercice-0811-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0811-data.tex)
+- [exercice-0812-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0812-data.tex)
+- [exercice-0813-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0813-data.tex)
+- [exercice-0814-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0814-data.tex)
+
+Nouvelle-Calédonie — 25GENMATNC1
+- [exercice-0699-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0699-data.tex) — réutilisé
+- [exercice-0692-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0692-data.tex) — réutilisé
+- [exercice-0815-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0815-data.tex)
+- [exercice-0816-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0816-data.tex)
+- [exercice-0817-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0817-data.tex)
+- [exercice-0818-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0818-data.tex)

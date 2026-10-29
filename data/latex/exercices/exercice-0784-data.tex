@@ -1,0 +1,70 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage[np]{numprint}%
+\usepackage{enumitem}%
+\startdatakeys
+    \source{25GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Pythagore,Thalès,aire,agrandissement}
+\enddatakeys
+\begin{document}%
+    \def\up#1{\textsuperscript{#1}}%
+
+\begin{minipage}[]{0.52\linewidth}
+
+Dans la figure ci-contre qui n'est pas représentée en vraie grandeur:
+
+\begin{itemize}[label=$\bullet$]
+\item Les points G, C et E sont alignés ; 
+\item Les points F{}, C et D sont alignés ;
+\item Les droites (GF) et (DE) sont parallèles.
+\item Le triangle CDE est rectangle en D
+\item CD = \np[cm]{21,6}, CE = \np[cm]{29,1}, FC = \np[cm]{17,2}.
+\end{itemize}
+\end{minipage}
+\begin{minipage}[]{0.46\linewidth}
+~\hfill
+\psset{unit=0.6cm}
+\begin{pspicture}(-1,-4.5)(7.4,4)
+\psline(0,0)(7.4,0)
+\psline(0,0)(0,3.2)\psline(7.4,-4)(7.4,0)\psline(0,3.2)(7.4,-4) \psframe(7.4,0)(7.2,-0.2)
+\uput[d](0,0){F}\uput[ul](0,3.2){G}\uput[ur](7.4,0){D}\uput[r](7.4,-4){E}\uput[dl](3.4,0){C}
+\end{pspicture}
+\end{minipage}
+
+\begin{enumerate}
+\item Montrer que la longueur DE est égale à \np[cm]{19,5}.
+\item Calculer l'aire du triangle CDE.
+\item Calculer la longueur GF arrondie au millimètre près.
+\item On trace une droite (d) perpendiculaire à (FC) avec un logiciel de géométrie dynamique. La droite (d) coupe 
+le segment [GC] en A et le segment [FC] en B. En affichant l'aire du triangle ABC à l'aide du logiciel, on obtient $\np[cm^2]{23,4}$.
+
+\begin{center}
+\begin{pspicture}(-1,-4)(7.4,4)
+%\psgrid
+\pspolygon[fillstyle=solid,fillcolor=lightgray!50,linewidth=0pt](2,1.25)(2,0)(3.3,0)
+\psline(0,0)(7.4,0)
+\psline(0,0)(0,3.2)\psline(7.4,-4)(7.4,0)\psline(0,3.2)(7.4,-4)
+\uput[d](0,0){F}\uput[ul](0,3.2){G}\uput[ur](7.4,0){D}\uput[r](7.4,-4){E}\uput[ur](3.4,0){C}
+\psframe(2,0)(2.2,0.2)
+\psline(2,-4)(2,3)\uput[dr](2,2.8){d}
+\uput[ur](3,2){$\text{Aire}_{\text{ABC}}=\np[cm^2]{23.4}$} 
+\uput[dl](2,0){B}\uput[ur](2,1.25){A}
+\end{pspicture}
+\end{center}
+
+	\begin{enumerate}
+		\item Montrer que l'aire du triangle ABC est égale à $\dfrac{1}{9}$ de l'aire du triangle CDE.
+		\item On admet que les triangles ABC et EDC sont semblables.
+
+Déterminer la longueur AB.
+	\end{enumerate}
+\end{enumerate}
+
+%\vspace{0.5cm}
+\newpage
+\showthesource
+\end{document}

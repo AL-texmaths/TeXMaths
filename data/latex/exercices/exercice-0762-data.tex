@@ -1,0 +1,59 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{pstricks}%
+\usepackage{enumitem}%
+
+\usepackage{textcomp}%
+\startdatakeys
+    \source{24GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{trigonométrie,Pythagore,agrandissement,aire}
+\enddatakeys
+\begin{document}%
+    \def\degres{\textsuperscript{\textdegree}}%
+    \def\up#1{\textsuperscript{#1}}%
+
+
+\medskip
+
+\begin{minipage}{0.58\linewidth}
+Sur la figure ci-contre, qui n'est pas à l'échelle,
+\begin{itemize}[label=$\bullet~$]
+\item le triangle ONM est rectangle en N,
+\item le triangle OPQ est rectangle en P{},
+\item le triangle ORS est rectangle en R,
+\item ON $= 6$ cm et $\widehat{\text{MON}} = 32\degres$.
+\item P est un point du segment [OM] et R est un point du segment [OQ].
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.42\linewidth}
+\psset{unit=1.1cm}
+\begin{pspicture}(4.5,4.1)
+%\psgrid
+\pspolygon(0.3,1.3)(0.3,3.6)(4.1,3.6)%%MNO
+\psline(0.82,1.62)(1.7,0.3)(4.1,3.6)%PQO
+\psline(3.04,2.18)(3.65,1.7)(4.1,3.6)%RSO
+\psframe(0.3,3.6)(0.5,3.4)\rput{-57}(0.82,1.62){\psframe(0.2,0.2)}
+\rput{-38}(3.04,2.18){\psframe(0.2,0.2)}
+\psarc(4.1,3.6){0.8}{180}{212}
+\uput[d](0.3,1.3){M} \uput[ul](0.3,3.6){N} \uput[ur](4.1,3.6){O}
+\uput[d](0.78,1.62){P} \uput[d](1.7,0.3){Q} \uput[d](3.09,2.18){R}
+\uput[d](3.65,1.7){S} \uput[u](2.2,3.6){6 cm} \rput(3.65,3.45){\footnotesize $32\degres$}
+\end{pspicture}
+\end{minipage}
+
+\medskip
+
+\begin{enumerate}
+\item Calculer la mesure de la longueur MN. On donnera une valeur approchée au millimètre près.
+\item On donne PQ $= 2,5$ cm et OQ $= 6,5$ cm. Montrer que OP $= 6$ cm.
+\item Montrer que les triangles ONM et OPQ ne sont pas des triangles égaux.
+\item Sachant que le triangle OPQ est un agrandissement du triangle ORS et que OS $= 3,25$ cm, calculer l'aire du triangle ORS.
+\end{enumerate}
+
+
+\bigskip
+\showthesource
+\end{document}

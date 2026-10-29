@@ -1,0 +1,65 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularx}%
+\usepackage{enumitem}%
+
+\usepackage{textcomp}%
+\usepackage{colortbl}%
+\startdatakeys
+    \source{24GENMATPO3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{moyenne,médiane,étendue,tableur,probabilité,pourcentage}
+\enddatakeys
+\begin{document}%
+    \def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+On a relevé dans une feuille de calcul les températures maximales Tmax (en \degres C) atteintes à Strasbourg le 25 juin de chaque année de 2010 à 2018 (source : meteociel.fr).
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|>{\centering\arraybackslash\cellcolor{lightgray}} c|c|*{9}{>{\centering \arraybackslash}X|}}\hline
+\rowcolor{lightgray}	&A			&B		&C&D&E&F&G&H&I&J\\ \hline
+1	&Année		&2010 	&2011	&2012	&2013	&2014	&2015	&2016	&2017	&2018\\ \hline
+2	&Tmax		& 29 	&$23,1$	& $22,6$	&$17,4$	&$23,4$	&$25,7$	&$25,2$	&26		&24\\ \hline
+3	&			&		&		&		&		&		&		&		&		&\\ \hline
+4	&Moyenne	&		&		&		&		&		&		&		&		&\\ \hline
+5	&Médiane	&24		&		&		&		&		&		&		&		&\\ \hline
+6	&Étendue	&$11,6$	&		&		&		&		&		&		&		&\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item On a oublié de calculer la moyenne de cette série.
+
+Quelle formule peut-on saisir dans la cellule B4 pour que ce calcul soit effectué ? 
+\item Donner, sans détailler les calculs, une valeur approchée au degré Celsius près de la moyenne de la série.
+\item Donner une interprétation de la médiane de cette série.
+\item Pour cette question seulement, on considère la série des températures maximales atteintes à Strasbourg le 25 juin de chaque année de 2010 à 2019. 
+
+On sait que l'étendue des températures de cette nouvelle série est égale à $18,5\degres$~C.
+
+Déterminer la température maximale atteinte à Strasbourg le 25 juin 2019.
+\end{enumerate}
+\medskip
+
+Les questions suivantes portent sur la série des températures maximales atteintes à Strasbourg le 25 juin de chaque année de 2010 à 2018.
+
+\medskip
+
+\begin{enumerate}[resume]
+\item  On crée 9 fiches, une par année, sur lesquelles figure la température maximale atteinte le 25 juin de l'année. On prend une fiche au hasard. Chacune des fiches a la même probabilité d'être tirée.
+	\begin{enumerate}
+		\item Quelle est la probabilité que la température écrite sur cette fiche soit égale à $26\degres$~C ?
+		\item Quelle est la probabilité que la température écrite sur cette fiche soit inférieure ou égale à 24$\degres$~C?
+		\item A-t-on raison de dire que l'on a plus de 40\,\% de chance de prendre une fiche sur laquelle la température est supérieure à $25\degres$~C?
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\showthesource
+\end{document}

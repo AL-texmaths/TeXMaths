@@ -1,0 +1,66 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{pst-plot}%
+\usepackage{multido}%
+\startdatakeys
+    \source{21GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4D1be,C4D2aa}
+    \motsCles{vitesse,durée,lecture graphique,proportionnalité,fonction,fonction linéaire}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+Une mère et sa fille rentrent chez elles à pied en empruntant le même trajet de
+10 kilomètres. La mère décide de s'y rendre en marchant et sa fille en courant.
+
+Le graphique ci-dessous modélise les parcours de la mère et de la fille depuis leur départ.
+
+\begin{figure}
+\begin{center}
+\psset{xunit=4cm,yunit=1cm,arrowsize=2pt 3}
+\begin{pspicture}(-0.25,-1)(2.25,10)
+\multido{\n=0.00+0.25}{10}{\psline[linewidth=0.15pt](\n,0)(\n,10)}
+\multido{\n=0+1}{11}{\psline[linewidth=0.15pt](0,\n)(2.25,\n)}
+\psaxes[linewidth=1pt]{->}(0,0)(0,0)(2.25,10)
+\psline[linecolor=blue,linewidth=1.5pt](0,0)(0.25,3)(0.75,3)(1.833,10)
+\psline[linecolor=red,linestyle=dotted,linewidth=1.5pt](0,0)(2,10)
+\uput[r](0,10.2){Distance parcourue (en km)}
+\rput(0.5,4.5){\blue Parcours de la fille}\psline[linecolor=blue]{->}(0.5,4.2)(0.3,3)
+\rput(0.75,1.2){\red Parcours de la mère}\psline[linecolor=red]{->}(0.6,1.3)(0.45,2.2)
+\uput[u](1.85,0){Temps de parcours (en h)}
+\end{pspicture}
+\end{center}
+\end{figure}
+
+\medskip
+
+\begin{enumerate}
+\item
+	\begin{enumerate}
+		\item Indiquer le temps mis par la mère pour rentrer chez elle, avec la précision que permet la lecture du graphique.
+		\item Déterminer la vitesse moyenne en km/h de la mère sur l'ensemble de son parcours.
+		\item La distance parcourue par la mère est-elle proportionnelle au temps ?
+	\end{enumerate}
+\item La fille est partie à $16$~h et est arrivée chez elle à $17$~h $50$. Elle a fait une pause durant sa course.
+	\begin{enumerate}
+		\item Indiquer la durée de la pause de la fille, avec la précision que permet la lecture graphique.
+		\item Quand a-t-elle couru le plus vite: avant ou après sa pause ?
+	\end{enumerate}
+\item Combien de fois la mère et la fille se sont retrouvées au même endroit et au même moment, au cours de leur trajet ?
+\item Dans cette question, on note $f$ la fonction qui, au temps de parcours $x$ (exprimé en heure) de la mère depuis le départ, associe la distance parcourue (exprimée en kilomètre) par la mère depuis le départ.
+
+Parmi les propositions suivantes, recopier sans justification l'expression de $f(x)$ :
+
+\[f(x) = \dfrac{1}{5}x \quad;\quad  f(x) = 5x \quad;\quad  f(x) = x + 5.\]
+
+\end{enumerate}
+
+\bigskip
+
+\showthesource
+\end{document}

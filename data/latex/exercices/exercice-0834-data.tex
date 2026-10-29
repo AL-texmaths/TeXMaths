@@ -1,0 +1,109 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATAG1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{Pythagore,trigonométrie,angle,réciproque de Thalès,homothétie}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+\begin{minipage}{0.45\linewidth}
+	Sur la figure ci-contre, qui n'est pas représentée en vraie grandeur :
+	\begin{itemize}
+		\item A est le point d'intersection des droites (BE) et (TM);
+		\item le triangle ABM est rectangle en A ;
+		\item AT = 2,2 m; MT = 7,7 m;
+		\item AE = 1,92m et MB = 7,3 m.
+	\end{itemize}
+\end{minipage}\hfill~
+%Début tikz
+\begin{tikzpicture}[baseline={(current bounding box.center)}]
+	\draw[fill=gray!30] (0,0) rectangle (0.3,0.3) ;
+	\draw[line width=1.2pt]
+	(0,5)    node[above](B){B}--
+	(-2.3,0) node[left] {T}--
+	(0,-2)   node[below]{E}--
+	(5.4,0)  node[right]{M}--cycle
+	(-2.3,0)--(5.4,0)
+	(0,-2)--(0,5)
+	(0,0)    node[below left] {A};
+\end{tikzpicture}
+%Fin tikz
+%%%Début PSTricks
+%\begin{minipage}{0.47\linewidth}
+%	\psset{unit=0.8cm}
+%	\begin{pspicture}(0,-2.3)(6.2,5)
+%		\pspolygon(2.3,5.6)(0.2,0)(2.3,-1.8)(7.6,0)(2.3,5.6)(2.3,-1.8)(7.6,0)(0.2,0)%BTEBMT
+%		\psframe(2.3,0)(2.55,0.25)
+%		\uput[u](2.3,5.6){B} \uput[l](0.2,0){T} \uput[d](2.3,-1.8){E} \uput[dl](2.3,0){A} \uput[r](7.6,0){M}
+%	\end{pspicture}
+%\end{minipage}
+%%%Fin PSTricks
+\medskip
+
+\begin{enumerate}
+	\item Justifier que AM = 5,5~m.
+
+	\item Montrer que la longueur AB est égale à 4,8~m.
+
+	\item Calculer la mesure de l'angle $\widehat{\text{ABM}}$. Donner la valeur arrondie au degré.
+
+	\item Montrer que les droites (TE) et (BM) sont parallèles.
+
+	\textit{Détailler la réponse en précisant la démarche.}
+
+	\item Le triangle ABM est l'image du triangle AET par une homothétie de centre A.
+
+	Choisir le rapport de cette homothétie parmi les propositions suivantes. Aucune justification n'est demandée.
+
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			\textbf{Proposition 1} & \textbf{Proposition 2} & \textbf{Proposition 3} \\
+			\hline
+			2,5 & $-0,4$ & $-2,5$ \\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{enumerate}
+
+\needspace{15\baselineskip}
+\medskip
+\showthesource
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{tabularx}%
+\startdatakeys
+    \source{24GENMATMEAG3}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{fonction,image,antécédent,tableur,développement,équation produit}
+\enddatakeys
+\begin{document}%
+
+\medskip
+
+On considère la fonction $f$ définie par 
+
+\[f(x) = x^2 + 10x + 16.\]
+
+\begin{enumerate}
+\item Vérifier par le calcul que l'image de 6 par la fonction $f$ est $112$.
+\item On utilise un tableur afin de calculer les images des entiers compris entre $-4$ et 4 par la
+fonction $f$.
+
+\begin{center}
+\begin{tabularx}{\linewidth}{|c|*{10}{>{\centering \arraybackslash}X|}}\hline
+&A&B&C&D&E&F&G&H&I&J\\ \hline
+1&$x$&$-4$&$-3$&$-2$&$-1$&0&1&2&3&4\\ \hline
+2&$f(x)$&$-8$&$-5$&0&7&16&27&40&55&72\\ \hline
+\end{tabularx}
+\end{center}
+
+	\begin{enumerate}
+		\item Parmi les 4 formules ci-dessous, recopier celle qui a été saisie dans la cellule B2, puis
+étirée vers la droite afin de calculer les images des nombres donnés par la fonction $f$.
+
+\begin{footnotesize}
+\fbox{=B1*B1+10*B1+16}\, \fbox{=A1*A1+10*A1+16}\, \fbox{$=(-4)*(-4)+10*(-4)+16$} \, \fbox{$=x*x+10*x+16$}
+\end{footnotesize}
+		\item En utilisant le tableau, déterminer un antécédent de $0$.
+	\end{enumerate}
+\item
+	\begin{enumerate}
+		\item Démontrer que $f(x)$ peut s'écrire $(x + 2)(x + 8)$.
+		\item En déduire un autre antécédent de 0 par la fonction $f$.
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+\showthesource
+\end{document}

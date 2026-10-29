@@ -1,0 +1,121 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATAN1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{pourcentage,probabilité,conversion,puissance}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+Dans cet exercice, les deux parties sont indépendantes.
+
+Une entreprise développe une intelligence artificielle (IA) capable de reconnaître des objets sur des images.
+
+\subsubsection*{Partie A}
+
+On entraîne l'IA à partir d'une base de données de \np{50000} images réparties en 4 catégories : \og Objets du quotidien \fg, \og Animaux \fg, \og Véhicules \fg, \og Autres \fg.
+
+L'intelligence artificielle est testée pour mesurer sa précision et son efficacité. Les images sont réparties comme suit :
+
+\vspace{6pt}
+\begin{center}
+\begin{tabular}{|>{\columncolor{gris}}c|l|c|}\hline
+\rowcolor{gris}
+& \textbf{Type d'image} & \textbf{Nombre d'images} \\\hline
+2 & Objets du quotidien & 28\,000 \\\hline
+3 & Animaux & \np{12000} \\\hline
+4 & Véhicules & \np{8000} \\\hline
+5 & Autres & ? \\\hline
+\end{tabular}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item Combien d'images appartiennent à la catégorie \og Autres \fg\,?
+\item Sur l'ensemble des tests, l'intelligence artificielle reconnaît correctement 90\,\% des \og Objets du quotidien \fg.
+
+Calculer le nombre d'images reconnues correctement dans cette catégorie.
+\item L'intelligence artificielle reconnaît correctement \np{5600} images de la catégorie \og Véhicules \fg.
+
+Quel pourcentage de réussite cela représente-t-il dans cette catégorie\,?
+\item Une image est tirée au hasard dans la base de données.\\
+Quelle est la probabilité que l'image tirée soit l'image d'un \og Objet du quotidien \fg\,?
+
+On donnera le résultat sous la forme d'un nombre décimal.
+\end{enumerate}
+
+\bigskip
+
+\subsubsection*{Partie B}
+
+L'intelligence artificielle, très utilisée dans le monde entier, nécessite une quantité importante d'électricité. L'énergie consommée peut s'exprimer en wattheures (Wh).
+
+En 2024, sa consommation annuelle est estimée à 82\,000 Gigawattheures (GWh).
+
+En comparaison, un collège consomme en moyenne 200\,000 kilowattheures (kWh) par an.
+
+\medskip
+
+\begin{center}
+\begin{tabularx}{0.35\linewidth}{|X|}\hline
+\textbf{Rappels :}\\
+-- 1\,kWh $= 10^3$\,Wh\\
+-- 1\,GWh $= 10^9$\,Wh\\ \hline
+\end{tabularx}
+\end{center}
+
+\medskip
+
+\begin{enumerate}[resume]
+\item Convertir la consommation de l'IA et d'un collège en Wh.
+
+\emph{Exprimer ces résultats sous la forme d'une écriture scientifique.}
+\item Combien de collèges pourrait-on alimenter pendant un an avec la consommation électrique de l'intelligence artificielle\,?
+\item En France, il y a environ \np{7100} collèges. Dans cette question, on suppose que chaque collège a la même consommation d'énergie annuelle moyenne (\np{200000} kWh).
+
+Pendant combien d'années environ pourrait-on alimenter tous les collèges français avec la consommation électrique annuelle de cette intelligence artificielle\,?
+\end{enumerate}
+
+%\newpage
+
+%%%%%%%%%%%%%%
+\medskip
+\showthesource
+\end{document}

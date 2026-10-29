@@ -1,0 +1,48 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage[french]{babel}%
+\usepackage{pstricks}%
+\usepackage{textcomp}%
+\usepackage{amsmath}%
+\startdatakeys
+    \source{22GENMATAS1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA}
+    \objectifsApprentissage{C4B2eb}
+    \motsCles{trigonométrie,angle,Pythagore,triangle}
+\enddatakeys
+\begin{document}%
+\def\degres{\textsuperscript{\textdegree}}%
+
+\medskip
+
+Dans le triangle ADC rectangle en D, l'angle $\widehat{\text{DCA}}$ mesure $30\degres$.
+
+Le point B est le point du segment [AC] tel que les longueurs DB et CB sont égales.
+
+\emph{La figure ci-dessous n'est pas représentée en vraie grandeur}
+
+\begin{center}
+\psset{unit=1.15cm,arrowsize=2pt 3}
+\begin{pspicture}(6,4.2)
+\pspolygon(0.2,3.5)(0.2,0.3)(5.7,0.3)%ADC
+\psline(0.2,0.3)(2.95,1.9)%DB
+\uput[ul](0.2,3.5){A} \uput[d](2.95,1.9){B} \uput[dr](5.7,0.3){C} \uput[dl](0.2,0.3){D}
+\psarc(5.7,0.3){0.5}{150}{180}\rput(5.,0.46){$30\degres$}
+\psframe(0.2,0.3)(0.4,0.5)
+\psline[linestyle=dashed]{<->}(0.4,3.7)(5.8,0.6)\rput{-30}(3.1,2.55){10~cm}
+\rput{50}(1.6,1.1){/}\rput{50}(1.65,1.14){/}\rput{-20}(4.1,1.24){/}\rput{-20}(4.13,1.19){/}
+\end{pspicture}
+\end{center}
+
+\begin{enumerate}
+\item Calculer la mesure de l'angle $\widehat{\text{DBC}}$.
+\item Montrer par le calcul que le segment [AD] mesure $5$~cm.
+\item Calculer la longueur DC au millimètre près.
+\item Déterminer la nature du triangle ABD.
+\end{enumerate}
+
+\medskip
+
+\showthesource
+\end{document}

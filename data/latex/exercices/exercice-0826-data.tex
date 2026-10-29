@@ -1,0 +1,177 @@
+\documentclass[exercice,a4]{thedocument}%
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
+\graphicspath{{../brevet/2026/}}%
+\startdatakeys
+    \source{26GENMATAA1}
+    \BO{2026}
+    \cycle{4}
+    \competencesDuSocle{CA,RA,CO}
+    \objectifsApprentissage{C4A1aa,C4A2ad,C4B2cb,C4D2aa,C4D3ac}
+    \motsCles{angle,triangle équilatéral,carré,Scratch,programme,échelle}
+\enddatakeys
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+\begin{minipage}{0.48\linewidth}
+	ABCD est un carré.
+
+	ABF est un triangle équilatéral.
+
+	AF $= 4$ cm.
+
+	Les points F{}, A et E sont alignés.
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+	\psset{unit=1cm}
+	\begin{pspicture}(-3.5,-1.4)(3.5,4.8)
+		%\psgrid
+		\psline(-3.2,0)(3.2,0)
+		\pspolygon(0;0)(3.2;120)(3.2;180)
+		%\rput{30}(0,0){\psframe(0,0)(3.2,3.2)}
+		\def\barb{\psline(-0.05,-0.1)(-0.05,0.1)\psline(0.05,-0.1)(0.05,0.1)}
+		\rput{30}(0,0){\psline(0;0)(3.2;0)(4.525;45)(3.2;90)}
+		\psarc*(0,0){0.6}{0}{30}
+		\uput[d](1.6;180){4 cm}
+		\uput[d](0,0){A}
+		\uput[d](-3.2,0){F} \uput[d](3.2,0){E}\uput[ul](-1.6,2.772){B}\uput[r](3.2;30){D}\uput[ur](1.4,4){C}
+		\rput(-1.6,0){\barb}\rput(1.6,0){\barb}
+		\rput{30}(1.6;30){\barb}\rput{135}(2,3){\barb}\rput{120}(-0.8,1.4){\barb}
+		\rput{600}(-2.4,1.4){\barb}\rput{30}(-0.2,3.6){\barb}
+		\psdots[dotstyle=+,dotangle=45,dotscale=1.5](3.2,0)
+		\rput(0,-1){\textit{Cette figure n'est pas en vraie grandeur.}}
+	\end{pspicture}
+
+\end{minipage}
+\begin{enumerate}
+	\item Justifier que la mesure de l'angle $\widehat{\text{EAD}}$ est égale à $30^\circ$.
+
+	Dans la suite de l'exercice on utilisera l'échelle suivante : \textbf{10 pas} dans le programme représentent \textbf{1 cm} dans la réalité.
+
+	\item Le \textbf{bloc triangle} ci-dessous permet de tracer un triangle équilatéral et le \textbf{bloc carré} permet de construire un carré :
+
+	\begin{center}
+		\begin{tblr}{colspec={|X[7cm,c]|X[7cm,c]|}}
+			\hline
+			\textbf{Le bloc triangle} & \textbf{Le bloc carré} \\
+			\hline
+			\begin{scratch}
+				\initmoreblocks{définir \namemoreblocks{Triangle}}
+				\blockrepeat{répéter \ovalnum{3} fois}
+				{
+					\blockmove{avancer de \ovalnum{\textbf{J}}}
+					\blockmove{tourner \turnleft{} de \ovalnum{\textbf{K}} degrés}
+				}
+			\end{scratch}
+			&
+			\begin{scratch}
+				\initmoreblocks{définir \namemoreblocks{Carré}}
+				\blockrepeat{répéter \ovalnum{4} fois}
+				{
+					\blockmove{avancer de \ovalnum{\textbf{M}}}
+					\blockmove{tourner \turnleft{} de \ovalnum{\textbf{N}} degrés}
+				}
+			\end{scratch}
+			\\ \hline
+		\end{tblr}
+	\end{center}
+
+	Donner les valeurs de \textbf{J}, \textbf{K}, \textbf{M} et \textbf{N} pour que les blocs triangle et carré permettent de construire un triangle équilatéral de 4 cm de côté et un carré de 4 cm de côté.
+
+	\emph{Aucune justification n'est attendue.}
+
+	\item Le \textbf{programme principal} utilise le bloc \textbf{Triangle} et le bloc \textbf{Carré}.
+
+	L'instruction \og s'orienter à $90\degres$ \fg{} signifie que l'on s'oriente vers la droite.
+
+	Écrire sur la copie le numéro de la figure obtenue grâce à ce programme.
+
+	\emph{Aucune justification n'est attendue.}
+\end{enumerate}
+
+%PSTricks
+\begin{tblr}{colspec={XXX}, vline{1,3,4}={solid}, vline{2}={3-4}{solid},
+	cell{4}{1,2}={c},vspan=even}\hline
+	\SetCell[r=1,c=2]{l}\textbf{Figure 1}&&\textbf{Programme principal}\\
+	\SetCell[r=1,c=2]{c} %
+	\psset{unit=0.8cm}
+	\begin{pspicture}(0,-0.5)(8.5,1.5)
+			\def\motif{\pspolygon[linecolor=blue](0;0)(0.75;120)(0.75;180)\psframe[linecolor=blue](0,0)(0.75,0.75)}
+			\multido{\n=0.75+1.50}{6}{\rput(\n,0){\motif}}
+		\end{pspicture}
+	&& \SetCell[r=5,c=1]{c}
+		\begin{scratch}[scale=0.85]
+		\blockinit{quand \greenflag est cliqué}
+		\blockmove{aller à x : \ovalnum{0} y : \ovalnum{-100}}
+		\blockmove{s'orienter à ~\ovalnum{90}}
+		\blockpen{effacer tout}
+		\blockpen{stylo en position d'écriture}
+		\blockrepeat{répéter \ovalnum{6} fois}
+		{
+			\blockmoreblocks{triangle}
+			\blockmove{avancer de \ovalnum{50} pas}
+			\blockmove{tourner \turnleft{} de \ovalnum{30} degrés}
+			\blockmoreblocks{Carré}
+			\blockmove{avancer de \ovalnum{50} pas}
+			\blockmove{tourner \turnleft{} de \ovalnum{30} degrés}
+		}
+	\end{scratch} \\ \cline{1-3}
+	\textbf{Figure 2}&\textbf{Figure 3}&\\
+		{\psset{unit=0.7cm}
+		\begin{pspicture}(-2,-2)(2,2)
+			\def\dim{1}%%% modifiable
+			\def\motif{\psline[linecolor=blue,linewidth=1.2pt](0,0)(\dim,0)(\dim,-\dim)(0,-\dim)(0,0)(\dim;60)(\dim,0)}
+				\multido{\n=30+60,\na=0+60}{6}{\rput{\na}(\dim;\n){\motif}}
+		\end{pspicture}}
+		&
+		{\psset{unit=0.9cm}
+		\begin{pspicture}(-2,-2)(2,2)
+			\def\motif{\psline[linecolor=blue,linewidth=1.2pt](0,0)(0,-1)(-0.8,-1)(-0.8,-0.2)(0,-0.2)(0,0)}
+			\def\motiff{\psline[linecolor=blue,linewidth=1.2pt](0,0)(0.8;120)(0.8;180)(0,0)(1;120)}
+			\multido{\n=15+60.0,\na=0+60}{6}{\rput{\na}(1.9;\n){\motif}}
+			\multido{\n=15+60.0,\na=0+60}{6}{\rput{\na}(1.9;\n){\motiff}}
+		\end{pspicture}} & \\ \cline{1-3}
+	\SetCell[c=2]{l}\textbf{Figure 4}&&\\
+	\SetCell[c=2]{c}
+	{\psset{unit=0.8}
+	\begin{pspicture}(0,-0.5)(9,1.5)
+			\def\motif{\pspolygon[linecolor=blue](0;0)(0.75;120)(0.75;180)\psframe[linecolor=blue](0,0)(0.75,0.75)\psline(0.75,0)(1,0)}
+			\multido{\n=1.00+1.75}{6}{\rput(\n,0){\motif}}
+	\end{pspicture}}
+	&&\\
+	\hline
+\end{tblr}
+%Fin PSTricks
+\medskip
+\showthesource
+\end{document}
