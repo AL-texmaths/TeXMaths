@@ -1,5 +1,5 @@
 \documentclass[17pt]{flash}
-\usepackage{tkz-euclide}
+\usepackage{texmaths-tikz}
 \startdatakeys
     \BO{2026}
     \cycle{4}
@@ -8,12 +8,12 @@
 \enddatakeys
 \begin{document}
 
-\flashvisibletimerfalse
+\flashvisibletimertrue
 \FlashSetItemSep{40pt}
 \FlashSetVtop{-1em}
 \FlashSetTitle{Lire une fraction sur une droite graduée}
 \FlashShowConsignes{%
-    \item Déterminer l'abscisse du point décrit.
+    \item Dans chaque cas, écrire l'abscisse du point \mathspoint{M}. 
 }
 \flashlist{
     \flashitem{45}{
@@ -30,6 +30,7 @@
             \tkzDrawLine[add=0.1 and 0.25, -Stealth](O,A)
             \coordinate(B)at(1,0);
             \node at([shift={(90:0.4)}]B){\mathspoint{M}};
+            \draw[line width=1.2pt, color=\markscolor](1,-0.15)--(1,0.15);
         \end{tikzpicture}
     }
     \flashitem{45}{
@@ -46,10 +47,11 @@
             \tkzDrawLine[add=0.1 and 0.25, -Stealth](O,A)
             \coordinate(B)at(7,0);
             \node at([shift={(90:0.8)}]B){\small\mathspoint{M}};
+            \draw[line width=1.2pt, color=\markscolor](7,-0.15)--(7,0.15);
         \end{tikzpicture}
     }
     \flashitem{45}{
-        \begin{tikzpicture}[scale=0.6]
+        \begin{tikzpicture}[scale=0.5]
             \coordinate(O)at(0,0);
             \node at([shift={(-90:0.8)}]O){\small 0};
             \coordinate(A)at(6,0);
@@ -58,10 +60,11 @@
                 \draw[line width=0.8pt](\x,-0.1)--(\x,0.1);
             }
             \draw[line width=1pt](0,-0.15)--(0,0.15);
-            \draw[line width=1pt](4,-0.15)--(4,0.15);
+            \draw[line width=1pt](6,-0.15)--(6,0.15);
             \tkzDrawLine[add=0.1 and 0.25, -Stealth](O,A)
             \coordinate(B)at(4,0);
             \node at([shift={(90:0.8)}]B){\small\mathspoint{M}};
+            \draw[line width=1.2pt, color=\markscolor](4,-0.15)--(4,0.15);
         \end{tikzpicture}
     }
 }

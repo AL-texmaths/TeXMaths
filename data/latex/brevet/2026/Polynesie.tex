@@ -1,0 +1,1037 @@
+% Préambule APMEP - Annales
+% Auteurs
+% tapuscrit : Denis Vergès
+% relecture : Hubert Proton
+% figures TikZ : Denis Vergès
+% figures pstricks : Hubert Proton
+% modifications : version 3 mise à jour préambule, ajout figure tikz, ajout mappemonde
+% Remerciements : Sujet aimablement fourni par Marc Incamps
+% version 3 : 2026-07-01
+%
+\documentclass[12pt,a4paper,french]{article}
+
+% Packages
+%%% codage et police utilisée
+\usepackage[T1]{fontenc}
+\RequirePackage{iftex}
+\iftutex % moteur utf-8 lualatex, xelatex
+\usepackage{fourier-otf} % remplace fourier pour moteur utf8 (LuaLaTeX, XeLaTeX)
+% Alternatives nécéssite (LuaLaTeX, XeLaTeX)
+\usepackage{hyperref}
+%\usepackage{fontspec}% pour utiliser des fontes système
+\else % pour les autres moteurs latex, pdflatex
+\usepackage[utf8]{inputenc}
+\usepackage{fourier}
+\usepackage{amsmath,amssymb}
+\usepackage[dvips]{hyperref}
+\renewcommand{\ttdefault}{lmtt}
+\fi
+\usepackage[normalem]{ulem}
+\usepackage{pifont}
+\usepackage{lscape}
+% tableaux
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{tabularray}
+% texte et composition
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage[np]{numprint}
+%
+\usepackage{fancyhdr}
+\usepackage{makeidx}
+\makeindex
+% pour le symbole €
+\usepackage{eurosym}
+\DeclareRobustCommand{\officialeuro}{%
+	\ifmmode\expandafter\text\fi
+	{\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
+\AtBeginDocument{\renewcommand{\euro}{\officialeuro}}
+% couleurs étendues
+\usepackage{xcolor}
+% pour les listes
+\usepackage{enumitem}
+% Enumérations réglage par défaut
+\setlist[itemize]{label=\textbullet,leftmargin=5mm,labelwidth=3mm,labelsep=2mm,align=left}
+\setlist[enumerate]{labelindent=0pt, leftmargin=5mm, labelsep=2mm, labelwidth=3mm,labelsep=2mm, align= left}
+\setlist[enumerate,1]{label = \textbf{\arabic*.}}
+\setlist[enumerate,2]{label = \textbf{\alph*.}}
+\setlist[enumerate,3]{label = \textbf{\roman*.}}
+% pour l'ajustement des boites (figures…)
+\usepackage{adjustbox}
+% pour ne pas commencer un exercice en fin de page
+\usepackage{needspace}
+%
+% Taille de la zone d'écriture
+\usepackage[left=1.5cm,right=1.5cm,top=3cm,bottom=3cm]{geometry}
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{0mm}
+%
+% Formatage du pdf
+\hypersetup{%
+	pdfauthor = {APMEP},
+	pdfsubject = {Troisième, Série générale},
+	pdftitle = {Brevet des collèges    -- Session 2026},
+	allbordercolors = white,
+	pdfstartview=FitH
+}
+% Pour scratch (code)
+\usepackage{scratch3}
+% Pour le code Python
+\usepackage{listings}
+\lstdefinestyle{python}{
+	language=Python,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue}\bfseries,
+	commentstyle=\color{gray}\itshape,
+	stringstyle=\color{orange},
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	breaklines=true,
+	frame=single,
+	backgroundcolor=\color{gray!5},
+	tabsize=4
+}
+% usage (exemple)
+%\begin{lstlisting}[style=python]
+%def seuil():
+%    n = 1
+%    p = 0.5
+%    while p < 0.6 :
+%       n = n + 1
+%       p = p*7/15 + 1/3
+%    return n
+%\end{lstlisting}
+
+
+% Pour une visualisation de type tableur
+\usepackage{pas-tableur}
+%
+%% pour PsTricks
+\usepackage{pst-bezier}%% AVANT les autres PST
+\usepackage{pstricks-add}
+\usepackage{pst-func,pst-tree,pst-circ}
+\usepackage{pst-eucl}
+%% pour TikZ
+\usepackage{tikz,pgfplots,pgf,tkz-tab,tikzpagenodes}
+\usetikzlibrary{calc,patterns,decorations,arrows.meta,patterns.meta,arrows}
+\pgfplotsset{compat=1.18,/pgf/number format/.cd,use comma}
+\usepackage{icomma} % gestion des espaces autour des virgules
+\DeclareMathSymbol{;}{\mathbin}{operators}{"3B}% pour un espacement correct du ; en mode maths
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Définitions
+%
+% notation en mode mathématique et hors mode mathématique
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+%
+\providecommand{\up}{\textsuperscript}
+%
+\newcommand{\vect}[1]{\overrightarrow{\,\mathstrut#1\,}}
+\newcommand{\vectt}[1]{\overrightarrow{\,\mathstrut\text{#1}\,}}
+%
+\def\Oij{$\left(\text{O};\vect{\imath},\vect{\jmath}\right)$}
+\def\Oijk{$\left(\text{O};\vect{\imath},\vect{\jmath},\vect{k}\right)$}
+\def\Ouv{$\left(\text{O};\vect{u},\vect{v}\right)$}
+%
+\newcommand{\ds}{\displaystyle}
+%
+\renewcommand{\d}{\mathrm{\,d}}
+\renewcommand{\i}{\mathrm{\,i\,}}
+\newcommand{\e}{\mathrm{\,e\,}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+	%---------------------------------------------------------
+	% Réglage entête, pied de page
+	%---------------------------------------------------------
+	\rhead{\textbf{A. P{}. M. E. P{}.}}
+	\lhead{\small Sujet}
+	\lfoot{\small{Polynésie}}
+	\rfoot{\small{26 juin 2026}}
+	\pagestyle{fancy}
+
+	\thispagestyle{empty}
+
+
+	%---------------------------------------------------------
+	% Titre
+	%---------------------------------------------------------
+	\begin{center}
+		{\Large \textbf{\decofourleft~ Brevet des collèges ~\decofourright\\[10pt]Sujet\\[10pt]  Série générale -- Polynésie -- 26 juin 2026 }}
+	\end{center}
+
+	\marginpar{\rotatebox{90}{\textbf{A. P{}. M. E. P{}.}}}
+
+\section*{\hfill~ PREMIÈRE PARTIE : AUTOMATISMES (6 pts)\hfill~}
+
+\textbf{Pour cette première partie, aucune justification n'est demandée et une seule réponse est possible par question. Pour chaque question, reportez son numéro sur votre copie et indiquez votre réponse.}
+
+Une réponse fausse ou l'absence de réponse n'enlève aucun point.
+
+\subsection*{Question 1}
+
+Déterminer la médiane de la série : $12$ ; $9$ ; $7$ ; $23$ ; $9$ ; $25$ ; $7$.
+
+
+
+\subsection*{Question 2}
+
+\medskip
+
+Donner la notation scientifique de $\np{0,000457}$.
+
+
+
+\begin{minipage}{0.48\linewidth}
+\subsection*{Question 3}
+
+\medskip
+
+Calculer l'aire, en cm$^2$, du triangle ci-contre.
+
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+\begin{center}
+%Début Tikz
+%\begin{tikzpicture}[scale=1]
+%% Vertices: A (left), B (top right), C (bottom right)
+%\coordinate (A) at (0,0);
+%\coordinate (B) at (3,1.5);
+%\coordinate (C) at (3,-1.5);
+%
+%\draw (A) -- (B) -- (C) -- cycle;
+%
+%% Right angle at B
+%\draw (B) +(-0.2,-0.1) -- +(-0.15,-0.28) -- +(-0.05,-0.2);
+%
+%% Labels
+%\node[left] at (A) {$A$};
+%\node[above right] at (B) {$B$};
+%\node[below right] at (C) {$C$};
+%
+%% Side labels
+%\node[above left] at ($(A)!0.5!(B)$) {$8\ \text{cm}$};
+%\node[right] at ($(B)!0.5!(C)$) {$6\ \text{cm}$};
+%\node[below] at ($(A)!0.5!(C)$) {$10\ \text{cm}$};
+%\end{tikzpicture}
+%fin Tikz
+%début PSTricks
+\psset{unit=1cm}
+\begin{pspicture}(5.8,3.6)
+\uput[l](0.4,1.4){A}\uput[dr](5.4,0.4){C}\uput[u](4.34,3.){B}
+%\psarc(2.9,0.9){2.5495}{0}{90}
+\pspolygon(0.4,1.4)(4.34,3.)(5.4,0.4)%ABC
+\rput{-157}(4.34,3.){\psframe(0.25,0.25)}
+\rput{23}(2.6,2.6){8 cm}\rput(5.3,1.9){6 cm}\rput{-11}(2.9,0.7){10 cm}
+\end{pspicture}
+% fin PSTricks
+\end{center}
+\end{minipage}
+
+
+
+
+
+\subsection*{Question 4}
+
+\medskip
+
+Une boîte opaque contient des beignets tous identiques, garnis de confitures différentes :
+\begin{itemize}[label=$\bullet~$]
+\item 6 beignets sont à l'abricot ;
+\item 5 beignets sont à la pomme ;
+\item 4 beignets sont à la framboise.
+\end{itemize}
+
+Déterminer la probabilité de piocher au hasard un beignet à la framboise.
+
+
+
+\subsection*{Question 5}
+
+\medskip
+
+Un article coûte $800$~\euro{}. Son prix baisse de $10~\,\%$.
+
+Calculer le prix, en euro, de l'article après réduction.
+
+
+
+\subsection*{Question 6}
+
+\medskip
+
+Développer et réduire l'expression $B = 4y(3y - 1)$.
+
+
+
+\subsection*{Question 7}
+
+\medskip
+
+Recopier la réponse permettant de compléter l'égalité 3,57 L = \ldots cm$^3$
+.
+
+
+\subsection*{Question 8}
+
+\medskip
+
+Recopier sur la copie l'image de 4 par la fonction affine $f$ définie par $f(x) = 3x - 5$.
+
+\begin{tblr}{colspec = {*4{X[c]}},hlines,vlines}
+	\textbf{A.}\quad 3 &
+	\textbf{B.}\quad 7 &
+	\textbf{C.}\quad 12 &
+	\textbf{D.}\quad 29\\
+\end{tblr}
+
+\begin{minipage}{0.65\linewidth}
+\subsection*{Question 9}
+
+Le quadrilatère ABCD ci-contre est tracé à main levée.
+
+À partir des codages donnés, en déduire sa nature parmi
+les quatre réponses proposées et la recopier sur la copie.
+\end{minipage}
+\hfill
+\begin{minipage}{5cm}
+\psset{unit=0.85cm}
+\begin{pspicture}(0,-0.5) (3.,4.5)
+%\psgrid
+\uput[dl](0.2,0.2){A}\uput[dr](4,0.8){B}\uput[ur](3.8,4){C}\uput[ul](0,3.4){D}
+\pslineByHand(0.2,0.2)(4,0.8)(3.8,4)(0,3.4)(0.2,0.2)
+\pslineByHand(0.2,0.2)(3.8,4)
+\pslineByHand(4,0.8)(0,3.4)
+\def\barre{\psline(-0.05,-.2)(-0.05,.1)}
+\def\barbarre{\psline(-0.05,-.2)(-0.05,.2)\psline(0.05,-.2)(0.05,.2)}
+\rput{35}(1.2,1.3){\barre}\rput{35}(2.9,3.1){\barre}
+\rput{-60}(1.3,2.5){\barbarre}\rput{-60}(3,1.45){\barbarre}
+\end{pspicture}
+\end{minipage}
+
+\begin{tblr}{colspec = {*2{X[c]}},hlines,vlines}
+	\textbf{A.}\quad Un losange. &
+	\textbf{B.}\quad Un rectangle. \\
+	\textbf{C.}\quad Un carré. &
+	\textbf{D.}\quad Un parallélogramme. \\
+\end{tblr}
+
+\newpage
+\section*{\hfill~ DEUXIÈME PARTIE (14 pts)\hfill~}
+
+\section*{Exercice 1 \hfill 4 points}
+
+Dans cet exercice. $x$ représente un nombre supérieur ou égal à 5.
+
+Voici, ci-dessous, deux figures géométriques : un rectangle ABCD et un triangle isocèle
+IJK.
+
+\begin{center}
+%%Début PSTriks
+%\psset{unit=0.8cm,arrowsize=2pt 3}
+%\begin{pspicture}(14,4.4)
+%\psframe(1.7,0.5)(7,1.9)%DCBA
+%\uput[dl](1.7,0.5){D}\uput[dr](7,0.5){C}\uput[ur](7,1.9){B}\uput[ul](1.7,1.9){A}
+%\psframe(1.7,0.5)(1.95,0.75)\psframe(7,0.5)(6.75,0.75)\psframe(7,1.9)(6.75,1.65)
+%\psframe(1.7,1.9)(1.95,1.65)
+%\psline[linewidth=0.7pt]{<->}(1.7,2.2)(7,2.2)\uput[u](4.35,2.2){$3x + 1$}
+%\psline[linewidth=0.7pt]{<->}(1.5,1.9)(1.5,0.5)\uput[l](1.5,1.2){$x - 2$}
+%\pspolygon(10,1)(15.2,1)(12.6,3.3)%IJK
+%\uput[dl](10,1){I}\uput[dr](15.2,1){J}\uput[u](12.6,3.3){K}
+%\psline[linewidth=0.7pt]{<->}(9.9,1.15)(12.5,3.45)\uput[ul](11.2,2.3){$2x$}
+%\psline[linewidth=0.7pt]{<->}(10,0.8)(15.2,0.8)\uput[d](12.6,0.8){$2x + 9$}
+%\def\barre{\psline(-0.05,-.2)(-0.05,.1)}%\rput{35}(11.3,2.2){$2x$}
+%\rput{35}(11.3,2.2){\barre}\rput{-35}(13.9,2.2){\barre}
+%\end{pspicture}
+%%Fin PSTricks
+
+%Début Tikz
+\begin{minipage}[t]{0.45\linewidth}\vspace{0mm}
+	\begin{adjustbox}{max width=1\linewidth,max totalheight=255mm}
+		\begin{tikzpicture}[>=stealth]
+			\draw[fill=blue!40](0,0)rectangle(0.4,0.4)(6,0)rectangle(5.6,0.4)(6,2.5)rectangle(5.6,2.1)(0,2.5)rectangle(0.4,2.1);
+			\draw[line width=0.3mm](0,0)node[below left]{D}--(6,0)node[below right]{C}--(6,2.5)node [above right]{B}--(0,2.5)node[above left]{A}--cycle;
+			\draw[<->](0.0,2.8)--(6,2.8)node[midway, above]{$3x+1$};
+			\draw[<->](-0.3,0)--(-0.3,2.5)node[midway, left]{$x-2$};
+		\end{tikzpicture}
+	\end{adjustbox}
+\end{minipage}\hspace{0.05\linewidth}\begin{minipage}[t]{0.45\linewidth}\vspace{0mm}
+	\begin{adjustbox}{max width=1\linewidth,max totalheight=255mm}
+		\begin{tikzpicture}[>=stealth]
+			\draw[line width=0.3mm](0,0)node[below left]{I}--(6,0)node[below right]{J}--(3,2.5)node [above]{K}node[midway, sloped]{||}--(0,0)node[midway, sloped]{||};
+			\draw[<->](0,-0.3)--(6,-0.3)node[midway, below]{$2x+9$};
+			\draw[<->](-0.1,0.3)--(2.8,2.8)node[midway, above left]{$2x$};
+
+		\end{tikzpicture}
+	\end{adjustbox}
+\end{minipage}
+%Fin Tikz
+\end{center}
+
+
+
+\subsection*{Partie A}
+
+\medskip
+
+\begin{enumerate}
+\item
+Calculer la longueur AB pour $x = 10$.
+
+Justifier que le périmètre du rectangle ABCD vaut $78$ pour $x = 10$.
+
+\item Montrer que le périmètre du rectangle ABCD, en fonction de $x$, est $8x - 2$.
+\end{enumerate}
+
+
+
+\subsection*{Partie B}
+
+\medskip
+
+Nour a exprimé, en fonction de $x$, le périmètre du triangle isocèle IJK et a obtenu $6x + 9$.
+
+Nour souhaite trouver pour quelle valeur de $x$ le périmètre du rectangle ABCD et le périmètre du triangle IJK sont égaux.
+
+Pour cela, Nour a créé le programme Scratch ci-contre qui permet de tester, pour une valeur donnée de $x$, si les périmètres sont égaux :
+
+\begin{center}
+\begin{scratch}[scale=0.9]
+\blockinit{quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Combien vaut $x$ ?} et attendre}
+\blockvariable{mettre \selectmenu{Périmètre ABCD} à \ovaloperator{\ovalnum{8} * \ovalnum{x} -\ovalnum{2}}}
+\blockvariable{mettre \selectmenu{Périmètre IJK} à \ovaloperator{\ovalnum{6} * \ovalnum{x} +\ovalnum{9}}}
+\blockifelse{Si \ovalnum{Périmètre ABCD} = \ovalnum{Périmètre IJK} alors}
+	{\blocklook{dire \ovalnum{Les deux périmètres sont égaux} pendant \ovalnum{2} secondes}}
+	{\blocklook{dire \ovalnum{Les deux périmètres ne sont pas égaux} pendant \ovalnum{2} secondes}}
+\end{scratch}
+\end{center}
+
+\medskip
+
+\begin{enumerate}
+\item \textbf{Question algorithmique}
+
+Que renvoie le programme si Nour saisit $7$ ?
+
+\item Avec le programme précédent, Nour n'a pas réussi à trouver une valeur exacte de $x$ pour laquelle le périmètre du rectangle et le périmètre du triangle sont égaux.
+
+Nour décide d'utiliser un tableur et les formules trouvées précédemment :
+
+\begin{itemize}[label=$\bullet~$]
+\item $8x - 2$ pour le périmètre du rectangle ABCD ;
+\item $6x + 9$ pour le périmètre du triangle isocèle IJK.
+\end{itemize}
+
+Voici ci-dessous un extrait de la feuille de calcul dans laquelle Nour a fait afficher le périmètre du rectangle et le périmètre du triangle pour différentes valeurs de $x$.
+
+\begin{center}
+\begin{tblr}{colspec={|X[7mm,c,font=\sffamily]|X[1cm,c]|X[4cm,c]|X[4cm,c]|},row{1}={font=\sffamily}}
+\hline
+ & \textbf{A} & \textbf{B} & \textbf{C} \\
+\hline
+1 & $x$ & Périmètre de ABCD & Périmètre de IJK \\
+
+2 & 5  & 38  & 39 \\
+3 & 6  & 46  & 45 \\
+4 & 7  & 54  & 51 \\
+5 & 8  & 62  & 57 \\
+6 & 9  & 70  & 63 \\
+7 & 10 & 78  & 69 \\
+8 & 11 & 86  & 75 \\
+9 & 12 & 94  & 81 \\
+10 & 13 & 102 & 87 \\
+\hline
+\end{tblr}
+\end{center}
+
+ \begin{enumerate}
+ 	\item Recopier sur la copie la formule que Nour a saisie dans la cellule \textsf{B2} avant de l'étirer vers le bas pour obtenir les résultats affichés.
+
+\medskip
+\begin{tblr}{colspec={*{4}{X[c,font=\sffamily]}},hlines, vlines}
+= 8 * 5 - 2 &
+= 8 * A2 - 2 &
+= 8 * B2 - 2 &
+= 8 * A1 - 2 \\
+\end{tblr}
+
+\medskip
+\item En observant sa feuille de calcul, Nour affirme : \og S'il existe une valeur de $x$ pour laquelle le périmètre du rectangle ABCD et le périmètre du triangle IJK sont égaux, elle est comprise entre $5$ et $6$. \fg
+
+Expliquer le raisonnement de Nour.
+
+\textbf{\textbf{Argumenter la réponse en précisant la démarche.}}
+
+\end{enumerate}
+
+\item Comme elle n'a pas obtenu la solution exacte avec les méthodes précédentes, Nour propose de résoudre algébriquement l'équation $8x - 2 = 6x + 9$.
+
+Résoudre cette équation afin de déterminer la valeur exacte de $x$ pour laquelle le périmètre du rectangle et le périmètre du triangle sont égaux.
+\end{enumerate}
+
+
+
+\section*{Exercice 2 \hfill 4 points}
+
+\begin{minipage}[t]{0.45\textwidth}
+On donne la figure ci-contre.
+
+BGF est un triangle rectangle en G.
+
+Voici les informations dont on dispose :
+
+AC $= 5$\ \text{cm} \quad BC$ = 4$\ \text{cm}
+
+AB $= 3$\ \text{cm} \quad BG $= 2$\ \text{cm}
+
+$\widehat{\text{BCF}} = 74\degres$
+\end{minipage}\hfill
+\begin{adjustbox}{max width=0.5\linewidth,max totalheight=255mm}
+	\begin{tikzpicture}[>=stealth,baseline={(C.base)}]
+		\begin{scope}[shift={(-2:2)},rotate=-2]
+			\draw[fill=blue!40](-0.4,0.4)rectangle(0,0);
+		\end{scope}
+		\draw[fill=blue!40](90:4)--(90:3.6)arc(-90:-16:0.4)node[pos=0.3,below right]{74~°}--cycle;
+		\draw[line width=0.3mm](0:0)node[below right]{B}--(180:3)node[left]{A}--(90:4)node[above](C){C}node[midway, above left]{5 cm}--(58:4)node[above right]{F}--(-2:2)node[below right]{G}--(0:0)node[midway, below]{2 cm};
+		\draw[line width=0.3mm](0:0)--(90:4)node[midway, sloped]{||}node[pos=0.4, left]{4 cm}(0:0)--(58:4)node[midway, sloped]{||}node[pos=0.4, below right]{4 cm};
+		\draw[<->](0,-0.3)--(-3,-0.3)node[midway, below]{3 cm};
+	\end{tikzpicture}
+\end{adjustbox} \hfill~
+%Début PSTricks
+%\begin{minipage}{0.5\textwidth}
+%\psset{unit=0.9cm,arrowsize=2pt 3}
+%\begin{pspicture}(-4.5,-1.5)(3.5,5.8)
+%\pspolygon(4;180)(0;0)(5.5;90)%ABC
+%\uput[dl](4;180){A}\uput[dr](0;0){B}\uput[ul](5.5;90){C}
+%\pspolygon(5.5;90)(5.5;58)(2.9;0)(0;0)(5.5;58)%CFGBF
+%\uput[ur](5.5;58){F}\uput[dr](2.9;0){G}
+%\psframe(2.9,0)(2.7,0.2)
+%\psarc(5.5;90){0.6}{-90}{-16}
+%\rput(-0.7,-1.25){\emph{La figure n'est pas en vraie grandeur.}}
+%\rput(-2.5,3){5 cm}\rput(-0.4,2.55){4cm}\rput(1.75,2){4 cm} \uput[d](1.45,0){2 cm}
+%\def\barre{\psline(-0.05,-0.1)(-0.05,0.1)\psline(0.05,-0.1)(0.05,0.1)}
+%\rput{90}(0,2.75){\barre}\rput{54}(1.5,2.4){\barre}\rput(0.6,4.7){$74\degres$}
+%\psline[linewidth=0.6pt]{<->}(-4,-0.25)(0,-0.25)\uput[d](-2,-0.25){3 cm}
+%\end{pspicture}
+%\end{minipage}
+%Fin PSTricks
+
+
+\medskip
+Le but de cet exercice est de déterminer si les points A, B et G sont alignés ou non.
+
+\begin{enumerate}
+\item On se place dans le triangle CBF.
+\begin{enumerate}[label=\textbf{\alph*.}]
+\item Justifier que l'angle $\widehat{\text{CFB}}$ mesure $74\degres$.
+\item Calculer la mesure de l'angle $\widehat{\text{CBF}}$.
+\end{enumerate}
+\item Démontrer que le triangle ABC est un triangle rectangle.
+\item Dans le triangle rectangle BGF, calculer la mesure de l'angle $\widehat{\text{FBG}}$.
+\item Les points A, B et G sont-ils alignés ? Justifier la réponse. \textbf{\textit{Argumenter la réponse en précisant la démarche.}}
+\end{enumerate}
+
+
+\newpage
+\section*{Exercice 3 \hfill 4 points}
+
+Les Jeux Olympiques d'été 2024 se sont déroulés en France. Toutes les épreuves ont eu lieu en métropole sauf l'épreuve de surf qui a eu lieu à Tahiti, en Polynésie française. Camille, qui aime le surf, a eu la chance de se rendre à Tahiti pour assister aux épreuves. L'organisation du voyage lui a permis de mieux connaître les caractéristiques de cette destination lointaine.
+
+\begin{enumerate}
+\item Sur la carte ci-dessous, les coordonnées géographiques approximatives de Los Angeles sont $(118\degres\text{O}\ ;\ 35\degres\text{N})$.
+
+Écrire sur la copie, de la même façon et avec la précision permise par la carte, les coordonnées géographiques approximatives de Tahiti.
+
+\begin{tikzpicture}[y=3cm, x=3cm,scale=0.85,every node/.style={font=\small}]
+	\tikzstyle{pays}=[draw=gray,fill=white,line width=0.25pt]
+	\tikzstyle{mers}=[draw=black,fill=gray!5,line width=0.75pt]
+	\tikzstyle{meripara}=[draw=black,draw opacity=0.5,line width=0.5pt]
+	\begin{scope} %Océans
+		\path[mers]
+		(-1.506, 1.422) -- (1.506, 1.422) -- (1.633, 1.409) -- (1.731, 1.386) -- (1.811, 1.356) -- (1.879, 1.321) -- (1.998, 1.244) -- (2.106, 1.162) -- (2.208, 1.074) -- (2.302, 0.984) -- (2.388, 0.890) -- (2.464, 0.793) -- (2.530, 0.695) -- (2.586, 0.596) -- (2.633, 0.496) -- (2.670, 0.396) -- (2.699, 0.297) -- (2.731, 0.099) -- (2.731, -0.099) -- (2.699, -0.297) -- (2.633, -0.496) -- (2.586, -0.596) -- (2.530, -0.695) -- (2.464, -0.793) -- (2.388, -0.890) -- (2.302, -0.984) -- (2.106, -1.162) -- (1.998, -1.244) -- (1.879, -1.321) -- (1.811, -1.356) -- (1.731, -1.386) -- (1.633, -1.410) -- (1.506, -1.422) -- (-1.506, -1.422) -- (-1.633, -1.410) -- (-1.731, -1.386) -- (-1.811, -1.356) -- (-1.879, -1.321) -- (-1.998, -1.244) -- (-2.106, -1.162) -- (-2.208, -1.074) -- (-2.302, -0.984) -- (-2.388, -0.890) -- (-2.464, -0.793) -- (-2.530, -0.695) -- (-2.586, -0.596) -- (-2.633, -0.496) -- (-2.670, -0.396) -- (-2.699, -0.297) -- (-2.731, -0.099) -- (-2.731, 0.099) -- (-2.699, 0.297) -- (-2.633, 0.496) -- (-2.586, 0.596) -- (-2.530, 0.695) -- (-2.464, 0.793) -- (-2.388, 0.890) -- (-2.302, 0.984) -- (-2.106, 1.162) -- (-1.998, 1.244) -- (-1.879, 1.321) -- (-1.811, 1.356) -- (-1.731, 1.386) -- (-1.633, 1.409) -- cycle;
+	\end{scope}
+	\begin{scope} %Pays
+		%Tanzanie
+		\path[pays] (0.515, -0.017) -- (0.573, -0.054) -- (0.574, -0.065) -- (0.595, -0.082) -- (0.588, -0.114) -- (0.598, -0.120) -- (0.594, -0.149) -- (0.604, -0.178) -- (0.610, -0.181) -- (0.581, -0.199) -- (0.551, -0.206) -- (0.522, -0.203) -- (0.511, -0.166) -- (0.466, -0.147) -- (0.449, -0.115) -- (0.445, -0.079) -- (0.467, -0.059) -- (0.463, -0.042) -- (0.468, -0.030) -- (0.462, -0.020) -- (0.484, -0.018) -- cycle;
+		%Sahara occidental
+		\path[pays] (-0.127, 0.488) -- (-0.128, 0.456) -- (-0.176, 0.457) -- (-0.177, 0.412) -- (-0.191, 0.410) -- (-0.192, 0.376) -- (-0.250, 0.376) -- (-0.254, 0.370) -- (-0.253, 0.377) -- (-0.219, 0.379) -- (-0.205, 0.417) -- (-0.185, 0.437) -- (-0.167, 0.474) -- (-0.129, 0.478) -- (-0.129, 0.488) -- cycle;
+		%Canada
+		\path[pays] (-1.645, 0.862) -- (-1.669, 0.886) -- (-1.688, 0.893) -- (-1.687, 0.908) -- (-1.678, 0.918) -- (-1.690, 0.926) -- (-1.684, 0.939) -- (-1.692, 0.951) -- (-1.666, 0.978) -- (-1.681, 0.989) -- (-1.679, 1.019) -- (-1.689, 1.041) -- (-1.725, 1.027) -- (-1.730, 1.045) -- (-1.751, 1.050) -- (-1.617, 1.195) -- (-1.577, 1.183) -- (-1.482, 1.202) -- (-1.480, 1.196) -- (-1.459, 1.206) -- (-1.446, 1.191) -- (-1.421, 1.201) -- (-1.430, 1.190) -- (-1.405, 1.197) -- (-1.332, 1.183) -- (-1.322, 1.175) -- (-1.344, 1.168) -- (-1.326, 1.164) -- (-1.281, 1.169) -- (-1.275, 1.160) -- (-1.257, 1.167) -- (-1.264, 1.174) -- (-1.253, 1.179) -- (-1.228, 1.181) -- (-1.215, 1.169) -- (-1.201, 1.171) -- (-1.186, 1.164) -- (-1.149, 1.166) -- (-1.144, 1.175) -- (-1.132, 1.178) -- (-1.117, 1.173) -- (-1.127, 1.158) -- (-1.112, 1.171) -- (-1.102, 1.170) -- (-1.087, 1.185) -- (-1.103, 1.200) -- (-1.090, 1.217) -- (-1.069, 1.227) -- (-1.049, 1.218) -- (-1.045, 1.202) -- (-1.060, 1.195) -- (-1.041, 1.192) -- (-1.051, 1.176) -- (-1.028, 1.188) -- (-1.020, 1.178) -- (-1.030, 1.167) -- (-1.025, 1.157) -- (-0.990, 1.181) -- (-0.979, 1.197) -- (-0.948, 1.194) -- (-0.937, 1.186) -- (-0.954, 1.171) -- (-0.950, 1.163) -- (-0.956, 1.156) -- (-0.985, 1.145) -- (-1.012, 1.147) -- (-1.046, 1.120) -- (-1.097, 1.102) -- (-1.104, 1.091) -- (-1.119, 1.090) -- (-1.165, 1.059) -- (-1.188, 1.028) -- (-1.171, 1.025) -- (-1.173, 0.997) -- (-1.154, 1.001) -- (-1.094, 0.968) -- (-1.060, 0.965) -- (-1.068, 0.951) -- (-1.070, 0.915) -- (-1.056, 0.900) -- (-1.030, 0.922) -- (-1.026, 0.949) -- (-1.032, 0.958) -- (-1.008, 0.965) -- (-0.977, 0.988) -- (-0.976, 1.013) -- (-0.986, 1.025) -- (-0.963, 1.042) -- (-0.955, 1.081) -- (-0.902, 1.083) -- (-0.880, 1.063) -- (-0.859, 1.062) -- (-0.869, 1.028) -- (-0.853, 1.016) -- (-0.831, 1.025) -- (-0.802, 1.050) -- (-0.781, 0.995) -- (-0.790, 0.985) -- (-0.767, 0.966) -- (-0.741, 0.957) -- (-0.740, 0.943) -- (-0.727, 0.934) -- (-0.732, 0.915) -- (-0.798, 0.883) -- (-0.883, 0.883) -- (-0.964, 0.825) -- (-0.891, 0.864) -- (-0.870, 0.866) -- (-0.861, 0.858) -- (-0.877, 0.846) -- (-0.877, 0.815) -- (-0.861, 0.806) -- (-0.838, 0.808) -- (-0.820, 0.828) -- (-0.822, 0.815) -- (-0.815, 0.809) -- (-0.901, 0.768) -- (-0.911, 0.769) -- (-0.908, 0.784) -- (-0.881, 0.798) -- (-0.918, 0.795) -- (-0.925, 0.805) -- (-0.918, 0.829) -- (-0.935, 0.835) -- (-0.979, 0.793) -- (-1.025, 0.793) -- (-1.059, 0.769) -- (-1.085, 0.769) -- (-1.092, 0.766) -- (-1.092, 0.756) -- (-1.150, 0.735) -- (-1.155, 0.740) -- (-1.132, 0.768) -- (-1.128, 0.799) -- (-1.143, 0.819) -- (-1.149, 0.818) -- (-1.150, 0.826) -- (-1.188, 0.850) -- (-1.202, 0.845) -- (-1.233, 0.847) -- (-1.266, 0.856) -- (-1.267, 0.869) -- (-1.275, 0.862) -- (-1.607, 0.862) -- cycle(-1.025, 1.084) -- (-0.996, 1.091) -- (-1.025, 1.079) -- cycle(-0.888, 1.240) -- (-0.896, 1.247) -- (-0.892, 1.252) -- (-0.862, 1.252) -- (-0.849, 1.240) -- (-0.886, 1.239) -- cycle(-0.983, 1.078) -- (-0.971, 1.082) -- (-0.979, 1.071) -- (-0.985, 1.077) -- cycle(-1.020, 1.271) -- (-1.030, 1.265) -- (-1.055, 1.270) -- (-1.026, 1.280) -- (-1.020, 1.275) -- cycle(-0.994, 1.305) -- (-1.018, 1.309) -- (-0.992, 1.307) -- cycle(-1.010, 1.321) -- (-1.002, 1.317) -- (-1.009, 1.312) -- (-1.027, 1.310) -- (-1.033, 1.318) -- (-1.015, 1.322) -- cycle(-0.966, 1.262) -- (-1.008, 1.269) -- (-1.002, 1.283) -- (-1.038, 1.295) -- (-1.029, 1.300) -- (-0.979, 1.295) -- (-0.973, 1.291) -- (-0.979, 1.286) -- (-0.965, 1.279) -- (-0.877, 1.281) -- (-0.869, 1.276) -- (-0.879, 1.266) -- (-0.944, 1.263) -- cycle(-1.170, 1.314) -- (-1.157, 1.311) -- (-1.188, 1.304) -- (-1.200, 1.308) -- (-1.187, 1.312) -- cycle(-1.158, 1.322) -- (-1.147, 1.319) -- (-1.180, 1.317) -- (-1.163, 1.323) -- cycle(-0.734, 0.901) -- (-0.757, 0.876) -- (-0.747, 0.882) -- (-0.739, 0.878) -- (-0.745, 0.872) -- (-0.715, 0.866) -- (-0.722, 0.854) -- (-0.712, 0.857) -- (-0.711, 0.837) -- (-0.726, 0.821) -- (-0.735, 0.824) -- (-0.728, 0.838) -- (-0.732, 0.841) -- (-0.751, 0.826) -- (-0.759, 0.826) -- (-0.747, 0.834) -- (-0.759, 0.839) -- (-0.800, 0.838) -- (-0.791, 0.849) -- (-0.795, 0.854) -- (-0.750, 0.901) -- (-0.731, 0.906) -- cycle(-1.002, 1.125) -- (-0.981, 1.115) -- (-0.983, 1.107) -- (-0.968, 1.104) -- (-0.981, 1.099) -- (-0.998, 1.102) -- (-1.001, 1.109) -- (-1.039, 1.093) -- (-1.038, 1.102) -- (-1.056, 1.101) -- (-1.041, 1.108) -- (-1.020, 1.135) -- (-1.013, 1.133) -- (-1.014, 1.127) -- (-1.007, 1.129) -- cycle(-0.881, 1.233) -- (-0.867, 1.239) -- (-0.835, 1.225) -- (-0.837, 1.219) -- (-0.814, 1.222) -- (-0.807, 1.212) -- (-0.783, 1.207) -- (-0.772, 1.187) -- (-0.796, 1.180) -- (-0.757, 1.167) -- (-0.746, 1.153) -- (-0.728, 1.152) -- (-0.764, 1.123) -- (-0.788, 1.145) -- (-0.804, 1.143) -- (-0.810, 1.134) -- (-0.785, 1.114) -- (-0.784, 1.098) -- (-0.792, 1.087) -- (-0.831, 1.104) -- (-0.811, 1.075) -- (-0.864, 1.091) -- (-0.875, 1.098) -- (-0.869, 1.103) -- (-0.897, 1.118) -- (-0.935, 1.111) -- (-0.943, 1.117) -- (-0.929, 1.128) -- (-0.881, 1.130) -- (-0.882, 1.136) -- (-0.852, 1.158) -- (-0.854, 1.170) -- (-0.888, 1.183) -- (-0.879, 1.186) -- (-0.886, 1.196) -- (-0.902, 1.201) -- (-0.932, 1.195) -- (-0.972, 1.198) -- (-1.017, 1.210) -- (-1.000, 1.217) -- (-1.017, 1.217) -- (-1.010, 1.232) -- (-0.977, 1.250) -- (-0.946, 1.254) -- (-0.961, 1.245) -- (-0.958, 1.236) -- (-0.940, 1.247) -- (-0.908, 1.253) -- (-0.898, 1.239) -- (-0.906, 1.229) -- cycle(-1.038, 1.259) -- (-0.997, 1.255) -- (-1.058, 1.229) -- (-1.070, 1.229) -- (-1.068, 1.242) -- (-1.052, 1.255) -- cycle(-1.322, 1.286) -- (-1.262, 1.305) -- (-1.229, 1.307) -- (-1.254, 1.292) -- (-1.311, 1.283) -- cycle(-1.723, 0.947) -- (-1.709, 0.948) -- (-1.726, 0.929) -- (-1.723, 0.916) -- (-1.729, 0.916) -- (-1.734, 0.937) -- (-1.727, 0.949) -- cycle(-1.094, 1.328) -- (-1.052, 1.322) -- (-1.051, 1.310) -- (-1.103, 1.316) -- (-1.089, 1.320) -- (-1.098, 1.323) -- cycle(-1.659, 0.854) -- (-1.667, 0.851) -- (-1.685, 0.859) -- (-1.693, 0.876) -- (-1.705, 0.879) -- (-1.701, 0.892) -- (-1.671, 0.884) -- (-1.668, 0.870) -- (-1.659, 0.863) -- cycle(-1.331, 1.263) -- (-1.291, 1.259) -- (-1.278, 1.249) -- (-1.332, 1.236) -- (-1.360, 1.219) -- (-1.396, 1.212) -- (-1.397, 1.219) -- (-1.415, 1.226) -- (-1.368, 1.252) -- (-1.371, 1.261) -- cycle(-1.164, 1.283) -- (-1.141, 1.284) -- (-1.158, 1.271) -- (-1.230, 1.263) -- (-1.247, 1.262) -- (-1.244, 1.267) -- (-1.215, 1.273) -- (-1.279, 1.274) -- (-1.237, 1.291) -- (-1.182, 1.277) -- (-1.185, 1.291) -- (-1.161, 1.294) -- (-1.163, 1.287) -- cycle(-1.183, 1.244) -- (-1.175, 1.238) -- (-1.184, 1.214) -- (-1.155, 1.199) -- (-1.161, 1.193) -- (-1.181, 1.192) -- (-1.177, 1.186) -- (-1.185, 1.180) -- (-1.221, 1.187) -- (-1.314, 1.177) -- (-1.314, 1.184) -- (-1.339, 1.187) -- (-1.343, 1.198) -- (-1.282, 1.204) -- (-1.342, 1.207) -- (-1.343, 1.212) -- (-1.312, 1.218) -- (-1.346, 1.222) -- (-1.327, 1.233) -- (-1.276, 1.247) -- (-1.268, 1.244) -- (-1.279, 1.238) -- (-1.250, 1.242) -- (-1.241, 1.235) -- (-1.222, 1.242) -- (-1.216, 1.237) -- (-1.219, 1.223) -- (-1.208, 1.229) -- (-1.204, 1.244) -- (-1.192, 1.246) -- cycle(-1.120, 1.238) -- (-1.125, 1.248) -- (-1.106, 1.255) -- (-1.074, 1.253) -- (-1.090, 1.242) -- (-1.078, 1.236) -- (-1.089, 1.223) -- (-1.112, 1.218) -- (-1.145, 1.236) -- (-1.141, 1.240) -- cycle(-1.178, 1.251) -- (-1.157, 1.249) -- (-1.174, 1.239) -- (-1.183, 1.249) -- cycle(-1.053, 1.294) -- (-1.050, 1.288) -- (-1.069, 1.271) -- (-1.088, 1.269) -- (-1.098, 1.272) -- (-1.091, 1.280) -- (-1.110, 1.279) -- (-1.101, 1.289) -- (-1.055, 1.293) -- cycle(-0.979, 1.344) -- (-0.958, 1.352) -- (-0.934, 1.352) -- (-0.899, 1.341) -- (-0.898, 1.333) -- (-0.889, 1.329) -- (-0.954, 1.314) -- (-0.974, 1.316) -- (-0.981, 1.321) -- (-0.965, 1.329) -- (-0.984, 1.329) -- (-0.992, 1.339) -- cycle(-0.917, 1.360) -- (-0.749, 1.374) -- (-0.612, 1.368) -- (-0.670, 1.358) -- (-0.681, 1.355) -- (-0.659, 1.355) -- (-0.733, 1.335) -- (-0.797, 1.329) -- (-0.784, 1.327) -- (-0.793, 1.325) -- (-0.789, 1.318) -- (-0.848, 1.301) -- (-0.830, 1.299) -- (-0.832, 1.295) -- (-0.866, 1.287) -- (-0.959, 1.291) -- (-0.956, 1.298) -- (-0.933, 1.301) -- (-0.931, 1.310) -- (-0.900, 1.305) -- (-0.908, 1.314) -- (-0.923, 1.316) -- (-0.882, 1.329) -- (-0.892, 1.334) -- (-0.890, 1.340) -- (-0.836, 1.343) -- (-0.894, 1.343) -- (-0.919, 1.356) -- cycle(-0.881, 1.161) -- (-0.904, 1.155) -- (-0.894, 1.171) -- (-0.882, 1.173) -- (-0.875, 1.169) -- (-0.878, 1.163) -- cycle(-1.106, 1.191) -- (-1.103, 1.186) -- (-1.114, 1.180) -- (-1.148, 1.190) -- (-1.122, 1.201) -- (-1.108, 1.194) -- cycle(-0.860, 0.877) -- (-0.827, 0.867) -- (-0.850, 0.869) -- cycle(-0.867, 0.828) -- (-0.864, 0.820) -- (-0.842, 0.818) -- (-0.856, 0.810) -- (-0.872, 0.817) -- (-0.873, 0.823) -- cycle;
+		%États-Unis
+		\path[pays] (-1.645, 0.862) -- (-1.275, 0.862) -- (-1.267, 0.869) -- (-1.266, 0.856) -- (-1.233, 0.847) -- (-1.202, 0.845) -- (-1.188, 0.850) -- (-1.150, 0.826) -- (-1.149, 0.818) -- (-1.143, 0.819) -- (-1.128, 0.799) -- (-1.132, 0.768) -- (-1.155, 0.740) -- (-1.150, 0.735) -- (-1.092, 0.756) -- (-1.092, 0.766) -- (-1.085, 0.769) -- (-1.059, 0.769) -- (-1.025, 0.793) -- (-0.979, 0.793) -- (-0.935, 0.835) -- (-0.918, 0.829) -- (-0.925, 0.805) -- (-0.918, 0.790) -- (-0.966, 0.770) -- (-0.980, 0.756) -- (-0.980, 0.737) -- (-0.974, 0.743) -- (-0.974, 0.734) -- (-1.029, 0.722) -- (-1.004, 0.722) -- (-1.033, 0.719) -- (-1.055, 0.687) -- (-1.061, 0.697) -- (-1.059, 0.678) -- (-1.077, 0.657) -- (-1.071, 0.669) -- (-1.076, 0.676) -- (-1.074, 0.691) -- (-1.079, 0.672) -- (-1.087, 0.675) -- (-1.079, 0.669) -- (-1.081, 0.627) -- (-1.093, 0.614) -- (-1.128, 0.598) -- (-1.178, 0.555) -- (-1.183, 0.530) -- (-1.175, 0.474) -- (-1.185, 0.444) -- (-1.197, 0.444) -- (-1.202, 0.456) -- (-1.213, 0.492) -- (-1.207, 0.503) -- (-1.218, 0.528) -- (-1.223, 0.531) -- (-1.239, 0.523) -- (-1.255, 0.536) -- (-1.303, 0.532) -- (-1.304, 0.514) -- (-1.325, 0.514) -- (-1.334, 0.523) -- (-1.357, 0.525) -- (-1.380, 0.520) -- (-1.422, 0.491) -- (-1.430, 0.456) -- (-1.435, 0.455) -- (-1.455, 0.465) -- (-1.471, 0.518) -- (-1.492, 0.525) -- (-1.505, 0.511) -- (-1.515, 0.516) -- (-1.525, 0.541) -- (-1.541, 0.560) -- (-1.566, 0.560) -- (-1.568, 0.553) -- (-1.608, 0.553) -- (-1.657, 0.574) -- (-1.654, 0.577) -- (-1.690, 0.574) -- (-1.689, 0.583) -- (-1.701, 0.600) -- (-1.728, 0.611) -- (-1.734, 0.667) -- (-1.742, 0.687) -- (-1.741, 0.711) -- (-1.724, 0.754) -- (-1.691, 0.802) -- (-1.678, 0.848) -- (-1.658, 0.846) -- (-1.659, 0.829) -- (-1.648, 0.848) -- cycle(-2.317, 0.354) -- (-2.311, 0.343) -- (-2.326, 0.333) -- (-2.329, 0.347) -- (-2.322, 0.357) -- cycle(-2.323, 0.366) -- (-2.330, 0.362) -- (-2.333, 0.369) -- (-2.326, 0.368) -- cycle(-2.332, 0.373) -- (-2.333, 0.371) -- (-2.341, 0.372) -- (-2.339, 0.374) -- cycle(-2.348, 0.383) -- (-2.346, 0.375) -- (-2.353, 0.380) -- cycle(-2.366, 0.391) -- (-2.369, 0.386) -- (-2.369, 0.392) -- cycle(-2.066, 1.051) -- (-2.057, 1.049) -- (-2.062, 1.043) -- (-2.072, 1.041) -- (-2.080, 1.048) -- cycle(-1.936, 1.012) -- (-1.927, 1.006) -- (-1.945, 0.998) -- (-1.963, 0.992) -- (-1.966, 0.996) -- (-1.945, 1.009) -- cycle(-1.617, 1.195) -- (-1.751, 1.050) -- (-1.730, 1.045) -- (-1.725, 1.027) -- (-1.689, 1.041) -- (-1.679, 1.019) -- (-1.681, 0.989) -- (-1.666, 0.978) -- (-1.686, 0.960) -- (-1.696, 0.971) -- (-1.690, 0.986) -- (-1.697, 0.999) -- (-1.692, 1.014) -- (-1.734, 1.020) -- (-1.747, 1.037) -- (-1.773, 1.046) -- (-1.791, 1.045) -- (-1.818, 1.059) -- (-1.835, 1.055) -- (-1.842, 1.044) -- (-1.900, 1.031) -- (-1.856, 1.065) -- (-1.926, 1.034) -- (-1.924, 1.026) -- (-1.946, 1.015) -- (-2.030, 0.979) -- (-2.134, 0.953) -- (-1.998, 1.005) -- (-1.970, 1.027) -- (-2.003, 1.019) -- (-2.004, 1.027) -- (-2.012, 1.022) -- (-2.010, 1.030) -- (-2.036, 1.023) -- (-2.020, 1.039) -- (-2.023, 1.044) -- (-2.042, 1.041) -- (-2.050, 1.053) -- (-2.041, 1.062) -- (-2.044, 1.069) -- (-1.998, 1.095) -- (-1.981, 1.093) -- (-1.942, 1.104) -- (-1.937, 1.111) -- (-1.941, 1.114) -- (-1.926, 1.120) -- (-1.957, 1.113) -- (-1.982, 1.115) -- (-1.995, 1.118) -- (-1.999, 1.134) -- (-1.940, 1.148) -- (-1.931, 1.148) -- (-1.941, 1.140) -- (-1.915, 1.140) -- (-1.914, 1.150) -- (-1.926, 1.170) -- (-1.937, 1.174) -- (-1.921, 1.182) -- (-1.769, 1.219) -- (-1.755, 1.216) -- (-1.754, 1.209) -- (-1.728, 1.211) -- (-1.732, 1.208) -- (-1.718, 1.205) -- (-1.628, 1.197) -- cycle(-2.074, 1.104) -- (-2.048, 1.095) -- (-2.061, 1.092) -- (-2.081, 1.098) -- cycle;
+		%Kazakhstan
+		\path[pays] (1.169, 0.866) -- (1.163, 0.854) -- (1.152, 0.853) -- (1.158, 0.835) -- (1.154, 0.828) -- (1.125, 0.833) -- (1.126, 0.802) -- (1.095, 0.792) -- (1.117, 0.761) -- (1.109, 0.757) -- (1.113, 0.747) -- (1.095, 0.756) -- (1.046, 0.756) -- (1.025, 0.764) -- (1.018, 0.760) -- (1.019, 0.750) -- (0.986, 0.753) -- (0.985, 0.745) -- (0.962, 0.730) -- (0.959, 0.717) -- (0.954, 0.717) -- (0.948, 0.726) -- (0.930, 0.726) -- (0.924, 0.741) -- (0.917, 0.741) -- (0.914, 0.758) -- (0.894, 0.771) -- (0.855, 0.767) -- (0.838, 0.783) -- (0.799, 0.803) -- (0.766, 0.793) -- (0.780, 0.729) -- (0.773, 0.728) -- (0.750, 0.746) -- (0.730, 0.737) -- (0.727, 0.755) -- (0.709, 0.761) -- (0.690, 0.786) -- (0.704, 0.785) -- (0.702, 0.797) -- (0.725, 0.798) -- (0.719, 0.825) -- (0.693, 0.828) -- (0.667, 0.817) -- (0.648, 0.840) -- (0.638, 0.840) -- (0.624, 0.852) -- (0.631, 0.887) -- (0.647, 0.877) -- (0.646, 0.889) -- (0.669, 0.908) -- (0.690, 0.908) -- (0.739, 0.890) -- (0.751, 0.897) -- (0.772, 0.897) -- (0.792, 0.888) -- (0.794, 0.893) -- (0.813, 0.893) -- (0.814, 0.901) -- (0.789, 0.912) -- (0.799, 0.920) -- (0.795, 0.925) -- (0.807, 0.929) -- (0.794, 0.941) -- (0.798, 0.947) -- (0.844, 0.952) -- (0.889, 0.969) -- (0.913, 0.966) -- (0.924, 0.949) -- (0.936, 0.953) -- (0.954, 0.947) -- (0.957, 0.938) -- (0.995, 0.955) -- (0.993, 0.949) -- (1.060, 0.894) -- (1.064, 0.903) -- (1.086, 0.893) -- (1.103, 0.897) -- (1.141, 0.874) -- (1.157, 0.876) -- cycle;
+		%Turkmenistan
+		\path[pays] (0.780, 0.729) -- (0.766, 0.793) -- (0.799, 0.803) -- (0.838, 0.783) -- (0.855, 0.767) -- (0.894, 0.771) -- (0.914, 0.758) -- (0.917, 0.741) -- (0.924, 0.741) -- (0.930, 0.726) -- (0.948, 0.726) -- (0.954, 0.717) -- (0.959, 0.717) -- (0.962, 0.730) -- (0.985, 0.745) -- (0.989, 0.744) -- (0.980, 0.732) -- (1.020, 0.721) -- (1.006, 0.708) -- (0.989, 0.710) -- (0.986, 0.723) -- (0.969, 0.719) -- (0.963, 0.698) -- (0.951, 0.698) -- (0.949, 0.691) -- (0.960, 0.686) -- (0.966, 0.673) -- (0.962, 0.655) -- (0.943, 0.659) -- (0.941, 0.670) -- (0.904, 0.686) -- (0.874, 0.707) -- (0.863, 0.725) -- (0.843, 0.727) -- (0.832, 0.745) -- (0.812, 0.754) -- (0.792, 0.738) -- (0.796, 0.729) -- cycle;
+		%Papouasie-Nouvelle-Guinee
+		\path[pays] (2.142, -0.046) -- (2.196, -0.068) -- (2.214, -0.086) -- (2.215, -0.096) -- (2.240, -0.107) -- (2.243, -0.116) -- (2.229, -0.118) -- (2.231, -0.130) -- (2.244, -0.141) -- (2.252, -0.160) -- (2.270, -0.170) -- (2.265, -0.174) -- (2.280, -0.181) -- (2.268, -0.187) -- (2.237, -0.178) -- (2.213, -0.142) -- (2.194, -0.134) -- (2.171, -0.145) -- (2.171, -0.158) -- (2.159, -0.164) -- (2.135, -0.160) -- (2.140, -0.103) -- cycle(2.318, -0.064) -- (2.325, -0.079) -- (2.320, -0.084) -- (2.315, -0.067) -- (2.289, -0.048) -- (2.293, -0.044) -- (2.312, -0.057) -- cycle(2.296, -0.103) -- (2.271, -0.111) -- (2.251, -0.101) -- (2.252, -0.096) -- (2.274, -0.097) -- (2.277, -0.088) -- (2.280, -0.097) -- (2.289, -0.096) -- (2.302, -0.084) -- (2.301, -0.073) -- (2.310, -0.073) -- (2.312, -0.086) -- (2.298, -0.098) -- cycle(2.349, -0.094) -- (2.366, -0.115) -- (2.359, -0.122) -- (2.353, -0.115) -- (2.348, -0.089) -- cycle;
+		%Indonesie
+		\path[pays] (2.142, -0.046) -- (2.135, -0.160) -- (2.123, -0.146) -- (2.108, -0.142) -- (2.084, -0.148) -- (2.102, -0.129) -- (2.093, -0.095) -- (2.052, -0.079) -- (2.030, -0.062) -- (2.019, -0.072) -- (2.016, -0.058) -- (2.005, -0.050) -- (2.032, -0.044) -- (2.031, -0.039) -- (2.009, -0.039) -- (2.003, -0.028) -- (1.990, -0.025) -- (1.983, -0.016) -- (2.012, -0.006) -- (2.036, -0.014) -- (2.042, -0.049) -- (2.058, -0.059) -- (2.088, -0.030) -- (2.102, -0.030) -- (2.126, -0.042) -- cycle(1.892, -0.156) -- (1.893, -0.165) -- (1.882, -0.178) -- (1.867, -0.180) -- (1.877, -0.163) -- cycle(2.035, -0.121) -- (2.041, -0.096) -- (2.044, -0.109) -- cycle(1.790, 0.073) -- (1.782, 0.057) -- (1.794, 0.040) -- (1.791, 0.032) -- (1.808, 0.016) -- (1.790, 0.014) -- (1.786, -0.014) -- (1.771, -0.026) -- (1.764, -0.071) -- (1.762, -0.064) -- (1.744, -0.072) -- (1.739, -0.061) -- (1.720, -0.055) -- (1.702, -0.061) -- (1.697, -0.053) -- (1.674, -0.052) -- (1.673, -0.028) -- (1.658, -0.008) -- (1.657, 0.024) -- (1.666, 0.035) -- (1.679, 0.014) -- (1.699, 0.016) -- (1.708, 0.025) -- (1.729, 0.021) -- (1.742, 0.025) -- (1.759, 0.076) -- (1.777, 0.076) -- cycle(1.965, -0.049) -- (1.982, -0.054) -- (1.987, -0.068) -- (1.974, -0.061) -- (1.943, -0.060) -- (1.947, -0.050) -- cycle(1.927, -0.067) -- (1.916, -0.063) -- (1.914, -0.056) -- (1.929, -0.055) -- (1.933, -0.061) -- cycle(1.944, 0.038) -- (1.945, 0.029) -- (1.954, 0.027) -- (1.956, 0.020) -- (1.955, 0.004) -- (1.947, 0.006) -- (1.945, -0.004) -- (1.951, -0.014) -- (1.947, -0.016) -- (1.941, -0.005) -- (1.939, 0.032) -- cycle(1.868, 0.015) -- (1.885, 0.016) -- (1.900, 0.029) -- (1.903, 0.025) -- (1.891, 0.008) -- (1.826, 0.004) -- (1.824, -0.009) -- (1.838, -0.025) -- (1.846, -0.017) -- (1.874, -0.011) -- (1.873, -0.019) -- (1.866, -0.016) -- (1.860, -0.027) -- (1.846, -0.034) -- (1.870, -0.082) -- (1.869, -0.094) -- (1.861, -0.099) -- (1.855, -0.093) -- (1.863, -0.079) -- (1.848, -0.085) -- (1.844, -0.080) -- (1.847, -0.074) -- (1.836, -0.063) -- (1.838, -0.046) -- (1.828, -0.052) -- (1.828, -0.097) -- (1.818, -0.100) -- (1.812, -0.095) -- (1.815, -0.061) -- (1.809, -0.061) -- (1.804, -0.049) -- (1.824, 0.010) -- (1.837, 0.023) -- (1.849, 0.018) -- cycle(1.819, -0.180) -- (1.800, -0.168) -- (1.815, -0.165) -- (1.826, -0.180) -- cycle(1.838, -0.150) -- (1.862, -0.142) -- (1.859, -0.152) -- (1.836, -0.157) -- (1.816, -0.155) -- (1.816, -0.149) -- (1.829, -0.145) -- cycle(1.791, -0.147) -- (1.801, -0.146) -- (1.804, -0.153) -- (1.767, -0.159) -- (1.786, -0.142) -- cycle(1.646, -0.113) -- (1.647, -0.119) -- (1.676, -0.121) -- (1.680, -0.114) -- (1.708, -0.122) -- (1.712, -0.134) -- (1.735, -0.137) -- (1.753, -0.147) -- (1.735, -0.154) -- (1.614, -0.129) -- (1.612, -0.122) -- (1.598, -0.120) -- (1.609, -0.104) -- (1.639, -0.112) -- cycle(1.586, -0.019) -- (1.594, -0.041) -- (1.605, -0.043) -- (1.612, -0.054) -- (1.606, -0.103) -- (1.589, -0.103) -- (1.540, -0.049) -- (1.498, 0.032) -- (1.448, 0.087) -- (1.446, 0.096) -- (1.480, 0.092) -- (1.529, 0.037) -- (1.545, 0.037) -- (1.578, 0.002) -- (1.572, -0.013) -- (1.581, -0.019) -- cycle;
+		%Argentine
+		\path[pays] (-0.899, -0.924) -- (-0.881, -0.944) -- (-0.841, -0.958) -- (-0.844, -0.966) -- (-0.856, -0.967) -- (-0.864, -0.961) -- (-0.886, -0.961) -- cycle(-0.838, -0.533) -- (-0.838, -0.608) -- (-0.818, -0.623) -- (-0.818, -0.635) -- (-0.806, -0.651) -- (-0.816, -0.674) -- (-0.835, -0.683) -- (-0.878, -0.685) -- (-0.869, -0.718) -- (-0.876, -0.724) -- (-0.908, -0.724) -- (-0.902, -0.742) -- (-0.892, -0.747) -- (-0.885, -0.742) -- (-0.879, -0.751) -- (-0.899, -0.767) -- (-0.897, -0.794) -- (-0.910, -0.794) -- (-0.918, -0.803) -- (-0.919, -0.816) -- (-0.888, -0.832) -- (-0.888, -0.847) -- (-0.901, -0.857) -- (-0.904, -0.877) -- (-0.917, -0.891) -- (-0.894, -0.919) -- (-0.946, -0.913) -- (-0.959, -0.891) -- (-0.974, -0.886) -- (-0.982, -0.867) -- (-0.974, -0.860) -- (-0.973, -0.849) -- (-0.981, -0.793) -- (-0.976, -0.789) -- (-0.987, -0.779) -- (-0.984, -0.772) -- (-1.001, -0.745) -- (-0.996, -0.742) -- (-1.006, -0.702) -- (-1.006, -0.687) -- (-0.999, -0.680) -- (-1.011, -0.647) -- (-1.003, -0.635) -- (-1.002, -0.603) -- (-1.022, -0.553) -- (-1.016, -0.535) -- (-1.018, -0.502) -- (-1.002, -0.474) -- (-1.008, -0.467) -- (-1.010, -0.432) -- (-0.995, -0.423) -- (-0.995, -0.401) -- (-0.985, -0.385) -- (-0.965, -0.389) -- (-0.954, -0.402) -- (-0.950, -0.387) -- (-0.933, -0.388) -- (-0.900, -0.421) -- (-0.852, -0.444) -- (-0.849, -0.451) -- (-0.860, -0.478) -- (-0.828, -0.486) -- (-0.816, -0.483) -- (-0.805, -0.469) -- (-0.804, -0.454) -- (-0.797, -0.450) -- (-0.787, -0.475) -- (-0.822, -0.509) -- cycle;
+		%Chili
+		\path[pays] (-0.899, -0.924) -- (-0.886, -0.961) -- (-0.864, -0.961) -- (-0.866, -0.968) -- (-0.882, -0.973) -- (-0.935, -0.955) -- (-0.977, -0.927) -- (-0.923, -0.948) -- (-0.919, -0.929) -- (-0.909, -0.922) -- cycle(-1.042, -0.310) -- (-1.022, -0.342) -- (-1.025, -0.359) -- (-1.005, -0.403) -- (-0.993, -0.405) -- (-0.995, -0.423) -- (-1.010, -0.432) -- (-1.008, -0.467) -- (-1.002, -0.474) -- (-1.018, -0.502) -- (-1.016, -0.535) -- (-1.022, -0.553) -- (-1.002, -0.603) -- (-1.003, -0.635) -- (-1.011, -0.647) -- (-0.999, -0.680) -- (-1.006, -0.687) -- (-0.996, -0.742) -- (-1.001, -0.745) -- (-0.984, -0.772) -- (-0.987, -0.779) -- (-0.976, -0.789) -- (-0.981, -0.793) -- (-0.973, -0.849) -- (-0.974, -0.860) -- (-0.982, -0.867) -- (-0.974, -0.886) -- (-0.959, -0.891) -- (-0.946, -0.913) -- (-0.900, -0.918) -- (-0.912, -0.918) -- (-0.926, -0.928) -- (-0.923, -0.944) -- (-0.928, -0.944) -- (-0.984, -0.917) -- (-1.014, -0.856) -- (-1.014, -0.840) -- (-1.004, -0.827) -- (-1.026, -0.822) -- (-1.018, -0.806) -- (-1.022, -0.777) -- (-1.005, -0.784) -- (-1.008, -0.748) -- (-1.019, -0.743) -- (-1.017, -0.765) -- (-1.026, -0.762) -- (-1.030, -0.693) -- (-1.044, -0.656) -- (-1.038, -0.655) -- (-1.031, -0.572) -- (-1.044, -0.509) -- (-1.038, -0.487) -- (-1.042, -0.377) -- (-1.053, -0.323) -- (-1.045, -0.318) -- cycle;
+		%République démocratique du Congo
+		\path[pays] (0.445, -0.079) -- (0.449, -0.115) -- (0.466, -0.147) -- (0.439, -0.148) -- (0.431, -0.161) -- (0.428, -0.208) -- (0.443, -0.217) -- (0.447, -0.214) -- (0.448, -0.233) -- (0.436, -0.233) -- (0.410, -0.204) -- (0.401, -0.210) -- (0.389, -0.207) -- (0.384, -0.199) -- (0.367, -0.198) -- (0.367, -0.193) -- (0.335, -0.195) -- (0.329, -0.128) -- (0.311, -0.128) -- (0.312, -0.122) -- (0.305, -0.122) -- (0.294, -0.126) -- (0.288, -0.141) -- (0.265, -0.142) -- (0.248, -0.103) -- (0.187, -0.107) -- (0.185, -0.102) -- (0.192, -0.088) -- (0.207, -0.079) -- (0.221, -0.087) -- (0.243, -0.062) -- (0.249, -0.031) -- (0.268, -0.008) -- (0.282, 0.074) -- (0.296, 0.088) -- (0.340, 0.071) -- (0.347, 0.083) -- (0.389, 0.092) -- (0.416, 0.092) -- (0.432, 0.075) -- (0.451, 0.081) -- (0.468, 0.062) -- (0.468, 0.041) -- (0.474, 0.039) -- (0.454, 0.010) -- (0.450, -0.024) -- (0.442, -0.040) -- (0.445, -0.058) -- cycle;
+		%Somalie
+		\path[pays] (0.632, -0.030) -- (0.623, -0.015) -- (0.623, 0.049) -- (0.640, 0.074) -- (0.663, 0.087) -- (0.683, 0.088) -- (0.741, 0.166) -- (0.739, 0.201) -- (0.772, 0.211) -- (0.765, 0.162) -- (0.738, 0.094) -- (0.707, 0.050) -- (0.656, 0.005) -- (0.635, -0.025) -- cycle;
+		%Kenya
+		\path[pays] (0.595, -0.082) -- (0.574, -0.065) -- (0.573, -0.054) -- (0.515, -0.017) -- (0.515, 0.002) -- (0.532, 0.034) -- (0.516, 0.075) -- (0.536, 0.097) -- (0.544, 0.094) -- (0.549, 0.078) -- (0.560, 0.078) -- (0.579, 0.063) -- (0.601, 0.060) -- (0.619, 0.075) -- (0.636, 0.069) -- (0.623, 0.049) -- (0.623, -0.015) -- (0.632, -0.030) -- (0.612, -0.045) -- (0.601, -0.076) -- cycle;
+		%Tchad
+		\path[pays] (0.372, 0.145) -- (0.355, 0.157) -- (0.356, 0.177) -- (0.340, 0.205) -- (0.340, 0.216) -- (0.331, 0.221) -- (0.339, 0.263) -- (0.346, 0.276) -- (0.359, 0.275) -- (0.356, 0.352) -- (0.373, 0.352) -- (0.371, 0.387) -- (0.548, 0.387) -- (0.560, 0.328) -- (0.575, 0.317) -- (0.553, 0.298) -- (0.547, 0.239) -- (0.518, 0.187) -- (0.515, 0.153) -- (0.510, 0.182) -- (0.502, 0.189) -- (0.501, 0.214) -- (0.494, 0.215) -- (0.484, 0.211) -- (0.490, 0.195) -- (0.474, 0.173) -- (0.467, 0.171) -- (0.454, 0.181) -- (0.438, 0.165) -- (0.423, 0.165) -- (0.401, 0.168) -- (0.390, 0.183) -- (0.379, 0.181) -- (0.372, 0.157) -- (0.362, 0.152) -- cycle;
+		%Niger
+		\path[pays] (0.356, 0.345) -- (0.359, 0.275) -- (0.346, 0.276) -- (0.339, 0.263) -- (0.331, 0.221) -- (0.340, 0.216) -- (0.345, 0.196) -- (0.328, 0.186) -- (0.318, 0.167) -- (0.304, 0.158) -- (0.285, 0.158) -- (0.286, 0.152) -- (0.272, 0.139) -- (0.232, 0.130) -- (0.227, 0.155) -- (0.211, 0.168) -- (0.214, 0.176) -- (0.234, 0.176) -- (0.226, 0.192) -- (0.220, 0.235) -- (0.210, 0.235) -- (0.204, 0.253) -- (0.210, 0.276) -- (0.229, 0.293) -- (0.237, 0.359) -- (0.225, 0.375) -- (0.220, 0.403) -- (0.235, 0.412) -- (0.295, 0.379) -- cycle;
+		%Haiti
+		\path[pays] (-1.070, 0.347) -- (-1.076, 0.328) -- (-1.073, 0.318) -- (-1.106, 0.317) -- (-1.114, 0.323) -- (-1.112, 0.329) -- (-1.087, 0.325) -- (-1.081, 0.329) -- (-1.086, 0.343) -- (-1.095, 0.346) -- (-1.083, 0.350) -- cycle;
+		%République dominicaine
+		\path[pays] (-1.073, 0.318) -- (-1.076, 0.328) -- (-1.068, 0.350) -- (-1.044, 0.346) -- (-1.021, 0.328) -- (-1.028, 0.320) -- (-1.057, 0.324) -- (-1.069, 0.310) -- (-1.073, 0.313) -- cycle;
+		%Russie
+		\path[pays] (2.024, 1.215) -- (2.030, 1.221) -- (2.043, 1.211) -- (2.032, 1.211) -- cycle(0.667, 0.817) -- (0.663, 0.807) -- (0.650, 0.804) -- (0.640, 0.786) -- (0.676, 0.738) -- (0.667, 0.726) -- (0.630, 0.750) -- (0.609, 0.750) -- (0.586, 0.762) -- (0.551, 0.766) -- (0.501, 0.797) -- (0.511, 0.800) -- (0.520, 0.815) -- (0.511, 0.821) -- (0.530, 0.828) -- (0.517, 0.829) -- (0.517, 0.837) -- (0.536, 0.843) -- (0.535, 0.872) -- (0.506, 0.878) -- (0.497, 0.886) -- (0.487, 0.883) -- (0.469, 0.889) -- (0.463, 0.900) -- (0.452, 0.900) -- (0.453, 0.909) -- (0.443, 0.919) -- (0.418, 0.915) -- (0.409, 0.931) -- (0.426, 0.936) -- (0.397, 0.960) -- (0.397, 0.972) -- (0.361, 0.982) -- (0.346, 1.004) -- (0.351, 1.009) -- (0.345, 1.024) -- (0.362, 1.045) -- (0.348, 1.053) -- (0.384, 1.090) -- (0.364, 1.101) -- (0.366, 1.111) -- (0.354, 1.123) -- (0.359, 1.136) -- (0.342, 1.153) -- (0.350, 1.165) -- (0.330, 1.175) -- (0.330, 1.185) -- (0.368, 1.198) -- (0.421, 1.185) -- (0.481, 1.161) -- (0.484, 1.151) -- (0.455, 1.139) -- (0.391, 1.148) -- (0.413, 1.137) -- (0.420, 1.114) -- (0.447, 1.105) -- (0.447, 1.113) -- (0.438, 1.120) -- (0.444, 1.126) -- (0.475, 1.116) -- (0.485, 1.120) -- (0.473, 1.131) -- (0.497, 1.146) -- (0.521, 1.140) -- (0.525, 1.150) -- (0.512, 1.159) -- (0.515, 1.168) -- (0.504, 1.178) -- (0.538, 1.173) -- (0.547, 1.164) -- (0.533, 1.163) -- (0.546, 1.149) -- (0.564, 1.152) -- (0.563, 1.162) -- (0.621, 1.182) -- (0.630, 1.181) -- (0.622, 1.172) -- (0.680, 1.182) -- (0.697, 1.173) -- (0.706, 1.183) -- (0.690, 1.192) -- (0.694, 1.197) -- (0.748, 1.188) -- (0.798, 1.171) -- (0.802, 1.178) -- (0.770, 1.191) -- (0.756, 1.214) -- (0.777, 1.243) -- (0.809, 1.239) -- (0.816, 1.231) -- (0.811, 1.220) -- (0.830, 1.205) -- (0.838, 1.184) -- (0.855, 1.175) -- (0.843, 1.144) -- (0.857, 1.141) -- (0.871, 1.151) -- (0.876, 1.166) -- (0.865, 1.174) -- (0.865, 1.184) -- (0.852, 1.185) -- (0.845, 1.193) -- (0.846, 1.208) -- (0.825, 1.220) -- (0.840, 1.230) -- (0.831, 1.240) -- (0.847, 1.233) -- (0.851, 1.219) -- (0.864, 1.216) -- (0.853, 1.226) -- (0.869, 1.232) -- (0.891, 1.233) -- (0.917, 1.225) -- (0.889, 1.252) -- (0.956, 1.256) -- (0.942, 1.263) -- (0.948, 1.273) -- (1.004, 1.285) -- (1.043, 1.283) -- (1.061, 1.291) -- (1.081, 1.291) -- (1.083, 1.302) -- (1.103, 1.307) -- (1.150, 1.291) -- (1.188, 1.294) -- (1.232, 1.283) -- (1.236, 1.275) -- (1.202, 1.259) -- (1.244, 1.257) -- (1.258, 1.247) -- (1.275, 1.253) -- (1.370, 1.242) -- (1.360, 1.253) -- (1.404, 1.251) -- (1.429, 1.243) -- (1.443, 1.234) -- (1.442, 1.228) -- (1.468, 1.216) -- (1.491, 1.211) -- (1.487, 1.226) -- (1.512, 1.219) -- (1.578, 1.221) -- (1.556, 1.234) -- (1.564, 1.240) -- (1.675, 1.231) -- (1.736, 1.211) -- (1.804, 1.212) -- (1.832, 1.195) -- (1.851, 1.191) -- (1.928, 1.193) -- (1.963, 1.179) -- (1.972, 1.184) -- (1.948, 1.200) -- (2.013, 1.197) -- (2.079, 1.184) -- (2.153, 1.123) -- (2.145, 1.116) -- (2.128, 1.117) -- (2.181, 1.092) -- (2.191, 1.081) -- (2.164, 1.085) -- (2.134, 1.071) -- (2.119, 1.050) -- (2.122, 1.043) -- (2.093, 1.054) -- (2.073, 1.041) -- (2.061, 1.047) -- (2.056, 1.040) -- (2.037, 1.043) -- (2.043, 1.016) -- (2.067, 1.006) -- (2.087, 0.982) -- (2.075, 0.982) -- (2.082, 0.968) -- (2.093, 0.961) -- (2.078, 0.952) -- (2.089, 0.933) -- (2.073, 0.929) -- (2.082, 0.912) -- (2.075, 0.896) -- (2.000, 0.969) -- (1.987, 0.992) -- (1.989, 1.002) -- (1.983, 1.010) -- (1.999, 1.013) -- (2.009, 1.050) -- (2.019, 1.063) -- (2.006, 1.085) -- (1.993, 1.084) -- (1.999, 1.071) -- (1.984, 1.053) -- (1.955, 1.073) -- (1.929, 1.067) -- (1.923, 1.041) -- (1.942, 1.031) -- (1.900, 1.025) -- (1.891, 1.037) -- (1.869, 1.039) -- (1.860, 1.031) -- (1.820, 1.034) -- (1.782, 1.029) -- (1.746, 0.959) -- (1.768, 0.956) -- (1.797, 0.942) -- (1.799, 0.951) -- (1.815, 0.950) -- (1.846, 0.931) -- (1.857, 0.917) -- (1.858, 0.900) -- (1.882, 0.853) -- (1.879, 0.816) -- (1.861, 0.765) -- (1.848, 0.755) -- (1.826, 0.763) -- (1.815, 0.745) -- (1.807, 0.757) -- (1.814, 0.757) -- (1.805, 0.778) -- (1.794, 0.793) -- (1.802, 0.799) -- (1.821, 0.796) -- (1.814, 0.853) -- (1.787, 0.841) -- (1.766, 0.841) -- (1.752, 0.857) -- (1.702, 0.875) -- (1.648, 0.926) -- (1.610, 0.937) -- (1.579, 0.934) -- (1.573, 0.926) -- (1.589, 0.912) -- (1.584, 0.907) -- (1.587, 0.881) -- (1.574, 0.871) -- (1.521, 0.883) -- (1.507, 0.871) -- (1.481, 0.864) -- (1.451, 0.867) -- (1.421, 0.884) -- (1.380, 0.881) -- (1.358, 0.888) -- (1.349, 0.900) -- (1.300, 0.914) -- (1.295, 0.896) -- (1.305, 0.886) -- (1.297, 0.874) -- (1.222, 0.893) -- (1.186, 0.870) -- (1.169, 0.866) -- (1.157, 0.876) -- (1.141, 0.874) -- (1.103, 0.897) -- (1.086, 0.893) -- (1.064, 0.903) -- (1.060, 0.894) -- (0.993, 0.949) -- (0.995, 0.955) -- (0.957, 0.938) -- (0.954, 0.947) -- (0.936, 0.953) -- (0.924, 0.949) -- (0.913, 0.966) -- (0.889, 0.969) -- (0.844, 0.952) -- (0.798, 0.947) -- (0.794, 0.941) -- (0.807, 0.929) -- (0.795, 0.925) -- (0.799, 0.920) -- (0.789, 0.912) -- (0.814, 0.901) -- (0.813, 0.893) -- (0.794, 0.893) -- (0.792, 0.888) -- (0.772, 0.897) -- (0.751, 0.897) -- (0.739, 0.890) -- (0.690, 0.908) -- (0.669, 0.908) -- (0.646, 0.889) -- (0.647, 0.877) -- (0.631, 0.887) -- (0.624, 0.852) -- (0.638, 0.840) -- (0.648, 0.840) -- (0.660, 0.820) -- cycle(0.951, 1.350) -- (0.996, 1.346) -- (1.033, 1.334) -- (1.042, 1.323) -- (0.988, 1.325) -- (0.933, 1.341) -- cycle(1.067, 1.328) -- (1.101, 1.321) -- (1.103, 1.316) -- (1.049, 1.311) -- (1.051, 1.327) -- (1.058, 1.329) -- cycle(1.494, 1.286) -- (1.571, 1.279) -- (1.575, 1.268) -- (1.520, 1.265) -- (1.488, 1.274) -- (1.483, 1.284) -- cycle(1.608, 1.276) -- (1.640, 1.272) -- (1.615, 1.268) -- (1.586, 1.278) -- cycle(1.549, 1.248) -- (1.553, 1.254) -- (1.566, 1.255) -- (1.587, 1.249) -- (1.552, 1.247) -- cycle(0.457, 1.344) -- (0.525, 1.346) -- (0.489, 1.337) -- (0.476, 1.340) -- (0.480, 1.344) -- cycle(0.295, 0.952) -- (0.255, 0.953) -- (0.257, 0.961) -- (0.274, 0.966) -- (0.294, 0.961) -- (0.293, 0.956) -- cycle(0.590, 1.253) -- (0.611, 1.266) -- (0.605, 1.272) -- (0.626, 1.279) -- (0.727, 1.297) -- (0.738, 1.292) -- (0.733, 1.288) -- (0.669, 1.274) -- (0.642, 1.261) -- (0.620, 1.234) -- (0.627, 1.222) -- (0.654, 1.210) -- (0.610, 1.210) -- (0.604, 1.217) -- (0.582, 1.221) -- (0.578, 1.228) -- (0.588, 1.231) -- (0.584, 1.239) -- (0.601, 1.252) -- cycle(1.860, 0.941) -- (1.938, 0.862) -- (1.914, 0.867) -- (1.922, 0.842) -- (1.953, 0.813) -- (1.936, 0.823) -- (1.935, 0.810) -- (1.882, 0.895) -- (1.848, 0.935) -- (1.855, 0.942) -- (1.844, 0.950) -- (1.848, 0.953) -- cycle(-2.052, 1.157) -- (-2.065, 1.148) -- (-2.061, 1.144) -- (-2.051, 1.155) -- (-2.021, 1.153) -- (-2.015, 1.138) -- (-2.055, 1.130) -- (-2.072, 1.115) -- (-2.092, 1.112) -- (-2.106, 1.122) -- (-2.101, 1.129) -- (-2.126, 1.129) -- (-2.126, 1.135) -- (-2.116, 1.140) -- (-2.135, 1.137) -- (-2.138, 1.129) -- (-2.153, 1.123) -- (-2.079, 1.184) -- (-2.065, 1.172) -- cycle(-2.027, 1.212) -- (-2.043, 1.211) -- (-2.028, 1.222) -- (-2.011, 1.216) -- cycle(0.455, 0.810) -- (0.458, 0.814) -- (0.485, 0.800) -- (0.499, 0.801) -- (0.497, 0.795) -- (0.465, 0.782) -- (0.457, 0.786) -- (0.459, 0.794) -- (0.444, 0.799) -- (0.458, 0.808) -- cycle;
+		%États-Unis (Floride)
+		\path[pays] (-1.159, 0.472) -- (-1.143, 0.469) -- (-1.160, 0.466) -- cycle(-1.141, 0.477) -- (-1.131, 0.469) -- (-1.136, 0.456) -- (-1.142, 0.475) -- cycle(-1.153, 0.444) -- (-1.148, 0.444) -- (-1.147, 0.419) -- (-1.158, 0.433) -- cycle;
+		%Îles Malouines
+		\path[pays] (-0.806, -0.910) -- (-0.793, -0.900) -- (-0.780, -0.905) -- (-0.774, -0.898) -- (-0.762, -0.905) -- (-0.764, -0.911) -- (-0.780, -0.916) -- (-0.788, -0.910) -- (-0.797, -0.918) -- cycle;
+		%Norvège
+		\path[pays] (0.156, 1.333) -- (0.175, 1.338) -- (0.224, 1.324) -- (0.199, 1.319) -- (0.183, 1.296) -- (0.170, 1.295) -- (0.146, 1.303) -- (0.155, 1.308) -- (0.117, 1.323) -- (0.108, 1.333) -- (0.142, 1.333) -- cycle(0.357, 1.192) -- (0.330, 1.185) -- (0.333, 1.195) -- (0.317, 1.201) -- (0.300, 1.196) -- (0.286, 1.179) -- (0.259, 1.182) -- (0.245, 1.190) -- (0.231, 1.185) -- (0.231, 1.175) -- (0.209, 1.178) -- (0.207, 1.169) -- (0.195, 1.169) -- (0.162, 1.120) -- (0.167, 1.115) -- (0.164, 1.109) -- (0.152, 1.109) -- (0.145, 1.094) -- (0.147, 1.073) -- (0.156, 1.065) -- (0.153, 1.047) -- (0.138, 1.026) -- (0.129, 1.036) -- (0.106, 1.017) -- (0.089, 1.014) -- (0.071, 1.022) -- (0.061, 1.076) -- (0.126, 1.115) -- (0.172, 1.166) -- (0.220, 1.196) -- (0.263, 1.202) -- (0.278, 1.214) -- (0.319, 1.216) -- (0.357, 1.206) -- (0.343, 1.202) -- cycle(0.281, 1.338) -- (0.268, 1.331) -- (0.238, 1.330) -- (0.190, 1.335) -- (0.178, 1.341) -- (0.260, 1.342) -- cycle(0.261, 1.310) -- (0.238, 1.304) -- (0.219, 1.307) -- (0.226, 1.311) -- (0.219, 1.315) -- (0.240, 1.318) -- (0.245, 1.313) -- cycle;
+		%Groenland
+		\path[pays] (-0.463, 1.368) -- (-0.377, 1.378) -- (-0.264, 1.378) -- (-0.206, 1.369) -- (-0.314, 1.361) -- (-0.229, 1.362) -- (-0.221, 1.358) -- (-0.234, 1.351) -- (-0.158, 1.360) -- (-0.123, 1.353) -- (-0.205, 1.339) -- (-0.182, 1.339) -- (-0.206, 1.321) -- (-0.208, 1.307) -- (-0.197, 1.298) -- (-0.232, 1.293) -- (-0.213, 1.286) -- (-0.213, 1.274) -- (-0.225, 1.273) -- (-0.212, 1.261) -- (-0.237, 1.260) -- (-0.225, 1.254) -- (-0.230, 1.249) -- (-0.261, 1.247) -- (-0.249, 1.237) -- (-0.250, 1.231) -- (-0.271, 1.237) -- (-0.277, 1.233) -- (-0.250, 1.221) -- (-0.247, 1.209) -- (-0.268, 1.206) -- (-0.288, 1.220) -- (-0.286, 1.210) -- (-0.301, 1.202) -- (-0.255, 1.201) -- (-0.322, 1.176) -- (-0.370, 1.171) -- (-0.403, 1.149) -- (-0.474, 1.130) -- (-0.487, 1.121) -- (-0.499, 1.100) -- (-0.522, 1.087) -- (-0.520, 1.075) -- (-0.539, 1.046) -- (-0.557, 1.045) -- (-0.572, 1.058) -- (-0.597, 1.058) -- (-0.606, 1.067) -- (-0.624, 1.102) -- (-0.624, 1.126) -- (-0.636, 1.140) -- (-0.627, 1.152) -- (-0.633, 1.157) -- (-0.615, 1.174) -- (-0.596, 1.180) -- (-0.582, 1.198) -- (-0.616, 1.188) -- (-0.628, 1.193) -- (-0.617, 1.211) -- (-0.585, 1.207) -- (-0.609, 1.222) -- (-0.629, 1.223) -- (-0.611, 1.237) -- (-0.626, 1.267) -- (-0.637, 1.272) -- (-0.635, 1.278) -- (-0.659, 1.286) -- (-0.738, 1.286) -- (-0.761, 1.298) -- (-0.708, 1.303) -- (-0.772, 1.312) -- (-0.681, 1.330) -- (-0.673, 1.334) -- (-0.698, 1.338) -- (-0.628, 1.353) -- (-0.628, 1.358) -- (-0.531, 1.360) -- (-0.500, 1.366) -- (-0.447, 1.357) -- (-0.467, 1.363) -- cycle;
+		%Îles Kerguelen
+		\path[pays] (0.925, -0.856) -- (0.944, -0.866) -- (0.937, -0.874) -- (0.917, -0.875) -- (0.923, -0.859) -- cycle;
+		%Indonesie (Timor)
+		\path[pays] (1.892, -0.156) -- (1.908, -0.148) -- (1.929, -0.148) -- (1.893, -0.165) -- (1.893, -0.160) -- cycle;
+		%Mozambique
+		\path[pays] (0.239, -0.504) -- (0.246, -0.495) -- (0.254, -0.508) -- (0.269, -0.512) -- (0.291, -0.502) -- (0.294, -0.437) -- (0.307, -0.473) -- (0.317, -0.471) -- (0.344, -0.445) -- (0.357, -0.453) -- (0.378, -0.449) -- (0.401, -0.415) -- (0.437, -0.389) -- (0.463, -0.392) -- (0.472, -0.429) -- (0.469, -0.456) -- (0.457, -0.454) -- (0.451, -0.472) -- (0.459, -0.481) -- (0.471, -0.471) -- (0.482, -0.472) -- (0.475, -0.499) -- (0.436, -0.549) -- (0.395, -0.586) -- (0.370, -0.599) -- (0.324, -0.598) -- (0.281, -0.614) -- (0.262, -0.598) -- (0.259, -0.575) -- (0.264, -0.559) -- (0.248, -0.527) -- cycle(0.423, -0.511) -- (0.417, -0.505) -- (0.393, -0.527) -- (0.403, -0.541) -- (0.420, -0.530) -- (0.428, -0.516) -- cycle;
+		%Eswatini
+		\path[pays] (0.423, -0.511) -- (0.428, -0.516) -- (0.420, -0.530) -- (0.403, -0.541) -- (0.393, -0.527) -- (0.417, -0.505) -- cycle;
+		%Mexique
+		\path[pays] (-1.690, 0.574) -- (-1.654, 0.577) -- (-1.657, 0.574) -- (-1.608, 0.553) -- (-1.568, 0.553) -- (-1.566, 0.560) -- (-1.541, 0.560) -- (-1.525, 0.541) -- (-1.515, 0.516) -- (-1.505, 0.511) -- (-1.492, 0.525) -- (-1.471, 0.518) -- (-1.455, 0.465) -- (-1.430, 0.456) -- (-1.444, 0.428) -- (-1.451, 0.386) -- (-1.438, 0.340) -- (-1.413, 0.319) -- (-1.355, 0.340) -- (-1.344, 0.370) -- (-1.316, 0.379) -- (-1.291, 0.376) -- (-1.314, 0.322) -- (-1.323, 0.325) -- (-1.335, 0.313) -- (-1.362, 0.314) -- (-1.364, 0.304) -- (-1.370, 0.304) -- (-1.358, 0.283) -- (-1.377, 0.283) -- (-1.388, 0.256) -- (-1.403, 0.275) -- (-1.421, 0.285) -- (-1.451, 0.275) -- (-1.495, 0.294) -- (-1.526, 0.315) -- (-1.548, 0.322) -- (-1.568, 0.340) -- (-1.575, 0.360) -- (-1.565, 0.377) -- (-1.572, 0.401) -- (-1.598, 0.444) -- (-1.609, 0.451) -- (-1.606, 0.466) -- (-1.638, 0.511) -- (-1.640, 0.550) -- (-1.660, 0.561) -- (-1.667, 0.532) -- (-1.639, 0.470) -- (-1.635, 0.428) -- (-1.628, 0.428) -- (-1.620, 0.412) -- (-1.631, 0.402) -- (-1.640, 0.423) -- (-1.656, 0.436) -- (-1.652, 0.458) -- (-1.685, 0.489) -- (-1.670, 0.496) -- (-1.668, 0.504) -- (-1.683, 0.521) -- (-1.689, 0.558) -- cycle;
+		%Uruguay
+		\path[pays] (-0.838, -0.533) -- (-0.828, -0.531) -- (-0.777, -0.565) -- (-0.767, -0.577) -- (-0.772, -0.586) -- (-0.767, -0.596) -- (-0.771, -0.607) -- (-0.786, -0.617) -- (-0.829, -0.608) -- (-0.839, -0.598) -- (-0.839, -0.547) -- cycle;
+		%Brésil
+		\path[pays] (-0.767, -0.596) -- (-0.772, -0.586) -- (-0.767, -0.577) -- (-0.777, -0.565) -- (-0.828, -0.531) -- (-0.838, -0.533) -- (-0.787, -0.475) -- (-0.789, -0.461) -- (-0.797, -0.450) -- (-0.804, -0.454) -- (-0.803, -0.423) -- (-0.819, -0.422) -- (-0.828, -0.394) -- (-0.860, -0.389) -- (-0.867, -0.355) -- (-0.860, -0.320) -- (-0.873, -0.304) -- (-0.874, -0.287) -- (-0.903, -0.286) -- (-0.911, -0.242) -- (-0.970, -0.219) -- (-0.988, -0.203) -- (-0.988, -0.172) -- (-1.008, -0.175) -- (-1.032, -0.194) -- (-1.059, -0.196) -- (-1.066, -0.194) -- (-1.067, -0.167) -- (-1.078, -0.177) -- (-1.092, -0.177) -- (-1.098, -0.167) -- (-1.108, -0.166) -- (-1.105, -0.159) -- (-1.121, -0.132) -- (-1.109, -0.117) -- (-1.106, -0.093) -- (-1.075, -0.075) -- (-1.061, -0.076) -- (-1.055, -0.020) -- (-1.064, 0.009) -- (-1.052, 0.011) -- (-1.052, 0.017) -- (-1.061, 0.019) -- (-1.061, 0.030) -- (-1.031, 0.030) -- (-1.026, 0.036) -- (-1.019, 0.020) -- (-0.996, 0.014) -- (-0.963, 0.039) -- (-0.976, 0.044) -- (-0.978, 0.067) -- (-0.984, 0.071) -- (-0.958, 0.066) -- (-0.926, 0.080) -- (-0.922, 0.091) -- (-0.910, 0.088) -- (-0.913, 0.080) -- (-0.904, 0.070) -- (-0.911, 0.048) -- (-0.906, 0.031) -- (-0.890, 0.022) -- (-0.871, 0.034) -- (-0.851, 0.032) -- (-0.850, 0.044) -- (-0.804, 0.037) -- (-0.779, 0.074) -- (-0.767, 0.033) -- (-0.759, 0.030) -- (-0.759, 0.018) -- (-0.770, 0.004) -- (-0.739, -0.004) -- (-0.738, -0.022) -- (-0.727, -0.010) -- (-0.682, -0.027) -- (-0.675, -0.038) -- (-0.677, -0.047) -- (-0.660, -0.042) -- (-0.607, -0.051) -- (-0.565, -0.085) -- (-0.535, -0.096) -- (-0.526, -0.129) -- (-0.532, -0.158) -- (-0.583, -0.230) -- (-0.588, -0.315) -- (-0.608, -0.386) -- (-0.620, -0.394) -- (-0.622, -0.405) -- (-0.661, -0.412) -- (-0.703, -0.439) -- (-0.714, -0.456) -- (-0.714, -0.506) -- (-0.735, -0.547) -- (-0.755, -0.569) -- (-0.759, -0.586) -- cycle;
+		%Bolivie
+		\path[pays] (-1.051, -0.193) -- (-1.032, -0.194) -- (-1.008, -0.175) -- (-0.988, -0.172) -- (-0.988, -0.203) -- (-0.970, -0.219) -- (-0.911, -0.242) -- (-0.903, -0.286) -- (-0.874, -0.287) -- (-0.873, -0.304) -- (-0.860, -0.320) -- (-0.863, -0.352) -- (-0.867, -0.355) -- (-0.883, -0.341) -- (-0.922, -0.346) -- (-0.930, -0.392) -- (-0.950, -0.387) -- (-0.954, -0.402) -- (-0.965, -0.389) -- (-0.985, -0.385) -- (-0.995, -0.401) -- (-1.005, -0.403) -- (-1.025, -0.359) -- (-1.022, -0.342) -- (-1.042, -0.310) -- (-1.035, -0.290) -- (-1.043, -0.263) -- (-1.036, -0.221) -- cycle;
+		%Pérou
+		\path[pays] (-1.061, -0.076) -- (-1.075, -0.075) -- (-1.106, -0.093) -- (-1.109, -0.117) -- (-1.121, -0.132) -- (-1.105, -0.159) -- (-1.108, -0.166) -- (-1.098, -0.167) -- (-1.092, -0.177) -- (-1.078, -0.177) -- (-1.067, -0.167) -- (-1.066, -0.194) -- (-1.051, -0.193) -- (-1.036, -0.221) -- (-1.043, -0.263) -- (-1.035, -0.290) -- (-1.045, -0.318) -- (-1.053, -0.323) -- (-1.144, -0.258) -- (-1.149, -0.238) -- (-1.209, -0.127) -- (-1.233, -0.108) -- (-1.228, -0.100) -- (-1.236, -0.083) -- (-1.232, -0.071) -- (-1.220, -0.060) -- (-1.221, -0.078) -- (-1.209, -0.078) -- (-1.202, -0.087) -- (-1.182, -0.053) -- (-1.164, -0.046) -- (-1.148, -0.027) -- (-1.141, -0.001) -- (-1.119, -0.022) -- (-1.110, -0.041) -- (-1.076, -0.040) -- (-1.064, -0.048) -- (-1.074, -0.066) -- (-1.069, -0.066) -- cycle;
+		%Colombie
+		\path[pays] (-1.016, 0.022) -- (-1.026, 0.036) -- (-1.031, 0.030) -- (-1.061, 0.030) -- (-1.061, 0.019) -- (-1.052, 0.017) -- (-1.052, 0.011) -- (-1.064, 0.009) -- (-1.055, -0.020) -- (-1.061, -0.076) -- (-1.074, -0.066) -- (-1.064, -0.048) -- (-1.076, -0.040) -- (-1.110, -0.041) -- (-1.119, -0.022) -- (-1.141, -0.001) -- (-1.176, 0.007) -- (-1.200, 0.030) -- (-1.171, 0.068) -- (-1.177, 0.072) -- (-1.173, 0.103) -- (-1.181, 0.127) -- (-1.170, 0.140) -- (-1.173, 0.150) -- (-1.145, 0.166) -- (-1.141, 0.187) -- (-1.132, 0.195) -- (-1.109, 0.198) -- (-1.083, 0.219) -- (-1.074, 0.213) -- (-1.102, 0.184) -- (-1.110, 0.161) -- (-1.102, 0.160) -- (-1.098, 0.130) -- (-1.091, 0.123) -- (-1.063, 0.122) -- (-1.053, 0.107) -- (-1.022, 0.107) -- (-1.030, 0.079) -- (-1.022, 0.058) -- (-1.030, 0.050) -- (-1.021, 0.040) -- cycle;
+		%Panama
+		\path[pays] (-1.171, 0.153) -- (-1.170, 0.140) -- (-1.181, 0.127) -- (-1.188, 0.142) -- (-1.184, 0.146) -- (-1.198, 0.158) -- (-1.218, 0.146) -- (-1.213, 0.133) -- (-1.219, 0.128) -- (-1.226, 0.127) -- (-1.228, 0.137) -- (-1.235, 0.135) -- (-1.238, 0.143) -- (-1.255, 0.142) -- (-1.255, 0.167) -- (-1.233, 0.154) -- (-1.204, 0.169) -- (-1.177, 0.157) -- cycle;
+		%Costa Rica
+		\path[pays] (-1.249, 0.168) -- (-1.255, 0.167) -- (-1.257, 0.145) -- (-1.285, 0.177) -- (-1.288, 0.168) -- (-1.296, 0.175) -- (-1.299, 0.192) -- (-1.293, 0.197) -- (-1.264, 0.192) -- (-1.256, 0.176) -- cycle;
+		%Nicaragua
+		\path[pays] (-1.264, 0.192) -- (-1.295, 0.195) -- (-1.322, 0.227) -- (-1.307, 0.233) -- (-1.307, 0.242) -- (-1.296, 0.247) -- (-1.292, 0.243) -- (-1.276, 0.261) -- (-1.271, 0.257) -- (-1.250, 0.264) -- (-1.266, 0.195) -- cycle;
+		%Honduras
+		\path[pays] (-1.250, 0.264) -- (-1.271, 0.257) -- (-1.276, 0.261) -- (-1.292, 0.243) -- (-1.296, 0.247) -- (-1.307, 0.242) -- (-1.307, 0.233) -- (-1.316, 0.228) -- (-1.323, 0.244) -- (-1.333, 0.244) -- (-1.345, 0.254) -- (-1.340, 0.265) -- (-1.320, 0.279) -- (-1.276, 0.282) -- (-1.254, 0.269) -- cycle;
+		%Salvador
+		\path[pays] (-1.345, 0.254) -- (-1.321, 0.242) -- (-1.325, 0.231) -- (-1.353, 0.238) -- (-1.357, 0.242) -- (-1.348, 0.253) -- cycle;
+		%Guatemala
+		\path[pays] (-1.388, 0.256) -- (-1.377, 0.283) -- (-1.358, 0.283) -- (-1.370, 0.304) -- (-1.364, 0.304) -- (-1.362, 0.314) -- (-1.335, 0.313) -- (-1.340, 0.280) -- (-1.325, 0.277) -- (-1.357, 0.242) -- (-1.380, 0.249) -- cycle;
+		%Belize
+		\path[pays] (-1.335, 0.313) -- (-1.323, 0.325) -- (-1.318, 0.323) -- (-1.329, 0.286) -- (-1.340, 0.280) -- (-1.337, 0.299) -- cycle;
+		%Venezuela
+		\path[pays] (-0.922, 0.091) -- (-0.926, 0.080) -- (-0.958, 0.066) -- (-0.984, 0.071) -- (-0.978, 0.067) -- (-0.976, 0.044) -- (-0.963, 0.039) -- (-0.974, 0.034) -- (-0.975, 0.026) -- (-1.008, 0.013) -- (-1.030, 0.050) -- (-1.022, 0.058) -- (-1.030, 0.079) -- (-1.022, 0.107) -- (-1.053, 0.107) -- (-1.063, 0.122) -- (-1.091, 0.123) -- (-1.098, 0.130) -- (-1.097, 0.148) -- (-1.102, 0.160) -- (-1.110, 0.161) -- (-1.102, 0.184) -- (-1.087, 0.204) -- (-1.077, 0.207) -- (-1.087, 0.201) -- (-1.082, 0.193) -- (-1.090, 0.173) -- (-1.085, 0.160) -- (-1.079, 0.161) -- (-1.079, 0.193) -- (-1.060, 0.200) -- (-1.056, 0.214) -- (-1.051, 0.202) -- (-1.040, 0.201) -- (-1.031, 0.186) -- (-1.001, 0.187) -- (-0.982, 0.177) -- (-0.972, 0.187) -- (-0.935, 0.188) -- (-0.948, 0.183) -- (-0.944, 0.175) -- (-0.932, 0.174) -- (-0.921, 0.165) -- (-0.919, 0.151) -- (-0.905, 0.147) -- (-0.918, 0.137) -- (-0.914, 0.124) -- (-0.927, 0.118) -- (-0.932, 0.105) -- cycle;
+		%Guyana
+		\path[pays] (-0.859, 0.033) -- (-0.871, 0.034) -- (-0.890, 0.022) -- (-0.906, 0.031) -- (-0.911, 0.048) -- (-0.904, 0.070) -- (-0.913, 0.080) -- (-0.910, 0.088) -- (-0.922, 0.091) -- (-0.932, 0.105) -- (-0.927, 0.118) -- (-0.914, 0.124) -- (-0.918, 0.137) -- (-0.905, 0.147) -- (-0.895, 0.141) -- (-0.886, 0.120) -- (-0.867, 0.105) -- (-0.881, 0.071) -- (-0.868, 0.049) -- cycle;
+		%Suriname
+		\path[pays] (-0.828, 0.041) -- (-0.850, 0.044) -- (-0.851, 0.032) -- (-0.859, 0.033) -- (-0.881, 0.071) -- (-0.879, 0.085) -- (-0.870, 0.089) -- (-0.867, 0.105) -- (-0.819, 0.101) -- (-0.827, 0.086) -- (-0.820, 0.064) -- (-0.824, 0.048) -- cycle;
+		%Royaume-Uni
+		\path[pays] (-0.784, 0.073) -- (-0.804, 0.037) -- (-0.828, 0.041) -- (-0.820, 0.064) -- (-0.827, 0.086) -- (-0.819, 0.101) -- (-0.802, 0.095) -- (-0.787, 0.080) -- cycle(0.083, 0.870) -- (0.109, 0.862) -- (0.101, 0.838) -- (0.091, 0.837) -- (0.082, 0.823) -- (0.082, 0.815) -- (0.088, 0.818) -- (0.093, 0.810) -- (0.097, 0.799) -- (0.092, 0.794) -- (0.096, 0.780) -- (0.104, 0.778) -- (0.102, 0.770) -- (0.090, 0.760) -- (0.063, 0.765) -- (0.043, 0.760) -- (0.041, 0.749) -- (0.025, 0.747) -- (-0.021, 0.759) -- (-0.026, 0.766) -- (-0.019, 0.776) -- (-0.016, 0.811) -- (-0.040, 0.838) -- (-0.060, 0.844) -- (-0.062, 0.857) -- (-0.022, 0.856) -- (-0.026, 0.875) -- (-0.013, 0.868) -- (0.018, 0.881) -- (0.022, 0.895) -- (0.033, 0.898) -- (0.057, 0.877) -- (0.064, 0.879) -- (0.079, 0.870) -- cycle(0.121, 0.752) -- (0.130, 0.758) -- (0.133, 0.743) -- (0.129, 0.730) -- (0.119, 0.745) -- cycle;
+		%Équateur
+		\path[pays] (-1.145, -0.003) -- (-1.148, -0.027) -- (-1.164, -0.046) -- (-1.182, -0.053) -- (-1.194, -0.080) -- (-1.202, -0.087) -- (-1.209, -0.078) -- (-1.221, -0.078) -- (-1.220, -0.060) -- (-1.212, -0.047) -- (-1.215, -0.039) -- (-1.221, -0.047) -- (-1.230, -0.040) -- (-1.230, -0.019) -- (-1.217, 0.013) -- (-1.198, 0.024) -- (-1.176, 0.007) -- (-1.159, 0.007) -- (-1.152, 0.001) -- cycle;
+		%Porto Rico
+		\path[pays] (-0.991, 0.326) -- (-0.981, 0.321) -- (-0.986, 0.317) -- (-1.006, 0.316) -- (-1.003, 0.326) -- cycle;
+		%Jamaïque
+		\path[pays] (-1.160, 0.325) -- (-1.141, 0.315) -- (-1.164, 0.314) -- (-1.172, 0.321) -- (-1.163, 0.326) -- cycle;
+		%Cuba
+		\path[pays] (-1.219, 0.409) -- (-1.194, 0.407) -- (-1.176, 0.395) -- (-1.162, 0.397) -- (-1.138, 0.374) -- (-1.125, 0.370) -- (-1.127, 0.365) -- (-1.106, 0.357) -- (-1.108, 0.353) -- (-1.160, 0.350) -- (-1.149, 0.360) -- (-1.163, 0.365) -- (-1.170, 0.381) -- (-1.215, 0.391) -- (-1.219, 0.394) -- (-1.213, 0.399) -- (-1.227, 0.400) -- (-1.249, 0.386) -- (-1.262, 0.386) -- (-1.249, 0.398) -- (-1.223, 0.407) -- cycle;
+		%Zambie
+		\path[pays] (0.463, -0.392) -- (0.437, -0.389) -- (0.417, -0.379) -- (0.413, -0.361) -- (0.391, -0.340) -- (0.378, -0.312) -- (0.405, -0.316) -- (0.443, -0.275) -- (0.455, -0.273) -- (0.456, -0.280) -- (0.475, -0.283) -- (0.493, -0.294) -- (0.489, -0.347) -- (0.480, -0.372) -- cycle;
+		%Zimbabwe
+		\path[pays] (0.437, -0.389) -- (0.401, -0.415) -- (0.378, -0.449) -- (0.357, -0.453) -- (0.344, -0.445) -- (0.317, -0.471) -- (0.307, -0.473) -- (0.294, -0.437) -- (0.296, -0.385) -- (0.310, -0.384) -- (0.313, -0.321) -- (0.347, -0.315) -- (0.353, -0.322) -- (0.378, -0.312) -- (0.391, -0.340) -- (0.413, -0.361) -- (0.417, -0.379) -- (0.428, -0.381) -- cycle;
+		%Botswana
+		\path[pays] (0.294, -0.437) -- (0.291, -0.502) -- (0.269, -0.512) -- (0.254, -0.508) -- (0.246, -0.495) -- (0.239, -0.504) -- (0.223, -0.478) -- (0.212, -0.390) -- (0.177, -0.318) -- (0.176, -0.305) -- (0.192, -0.298) -- (0.211, -0.307) -- (0.274, -0.305) -- (0.284, -0.313) -- (0.320, -0.316) -- (0.370, -0.305) -- (0.376, -0.311) -- (0.353, -0.322) -- (0.347, -0.315) -- (0.313, -0.321) -- (0.310, -0.384) -- (0.296, -0.385) -- cycle;
+		%Senegal
+		\path[pays] (-0.252, 0.239) -- (-0.265, 0.259) -- (-0.242, 0.290) -- (-0.227, 0.292) -- (-0.202, 0.282) -- (-0.183, 0.257) -- (-0.173, 0.224) -- (-0.185, 0.217) -- (-0.235, 0.222) -- (-0.252, 0.218) -- (-0.254, 0.231) -- (-0.209, 0.238) -- (-0.212, 0.243) -- (-0.235, 0.240) -- cycle;
+		%Mali
+		\path[pays] (-0.174, 0.219) -- (-0.183, 0.246) -- (-0.175, 0.271) -- (-0.160, 0.266) -- (-0.143, 0.273) -- (-0.083, 0.273) -- (-0.095, 0.440) -- (-0.073, 0.440) -- (0.047, 0.347) -- (0.047, 0.336) -- (0.064, 0.337) -- (0.064, 0.297) -- (0.055, 0.274) -- (0.021, 0.270) -- (0.015, 0.263) -- (-0.008, 0.266) -- (-0.030, 0.256) -- (-0.047, 0.238) -- (-0.060, 0.237) -- (-0.079, 0.206) -- (-0.082, 0.182) -- (-0.121, 0.180) -- (-0.130, 0.190) -- (-0.126, 0.200) -- (-0.138, 0.217) -- (-0.153, 0.208) -- (-0.167, 0.215) -- (-0.173, 0.212) -- cycle;
+		%Mauritanie
+		\path[pays] (-0.254, 0.370) -- (-0.250, 0.376) -- (-0.192, 0.376) -- (-0.191, 0.410) -- (-0.177, 0.412) -- (-0.176, 0.457) -- (-0.128, 0.456) -- (-0.127, 0.483) -- (-0.073, 0.440) -- (-0.095, 0.440) -- (-0.083, 0.273) -- (-0.143, 0.273) -- (-0.160, 0.266) -- (-0.175, 0.271) -- (-0.183, 0.257) -- (-0.202, 0.282) -- (-0.219, 0.292) -- (-0.242, 0.290) -- (-0.247, 0.284) -- (-0.242, 0.319) -- (-0.246, 0.362) -- cycle;
+		%Bénin
+		\path[pays] (0.041, 0.110) -- (0.028, 0.108) -- (0.025, 0.161) -- (0.012, 0.184) -- (0.022, 0.203) -- (0.038, 0.215) -- (0.055, 0.205) -- (0.056, 0.177) -- (0.044, 0.161) -- (0.042, 0.138) -- cycle;
+		%Niger
+		\path[pays] (0.220, 0.403) -- (0.225, 0.375) -- (0.237, 0.359) -- (0.229, 0.293) -- (0.210, 0.276) -- (0.204, 0.253) -- (0.210, 0.235) -- (0.220, 0.235) -- (0.214, 0.220) -- (0.201, 0.239) -- (0.186, 0.229) -- (0.166, 0.236) -- (0.136, 0.226) -- (0.118, 0.235) -- (0.103, 0.231) -- (0.082, 0.244) -- (0.062, 0.238) -- (0.055, 0.205) -- (0.043, 0.215) -- (0.033, 0.210) -- (0.033, 0.222) -- (0.016, 0.226) -- (0.005, 0.254) -- (0.006, 0.263) -- (0.021, 0.270) -- (0.055, 0.274) -- (0.064, 0.297) -- (0.064, 0.337) -- (0.085, 0.345) -- (0.178, 0.414) -- (0.201, 0.406) -- (0.210, 0.396) -- cycle;
+		%Nigeria
+		\path[pays] (0.041, 0.110) -- (0.041, 0.150) -- (0.056, 0.177) -- (0.056, 0.221) -- (0.066, 0.242) -- (0.082, 0.244) -- (0.103, 0.231) -- (0.118, 0.235) -- (0.136, 0.226) -- (0.166, 0.236) -- (0.186, 0.229) -- (0.201, 0.239) -- (0.220, 0.213) -- (0.178, 0.123) -- (0.168, 0.117) -- (0.154, 0.124) -- (0.140, 0.113) -- (0.129, 0.084) -- (0.090, 0.075) -- (0.066, 0.110) -- (0.054, 0.110) -- cycle;
+		%Cameroun
+		\path[pays] (0.219, 0.226) -- (0.234, 0.176) -- (0.214, 0.176) -- (0.211, 0.168) -- (0.227, 0.155) -- (0.234, 0.135) -- (0.221, 0.110) -- (0.220, 0.083) -- (0.241, 0.053) -- (0.242, 0.030) -- (0.218, 0.039) -- (0.147, 0.040) -- (0.149, 0.054) -- (0.129, 0.079) -- (0.140, 0.113) -- (0.154, 0.124) -- (0.168, 0.117) -- (0.178, 0.123) -- (0.205, 0.190) -- (0.218, 0.204) -- (0.214, 0.225) -- cycle;
+		%Togo
+		\path[pays] (0.014, 0.193) -- (0.012, 0.184) -- (0.025, 0.161) -- (0.028, 0.108) -- (0.016, 0.104) -- (0.007, 0.130) -- (0.011, 0.146) -- (0.000, 0.194) -- cycle;
+		%Ghana
+		\path[pays] (0.000, 0.194) -- (0.011, 0.146) -- (0.007, 0.130) -- (0.016, 0.104) -- (-0.030, 0.083) -- (-0.043, 0.088) -- (-0.049, 0.110) -- (-0.039, 0.144) -- (-0.044, 0.193) -- (-0.007, 0.195) -- cycle;
+		%Côte d'Ivoire
+		\path[pays] (-0.121, 0.180) -- (-0.103, 0.178) -- (-0.094, 0.185) -- (-0.091, 0.178) -- (-0.082, 0.182) -- (-0.066, 0.169) -- (-0.053, 0.174) -- (-0.043, 0.170) -- (-0.039, 0.144) -- (-0.049, 0.110) -- (-0.043, 0.088) -- (-0.071, 0.091) -- (-0.117, 0.077) -- (-0.115, 0.100) -- (-0.130, 0.114) -- (-0.126, 0.146) -- (-0.119, 0.151) -- (-0.124, 0.178) -- cycle;
+		%Guinée
+		\path[pays] (-0.207, 0.221) -- (-0.174, 0.219) -- (-0.173, 0.212) -- (-0.167, 0.215) -- (-0.153, 0.208) -- (-0.138, 0.217) -- (-0.126, 0.200) -- (-0.130, 0.190) -- (-0.121, 0.180) -- (-0.126, 0.172) -- (-0.119, 0.151) -- (-0.126, 0.146) -- (-0.125, 0.135) -- (-0.140, 0.129) -- (-0.148, 0.150) -- (-0.159, 0.147) -- (-0.168, 0.177) -- (-0.188, 0.173) -- (-0.200, 0.157) -- (-0.229, 0.194) -- (-0.222, 0.203) -- (-0.210, 0.205) -- (-0.207, 0.215) -- cycle;
+		%Guinée-Bissau
+		\path[pays] (-0.252, 0.218) -- (-0.207, 0.221) -- (-0.207, 0.208) -- (-0.229, 0.194) -- (-0.251, 0.214) -- cycle;
+		%Libéria
+		\path[pays] (-0.128, 0.135) -- (-0.130, 0.114) -- (-0.114, 0.093) -- (-0.121, 0.077) -- (-0.173, 0.119) -- (-0.155, 0.148) -- (-0.148, 0.150) -- (-0.140, 0.129) -- (-0.132, 0.136) -- cycle;
+		%Sierra Leone
+		\path[pays] (-0.200, 0.157) -- (-0.188, 0.173) -- (-0.168, 0.177) -- (-0.159, 0.147) -- (-0.155, 0.148) -- (-0.173, 0.119) -- (-0.199, 0.144) -- cycle;
+		%Burkina Faso
+		\path[pays] (-0.082, 0.182) -- (-0.079, 0.206) -- (-0.060, 0.237) -- (-0.047, 0.238) -- (-0.016, 0.263) -- (0.006, 0.263) -- (0.016, 0.226) -- (0.033, 0.222) -- (0.029, 0.205) -- (0.014, 0.193) -- (-0.044, 0.193) -- (-0.043, 0.170) -- (-0.053, 0.174) -- (-0.066, 0.169) -- (-0.075, 0.179) -- cycle;
+		%Soudan
+		\path[pays] (0.416, 0.092) -- (0.389, 0.092) -- (0.377, 0.086) -- (0.371, 0.090) -- (0.347, 0.083) -- (0.340, 0.071) -- (0.296, 0.088) -- (0.287, 0.083) -- (0.280, 0.062) -- (0.260, 0.066) -- (0.243, 0.040) -- (0.241, 0.053) -- (0.220, 0.083) -- (0.221, 0.110) -- (0.232, 0.130) -- (0.272, 0.139) -- (0.286, 0.152) -- (0.285, 0.158) -- (0.304, 0.158) -- (0.318, 0.167) -- (0.328, 0.186) -- (0.345, 0.196) -- (0.356, 0.177) -- (0.355, 0.157) -- (0.381, 0.138) -- (0.402, 0.104) -- (0.413, 0.098) -- cycle;
+		%République centrafricaine
+		\path[pays] (0.280, 0.062) -- (0.268, -0.008) -- (0.249, -0.031) -- (0.243, -0.062) -- (0.221, -0.087) -- (0.215, -0.079) -- (0.201, -0.086) -- (0.192, -0.078) -- (0.181, -0.089) -- (0.169, -0.070) -- (0.180, -0.060) -- (0.174, -0.049) -- (0.190, -0.042) -- (0.191, -0.034) -- (0.199, -0.043) -- (0.213, -0.043) -- (0.219, -0.023) -- (0.210, 0.001) -- (0.217, 0.021) -- (0.202, 0.023) -- (0.199, 0.040) -- (0.242, 0.030) -- (0.251, 0.056) -- (0.260, 0.066) -- (0.271, 0.063) -- cycle;
+		%Congo
+		\path[pays] (0.171, 0.040) -- (0.197, 0.041) -- (0.202, 0.023) -- (0.217, 0.021) -- (0.210, 0.001) -- (0.219, -0.023) -- (0.213, -0.043) -- (0.199, -0.043) -- (0.191, -0.034) -- (0.190, -0.042) -- (0.174, -0.049) -- (0.180, -0.060) -- (0.169, -0.070) -- (0.143, -0.038) -- (0.134, -0.014) -- (0.144, 0.018) -- (0.172, 0.019) -- cycle;
+		%Guinée équatoriale
+		\path[pays] (0.147, 0.040) -- (0.171, 0.040) -- (0.172, 0.019) -- (0.141, 0.020) -- cycle;
+		%Malawi
+		\path[pays] (0.466, -0.147) -- (0.503, -0.170) -- (0.503, -0.219) -- (0.492, -0.241) -- (0.500, -0.246) -- (0.454, -0.260) -- (0.455, -0.273) -- (0.443, -0.275) -- (0.405, -0.316) -- (0.378, -0.312) -- (0.370, -0.305) -- (0.348, -0.308) -- (0.329, -0.283) -- (0.331, -0.227) -- (0.362, -0.227) -- (0.361, -0.192) -- (0.401, -0.210) -- (0.410, -0.204) -- (0.436, -0.233) -- (0.448, -0.233) -- (0.447, -0.214) -- (0.443, -0.217) -- (0.428, -0.208) -- (0.431, -0.161) -- (0.435, -0.150) -- (0.460, -0.145) -- cycle;
+		%Mozambique
+		\path[pays] (0.496, -0.162) -- (0.511, -0.166) -- (0.519, -0.179) -- (0.521, -0.239) -- (0.531, -0.244) -- (0.537, -0.257) -- (0.537, -0.280) -- (0.525, -0.296) -- (0.516, -0.285) -- (0.519, -0.257) -- (0.492, -0.241) -- (0.503, -0.219) -- (0.503, -0.170) -- cycle;
+		%Mozambique (côte)
+		\path[pays] (0.522, -0.203) -- (0.566, -0.204) -- (0.610, -0.181) -- (0.613, -0.259) -- (0.592, -0.294) -- (0.560, -0.310) -- (0.519, -0.348) -- (0.517, -0.361) -- (0.528, -0.389) -- (0.527, -0.418) -- (0.517, -0.431) -- (0.480, -0.453) -- (0.482, -0.472) -- (0.471, -0.471) -- (0.472, -0.429) -- (0.463, -0.392) -- (0.487, -0.358) -- (0.493, -0.294) -- (0.468, -0.279) -- (0.456, -0.280) -- (0.454, -0.260) -- (0.500, -0.246) -- (0.519, -0.257) -- (0.516, -0.285) -- (0.525, -0.296) -- (0.537, -0.280) -- (0.537, -0.257) -- (0.531, -0.244) -- (0.521, -0.239) -- (0.517, -0.216) -- cycle;
+		%Eswatini
+		\path[pays] (0.471, -0.471) -- (0.459, -0.481) -- (0.451, -0.472) -- (0.461, -0.452) -- (0.470, -0.463) -- cycle;
+		%Angola
+		\path[pays] (0.197, -0.084) -- (0.185, -0.102) -- (0.181, -0.089) -- (0.192, -0.078) -- cycle(0.187, -0.107) -- (0.248, -0.103) -- (0.265, -0.142) -- (0.288, -0.141) -- (0.294, -0.126) -- (0.305, -0.122) -- (0.312, -0.122) -- (0.311, -0.128) -- (0.329, -0.128) -- (0.335, -0.195) -- (0.355, -0.191) -- (0.363, -0.198) -- (0.362, -0.227) -- (0.331, -0.227) -- (0.329, -0.283) -- (0.348, -0.308) -- (0.320, -0.316) -- (0.284, -0.313) -- (0.274, -0.305) -- (0.211, -0.307) -- (0.192, -0.298) -- (0.176, -0.305) -- (0.183, -0.254) -- (0.208, -0.199) -- (0.195, -0.161) -- (0.200, -0.151) -- (0.196, -0.134) -- (0.186, -0.111) -- cycle;
+		%Burundi
+		\path[pays] (0.463, -0.042) -- (0.467, -0.059) -- (0.445, -0.079) -- (0.441, -0.050) -- (0.450, -0.051) -- (0.455, -0.041) -- cycle;
+		%Lesotho
+		\path[pays] (0.515, 0.577) -- (0.508, 0.574) -- (0.506, 0.562) -- (0.506, 0.553) -- (0.513, 0.556) -- (0.514, 0.549) -- (0.509, 0.520) -- (0.497, 0.551) -- (0.505, 0.584) -- (0.516, 0.587) -- (0.515, 0.577) -- cycle;
+		%Bahreïn
+		\path[pays] (0.516, 0.587) -- (0.506, 0.584) -- (0.515, 0.611) -- (0.525, 0.603) -- (0.518, 0.597) -- cycle;
+		%Madagascar
+		\path[pays] (0.747, -0.219) -- (0.759, -0.268) -- (0.754, -0.282) -- (0.749, -0.271) -- (0.746, -0.277) -- (0.746, -0.297) -- (0.695, -0.440) -- (0.669, -0.451) -- (0.650, -0.440) -- (0.642, -0.389) -- (0.662, -0.353) -- (0.659, -0.306) -- (0.667, -0.285) -- (0.696, -0.278) -- (0.718, -0.257) -- (0.721, -0.240) -- (0.728, -0.242) -- (0.743, -0.212) -- cycle;
+		%Qatar
+		\path[pays] (0.513, 0.556) -- (0.506, 0.553) -- (0.508, 0.574) -- (0.514, 0.561) -- cycle;
+		%Gambie
+		\path[pays] (-0.252, 0.239) -- (-0.227, 0.244) -- (-0.209, 0.238) -- (-0.254, 0.231) -- cycle;
+		%Tunisie
+		\path[pays] (0.138, 0.535) -- (0.131, 0.566) -- (0.110, 0.588) -- (0.108, 0.602) -- (0.117, 0.612) -- (0.120, 0.652) -- (0.135, 0.659) -- (0.145, 0.657) -- (0.145, 0.648) -- (0.157, 0.655) -- (0.158, 0.651) -- (0.151, 0.643) -- (0.155, 0.615) -- (0.146, 0.606) -- (0.149, 0.596) -- (0.166, 0.585) -- (0.165, 0.571) -- (0.144, 0.553) -- (0.145, 0.539) -- cycle;
+		%Libye
+		\path[pays] (-0.127, 0.483) -- (-0.127, 0.509) -- (-0.076, 0.529) -- (-0.071, 0.538) -- (-0.053, 0.545) -- (-0.053, 0.558) -- (-0.019, 0.569) -- (-0.016, 0.576) -- (-0.031, 0.621) -- (0.021, 0.646) -- (0.076, 0.648) -- (0.089, 0.655) -- (0.120, 0.652) -- (0.117, 0.612) -- (0.108, 0.602) -- (0.110, 0.588) -- (0.131, 0.566) -- (0.143, 0.519) -- (0.143, 0.467) -- (0.137, 0.460) -- (0.152, 0.430) -- (0.159, 0.433) -- (0.178, 0.414) -- (0.085, 0.345) -- (0.047, 0.336) -- (0.047, 0.347) -- (-0.073, 0.440) -- cycle;
+		%Koweït
+		\path[pays] (0.513, 0.572) -- (0.515, 0.577) -- (0.532, 0.570) -- (0.558, 0.589) -- (0.566, 0.567) -- (0.536, 0.556) -- (0.552, 0.538) -- (0.526, 0.515) -- (0.509, 0.520) -- (0.514, 0.561) -- cycle;
+		%Qatar
+		\path[pays] (0.762, 0.427) -- (0.798, 0.425) -- (0.825, 0.459) -- (0.832, 0.439) -- (0.825, 0.439) -- (0.828, 0.425) -- (0.821, 0.422) -- (0.816, 0.396) -- (0.771, 0.405) -- (0.763, 0.423) -- cycle;
+		%Bahreïn
+		\path[pays] (0.750, 0.436) -- (0.748, 0.449) -- (0.754, 0.460) -- (0.761, 0.444) -- (0.755, 0.433) -- cycle;
+		%Koweït
+		\path[pays] (0.698, 0.529) -- (0.707, 0.503) -- (0.697, 0.503) -- (0.693, 0.512) -- (0.679, 0.513) -- (0.688, 0.530) -- cycle;
+		%Irak
+		\path[pays] (0.566, 0.567) -- (0.558, 0.589) -- (0.588, 0.607) -- (0.588, 0.642) -- (0.606, 0.660) -- (0.635, 0.656) -- (0.647, 0.635) -- (0.657, 0.630) -- (0.660, 0.619) -- (0.652, 0.599) -- (0.664, 0.583) -- (0.683, 0.573) -- (0.692, 0.547) -- (0.707, 0.528) -- (0.688, 0.530) -- (0.679, 0.513) -- (0.652, 0.515) -- (0.584, 0.563) -- cycle;
+		%Oman
+		\path[pays] (0.819, 0.400) -- (0.821, 0.422) -- (0.828, 0.425) -- (0.825, 0.439) -- (0.832, 0.439) -- (0.849, 0.421) -- (0.869, 0.415) -- (0.888, 0.393) -- (0.871, 0.360) -- (0.862, 0.356) -- (0.862, 0.334) -- (0.846, 0.327) -- (0.846, 0.318) -- (0.833, 0.315) -- (0.822, 0.298) -- (0.797, 0.293) -- (0.777, 0.335) -- (0.820, 0.352) -- (0.827, 0.387) -- cycle(0.828, 0.453) -- (0.828, 0.465) -- (0.830, 0.456) -- cycle;
+		%Vanuatu
+		\path[pays] (2.511, -0.280) -- (2.518, -0.290) -- (2.513, -0.292) -- (2.510, -0.284) -- cycle(2.506, -0.276) -- (2.507, -0.257) -- (2.513, -0.263) -- (2.513, -0.277) -- (2.509, -0.275) -- cycle;
+		%Cambodge
+		\path[pays] (1.548, 0.214) -- (1.542, 0.236) -- (1.550, 0.250) -- (1.570, 0.254) -- (1.597, 0.244) -- (1.602, 0.256) -- (1.617, 0.250) -- (1.622, 0.217) -- (1.598, 0.203) -- (1.606, 0.193) -- (1.577, 0.184) -- (1.558, 0.196) -- cycle;
+		%Thailande
+		\path[pays] (1.584, 0.251) -- (1.550, 0.250) -- (1.542, 0.236) -- (1.548, 0.214) -- (1.521, 0.222) -- (1.522, 0.236) -- (1.508, 0.236) -- (1.502, 0.162) -- (1.512, 0.162) -- (1.523, 0.131) -- (1.549, 0.109) -- (1.535, 0.100) -- (1.533, 0.109) -- (1.518, 0.114) -- (1.492, 0.147) -- (1.490, 0.137) -- (1.487, 0.147) -- (1.504, 0.209) -- (1.493, 0.243) -- (1.476, 0.266) -- (1.485, 0.285) -- (1.456, 0.325) -- (1.462, 0.328) -- (1.466, 0.347) -- (1.477, 0.348) -- (1.492, 0.360) -- (1.502, 0.344) -- (1.512, 0.343) -- (1.514, 0.308) -- (1.528, 0.319) -- (1.542, 0.316) -- (1.544, 0.322) -- (1.555, 0.321) -- (1.587, 0.274) -- (1.588, 0.259) -- cycle;
+		%Laos
+		\path[pays] (1.617, 0.250) -- (1.602, 0.256) -- (1.597, 0.244) -- (1.584, 0.251) -- (1.587, 0.274) -- (1.555, 0.321) -- (1.544, 0.322) -- (1.542, 0.316) -- (1.528, 0.319) -- (1.514, 0.308) -- (1.512, 0.343) -- (1.502, 0.344) -- (1.492, 0.360) -- (1.504, 0.378) -- (1.515, 0.373) -- (1.509, 0.393) -- (1.516, 0.396) -- (1.537, 0.366) -- (1.555, 0.366) -- (1.564, 0.350) -- (1.552, 0.339) -- (1.571, 0.329) -- (1.617, 0.268) -- cycle;
+		%Myanmar
+		\path[pays] (1.492, 0.360) -- (1.477, 0.348) -- (1.466, 0.347) -- (1.462, 0.328) -- (1.456, 0.325) -- (1.485, 0.285) -- (1.476, 0.266) -- (1.493, 0.243) -- (1.504, 0.209) -- (1.491, 0.175) -- (1.485, 0.231) -- (1.457, 0.298) -- (1.433, 0.277) -- (1.414, 0.282) -- (1.417, 0.304) -- (1.411, 0.321) -- (1.397, 0.347) -- (1.376, 0.364) -- (1.372, 0.378) -- (1.378, 0.376) -- (1.376, 0.388) -- (1.383, 0.393) -- (1.380, 0.424) -- (1.392, 0.420) -- (1.400, 0.458) -- (1.397, 0.469) -- (1.414, 0.481) -- (1.425, 0.477) -- (1.423, 0.498) -- (1.431, 0.500) -- (1.446, 0.485) -- (1.452, 0.457) -- (1.441, 0.442) -- (1.444, 0.421) -- (1.459, 0.424) -- (1.465, 0.408) -- (1.475, 0.404) -- (1.474, 0.390) -- (1.493, 0.380) -- (1.503, 0.385) -- (1.494, 0.366) -- cycle;
+		%Vietnam
+		\path[pays] (1.577, 0.184) -- (1.606, 0.193) -- (1.598, 0.203) -- (1.622, 0.217) -- (1.617, 0.268) -- (1.571, 0.329) -- (1.552, 0.339) -- (1.564, 0.350) -- (1.555, 0.366) -- (1.537, 0.366) -- (1.516, 0.396) -- (1.549, 0.402) -- (1.560, 0.412) -- (1.582, 0.402) -- (1.582, 0.391) -- (1.606, 0.380) -- (1.589, 0.365) -- (1.578, 0.336) -- (1.637, 0.269) -- (1.648, 0.236) -- (1.649, 0.205) -- (1.593, 0.151) -- (1.586, 0.163) -- (1.590, 0.174) -- cycle;
+		%Corée du Nord
+		\path[pays] (1.815, 0.745) -- cycle(1.811, 0.748) -- (1.815, 0.745) -- (1.809, 0.746) -- (1.805, 0.734) -- (1.811, 0.721) -- (1.790, 0.701) -- (1.792, 0.692) -- (1.810, 0.677) -- (1.795, 0.675) -- (1.786, 0.666) -- (1.762, 0.672) -- (1.762, 0.695) -- (1.743, 0.705) -- (1.764, 0.738) -- (1.785, 0.731) -- (1.779, 0.741) -- (1.797, 0.748) -- (1.797, 0.758) -- cycle;
+		%Corée du Sud
+		\path[pays] (1.786, 0.666) -- (1.810, 0.681) -- (1.839, 0.649) -- (1.848, 0.629) -- (1.846, 0.619) -- (1.813, 0.607) -- (1.806, 0.630) -- (1.792, 0.648) -- (1.802, 0.651) -- cycle;
+		%Mongolie
+		\path[pays] (1.173, 0.867) -- (1.222, 0.893) -- (1.297, 0.874) -- (1.305, 0.886) -- (1.295, 0.896) -- (1.300, 0.914) -- (1.349, 0.900) -- (1.358, 0.888) -- (1.380, 0.881) -- (1.421, 0.884) -- (1.451, 0.867) -- (1.481, 0.864) -- (1.507, 0.871) -- (1.521, 0.883) -- (1.555, 0.877) -- (1.554, 0.847) -- (1.561, 0.840) -- (1.583, 0.840) -- (1.590, 0.846) -- (1.622, 0.828) -- (1.624, 0.822) -- (1.593, 0.822) -- (1.582, 0.806) -- (1.555, 0.790) -- (1.531, 0.795) -- (1.528, 0.784) -- (1.541, 0.771) -- (1.528, 0.756) -- (1.473, 0.743) -- (1.461, 0.734) -- (1.411, 0.750) -- (1.334, 0.753) -- (1.310, 0.780) -- (1.280, 0.793) -- (1.243, 0.798) -- (1.235, 0.806) -- (1.233, 0.826) -- (1.218, 0.840) -- (1.182, 0.855) -- cycle;
+		%Inde
+		\path[pays] (1.423, 0.498) -- (1.425, 0.477) -- (1.414, 0.481) -- (1.397, 0.469) -- (1.396, 0.435) -- (1.392, 0.420) -- (1.380, 0.424) -- (1.383, 0.393) -- (1.376, 0.388) -- (1.364, 0.416) -- (1.359, 0.416) -- (1.359, 0.405) -- (1.349, 0.414) -- (1.363, 0.440) -- (1.325, 0.445) -- (1.322, 0.458) -- (1.301, 0.466) -- (1.299, 0.454) -- (1.311, 0.445) -- (1.301, 0.432) -- (1.311, 0.427) -- (1.321, 0.382) -- (1.293, 0.379) -- (1.296, 0.365) -- (1.290, 0.355) -- (1.270, 0.343) -- (1.232, 0.299) -- (1.233, 0.291) -- (1.206, 0.280) -- (1.208, 0.182) -- (1.200, 0.181) -- (1.194, 0.168) -- (1.199, 0.162) -- (1.185, 0.157) -- (1.175, 0.140) -- (1.160, 0.156) -- (1.120, 0.257) -- (1.104, 0.281) -- (1.080, 0.376) -- (1.060, 0.366) -- (1.049, 0.368) -- (1.027, 0.389) -- (1.033, 0.396) -- (1.009, 0.417) -- (1.017, 0.429) -- (1.050, 0.429) -- (1.031, 0.467) -- (1.020, 0.475) -- (1.033, 0.494) -- (1.051, 0.492) -- (1.079, 0.546) -- (1.077, 0.559) -- (1.087, 0.569) -- (1.073, 0.578) -- (1.058, 0.606) -- (1.063, 0.613) -- (1.101, 0.612) -- (1.111, 0.626) -- (1.132, 0.606) -- (1.143, 0.573) -- (1.132, 0.575) -- (1.140, 0.556) -- (1.179, 0.532) -- (1.169, 0.508) -- (1.221, 0.482) -- (1.242, 0.480) -- (1.252, 0.471) -- (1.294, 0.466) -- (1.290, 0.492) -- (1.298, 0.495) -- (1.303, 0.478) -- (1.318, 0.471) -- (1.351, 0.473) -- (1.343, 0.490) -- (1.354, 0.492) -- (1.379, 0.516) -- (1.392, 0.512) -- (1.401, 0.519) -- (1.410, 0.508) -- (1.407, 0.501) -- cycle;
+		%Bangladesh
+		\path[pays] (1.376, 0.388) -- (1.376, 0.364) -- (1.356, 0.401) -- (1.342, 0.402) -- (1.341, 0.385) -- (1.322, 0.389) -- (1.310, 0.416) -- (1.311, 0.427) -- (1.301, 0.432) -- (1.311, 0.445) -- (1.299, 0.454) -- (1.301, 0.466) -- (1.322, 0.458) -- (1.325, 0.445) -- (1.363, 0.440) -- (1.349, 0.414) -- (1.359, 0.405) -- (1.359, 0.416) -- (1.364, 0.416) -- cycle;
+		%Bhoutan
+		\path[pays] (1.343, 0.490) -- (1.351, 0.473) -- (1.318, 0.471) -- (1.303, 0.478) -- (1.316, 0.499) -- (1.335, 0.494) -- cycle;
+		%Népal
+		\path[pays] (1.290, 0.492) -- (1.294, 0.466) -- (1.252, 0.471) -- (1.242, 0.480) -- (1.221, 0.482) -- (1.169, 0.508) -- (1.172, 0.524) -- (1.184, 0.537) -- (1.230, 0.509) -- (1.273, 0.493) -- cycle;
+		%Pakistan
+		\path[pays] (1.111, 0.626) -- (1.101, 0.612) -- (1.063, 0.613) -- (1.058, 0.606) -- (1.073, 0.578) -- (1.087, 0.569) -- (1.077, 0.559) -- (1.079, 0.546) -- (1.051, 0.492) -- (1.033, 0.494) -- (1.020, 0.475) -- (1.031, 0.467) -- (1.050, 0.429) -- (1.017, 0.429) -- (1.009, 0.417) -- (0.997, 0.422) -- (0.978, 0.448) -- (0.907, 0.442) -- (0.910, 0.463) -- (0.930, 0.472) -- (0.920, 0.483) -- (0.917, 0.498) -- (0.902, 0.506) -- (0.886, 0.526) -- (0.912, 0.517) -- (0.935, 0.517) -- (0.966, 0.527) -- (0.964, 0.542) -- (0.970, 0.552) -- (1.002, 0.563) -- (1.004, 0.584) -- (1.012, 0.589) -- (1.004, 0.600) -- (1.018, 0.600) -- (1.024, 0.620) -- (1.015, 0.637) -- (1.022, 0.644) -- (1.066, 0.655) -- (1.086, 0.634) -- cycle;
+		%Afghanistan
+		\path[pays] (0.943, 0.659) -- (0.967, 0.653) -- (0.976, 0.659) -- (0.982, 0.656) -- (0.984, 0.664) -- (0.993, 0.663) -- (0.999, 0.679) -- (1.008, 0.675) -- (1.021, 0.648) -- (1.038, 0.662) -- (1.063, 0.660) -- (1.066, 0.655) -- (1.022, 0.644) -- (1.015, 0.637) -- (1.024, 0.620) -- (1.018, 0.600) -- (1.004, 0.600) -- (1.012, 0.589) -- (1.004, 0.584) -- (1.002, 0.563) -- (0.970, 0.552) -- (0.964, 0.542) -- (0.966, 0.527) -- (0.935, 0.517) -- (0.912, 0.517) -- (0.886, 0.526) -- (0.897, 0.542) -- (0.894, 0.554) -- (0.882, 0.557) -- (0.872, 0.582) -- (0.877, 0.592) -- (0.870, 0.594) -- (0.873, 0.629) -- (0.889, 0.622) -- (0.900, 0.625) -- (0.901, 0.633) -- (0.919, 0.641) -- (0.919, 0.655) -- (0.930, 0.658) -- (0.931, 0.665) -- (0.938, 0.660) -- cycle;
+		%Tadjikistan
+		\path[pays] (0.962, 0.655) -- (0.966, 0.673) -- (0.960, 0.686) -- (0.949, 0.691) -- (0.951, 0.698) -- (0.963, 0.698) -- (0.969, 0.719) -- (0.986, 0.723) -- (0.986, 0.714) -- (0.994, 0.710) -- (0.991, 0.705) -- (0.975, 0.708) -- (0.976, 0.697) -- (1.035, 0.696) -- (1.043, 0.679) -- (1.057, 0.677) -- (1.063, 0.660) -- (1.038, 0.662) -- (1.021, 0.648) -- (1.008, 0.675) -- (0.999, 0.679) -- (0.993, 0.663) -- (0.984, 0.664) -- (0.982, 0.656) -- (0.976, 0.659) -- (0.967, 0.653) -- cycle;
+		%Kirghizstan
+		\path[pays] (0.985, 0.745) -- (0.986, 0.753) -- (0.994, 0.756) -- (1.019, 0.750) -- (1.018, 0.760) -- (1.025, 0.764) -- (1.046, 0.756) -- (1.095, 0.756) -- (1.113, 0.747) -- (1.090, 0.727) -- (1.073, 0.724) -- (1.071, 0.713) -- (1.047, 0.712) -- (1.035, 0.704) -- (1.035, 0.696) -- (0.976, 0.697) -- (0.975, 0.708) -- (1.006, 0.708) -- (1.020, 0.721) -- (0.980, 0.732) -- (0.989, 0.744) -- cycle;
+		%Azerbaïdjan
+		\path[pays] (0.730, 0.737) -- (0.750, 0.746) -- (0.773, 0.728) -- (0.796, 0.729) -- (0.792, 0.738) -- (0.812, 0.754) -- (0.832, 0.745) -- (0.843, 0.727) -- (0.863, 0.725) -- (0.874, 0.707) -- (0.904, 0.686) -- (0.941, 0.670) -- (0.943, 0.659) -- (0.931, 0.665) -- (0.930, 0.658) -- (0.919, 0.655) -- (0.919, 0.641) -- (0.889, 0.622) -- (0.873, 0.629) -- (0.869, 0.644) -- (0.811, 0.671) -- (0.785, 0.670) -- (0.777, 0.660) -- (0.765, 0.657) -- (0.759, 0.687) -- (0.747, 0.693) -- (0.748, 0.705) -- (0.739, 0.706) -- (0.739, 0.721) -- (0.753, 0.717) -- (0.764, 0.722) -- (0.746, 0.743) -- (0.736, 0.738) -- (0.737, 0.726) -- cycle;
+		%Iran
+		\path[pays] (0.707, 0.528) -- (0.692, 0.547) -- (0.683, 0.573) -- (0.664, 0.583) -- (0.652, 0.599) -- (0.660, 0.619) -- (0.657, 0.630) -- (0.647, 0.635) -- (0.625, 0.670) -- (0.620, 0.696) -- (0.629, 0.701) -- (0.640, 0.686) -- (0.655, 0.684) -- (0.675, 0.698) -- (0.680, 0.693) -- (0.677, 0.685) -- (0.697, 0.663) -- (0.743, 0.648) -- (0.764, 0.652) -- (0.785, 0.670) -- (0.811, 0.671) -- (0.869, 0.644) -- (0.870, 0.594) -- (0.877, 0.592) -- (0.872, 0.582) -- (0.882, 0.557) -- (0.894, 0.554) -- (0.897, 0.542) -- (0.886, 0.526) -- (0.902, 0.506) -- (0.917, 0.498) -- (0.920, 0.483) -- (0.930, 0.472) -- (0.910, 0.463) -- (0.907, 0.442) -- (0.845, 0.454) -- (0.829, 0.479) -- (0.804, 0.467) -- (0.754, 0.491) -- (0.729, 0.532) -- (0.721, 0.529) -- (0.711, 0.535) -- cycle;
+		%Chypre
+		\path[pays] (0.515, 0.577) -- (0.518, 0.597) -- (0.525, 0.603) -- (0.516, 0.611) -- (0.513, 0.625) -- (0.522, 0.650) -- (0.562, 0.648) -- (0.601, 0.657) -- (0.588, 0.642) -- (0.588, 0.607) -- (0.532, 0.570) -- cycle;
+		%Arménie
+		\path[pays] (0.655, 0.684) -- (0.643, 0.696) -- (0.611, 0.710) -- (0.608, 0.725) -- (0.627, 0.728) -- (0.643, 0.710) -- (0.640, 0.704) -- (0.653, 0.696) -- cycle;
+		%Finlande
+		\path[pays] (0.138, 1.026) -- (0.153, 1.047) -- (0.156, 1.065) -- (0.147, 1.073) -- (0.145, 1.094) -- (0.152, 1.109) -- (0.164, 1.109) -- (0.167, 1.115) -- (0.162, 1.120) -- (0.195, 1.169) -- (0.207, 1.169) -- (0.209, 1.178) -- (0.231, 1.175) -- (0.231, 1.185) -- (0.238, 1.186) -- (0.274, 1.168) -- (0.283, 1.139) -- (0.264, 1.135) -- (0.254, 1.124) -- (0.257, 1.114) -- (0.217, 1.088) -- (0.211, 1.066) -- (0.234, 1.046) -- (0.224, 1.028) -- (0.212, 1.024) -- (0.203, 0.981) -- (0.188, 0.983) -- (0.181, 0.970) -- (0.167, 0.969) -- (0.150, 1.003) -- cycle;
+		%Estonie
+		\path[pays] (0.361, 0.982) -- (0.397, 0.972) -- (0.397, 0.960) -- (0.426, 0.936) -- (0.409, 0.931) -- (0.418, 0.915) -- (0.407, 0.914) -- (0.404, 0.901) -- (0.333, 0.911) -- (0.310, 0.906) -- (0.304, 0.921) -- (0.312, 0.924) -- (0.305, 0.945) -- (0.331, 0.951) -- (0.333, 0.960) -- (0.343, 0.966) -- (0.340, 0.973) -- (0.348, 0.976) -- cycle;
+		%Lettonie
+		\path[pays] (0.418, 0.915) -- (0.443, 0.919) -- (0.453, 0.909) -- (0.452, 0.900) -- (0.463, 0.900) -- (0.469, 0.889) -- (0.487, 0.883) -- (0.497, 0.886) -- (0.506, 0.878) -- (0.535, 0.872) -- (0.532, 0.858) -- (0.537, 0.849) -- (0.536, 0.843) -- (0.517, 0.837) -- (0.517, 0.829) -- (0.475, 0.815) -- (0.478, 0.806) -- (0.432, 0.816) -- (0.430, 0.823) -- (0.417, 0.821) -- (0.405, 0.798) -- (0.386, 0.802) -- (0.392, 0.818) -- (0.408, 0.818) -- (0.386, 0.847) -- (0.370, 0.853) -- (0.335, 0.840) -- (0.329, 0.845) -- (0.306, 0.843) -- (0.297, 0.852) -- (0.305, 0.862) -- (0.301, 0.870) -- (0.318, 0.886) -- (0.310, 0.906) -- (0.333, 0.911) -- (0.404, 0.901) -- (0.407, 0.914) -- cycle;
+		%Lituanie
+		\path[pays] (0.305, 0.945) -- (0.312, 0.924) -- (0.304, 0.921) -- (0.319, 0.891) -- (0.301, 0.870) -- (0.305, 0.862) -- (0.289, 0.870) -- (0.253, 0.869) -- (0.245, 0.879) -- (0.224, 0.887) -- (0.222, 0.883) -- (0.199, 0.898) -- (0.184, 0.929) -- (0.184, 0.942) -- (0.192, 0.947) -- (0.228, 0.961) -- (0.242, 0.954) -- (0.301, 0.950) -- cycle;
+		%République tchèque
+		\path[pays] (0.229, 0.847) -- (0.228, 0.840) -- (0.221, 0.840) -- (0.217, 0.822) -- (0.199, 0.818) -- (0.168, 0.824) -- (0.165, 0.830) -- (0.150, 0.823) -- (0.128, 0.829) -- (0.134, 0.838) -- (0.141, 0.833) -- (0.164, 0.840) -- (0.175, 0.836) -- (0.173, 0.850) -- (0.182, 0.860) -- (0.193, 0.854) -- (0.204, 0.863) -- (0.227, 0.853) -- cycle;
+		%Slovaquie
+		\path[pays] (0.297, 0.852) -- (0.306, 0.843) -- (0.298, 0.839) -- (0.286, 0.816) -- (0.252, 0.806) -- (0.220, 0.825) -- (0.221, 0.840) -- (0.228, 0.840) -- (0.229, 0.847) -- (0.241, 0.841) -- (0.279, 0.856) -- (0.294, 0.850) -- cycle;
+		%Ukraine
+		\path[pays] (0.358, 0.849) -- (0.370, 0.853) -- (0.386, 0.847) -- (0.406, 0.822) -- (0.405, 0.816) -- (0.392, 0.818) -- (0.386, 0.802) -- (0.381, 0.824) -- (0.362, 0.847) -- cycle;
+		%Roumanie
+		\path[pays] (0.386, 0.802) -- (0.405, 0.798) -- (0.395, 0.792) -- (0.393, 0.771) -- (0.374, 0.779) -- (0.352, 0.770) -- (0.332, 0.771) -- (0.316, 0.773) -- (0.312, 0.786) -- (0.296, 0.789) -- (0.275, 0.813) -- (0.286, 0.816) -- (0.298, 0.839) -- (0.312, 0.846) -- (0.335, 0.840) -- (0.358, 0.849) -- (0.381, 0.824) -- (0.382, 0.809) -- cycle;
+		%Biélorussie
+		\path[pays] (0.340, 0.973) -- (0.343, 0.966) -- (0.333, 0.960) -- (0.331, 0.951) -- (0.305, 0.945) -- (0.295, 0.952) -- (0.294, 0.961) -- (0.274, 0.966) -- (0.270, 0.980) -- (0.318, 0.986) -- (0.327, 0.981) -- cycle;
+		%Biélorussie
+		\path[pays] (0.346, 1.004) -- (0.361, 0.982) -- (0.340, 0.973) -- (0.318, 0.986) -- (0.270, 0.980) -- (0.274, 1.003) -- (0.285, 1.008) -- (0.297, 0.996) -- (0.307, 0.996) -- (0.308, 1.009) -- (0.318, 1.012) -- (0.336, 1.004) -- cycle;
+		%Lettonie
+		\path[pays] (0.350, 1.036) -- (0.345, 1.024) -- (0.351, 1.009) -- (0.346, 1.004) -- (0.318, 1.012) -- (0.308, 1.009) -- (0.308, 1.019) -- (0.303, 1.016) -- (0.292, 1.031) -- (0.323, 1.038) -- (0.350, 1.036) -- cycle;
+		%Pologne
+		\path[pays] (0.184, 0.942) -- (0.184, 0.929) -- (0.199, 0.898) -- (0.163, 0.884) -- (0.167, 0.871) -- (0.182, 0.860) -- (0.173, 0.850) -- (0.175, 0.836) -- (0.164, 0.840) -- (0.141, 0.833) -- (0.115, 0.842) -- (0.101, 0.838) -- (0.109, 0.862) -- (0.089, 0.865) -- (0.080, 0.881) -- (0.079, 0.910) -- (0.087, 0.910) -- (0.090, 0.917) -- (0.092, 0.941) -- (0.106, 0.939) -- (0.114, 0.947) -- (0.110, 0.962) -- (0.128, 0.963) -- (0.142, 0.947) -- (0.162, 0.954) -- (0.177, 0.948) -- cycle;
+		%Bulgarie
+		\path[pays] (0.311, 0.780) -- (0.316, 0.773) -- (0.332, 0.771) -- (0.352, 0.770) -- (0.374, 0.779) -- (0.393, 0.771) -- (0.383, 0.751) -- (0.389, 0.741) -- (0.363, 0.738) -- (0.364, 0.729) -- (0.351, 0.727) -- (0.341, 0.734) -- (0.320, 0.729) -- (0.318, 0.741) -- (0.310, 0.746) -- (0.317, 0.762) -- (0.308, 0.776) -- cycle;
+		%Grèce
+		\path[pays] (0.376, 0.623) -- (0.374, 0.618) -- (0.354, 0.616) -- (0.336, 0.623) -- (0.338, 0.630) -- (0.368, 0.621) -- cycle(0.320, 0.729) -- (0.341, 0.734) -- (0.351, 0.727) -- (0.364, 0.729) -- (0.363, 0.738) -- (0.370, 0.733) -- (0.364, 0.720) -- (0.331, 0.718) -- (0.342, 0.708) -- (0.327, 0.705) -- (0.319, 0.714) -- (0.317, 0.710) -- (0.329, 0.691) -- (0.324, 0.688) -- (0.339, 0.674) -- (0.340, 0.665) -- (0.327, 0.669) -- (0.332, 0.660) -- (0.323, 0.658) -- (0.329, 0.643) -- (0.308, 0.650) -- (0.283, 0.699) -- (0.294, 0.720) -- (0.317, 0.729) -- cycle;
+		%Turquie
+		\path[pays] (0.635, 0.656) -- (0.606, 0.660) -- (0.562, 0.648) -- (0.522, 0.650) -- (0.516, 0.632) -- (0.509, 0.640) -- (0.514, 0.647) -- (0.493, 0.649) -- (0.485, 0.639) -- (0.463, 0.637) -- (0.451, 0.647) -- (0.435, 0.647) -- (0.433, 0.640) -- (0.423, 0.638) -- (0.408, 0.647) -- (0.393, 0.647) -- (0.372, 0.674) -- (0.377, 0.688) -- (0.368, 0.696) -- (0.382, 0.713) -- (0.403, 0.714) -- (0.408, 0.727) -- (0.435, 0.725) -- (0.466, 0.741) -- (0.488, 0.741) -- (0.535, 0.722) -- (0.593, 0.734) -- (0.608, 0.725) -- (0.611, 0.710) -- (0.629, 0.701) -- (0.620, 0.696) -- (0.625, 0.670) -- cycle(0.363, 0.738) -- (0.389, 0.741) -- (0.391, 0.734) -- (0.404, 0.729) -- (0.402, 0.724) -- (0.385, 0.723) -- (0.369, 0.708) -- (0.364, 0.720) -- (0.370, 0.733) -- cycle;
+		%Monténégro
+		\path[pays] (0.294, 0.720) -- (0.281, 0.700) -- (0.272, 0.710) -- (0.268, 0.744) -- (0.273, 0.753) -- (0.285, 0.745) -- (0.288, 0.725) -- cycle;
+		%Croatie
+		\path[pays] (0.225, 0.819) -- (0.252, 0.806) -- (0.257, 0.809) -- (0.265, 0.797) -- (0.260, 0.791) -- (0.218, 0.797) -- (0.216, 0.790) -- (0.256, 0.749) -- (0.221, 0.767) -- (0.204, 0.794) -- (0.195, 0.797) -- (0.191, 0.790) -- (0.187, 0.795) -- (0.187, 0.802) -- (0.209, 0.801) -- (0.214, 0.815) -- cycle;
+		%Autriche
+		\path[pays] (0.130, 0.837) -- (0.128, 0.829) -- (0.142, 0.826) -- (0.141, 0.819) -- (0.099, 0.807) -- (0.088, 0.818) -- (0.082, 0.815) -- (0.082, 0.823) -- (0.091, 0.837) -- (0.115, 0.842) -- cycle;
+		%Andorre
+		\path[pays] (0.080, 0.881) -- (0.083, 0.870) -- (0.076, 0.871) -- (0.077, 0.881) -- cycle;
+		%Liechtenstein
+		\path[pays] (0.082, 0.893) -- (0.076, 0.871) -- (0.064, 0.879) -- (0.057, 0.877) -- (0.033, 0.898) -- (0.066, 0.904) -- (0.074, 0.897) -- cycle;
+		%Slovénie
+		\path[pays] (0.090, 0.938) -- (0.090, 0.917) -- (0.087, 0.910) -- (0.079, 0.910) -- (0.082, 0.893) -- (0.066, 0.904) -- (0.044, 0.902) -- (0.062, 0.931) -- (0.079, 0.938) -- cycle;
+		%Pays-Bas
+		\path[pays] (-0.126, 0.739) -- (-0.115, 0.746) -- (-0.111, 0.737) -- (-0.093, 0.739) -- (-0.089, 0.730) -- (-0.096, 0.725) -- (-0.099, 0.701) -- (-0.105, 0.699) -- (-0.099, 0.672) -- (-0.106, 0.655) -- (-0.126, 0.651) -- (-0.125, 0.675) -- (-0.134, 0.684) -- (-0.122, 0.719) -- (-0.125, 0.733) -- cycle;
+		%Danemark
+		\path[pays] (-0.106, 0.655) -- (-0.099, 0.672) -- (-0.105, 0.699) -- (-0.099, 0.701) -- (-0.096, 0.725) -- (-0.089, 0.730) -- (-0.093, 0.739) -- (-0.111, 0.737) -- (-0.115, 0.746) -- (-0.126, 0.739) -- (-0.124, 0.751) -- (-0.130, 0.759) -- (-0.110, 0.771) -- (-0.026, 0.766) -- (-0.021, 0.759) -- (0.005, 0.751) -- (0.010, 0.755) -- (0.025, 0.747) -- (0.041, 0.749) -- (0.042, 0.739) -- (0.029, 0.727) -- (0.011, 0.724) -- (-0.004, 0.694) -- (0.002, 0.684) -- (-0.010, 0.664) -- (-0.020, 0.661) -- (-0.030, 0.647) -- (-0.062, 0.647) -- (-0.077, 0.634) -- (-0.093, 0.652) -- cycle;
+		%Irlande
+		\path[pays] (-0.081, 0.944) -- (-0.079, 0.932) -- (-0.089, 0.917) -- (-0.113, 0.907) -- (-0.131, 0.910) -- (-0.120, 0.927) -- (-0.126, 0.944) -- (-0.098, 0.965) -- (-0.098, 0.947) -- (-0.090, 0.948) -- cycle;
+		%Fidji
+		\path[pays] (2.467, -0.371) -- (2.481, -0.390) -- (2.474, -0.395) -- (2.452, -0.373) -- (2.446, -0.354) -- (2.464, -0.366) -- cycle;
+		%Îles Salomon
+		\path[pays] (2.451, -0.184) -- (2.455, -0.190) -- (2.444, -0.190) -- (2.440, -0.180) -- (2.448, -0.184) -- cycle(2.447, -0.169) -- (2.444, -0.172) -- (2.434, -0.157) -- (2.432, -0.146) -- (2.438, -0.146) -- (2.442, -0.160) -- cycle(2.433, -0.174) -- (2.416, -0.170) -- (2.417, -0.163) -- (2.432, -0.169) -- cycle(2.419, -0.141) -- (2.422, -0.150) -- (2.411, -0.143) -- (2.398, -0.130) -- (2.407, -0.133) -- cycle(2.383, -0.123) -- (2.388, -0.129) -- (2.379, -0.126) -- (2.374, -0.116) -- cycle;
+		%Nouvelle-Zélande
+		\path[pays] (2.479, -0.707) -- (2.453, -0.728) -- (2.438, -0.735) -- (2.434, -0.728) -- (2.451, -0.714) -- (2.453, -0.704) -- (2.442, -0.697) -- (2.460, -0.685) -- (2.476, -0.660) -- (2.474, -0.609) -- (2.480, -0.608) -- (2.482, -0.618) -- (2.491, -0.622) -- (2.487, -0.657) -- (2.494, -0.645) -- (2.498, -0.649) -- (2.492, -0.663) -- (2.509, -0.670) -- (2.527, -0.665) -- (2.504, -0.691) -- (2.493, -0.691) -- (2.483, -0.704) -- cycle(2.339, -0.768) -- (2.417, -0.714) -- (2.414, -0.729) -- (2.429, -0.722) -- (2.428, -0.729) -- (2.384, -0.765) -- (2.383, -0.773) -- (2.356, -0.780) -- (2.325, -0.809) -- (2.298, -0.821) -- (2.267, -0.814) -- (2.285, -0.795) -- (2.325, -0.775) -- cycle;
+		%Australie
+		\path[pays] (2.063, -0.720) -- (2.071, -0.721) -- (2.060, -0.742) -- (2.043, -0.762) -- (2.041, -0.757) -- (2.024, -0.769) -- (2.014, -0.768) -- (2.018, -0.726) -- (2.023, -0.718) -- (2.041, -0.726) -- (2.050, -0.723) -- cycle(1.822, -0.568) -- (1.790, -0.582) -- (1.776, -0.598) -- (1.721, -0.600) -- (1.688, -0.619) -- (1.668, -0.618) -- (1.650, -0.603) -- (1.654, -0.593) -- (1.666, -0.587) -- (1.673, -0.568) -- (1.676, -0.520) -- (1.667, -0.460) -- (1.671, -0.468) -- (1.671, -0.452) -- (1.679, -0.464) -- (1.675, -0.430) -- (1.696, -0.383) -- (1.695, -0.397) -- (1.725, -0.371) -- (1.803, -0.347) -- (1.829, -0.320) -- (1.833, -0.304) -- (1.846, -0.289) -- (1.850, -0.304) -- (1.857, -0.300) -- (1.853, -0.292) -- (1.859, -0.284) -- (1.865, -0.287) -- (1.869, -0.274) -- (1.892, -0.250) -- (1.898, -0.253) -- (1.914, -0.243) -- (1.931, -0.262) -- (1.949, -0.263) -- (1.948, -0.254) -- (1.970, -0.221) -- (1.980, -0.214) -- (2.001, -0.213) -- (2.002, -0.204) -- (1.992, -0.198) -- (2.000, -0.196) -- (2.042, -0.215) -- (2.061, -0.209) -- (2.067, -0.217) -- (2.049, -0.234) -- (2.038, -0.264) -- (2.100, -0.312) -- (2.111, -0.306) -- (2.131, -0.265) -- (2.138, -0.218) -- (2.154, -0.188) -- (2.166, -0.256) -- (2.176, -0.249) -- (2.186, -0.264) -- (2.187, -0.334) -- (2.218, -0.359) -- (2.221, -0.394) -- (2.228, -0.390) -- (2.232, -0.397) -- (2.237, -0.395) -- (2.234, -0.413) -- (2.253, -0.445) -- (2.240, -0.511) -- (2.200, -0.574) -- (2.185, -0.583) -- (2.145, -0.629) -- (2.126, -0.660) -- (2.082, -0.674) -- (2.060, -0.689) -- (2.045, -0.678) -- (2.051, -0.669) -- (2.023, -0.685) -- (1.988, -0.671) -- (1.984, -0.660) -- (1.988, -0.638) -- (1.984, -0.631) -- (1.971, -0.629) -- (1.980, -0.620) -- (1.981, -0.607) -- (1.969, -0.619) -- (1.955, -0.622) -- (1.982, -0.594) -- (1.986, -0.581) -- (1.946, -0.616) -- (1.938, -0.608) -- (1.942, -0.599) -- (1.933, -0.580) -- (1.937, -0.575) -- (1.901, -0.556) -- (1.875, -0.557) -- (1.836, -0.570) -- cycle;
+		%Sri Lanka
+		\path[pays] (1.240, 0.132) -- (1.238, 0.114) -- (1.232, 0.109) -- (1.219, 0.105) -- (1.211, 0.119) -- (1.207, 0.144) -- (1.213, 0.173) -- (1.231, 0.151) -- cycle;
+		%Chine
+		\path[pays] (1.638, 0.320) -- (1.625, 0.326) -- (1.622, 0.341) -- (1.628, 0.349) -- (1.652, 0.354) -- (1.656, 0.347) -- (1.649, 0.329) -- cycle(1.113, 0.747) -- (1.109, 0.757) -- (1.117, 0.761) -- (1.095, 0.792) -- (1.126, 0.802) -- (1.125, 0.833) -- (1.154, 0.828) -- (1.158, 0.835) -- (1.152, 0.853) -- (1.163, 0.854) -- (1.173, 0.867) -- (1.182, 0.855) -- (1.218, 0.840) -- (1.233, 0.826) -- (1.235, 0.806) -- (1.243, 0.798) -- (1.280, 0.793) -- (1.310, 0.780) -- (1.334, 0.753) -- (1.411, 0.750) -- (1.461, 0.734) -- (1.473, 0.743) -- (1.514, 0.750) -- (1.541, 0.771) -- (1.528, 0.784) -- (1.531, 0.795) -- (1.555, 0.790) -- (1.582, 0.806) -- (1.593, 0.822) -- (1.624, 0.822) -- (1.590, 0.846) -- (1.583, 0.840) -- (1.561, 0.840) -- (1.554, 0.847) -- (1.555, 0.877) -- (1.574, 0.871) -- (1.587, 0.881) -- (1.584, 0.907) -- (1.589, 0.912) -- (1.573, 0.926) -- (1.579, 0.934) -- (1.610, 0.937) -- (1.633, 0.932) -- (1.648, 0.926) -- (1.702, 0.875) -- (1.752, 0.857) -- (1.766, 0.841) -- (1.787, 0.841) -- (1.814, 0.853) -- (1.821, 0.796) -- (1.802, 0.799) -- (1.794, 0.793) -- (1.814, 0.757) -- (1.807, 0.757) -- (1.811, 0.748) -- (1.797, 0.758) -- (1.797, 0.748) -- (1.779, 0.741) -- (1.785, 0.731) -- (1.764, 0.738) -- (1.743, 0.705) -- (1.705, 0.686) -- (1.709, 0.695) -- (1.703, 0.701) -- (1.709, 0.713) -- (1.698, 0.722) -- (1.674, 0.693) -- (1.661, 0.692) -- (1.657, 0.684) -- (1.685, 0.661) -- (1.698, 0.656) -- (1.709, 0.668) -- (1.734, 0.661) -- (1.740, 0.652) -- (1.722, 0.647) -- (1.705, 0.616) -- (1.724, 0.606) -- (1.764, 0.559) -- (1.768, 0.546) -- (1.760, 0.541) -- (1.777, 0.526) -- (1.780, 0.498) -- (1.772, 0.496) -- (1.752, 0.433) -- (1.736, 0.416) -- (1.718, 0.401) -- (1.702, 0.399) -- (1.695, 0.391) -- (1.688, 0.397) -- (1.682, 0.388) -- (1.647, 0.377) -- (1.646, 0.358) -- (1.638, 0.357) -- (1.634, 0.377) -- (1.590, 0.384) -- (1.582, 0.391) -- (1.582, 0.402) -- (1.560, 0.412) -- (1.549, 0.402) -- (1.509, 0.393) -- (1.515, 0.373) -- (1.507, 0.373) -- (1.503, 0.385) -- (1.493, 0.380) -- (1.474, 0.390) -- (1.475, 0.404) -- (1.465, 0.408) -- (1.459, 0.424) -- (1.444, 0.421) -- (1.441, 0.442) -- (1.452, 0.457) -- (1.446, 0.485) -- (1.431, 0.500) -- (1.407, 0.501) -- (1.410, 0.508) -- (1.401, 0.519) -- (1.392, 0.512) -- (1.379, 0.516) -- (1.354, 0.492) -- (1.316, 0.499) -- (1.302, 0.481) -- (1.298, 0.495) -- (1.255, 0.497) -- (1.140, 0.556) -- (1.132, 0.575) -- (1.143, 0.573) -- (1.132, 0.606) -- (1.111, 0.626) -- (1.086, 0.634) -- (1.066, 0.655) -- (1.057, 0.677) -- (1.043, 0.679) -- (1.035, 0.696) -- (1.035, 0.704) -- (1.047, 0.712) -- (1.071, 0.713) -- (1.073, 0.724) -- (1.090, 0.727) -- (1.112, 0.743) -- cycle;
+		%Taïwan
+		\path[pays] (1.799, 0.430) -- (1.793, 0.387) -- (1.778, 0.415) -- (1.791, 0.446) -- (1.799, 0.441) -- cycle;
+		%Italie
+		\path[pays] (0.142, 0.826) -- (0.150, 0.823) -- (0.165, 0.830) -- (0.168, 0.824) -- (0.188, 0.819) -- (0.190, 0.803) -- (0.179, 0.806) -- (0.169, 0.800) -- (0.173, 0.777) -- (0.210, 0.740) -- (0.221, 0.740) -- (0.225, 0.736) -- (0.221, 0.733) -- (0.259, 0.709) -- (0.257, 0.702) -- (0.236, 0.714) -- (0.231, 0.702) -- (0.241, 0.696) -- (0.240, 0.686) -- (0.222, 0.669) -- (0.227, 0.688) -- (0.216, 0.707) -- (0.155, 0.747) -- (0.140, 0.774) -- (0.122, 0.782) -- (0.102, 0.770) -- (0.104, 0.778) -- (0.096, 0.780) -- (0.092, 0.794) -- (0.097, 0.799) -- (0.093, 0.810) -- (0.106, 0.807) -- (0.113, 0.813) -- (0.122, 0.811) -- (0.125, 0.818) -- (0.141, 0.819) -- cycle(0.209, 0.673) -- (0.219, 0.675) -- (0.215, 0.646) -- (0.176, 0.664) -- (0.178, 0.673) -- (0.194, 0.671) -- cycle(0.122, 0.722) -- (0.128, 0.727) -- (0.137, 0.715) -- (0.136, 0.691) -- (0.124, 0.687) -- (0.114, 0.722) -- cycle;
+		%Suède
+		\path[pays] (0.128, 0.963) -- (0.110, 0.962) -- (0.103, 0.988) -- (0.109, 0.998) -- (0.134, 1.008) -- (0.131, 0.994) -- (0.139, 0.987) -- (0.124, 0.971) -- cycle(0.158, 0.981) -- (0.163, 0.973) -- (0.156, 0.960) -- (0.140, 0.976) -- cycle;
+		%Royaume-Uni
+		\path[pays] (-0.081, 0.944) -- (-0.098, 0.947) -- (-0.098, 0.965) -- (-0.087, 0.966) -- (-0.073, 0.956) -- cycle(-0.040, 0.936) -- (-0.038, 0.946) -- (-0.047, 0.957) -- (-0.066, 0.964) -- (-0.061, 0.971) -- (-0.065, 0.976) -- (-0.072, 0.968) -- (-0.078, 0.992) -- (-0.063, 1.022) -- (-0.038, 1.023) -- (-0.052, 1.005) -- (-0.025, 1.007) -- (-0.040, 0.979) -- (-0.027, 0.978) -- (-0.014, 0.957) -- (-0.005, 0.954) -- (0.006, 0.929) -- (0.022, 0.925) -- (0.014, 0.910) -- (0.019, 0.901) -- (0.007, 0.892) -- (-0.039, 0.891) -- (-0.070, 0.878) -- (-0.077, 0.882) -- (-0.057, 0.900) -- (-0.045, 0.903) -- (-0.066, 0.906) -- (-0.069, 0.913) -- (-0.055, 0.918) -- (-0.062, 0.927) -- (-0.060, 0.938) -- cycle;
+		%Islande
+		\path[pays] (-0.171, 1.146) -- (-0.175, 1.136) -- (-0.162, 1.125) -- (-0.179, 1.114) -- (-0.226, 1.100) -- (-0.274, 1.107) -- (-0.262, 1.114) -- (-0.287, 1.122) -- (-0.265, 1.129) -- (-0.289, 1.133) -- (-0.280, 1.143) -- (-0.261, 1.145) -- (-0.244, 1.135) -- (-0.191, 1.147) -- cycle;
+		%Malte
+		\path[pays] (0.645, 0.738) -- (0.667, 0.726) -- (0.676, 0.738) -- (0.706, 0.710) -- (0.694, 0.709) -- (0.690, 0.676) -- (0.677, 0.685) -- (0.680, 0.693) -- (0.675, 0.698) -- (0.655, 0.684) -- (0.653, 0.696) -- (0.640, 0.704) -- (0.643, 0.710) -- (0.627, 0.728) -- (0.649, 0.724) -- (0.642, 0.736) -- cycle(0.650, 0.684) -- (0.632, 0.694) -- (0.629, 0.701) -- (0.643, 0.694) -- cycle;
+		%Chypre
+		\path[pays] (0.551, 0.766) -- (0.586, 0.762) -- (0.609, 0.750) -- (0.630, 0.750) -- (0.645, 0.738) -- (0.649, 0.724) -- (0.630, 0.731) -- (0.608, 0.725) -- (0.593, 0.734) -- (0.579, 0.733) -- (0.574, 0.752) -- (0.557, 0.760) -- cycle;
+		%Philippines
+		\path[pays] (1.823, 0.223) -- (1.813, 0.237) -- (1.832, 0.230) -- (1.830, 0.215) -- cycle(1.854, 0.175) -- (1.858, 0.191) -- (1.866, 0.192) -- (1.865, 0.181) -- (1.875, 0.198) -- (1.875, 0.181) -- (1.862, 0.159) -- (1.852, 0.171) -- cycle(1.914, 0.148) -- (1.918, 0.126) -- (1.914, 0.110) -- (1.908, 0.128) -- (1.901, 0.119) -- (1.907, 0.106) -- (1.903, 0.098) -- (1.884, 0.108) -- (1.879, 0.121) -- (1.883, 0.129) -- (1.873, 0.138) -- (1.851, 0.121) -- (1.848, 0.126) -- (1.853, 0.141) -- (1.870, 0.153) -- (1.876, 0.145) -- (1.887, 0.150) -- (1.889, 0.158) -- (1.900, 0.158) -- (1.897, 0.172) -- (1.911, 0.163) -- (1.913, 0.154) -- cycle(1.794, 0.164) -- (1.775, 0.147) -- (1.781, 0.159) -- (1.805, 0.200) -- (1.809, 0.186) -- (1.801, 0.176) -- cycle(1.830, 0.321) -- (1.837, 0.301) -- (1.835, 0.286) -- (1.827, 0.280) -- (1.832, 0.252) -- (1.847, 0.252) -- (1.867, 0.242) -- (1.872, 0.221) -- (1.852, 0.238) -- (1.849, 0.232) -- (1.838, 0.242) -- (1.817, 0.244) -- (1.821, 0.256) -- (1.816, 0.260) -- (1.815, 0.253) -- (1.806, 0.263) -- (1.799, 0.288) -- (1.806, 0.282) -- (1.805, 0.326) -- (1.824, 0.321) -- (1.828, 0.325) -- cycle(1.843, 0.201) -- (1.840, 0.209) -- (1.859, 0.204) -- (1.860, 0.196) -- (1.845, 0.184) -- (1.843, 0.192) -- cycle(1.894, 0.214) -- (1.901, 0.194) -- (1.889, 0.199) -- (1.894, 0.182) -- (1.888, 0.178) -- (1.877, 0.202) -- (1.887, 0.201) -- (1.875, 0.221) -- (1.889, 0.220) -- cycle;
+		%Malaisie
+		\path[pays] (1.518, 0.114) -- (1.533, 0.109) -- (1.535, 0.100) -- (1.549, 0.109) -- (1.563, 0.097) -- (1.572, 0.049) -- (1.584, 0.029) -- (1.584, 0.023) -- (1.573, 0.022) -- (1.540, 0.049) -- (1.521, 0.093) -- (1.522, 0.106) -- cycle(1.790, 0.073) -- (1.759, 0.076) -- (1.742, 0.025) -- (1.729, 0.021) -- (1.708, 0.025) -- (1.699, 0.016) -- (1.679, 0.014) -- (1.669, 0.023) -- (1.666, 0.035) -- (1.677, 0.029) -- (1.689, 0.032) -- (1.692, 0.047) -- (1.716, 0.054) -- (1.734, 0.080) -- (1.741, 0.070) -- (1.751, 0.076) -- (1.752, 0.096) -- (1.770, 0.122) -- (1.776, 0.122) -- (1.786, 0.105) -- (1.809, 0.095) -- (1.808, 0.088) -- (1.798, 0.087) -- (1.801, 0.079) -- cycle;
+		%Brunei
+		\path[pays] (1.752, 0.096) -- (1.751, 0.076) -- (1.741, 0.070) -- (1.734, 0.080) -- (1.740, 0.086) -- cycle;
+		%Slovénie
+		\path[pays] (0.188, 0.819) -- (0.220, 0.825) -- (0.225, 0.819) -- (0.214, 0.815) -- (0.209, 0.801) -- (0.187, 0.802) -- (0.187, 0.811) -- cycle;
+		%Suède
+		\path[pays] (0.330, 1.185) -- (0.330, 1.175) -- (0.350, 1.165) -- (0.342, 1.153) -- (0.359, 1.136) -- (0.354, 1.123) -- (0.366, 1.111) -- (0.364, 1.101) -- (0.384, 1.090) -- (0.348, 1.053) -- (0.285, 1.042) -- (0.264, 1.056) -- (0.265, 1.072) -- (0.257, 1.086) -- (0.271, 1.105) -- (0.303, 1.125) -- (0.301, 1.132) -- (0.278, 1.145) -- (0.274, 1.168) -- (0.238, 1.186) -- (0.245, 1.190) -- (0.259, 1.182) -- (0.286, 1.179) -- (0.300, 1.196) -- (0.317, 1.201) -- (0.333, 1.195) -- cycle;
+		%Allemagne
+		\path[pays] (0.302, 0.863) -- (0.294, 0.850) -- (0.279, 0.856) -- (0.252, 0.843) -- (0.236, 0.843) -- (0.229, 0.847) -- (0.229, 0.859) -- (0.240, 0.860) -- (0.248, 0.870) -- (0.289, 0.870) -- cycle;
+		%Suisse
+		\path[pays] (0.199, 0.898) -- (0.222, 0.883) -- (0.224, 0.887) -- (0.245, 0.879) -- (0.252, 0.870) -- (0.228, 0.855) -- (0.204, 0.863) -- (0.193, 0.854) -- (0.167, 0.871) -- (0.163, 0.884) -- (0.193, 0.896) -- cycle;
+		%Érythrée
+		\path[pays] (0.548, 0.254) -- (0.553, 0.298) -- (0.575, 0.317) -- (0.590, 0.280) -- (0.650, 0.223) -- (0.639, 0.221) -- (0.616, 0.248) -- (0.602, 0.255) -- (0.588, 0.259) -- (0.580, 0.255) -- (0.570, 0.263) -- (0.566, 0.250) -- cycle;
+		%Japon
+		\path[pays] (1.996, 0.691) -- (1.991, 0.674) -- (2.007, 0.632) -- (2.005, 0.620) -- (1.990, 0.612) -- (1.966, 0.611) -- (1.953, 0.591) -- (1.941, 0.597) -- (1.935, 0.610) -- (1.881, 0.598) -- (1.901, 0.585) -- (1.902, 0.555) -- (1.895, 0.547) -- (1.886, 0.554) -- (1.884, 0.570) -- (1.862, 0.588) -- (1.874, 0.593) -- (1.894, 0.625) -- (1.920, 0.631) -- (1.937, 0.627) -- (1.939, 0.658) -- (1.952, 0.650) -- (1.970, 0.674) -- (1.956, 0.727) -- (1.970, 0.730) -- (1.990, 0.706) -- cycle(1.990, 0.775) -- (1.996, 0.782) -- (2.010, 0.763) -- (1.992, 0.758) -- (1.989, 0.741) -- (1.961, 0.753) -- (1.963, 0.734) -- (1.948, 0.733) -- (1.937, 0.751) -- (1.937, 0.764) -- (1.951, 0.765) -- (1.938, 0.803) -- (1.978, 0.779) -- cycle(1.904, 0.590) -- (1.908, 0.601) -- (1.917, 0.599) -- (1.920, 0.606) -- (1.936, 0.596) -- (1.932, 0.586) -- (1.924, 0.591) -- (1.918, 0.587) -- (1.918, 0.577) -- (1.907, 0.582) -- cycle;
+		%Paraguay
+		\path[pays] (-0.867, -0.355) -- (-0.860, -0.389) -- (-0.828, -0.394) -- (-0.819, -0.422) -- (-0.803, -0.423) -- (-0.805, -0.469) -- (-0.816, -0.483) -- (-0.828, -0.486) -- (-0.860, -0.478) -- (-0.849, -0.451) -- (-0.852, -0.444) -- (-0.900, -0.421) -- (-0.930, -0.392) -- (-0.922, -0.346) -- (-0.883, -0.341) -- (-0.868, -0.350) -- cycle;
+		%Yémen
+		\path[pays] (0.777, 0.335) -- (0.797, 0.293) -- (0.786, 0.288) -- (0.784, 0.274) -- (0.746, 0.259) -- (0.733, 0.246) -- (0.688, 0.234) -- (0.679, 0.223) -- (0.656, 0.222) -- (0.640, 0.268) -- (0.650, 0.310) -- (0.656, 0.305) -- (0.701, 0.304) -- (0.705, 0.298) -- (0.734, 0.328) -- cycle;
+		%Arabie saoudite
+		\path[pays] (0.510, 0.518) -- (0.526, 0.515) -- (0.535, 0.527) -- (0.546, 0.529) -- (0.552, 0.538) -- (0.536, 0.556) -- (0.566, 0.567) -- (0.607, 0.550) -- (0.652, 0.515) -- (0.693, 0.512) -- (0.737, 0.470) -- (0.740, 0.451) -- (0.750, 0.436) -- (0.759, 0.434) -- (0.771, 0.405) -- (0.816, 0.396) -- (0.819, 0.400) -- (0.827, 0.387) -- (0.820, 0.352) -- (0.777, 0.335) -- (0.734, 0.328) -- (0.705, 0.298) -- (0.701, 0.304) -- (0.656, 0.305) -- (0.650, 0.310) -- (0.642, 0.288) -- (0.611, 0.343) -- (0.582, 0.375) -- (0.580, 0.398) -- (0.570, 0.417) -- (0.554, 0.428) -- (0.523, 0.483) -- (0.514, 0.495) -- (0.507, 0.495) -- (0.508, 0.511) -- cycle;
+		%Antarctique
+		\path[pays] (-0.512, -1.312) -- (-0.475, -1.312) -- (-0.460, -1.318) -- (-0.445, -1.337) -- (-0.512, -1.350) -- (-0.552, -1.345) -- (-0.553, -1.340) -- (-0.533, -1.337) -- (-0.517, -1.318) -- cycle(-0.679, -1.340) -- (-0.633, -1.342) -- (-0.626, -1.332) -- (-0.612, -1.338) -- (-0.610, -1.349) -- (-0.671, -1.344) -- cycle(-0.836, -1.218) -- (-0.815, -1.216) -- (-0.825, -1.192) -- (-0.812, -1.182) -- (-0.776, -1.213) -- (-0.771, -1.231) -- (-0.830, -1.234) -- (-0.845, -1.223) -- cycle(-1.150, -1.227) -- (-1.087, -1.228) -- (-1.074, -1.236) -- (-1.139, -1.233) -- cycle(-1.354, -1.252) -- (-1.356, -1.247) -- (-1.313, -1.250) -- (-1.322, -1.258) -- (-1.338, -1.257) -- cycle(-1.408, -1.249) -- (-1.389, -1.253) -- cycle(-1.712, -1.319) -- (-1.714, -1.314) -- (-1.691, -1.316) -- (-1.659, -1.325) -- (-1.647, -1.331) -- (-1.664, -1.333) -- (-1.700, -1.323) -- cycle(-1.506, -1.422) -- (-1.626, -1.411) -- (-1.729, -1.384) -- (-1.672, -1.388) -- (-1.672, -1.383) -- (-1.649, -1.381) -- (-1.492, -1.395) -- (-1.395, -1.397) -- (-1.359, -1.392) -- (-1.495, -1.379) -- (-1.527, -1.361) -- (-1.588, -1.350) -- (-1.520, -1.353) -- (-1.498, -1.341) -- (-1.549, -1.329) -- (-1.615, -1.325) -- (-1.665, -1.312) -- (-1.690, -1.297) -- (-1.605, -1.304) -- (-1.566, -1.291) -- (-1.586, -1.276) -- (-1.563, -1.278) -- (-1.483, -1.261) -- (-1.311, -1.264) -- (-1.257, -1.253) -- (-1.227, -1.267) -- (-1.219, -1.263) -- (-1.169, -1.273) -- (-1.093, -1.275) -- (-1.092, -1.269) -- (-1.138, -1.253) -- (-1.157, -1.237) -- (-1.103, -1.241) -- (-1.080, -1.251) -- (-0.998, -1.247) -- (-0.996, -1.236) -- (-0.983, -1.243) -- (-0.898, -1.255) -- (-0.891, -1.244) -- (-0.825, -1.255) -- (-0.766, -1.243) -- (-0.753, -1.235) -- (-0.757, -1.223) -- (-0.783, -1.201) -- (-0.788, -1.189) -- (-0.783, -1.177) -- (-0.794, -1.159) -- (-0.756, -1.118) -- (-0.701, -1.097) -- (-0.693, -1.100) -- (-0.695, -1.106) -- (-0.743, -1.120) -- (-0.746, -1.131) -- (-0.735, -1.142) -- (-0.752, -1.146) -- (-0.766, -1.163) -- (-0.758, -1.175) -- (-0.728, -1.188) -- (-0.702, -1.210) -- (-0.671, -1.253) -- (-0.699, -1.274) -- (-0.755, -1.293) -- (-0.826, -1.294) -- (-0.777, -1.310) -- (-0.817, -1.316) -- (-0.810, -1.327) -- (-0.789, -1.336) -- (-0.615, -1.361) -- (-0.571, -1.374) -- (-0.499, -1.358) -- (-0.427, -1.362) -- (-0.411, -1.354) -- (-0.292, -1.341) -- (-0.308, -1.328) -- (-0.369, -1.330) -- (-0.372, -1.313) -- (-0.309, -1.294) -- (-0.191, -1.273) -- (-0.172, -1.264) -- (-0.169, -1.258) -- (-0.181, -1.255) -- (-0.178, -1.249) -- (-0.137, -1.234) -- (-0.116, -1.218) -- (-0.083, -1.224) -- (-0.078, -1.213) -- (-0.062, -1.220) -- (-0.007, -1.217) -- (-0.003, -1.223) -- (0.072, -1.206) -- (0.089, -1.197) -- (0.109, -1.199) -- (0.123, -1.211) -- (0.154, -1.199) -- (0.169, -1.199) -- (0.172, -1.205) -- (0.209, -1.197) -- (0.245, -1.200) -- (0.257, -1.209) -- (0.309, -1.206) -- (0.367, -1.194) -- (0.393, -1.177) -- (0.443, -1.196) -- (0.486, -1.178) -- (0.554, -1.165) -- (0.648, -1.136) -- (0.668, -1.138) -- (0.689, -1.158) -- (0.716, -1.168) -- (0.750, -1.160) -- (0.803, -1.168) -- (0.803, -1.188) -- (0.774, -1.204) -- (0.772, -1.209) -- (0.785, -1.209) -- (0.764, -1.226) -- (0.782, -1.232) -- (0.797, -1.230) -- (0.846, -1.197) -- (0.893, -1.191) -- (0.919, -1.174) -- (0.971, -1.157) -- (1.018, -1.156) -- (1.041, -1.142) -- (1.045, -1.153) -- (1.053, -1.156) -- (1.170, -1.158) -- (1.224, -1.132) -- (1.249, -1.153) -- (1.285, -1.152) -- (1.348, -1.137) -- (1.362, -1.149) -- (1.405, -1.158) -- (1.443, -1.147) -- (1.517, -1.150) -- (1.595, -1.142) -- (1.611, -1.128) -- (1.615, -1.132) -- (1.609, -1.151) -- (1.616, -1.153) -- (1.711, -1.153) -- (1.715, -1.157) -- (1.707, -1.163) -- (1.710, -1.167) -- (1.728, -1.175) -- (1.776, -1.183) -- (1.789, -1.178) -- (1.804, -1.190) -- (1.828, -1.193) -- (1.827, -1.199) -- (1.849, -1.210) -- (1.910, -1.213) -- (1.928, -1.224) -- (1.919, -1.230) -- (1.870, -1.252) -- (1.780, -1.277) -- (1.748, -1.294) -- (1.732, -1.314) -- (1.749, -1.316) -- (1.744, -1.321) -- (1.680, -1.327) -- (1.622, -1.349) -- (1.628, -1.353) -- (1.623, -1.362) -- (1.654, -1.376) -- (1.645, -1.381) -- (1.721, -1.389) -- (1.626, -1.411) -- (1.506, -1.422) -- (0.000, -1.422) -- cycle;
+		%Liban
+		\path[pays] (0.468, 0.620) -- (0.493, 0.629) -- (0.486, 0.619) -- (0.471, 0.619) -- cycle;
+		%Chypre
+		\path[pays] (0.468, 0.620) -- (0.486, 0.619) -- (0.473, 0.610) -- (0.461, 0.619) -- cycle;
+		%Algérie
+		\path[pays] (-0.031, 0.621) -- (-0.016, 0.576) -- (-0.019, 0.569) -- (-0.053, 0.558) -- (-0.053, 0.545) -- (-0.071, 0.538) -- (-0.076, 0.529) -- (-0.127, 0.509) -- (-0.129, 0.478) -- (-0.167, 0.474) -- (-0.185, 0.437) -- (-0.205, 0.417) -- (-0.219, 0.379) -- (-0.253, 0.377) -- (-0.212, 0.463) -- (-0.202, 0.469) -- (-0.192, 0.488) -- (-0.171, 0.496) -- (-0.139, 0.528) -- (-0.142, 0.550) -- (-0.125, 0.586) -- (-0.099, 0.602) -- (-0.085, 0.631) -- (-0.037, 0.621) -- cycle;
+		%Israël
+		\path[pays] (0.548, 0.387) -- (0.371, 0.387) -- (0.365, 0.516) -- (0.359, 0.530) -- (0.364, 0.557) -- (0.384, 0.557) -- (0.419, 0.544) -- (0.448, 0.557) -- (0.459, 0.555) -- (0.464, 0.546) -- (0.466, 0.551) -- (0.490, 0.546) -- (0.497, 0.551) -- (0.509, 0.520) -- (0.497, 0.487) -- (0.471, 0.525) -- (0.528, 0.422) -- (0.526, 0.407) -- (0.545, 0.391) -- cycle;
+		%Égypte
+		\path[pays] (0.371, 0.387) -- (0.373, 0.352) -- (0.356, 0.352) -- (0.356, 0.345) -- (0.235, 0.412) -- (0.210, 0.396) -- (0.201, 0.406) -- (0.178, 0.414) -- (0.159, 0.433) -- (0.152, 0.430) -- (0.137, 0.460) -- (0.143, 0.467) -- (0.144, 0.511) -- (0.138, 0.535) -- (0.145, 0.539) -- (0.144, 0.553) -- (0.165, 0.571) -- (0.166, 0.585) -- (0.220, 0.569) -- (0.228, 0.553) -- (0.278, 0.534) -- (0.291, 0.547) -- (0.287, 0.560) -- (0.301, 0.577) -- (0.330, 0.576) -- (0.336, 0.568) -- (0.360, 0.563) -- (0.368, 0.453) -- cycle;
+		%Éthiopie
+		\path[pays] (0.724, 0.141) -- (0.683, 0.088) -- (0.663, 0.087) -- (0.636, 0.069) -- (0.619, 0.075) -- (0.601, 0.060) -- (0.591, 0.061) -- (0.579, 0.063) -- (0.560, 0.078) -- (0.549, 0.078) -- (0.544, 0.094) -- (0.536, 0.097) -- (0.517, 0.127) -- (0.499, 0.137) -- (0.515, 0.153) -- (0.518, 0.187) -- (0.541, 0.221) -- (0.548, 0.254) -- (0.566, 0.250) -- (0.570, 0.263) -- (0.580, 0.255) -- (0.588, 0.259) -- (0.616, 0.248) -- (0.639, 0.221) -- (0.629, 0.205) -- (0.631, 0.194) -- (0.647, 0.192) -- (0.643, 0.186) -- (0.661, 0.161) -- (0.711, 0.141) -- cycle;
+		%Djibouti
+		\path[pays] (0.639, 0.221) -- (0.650, 0.223) -- (0.654, 0.218) -- (0.654, 0.211) -- (0.645, 0.206) -- (0.652, 0.202) -- (0.647, 0.192) -- (0.631, 0.194) -- (0.634, 0.213) -- cycle;
+		%Érythrée
+		\path[pays] (0.739, 0.201) -- (0.741, 0.166) -- (0.724, 0.141) -- (0.661, 0.161) -- (0.643, 0.186) -- (0.652, 0.202) -- (0.667, 0.184) -- (0.731, 0.200) -- cycle;
+		%Ouganda
+		\path[pays] (0.515, -0.017) -- (0.468, -0.018) -- (0.450, -0.024) -- (0.457, 0.019) -- (0.474, 0.039) -- (0.468, 0.041) -- (0.468, 0.062) -- (0.475, 0.066) -- (0.507, 0.067) -- (0.516, 0.075) -- (0.524, 0.063) -- (0.532, 0.034) -- (0.515, 0.002) -- cycle;
+		%Rwanda
+		\path[pays] (0.462, -0.020) -- (0.467, -0.040) -- (0.455, -0.041) -- (0.450, -0.051) -- (0.441, -0.050) -- (0.442, -0.040) -- (0.445, -0.028) -- (0.453, -0.025) -- cycle;
+		%Bosnie-Herzégovine
+		\path[pays] (0.257, 0.752) -- (0.216, 0.790) -- (0.218, 0.797) -- (0.265, 0.791) -- (0.262, 0.783) -- (0.270, 0.776) -- (0.258, 0.762) -- cycle;
+		%Kosovo
+		\path[pays] (0.310, 0.746) -- (0.318, 0.741) -- (0.320, 0.729) -- (0.294, 0.720) -- (0.286, 0.738) -- (0.304, 0.746) -- cycle;
+		%Serbie
+		\path[pays] (0.257, 0.809) -- (0.275, 0.813) -- (0.296, 0.789) -- (0.312, 0.786) -- (0.308, 0.776) -- (0.317, 0.762) -- (0.313, 0.749) -- (0.299, 0.745) -- (0.302, 0.753) -- (0.287, 0.763) -- (0.280, 0.755) -- (0.265, 0.767) -- (0.270, 0.776) -- (0.262, 0.783) -- (0.265, 0.797) -- (0.260, 0.802) -- cycle;
+		%Macédoine du Nord
+		\path[pays] (0.278, 0.751) -- (0.273, 0.753) -- (0.266, 0.740) -- (0.256, 0.749) -- (0.258, 0.762) -- (0.265, 0.767) -- (0.280, 0.755) -- cycle;
+		%Albanie
+		\path[pays] (0.286, 0.738) -- (0.278, 0.751) -- (0.287, 0.763) -- (0.302, 0.753) -- (0.288, 0.738) -- cycle;
+		%Trinité-et-Tobago
+		\path[pays] (-0.932, 0.189) -- (-0.920, 0.191) -- (-0.922, 0.178) -- (-0.937, 0.177) -- (-0.932, 0.182) -- cycle;
+		%Soudan du Sud
+		\path[pays] (0.468, 0.062) -- (0.451, 0.081) -- (0.425, 0.077) -- (0.381, 0.138) -- (0.362, 0.152) -- (0.372, 0.157) -- (0.379, 0.181) -- (0.390, 0.183) -- (0.405, 0.167) -- (0.438, 0.165) -- (0.454, 0.181) -- (0.467, 0.171) -- (0.490, 0.195) -- (0.484, 0.211) -- (0.501, 0.214) -- (0.502, 0.189) -- (0.510, 0.182) -- (0.515, 0.153) -- (0.499, 0.137) -- (0.509, 0.136) -- (0.536, 0.097) -- (0.507, 0.067) -- (0.474, 0.066) -- cycle;
+	\end{scope}
+	\begin{scope} %Méridiens et parallèles
+		\path[meripara]
+		%180 ouest
+		(-1.506, -1.422) -- (-1.633, -1.410) -- (-1.731, -1.386) -- (-1.811, -1.356) -- (-1.879, -1.321) -- (-1.998, -1.244) -- (-2.106, -1.162) -- (-2.302, -0.984) -- (-2.388, -0.890) -- (-2.464, -0.793) -- (-2.530, -0.695) -- (-2.586, -0.596) -- (-2.633, -0.496) -- (-2.699, -0.297) -- (-2.719, -0.198) -- (-2.735, 0.000) -- (-2.731, 0.099) -- (-2.699, 0.297) -- (-2.633, 0.496) -- (-2.586, 0.596) -- (-2.530, 0.695) -- (-2.464, 0.793) -- (-2.388, 0.890) -- (-2.302, 0.984) -- (-2.106, 1.162) -- (-1.998, 1.244) -- (-1.879, 1.321) -- (-1.811, 1.356) -- (-1.731, 1.386) -- (-1.633, 1.409) -- (-1.506, 1.422)
+		%150 ouest
+		(-1.255, -1.422) -- (-1.361, -1.410) -- (-1.443, -1.386) -- (-1.509, -1.356) -- (-1.566, -1.321) -- (-1.665, -1.244) -- (-1.755, -1.162) -- (-1.918, -0.984) -- (-1.990, -0.890) -- (-2.108, -0.695) -- (-2.194, -0.496) -- (-2.249, -0.297) -- (-2.266, -0.198) -- (-2.279, 0.000) -- (-2.266, 0.198) -- (-2.249, 0.297) -- (-2.194, 0.496) -- (-2.108, 0.695) -- (-1.990, 0.890) -- (-1.918, 0.984) -- (-1.755, 1.162) -- (-1.665, 1.244) -- (-1.566, 1.321) -- (-1.509, 1.356) -- (-1.443, 1.386) -- (-1.361, 1.409) -- (-1.255, 1.422)
+		%120 ouest
+		(-1.004, -1.422) -- (-1.089, -1.410) -- (-1.154, -1.386) -- (-1.207, -1.356) -- (-1.253, -1.321) -- (-1.332, -1.244) -- (-1.404, -1.162) -- (-1.535, -0.984) -- (-1.592, -0.890) -- (-1.687, -0.695) -- (-1.755, -0.496) -- (-1.780, -0.396) -- (-1.813, -0.198) -- (-1.824, 0.000) -- (-1.813, 0.198) -- (-1.780, 0.396) -- (-1.755, 0.496) -- (-1.687, 0.695) -- (-1.592, 0.890) -- (-1.535, 0.984) -- (-1.404, 1.162) -- (-1.332, 1.244) -- (-1.253, 1.321) -- (-1.207, 1.356) -- (-1.154, 1.386) -- (-1.089, 1.409) -- (-1.004, 1.422)
+		%90 ouest
+		(-0.753, -1.422) -- (-0.816, -1.410) -- (-0.866, -1.386) -- (-0.940, -1.321) -- (-1.053, -1.162) -- (-1.151, -0.984) -- (-1.194, -0.890) -- (-1.265, -0.695) -- (-1.293, -0.596) -- (-1.335, -0.396) -- (-1.360, -0.198) -- (-1.368, 0.000) -- (-1.360, 0.198) -- (-1.335, 0.396) -- (-1.293, 0.596) -- (-1.265, 0.695) -- (-1.194, 0.890) -- (-1.151, 0.984) -- (-1.053, 1.162) -- (-0.940, 1.321) -- (-0.866, 1.386) -- (-0.816, 1.409) -- (-0.753, 1.422)
+		%60 ouest
+		(-0.502, -1.422) -- (-0.544, -1.410) -- (-0.577, -1.386) -- (-0.626, -1.321) -- (-0.702, -1.162) -- (-0.767, -0.984) -- (-0.821, -0.793) -- (-0.862, -0.596) -- (-0.890, -0.396) -- (-0.906, -0.198) -- (-0.912, 0.000) -- (-0.906, 0.198) -- (-0.890, 0.396) -- (-0.862, 0.596) -- (-0.821, 0.793) -- (-0.767, 0.984) -- (-0.702, 1.162) -- (-0.626, 1.321) -- (-0.577, 1.386) -- (-0.544, 1.409) -- (-0.502, 1.422)
+		%30 ouest
+		(-0.251, -1.422) -- (-0.272, -1.410) -- (-0.288, -1.386) -- (-0.313, -1.321) -- (-0.351, -1.162) -- (-0.384, -0.984) -- (-0.431, -0.596) -- (-0.445, -0.396) -- (-0.456, 0.000) -- (-0.445, 0.396) -- (-0.431, 0.596) -- (-0.384, 0.984) -- (-0.351, 1.162) -- (-0.313, 1.321) -- (-0.288, 1.386) -- (-0.272, 1.409) -- (-0.251, 1.422)
+		%greenwich
+		(0.000, -1.422) -- (0.000, 1.422)
+		%30 est
+		(0.251, -1.422) -- (0.272, -1.410) -- (0.289, -1.386) -- (0.313, -1.321) -- (0.351, -1.162) -- (0.384, -0.984) -- (0.431, -0.596) -- (0.445, -0.396) -- (0.456, 0.000) -- (0.445, 0.396) -- (0.431, 0.596) -- (0.384, 0.984) -- (0.351, 1.162) -- (0.313, 1.321) -- (0.289, 1.386) -- (0.272, 1.409) -- (0.251, 1.422)
+		%60 est
+		(0.502, -1.422) -- (0.544, -1.410) -- (0.577, -1.386) -- (0.626, -1.321) -- (0.702, -1.162) -- (0.767, -0.984) -- (0.821, -0.793) -- (0.862, -0.596) -- (0.890, -0.396) -- (0.906, -0.198) -- (0.912, 0.000) -- (0.906, 0.198) -- (0.890, 0.396) -- (0.862, 0.596) -- (0.821, 0.793) -- (0.767, 0.984) -- (0.702, 1.162) -- (0.626, 1.321) -- (0.577, 1.386) -- (0.544, 1.409) -- (0.502, 1.422)
+		%90 est
+		(0.753, -1.422) -- (0.817, -1.410) -- (0.866, -1.386) -- (0.940, -1.321) -- (1.053, -1.162) -- (1.151, -0.984) -- (1.194, -0.890) -- (1.265, -0.695) -- (1.293, -0.596) -- (1.335, -0.396) -- (1.360, -0.198) -- (1.368, 0.000) -- (1.360, 0.198) -- (1.335, 0.396) -- (1.293, 0.596) -- (1.265, 0.695) -- (1.194, 0.890) -- (1.151, 0.984) -- (1.053, 1.162) -- (0.940, 1.321) -- (0.866, 1.386) -- (0.817, 1.409) -- (0.753, 1.422)
+		%120 est
+		(1.004, -1.422) -- (1.089, -1.410) -- (1.154, -1.386) -- (1.207, -1.356) -- (1.253, -1.321) -- (1.332, -1.244) -- (1.404, -1.162) -- (1.535, -0.984) -- (1.592, -0.890) -- (1.687, -0.695) -- (1.755, -0.496) -- (1.780, -0.396) -- (1.813, -0.198) -- (1.824, 0.000) -- (1.813, 0.198) -- (1.780, 0.396) -- (1.755, 0.496) -- (1.687, 0.695) -- (1.592, 0.890) -- (1.535, 0.984) -- (1.404, 1.162) -- (1.332, 1.244) -- (1.253, 1.321) -- (1.207, 1.356) -- (1.154, 1.386) -- (1.089, 1.409) -- (1.004, 1.422)
+		%150 est
+		(1.255, -1.422) -- (1.361, -1.410) -- (1.443, -1.386) -- (1.509, -1.356) -- (1.566, -1.321) -- (1.665, -1.244) -- (1.755, -1.162) -- (1.918, -0.984) -- (1.990, -0.890) -- (2.108, -0.695) -- (2.194, -0.496) -- (2.249, -0.297) -- (2.266, -0.198) -- (2.280, 0.000) -- (2.266, 0.198) -- (2.249, 0.297) -- (2.194, 0.496) -- (2.108, 0.695) -- (1.990, 0.890) -- (1.918, 0.984) -- (1.755, 1.162) -- (1.665, 1.244) -- (1.566, 1.321) -- (1.509, 1.356) -- (1.443, 1.386) -- (1.361, 1.409) -- (1.255, 1.422)
+		%180 est
+		(1.633, 1.422) -- (1.811, 1.356) -- (1.879, 1.321) -- (1.998, 1.244) -- (2.106, 1.162) -- (2.302, 0.984) -- (2.388, 0.890) -- (2.464, 0.793) -- (2.530, 0.695) -- (2.586, 0.596) -- (2.633, 0.496) -- (2.670, 0.396) -- (2.699, 0.297) -- (2.719, 0.198) -- (2.735, 0.000) -- (2.719, -0.198) -- (2.699, -0.297) -- (2.670, -0.396) -- (2.633, -0.496) -- (2.586, -0.596) -- (2.530, -0.695) -- (2.464, -0.793) -- (2.388, -0.890) -- (2.302, -0.984) -- (2.106, -1.162) -- (1.998, -1.244) -- (1.879, -1.321) -- (1.811, -1.356) -- (1.633, -1.422)
+		%Etiquettes des méridiens
+		(0     , -1.422) node[below]{0}   (0     , 1.422) node[above]{0}
+		(0.251 , -1.422) node[below]{30}  (0.251 , 1.422) node[above]{30}
+		(0.502 , -1.422) node[below]{60}  (0.502 , 1.422) node[above]{60}
+		(0.753 , -1.422) node[below]{90}  (0.753 , 1.422) node[above]{90}
+		(1.004 , -1.422) node[below]{120} (1.004 , 1.422) node[above]{120}
+		(1.255 , -1.422) node[below]{150} (1.255 , 1.422) node[above]{150}
+		(1.633 , -1.422) node[below]{180} (1.633 , 1.422) node[above]{180}
+		(-0.251, -1.422) node[below]{30}  (-0.251, 1.422) node[above]{30}
+		(-0.502, -1.422) node[below]{60}  (-0.502, 1.422) node[above]{60}
+		(-0.753, -1.422) node[below]{90}  (-0.753, 1.422)node[above]{90}
+		(-1.004, -1.422) node[below]{120} (-1.004, 1.422)node[above]{120}
+		(-1.255, -1.422) node[below]{150} (-1.255, 1.422)node[above]{150}
+		(-1.633, -1.422) node[below]{180} (-1.633, 1.422) node[above]{180}
+		%Parallèles et étiquettes
+		(-1.506 , -1.422) node[left=10mm]{90} -- (1.506, -1.422) node[right=10mm]{90}
+		(-2.24  , -1.045) node[left=2mm]{60} -- (2.24 , -1.045)node[right=2mm]{60}
+		(-2.618 , -0.529) node[left=2mm]{30} -- (2.618, -0.529)node[right=2mm]{30}
+		(-2.735 ,  0.0)   node[left=2mm]{0}  -- (2.735,  0.0)node[right=2mm]{0}
+		(-2.618 ,  0.529) node[left=2mm]{30} -- (2.618,  0.529)node[right=2mm]{30}
+		(-2.24  ,  1.045) node[left=2mm]{60} -- (2.24 ,  1.045)node[right=2mm]{60}
+		(-1.506 ,  1.422) node[left=10mm]{90} -- (1.506,  1.422) node[right=10mm]{90};
+
+	\end{scope}
+	\begin{scope}[shift={(3.2,1.1)},scale=0.4] %rose des vents
+		\foreach \angle/\cardinal in {90/N,0/E,-90/S,180/O}{
+			\draw[rotate=\angle](0,0)--(0.15,-0.15)--(1,0)--cycle ;
+			\draw[rotate=\angle,fill=black](0,0)--(0.15,0.15)--(1,0)--cycle ;
+			\node at (\angle:1.2){\cardinal};}
+	\end{scope}
+	%%Points à placer
+	\foreach \coord/\nom/\position in {
+		{(-2.238, -0.311)}/{Tahiti}/{above right},
+		{(-1.697,  0.601)}/{Los Angeles}/{left},
+		{(0.032 , 0.859)}/{Paris}/{left}}
+	\draw[shift={\coord},line width=1.3pt] (-3pt,-3pt)--(3pt,3pt) (3pt,-3pt)--(-3pt,3pt) (0,0)node [\position]{\textbf{\nom}} ;
+\end{tikzpicture}
+
+
+\item Camille s'est rendu à Tahiti en avion. Son trajet s'est déroulé en trois étapes :
+\begin{itemize}
+\item Vol \no 1 : Paris – Los Angeles.
+\item Un temps d'attente dans l'aéroport.
+\item Vol \no 2 : Los Angeles – Tahiti.
+\end{itemize}
+La totalité du trajet a duré $22\ \text{h}\ 10\ \text{min}$ en comptant le temps d'attente de $2\ \text{h}\ 20\ \text{min}$ à Los Angeles.
+
+Calculer la durée, en heure et minute, nécessaire pour effectuer les deux vols, sans prendre en compte le temps d'attente à Los Angeles.
+
+\needspace{10\baselineskip}
+\item Le surfeur australien Jack ROBINSON a gagné la médaille d'argent aux Jeux Olympiques de 2024. Camille s'interroge sur la masse d'argent contenue dans la médaille.
+
+Voici, ci-dessous, des informations récoltées au sujet de la conception des médailles olympiques.
+
+\medskip
+\begin{tblr}{colspec={|XX|},hlines, vline{1,3}={solid},vline{2}={2}{solid},cell{1}{2}={c}}
+\textbf{Document 1 :}
+
+Une médaille olympique peut être modélisée par un cylindre de hauteur 0{,}92\ \text{cm} et de diamètre 8{,}5\ cm. &
+\begin{tikzpicture}[>=stealth,scale=0.75,baseline={(current bounding box.north)}]
+	\draw[teal, line width=0.3mm](0,0)circle(4 and 1)(-4,0)--(-4,-0.8)arc(-180:0:4 and 1)--(4,0);
+	\draw[teal, line width=0.3mm, dotted](-4,-0.8)arc(180:0:4 and 1);
+	\draw[<->](-4,-2)--(4,-2)node[midway, below]{\np{8.5} cm};
+	\draw[<->](4.3,-0.8)--(4.3,0)node[midway, right]{\np{0.92} cm};
+\end{tikzpicture}
+%\psset{unit=1cm,arrowsize=2pt 3}
+%\begin{pspicture}(-2.3,-2.5)(4.2,1.2)
+%%\psgrid
+%\psellipse(0,0)(2.25,0.75)
+%\psellipticarc(0,-0.6)(2.25,0.75){180}{360}
+%\psellipticarc[linestyle=dashed](0,-0.6)(2.25,0.75){0}{180}
+%\psline[linewidth=0.6pt]{<->}(-2.25,-1.5)(2.25,-1.5)\uput[d](0,-1.5){8,5 cm}
+%\psline[linewidth=0.6pt]{<->}(2.5,-0.6)(2.5,0)\uput[r](2.5,-0.3){0,92 cm}
+%\psline(-2.25,-0.6)(-2.25,0)\psline(2.25,-0.6)(2.25,0)
+%\end{pspicture}
+\\
+\textbf{Document 2} :
+
+L'argent est un métal qui a une masse volumique de 10,5 g/cm$^3$. &\textbf{Document 3}
+
+Volume d'un cylindre : $ \pi \times R^2 \times h$
+
+où $R$ est le rayon du cylindre et $h$ est la hauteur du cylindre.\\
+\end{tblr}
+
+\medskip
+
+	\begin{enumerate}
+		\item Montrer que le volume de la médaille, arrondi au dixième, est d'environ 52,2~cm$^3$.
+		\item Calculer la masse d'argent, en gramme (g), de la médaille de Jack ROBINSON aux Jeux Olympiques 2024. Donner l'arrondi à l'unité.
+	\end{enumerate}
+\end{enumerate}
+\end{document}

@@ -1,0 +1,751 @@
+% Préambule APMEP - Annales
+% Auteurs
+% tapuscrit : Denis Vergès
+% relecture : François Kriegk
+% figures TikZ : François Kriegk
+% figures pstricks : Denis Vergès
+% modifications :
+% Remerciements :
+% version 3 : 2026-06-30
+%
+\documentclass[12pt,a4paper,french]{article}
+
+% Packages
+%%% codage et police utilisée
+\usepackage[T1]{fontenc}
+\RequirePackage{iftex}
+\iftutex % moteur utf-8 lualatex, xelatex
+	\usepackage{fourier-otf} % remplace fourier pour moteur utf8 (LuaLaTeX, XeLaTeX)
+	% Alternatives nécéssite (LuaLaTeX, XeLaTeX)
+    \usepackage{hyperref}
+	%\usepackage{fontspec}% pour utiliser des fontes système
+\else % pour les autres moteurs latex, pdflatex
+	\usepackage[utf8]{inputenc}
+	\usepackage{fourier}
+	\usepackage{amsmath,amssymb}
+    \usepackage[dvips]{hyperref}
+    \renewcommand{\ttdefault}{lmtt}
+\fi
+\usepackage[normalem]{ulem}
+\usepackage{pifont}
+\usepackage{lscape}
+% tableaux
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{tabularray}
+% texte et composition
+\usepackage{textcomp}
+\usepackage{babel}
+\usepackage[np]{numprint}
+%
+\usepackage{fancyhdr}
+\usepackage{makeidx}
+\makeindex
+% pour le symbole €
+\usepackage{eurosym}
+\DeclareRobustCommand{\officialeuro}{%
+  \ifmmode\expandafter\text\fi
+  {\fontencoding{U}\fontfamily{eurosym}\selectfont e}}
+\AtBeginDocument{\renewcommand{\euro}{\officialeuro}}
+% couleurs étendues
+\usepackage{xcolor}
+% pour les listes
+\usepackage{enumitem}
+% Enumérations réglage par défaut
+\setlist[itemize]{label=\textbullet,leftmargin=5mm,labelwidth=3mm,labelsep=2mm,align=left}
+\setlist[enumerate]{labelindent=0pt, leftmargin=5mm, labelsep=2mm, labelwidth=3mm,labelsep=2mm, align= left}
+\setlist[enumerate,1]{label = \textbf{\arabic*.}}
+\setlist[enumerate,2]{label = \textbf{\alph*.}}
+\setlist[enumerate,3]{label = \textbf{\roman*.}}
+% pour l'ajustement des boites (figures…)
+\usepackage{adjustbox}
+% pour ne pas commencer un exercice en fin de page
+\usepackage{needspace}
+%
+% Taille de la zone d'écriture
+\usepackage[left=1.5cm,right=1.5cm,top=3cm,bottom=3cm]{geometry}
+\setlength{\headheight}{15pt}
+\setlength{\parindent}{0mm}
+%
+% Formatage du pdf
+\hypersetup{%
+    pdfauthor = {APMEP},
+    pdfsubject = {Troisième, Série générale},
+    pdftitle = {Brevet des collèges    -- Session 2026},
+    allbordercolors = white,
+    pdfstartview=FitH
+}
+% Pour scratch (code)
+\usepackage{scratch3}
+% Pour le code Python
+\usepackage{listings}
+\lstdefinestyle{python}{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{orange},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  breaklines=true,
+  frame=single,
+  backgroundcolor=\color{gray!5},
+  tabsize=4
+}
+  % usage (exemple)
+  %\begin{lstlisting}[style=python]
+%def seuil():
+%    n = 1
+%    p = 0.5
+%    while p < 0.6 :
+%       n = n + 1
+%       p = p*7/15 + 1/3
+%    return n
+%\end{lstlisting}
+
+
+% Pour une visualisation de type tableur
+\usepackage{pas-tableur}
+%
+%% pour PsTricks
+\usepackage{pst-bezier}%% AVANT les autres PST
+\usepackage{pstricks-add}
+\usepackage{pst-func,pst-tree,pst-circ}
+\usepackage{pst-eucl}
+%% pour TikZ
+\usepackage{tikz,pgfplots,pgf,tkz-tab,tikzpagenodes}
+\usetikzlibrary{calc,patterns,decorations,arrows.meta,patterns.meta,arrows}
+\pgfplotsset{compat=1.18,/pgf/number format/.cd,use comma}
+\usepackage{icomma} % gestion des espaces autour des virgules
+\DeclareMathSymbol{;}{\mathbin}{operators}{"3B}% pour un espacement correct du ; en mode maths
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Définitions
+%
+% notation en mode mathématique et hors mode mathématique
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\D}{\ensuremath{\mathbb{D}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+%
+\providecommand{\up}{\textsuperscript}
+%
+\newcommand{\vect}[1]{\overrightarrow{\,\mathstrut#1\,}}
+\newcommand{\vectt}[1]{\overrightarrow{\,\mathstrut\text{#1}\,}}
+%
+\def\Oij{$\left(\text{O};\vect{\imath},\vect{\jmath}\right)$}
+\def\Oijk{$\left(\text{O};\vect{\imath},\vect{\jmath},\vect{k}\right)$}
+\def\Ouv{$\left(\text{O};\vect{u},\vect{v}\right)$}
+%
+\newcommand{\ds}{\displaystyle}
+%
+\renewcommand{\d}{\mathrm{\,d}}
+\renewcommand{\i}{\mathrm{\,i\,}}
+\newcommand{\e}{\mathrm{\,e\,}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%---------------------------------------------------------
+% Réglage entête, pied de page
+%---------------------------------------------------------
+\rhead{\textbf{A. P{}. M. E. P{}.}}
+\lhead{\small Sujet}
+\lfoot{\small{Asie}}
+\rfoot{\small{15 juin 2026}}
+\pagestyle{fancy}
+
+\thispagestyle{empty}
+
+
+%---------------------------------------------------------
+% Titre
+%---------------------------------------------------------
+\begin{center}
+{\Large \textbf{\decofourleft~ Brevet des collèges ~\decofourright\\[10pt]Sujet\\[10pt]  Série générale -- Asie -- 15 juin 2026 }}
+\end{center}
+
+\marginpar{\rotatebox{90}{\textbf{A. P{}. M. E. P{}.}}}
+
+\section*{Partie 1 – Automatismes – 6 points – 20 minutes}
+
+Pour chaque question, recopier sur la copie son numéro et la réponse correspondante.
+
+Pour cette partie, aucune justification n'est demandée.
+
+Pour les questions à choix multiple, une seule réponse est exacte.
+
+\subsection*{Question 1}
+L'écriture scientifique du nombre \np{45310} est :
+
+\begin{tblr}{colspec={*{4}{|X[c]}|},hlines}
+	\textbf{A.}\quad $45,31 \times 10^{3}$ &
+	\textbf{B.}\quad $4,531 \times 10^{4}$ &
+	\textbf{C.}\quad $4,531 \times 10^{-4}$ &
+	\textbf{D.}\quad $4531 \times 10^{1}$\\
+\end{tblr}
+
+\subsection*{Question 2}
+Une forme développée de l'expression $(4x-3)(4x+3)$ est :
+
+\begin{tblr}{colspec={*{4}{|X[c]}|},hlines}
+	\textbf{Réponse A} & \textbf{Réponse B} & \textbf{Réponse C} & \textbf{Réponse D} \\
+	$4x^2 - 9$ & $16x^2+9$ & $16x^2-9$ & $8x^2-6$
+\end{tblr}
+
+\subsection*{Question 3}
+Un pavé droit a pour dimensions : 4,5 cm de long, 4 cm de large, 10 cm de haut. Le volume de ce pavé est de :
+
+\begin{tblr}{colspec={*{4}{|X[c]}|},hlines}
+	\textbf{Réponse A} & \textbf{Réponse B} & \textbf{Réponse C} & \textbf{Réponse D} \\
+	$180~\text{cm}^3$ & $170~\text{cm}^3$ & $160,5~\text{cm}^3$ & $18,5~\text{cm}^3$
+\end{tblr}
+
+\subsection*{Question 4}
+On considère les nombres suivants et on s'intéresse à leur divisibilité par 9.
+
+\[N = \np{2025} \quad \text{et} \quad P = \np{2026}.\]
+
+\begin{tblr}{colspec={*{4}{|X[c]}|},hlines}
+	\textbf{Réponse A} & \textbf{Réponse B} & \textbf{Réponse C} & \textbf{Réponse D} \\
+	\small $N$ et $P$ sont tous les deux divisibles par 9 & $N$ est divisible par 9 mais $P$ ne l'est pas & $P$ est divisible par 9 mais $N$ ne l'est pas & Aucun des deux n'est divisible par 9
+\end{tblr}
+
+\subsection*{Question 5}
+Une personne a couru 9~km en 45~minutes.
+
+Quelle est sa vitesse moyenne en km/h ?
+
+\subsection*{Question 6}
+
+\begin{minipage}{0.68\textwidth}
+	Une roue de la fortune est utilisée pour faire gagner des cadeaux. La roue est divisée en 10 secteurs de tailles égales, avec les gains suivants : des stylos, des porte-clés, des casques audios ou un smartphone.
+
+	Un joueur tourne la roue une seule fois.
+
+	Quelle est la probabilité que le joueur gagne un casque audio ?
+\end{minipage}%
+\hfill
+\begin{minipage}{0.28\textwidth}
+	\centering
+	\begin{tikzpicture}[scale=1.1]
+		\foreach \i in {0,...,9} {
+			\draw (0,0) -- (90+36*\i:1.6);
+		}
+		\draw (0,0) circle (1.6);
+		\node at (108:1.1) {\tiny stylo};
+		\node at (72:1.1) {\tiny casque};
+		\node at (36:1.1) {\tiny porte-clé};
+		\node at (0:1.1) {\tiny smartphone};
+		\node at (-36:1.1) {\tiny porte-clé};
+		\node at (-72:1.1) {\tiny stylo};
+		\node at (-108:1.1) {\tiny stylo};
+		\node at (-144:1.1) {\tiny casque};
+		\node at (180:1.1) {\tiny porte-clé};
+		\node at (144:1.1) {\tiny stylo};
+	\end{tikzpicture}
+\end{minipage}
+
+\subsection*{Question 7}
+Un article coûte 60 \euro. Calculer son nouveau prix après une baisse de 10\,\%.
+
+\subsection*{Question 8}
+
+\begin{minipage}{0.62\textwidth}
+	Quelle est la mesure de l'angle $\widehat{\text{BAC}}$ ?
+\end{minipage}%
+\hfill
+\begin{minipage}{0.34\textwidth}
+	\centering
+	\begin{tikzpicture}[scale=0.8]
+		\coordinate (C) at (0,0);
+		\coordinate (A) at (3,0);
+		\coordinate (B) at (0,3.5);
+		\draw (B) -- (C) -- (A) -- (B);
+		\draw (0,0.3) -- (0.3,0.3) -- (0.3,0);
+		\node at (-0.3,3.7) {B};
+		\node[below left] at (C) {C};
+		\node[below right] at (A) {A};
+		\draw (0,2.8) arc(-90:-53:0.8) node[pos=0.7, below]{$40^\circ$};
+	\end{tikzpicture}
+\end{minipage}
+
+\subsection*{Question 9}
+Le diagramme en barres ci-dessous donne les notes des élèves d'une classe au dernier contrôle de mathématiques.
+
+\begin{enumerate}[label=\textbf{\alph*.}]
+	\item Combien d'élèves ont participé à ce contrôle ?
+	\item Quelle est la note médiane ?
+\end{enumerate}
+
+\begin{center}
+	%Début Tikz
+	%\begin{tikzpicture}
+	%\begin{axis}[
+	%  ybar,
+	%  width=15cm,
+	%  height=6cm,
+	%  bar width=12pt,
+	%  xlabel={notes},
+	%  ylabel={effectif},
+	%  symbolic x coords={7,8,9,10,11,12,13,14,15,16,17,18},
+	%  xtick=data,
+	%  ymin=0, ymax=6,
+	%  ytick={0,1,2,3,4,5,6},
+	%  enlarge x limits=0.05,
+	%  axis lines=left,
+	%  nodes near coords,
+	%]
+	%\addplot coordinates {(7,3) (8,4) (10,4) (11,5) (12,5) (15,3) (17,2) (18,1)};
+	%\end{axis}
+	%\end{tikzpicture}
+	%Fin Tikz
+	% Début PSTricks
+	\psset{unit=0.9cm,arrowsize=2pt 3}
+	\begin{pspicture}(-1,-1)(12.5,6.5)
+		\psaxes[linewidth=1.25pt,Ox=6]{->}(0,0)(0,0)(12.5,6.5)
+		\psframe(0.8,0)(1.2,3)\psframe(1.8,0)(2.2,4)\psframe(3.8,0)(4.2,4)
+		\psframe(4.8,0)(5.2,5)\psframe(5.8,0)(6.2,5)\psframe(8.8,0)(9.2,3)
+		\psframe(10.8,0)(11.2,2)\psframe(11.8,0)(12.2,1)
+		\rput(6,-0.8){notes}\rput{90}(-0.8,3.25){effectifs}
+	\end{pspicture}
+	%Fin PSTricks
+\end{center}
+
+\begin{center}
+	\textit{Restitution de la copie du candidat à l'issue de la partie 1}
+\end{center}
+
+\section*{Partie 2 -- Raisonnement et résolution de problèmes -- 14 points}
+
+Dans cette partie, toutes les réponses doivent être justifiées, sauf si une indication contraire est donnée.
+
+La clarté et la précision des raisonnements ainsi que la rédaction sont évaluées sur 2 points.
+
+Pour chaque question, si le travail n'est pas terminé, laisser tout de même une trace de la recherche~; les essais et les démarches engagées, même non aboutis, seront pris en compte dans la notation.
+
+\medskip
+
+\section*{Exercice 1 \hfill 2,5 points}
+
+Lola souhaite acheter un smartphone. Elle étudie deux propositions.
+
+\begin{center}
+	\begin{tblr}{width=0.9\linewidth,colspec={|X[7cm]| X |X[7cm]|},hline{1,Z}={1,3}{solid}}
+		\textbf{Offre A} && \textbf{Offre B} \\
+		Le client paie 175~\euro{} à l'achat, puis son abonnement est de 16~\euro{} par mois avec un engagement de 24 mois minimum. &&
+		Le client ne paie rien à l'achat, puis l'abonnement est de 23~\euro{} par mois avec un engagement de 24 mois minimum.
+	\end{tblr}
+\end{center}
+
+\begin{enumerate}
+	\item Au bout de 24 mois, laquelle des deux offres est la plus intéressante ?
+	\item $x$ est un nombre positif qui représente le nombre de mois. On exprime le prix de ces deux tarifs en fonction de $x$, avec les fonctions suivantes :
+
+	\begin{itemize}
+		\item $f(x) = 175 + 16x$
+		\item $g(x) = 23x$
+	\end{itemize}
+
+	\begin{enumerate}[label={\textbf{\alph*.}}]
+		\item Associer chaque fonction à l'offre correspondante (A ou B).
+
+		\emph{Aucune justification n'est attendue.}
+		\item Au bout de combien de mois paie-t-on le même prix avec ces deux offres ?
+		\item Est-on encore dans la période d'engagement ?
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\section*{Exercice 2 \hfill 3 points}
+
+\emph{La figure ci-dessous n'est pas à l'échelle.}
+
+\begin{minipage}{0.48\linewidth}
+	\begin{itemize}
+		\item O, A et B sont alignés.
+		\item O, D et C sont alignés.
+		\item OD $= 8,2$ cm
+		\item AD $= 1,8$ cm
+		\item BC $= 4,5$ cm
+	\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+	% Début PSTricks
+	\psset{unit=1cm}
+	\begin{pspicture}(-1,-0.5)(3.6,5)
+		%\psgrid
+		\pspolygon(0,0)(0,5)(2.6,5)%ABCO
+		\psline(0,3)(1.6,3)%AD
+		\psframe(0,3)(0.3,2.7,3)
+		\psframe(0,5)(0.3,4.7)
+		\uput[d](0,0){O} \uput[l](0,3){A} \uput[l](0,5){B} \uput[r](2.6,5){C} \uput[r](1.6,3){D}
+	\end{pspicture}
+	%Fin  PSTricks
+\end{minipage}
+%\begin{tikzpicture}[scale=1.05]
+%% Points based on description: O at bottom, A,B aligned ; D,C aligned
+%\coordinate (O) at (0,0);
+%\coordinate (A) at (0.7,3.6);
+%\coordinate (D) at (1.55,3.6);
+%\coordinate (B) at (1.0,5.0);
+%\coordinate (C) at (2.5,5.0);
+%
+%\draw (O) -- (B);
+%\draw (O) -- (C);
+%\draw (A) -- (D);
+%\draw (B) -- (C);
+%
+%% right angle marks
+%\draw ($(A)+(0.18,0)$) -- ($(A)+(0.18,0.18)$) -- ($(A)+(0,0.18)$);
+%\draw ($(B)+(0.18,0)$) -- ($(B)+(0.18,0.18)$) -- ($(B)+(0,0.18)$);
+%
+%\node[left] at (O) {$O$};
+%\node[left] at (A) {$A$};
+%\node[right] at (D) {$D$};
+%\node[above left] at (B) {$B$};
+%\node[above right] at (C) {$C$};
+%\end{tikzpicture}
+
+\medskip
+
+\begin{enumerate}
+	\item Montrer que la longueur du segment [OA] est égale à 8 cm.
+	\item Justifier que les droites (BC) et (AD) sont parallèles.
+	\item Calculer la longueur du segment [OB].
+	\item Une entreprise souhaite fabriquer des gobelets. Un gobelet (grisé sur le schéma ci-dessous) a la forme d'un tronc de cône (cône coupé par un plan parallèle à sa base).
+
+	\medskip
+
+	\begin{minipage}{0.48\linewidth}
+		On reprend les données précédentes :
+
+		\begin{itemize}
+			\item O, A, B sont alignés
+			\item O, D, C sont alignés
+			\item OD $= 8,2$ cm
+			\item AD $= 1,8$ cm
+			\item BC $= 4,5$ cm
+		\end{itemize}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\linewidth}
+		\emph{La figure ci-dessous n'est pas à l'échelle.}
+
+		\medskip
+
+		%Début Tikz
+%		\begin{center}
+%		\begin{tikzpicture}[scale=0.9]
+%		% big cone with frustum shaded
+%		\coordinate (O) at (0,0);
+%		\coordinate (Atop) at (-1.0,3.2); % small ellipse left
+%		\coordinate (Btop) at (-2.4,4.6); % large ellipse left
+%
+%		% Outer cone lines
+%		\draw[dashed] (O) -- (-2.4,4.6);
+%		\draw[dashed] (O) -- (2.4,4.6);
+%		\draw[dashed] (O) -- (-1.0,3.2);
+%		\draw[dashed] (O) -- (1.0,3.2);
+%
+%		% Large ellipse (top, cup rim)
+%		\draw (-2.4,4.6) ellipse (2.4 and 0.5);
+%		% small ellipse (base of cup)
+%		\draw (-1.0,3.2) ellipse (1.0 and 0.22);
+%
+%		% Shaded frustum sides
+%		\filldraw[fill=gray!25, draw=black] (-1.0,3.2) -- (-2.4,4.1) arc (180:0:2.4 and 0.5) -- (1.0,3.2) arc(0:180:1.0 and 0.22) -- cycle;
+%
+%		\node[right] at (2.4,4.6) {$C$};
+%		\node[left] at (-2.4,4.6) {$B$};
+%		\node[right] at (1.0,3.2) {$D$};
+%		\node[left] at (-1.0,3.2) {$A$};
+%		\node[below] at (O) {$O$};
+%
+%		\draw[->, thick] (3.6,3.8) -- (1.6,3.9);
+%		\node[right] at (3.6,3.8) {Le gobelet};
+%		\end{tikzpicture}
+%		\end{center}
+		%Fin Tikz
+		%Début PSTricks
+		\begin{pspicture}(-2.6,-0.3)(2.6,5)
+			%\psgrid
+			\psellipse(0,4.8)(2.3,0.3)
+			\psline[linestyle=dashed](-2.34,4.8)(2.34,4.8)
+			\psellipticarc(0,2.3)(1.15,0.2){180}{360}
+			\psellipticarc[linestyle=dashed](0,2.3)(1.15,0.2){0}{180}
+			\psline[linestyle=dashed](0,0)(0,4.8)%OB
+			%\psline[linestyle=dashed](-2.3,5)(2.3,5)
+			\psline[linestyle=dashed](-1.15,2.3)(1.15,2.3)
+			\psline(-2.34,4.8)(-1.13,2.3)
+			\psline(2.34,4.8)(1.13,2.3)
+			\psframe(0,4.8)(0.25,4.55)\psframe(0,2.3)(0.25,2.55)
+			\psline[linestyle=dashed](-1.15,2.3)(0,0)(1.15,2.3)
+			\uput[d](0,0){O} \uput[ul](0,2.3){A} \uput[ul](0,4.8){B} \uput[r](2.3,4.8){C} \uput[r](1.15,2.3){D}
+			\rput(0,3.6){Le gobelet}
+		\end{pspicture}
+		%Fin PSTricks
+	\end{minipage}
+
+
+	\begin{center}
+		\fbox{\parbox{0.7\textwidth}{\textbf{Rappel :}\\
+				Volume d'un cône de révolution :\quad $V = \pi \times R^2 \times H \div 3$,\\ où $R$ est le rayon de la base et $H$ est la hauteur du cône.}}
+	\end{center}
+
+	\begin{enumerate}
+		\item Calculer le volume du grand cône de hauteur [OB] en cm$^3$, arrondi à l'unité.
+		\item Calculer le volume du gobelet, en cm$^3$, arrondi à l'unité.
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\section*{Exercice 3 \hfill 4 points}
+
+On considère le \textbf{programme A} suivant :
+
+\begin{center}
+	\begin{tikzpicture}[
+		box/.style={draw, rounded corners, align=center, minimum width=3.6cm, minimum height=0.9cm},
+		>={Stealth[length=2.5mm]}
+		]
+		\node[box] (start) at (3,6) {Choisir un nombre};
+		\node[box] (carre) at (0,4.5) {Calculer son carré};
+		\node[box] (mult7) at (6,4.5) {Multiplier par 7};
+		\node[box] (mult3) at (0,3) {Multiplier par 3};
+		\node[box] (add) at (3,1.5) {Additionner les deux nombres};
+		\node[box] (sous) at (3,0) {Soustraire 6};
+
+		\draw[->] (start) -- (carre);
+		\draw[->] (start) -- (mult7);
+		\draw[->] (carre) -- (mult3);
+		\draw[->] (mult3) -- (add);
+		\draw[->] (mult7) -- (add);
+		\draw[->] (add) -- (sous);
+	\end{tikzpicture}
+\end{center}
+
+\begin{minipage}[t]{0.6\linewidth}
+	\begin{enumerate}
+	\item Appliquer le \textbf{programme A} au nombre 5.
+
+	\item On utilise un tableur pour trouver les résultats correspondants à quelques nombres comme l'indique le tableau ci-contre.
+
+	\medskip
+
+	Parmi les quatre formules ci-dessous, recopier celle qui a été saisie dans la cellule \textsf{B2}, puis étirée vers le bas afin de calculer les résultats donnés par le programme A.
+
+	\medskip
+
+	\emph{Aucune justification n'est attendue.}
+
+	\begin{tblr}{colspec={XX},hlines, vlines,cells={cmd={\sffamily \small}}}
+			= 3 * A2 * 2 + 7 * A2 - 6 & = 3 * 1 * 1 + 7 * 1 - 6 \\
+			= 3 * A2 * A2 + 7 * A2 - 6& = 3 * A2 * 2 - 7 * A2 + 6 \\
+		\end{tblr}
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{tblr}[t]{hlines={darkgray}, vlines, columns={c, cmd={\sffamily \small}},
+			column{2,3}={wd=2.7cm,colsep=2pt},
+			row{1}={rowsep=0pt,ht=7mm, bg=gray9},
+			row{2-Z}={rowsep=1pt},
+			column{1}={colsep=0pt,7mm,bg=gray9},
+			cell{1}{1}={gray9},
+			cell{2}{2-3}={cmd={\sffamily \bfseries}}}
+			\SetCell{halign=r,valign=b}\tikz[baseline={(0,0.15)}]{\clip(0,0) rectangle (0.6,0.5) ;\fill[gray!50] (0,0)--(0.5,0.5)--(0.5,0);}
+			   & A                & B                       \\
+			1  & Nombre de départ & Résultat du programme A \\
+			2  & -3,5             & 6,25                    \\
+			3  & -3               & 0                       \\
+			4  & -2,5             & -4,75                   \\
+			5  & -2               & -8                      \\
+			6  & -1,5             & -9,75                   \\
+			7  & -1               & -10                     \\
+			8  & -0,5             & -8,75                   \\
+			9  & 0                & -6                      \\
+			10 & 0,5              & -1,75                   \\
+			11 & 1                & 4                       \\
+			12 & 1,5              & 11,25                   \\
+			13 & 2                & 20                      \\
+	\end{tblr}
+\begin{enumerate}[start=3]
+	\item \`A l'aide du tableur, donner une valeur pour laquelle le \textbf{programme A} donne 0.
+
+	\textit{Aucune justification n'est attendue.}
+
+	\item Si on note $x$ le nombre de départ, donner une expression littérale du programme A en fonction de~$x$.
+\end{enumerate}
+
+\newpage
+
+On considère maintenant le \textbf{programme B} suivant :
+
+\begin{center}
+	\begin{tikzpicture}[
+		box/.style={draw, rounded corners, align=center, minimum width=3.6cm, minimum height=0.9cm},
+		>={Stealth[length=2.5mm]}
+		]
+		\node[box] (start) at (3,5) {Choisir un nombre};
+		\node[box] (mult3) at (0,3.5) {Multiplier par 3};
+		\node[box] (add3) at (6,2.75) {Additionner 3};
+		\node[box] (sous2) at (0,2) {Soustraire 2};
+		\node[box] (multdeux) at (3,0.5) {Multiplier les deux nombres};
+
+		\draw[->] (start) -- (mult3);
+		\draw[->] (start) -- (add3);
+		\draw[->] (mult3) -- (sous2);
+		\draw[->] (sous2) -- (multdeux);
+		\draw[->] (add3) -- (multdeux);
+	\end{tikzpicture}
+\end{center}
+
+\begin{enumerate}[resume]
+	\item Appliquer le \textbf{programme B} au nombre 5.
+
+	\item Si on note $x$ le nombre de départ, donner une expression littérale du \textbf{programme B} en fonction de~$x$.
+
+	\item Mathis affirme que, quel que soit le nombre qu'il choisit, il trouvera le même résultat avec le \textbf{programme A} et le \textbf{programme B}. A-t-il raison ? Justifier.
+
+	\item Résoudre l'équation $(3x-2)(x+3) = 0$.
+
+	En déduire les valeurs de $x$ pour lesquelles les programmes A et B donnent 0.
+\end{enumerate}
+
+\bigskip
+
+\section*{Exercice 4 \hfill 2,5 points}
+
+\begin{minipage}{0.48\linewidth}
+	ABCD est un carré.
+
+	ABF est un triangle équilatéral.
+
+	AF $= 4$ cm.
+
+	Les points F{}, A et E sont alignés.
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+	\psset{unit=1cm}
+	\begin{pspicture}(-3.5,-1.4)(3.5,4.8)
+		%\psgrid
+		\psline(-3.2,0)(3.2,0)
+		\pspolygon(0;0)(3.2;120)(3.2;180)
+		%\rput{30}(0,0){\psframe(0,0)(3.2,3.2)}
+		\def\barb{\psline(-0.05,-0.1)(-0.05,0.1)\psline(0.05,-0.1)(0.05,0.1)}
+		\rput{30}(0,0){\psline(0;0)(3.2;0)(4.525;45)(3.2;90)}
+		\psarc*(0,0){0.6}{0}{30}
+		\uput[d](1.6;180){4 cm}
+		\uput[d](0,0){A}
+		\uput[d](-3.2,0){F} \uput[d](3.2,0){E}\uput[ul](-1.6,2.772){B}\uput[r](3.2;30){D}\uput[ur](1.4,4){C}
+		\rput(-1.6,0){\barb}\rput(1.6,0){\barb}
+		\rput{30}(1.6;30){\barb}\rput{135}(2,3){\barb}\rput{120}(-0.8,1.4){\barb}
+		\rput{600}(-2.4,1.4){\barb}\rput{30}(-0.2,3.6){\barb}
+		\psdots[dotstyle=+,dotangle=45,dotscale=1.5](3.2,0)
+		\rput(0,-1){\textit{Cette figure n'est pas en vraie grandeur.}}
+	\end{pspicture}
+
+\end{minipage}
+\begin{enumerate}
+	\item Justifier que la mesure de l'angle $\widehat{\text{EAD}}$ est égale à $30^\circ$.
+
+	Dans la suite de l'exercice on utilisera l'échelle suivante : \textbf{10 pas} dans le programme représentent \textbf{1 cm} dans la réalité.
+
+	\item Le \textbf{bloc triangle} ci-dessous permet de tracer un triangle équilatéral et le \textbf{bloc carré} permet de construire un carré :
+
+	\begin{center}
+		\begin{tblr}{colspec={|X[7cm,c]|X[7cm,c]|}}
+			\hline
+			\textbf{Le bloc triangle} & \textbf{Le bloc carré} \\
+			\hline
+			\begin{scratch}
+				\initmoreblocks{définir \namemoreblocks{Triangle}}
+				\blockrepeat{répéter \ovalnum{3} fois}
+				{
+					\blockmove{avancer de \ovalnum{\textbf{J}}}
+					\blockmove{tourner \turnleft{} de \ovalnum{\textbf{K}} degrés}
+				}
+			\end{scratch}
+			&
+			\begin{scratch}
+				\initmoreblocks{définir \namemoreblocks{Carré}}
+				\blockrepeat{répéter \ovalnum{4} fois}
+				{
+					\blockmove{avancer de \ovalnum{\textbf{M}}}
+					\blockmove{tourner \turnleft{} de \ovalnum{\textbf{N}} degrés}
+				}
+			\end{scratch}
+			\\ \hline
+		\end{tblr}
+	\end{center}
+
+	Donner les valeurs de \textbf{J}, \textbf{K}, \textbf{M} et \textbf{N} pour que les blocs triangle et carré permettent de construire un triangle équilatéral de 4 cm de côté et un carré de 4 cm de côté.
+
+	\emph{Aucune justification n'est attendue.}
+
+	\item Le \textbf{programme principal} utilise le bloc \textbf{Triangle} et le bloc \textbf{Carré}.
+
+	L'instruction \og s'orienter à $90\degres$ \fg{} signifie que l'on s'oriente vers la droite.
+
+	Écrire sur la copie le numéro de la figure obtenue grâce à ce programme.
+
+	\emph{Aucune justification n'est attendue.}
+\end{enumerate}
+
+%PSTricks
+\begin{tblr}{colspec={XXX}, vline{1,3,4}={solid}, vline{2}={3-4}{solid},
+	cell{4}{1,2}={c},vspan=even}\hline
+	\SetCell[r=1,c=2]{l}\textbf{Figure 1}&&\textbf{Programme principal}\\
+	\SetCell[r=1,c=2]{c} %
+	\psset{unit=0.8cm}
+	\begin{pspicture}(0,-0.5)(8.5,1.5)
+			\def\motif{\pspolygon[linecolor=blue](0;0)(0.75;120)(0.75;180)\psframe[linecolor=blue](0,0)(0.75,0.75)}
+			\multido{\n=0.75+1.50}{6}{\rput(\n,0){\motif}}
+		\end{pspicture}
+	&& \SetCell[r=5,c=1]{c}
+		\begin{scratch}[scale=0.85]
+		\blockinit{quand \greenflag est cliqué}
+		\blockmove{aller à x : \ovalnum{0} y : \ovalnum{-100}}
+		\blockmove{s'orienter à ~\ovalnum{90}}
+		\blockpen{effacer tout}
+		\blockpen{stylo en position d'écriture}
+		\blockrepeat{répéter \ovalnum{6} fois}
+		{
+			\blockmoreblocks{triangle}
+			\blockmove{avancer de \ovalnum{50} pas}
+			\blockmove{tourner \turnleft{} de \ovalnum{30} degrés}
+			\blockmoreblocks{Carré}
+			\blockmove{avancer de \ovalnum{50} pas}
+			\blockmove{tourner \turnleft{} de \ovalnum{30} degrés}
+		}
+	\end{scratch} \\ \cline{1-3}
+	\textbf{Figure 2}&\textbf{Figure 3}&\\
+		{\psset{unit=0.7cm}
+		\begin{pspicture}(-2,-2)(2,2)
+			\def\dim{1}%%% modifiable
+			\def\motif{\psline[linecolor=blue,linewidth=1.2pt](0,0)(\dim,0)(\dim,-\dim)(0,-\dim)(0,0)(\dim;60)(\dim,0)}
+				\multido{\n=30+60,\na=0+60}{6}{\rput{\na}(\dim;\n){\motif}}
+		\end{pspicture}}
+		&
+		{\psset{unit=0.9cm}
+		\begin{pspicture}(-2,-2)(2,2)
+			\def\motif{\psline[linecolor=blue,linewidth=1.2pt](0,0)(0,-1)(-0.8,-1)(-0.8,-0.2)(0,-0.2)(0,0)}
+			\def\motiff{\psline[linecolor=blue,linewidth=1.2pt](0,0)(0.8;120)(0.8;180)(0,0)(1;120)}
+			\multido{\n=15+60.0,\na=0+60}{6}{\rput{\na}(1.9;\n){\motif}}
+			\multido{\n=15+60.0,\na=0+60}{6}{\rput{\na}(1.9;\n){\motiff}}
+		\end{pspicture}} & \\ \cline{1-3}
+	\SetCell[c=2]{l}\textbf{Figure 4}&&\\
+	\SetCell[c=2]{c}
+	{\psset{unit=0.8}
+	\begin{pspicture}(0,-0.5)(9,1.5)
+			\def\motif{\pspolygon[linecolor=blue](0;0)(0.75;120)(0.75;180)\psframe[linecolor=blue](0,0)(0.75,0.75)\psline(0.75,0)(1,0)}
+			\multido{\n=1.00+1.75}{6}{\rput(\n,0){\motif}}
+	\end{pspicture}}
+	&&\\
+	\hline
+\end{tblr}
+%Fin PSTricks
+\end{document}
