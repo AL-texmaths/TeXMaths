@@ -35,6 +35,12 @@ data/graphics/*.db
 data/graphics/*.db-wal
 data/graphics/*.db-shm
 data/graphics/.nextcloudsync.log
-.github
+
+# Ignorer le dossier .github par défaut
+.github/*
+
+# Autoriser les agents personnalisés VS Code
+!.github/agents/
+!.github/agents/**
 
 assistant/logs/app.log
