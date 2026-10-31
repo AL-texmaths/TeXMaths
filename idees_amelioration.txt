@@ -110,5 +110,8 @@ isocèle valent 45 degrés avec tangente
 >>> réfléchir à des chapitres centrés sur une action plutôt qu'un thème
 ("calculer", "représenter les nombres", ...)
 
+>>> chaque exercice travaille une compétence, l'élève, après correction,
+doit s'auto-évaluer. Au moment de réviser, il pourra s'appuyer sur
+ses auto évaluations.
 =====================
 
