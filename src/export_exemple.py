@@ -28,20 +28,37 @@ def export_a4_portrait(pdf_path, scale, lmargin, hmargins, outputPath):
         print('WARNING: scale too big, no copy exported')
         return
 
-    newpage = pypdf.PageObject.create_blank_page(
+    writer = pypdf.PdfWriter()
+    newpage = writer.add_page(pypdf.PageObject.create_blank_page(
         None, A4_PORTRAIT_WIDTH, A4_PORTRAIT_HEIGHT
-        )
+        ))
     n1 = (A4_PORTRAIT_HEIGHT-copyNumber*outpdf_height)/(2*copyNumber)
     n2 = 2*n1 + outpdf_height
 
+    # Les annotations (ex: widgets des gifs animate) ne sont pas déplacées par
+    # merge_transformed_page et seraient toutes superposées : on les gère à part.
+    annots = []
+    if '/Annots' in page:
+        annots = [a.get_object().clone(writer) for a in page['/Annots'].get_object()]
+        del page['/Annots']
+
     for i in range(copyNumber):
+        ty = n2*i + n1
         newpage.merge_transformed_page(
             page,
-            pypdf.Transformation().scale(scale).translate(lmargin,  n2*i + n1)
+            pypdf.Transformation().scale(scale).translate(lmargin, ty)
             )
-
-    writer = pypdf.PdfWriter()
-    writer.add_page(newpage)
+        for annot in annots:
+            x0, y0, x1, y1 = (float(v) for v in annot['/Rect'])
+            new_annot = pypdf.generic.DictionaryObject(annot)
+            new_annot[pypdf.generic.NameObject('/Rect')] = pypdf.generic.ArrayObject(
+                pypdf.generic.FloatObject(v) for v in (
+                    x0*scale + lmargin, y0*scale + ty,
+                    x1*scale + lmargin, y1*scale + ty)
+                )
+            if '/Annots' not in newpage:
+                newpage[pypdf.generic.NameObject('/Annots')] = pypdf.generic.ArrayObject()
+            newpage['/Annots'].append(writer._add_object(new_annot))
 
     permissionBoolean = False
     while not permissionBoolean:
@@ -54,7 +71,11 @@ def export_a4_portrait(pdf_path, scale, lmargin, hmargins, outputPath):
 
 for texFileName in EXEMPLES_DIR.glob('*.tex'):
 
-    output_path = get_cours_file_path(texFileName.stem)
+    try:
+        output_path = get_cours_file_path(texFileName.stem)
+    except FileNotFoundError as e:
+        print(f'WARNING: {texFileName.name} ignoré : {e}')
+        continue
     output_cours_name = '-'.join(output_path.stem.split('-')[:2] + ['cours.pdf'])
     output_cours_path = output_path.parent / output_cours_name
 

@@ -361,7 +361,12 @@ def update_last_run_date(script_path):
 def chapter_dirname(level, chapter_key):
     """
     """
-    return next((YEAR_DIR / level).glob(chapter_key+'*'))
+    try:
+        return next((YEAR_DIR / level).glob(chapter_key+'*'))
+    except StopIteration:
+        raise FileNotFoundError(
+            f"Aucun dossier de chapitre '{chapter_key}*' dans {YEAR_DIR / level}"
+            ) from None
 
 def get_cours_file_path(file_name_input:str):
     """
