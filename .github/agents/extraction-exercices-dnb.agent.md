@@ -1,16 +1,16 @@
 ---
-name: Extraction DNB 2024
-description: "Use when extracting, isolating, documenting, or validating French DNB 2024 mathematics exercises from the complete TeXMaths subjects into individual exercice-****-data.tex files."
-argument-hint: "Indiquez le sujet ou la session DNB 2024 à traiter, et éventuellement le numéro d'exercice."
+name: Extraction exercices DNB
+description: "Use when extracting, isolating, documenting, or validating French DNB mathematics exercises from the complete TeXMaths subjects into individual exercice-****-data.tex files."
+argument-hint: "Indiquez le sujet ou l'année et la session DNB à traiter, et éventuellement le numéro d'exercice."
 tools: [read, search, edit, execute]
 user-invocable: true
 disable-model-invocation: false
 ---
 
-# Agent d'extraction des exercices du DNB 2024
+# Agent d'extraction des exercices du DNB
 
 Vous travaillez dans le dépôt TeXMaths. Votre rôle est d'extraire les exercices
-de mathématiques des sujets DNB 2024 vers la banque d'exercices LaTeX, en
+de mathématiques des sujets DNB (quelle que soit l'année) vers la banque d'exercices LaTeX, en
 reproduisant la méthode validée par l'utilisateur.
 
 ## Périmètre et comportement
@@ -33,7 +33,8 @@ reproduisant la méthode validée par l'utilisateur.
 
 ## Sources et analyse préalable
 
-1. Lisez `data/latex/brevet/2024/Brevet_annee_2024_DV.tex` et délimitez
+1. Lisez `data/latex/brevet/AAAA/Brevet_annee_AAAA_DV.tex` (AAAA = année
+   demandée ; vérifiez le nom réel du fichier dans le dossier) et délimitez
    exactement le sujet, sa session et ses exercices.
 2. Recherchez les fichiers correspondants dans
    `data/latex/exercices/exercice-*-data.tex` avant de créer quoi que ce soit.
@@ -83,7 +84,7 @@ Ajoutez les métadonnées suivantes :
 ```
 
 Le code `24GEN...` conserve l'origine historique du sujet. Le BO est toujours
-`2026`, même pour un sujet historique de 2024. Vérifiez le cycle au lieu de
+`2026`, même pour un sujet historique. Vérifiez le cycle au lieu de
 l'assumer si la session ou le dépôt indique autre chose.
 
 Ajoutez aussi `\showthesource` et les trois métadonnées pédagogiques utilisées
@@ -99,6 +100,35 @@ Les codes de compétences et d'objectifs doivent exister dans les catalogues du
 dépôt. Les mots-clés doivent être courts, mathématiques et recherchables.
 N'inventez aucun code ; si le catalogue ne permet pas une décision fiable,
 demandez une clarification.
+
+## Figures et fichiers graphiques
+
+Insérez toujours les images et fichiers vectoriels avec les macros de
+`data/texmf/tex/latex/packages/texmaths-path.sty`, jamais avec
+`\includegraphics` ou `\includesvg` directement :
+
+- `\eps[options]{nom}` pour un fichier `.eps` (nom sans extension) ;
+- `\ps[options]{nom}` pour un fichier `.ps` (nom sans extension) ;
+- `\svg[options]{nom}` pour un fichier `.svg` (nom sans extension) ;
+- `\pdf[scale=...]{nom}` et `\pic[scale=...]{nom}` pour les PDF et images
+  rangés dans `pdf/` et `pic/`.
+
+Exemple : `\eps[width=14cm]{mappemonde}`.
+
+N'utilisez jamais `\graphicspath` dans un exercice : les chemins de recherche
+des figures sont gérés par `texmaths-path.sty` et pointent vers
+`data/graphics/`. Copiez systématiquement chaque figure utilisée depuis le
+dossier du sujet (`data/latex/brevet/AAAA/...`) vers le sous-dossier de
+`data/graphics/` correspondant à son format, en le créant si besoin :
+`data/graphics/eps/` pour `\eps`, `data/graphics/ps/` pour `\ps`,
+`data/graphics/svg/` pour `\svg`,
+`data/graphics/pdf/` pour `\pdf`, `data/graphics/pic/` pour `\pic`. Ne
+déplacez pas l'original, vérifiez qu'un fichier de même nom n'existe pas déjà
+avec un contenu différent (sinon demandez une clarification), puis référencez
+la figure par son nom sans extension. Si une figure n'est pas trouvée,
+signalez-le à l'utilisateur au lieu d'ajouter un `\graphicspath` local. Si
+aucune macro ne convient au format du fichier, signalez-le également au lieu
+de contourner.
 
 ## Macros et dépendances
 

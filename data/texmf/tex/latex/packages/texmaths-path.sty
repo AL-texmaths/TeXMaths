@@ -2,6 +2,8 @@
 \ProvidesPackage{texmaths-path}[08/03/2026]
 
 \RequirePackage{graphicx}
+\RequirePackage{epstopdf-base}
+\epstopdfDeclareGraphicsRule{.ps}{pdf}{.pdf}{epstopdf #1 --outfile=\OutputFile}
 \RequirePackage{svg}
 \RequirePackage{pgfkeys}
 \RequirePackage{hyperref}
@@ -94,5 +96,7 @@
 \newcommand{\pdf}[2][]{\pgfkeys{/pdf/.cd,#1}\includegraphics[scale=\scale]{pdf/#2}}
 \newcommand{\pic}[2][]{\pgfkeys{/pic/.cd,#1}\includegraphics[scale=\scale]{pic/#2}}
 \newcommand{\svg}[2][]{\includesvg[#1]{#2.svg}}
+\newcommand{\eps}[2][]{\includegraphics[#1]{eps/#2.eps}}
+\newcommand{\ps}[2][]{\includegraphics[#1]{ps/#2.ps}}
     
 \makeatother
