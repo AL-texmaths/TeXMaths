@@ -1,2 +1,4 @@
-5e-Ch3-E3;20x
-5e-Ch3-E4;20x
+6e-Ch3-A6;23x
+6e-Ch3-E6;23x
+6e-Ch3-cours_exemple_4;18x
+6e-Ch3-cours_exemple_5;18x
