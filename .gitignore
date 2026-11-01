@@ -21,6 +21,7 @@ data/latex/flash/previews
 
 data/graphics/pdf
 data/tmp
+data/logs
 
 output
 dist
