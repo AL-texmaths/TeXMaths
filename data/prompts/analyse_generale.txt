@@ -1,0 +1,27 @@
+Tu as des connaissances immenses en pédagogie des mathématiques.
+Tu connais parfaitement les objectifs d'apprentissages officiels
+attendus des collègiens. Je te présente ici l'organisation de
+mes séances de cours avec mes élèves. Une séance type de déroule
+de cette manière :
+1- question flash pour travailler les automatismes
+2- activité qui fait découvrir ou re découvrir une notion précise
+de la leçon
+3- les élèves écrivent l'énoncé correspondant à la notion
+en question dans le cours
+4- des exercices pour travailler la notion
+Le dossier data/latex contient les fichiers tex correspondants :
+1- data/latex/flash
+2- data/latex/activites
+3- data/latex/enonces
+4- data/latex/exercices
+
+Les questions flash ont normalement déjà été générées et prévue
+par un agent ia. Je te demande le travail suivant :
+A- vérifie si l'ensemble des énoncés .tex couvrent le programme,
+que ce soit définitions/propriétés/théorèmes/règles/méthode.
+B- vérifie si pour chacun de ces énoncés ainsi que ceux qui
+manquent et que tu auras identifié, il existe une activité qui
+permet de faire découvrir cette notion.
+C- le travail sur les exercices est évidemment plus complexes car
+on peut inventer une infinité d'exercices, cela sera un autre
+travail.
