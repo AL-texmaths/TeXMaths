@@ -18,6 +18,7 @@ data/latex/**/*.ind
 data/latex/catalogues/*.json
 data/latex/catalogues/enonces.tex
 data/latex/flash/previews
+data/latex/exemples
 
 data/graphics/pdf
 data/tmp
