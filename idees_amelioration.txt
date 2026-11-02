@@ -78,6 +78,8 @@ changement
 - supprimer les overfull/underfull des exercices (voir le log)
 - écrire les métadonnées
 % --------------------------
+BUG la recherche regex (?=.*qcm)(?=.*réponse) ne permet pas d'obtenir l'exercice 0938
+demander a écrire les mots clés qcm pour les automatismes dnb
 ===============================================================================
 					Pédagogique
 ===============================================================================

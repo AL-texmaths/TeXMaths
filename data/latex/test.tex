@@ -1,10 +1,289 @@
 \documentclass[a4paper,12pt]{article}
+% 700: que partie 1 enlever la rotation + ajouter trois questions
+%dans lesquelles on demande quelle transformation permet de passer de
+%... à ...
+% remplacer dans les automatismes la question de transformation par
+% une somme d'angle dans un triangle particulier 
+% figure codée, on demande un angle
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{tkz-euclide}
 \usepackage{texmaths-gif}
+\usepackage{texmaths-tikz}%
+\usepackage{pstricks}%
+\usepackage{pst-bezier}%
+\usepackage{pstricks-add}%
+\usepackage{pst-eucl}%
+\usepackage{pst-func}%
+\usepackage{pst-tree}%
+\usepackage{pst-circ}%
+\usepackage{tikz}%
+\usepackage{pgfplots}%
+\usepackage{tkz-tab}%
+\usepackage{tikzpagenodes}%
+\usepackage{tabularray}%
+\usepackage{tabularx}%
+\usepackage{multirow}%
+\usepackage{multicol}%
+\usepackage{scratch3}%
+\usepackage{enumitem}%
+\usepackage[np]{numprint}%
+\usepackage{pas-tableur}%
+\usepackage{listings}%
+\usepackage{graphicx}%
+\usepackage{adjustbox}%
+\usepackage{needspace}%
+\usepackage{xcolor}%
+\usepackage{eurosym}%
+\usepackage{diagbox}%
+\usepackage{colortbl}%
+\usepackage{multido}%
+\usepackage{icomma}%
+\usepackage[french]{babel}%
 
 \begin{document}
-        \gifactivatedtrue
-        \gif[1]{Bissectrice_angle}[scale=0.25]
+% EXERCICE 1
+\medskip
+
+\begin{enumerate}
+\item Anne et Jean ont acheté $630$ dragées roses et $810$~dragées blanches qu'ils ont mises dans un sachet. On suppose que les dragées sont indiscernables au toucher.
+	\begin{enumerate}
+		\item Combien Anne et Jean ont-ils acheté de dragées au total ?
+		\item Anne prend au hasard une dragée dans le sachet. Quelle est la probabilité qu'elle
+obtienne une dragée blanche ?
+	\end{enumerate}
+\item Avec ces dragées, ils réalisent des ballotins pour leur mariage de sorte que: 
+\begin{itemize}
+\item le nombre de dragées roses est le même dans chaque ballotin ;
+\item le nombre de dragées blanches est le même dans chaque ballotin ;
+\item toutes les dragées soient utilisées.
+\end{itemize}
+
+	\begin{enumerate}
+		\item Peuvent-ils réaliser $21$ ballotins ?
+		\item Décomposer $630$ et $810$ en produits de facteurs premiers.
+		\item En déduire le nombre maximum de ballotins qu'Anne et Jean pourront réaliser.
+Donner alors la composition de chaque ballotin.
+	\end{enumerate}
+\end{enumerate}
+
+\bigskip
+
+% EXERCICE 2
+
+\definecolor{gris}{gray}{0.5}%
+\providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
+\begin{document}%
+\providecommand{\degres}{^\circ}%
+\emph{La figure ci-dessous n'est pas à l'échelle.}
+
+\begin{minipage}{0.48\linewidth}
+	\begin{itemize}
+		\item O, A et B sont alignés.
+		\item O, D et C sont alignés.
+		\item OD $= 8,2$ cm
+		\item AD $= 1,8$ cm
+		\item BC $= 4,5$ cm
+	\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+	% Début PSTricks
+	\psset{unit=1cm}
+	\begin{pspicture}(-1,-0.5)(3.6,5)
+		%\psgrid
+		\pspolygon(0,0)(0,5)(2.6,5)%ABCO
+		\psline(0,3)(1.6,3)%AD
+		\psframe(0,3)(0.3,2.7,3)
+		\psframe(0,5)(0.3,4.7)
+		\uput[d](0,0){O} \uput[l](0,3){A} \uput[l](0,5){B} \uput[r](2.6,5){C} \uput[r](1.6,3){D}
+	\end{pspicture}
+	%Fin  PSTricks
+\end{minipage}
+%\begin{tikzpicture}[scale=1.05]
+%% Points based on description: O at bottom, A,B aligned ; D,C aligned
+%\coordinate (O) at (0,0);
+%\coordinate (A) at (0.7,3.6);
+%\coordinate (D) at (1.55,3.6);
+%\coordinate (B) at (1.0,5.0);
+%\coordinate (C) at (2.5,5.0);
+%
+%\draw (O) -- (B);
+%\draw (O) -- (C);
+%\draw (A) -- (D);
+%\draw (B) -- (C);
+%
+%% right angle marks
+%\draw ($(A)+(0.18,0)$) -- ($(A)+(0.18,0.18)$) -- ($(A)+(0,0.18)$);
+%\draw ($(B)+(0.18,0)$) -- ($(B)+(0.18,0.18)$) -- ($(B)+(0,0.18)$);
+%
+%\node[left] at (O) {$O$};
+%\node[left] at (A) {$A$};
+%\node[right] at (D) {$D$};
+%\node[above left] at (B) {$B$};
+%\node[above right] at (C) {$C$};
+%\end{tikzpicture}
+
+\medskip
+
+\begin{enumerate}
+	\item Montrer que la longueur du segment [OA] est égale à 8 cm.
+	\item Justifier que les droites (BC) et (AD) sont parallèles.
+	\item Calculer la longueur du segment [OB].
+	\item Une entreprise souhaite fabriquer des gobelets. Un gobelet (grisé sur le schéma ci-dessous) a la forme d'un tronc de cône (cône coupé par un plan parallèle à sa base).
+
+	\medskip
+
+	\begin{minipage}{0.48\linewidth}
+		On reprend les données précédentes :
+
+		\begin{itemize}
+			\item O, A, B sont alignés
+			\item O, D, C sont alignés
+			\item OD $= 8,2$ cm
+			\item AD $= 1,8$ cm
+			\item BC $= 4,5$ cm
+		\end{itemize}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\linewidth}
+		\emph{La figure ci-dessous n'est pas à l'échelle.}
+
+		\medskip
+
+		%Début Tikz
+%		\begin{center}
+%		\begin{tikzpicture}[scale=0.9]
+%		% big cone with frustum shaded
+%		\coordinate (O) at (0,0);
+%		\coordinate (Atop) at (-1.0,3.2); % small ellipse left
+%		\coordinate (Btop) at (-2.4,4.6); % large ellipse left
+%
+%		% Outer cone lines
+%		\draw[dashed] (O) -- (-2.4,4.6);
+%		\draw[dashed] (O) -- (2.4,4.6);
+%		\draw[dashed] (O) -- (-1.0,3.2);
+%		\draw[dashed] (O) -- (1.0,3.2);
+%
+%		% Large ellipse (top, cup rim)
+%		\draw (-2.4,4.6) ellipse (2.4 and 0.5);
+%		% small ellipse (base of cup)
+%		\draw (-1.0,3.2) ellipse (1.0 and 0.22);
+%
+%		% Shaded frustum sides
+%		\filldraw[fill=gray!25, draw=black] (-1.0,3.2) -- (-2.4,4.1) arc (180:0:2.4 and 0.5) -- (1.0,3.2) arc(0:180:1.0 and 0.22) -- cycle;
+%
+%		\node[right] at (2.4,4.6) {$C$};
+%		\node[left] at (-2.4,4.6) {$B$};
+%		\node[right] at (1.0,3.2) {$D$};
+%		\node[left] at (-1.0,3.2) {$A$};
+%		\node[below] at (O) {$O$};
+%
+%		\draw[->, thick] (3.6,3.8) -- (1.6,3.9);
+%		\node[right] at (3.6,3.8) {Le gobelet};
+%		\end{tikzpicture}
+%		\end{center}
+		%Fin Tikz
+		%Début PSTricks
+		\begin{pspicture}(-2.6,-0.3)(2.6,5)
+			%\psgrid
+			\psellipse(0,4.8)(2.3,0.3)
+			\psline[linestyle=dashed](-2.34,4.8)(2.34,4.8)
+			\psellipticarc(0,2.3)(1.15,0.2){180}{360}
+			\psellipticarc[linestyle=dashed](0,2.3)(1.15,0.2){0}{180}
+			\psline[linestyle=dashed](0,0)(0,4.8)%OB
+			%\psline[linestyle=dashed](-2.3,5)(2.3,5)
+			\psline[linestyle=dashed](-1.15,2.3)(1.15,2.3)
+			\psline(-2.34,4.8)(-1.13,2.3)
+			\psline(2.34,4.8)(1.13,2.3)
+			\psframe(0,4.8)(0.25,4.55)\psframe(0,2.3)(0.25,2.55)
+			\psline[linestyle=dashed](-1.15,2.3)(0,0)(1.15,2.3)
+			\uput[d](0,0){O} \uput[ul](0,2.3){A} \uput[ul](0,4.8){B} \uput[r](2.3,4.8){C} \uput[r](1.15,2.3){D}
+			\rput(0,3.6){Le gobelet}
+		\end{pspicture}
+		%Fin PSTricks
+	\end{minipage}
+
+
+	\begin{center}
+		\fbox{\parbox{0.7\textwidth}{\textbf{Rappel :}\\
+				Volume d'un cône de révolution :\quad $V = \pi \times R^2 \times H \div 3$,\\ où $R$ est le rayon de la base et $H$ est la hauteur du cône.}}
+	\end{center}
+
+	\begin{enumerate}
+		\item Calculer le volume du grand cône de hauteur [OB] en cm$^3$, arrondi à l'unité.
+		\item Calculer le volume du gobelet, en cm$^3$, arrondi à l'unité.
+	\end{enumerate}
+\end{enumerate}
+
+\newpage
+\medskip
+
+% EXERCICE 3
+
+Au club \og Mathsetmagie \fg{}, on s'amuse à créer des programmes de calcul plus ou moins magiques.
+
+\begin{minipage}{0.5\linewidth}
+\subsection*{Partie A : Le programme de Zoé}
+
+Voici le programme de calcul de Zoé :
+\end{minipage}
+\hfill
+\begin{tabularx}{0.3\linewidth}{|X|} \hline
+\textbf{Programme de Zoé :}\\
+\textbullet~~ Choisir un nombre\\
+\textbullet~~ Soustraire 4\\
+\textbullet~~ Multiplier par 2 \\
+\textbullet~~ Ajouter 8.\\ \hline
+\end{tabularx}
+\hfill~
+
+	\begin{enumerate}
+	\item Vérifier que si on choisit 10 comme nombre de départ, on obtient 20 avec ce programme.
+	\item Quel résultat obtient-t-on avec ce programme si on choisit $-7$ comme nombre de départ?
+	\item Zoé prétend que son programme est \og magique \fg{} car, quel que soit le nombre choisi, le résultat est toujours le double du nombre de départ. A-t-elle raison?
+	\end{enumerate}
+
+\subsection*{Partie  B : Le programme de Fred}
+
+\begin{minipage}[t]{0.55\linewidth}
+Fred décide de faire son programme de calcul sur Scratch :
+
+\begin{enumerate}[start=4]
+\item Démontrer que si le nombre de départ est $x$, le résultat obtenu avec le programme de Fred est $20 x+50$.
+
+\item Quel nombre faut-il choisir au départ pour obtenir 75 avec le programme de Fred ?
+\end{enumerate}
+\end{minipage}
+\hfill
+\begin{scratch}[scale=0.8]
+\blockinit{quand \greenflag est cliqué}
+\blocksensing{demander \ovalnum{Choisir un nombre} et attendre}
+\blockvariable{mettre \selectmenu{résultat} à \ovaloperator{\ovalsensing{réponse} * \ovalnum{4}}}
+\blockvariable{mettre \selectmenu{résultat} à
+\ovaloperator{\ovalvariable{résultat} + \ovalnum{10}}}
+\blockvariable{mettre \selectmenu{résultat} à
+\ovaloperator{\ovalvariable{résultat} * \ovalnum{5}}}
+\blocklook{dire \ovalvariable{résultat}}
+	\end{scratch}
+
+\begin{scratch}[scale=0.8,baseline=4]
+	\blockinit{quand \greenflag est cliqué}
+	\blocksensing{demander \ovalnum{Choisir un nombre} et attendre}
+	\blockvariable{mettre \selectmenu{résultat} à \ovaloperator{\ovalsensing{réponse} * \ovalnum{4}}}
+	\blockvariable{mettre \selectmenu{résultat} à
+	\ovaloperator{\ovalvariable{résultat} + \ovalnum{10}}}
+	\blockvariable{mettre \selectmenu{résultat} à
+	\ovaloperator{\ovalvariable{résultat} * \ovalnum{5}}}
+	\blockvariable{mettre \selectmenu{résultat} à
+	\ovaloperator{\ovalnum{~\quad~} - \ovalnum{~\quad~}}}
+	\blocklook{dire \ovalvariable{résultat}}
+\end{scratch}
+	\hfill
+	\begin{minipage}{0.6\linewidth}
+		\begin{enumerate}[start=6]
+		\item Constatant que son programme n'a rien de magique, Fred souhaite le modifier afin que le résultat soit toujours 20 fois plus grand que le nombre de départ. Recopier et compléter sur la copie la sixième ligne du programme pour que ce soit le cas.
+	\end{enumerate}
+	\end{minipage}
+
+\bigskip
+
 \end{document}
