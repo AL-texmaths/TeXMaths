@@ -25,6 +25,7 @@ lors du split main
 >>> Vérifier le nom des fichiers de students list au début de compilation_suivi.py
 ---> revoir cette ligne : classes = sys.argv[1:][0].split(' ') pourquoi est elle
 nécéssaire ?
+---> penser à noter des aides mémoire pour les recherches regex.
 ===============================================================================
 					Java / html
 ===============================================================================
@@ -78,8 +79,6 @@ changement
 - supprimer les overfull/underfull des exercices (voir le log)
 - écrire les métadonnées
 % --------------------------
-BUG la recherche regex (?=.*qcm)(?=.*réponse) ne permet pas d'obtenir l'exercice 0938
-demander a écrire les mots clés qcm pour les automatismes dnb
 ===============================================================================
 					Pédagogique
 ===============================================================================

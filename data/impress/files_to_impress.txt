@@ -1,1 +1,9 @@
-5e-Ch3-A6;12x
+5e-Ch3-E7;24x
+5e-Ch3-E3;12x
+5e-Ch3-A2;12x
+5e-Ch3-A3;12x
+5e-Ch3-E6;12x
+6e-Ch4-A1;12x
+6e-Ch4-A2;12x
+6e-Ch4-cours_exemple_1;12x
+6e-Ch4-E1;12x
