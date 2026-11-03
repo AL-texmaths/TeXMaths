@@ -112,7 +112,8 @@ class CatalogueService:
         self,
         catalogue: Catalogue = ALL_CATALOGUES,
         source_type="Tous",
-        regex_text=""
+        regex_text="",
+        combined=False
     ):
         entries = self.entries
 
@@ -183,14 +184,21 @@ class CatalogueService:
                     re.IGNORECASE
                 )
 
-                entries = [
-                    e
-                    for e in entries
-                    if (
-                        regex.search(e.code)
-                        or regex.search(e.text)
-                    )
-                ]
+                if combined:
+                    entries = [
+                        e
+                        for e in entries
+                        if regex.search(f"{e.code}\n{e.text}")
+                    ]
+                else:
+                    entries = [
+                        e
+                        for e in entries
+                        if (
+                            regex.search(e.code)
+                            or regex.search(e.text)
+                        )
+                    ]
         
 
         return sorted(

@@ -1,6 +1,7 @@
 # regex_panel.py
 import re
 from assistant.services.regex_service import SearchLineEdit
+from assistant.gui.widgets.regex_help import install_regex_help
 from assistant.app.logger import logger
 
 from PySide6.QtWidgets import (
@@ -39,6 +40,11 @@ class RegexPanel(QWidget):
         self.search_line.setPlaceholderText("Regex sur code ou contenu")
 
         self.hide_located_checkbox = QCheckBox("Masquer les items déjà utilisés")
+        self.combined_checkbox = QCheckBox("Chercher sur code + texte combinés")
+        self.combined_checkbox.setToolTip(
+            "Permet un ET entre un mot du code et un mot du texte. "
+            "Dans ce mode, ^ et $ portent sur l'ensemble « code + texte »."
+        )
 
         self.search_service.populate_catalogue_combobox(
             self.catalogue_combo
@@ -64,6 +70,11 @@ class RegexPanel(QWidget):
         
         self.build_qvboxlayout()
     
+        self.regex_help = install_regex_help(
+            self.search_line,
+            count_provider=self._count_matches,
+            auto_validate=False,
+        )
         self.init_signals()
         
         self.install_event_filter(self)
@@ -91,6 +102,9 @@ class RegexPanel(QWidget):
         self.hide_located_checkbox.stateChanged.connect(
             self.update_search
         )
+        self.combined_checkbox.stateChanged.connect(
+            self.update_search
+        )
 
     def build_qvboxlayout(self):
         self.layout.addWidget(self.catalogue_combo)
@@ -99,8 +113,17 @@ class RegexPanel(QWidget):
         self.layout.addWidget(self.search_line)
         self.layout.addWidget(self.list_widget)
         self.layout.addWidget(self.hide_located_checkbox)
+        self.layout.addWidget(self.combined_checkbox)
 
         self.setLayout(self.layout)
+
+    def _count_matches(self, regex_text: str) -> int:
+        return len(self.search_service.search(
+            self.catalogue_combo,
+            self.type_combo,
+            regex_text,
+            self.combined_checkbox.isChecked()
+        ))
 
     def update_search(self) -> list:
 
@@ -117,11 +140,14 @@ class RegexPanel(QWidget):
             entries = self.search_service.search(
                 self.catalogue_combo,
                 self.type_combo,
-                regex_text
+                regex_text,
+                self.combined_checkbox.isChecked()
             )
 
-        except re.error:
+        except re.error as exc:
+            self.regex_help.set_error(str(exc))
             return []
+        self.regex_help.set_error(None)
 
         if self.hide_located_checkbox.isChecked() and self.analysis_service and self.tree:
             used_ids = self.analysis_service.get_used_ids(self.tree)

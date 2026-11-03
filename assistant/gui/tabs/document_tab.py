@@ -1,3 +1,5 @@
+from dataclasses import replace
+
 from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
     QWidget,
@@ -12,6 +14,7 @@ from assistant.controllers.search_pdf_controller import SearchPDFController
 from assistant.controllers.pdf_documents_controller import PdfDocumentsController
 from assistant.gui.widgets.results_list import ResultsList
 from assistant.gui.widgets.search_input import SearchInput
+from assistant.gui.widgets.regex_help import install_regex_help
 
 
 class DocumentTab(QWidget):
@@ -55,6 +58,7 @@ class DocumentTab(QWidget):
         
         self.search_input = SearchInput(self.update_results, self.results_list)
         self.search_input.installEventFilter(self)
+        install_regex_help(self.search_input, count_provider=self._count_matches)
 
         left_layout.addWidget(self.search_input)
         left_layout.addWidget(self.results_list)
@@ -192,6 +196,10 @@ class DocumentTab(QWidget):
             active_fields=self.filter_pdf_doc_menu.get_checked_fields(),
             sort_mode=self.sort_order_combo.currentIndex(),
         )
+
+    def _count_matches(self, pattern: str) -> int:
+        filters = replace(self.build_search_filters(), pattern=pattern)
+        return len(self.search_pdf_controller.search(filters))
 
     def update_results(self):
 

@@ -70,7 +70,8 @@ class SearchService:
         self,
         catalogue_combo,
         type_combo,
-        regex_text
+        regex_text,
+        combined=False
     ):
 
         selected_catalogue = self.selected_catalogue(
@@ -84,5 +85,6 @@ class SearchService:
         return self.catalogue_service.search(
             catalogue=selected_catalogue,
             source_type=selected_type,
-            regex_text=regex_text
+            regex_text=regex_text,
+            combined=combined
         )

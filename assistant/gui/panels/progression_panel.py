@@ -1,3 +1,5 @@
+import re
+
 from PySide6.QtGui import QShortcut, QKeySequence
 from PySide6.QtCore import Qt, QTimer, QSize
 from PySide6.QtWidgets import (
@@ -8,6 +10,8 @@ from PySide6.QtWidgets import (
     QWidget,
     QLineEdit
     )
+
+from assistant.gui.widgets.regex_help import install_regex_help
 
 
 class _MultilineDelegate(QStyledItemDelegate):
@@ -92,7 +96,8 @@ class ProgressionPanel(QWidget):
 
     def init_progression_tree(self):
         self.search_bar = QLineEdit()
-        self.search_bar.setPlaceholderText("Chercher dans la progression...")
+        self.search_bar.setPlaceholderText("Chercher dans la progression (regex)...")
+        install_regex_help(self.search_bar, count_provider=self._count_matches)
         
         self.progression_tree = QTreeWidget()
         self.progression_tree.setHeaderLabel("Progression annuelle")
@@ -135,31 +140,50 @@ class ProgressionPanel(QWidget):
             tree.blockSignals(False)
 
     def filter_tree(self):
-        search_text = self.search_bar.text().lower()
-        
+        try:
+            regex = re.compile(self.search_bar.text(), re.IGNORECASE)
+        except re.error:
+            return
+        self._apply_filter(regex)
+
+    def _apply_filter(self, regex):
         for i in range(self.progression_tree.topLevelItemCount()):
             item = self.progression_tree.topLevelItem(i)
-            self._filter_item(item, search_text)
+            self._filter_item(item, regex)
 
-    def _filter_item(self, item, search_text):
+    def _count_matches(self, pattern: str) -> int:
+        regex = re.compile(pattern, re.IGNORECASE)
+
+        def count(item):
+            own = regex.search(self._haystack(item)) is not None
+            return int(own) + sum(count(item.child(i)) for i in range(item.childCount()))
+
+        return sum(
+            count(self.progression_tree.topLevelItem(i))
+            for i in range(self.progression_tree.topLevelItemCount())
+        )
+
+    def _haystack(self, item) -> str:
+        extended_text = self.progression_service.get_item_extended_text(item)
+        return f"{item.text(0)}\n{extended_text}"
+
+    def _filter_item(self, item, regex):
         # Un item est visible si son texte (ou le texte de son entrée catalogue) correspond,
         # ou si l'un de ses enfants correspond
-        item_text = item.text(0).lower()
-        extended_text = self.progression_service.get_item_extended_text(item)
-        match = search_text in item_text or search_text in extended_text
+        match = regex.search(self._haystack(item)) is not None
         
         child_match = False
         for i in range(item.childCount()):
-            if self._filter_item(item.child(i), search_text):
+            if self._filter_item(item.child(i), regex):
                 child_match = True
         
         visible = match or child_match
         item.setHidden(not visible)
         
         # Si on filtre (texte non vide) et qu'il y a un match chez les enfants, on déplie
-        if search_text and child_match:
+        if regex.pattern and child_match:
             item.setExpanded(True)
-        elif not search_text:
+        elif not regex.pattern:
             # Si recherche vidée, on ne touche pas forcément à l'expansion 
             # ou on peut décider de tout replier/laisser tel quel.
             # Ici on laisse tel quel pour ne pas perdre le focus de l'utilisateur.
