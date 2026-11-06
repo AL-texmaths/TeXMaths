@@ -1,9 +1,3 @@
-=============================================
-                    Github
-=============================================
-=============================================
-                    VSCode
-=============================================
 ===============================================================================
 					Python
 ===============================================================================
@@ -20,11 +14,6 @@ d'item dont le catalogue ne correspond pas)
 dépendance verticales entre les items ainsi qu'une manière de les
 visualiser
 >>> délégation des responsabilités du script assistant de progression
->>> Intercepter l'erreur FileNotFound pour l'export des questions flash
-lors du split main
->>> Vérifier le nom des fichiers de students list au début de compilation_suivi.py
----> revoir cette ligne : classes = sys.argv[1:][0].split(' ') pourquoi est elle
-nécéssaire ?
 ===============================================================================
 					Java / html
 ===============================================================================
@@ -45,12 +34,6 @@ permet le passage au niveau suivant
 progression sauvegardée devient le obsolète puisque le code de
 chaque item change ? Il faudrait que la progression sauvegardée
 soit indépendante du code (A1ab, B3ca, etc.) de chaque item
-
-Erreur lors du choix de la liste complète filtrée :
-    font-family: "{colors.font}", serif;
-                   ^^^^^^^^^^^
-  File "/home/antoine/Projects/TeXMaths/.venv/lib/python3.14/site-packages/pydantic/main.py", line 1042, in __getattr__
-    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
 ------------------------------
            genialy
 ------------------------------
