@@ -29,7 +29,8 @@
 \edef\sommetD{\expandafter\secondofthree\angleD}%
 \edef\leftsideD{\expandafter\firstofthree\angleD}%
 \edef\rightsideD{\expandafter\thirdofthree\angleD}%
-Pour chaque angle ci dessous, préciser son sommet et ses côtés.\vskip5pt\par\noindent
+Pour chaque angle ci dessous, nommer son sommet et ses
+côtés.\vskip5pt\par\noindent
 \begin{tikzpicture}[rotate=10]
     \AnglexOy[
         angle = 30,
@@ -41,7 +42,7 @@ Pour chaque angle ci dessous, préciser son sommet et ses côtés.\vskip5pt\par\
         left side name=\leftsideA,
         right side name=\rightsideA%
     ]
-    \tkzLabelAngle[pos=1.2](B,A,C){(1)}
+    % \tkzLabelAngle[pos=1.2](B,A,C){(1)}
 \end{tikzpicture}\hskip30pt
 \begin{tikzpicture}[rotate=-30]
     \AngleAOB[
@@ -53,7 +54,7 @@ Pour chaque angle ci dessous, préciser son sommet et ses côtés.\vskip5pt\par\
         right side len=1.5,
         left side len=2.7%
     ]
-    \tkzLabelAngle[pos=1.4](B,A,C){(2)}
+    % \tkzLabelAngle[pos=1.4](B,A,C){(2)}
 \end{tikzpicture}\vskip10pt
 \begin{tikzpicture}[rotate=55]
     \AnglexOy[
@@ -66,7 +67,7 @@ Pour chaque angle ci dessous, préciser son sommet et ses côtés.\vskip5pt\par\
         right side len=1.3,
         left side len=2.5%
     ]
-    \tkzLabelAngle[pos=1.3](B,A,C){(3)}
+    % \tkzLabelAngle[pos=1.3](B,A,C){(3)}
 \end{tikzpicture}\hskip30pt
 \begin{tikzpicture}[rotate=-30]
     \AngleAOB[
@@ -80,6 +81,6 @@ Pour chaque angle ci dessous, préciser son sommet et ses côtés.\vskip5pt\par\
         right side len=1.5,
         left side len=2.7%
     ]
-    \tkzLabelAngle[pos=1.4](B,A,C){(4)}
+    % \tkzLabelAngle[pos=1.4](B,A,C){(4)}
 \end{tikzpicture}
 \end{document}

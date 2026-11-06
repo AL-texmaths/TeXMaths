@@ -1,0 +1,28 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{texmaths-fonts}[2026/11/06 Font selection]
+
+\let\texmathsfontssetup\relax
+\DeclareOption{NewCenturySchoolbook}{\def\texmathsfontssetup{%
+    \RequirePackage[T1]{fontenc}%
+    \RequirePackage{pxfonts}%
+    \RequirePackage{newcent}%
+    \RequirePackage[symbolgreek,defaultmathsizes]{mathastext}%
+}}
+\DeclareOption{Comfortaa}{\def\texmathsfontssetup{%
+    \RequirePackage[default]{comfortaa}%
+    \RequirePackage[LGRgreek,defaultmathsizes,noasterisk]{mathastext}%
+    \let\varphi\phi
+    \linespread{1.06}%
+}}
+\DeclareOption{Verdana}{\def\texmathsfontssetup{%
+    \RequirePackage[no-math]{fontspec}%
+    \setmainfont[Mapping=tex-text]{Verdana}%
+    \RequirePackage[defaultmathsizes,italic]{mathastext}%
+}}
+\DeclareOption{ComicSansMS}{\def\texmathsfontssetup{%
+    \RequirePackage[no-math]{fontspec}%
+    \setmainfont[Ligatures=TeX]{Comic Sans MS}%
+    \RequirePackage[defaultmathsizes]{mathastext}%
+}}
+\ProcessOptions\relax
+\texmathsfontssetup

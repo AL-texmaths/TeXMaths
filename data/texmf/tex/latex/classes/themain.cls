@@ -23,35 +23,17 @@
         }
     }
 }
-\DeclareOption{NewCenturySchoolbook}{
-    \AtEndOfClass{
-        \usepackage[T1]{fontenc}
-        \usepackage{pxfonts}
-        \usepackage{newcent}
-        \usepackage[symbolgreek,defaultmathsizes]{mathastext}
-    }
+\DeclareOption{NewCenturySchoolbook}{%
+    \AtEndOfClass{\RequirePackage[NewCenturySchoolbook]{texmaths-fonts}}%
 }
-\DeclareOption{Comfortaa}{
-    \AtEndOfClass{
-        \usepackage[default]{comfortaa}
-        \usepackage[LGRgreek,defaultmathsizes,noasterisk]{mathastext}
-        \let\varphi\phi
-        \linespread{1.06}
-    }
+\DeclareOption{Comfortaa}{%
+    \AtEndOfClass{\RequirePackage[Comfortaa]{texmaths-fonts}}%
 }
-\DeclareOption{Verdana}{
-    \AtEndOfClass{
-        \usepackage[no-math]{fontspec}
-        \setmainfont[Mapping=tex-text]{Verdana}
-        \usepackage[defaultmathsizes,italic]{mathastext}
-    }
+\DeclareOption{Verdana}{%
+    \AtEndOfClass{\RequirePackage[Verdana]{texmaths-fonts}}%
 }
-\DeclareOption{ComicSansMS}{
-    \AtEndOfClass{
-        \usepackage[no-math]{fontspec}
-        \setmainfont[Ligatures=TeX]{Comic Sans MS}
-        \usepackage[defaultmathsizes]{mathastext}
-    }
+\DeclareOption{ComicSansMS}{%
+    \AtEndOfClass{\RequirePackage[ComicSansMS]{texmaths-fonts}}%
 }
 \let\main@tableofcontents\relax
 \DeclareOption{toc}{%
