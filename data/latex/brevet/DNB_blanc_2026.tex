@@ -69,8 +69,9 @@
             11~\degres C, 8~\degres C, 5~\degres C et 6~\degres C.
             \par\noindent Déterminer la moyenne de ces six températures.
             \answerspace\answerspacelg
-            \part Classer par ordre croissant les nombres suivants~:
-            $$1,25\qquad1+\dfrac{3}{100}\qquad 1,3\qquad\dfrac74$$
+            \part Classer par ordre croissant les nombres suivants~:%
+            \def\sep{\quad;\quad}
+            $$1,25\sep1+\dfrac{3}{100}\sep 1,3\sep\dfrac74$$
             \answerspace\answerspacelg
             \part Déterminer la solution de l'équation : $3x-2=25$
             \answerspace\answerspacelg
@@ -184,7 +185,7 @@
 	\part Montrer que la longueur du segment [OA] est égale à 8 cm.
 	\part Justifier que les droites (BC) et (AD) sont parallèles.
 	\part Calculer la longueur du segment [OB].
-    \part Une entreprise souhaite fabriquer des gobelets. Un gobelet a la forme d'un tronc de cône (cône coupé par un plan parallèle à sa base).
+    \part Une entreprise souhaite fabriquer des gobelets. Un gobelet (grisé sur le schéma ci-dessous) a la forme d'un tronc de cône (cône coupé par un plan parallèle à sa base).
 
 	\medskip
 
@@ -206,6 +207,13 @@
 
 		\begin{pspicture}(-2.6,-0.3)(2.6,5)
 			%\psgrid
+			\pscustom[linestyle=none,fillstyle=solid,fillcolor=lightgray!60]{%
+				\psline(-2.3,4.8)(-1.15,2.3)
+				\psellipticarc(0,2.3)(1.15,0.2){180}{360}
+				\psline(2.3,4.8)
+				\psellipticarcn(0,4.8)(2.3,0.3){0}{180}
+				\closepath}
+			\psellipse[linestyle=none,fillstyle=solid,fillcolor=lightgray!60](0,4.8)(2.3,0.3)
 			\psellipse(0,4.8)(2.3,0.3)
 			\psline[linestyle=dashed](-2.34,4.8)(2.34,4.8)
 			\psellipticarc(0,2.3)(1.15,0.2){180}{360}
@@ -218,7 +226,7 @@
 			\psframe(0,4.8)(0.25,4.55)\psframe(0,2.3)(0.25,2.55)
 			\psline[linestyle=dashed](-1.15,2.3)(0,0)(1.15,2.3)
 			\uput[d](0,0){O} \uput[ul](0,2.3){A} \uput[ul](0,4.8){B} \uput[r](2.3,4.8){C} \uput[r](1.15,2.3){D}
-			\rput(0,3.6){Le gobelet}
+            \rput(0,3.6){Le gobelet}
 		\end{pspicture}
 	\end{minipage}
 
@@ -279,6 +287,9 @@
             \draw (C1) node[above right] {\mathspoint{D}};
             \draw (B1) node[above] {\mathspoint{E}};
             \draw (A2) node[above left] {\mathspoint{F}};
+            \draw (B5) node[below right] {\mathspoint{G}};
+            \draw (B2) node[above left] {\mathspoint{H}};
+            \draw (A3) node[left] {\mathspoint{K}};
             \path(A)--(A0)node[midway,below]{5 cm};
         \end{tikzpicture}
     \end{center}
