@@ -8,6 +8,8 @@
     "settings": {
         "chat.agentFilesLocations": {
             ".github/agents": true
-        }
+        },
+        "github.copilot.chat.localIndex.enabled": true,
+        "chat.sessionSync.enabled": true
     }
 }

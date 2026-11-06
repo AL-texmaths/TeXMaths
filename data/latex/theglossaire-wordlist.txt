@@ -29,7 +29,6 @@ Factoriser une somme
 Mesurer
 Nommer un objet géométrique
 Convertir
-Comparer
 Justifier
 Ordonner
 Noter

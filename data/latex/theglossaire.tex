@@ -3,7 +3,7 @@
 \usepackage{texmaths-path}
 \usepackage{texmaths-symbols}
 \usepackage{texmaths-pytools}
-\usepackage[Verdana]{texmaths-fonts}
+\usepackage[ComicSansMS]{texmaths-fonts}
 % permet l'utilisation de variable de type dict
 \def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
 \def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
@@ -21,7 +21,7 @@
 \newwrite\wordlisttxt
 \immediate\openout\wordlisttxt=\jobname-wordlist.txt
 \immediate\write\wordlisttxt{[}
-\def\newword#1#2#3#4#5{% définition d'un verbe coder par #1
+\long\def\newword#1#2#3#4#5{% définition d'un verbe coder par #1
     \immediate\write\wordlisttxt{#2}
     \defunivar\worddef[#1]{#2}
     \defunivar\worddefE[#1]{#3}
@@ -30,6 +30,7 @@
     \addtomacro\listwordnum{,\the\wordcount}
     \defunivar\words[\the\wordcount]{#1}\advance\wordcount1\relax
 }
+\def\warning{\raisebox{-4pt}{\svg[scale=0.1]{texmaths-warning-1}}\ }
 %---------------------------------------------
 % DEFINITIONS DES VERBES
 %---------------------------------------------
@@ -38,8 +39,8 @@ Si la figure est une figure à main levée, voir {\bfseries Tracer (à main
 levée)}, sinon voir {\bfseries Construire}.
 }{}{}
 \newword{TracerMainLevee}{Tracer (à main levée)}{%
-Tracer en utilisant uniquement le crayon, sans tenir compte des vraies grandeurs.
-Penser à bien coder la figure.
+Tracer en utilisant uniquement le crayon, sans tenir compte des vraies
+grandeurs. \par\warning Penser à bien coder la figure.
 }{Sans les outils et avec le codage.}{}
 \newword{Construire}{Construire}{%
 Tracer avec les outils de géométrie en respectant les vraies grandeurs.
@@ -111,19 +112,19 @@ Trouver la valeur exacte d'une grandeur ou d'une expression.
 Supprimer le symbole $\times$ devant une lettre ou devant des parenthèses.
 }{}{}
 \newword{simplfier_frac}{Simplifier une fraction}{%
-Écrire la fraction sous sa forme irréductible.
+Écrire la fraction avec un dénominateur inférieur.
 }{}{}
 \newword{ajouter}{Ajouter}{%
-Effectuer une addition.
+Effectuer une addition ($+$).
 }{}{}
 \newword{soustraire}{Soustraire}{%
-Effectuer une soustraction.
+Effectuer une soustraction ($-$).
 }{}{}
 \newword{multiplier}{Multiplier}{%
-Effectuer une multiplication.
+Effectuer une multiplication ($\times$).
 }{}{}
 \newword{diviser}{Diviser}{%
-Effectuer une division.
+Effectuer une division ($\div$).
 }{}{}
 \newword{developper}{Développer un produit}{%
 Transformer le produit en somme (l'inverse de factoriser).
@@ -133,8 +134,7 @@ Transformer la somme en produit (l'inverse de développer).
 }{}{}
 \newword{mesurer}{Mesurer}{%
 Utiliser les outils de géométrie pour déterminer la valeur
-d'une grandeur (longueur, angle, ...).
-PICTOGRAMME ATTENTION : C'est une valeur approchée.
+d'une grandeur (longueur, angle, ...).\par\warning C'est une valeur approchée.
 }{}{}
 \newword{nommer}{Nommer un objet géométrique}{%
 Écrire le nom de l'objet (exemple: \mathspoint{A},
@@ -143,12 +143,8 @@ PICTOGRAMME ATTENTION : C'est une valeur approchée.
 \newword{convertir}{Convertir}{%
 Changer d'unité (cm en m, mL en L, ...).
 }{}{}
-\newword{comparer}{Comparer}{%
-Comparer deux nombres en utilisant les symboles $<$,
-$>$ ou $=$.
-}{}{}
 \newword{justifier}{Justifier}{%
-Donner une raison pour expliquer la réponse.
+Donner une raison qui explique la réponse.
 }{}{}
 \newword{ordonner}{Ordonner}{%
 Mettre les nombres dans l'ordre croissant
