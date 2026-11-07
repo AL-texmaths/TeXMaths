@@ -43,6 +43,8 @@ Le `glossaire des verbes` doit permettre à l'élève de commencer à répondre 
 Il propose une définition simple de la consigne. Des obstacles peuvent survenir :
 - l'élève ne comprends pas un terme mathématique dans la définition
 - la définition semble trop abstraite
+- l'élève fait face à une procédure de calcul non maîtrisée
+- l'élève fait face à une méthode de construction géométrique non maîtrisée
 
 #### Incompréhension d'un terme mathématiques
 On peut par exemple marquer les termes mathématiques qui sont définis dans un document annexe au glossaire (cahier de leçon et dictionnaire mathématique).
@@ -82,3 +84,4 @@ Par conséquent, l'élève doit pouvoir retrouver la procédure via un `exemple`
 - certaines procédure pointeront simplement vers une partie de la leçon. Celles qui seront écrites dans la leçon sont laissées vides et le moment venu, l'énoncé correspondant sera écrit. Celles qui sont considérées comme des pré-requis seront déjà complétées puis surlignées au fur et à mesure.
 ### Fiche résumé des notations mathématiques
 Document annexe d'une page résumant les notations.
+### Fiche résumé des construction géométriques
