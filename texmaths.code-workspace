@@ -11,8 +11,8 @@
         },
         "github.copilot.chat.localIndex.enabled": true,
         "chat.sessionSync.enabled": true,
-        "markdown.preview.fontFamily": "Serge UI, Segoe UI Variable, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif",
-        "markdown.preview.fontSize": 16,
+        "markdown.preview.fontFamily": "Segoe UI, Segoe UI Variable, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', Arial, sans-serif",
+        "markdown.preview.fontSize": 24,
         "markdown.preview.lineHeight": 1.6,
         "markdown-pdf.styles": [
             "data/styles/markdown-pdf-clair.css"
