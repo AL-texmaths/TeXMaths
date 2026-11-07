@@ -33,4 +33,27 @@ Justifier
 Ordonner
 Noter
 Intercaler
+Montrer
+Donner
+Trouver
+Expliquer
+Indiquer
+Associer
+Représenter (des données)
+Représenter (graphiquement une fonction)
+Représenter (un objet géométrique)
+Décomposer (un nombre)
+Préciser
+Prouver
+Arrondir (un nombre)
+Évaluer
+Interpréter
+Détailler
+Appliquer (un programme de calcul)
+Argumenter
+Tester (une égalité)
+Remplir
+Décrire une figure
+Classer
+Encadrer
 ]

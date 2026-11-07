@@ -1,5 +1,12 @@
 import os
 import sys
+import unicodedata
+
+
+def sort_key(word):
+    normalized = unicodedata.normalize('NFD', word.casefold())
+    return ''.join(char for char in normalized if not unicodedata.category(char).startswith('M'))
+
 
 WORDLIST_PATH = sys.argv[1]
 
@@ -17,7 +24,7 @@ if len(lines) < 2 or lines[0].strip() != '[' or lines[-1].strip() != ']':
     raise ValueError(f"Invalid word list format in {WORDLIST_PATH}")
 
 words = [word.strip() for word in lines[1:-1]]
-sorted_indices = sorted(range(len(words)), key=lambda index: words[index])
+sorted_indices = sorted(range(len(words)), key=lambda index: sort_key(words[index]))
 
 with open(SORTEDINDEX_PATH, 'w', encoding='utf-8') as sorted_index_file:
     sorted_index_file.write(','.join(map(str, sorted_indices)) + '%')
