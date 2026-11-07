@@ -1,0 +1,253 @@
+
+/* =========================================================
+   MARKDOWN PDF — THÈME SOMBRE
+   Lecture numérique — fond sombre
+   ========================================================= */
+
+@page {
+    size: A4;
+    margin: 20mm 18mm;
+    background: #171B22;
+}
+html, body {
+    background: #171B22 !important;
+    color: #E1E6ED !important;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.6;
+}
+
+body {
+    max-width: 100%;
+}
+
+/* Titres */
+
+h1, h2, h3, h4, h5, h6 {
+    color: #8DB9E8 !important;
+    font-weight: 600;
+    line-height: 1.3;
+    page-break-after: avoid;
+}
+
+h1 {
+    font-size: 22pt;
+    border-bottom: 2px solid #46566B;
+    padding-bottom: 8pt;
+    margin-bottom: 20pt;
+}
+
+h2 {
+    font-size: 16pt;
+    border-bottom: 1px solid #394554;
+    padding-bottom: 5pt;
+    margin-top: 24pt;
+}
+
+h3 {
+    font-size: 13pt;
+    margin-top: 18pt;
+}
+
+h4 {
+    font-size: 11pt;
+    margin-top: 14pt;
+}
+
+/* Texte */
+
+p {
+    margin: 0 0 10pt;
+    text-align: justify;
+    orphans: 3;
+    widows: 3;
+}
+
+strong, b {
+    color: #FFFFFF !important;
+    font-weight: 700;
+}
+
+em, i {
+    color: #C4D1DF !important;
+}
+
+a {
+    color: #82B9F2 !important;
+    text-decoration: underline;
+    overflow-wrap: anywhere;
+}
+
+/* Listes */
+
+ul, ol {
+    margin: 5pt 0 10pt;
+    padding-left: 22pt;
+}
+
+li {
+    margin-bottom: 4pt;
+}
+
+/* Code inline : `comme ceci` */
+
+p code,
+li code,
+td code,
+th code,
+blockquote code,
+h1 code,
+h2 code,
+h3 code,
+h4 code {
+    color: #FFD58A !important;
+    background-color: #303946 !important;
+    font-family: Consolas, "Courier New", monospace !important;
+    font-size: 0.92em;
+    font-weight: 600;
+    padding: 2px 5px;
+    border: 1px solid #4B596A;
+    border-radius: 3px;
+    text-shadow: none !important;
+}
+
+/* Neutralisation des couleurs héritées */
+
+p code *,
+li code *,
+td code *,
+th code *,
+blockquote code * {
+    color: #FFD58A !important;
+    background: transparent !important;
+    text-shadow: none !important;
+}
+
+/* Blocs de code */
+
+pre {
+    background: #222A35 !important;
+    color: #E1E6ED !important;
+    border: 1px solid #465365;
+    border-left: 3px solid #6D9AC8;
+    border-radius: 4px;
+    padding: 12pt;
+    margin: 12pt 0 16pt;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    page-break-inside: avoid;
+}
+
+pre code {
+    display: block;
+    background: transparent !important;
+    color: #E1E6ED !important;
+    border: none !important;
+    padding: 0 !important;
+    font-family: Consolas, "Courier New", monospace !important;
+    font-size: 9pt;
+    font-weight: 400;
+    text-shadow: none !important;
+}
+
+pre .hljs,
+pre .hljs *,
+pre code span {
+    background: transparent !important;
+    text-shadow: none !important;
+}
+
+/* Citations */
+
+blockquote {
+    margin: 12pt 0;
+    padding: 8pt 12pt;
+    border-left: 3px solid #7197BE;
+    background: #222A35 !important;
+    color: #C8D2DE !important;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Tableaux */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0 16pt;
+    font-size: 9.5pt;
+    page-break-inside: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tr {
+    page-break-inside: avoid;
+}
+
+th, td {
+    border: 1px solid #465365;
+    padding: 6pt 8pt;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #303B49 !important;
+    color: #FFFFFF !important;
+    font-weight: 700;
+}
+
+td {
+    background: #202731 !important;
+    color: #E1E6ED !important;
+}
+
+tr:nth-child(even) td {
+    background: #252F3B !important;
+}
+
+/* Images */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 12pt auto;
+    page-break-inside: avoid;
+}
+
+/* Séparateurs */
+
+hr {
+    border: none;
+    border-top: 1px solid #465365;
+    margin: 18pt 0;
+}
+
+/* Ruptures de page */
+
+h1, h2, h3, h4, h5, h6,
+table, pre, blockquote, img {
+    page-break-inside: avoid;
+}
+
+/* Fond conservé lors du rendu PDF */
+
+@media print {
+    html, body {
+        background: #171B22 !important;
+        color: #E1E6ED !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

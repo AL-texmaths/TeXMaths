@@ -15,8 +15,12 @@
         "markdown.preview.fontSize": 16,
         "markdown.preview.lineHeight": 1.6,
         "markdown-pdf.styles": [
-            "data/styles/markdown-pdf.css"
+            "data/styles/markdown-pdf-clair.css"
         ],
-        "markdown-pdf.stylesRelativePathFile": false
+        "markdown-pdf.stylesRelativePathFile": false,
+        "markdown-pdf.printBackground": true,
+        "markdown-pdf.displayHeaderFooter": true,
+        "markdown-pdf.headerTemplate": "<div style='width:100%; margin:0 18mm; color:#AFCBE8; font-family:Segoe UI,Arial,sans-serif; font-size:10pt; font-weight:600; text-align:left;'><span class='title'></span></div>",
+        "markdown-pdf.footerTemplate": "<div style='width:100%; margin:0 18mm; color:#AFCBE8; font-family:Segoe UI,Arial,sans-serif; font-size:10pt; text-align:center;'><span class='pageNumber'></span> / <span class='totalPages'></span></div>"
     }
 }

@@ -74,4 +74,11 @@ Ce document consiste donc en un dictionnaire. Chaque termes sera :
 - exemplifié rapidement
 
 ### Fiche résumé des procédures de calcul
+L'élève peut se retrouver démuni face à une procédure de calcul. On identifie un premier obstacle :
+> L'élève est incapable de mettre des mots sur la procédure de calcul déficiente.
+
+Par conséquent, l'élève doit pouvoir retrouver la procédure via un `exemple`. La fiche de procédure doit être structurée ainsi :
+- les titres sont des exemples de procédures : $(-4)+(-7)$, $\dfrac34+\dfrac13$, ...
+- certaines procédure pointeront simplement vers une partie de la leçon. Celles qui seront écrites dans la leçon sont laissées vides et le moment venu, l'énoncé correspondant sera écrit. Celles qui sont considérées comme des pré-requis seront déjà complétées puis surlignées au fur et à mesure.
 ### Fiche résumé des notations mathématiques
+Document annexe d'une page résumant les notations.
