@@ -169,8 +169,8 @@
             },
             "splitter": {
                 "size": [
-                    411,
-                    721,
+                    410,
+                    720,
                     305
                 ]
             },
@@ -396,7 +396,7 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Cycle 4 BO 2026",
+            "catalogue": "Cycle 3 BO 2026",
             "type": "Objectifs d'apprentissage",
             "current_file_path": "/home/antoine/Projects/TeXMaths/data/progressions/progression-6eme.json",
             "code_index_file_name": "code_index.json",

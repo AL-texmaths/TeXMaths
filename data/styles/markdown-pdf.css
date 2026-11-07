@@ -1,155 +1,280 @@
-/* ==========================================
-   THEME PROFESSIONNEL MARKDOWN PDF
-   ========================================== */
 
-/* Format de page */
+/* =========================================================
+   MARKDOWN PDF — STYLE SOBRE ET LISIBLE
+   Impression A4 — faible consommation d'encre
+   ========================================================= */
+
+/* ---------- Page ---------- */
+
 @page {
     size: A4;
-    margin: 22mm 20mm 22mm 20mm;
+    margin: 20mm 18mm 20mm 18mm;
 }
 
-/* Corps du document */
 body {
-    font-family: "Arial", sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
     font-size: 10.5pt;
-    line-height: 1.65;
-    color: #333333;
+    line-height: 1.55;
+    color: #252525;
+    background: #ffffff;
+    max-width: 100%;
 }
 
-/* Titres */
+/* ---------- Titres ---------- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #24364B;
+    font-weight: 600;
+    line-height: 1.25;
+    page-break-after: avoid;
+}
+
 h1 {
-    color: #17365D;
-    font-size: 26pt;
-    border-bottom: 3px solid #2878B5;
-    padding-bottom: 10px;
-    margin-top: 30px;
-    margin-bottom: 25px;
+    font-size: 22pt;
+    margin: 0 0 20pt;
+    padding-bottom: 8pt;
+    border-bottom: 2px solid #AAB7C4;
 }
 
 h2 {
-    color: #245580;
-    font-size: 19pt;
-    border-bottom: 1px solid #D5E2EF;
-    padding-bottom: 6px;
-    margin-top: 28px;
+    font-size: 16pt;
+    margin: 24pt 0 10pt;
+    padding-bottom: 4pt;
+    border-bottom: 1px solid #D5DCE2;
 }
 
 h3 {
-    color: #2878B5;
-    font-size: 14pt;
-    margin-top: 22px;
+    font-size: 13pt;
+    margin: 18pt 0 8pt;
 }
 
-h4, h5, h6 {
-    color: #40566F;
+h4 {
+    font-size: 11pt;
+    margin: 14pt 0 6pt;
 }
 
-/* Paragraphes */
+/* ---------- Texte ---------- */
+
 p {
+    margin: 0 0 9pt;
     text-align: justify;
-    margin-bottom: 12px;
+    orphans: 3;
+    widows: 3;
 }
 
-/* Liens */
+strong, b {
+    color: #202B36;
+    font-weight: 700;
+}
+
+em, i {
+    color: #3D4650;
+}
+
 a {
-    color: #2878B5;
-    text-decoration: none;
-}
-
-/* Tableaux */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    font-size: 9.5pt;
-}
-
-th {
-    background-color: #17365D;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    text-align: left;
-}
-
-td {
-    border: 1px solid #D5DDE5;
-    padding: 9px;
-}
-
-tr:nth-child(even) {
-    background-color: #F1F5F9;
-}
-
-/* Citations */
-blockquote {
-    border-left: 4px solid #2878B5;
-    background: #F1F5F9;
-    padding: 12px 18px;
-    margin: 18px 0;
-    color: #40566F;
-}
-
-/* Blocs de code */
-pre {
-    background: #F3F5F7;
-    border: 1px solid #DDE3EA;
-    border-radius: 5px;
-    padding: 12px;
-    font-size: 9pt;
+    color: #315C7D;
+    text-decoration: underline;
     overflow-wrap: anywhere;
 }
 
-code {
-    background: #EEF2F6;
-    padding: 2px 4px;
-    border-radius: 3px;
-    font-family: Consolas, monospace;
+/* ---------- Listes ---------- */
+
+ul, ol {
+    margin: 5pt 0 10pt;
+    padding-left: 22pt;
 }
 
-/* Images */
+li {
+    margin-bottom: 4pt;
+    padding-left: 2pt;
+}
+
+li > p {
+    margin-bottom: 4pt;
+}
+
+/* ---------- Code INLINE : `comme ceci` ---------- */
+
+/* Sélecteurs volontairement précis pour neutraliser
+   les couleurs jaunes éventuellement héritées. */
+
+p code,
+li code,
+td code,
+th code,
+blockquote code,
+h1 code,
+h2 code,
+h3 code,
+h4 code {
+    color: #202020 !important;
+    background-color: #E9ECEF !important;
+    font-family: Consolas, "Courier New", monospace !important;
+    font-size: 0.92em;
+    font-weight: 600;
+    padding: 2px 5px;
+    border: 1px solid #D2D8DE;
+    border-radius: 3px;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* Neutralisation des éventuelles classes de coloration */
+
+p code *,
+li code *,
+td code *,
+th code *,
+blockquote code * {
+    color: #202020 !important;
+    background-color: transparent !important;
+    text-shadow: none !important;
+}
+
+/* ---------- Blocs de code ---------- */
+
+pre {
+    background: #F3F4F5 !important;
+    color: #252525 !important;
+    border: 1px solid #D5DADF;
+    border-left: 3px solid #8293A3;
+    border-radius: 3px;
+    padding: 10pt 12pt;
+    margin: 10pt 0 14pt;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    page-break-inside: avoid;
+}
+
+pre code {
+    display: block;
+    background: transparent !important;
+    color: #252525 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    font-family: Consolas, "Courier New", monospace !important;
+    font-size: 9pt;
+    font-weight: 400;
+    text-shadow: none !important;
+}
+
+/* Désactivation des couleurs de coloration syntaxique
+   dans les blocs de code également. */
+
+pre .hljs,
+pre .hljs *,
+pre code span {
+    color: #252525 !important;
+    background-color: transparent !important;
+    text-shadow: none !important;
+}
+
+/* ---------- Citations ---------- */
+
+blockquote {
+    margin: 12pt 0;
+    padding: 7pt 12pt;
+    border-left: 3px solid #9AAAB8;
+    background: #F7F8F9;
+    color: #414A53;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* ---------- Tableaux ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12pt 0 16pt;
+    font-size: 9.5pt;
+    page-break-inside: auto;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tr {
+    page-break-inside: avoid;
+}
+
+th, td {
+    border: 1px solid #C8D0D8;
+    padding: 6pt 8pt;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #E9EDF1;
+    color: #263747;
+    font-weight: 700;
+}
+
+tr:nth-child(even) td {
+    background: #F8F9FA;
+}
+
+/* ---------- Images ---------- */
+
 img {
     max-width: 100%;
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 12pt auto;
+    page-break-inside: avoid;
 }
 
-/* Séparateurs */
+/* ---------- Séparateurs ---------- */
+
 hr {
     border: none;
-    border-top: 1px solid #D5DDE5;
-    margin: 25px 0;
+    border-top: 1px solid #C8D0D8;
+    margin: 18pt 0;
 }
 
-/* Listes */
-li {
-    margin-bottom: 5px;
+/* ---------- Éléments de formulaire ---------- */
+
+input, textarea, select {
+    font-family: inherit;
 }
 
-/* Encadrés personnalisés */
-.note {
-    background: #EAF3FB;
-    border-left: 5px solid #2878B5;
-    padding: 12px 16px;
-    margin: 15px 0;
-}
+/* ---------- Pieds et ruptures de page ---------- */
 
-.warning {
-    background: #FFF4E5;
-    border-left: 5px solid #E69A26;
-    padding: 12px 16px;
-    margin: 15px 0;
-}
-
-.success {
-    background: #EAF6EE;
-    border-left: 5px solid #38945A;
-    padding: 12px 16px;
-    margin: 15px 0;
-}
-
-/* Eviter de couper certains éléments */
-tr, img, blockquote, pre {
+h1, h2, h3, h4, h5, h6 {
     page-break-inside: avoid;
+}
+
+table, pre, blockquote, img {
+    page-break-inside: avoid;
+}
+
+/* ---------- Impression ---------- */
+
+@media print {
+    body {
+        color: #252525;
+        background: #ffffff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    a {
+        color: #315C7D;
+        text-decoration: underline;
+    }
+
+    p code,
+    li code,
+    td code,
+    th code,
+    blockquote code {
+        color: #202020 !important;
+        background: #E9ECEF !important;
+    }
 }

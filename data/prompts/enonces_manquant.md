@@ -130,8 +130,8 @@ Légende :
 
 ### Transversal (tous niveaux)
 
-- Règle **I (b)** : notations $(AB)$, $[AB]$, $[AB)$, $AB$, $\widehat{ABC}$ (seule la notation d'angle existe).
-- Règle **I (a)** : codage des figures (angle droit, égalité de longueurs et d'angles). Source : 6e « Connaître le lexique et le codage… » (automatisme, donc (b)).
+- ✅ Règle **I (b)** : notations $(AB)$, $[AB]$, $[AB)$, $AB$, $\widehat{ABC}$ (seule la notation d'angle existe).
+- ✅ Règle **I (a)** : codage des figures (angle droit, égalité de longueurs et d'angles). Source : 6e « Connaître le lexique et le codage… » (automatisme, donc (b)).
 - Déf **S (b)** : segment, droite, demi-droite.
 - Règle **S (b)** : notations $\perp$ et $\parallel$.
 - Méth **I (b)** : rédiger une démonstration (hypothèses, propriété, conclusion).
