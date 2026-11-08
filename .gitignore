@@ -20,6 +20,7 @@ data/latex/catalogues/enonces.tex
 data/latex/flash/previews
 data/latex/exemples
 data/latex/glossaire-generated.tex
+data/latex/sequencages/sequencage-*-structure.tex
 
 data/graphics/pdf
 data/tmp
