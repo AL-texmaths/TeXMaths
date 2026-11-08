@@ -1,6 +1,5 @@
 # progression_service.py
 import re
-import textwrap
 from PySide6.QtGui import QBrush, QColor
 from PySide6.QtWidgets import QTreeWidgetItem
 from PySide6.QtCore import Qt
@@ -360,7 +359,7 @@ class ProgressionService:
                 entry = self.catalogue_service.get_entry_by_id(entry_id)
                 if entry is not None:
                     if self._detailed_mode:
-                        item.setText(0, textwrap.fill(entry.text, width=60))
+                        item.setText(0, entry.text)
                     else:
                         item.setText(0, entry.code)
             for i in range(item.childCount()):

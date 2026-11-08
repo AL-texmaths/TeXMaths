@@ -1,7 +1,7 @@
 import re
 
-from PySide6.QtGui import QShortcut, QKeySequence
-from PySide6.QtCore import Qt, QTimer, QSize
+from PySide6.QtGui import QShortcut, QKeySequence, QFontMetrics
+from PySide6.QtCore import Qt, QTimer, QSize, QRect
 from PySide6.QtWidgets import (
     QMessageBox,
     QPushButton,
@@ -11,7 +11,7 @@ from PySide6.QtWidgets import (
     QVBoxLayout,
     QWidget,
     QLineEdit
-    )
+)
 
 from assistant.gui.widgets.regex_help import install_regex_help
 
@@ -28,10 +28,25 @@ class _MultilineDelegate(QStyledItemDelegate):
     def sizeHint(self, option, index):
         size = super().sizeHint(option, index)
         text = index.data(Qt.DisplayRole) or ""
-        n = text.count("\n")
-        if n > 0:
-            return QSize(size.width(), size.height() * (n + 1))
-        return size
+        depth = 0
+        parent = index.parent()
+        while parent.isValid():
+            depth += 1
+            parent = parent.parent()
+
+        text_width = max(
+            1,
+            min(
+                self.tree.columnWidth(index.column()),
+                self.tree.viewport().width()
+            ) - self.tree.indentation() * (depth + 1) - 8
+        )
+        text_rect = QFontMetrics(option.font).boundingRect(
+            QRect(0, 0, text_width, 0),
+            Qt.TextFlag.TextWordWrap,
+            text
+        )
+        return QSize(size.width(), max(size.height(), text_rect.height() + 8))
 
     def setEditorData(self, editor, index):
         super().setEditorData(editor, index)
@@ -41,6 +56,20 @@ class _MultilineDelegate(QStyledItemDelegate):
         if item is not None and item.data(0, Qt.UserRole) is None:
             editor.setText(self.raw_text(item))
         editor.selectAll()
+
+
+class _ProgressionTreeWidget(QTreeWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self._layout_timer = QTimer(self)
+        self._layout_timer.setSingleShot(True)
+        self._layout_timer.setInterval(50)
+        self._layout_timer.timeout.connect(self.doItemsLayout)
+
+    def resizeEvent(self, event):
+        super().resizeEvent(event)
+        if event.size().width() != event.oldSize().width():
+            self._layout_timer.start()
 
 
 class ProgressionPanel(QWidget):
@@ -122,9 +151,10 @@ class ProgressionPanel(QWidget):
         self.search_bar.setPlaceholderText("Chercher dans la progression (regex)...")
         install_regex_help(self.search_bar, count_provider=self._count_matches)
         
-        self.progression_tree = QTreeWidget()
+        self.progression_tree = _ProgressionTreeWidget()
         self.progression_tree.setHeaderLabel("Progression annuelle")
         self.progression_tree.setUniformRowHeights(False)
+        self.progression_tree.setWordWrap(True)
         self.progression_tree.setItemDelegate(_MultilineDelegate(
             self.progression_tree,
             self.progression_service._get_raw_text
