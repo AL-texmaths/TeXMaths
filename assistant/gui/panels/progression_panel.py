@@ -53,7 +53,7 @@ class _MultilineDelegate(QStyledItemDelegate):
         if not isinstance(editor, QLineEdit):
             return
         item = self.tree.itemFromIndex(index)
-        if item is not None and item.data(0, Qt.UserRole) is None:
+        if item is not None and item.data(0, Qt.UserRole) in (None, "seance"):
             editor.setText(self.raw_text(item))
         editor.selectAll()
 
@@ -182,7 +182,7 @@ class ProgressionPanel(QWidget):
         )
 
     def _on_item_changed(self, item, column):
-        # Après un renommage, réappliquer numéros de chapitres et compteurs
+        # Après un renommage, réappliquer les numéros et compteurs.
         tree = self.progression_tree
         tree.blockSignals(True)
         try:

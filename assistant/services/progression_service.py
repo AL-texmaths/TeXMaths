@@ -294,7 +294,7 @@ class ProgressionService:
             item.setText(0, f"{base} ({count})")
 
     def update_seance_displays(self, tree):
-        """Met à jour le nombre de séances affiché pour chaque branche « Séances »."""
+        """Met à jour le compteur et la numérotation de chaque branche « Séances »."""
         def update_item(item):
             if (
                 item.data(0, Qt.UserRole) is None
@@ -302,6 +302,14 @@ class ProgressionService:
             ):
                 base = self._strip_level_count(item.text(0))
                 item.setText(0, f"{base} ({item.childCount()})")
+                number = 0
+                for i in range(item.childCount()):
+                    seance = item.child(i)
+                    if seance.data(0, Qt.UserRole) != "seance":
+                        continue
+                    number += 1
+                    text = self.strip_chapter_number(seance.text(0))
+                    seance.setText(0, f"{number}. {text}")
 
             for i in range(item.childCount()):
                 update_item(item.child(i))
@@ -337,12 +345,12 @@ class ProgressionService:
     def _get_raw_text(self, item) -> str:
         """Retourne le texte brut d'un item (code pour les items catalogue, texte sans compteur/numéro sinon)."""
         entry_id = item.data(0, Qt.UserRole)
-        if entry_id:
+        if entry_id and entry_id not in ("seance", "prerequis"):
             entry = self.catalogue_service.get_entry_by_id(entry_id)
             if entry is not None:
                 return entry.code
         text = self._strip_level_count(item.text(0))
-        if self._is_chapter_item(item):
+        if self._is_chapter_item(item) or entry_id == "seance":
             text = self.strip_chapter_number(text)
         return text
 
