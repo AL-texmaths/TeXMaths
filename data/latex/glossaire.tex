@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[a5paper,hmargin=1cm,vmargin=1.5cm]{geometry}
+\usepackage{texmaths-symbols}
+\usepackage{texmaths-picto}
+\usepackage[ComicSansMS]{texmaths-fonts}
+
+\long\def\writeword#1#2{%
+    \noindent{\bfseries#1 :}\smallskip\par\noindent\begingroup
+    \leftskip=20pt\rightskip=0pt plus 1fil\relax #2\par\endgroup
+    \bigbreak
+    }
+
+\begin{document}
+    Ce glossaire a pour but de dresser la liste des verbes utilisés dans les consignes
+    des exercices mathématiques. L'élève qui se sentira démuni face à une consigne
+    devra avoir comme premier réflexe de rechercher dans ce glossaire, le verbe de
+    la consigne qui lui pose problème. Il y trouvera la définition.
+    Afin d'ancrer ce glossaire dans la réalité de la classe, chaque verbe est
+    accompagné d'une définition~:
+    \begin{itemize}
+        \item \guillemets{élève écrite} : celle que l'élève lira dans son glossaire~;
+        \item \guillemets{orale élève} : celle reformulée à l'oral par l'enseignant si l'élève ne
+        comprend pas la définition \guillemets{écrite élève}.
+        \item  \guillemets{rigoureuse}: réservée à l'adulte (pas toujours nécessaire)~;
+    \end{itemize}
+
+    Le caractère absolu de ces définitions contredit la diversité des apprenants et
+    des enseignants.
+
+    Par conséquent, il n'est pas exclu de proposer, pour chacunes des trois catégories
+    de définition, plusieurs définitions possibles. Cela permettra de s'adapter aux
+    élèves/enseignants concernés.
+
+    Les verbes seront classés par ordre alphabétique et il sera possible d'indiquer
+    que la définition d'un verbe a été vue en classe entière (surlignage, soulignage,~...).
+    L'élève n'aura qu'à chercher dans les verbes mis ainsi en valeur et non dans tout
+    le glossaire, ce qui facilitera la recherche. On peut noter que l'élève s'exerce
+    par la même occasion à effectuer une recherche par ordre alphabétique.
+
+    Ce glossaire doit-il se restreindre aux seuls verbes ? Je pense qu'il pourrait
+    s'étendre aux définitions \guillemets{implicites}, c'est à dire qui ne sont
+    pas excplicitement écrites dans le cahier de leçon~? (par exemple, définition
+    d'un outil géométrique).
+
+    On peut penser à éventuellement laisser une partie ou (l'entièreté selon les élèves)
+    de ce document (le document élève) en évaluations pour les aider.
+    
+    \newpage
+    \begin{center}\LARGE
+        Glossaire des verbes de consignes de mathématiques
+    \end{center}
+    \noindent\textit{Les verbes sont classés par ordre alphabétique.}
+    \par\vskip10pt
+    \input{glossaire-generated.tex}
+
+\end{document}
