@@ -4,6 +4,7 @@ from PySide6.QtGui import QShortcut, QKeySequence
 from PySide6.QtCore import Qt, QTimer, QSize
 from PySide6.QtWidgets import (
     QMessageBox,
+    QPushButton,
     QStyledItemDelegate,
     QTreeWidget,
     QVBoxLayout,
@@ -93,6 +94,9 @@ class ProgressionPanel(QWidget):
             button = self.action_manager.button(action_name)
             if button:
                 self.progression_buttons.addWidget(button)
+        collapse_button = QPushButton("Tout replier")
+        collapse_button.clicked.connect(self.progression_tree.collapseAll)
+        self.progression_buttons.addWidget(collapse_button)
 
     def init_progression_tree(self):
         self.search_bar = QLineEdit()
