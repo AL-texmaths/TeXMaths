@@ -14,6 +14,25 @@
             "problemMatcher": []
         },
         {
+            "label": "Générer le glossaire",
+            "type": "process",
+            "command": "${workspaceFolder}/.venv/bin/python",
+            "args": [
+                "-m",
+                "src.generate_glossary",
+                "--niveau-maximal",
+                "${input:glossaireNiveauMaximal}"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}\\scripts\\run_python.bat"
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "group": "build"
+        },
+        {
             "label": "split main",
             "type": "process",
             "command": "${workspaceFolder}/.venv/bin/python",
@@ -232,6 +251,13 @@
         }
     ],
     "inputs": [
+        {
+            "id": "glossaireNiveauMaximal",
+            "type": "pickString",
+            "description": "Niveau maximal du glossaire (ce niveau et les précédents)",
+            "options": ["6e", "5e", "4e", "3e"],
+            "default": "3e"
+        },
         {
             "id": "dirpath",
             "type": "promptString",

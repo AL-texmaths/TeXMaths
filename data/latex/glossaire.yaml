@@ -1,0 +1,439 @@
+# Glossaire extrait du document LaTeX.
+# Le champ 'niveau' est volontairement laissé vide.
+
+mots:
+  - nom: 'Tracer'
+    niveau: "6e"
+    definition_ecrite: |
+      Si la figure est une figure à main levée, voir {\bfseries Tracer (à main
+      levée)}, sinon voir {\bfseries Construire}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Tracer (à main levée)'
+    niveau: "6e"
+    definition_ecrite: |
+      Tracer en utilisant uniquement le crayon, sans tenir compte des vraies
+      grandeurs. \par\warning Penser à bien coder la figure.
+    definition_orale: |
+      Sans les outils et avec le codage.
+    definition_rigoureuse: ""
+
+  - nom: 'Construire'
+    niveau: "6e"
+    definition_ecrite: |
+      Tracer avec les outils de géométrie en respectant les vraies grandeurs.
+    definition_orale: |
+      En vrai grandeur.
+    definition_rigoureuse: ""
+
+  - nom: 'Coder (une figure)'
+    niveau: "6e"
+    definition_ecrite: |
+      Indiquer les grandeurs connues sur la figure, marquer par un codage
+      les grandeurs égales (longueurs, angles).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Déduire'
+    niveau: "5e"
+    definition_ecrite: |
+      Répondre en utilisant la (ou les) question(s) précédente(s).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Exprimer ($a$ en fonction de $x$)'
+    niveau: "5e"
+    definition_ecrite: |
+      Écrire une expression littérale contenant $x$ qui permet de calculer
+      le nombre $a$ connaissant $x$.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Réduire (une expression littérale)'
+    niveau: "5e"
+    definition_ecrite: |
+      Réécrire l'expression en utilisant le moins d'opérations possibles
+      (effectuer toutes les opérations numériques, calculer les termes contenant
+      la même lettre, enlever le symbole $\times$, ...).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Traduire (en notation mathématiques)'
+    niveau: "6e"
+    definition_ecrite: |
+      Réécrire en utilisant des notations mathématiques comme des nombres, des symboles
+      ($=$, $+$, $-$, $\times$, $\div$, $\in$, $(\quad)$ ,$[\quad]$, ...) ou des lettres
+      (\mathspoint{ABC}, $\widehat{\mathspoint{ABC}}$, $x$, $a$).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Traduire (un programme de calcul)'
+    niveau: "5e"
+    definition_ecrite: |
+      Traduire l'étape \guillemets{Choisir un nombre} par une lettre puis écrire
+      une expression littérale contenant cette lettre qui reprend les opérations du programme.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Effectuer (une opération)'
+    niveau: "6e"
+    definition_ecrite: |
+      Calculer mentalement ou en posant une des quatre opérations élémentaire
+      (addition, soustraction, multiplication, division).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Démontrer (par le calcul)'
+    niveau: "4e"
+    definition_ecrite: |
+      Effectuer un calcul pour prouver qu'une phrase est vraie. Astuce : traduire
+      la question par une égalité mathématique puis calculer le membre de gauche
+      ou le membre de droite.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Résoudre (un triangle)'
+    niveau: "3e"
+    definition_ecrite: |
+      Calculer toutes les longueurs et tous les angles du triangle.
+    definition_orale: ""
+    definition_rigoureuse: ""
+  
+  - nom: 'Résoudre (une équation)'
+    niveau: "3e"
+    definition_ecrite: |
+      Trouver toutes les solutions de l'équation.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Exprimer (sous la forme d''une expression numérique)'
+    niveau: "5e"
+    definition_ecrite: |
+      Écrire les opérations amenant à la solution sous la forme d'une seule
+      expression numérique. 
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Rédiger (un programme)'
+    niveau: "6e"
+    definition_ecrite: |
+      Écrire les instructions permettant de tracer une figure ou
+      un enchaînement de calcul.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Placer (un point)'
+    niveau: "6e"
+    definition_ecrite: |
+      Sur un figure, indiquer le point par une croix puis écrire
+      le nom du point avec une lettre majuscule.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Réaliser (un programme)'
+    niveau: "6e"
+    definition_ecrite: |
+      Suivre les instructions du programme de tracé ou de calcul.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Calculer'
+    niveau: "6e"
+    definition_ecrite: |
+      Effectuer des opérations pour obtenir la valeur numérique d'une expression
+      numérique ou d'une grandeur (aire, périmètre, volume, ...)
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Comparer (deux nombres)'
+    niveau: "6e"
+    definition_ecrite: |
+      Ordonner les deux nombres en utilisant les symboles $<$, $>$ ou $=$.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Déterminer'
+    niveau: "6e"
+    definition_ecrite: |
+      Trouver la valeur exacte d'une grandeur ou d'une expression.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Simplifier une expression littérale'
+    niveau: "5e"
+    definition_ecrite: |
+      Supprimer le symbole $\times$ devant une lettre ou devant des parenthèses.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Simplifier une fraction'
+    niveau: "5e"
+    definition_ecrite: |
+      Écrire la fraction avec un dénominateur inférieur.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Ajouter'
+    niveau: "6e"
+    definition_ecrite: |
+      Effectuer une addition ($+$).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Soustraire'
+    niveau: "6e"
+    definition_ecrite: |
+      Effectuer une soustraction ($-$).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Multiplier'
+    niveau: "6e"
+    definition_ecrite: |
+      Effectuer une multiplication ($\times$).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Diviser'
+    niveau: "6e"
+    definition_ecrite: |
+      Effectuer une division ($\div$).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Développer un produit'
+    niveau: "4e"
+    definition_ecrite: |
+      Transformer le produit en somme (l'inverse de factoriser).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Factoriser une somme'
+    niveau: "4e"
+    definition_ecrite: |
+      Transformer la somme en produit (l'inverse de développer).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Mesurer'
+    niveau: "6e"
+    definition_ecrite: |
+      Utiliser les outils de géométrie pour déterminer la valeur
+      d'une grandeur (longueur, angle, ...).\par\warning C'est une valeur approchée.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Nommer un objet géométrique'
+    niveau: "6e"
+    definition_ecrite: |
+      Écrire le nom de l'objet (exemple: \mathspoint{A},
+      \mathspoint{AB}, $\widehat{\mathspoint{ABC}}$, ...)
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Convertir'
+    niveau: "6e"
+    definition_ecrite: |
+      Changer d'unité (cm en m, mL en L, ...).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Justifier'
+    niveau: "6e"
+    definition_ecrite: |
+      Donner une raison qui explique la réponse.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Ordonner'
+    niveau: "6e"
+    definition_ecrite: |
+      Mettre les nombres dans l'ordre croissant
+      (du plus petit au plus grand) ou décroissant
+      (du plus grand au plus petit).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Noter'
+    niveau: "6e"
+    definition_ecrite: |
+      Utiliser les notations géométriques pour écrire le
+      nom d'un objet géométrique (exemple: \mathspoint{A},
+      [\mathspoint{AB}], $\widehat{\mathspoint{ABC}}$, ...).
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Intercaler'
+    niveau: "6e"
+    definition_ecrite: |
+      Placer un nombre entre deux autres nombres.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Montrer'
+    niveau: "4e"
+    definition_ecrite: |
+      Voir \textbf{Démontrer}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Donner'
+    niveau: "6e"
+    definition_ecrite: |
+      Écrire une information ou une réponse.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Trouver'
+    niveau: "6e"
+    definition_ecrite: |
+      Écrire la réponse après avoir cherché.
+      \par\warning Laisser les traces de recherche.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Expliquer'
+    niveau: "6e"
+    definition_ecrite: |
+      Voir \textbf{Justifier}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Indiquer'
+    niveau: "6e"
+    definition_ecrite: |
+      Voir \textbf{Donner}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Associer'
+    niveau: "6e"
+    definition_ecrite: |
+      Relier deux éléments entre eux.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Représenter (des données)'
+    niveau: "6e"
+    definition_ecrite: |
+      Tracer un tableau, un graphique ou un schéma à partir de données.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Représenter (graphiquement une fonction)'
+    niveau: "3e"
+    definition_ecrite: |
+      Tracer le graphique d'une fonction à partir de son expression littérale
+      ou d'un tableau de valeurs.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Représenter (un objet géométrique)'
+    niveau: "6e"
+    definition_ecrite: |
+      Voir \textbf{Tracer}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Décomposer (un nombre)'
+    niveau: "6e"
+    definition_ecrite: |
+      Écrire le nombre sous la forme d'une expression numérique selon
+      le modèle demandé.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Préciser'
+    niveau: "6e"
+    definition_ecrite: |
+      Voir \textbf{Donner}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Prouver'
+    niveau: "4e"
+    definition_ecrite: |
+      Voir \textbf{Démontrer}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Arrondir (un nombre)'
+    niveau: "6e"
+    definition_ecrite: |
+      Donner une valeur appoximative d'un nombre en respectant les consignes.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Évaluer'
+    niveau: "5e"
+    definition_ecrite: |
+      Calculer la valeur d'une expression ou d'une fonction.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Interpréter'
+    niveau: "5e"
+    definition_ecrite: |
+      Expliquer le sens concret d'une information ou d'une réponse.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Détailler'
+    niveau: "6e"
+    definition_ecrite: |
+      Écrire toutes les étapes d'un raisonnement ou d'un calcul.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Appliquer (un programme de calcul)'
+    niveau: "5e"
+    definition_ecrite: |
+      Effectuer les opérations du programme de calcul dans l'ordre indiqué et
+      
+      avec le nombre donné.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Argumenter'
+    niveau: "4e"
+    definition_ecrite: |
+      Voir \textbf{Justifier}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Tester (une égalité)'
+    niveau: "5e"
+    definition_ecrite: |
+      Vérifier si une égalité est vraie ou fausse.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Remplir'
+    niveau: "6e"
+    definition_ecrite: |
+      Completer un tableau, un graphique ou un schéma avec les données fournies.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Décrire une figure'
+    niveau: "6e"
+    definition_ecrite: |
+      Écrire un maximum d'informations sur la figure.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Classer'
+    niveau: "6e"
+    definition_ecrite: |
+      Voir \textbf{Ordonner}.
+    definition_orale: ""
+    definition_rigoureuse: ""
+
+  - nom: 'Encadrer'
+    niveau: "6e"
+    definition_ecrite: |
+      Donner un nombre plus petit et un nombre plus grand.\par
+      \warning Les nombres doivent respecter la consigne.
+    definition_orale: ""
+    definition_rigoureuse: ""

@@ -97,7 +97,7 @@ $$+12-20=+8$$
 <details>
 <summary>Comment ajouter/soustraire plusieurs nombres relatifs avec des parenthèses ?</summary>
 
-> 1. On commence par [supprimer les parenthèses](#supprimer-les-parenthèses) suivant la règle des signes
+> 1. On commence par [supprimer les parenthèses](#supprimer-les-parenthèses) selon la règle des signes
 > 2. on calcul [sans parenthèses](#ajouter-plusieurs-relatifs-sans-parentheses)
 
 </details>

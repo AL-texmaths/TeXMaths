@@ -3,3 +3,4 @@ PySide6
 pyinstaller
 pydantic
 tabulate
+PyYAML==6.0.3

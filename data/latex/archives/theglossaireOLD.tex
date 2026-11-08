@@ -1,0 +1,296 @@
+\documentclass{article}
+\usepackage[a5paper]{geometry}
+\usepackage{texmaths-path}
+\usepackage{texmaths-symbols}
+\usepackage{texmaths-pytools}
+\usepackage[ComicSansMS]{texmaths-fonts}
+% permet l'utilisation de variable de type dict
+\def\newunivar#1{\def#1[##1]{\csname\string#1[##1]\endcsname}}
+\def\defunivar#1[#2]{\expandafter\def\csname\string#1[#2]\endcsname}
+% creation de variables
+\newunivar\worddef% verbe défini
+\newunivar\worddefE% définition écrite
+\newunivar\worddefO% définition orale
+\newunivar\worddefR% définition rigoureuse
+\newunivar\words% listes des verbes definis
+\newcount\wordcount
+\wordcount=0
+\def\listwordnum{}% liste des numéros corespondants aux verbes (pour \@for)
+\long\def\addtomacro#1#2{\expandafter\edef\expandafter#1\expandafter{#1#2}}
+% preparation pour l'ecriture des mots
+\newwrite\wordlisttxt
+\immediate\openout\wordlisttxt=\jobname-wordlist.txt
+\immediate\write\wordlisttxt{[}
+\long\def\newword#1#2#3#4#5{% définition d'un verbe coder par #1
+    \immediate\write\wordlisttxt{#2}
+    \defunivar\worddef[#1]{#2}
+    \defunivar\worddefE[#1]{#3}
+    \defunivar\worddefO[#1]{#4}
+    \defunivar\worddefR[#1]{#5}
+    \addtomacro\listwordnum{,\the\wordcount}
+    \defunivar\words[\the\wordcount]{#1}\advance\wordcount1\relax
+}
+\def\warning{\raisebox{-4pt}{\svg[scale=0.1]{texmaths-warning-1}}\ }
+%---------------------------------------------
+% DEFINITIONS DES VERBES
+%---------------------------------------------
+\newword{Tracer}{Tracer}{%
+Si la figure est une figure à main levée, voir {\bfseries Tracer (à main
+levée)}, sinon voir {\bfseries Construire}.
+}{}{}
+\newword{TracerMainLevee}{Tracer (à main levée)}{%
+Tracer en utilisant uniquement le crayon, sans tenir compte des vraies
+grandeurs. \par\warning Penser à bien coder la figure.
+}{Sans les outils et avec le codage.}{}
+\newword{Construire}{Construire}{%
+Tracer avec les outils de géométrie en respectant les vraies grandeurs.
+}{En vrai grandeur.}{}
+\newword{Coder}{Coder (une figure)}{%
+Indiquer les grandeurs connues sur la figure, marquer par un codage
+les grandeurs égales (longueurs, angles).
+}{}{}
+\newword{Deduire}{Déduire}{%
+Répondre en utilisant la (ou les) question(s) précédente(s).
+}{}{}
+\newword{ExprimerEnFonction}{Exprimer ($a$ en fonction de $x$)}{%
+Écrire une expression littérale contenant $x$ qui permet de calculer
+le nombre $a$ connaissant $x$.
+}{}{}
+\newword{Reduire_expression_litterale}{Réduire (une expression littérale)}{%
+Réécrire l'expression en utilisant le moins d'opérations possibles
+(effectuer toutes les opérations numériques, calculer les termes contenant
+la même lettre, enlever le symbole $\times$, ...).
+}{}{}
+\newword{traduire_not}{Traduire (en notation mathématiques)}{%
+Réécrire en utilisant des notations mathématiques comme des nombres, des symboles
+($=$, $+$, $-$, $\times$, $\div$, $\in$, $(\quad)$ ,$[\quad]$, ...) ou des lettres
+(\mathspoint{ABC}, $\widehat{\mathspoint{ABC}}$, $x$, $a$).
+}{}{}
+\newword{traduire_prog}{Traduire (un programme de calcul)}{%
+Traduire l'étape \guillemets{Choisir un nombre} par une lettre puis écrire
+une expression littérale contenant cette lettre qui reprend les opérations du programme.
+}{}{}
+\newword{effectuer}{Effectuer (une opération)}{%
+Calculer mentalement ou en posant une des quatre opérations élémentaire
+(addition, soustraction, multiplication, division).
+}{}{}
+\newword{demontrer_par_le_calcul}{Démontrer (par le calcul)}{%
+Effectuer un calcul pour prouver qu'une phrase est vraie. Astuce : traduire
+la question par une égalité mathématique puis calculer le membre de gauche
+ou le membre de droite.
+}{}{}
+\newword{resoudre_un_triangle}{Résoudre (un triangle)}{%
+Calculer toutes les longueurs et tous les angles du triangle.
+}{}{}
+\newword{exprimer_sous_la_forme_numerique}{Exprimer (sous la forme d'une
+expression numérique)}{%
+Écrire les opérations amenant à la solution sous la forme d'une seule
+expression numérique. 
+}{}{}
+\newword{rediger}{Rédiger (un programme)}{%
+Écrire les instructions permettant de tracer une figure ou
+un enchaînement de calcul.
+}{}{}
+\newword{placer_un_point}{Placer (un point)}{%
+Sur un figure, indiquer le point par une croix puis écrire
+le nom du point avec une lettre majuscule.
+}{}{}
+\newword{realiser}{Réaliser (un programme)}{%
+Suivre les instructions du programme de tracé ou de calcul.
+}{}{}
+\newword{calculer}{Calculer}{%
+Effectuer des opérations pour obtenir la valeur numérique d'une expression
+numérique ou d'une grandeur (aire, périmètre, volume, ...)
+}{}{}
+\newword{comparer}{Comparer (deux nombres)}{%
+Ordonner les deux nombres en utilisant les symboles $<$, $>$ ou $=$.
+}{}{}
+\newword{determiner}{Déterminer}{%
+Trouver la valeur exacte d'une grandeur ou d'une expression.    
+}{}{}
+\newword{simplifier_expr_litt}{Simplifier une expression littérale}{%
+Supprimer le symbole $\times$ devant une lettre ou devant des parenthèses.
+}{}{}
+\newword{simplfier_frac}{Simplifier une fraction}{%
+Écrire la fraction avec un dénominateur inférieur.
+}{}{}
+\newword{ajouter}{Ajouter}{%
+Effectuer une addition ($+$).
+}{}{}
+\newword{soustraire}{Soustraire}{%
+Effectuer une soustraction ($-$).
+}{}{}
+\newword{multiplier}{Multiplier}{%
+Effectuer une multiplication ($\times$).
+}{}{}
+\newword{diviser}{Diviser}{%
+Effectuer une division ($\div$).
+}{}{}
+\newword{developper}{Développer un produit}{%
+Transformer le produit en somme (l'inverse de factoriser).
+}{}{}
+\newword{factoriser}{Factoriser une somme}{%
+Transformer la somme en produit (l'inverse de développer).
+}{}{}
+\newword{mesurer}{Mesurer}{%
+Utiliser les outils de géométrie pour déterminer la valeur
+d'une grandeur (longueur, angle, ...).\par\warning C'est une valeur approchée.
+}{}{}
+\newword{nommer}{Nommer un objet géométrique}{%
+Écrire le nom de l'objet (exemple: \mathspoint{A},
+\mathspoint{AB}, $\widehat{\mathspoint{ABC}}$, ...)
+}{}{}
+\newword{convertir}{Convertir}{%
+Changer d'unité (cm en m, mL en L, ...).
+}{}{}
+\newword{justifier}{Justifier}{%
+Donner une raison qui explique la réponse.
+}{}{}
+\newword{ordonner}{Ordonner}{%
+Mettre les nombres dans l'ordre croissant
+(du plus petit au plus grand) ou décroissant
+(du plus grand au plus petit).
+}{}{}
+\newword{noter}{Noter}{%
+Utiliser les notations géométriques pour écrire le
+nom d'un objet géométrique (exemple: \mathspoint{A},
+[\mathspoint{AB}], $\widehat{\mathspoint{ABC}}$, ...).
+}{}{}
+\newword{intercaler}{Intercaler}{%
+Placer un nombre entre deux autres nombres.
+}{}{}
+\newword{montrer}{Montrer}{%
+Voir \textbf{Démontrer}.
+}{}{}
+\newword{donner}{Donner}{%
+Écrire une information ou une réponse.
+}{}{}
+\newword{trouver}{Trouver}{%
+Écrire la réponse après avoir cherché.
+\par\warning Laisser les traces de recherche.
+}{}{}
+\newword{expliquer}{Expliquer}{%
+Voir \textbf{Justifier}.
+}{}{}
+\newword{indiquer}{Indiquer}{%
+Voir \textbf{Donner}.
+}{}{}
+\newword{associer}{Associer}{%
+Relier deux éléments entre eux.
+}{}{}
+\newword{representer_des_donnees}{Représenter (des données)}{%
+Tracer un tableau, un graphique ou un schéma à partir de données.
+}{}{}
+\newword{representer_graphiquement}{Représenter (graphiquement une fonction)}{%
+Tracer le graphique d'une fonction à partir de son expression littérale
+ou d'un tableau de valeurs.
+}{}{}
+\newword{representer}{Représenter (un objet géométrique)}{%
+Voir \textbf{Tracer}.
+}{}{}
+\newword{decomposer}{Décomposer (un nombre)}{%
+Écrire le nombre sous la forme d'une expression numérique selon
+le modèle demandé.
+}{}{}
+\newword{preciser}{Préciser}{%
+Voir \textbf{Donner}.
+}{}{}
+\newword{prouver}{Prouver}{%
+Voir \textbf{Démontrer}.
+}{}{}
+\newword{arrondir}{Arrondir (un nombre)}{%
+Donner une valeur appoximative d'un nombre en respectant les consignes.
+}{}{}
+\newword{evaluer}{Évaluer}{%
+Calculer la valeur d'une expression ou d'une fonction.
+}{}{}
+\newword{interpréter}{Interpréter}{%
+Expliquer le sens concret d'une information ou d'une réponse.
+}{}{}
+\newword{detailler}{Détailler}{%
+Écrire toutes les étapes d'un raisonnement ou d'un calcul.
+}{}{}
+\newword{appliquer}{Appliquer (un programme de calcul)}{%
+Effectuer les opérations du programme de calcul dans l'ordre indiqué et
+avec le nombre donné.
+}{}{}
+\newword{argumenter}{Argumenter}{%
+Voir \textbf{Justifier}.
+}{}{}
+\newword{tester}{Tester (une égalité)}{%
+Vérifier si une égalité est vraie ou fausse.
+}{}{}
+\newword{remplir}{Remplir}{%
+Completer un tableau, un graphique ou un schéma avec les données fournies.
+}{}{}
+\newword{decrire_une_figure}{Décrire une figure}{%
+Écrire un maximum d'informations sur la figure.
+}{}{}
+\newword{classer}{Classer}{%
+Voir \textbf{Ordonner}.
+}{}{}
+\newword{encadrer}{Encadrer}{%
+Donner un nombre plus petit et un nombre plus grand.\par
+\warning Les nombres doivent respecter la consigne.
+}{}{}
+% ----------------------------------------------
+\long\def\showword#1{{\bfseries\worddef[#1] :}\smallskip\par\noindent\begingroup
+\leftskip=20pt\rightskip=0pt plus 1fil\relax\worddefE[#1]\par\endgroup}
+
+\def\gobone#1{}
+\expandafter\edef\expandafter\listwordnum\expandafter{%
+    \expandafter\gobone\listwordnum
+    }
+\makeatletter
+\long\def\showwords#1{%
+    \@for\@wordnum:=#1\do{%
+        \edef\wordcode{\words[\@wordnum]}%
+        \noindent\showword\wordcode\bigbreak
+    }%
+}
+\immediate\write\wordlisttxt{]}
+\immediate\closeout\wordlisttxt
+
+\run@python{-m src.sort_glossary data/latex/\jobname-wordlist.txt data/latex/\jobname-sortedindex.txt}
+\newread\sortedindex
+\openin\sortedindex=\jobname-sortedindex.txt
+\read\sortedindex to \wordlistnumfromtxt
+\makeatother
+\begin{document}
+    Ce glossaire a pour but de dresser la liste des verbes utilisés dans les consignes
+    des exercices mathématiques. L'élève qui se sentira démuni face à une consigne
+    devra avoir comme premier réflexe de rechercher dans ce glossaire, le verbe de
+    la consigne qui lui pose problème. Il y trouvera la définition.
+    Afin d'ancrer ce glossaire dans la réalité de la classe, chaque verbe est
+    accompagné d'une définition~:
+    \begin{itemize}
+        \item \guillemets{élève écrite} : celle que l'élève lira dans son glossaire~;
+        \item \guillemets{orale élève} : celle reformulée à l'oral par l'enseignant si l'élève ne
+        comprend pas la définition \guillemets{écrite élève}.
+        \item  \guillemets{rigoureuse}: réservée à l'adulte (pas toujours nécessaire)~;
+    \end{itemize}
+
+    Le caractère absolu de ces définitions contredit la diversité des apprenants et
+    des enseignants.
+
+    Par conséquent, il n'est pas exclu de proposer, pour chacunes des trois catégories
+    de définition, plusieurs définitions possibles. Cela permettra de s'adapter aux
+    élèves/enseignants concernés.
+
+    Les verbes seront classés par ordre alphabétique et il sera possible d'indiquer
+    que la définition d'un verbe a été vue en classe entière (surlignage, soulignage,~...).
+    L'élève n'aura qu'à chercher dans les verbes mis ainsi en valeur et non dans tout
+    le glossaire, ce qui facilitera la recherche. On peut noter que l'élève s'exerce
+    par la même occasion à effectuer une recherche par ordre alphabétique.
+
+    Ce glossaire doit-il se restreindre aux seuls verbes ? Je pense qu'il pourrait
+    s'étendre aux définitions \guillemets{implicites}, c'est à dire qui ne sont
+    pas excplicitement écrites dans le cahier de leçon~? (par exemple, définition
+    d'un outil géométrique).
+
+    On peut penser à éventuellement laisser une partie ou (l'entièreté selon les élèves)
+    de ce document (le document élève) en évaluations pour les aider.
+    
+    \newpage\showwords\wordlistnumfromtxt
+
+\end{document}
