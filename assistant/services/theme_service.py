@@ -1,3 +1,6 @@
+from PySide6.QtGui import QColor
+
+
 class ThemeService:
     def __init__(self, themes, default_theme):
         self.themes = themes
@@ -15,6 +18,28 @@ class ThemeService:
 
     def get_theme_names(self):
         return self.themes.keys()
+
+    def get_progression_colors(self, level_count, type_keys):
+        colors = self.get_current_theme().colors
+        accent = QColor(colors.accent)
+        panel = QColor(colors.panel)
+        if not accent.isValid() or not panel.isValid():
+            raise ValueError("The current theme contains an invalid color.")
+
+        hue = accent.hue() if accent.hue() >= 0 else 210
+        saturation = max(accent.saturation(), 180)
+        lightness = 190 if panel.lightness() < 128 else 105
+
+        def color_at(index):
+            color_hue = round(hue + index * 137.508) % 360
+            return QColor.fromHsl(color_hue, saturation, lightness).name()
+
+        level_colors = [color_at(index) for index in range(level_count)]
+        type_colors = {
+            key: color_at(level_count + index)
+            for index, key in enumerate(type_keys)
+        }
+        return level_colors, type_colors
 
     def apply(self, widget):
         theme = self.get_current_theme()

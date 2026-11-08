@@ -7,6 +7,7 @@ from PySide6.QtWidgets import (
     QPushButton,
     QStyledItemDelegate,
     QTreeWidget,
+    QHBoxLayout,
     QVBoxLayout,
     QWidget,
     QLineEdit
@@ -50,7 +51,8 @@ class ProgressionPanel(QWidget):
             progression_service,
             progression_controller,
             analysis_service,
-            regex_panel
+            regex_panel,
+            theme_service
             ):
         super().__init__()
         self.action_names = [
@@ -69,6 +71,7 @@ class ProgressionPanel(QWidget):
         self.progression_service = progression_service
         self.analysis_service = analysis_service
         self.regex_panel = regex_panel
+        self.theme_service = theme_service
         self.controller = progression_controller
         self.config = progression_tree_config
         self.search_timer = QTimer(self)
@@ -83,9 +86,12 @@ class ProgressionPanel(QWidget):
 
     def init_main_layout(self):
         self.main_layout = QVBoxLayout()
-        self.main_layout.addWidget(self.search_bar)
+        self.search_controls = QHBoxLayout()
+        self.search_controls.addWidget(self.search_bar)
+        self.search_controls.addWidget(self.toggle_progression_buttons_button)
+        self.main_layout.addLayout(self.search_controls)
         self.main_layout.addWidget(self.progression_tree)
-        self.main_layout.addLayout(self.progression_buttons)
+        self.main_layout.addWidget(self.progression_buttons_widget)
         self.setLayout(self.main_layout)
 
     def init_progression_buttons(self):
@@ -97,6 +103,19 @@ class ProgressionPanel(QWidget):
         collapse_button = QPushButton("Tout replier")
         collapse_button.clicked.connect(self.progression_tree.collapseAll)
         self.progression_buttons.addWidget(collapse_button)
+        self.progression_buttons_widget = QWidget()
+        self.progression_buttons_widget.setLayout(self.progression_buttons)
+        self.toggle_progression_buttons_button = QPushButton("Masquer les boutons")
+        self.toggle_progression_buttons_button.setCheckable(True)
+        self.toggle_progression_buttons_button.toggled.connect(
+            self.set_progression_buttons_hidden
+        )
+
+    def set_progression_buttons_hidden(self, hidden: bool):
+        self.progression_buttons_widget.setVisible(not hidden)
+        self.toggle_progression_buttons_button.setText(
+            "Afficher les boutons" if hidden else "Masquer les boutons"
+        )
 
     def init_progression_tree(self):
         self.search_bar = QLineEdit()
@@ -219,13 +238,24 @@ class ProgressionPanel(QWidget):
         finally:
             self.progression_tree.blockSignals(False)
         self.progression_service.refresh_detailed_mode(self.progression_tree)
-        self.progression_service.apply_colors(
-                self.progression_tree,
-                self.config.level_colors,
-                self.config.type_colors
-            )
+        self.refresh_theme_colors()
         self.update_buttons_state(self.get_selected_catalogue())
         self.filter_tree()
+
+    def refresh_theme_colors(self):
+        level_colors, type_colors = self.theme_service.get_progression_colors(
+            len(self.config.level_colors),
+            self.config.type_colors
+        )
+        previous_blocked = self.progression_tree.blockSignals(True)
+        try:
+            self.progression_service.apply_colors(
+                self.progression_tree,
+                level_colors,
+                type_colors
+            )
+        finally:
+            self.progression_tree.blockSignals(previous_blocked)
 
     def update_buttons_state(self, selected_catalogue):
 

@@ -194,7 +194,8 @@ class MainWindow(QWidget):
             self.context.progression_service,
             self.context.progression_controller,
             self.context.progression_analysis_service,
-            self.regex_panel
+            self.regex_panel,
+            self.context.theme_service
         )
         self.regex_panel.tree = self.progression_panel.progression_tree
         self.progression_panel.update_buttons_state(self.regex_panel.selected_catalogue())
@@ -223,6 +224,7 @@ class MainWindow(QWidget):
         try:
             print(f"Applying theme: {self.context.theme_service.get_current_theme_name()}")
             self.context.theme_service.apply(self)
+            self.progression_panel.refresh_theme_colors()
             self.document_tab.results_list.on_selection_changed()
             self.preview_panel.refresh_view()
         finally:
