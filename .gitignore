@@ -47,3 +47,4 @@ data/graphics/.nextcloudsync.log
 !.github/agents/**
 
 assistant/logs/app.log
+assistant/logs/diagnostics/

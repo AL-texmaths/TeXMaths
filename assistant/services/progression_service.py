@@ -282,16 +282,33 @@ class ProgressionService:
         return item
 
     def _strip_level_count(self, text: str) -> str:
-        """Retire le suffixe ' (n)' ajouté aux branches de niveau 0."""
-        return re.sub(r'\s*\(\d+\)$', '', text)
+        """Retire les compteurs ajoutés aux branches du tree."""
+        return re.sub(
+            r'\s*\((?:\d+|\d+\s+chapitres\s+\|\s+\d+\s+séances)\)$',
+            '',
+            text,
+        )
 
     def update_level_displays(self, tree):
-        """Met à jour le texte des branches de niveau 0 pour afficher le nombre de chapitres."""
+        """Affiche le nombre de chapitres et de séances de chaque niveau."""
         for i in range(tree.topLevelItemCount()):
             item = tree.topLevelItem(i)
             base = self._strip_level_count(item.text(0))
-            count = item.childCount()
-            item.setText(0, f"{base} ({count})")
+            chapter_count = item.childCount()
+
+            def count_seances(parent):
+                count = 0
+                for child_index in range(parent.childCount()):
+                    child = parent.child(child_index)
+                    count += int(child.data(0, Qt.UserRole) == "seance")
+                    count += count_seances(child)
+                return count
+
+            seance_count = count_seances(item)
+            item.setText(
+                0,
+                f"{base} ({chapter_count} chapitres | {seance_count} séances)",
+            )
 
     def update_seance_displays(self, tree):
         """Met à jour le compteur et la numérotation de chaque branche « Séances »."""

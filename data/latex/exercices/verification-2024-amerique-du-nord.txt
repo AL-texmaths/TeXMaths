@@ -1,9 +1,0 @@
-Exercices du DNB 2024 — Amérique du Nord, 29 mai 2024
-
-Ouvrir les fichiers avec Ctrl+clic dans VS Code :
-
-✅[Exercice 1 — exercice-0731-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0731-data.tex)
-✅[Exercice 2 — exercice-0695-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0695-data.tex)
-✅[Exercice 3 — exercice-0732-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0732-data.tex)
-[Exercice 4 — exercice-0733-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0733-data.tex)
-[Exercice 5 — exercice-0711-data.tex](vscode://file/home/antoine/Projects/TeXMaths/data/latex/exercices/exercice-0711-data.tex)

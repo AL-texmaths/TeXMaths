@@ -38,6 +38,22 @@ class SeanceNumberingTests(unittest.TestCase):
         self.service.update_seance_displays(self.tree)
         self.service.update_chapter_numbers(self.tree)
 
+    def test_level_displays_chapter_and_seance_totals(self):
+        other_chapter = self.service.make_item("Autre chapitre")
+        other_group = self.service.make_item("Séances")
+        other_group.addChild(self.service.make_item("Bilan", "seance"))
+        other_chapter.addChild(other_group)
+        self.level.addChild(other_chapter)
+
+        self.service.update_level_displays(self.tree)
+        self.service.update_level_displays(self.tree)
+
+        self.assertEqual(
+            self.level.text(0),
+            "Niveau (2 chapitres | 3 séances)",
+        )
+        self.assertEqual(self.service._get_raw_text(self.level), "Niveau")
+
     def test_numbering_is_per_group_and_updates_after_reordering(self):
         other_chapter = self.service.make_item("Autre chapitre")
         self.level.addChild(other_chapter)

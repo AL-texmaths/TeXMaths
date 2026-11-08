@@ -155,12 +155,14 @@ class UpdateDataService:
             preview_path = str(pdf_path.parent / "previews" / ('preview-' + pdf_path.name))
             ex_dict['preview'] = preview_path
         self.update_doc_dict(ex_dict)
-        self.logger(f"Updated document dictionary for {tex_relpath}")
+        # self.logger(f"Updated document dictionary for {tex_relpath}")
         return ex_dict
 
     def update_data_index(self):
         """
         """
+        self.errors = 0
+        self.logger("Updating data index ...")
         Data_dict = {}
         for doc_type, doc_dict in self.types_dict.items():
             foldername = doc_dict.dir_name
@@ -181,4 +183,5 @@ class UpdateDataService:
             self.code_index_path / self.context.config.settings.current.pdf_data_file_name,
             'w', encoding='utf-8') as outfile:
                 json.dump(Data_dict, outfile, indent=4, ensure_ascii=False)
+        self.logger(f"Updated data index at {self.code_index_path / self.context.config.settings.current.pdf_data_file_name}")
         

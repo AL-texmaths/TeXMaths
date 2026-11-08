@@ -19,14 +19,22 @@ class CodeIndexController:
         self.code_index_document_controller = code_index_document_controller
         self.code_index_data = self.catalogue_service.code_index_data
 
-    def refresh_code_index(self) -> int:
+    def refresh_code_index(self, logger=print) -> int:
         result = update_code_index(
             self.paths.code_labels,
             self.paths.code_index,
             self.paths.texmf,
-            self.config
+            self.config,
+            logger=logger
         )
+        if result:
+            return result
+        self.reload_code_index()
+        return result
+
+    def reload_code_index(self):
         code_index_data = self.code_index_document_controller.load_data()
         self.catalogue_service.code_index_data = code_index_data
+        self.code_index_data = code_index_data
         self.catalogue_service.refresh()
-        return result
+        return code_index_data

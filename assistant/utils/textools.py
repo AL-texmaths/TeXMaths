@@ -68,6 +68,7 @@ def check_code_index_data(code_labels_dir, texmf_dir, config:Config|None=None, l
     source files.
     If not, recompile the LaTeX files to update the data.
     """
+    failed = False
     for tex_file in code_labels_dir.glob("*.tex"):
         compile = False
         data_path = tex_file.with_name(tex_file.stem + "-data.txt")
@@ -96,27 +97,29 @@ def check_code_index_data(code_labels_dir, texmf_dir, config:Config|None=None, l
 
             if package_path is None:
                 logger(f"Fichier introuvable {sty_file_name} dans {texmf_dir}")
+                failed = True
             else:
                 logger(f"Analysing package {sty_file_name} at {package_path}")
-
-            if data_path.stat().st_mtime < package_path.stat().st_mtime:
-                logger(f"File {data_path} is older than package {package_path}. Recompiling.")
-                compile = True
+                if data_path.exists() and data_path.stat().st_mtime < package_path.stat().st_mtime:
+                    logger(f"File {data_path} is older than package {package_path}. Recompiling.")
+                    compile = True
         
-        result = 0
         if compile:
             result = compile_latex(tex_file, logger=logger, config=config)
             if result.returncode != 0:
                 logger(f"Compilation of {tex_file} failed. Please check the LaTeX file.")
-                continue
-        return result
+                failed = True
+            elif not data_path.exists():
+                logger(f"Compilation did not produce {data_path}.")
+                failed = True
+    return int(failed)
 
 def update_code_index(
         code_labels_dir:Path|str,
         code_index_dir:Path|str,
         texmf_dir:Path|str,
         config:Config|None=None,
-        code_index_file_name:str="code_index.json",
+        code_index_file_name:str|None=None,
         logger=print
         ) -> int:
     """
@@ -132,6 +135,9 @@ def update_code_index(
         config=config,
         logger=logger
         )
+    if result:
+        logger("Code index not updated because of the errors above.")
+        return result
 
     code_index_data = {}
     for data_file in code_labels_dir.glob("*-data.txt"):
@@ -140,13 +146,16 @@ def update_code_index(
                 codes_values = line.strip().split('|:|')
                 insert_nested(code_index_data, codes_values)
     
-    if config is not None and code_index_file_name is None:
-            code_index_file_name = config.settings.current.code_index_file_name
+    if code_index_file_name is None:
+        code_index_file_name = (
+            config.settings.current.code_index_file_name if config is not None
+            else "code_index.json"
+        )
 
     code_index_file = code_index_dir / code_index_file_name
     with open(code_index_file, "w", encoding="utf-8") as f:
             json.dump(code_index_data, f, ensure_ascii=False, indent=4)
-    
+    logger(f"Updated code index at {code_index_file}")
     return result
 
 

@@ -70,3 +70,15 @@ Les exécutables suivants doivent être installés et accessibles via le `PATH` 
 |-------|-------------|
 | ImageMagick (`magick`) | Conversion d'images et de GIF |
 | FFmpeg (`ffmpeg`) | Encodage et traitement des vidéos |
+
+## Diagnostics et mises à jour
+
+Dans le menu « Mise à jour », les actions d'indexation des codes et des données
+et la vérification de la base affichent leurs messages dans une fenêtre dédiée.
+L'opération s'exécute en arrière-plan ; la fenêtre reste ouverte jusqu'à sa fin.
+La vérification peut compiler les fichiers LaTeX dont le PDF est absent.
+
+Chaque lancement produit un journal distinct dans `assistant/logs/diagnostics/` ;
+son chemin est affiché dans la fenêtre. Les journaux de diagnostic datant de
+plus de 90 jours sont supprimés lors d'un nouveau lancement. Une erreur
+d'écriture du journal ou de l'opération est signalée dans la fenêtre.

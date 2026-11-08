@@ -10,11 +10,13 @@ from assistant.gui.panels.preview_panel import PreviewPanel
 from assistant.gui.panels.progression_panel import ProgressionPanel
 from assistant.controllers.theme_controller import ThemeController
 from assistant.gui.dialogs.unused_items_dialog import UnusedItemsDialog
+from assistant.gui.dialogs.diagnostic_dialog import DiagnosticDialog
 from assistant.gui.tabs.document_tab import DocumentTab
 from assistant.services.latex_service import LatexService
 from assistant.services.update_data_service import UpdateDataService
 from assistant.services.check_database_service import CheckDatabaseService
 from assistant.services.extract_flash_preview_service import FlashPreviewService
+from assistant.utils.textools import update_code_index as build_code_index
 
 from PySide6.QtCore import QTimer
 from PySide6.QtGui import Qt, QAction, QCloseEvent, QResizeEvent
@@ -98,11 +100,6 @@ class MainWindow(QWidget):
         )
 
         self.latex_service = LatexService(self.context)
-        self.update_data_service = UpdateDataService(self.context)
-        self.check_database_service = CheckDatabaseService(
-            self.context.config.settings,
-            self.context.paths.latex
-            )
         self.extract_flash_preview_service = FlashPreviewService(self.context)
 
     def init_connect_signals(self):
@@ -355,42 +352,41 @@ class MainWindow(QWidget):
 
 
     def update_code_index(self):
-
-        result = self.context.code_index_controller.refresh_code_index()
-
-        if result!=0:
-            QMessageBox.warning(
-                self,
-                "Warning",
-                f"La compilation a échouchée, check log console."
+        def operation(report):
+            paths = self.context.paths
+            result = build_code_index(
+                paths.code_labels, paths.code_index, paths.texmf,
+                self.context.config, logger=report,
             )
-            return
+            if result:
+                return False, "Échec de la mise à jour de l'index des codes."
+            return True, "Index des codes mis à jour."
 
-        self.update_search()
+        def reload_index():
+            self.context.code_index_data = self.context.code_index_controller.reload_code_index()
+            self.update_search()
 
-        QMessageBox.information(
-            self,
-            "Info",
-            f"Updated code index at {self.context.paths.code_index_file}"
-        )
+        DiagnosticDialog("Index des codes", operation, reload_index, self).start()
+
     def update_data_index(self):
-        self.update_data_service.update_data_index()
-        self.document_tab.load_data()
-        QMessageBox.information(
-            self,
-            "Info",
-            f"""Updated data index at {self.context.paths.data_index_file}
-            \n Errors: {self.update_data_service.errors}
-            """
-        )
+        def operation(report):
+            service = UpdateDataService(self.context, logger=report)
+            service.update_data_index()
+            return True, f"Index des données mis à jour. Anomalies : {service.errors}."
+
+        DiagnosticDialog(
+            "Index des données", operation, self.document_tab.load_data, self
+        ).start()
 
     def check_database(self):
-        self.check_database_service.check_database()
-        QMessageBox.information(
-            self,
-            "Info",
-            f"Database check completed. Errors: {self.check_database_service.database_errors}"
-        )
+        def operation(report):
+            service = CheckDatabaseService(
+                self.context.config.settings, self.context.paths.latex, logger=report
+            )
+            service.check_database()
+            return True, f"Vérification terminée. Anomalies restantes : {service.database_errors}."
+
+        DiagnosticDialog("Vérification de la base", operation, parent=self).start()
     
     def extract_flash_previews(self):
         self.extract_flash_preview_service.update_previews()

@@ -52,4 +52,31 @@
 - Activité 1 p. 57
 - 2 p. 63
 - 3 p. 65
-- 
+### Multiples et diviseurs
+36 p. 76
+### comparer des fractions
+21 p. 45
+### angles alternes-internes
+41 p. 239
+14 p. 244
+### calcul littéral
+1 et 2 p. 90
+5 p. 90
+2 et 9 p. 96
+2 p. 207
+10 et 12 p. 208
+## Maths&Tiques 5e
+### multiples et diviseurs
+3 p. 33
+6 p. 33
+8 p. 33
+9 p. 33
+10 p. 34
+11 p. 34
+4 p. 35
+### reperage dans le plan
+9 p. 46
+### calcul d'aire triangle
+1, 2, 3 et 4 p. 143
+### hauteur
+7 et 8 p. 102

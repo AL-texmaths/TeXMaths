@@ -14,6 +14,11 @@ d'item dont le catalogue ne correspond pas)
 dépendance verticales entre les items ainsi qu'une manière de les
 visualiser
 >>> délégation des responsabilités du script assistant de progression
+>>> trouver un moyen de savoir si un exercice a été traité en classe
+cette année là
+>>> rendre plus ergonomique l'aspect d'analyse : générer un fichier log
+ou (.md ?) après analyse et montrer dans un "boite externe" ce que l'on voit
+pour le moment dans la console python.
 ===============================================================================
 					Java / html
 ===============================================================================
