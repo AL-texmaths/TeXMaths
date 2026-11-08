@@ -4,6 +4,9 @@ from PySide6.QtCore import Qt, QTimer
 from PySide6.QtWidgets import (
     QWidget,
     QVBoxLayout,
+    QHBoxLayout,
+    QLabel,
+    QMessageBox,
     QSplitter,
     QComboBox,
     )
@@ -15,13 +18,14 @@ from assistant.controllers.pdf_documents_controller import PdfDocumentsControlle
 from assistant.gui.widgets.results_list import ResultsList
 from assistant.gui.widgets.search_input import SearchInput
 from assistant.gui.widgets.regex_help import install_regex_help
+from assistant.gui.widgets.pdf_filters import PDFFiltersButton
+from assistant.app.logger import logger
 
 
 class DocumentTab(QWidget):
-    def __init__(self, context, filter_pdf_doc_menu):
+    def __init__(self, context):
         super().__init__()
         self.context = context
-        self.filter_pdf_doc_menu = filter_pdf_doc_menu
 
         self.pdf_viewer = PdfViewerWidget()
         self.pdf_documents_controller = PdfDocumentsController(context)
@@ -60,7 +64,17 @@ class DocumentTab(QWidget):
         self.search_input.installEventFilter(self)
         install_regex_help(self.search_input, count_provider=self._count_matches)
 
-        left_layout.addWidget(self.search_input)
+        search_layout = QHBoxLayout()
+        search_layout.addWidget(self.search_input, 1)
+        self.pdf_filters = PDFFiltersButton(
+            self.context.config.settings.gui.documents_tab.pdf_filters
+        )
+        search_layout.addWidget(self.pdf_filters)
+        left_layout.addLayout(search_layout)
+        self.filter_status = QLabel()
+        self.filter_status.setWordWrap(True)
+        self.filter_status.hide()
+        left_layout.addWidget(self.filter_status)
         left_layout.addWidget(self.results_list)
 
         right_layout.addWidget(self.inner_splitter)
@@ -81,6 +95,10 @@ class DocumentTab(QWidget):
         left_layout.addWidget(self.sort_order_combo)
 
         self.search_pdf_controller = SearchPDFController(self.context.search_pdf_service)
+        self._save_filter_settings_timer = QTimer(self)
+        self._save_filter_settings_timer.setSingleShot(True)
+        self._save_filter_settings_timer.timeout.connect(self._save_filter_settings)
+        self.pdf_filters.changed.connect(self._filters_changed)
 
         # Initialize save timers for debouncing splitter changes
         self._save_splitter_settings_timer = QTimer()
@@ -192,8 +210,8 @@ class DocumentTab(QWidget):
 
         return SearchFilters(
             pattern=self.search_input.text().strip(),
-            active_prefixes=self.filter_pdf_doc_menu.get_checked_types(),
-            active_fields=self.filter_pdf_doc_menu.get_checked_fields(),
+            active_prefixes=self.pdf_filters.types.checked_items(),
+            active_fields=self.pdf_filters.fields.checked_items(),
             sort_mode=self.sort_order_combo.currentIndex(),
         )
 
@@ -204,6 +222,9 @@ class DocumentTab(QWidget):
     def update_results(self):
 
         filters = self.build_search_filters()
+        message = self.pdf_filters.empty_selection_message()
+        self.filter_status.setText(message)
+        self.filter_status.setVisible(bool(message))
 
         results = self.search_pdf_controller.search(filters)
 
@@ -211,14 +232,42 @@ class DocumentTab(QWidget):
 
         for key, _ in results:
             self.results_list.addItem(key)
+
+    def _filters_changed(self):
+        self.update_results()
+        self._save_filter_settings_timer.start(500)
+
+    def _save_filter_settings(self):
+        try:
+            self.context.persistence_service.save_config(self.context.config)
+        except (OSError, ValueError, TypeError) as error:
+            logger.exception("Impossible de sauvegarder les filtres PDF")
+            QMessageBox.critical(
+                self, "Erreur de sauvegarde",
+                f"Impossible de sauvegarder les filtres PDF :\n{error}",
+            )
+
+    def cancel_pending_filter_save(self):
+        self._save_filter_settings_timer.stop()
+
+    def flush_pending_filter_save(self):
+        if self._save_filter_settings_timer.isActive():
+            self._save_filter_settings_timer.stop()
+            self._save_filter_settings()
+
+    def restore_filter_settings(self):
+        self.pdf_filters.set_filters(
+            self.context.config.settings.gui.documents_tab.pdf_filters
+        )
+        self.update_results()
     
     def load_data(self):
         self.context.pedago_data_service.refresh()
         types = self.context.pedago_data_service.get_types()
         fields = self.context.pedago_data_service.get_fields()
 
-        self.filter_pdf_doc_menu.rebuild_types_menu(types)
-        self.filter_pdf_doc_menu.rebuild_fields_menu(fields)
+        self.pdf_filters.set_items(types, fields)
+        self.update_results()
 
         if self.results_list.currentItem() is not None:
             self.results_list.load_pdf(self.results_list.currentItem())

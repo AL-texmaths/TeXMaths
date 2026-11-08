@@ -49,6 +49,19 @@ src/
 │
 └── main.py
 
+## Filtres de recherche des documents PDF
+
+Dans l'onglet « Documents », le bouton « Filtres » ouvre les sélections de
+types et de champs recherchés. « Seul » sélectionne un élément exclusivement ;
+« Tous », « Aucun » et « Réinitialiser les filtres » permettent de modifier
+rapidement les sélections. Le point sur le bouton indique un filtre
+personnalisé et son info-bulle résume les éléments actifs.
+
+Les sélections sont enregistrées automatiquement dans la configuration
+utilisateur. Une catégorie réglée sur « Tous » inclut aussi les nouveaux
+éléments ; dans une sélection personnalisée, les nouveaux éléments restent
+décochés et les éléments temporairement absents restent mémorisés.
+
 ## Dépendances externes
 
 Les exécutables suivants doivent être installés et accessibles via le `PATH` :

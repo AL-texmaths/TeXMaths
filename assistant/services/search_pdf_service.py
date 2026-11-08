@@ -18,7 +18,7 @@ class SearchPDFService:
                 regex = re.compile(filters.pattern, re.IGNORECASE)
             except re.error:
                 return []
-            if not filters.active_prefixes:
+            if not filters.active_prefixes or not filters.active_fields:
                 return []
             
             matching_items = []

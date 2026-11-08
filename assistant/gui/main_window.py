@@ -11,7 +11,6 @@ from assistant.gui.panels.progression_panel import ProgressionPanel
 from assistant.controllers.theme_controller import ThemeController
 from assistant.gui.dialogs.unused_items_dialog import UnusedItemsDialog
 from assistant.gui.tabs.document_tab import DocumentTab
-from assistant.gui.menus.filter_pdf_doc_menu import FilterPDFDocumentsMenu
 from assistant.services.latex_service import LatexService
 from assistant.services.update_data_service import UpdateDataService
 from assistant.services.check_database_service import CheckDatabaseService
@@ -165,7 +164,7 @@ class MainWindow(QWidget):
 
         self.tab_widget = QTabWidget()
         self.tab_widget.addTab(self.splitter, "Progression")
-        self.document_tab = DocumentTab(self.context, self.filter_pdf_doc_menu)
+        self.document_tab = DocumentTab(self.context)
         self.document_tab.load_data()
         self.tab_widget.addTab(self.document_tab, "Documents")
         self.tabs = [self.tab_widget, self.document_tab]
@@ -307,8 +306,6 @@ class MainWindow(QWidget):
         )
         self.theme_menu_builder.populate(theme_menu)
 
-        self.filter_pdf_doc_menu = FilterPDFDocumentsMenu("Filtrer les documents PDF", self)
-
         edit_menu.addMenu(theme_menu)
         edit_menu.addMenu(open_catalogue_menu)
         edit_menu.addSeparator()
@@ -317,7 +314,6 @@ class MainWindow(QWidget):
         menu_bar.addMenu(edit_menu)
         menu_bar.addMenu(progression_menu)
         menu_bar.addMenu(update_menu)
-        menu_bar.addMenu(self.filter_pdf_doc_menu)
         self.main_layout.setMenuBar(menu_bar)
 
     def register_actions(self):
@@ -672,7 +668,9 @@ class MainWindow(QWidget):
         
         try:
             self.context.persistence_service.restore_default_settings()
+            self.document_tab.cancel_pending_filter_save()
             self.context.config = self.context.persistence_service.load_config()
+            self.document_tab.restore_filter_settings()
             
             QMessageBox.information(
                 self,
@@ -705,6 +703,7 @@ class MainWindow(QWidget):
 
     def closeEvent(self, event: QCloseEvent):
         """Handle window close event - save all GUI settings before closing."""
+        self.document_tab.flush_pending_filter_save()
         if not self.save_at_close:
             return
         try:

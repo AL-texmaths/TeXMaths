@@ -25,9 +25,18 @@ class ProgressionTreeModel(BaseModel):
     level_colors: list[str] = Field(default_factory=list)
     type_colors: dict[str, str] = Field(default_factory=dict)
 
+class PDFSelectionModel(BaseModel):
+    all_selected: bool = True
+    selected: list[str] = Field(default_factory=list)
+
+class PDFFiltersModel(BaseModel):
+    types: PDFSelectionModel = Field(default_factory=PDFSelectionModel)
+    fields: PDFSelectionModel = Field(default_factory=PDFSelectionModel)
+
 class DocumentTabGUIModel(BaseModel):
     vertical_splitter: int
     horizontal_splitter: int
+    pdf_filters: PDFFiltersModel = Field(default_factory=PDFFiltersModel)
 
 class GUIModel(BaseModel):
     main_window: DialogConfig

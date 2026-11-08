@@ -14,6 +14,7 @@
             "\\Root\\Programmes\\Adobe\\Acrobat DC\\Acrobat\\Acrobat.exe"
         ],
         "pdf_xchange": [
+            "PXCEditor",
             "\\Root\\Programmes\\PDF-XChange\\PDFXEdit.exe"
         ],
         "okular": [
@@ -170,8 +171,8 @@
             "splitter": {
                 "size": [
                     289,
-                    462,
-                    1135
+                    679,
+                    918
                 ]
             },
             "progression_tree": {
@@ -189,7 +190,17 @@
             },
             "documents_tab": {
                 "vertical_splitter": 0,
-                "horizontal_splitter": 1303
+                "horizontal_splitter": 1529,
+                "pdf_filters": {
+                    "types": {
+                        "all_selected": true,
+                        "selected": []
+                    },
+                    "fields": {
+                        "all_selected": true,
+                        "selected": []
+                    }
+                }
             }
         },
         "pedago_service": {
