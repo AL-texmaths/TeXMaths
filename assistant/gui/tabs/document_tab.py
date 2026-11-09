@@ -27,7 +27,9 @@ class DocumentTab(QWidget):
         super().__init__()
         self.context = context
 
-        self.pdf_viewer = PdfViewerWidget()
+        self.pdf_viewer = PdfViewerWidget(
+            fit_mode=context.config.settings.current.pdf_fit_mode
+        )
         self.pdf_documents_controller = PdfDocumentsController(context)
         layout = QVBoxLayout(self)
         self.horizontal_splitter = QSplitter(Qt.Horizontal)

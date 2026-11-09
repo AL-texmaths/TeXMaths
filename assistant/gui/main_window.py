@@ -19,7 +19,7 @@ from assistant.services.extract_flash_preview_service import FlashPreviewService
 from assistant.utils.textools import update_code_index as build_code_index
 
 from PySide6.QtCore import QTimer
-from PySide6.QtGui import Qt, QAction, QCloseEvent, QResizeEvent
+from PySide6.QtGui import Qt, QAction, QActionGroup, QCloseEvent, QResizeEvent
 from PySide6.QtWidgets import (
     QMenuBar,
     QMenu,
@@ -238,6 +238,34 @@ class MainWindow(QWidget):
     def set_theme(self, name):
         self.theme_controller.set_theme(name)
 
+    def build_pdf_zoom_menu(self):
+        """Construit le sous-menu permettant de choisir le mode d'adaptation du zoom PDF."""
+        pdf_zoom_menu = QMenu("Zoom PDF", self)
+        pdf_zoom_group = QActionGroup(self)
+        pdf_zoom_group.setExclusive(True)
+
+        current_mode = self.context.session_controller.get_pdf_fit_mode()
+
+        pdf_zoom_modes = [
+            ("fit_width", "Adapter à la largeur"),
+            ("fit_page", "Adapter à la page entière"),
+        ]
+
+        for mode, label in pdf_zoom_modes:
+            action = QAction(label, self, checkable=True)
+            action.setChecked(current_mode == mode)
+            action.triggered.connect(
+                lambda checked, mode=mode: self.set_pdf_fit_mode(mode)
+            )
+            pdf_zoom_group.addAction(action)
+            pdf_zoom_menu.addAction(action)
+
+        return pdf_zoom_menu
+
+    def set_pdf_fit_mode(self, mode):
+        self.context.session_controller.set_pdf_fit_mode(mode)
+        self.document_tab.pdf_viewer.set_fit_mode(mode)
+
     def init_menu(self):
 
         menu_bar = QMenuBar(self)
@@ -303,8 +331,11 @@ class MainWindow(QWidget):
         )
         self.theme_menu_builder.populate(theme_menu)
 
+        pdf_zoom_menu = self.build_pdf_zoom_menu()
+
         edit_menu.addMenu(theme_menu)
         edit_menu.addMenu(open_catalogue_menu)
+        edit_menu.addMenu(pdf_zoom_menu)
         edit_menu.addSeparator()
         edit_menu.addAction(self.action_manager.action("restore_default_settings"))
         menu_bar.addMenu(file_menu)

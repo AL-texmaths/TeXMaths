@@ -134,7 +134,7 @@ class PDFSearchIntegrationTests(unittest.TestCase):
         )
 
         class FakeViewer:
-            def __init__(self):
+            def __init__(self, fit_mode=None):
                 self.view = QWidget()
 
         class FakeResults(QListWidget):

@@ -7,6 +7,7 @@ class CurrentSettings(BaseModel):
     current_file_path: str | None
     code_index_file_name: str | None
     pdf_data_file_name: str | None
+    pdf_fit_mode: str = "fit_width"  # "fit_width" ou "fit_page"
 
     @property
     def size(self) -> tuple[int, int]:

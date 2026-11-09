@@ -31,6 +31,14 @@ class SessionController:
     def get_type(self):
         return self.config.settings.current.type
 
+    # --- PDF VIEWER ---
+    def set_pdf_fit_mode(self, mode: str):
+        self.config.settings.current.pdf_fit_mode = mode
+        self.persistence.save_config(self.config)
+
+    def get_pdf_fit_mode(self):
+        return self.config.settings.current.pdf_fit_mode
+
     # --- FILE ---
     def set_current_file(self, path: str | None) -> None:
         self.config.settings.current.current_file_path = path if path is not None else None

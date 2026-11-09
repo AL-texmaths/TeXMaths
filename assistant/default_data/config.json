@@ -395,7 +395,8 @@
             "type": "Tous",
             "current_file_path": null,
             "code_index_file_name": "code_index.json",
-            "pdf_data_file_name": "data_index.json"
+            "pdf_data_file_name": "data_index.json",
+            "pdf_fit_mode": "fit_width"
         }
     },
     "actions": {
