@@ -14,6 +14,7 @@ from assistant.gui.dialogs.diagnostic_dialog import DiagnosticDialog
 from assistant.gui.tabs.document_tab import DocumentTab
 from assistant.services.latex_service import LatexService
 from assistant.services.update_data_service import UpdateDataService
+from assistant.services.environment_service import EnvironmentService
 from assistant.services.check_database_service import CheckDatabaseService
 from assistant.services.extract_flash_preview_service import FlashPreviewService
 from assistant.utils.textools import update_code_index as build_code_index
@@ -83,6 +84,9 @@ class MainWindow(QWidget):
         # Connect splitter changes to debounced save
         self.splitter.splitterMoved.connect(self._schedule_save_gui_settings)
 
+        # Exécuté une seule fois, une fois la fenêtre affichée.
+        QTimer.singleShot(0, self.auto_update_data_index)
+
     def go_tab_1(self):
         self.tab_widget.setCurrentIndex(0)
         QTimer.singleShot(0, self.regex_panel.search_line.setFocus)
@@ -101,6 +105,8 @@ class MainWindow(QWidget):
 
         self.latex_service = LatexService(self.context)
         self.extract_flash_preview_service = FlashPreviewService(self.context)
+        self.environment_service = EnvironmentService(self.context.paths.latex)
+        self._data_update_running = False
 
     def init_connect_signals(self):
 
@@ -400,14 +406,33 @@ class MainWindow(QWidget):
         DiagnosticDialog("Index des codes", operation, reload_index, self).start()
 
     def update_data_index(self):
+        if self._data_update_running:
+            return
+        self._data_update_running = True
+
         def operation(report):
             service = UpdateDataService(self.context, logger=report)
             service.update_data_index()
             return True, f"Index des données mis à jour. Anomalies : {service.errors}."
 
-        DiagnosticDialog(
-            "Index des données", operation, self.document_tab.load_data, self
-        ).start()
+        def on_success():
+            self.environment_service.save()
+            self.document_tab.load_data()
+
+        try:
+            DiagnosticDialog("Index des données", operation, on_success, self).start()
+        finally:
+            self._data_update_running = False
+
+    def auto_update_data_index(self):
+        """Lance la mise à jour des données si la machine ou le disque racine a changé."""
+        try:
+            needed = self.environment_service.update_needed()
+        except Exception:
+            logger.exception("Détection de l'environnement impossible")
+            return
+        if needed:
+            self.update_data_index()
 
     def check_database(self):
         def operation(report):

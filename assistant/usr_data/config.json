@@ -160,8 +160,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 1920,
-                "height": 1027
+                "width": 1469,
+                "height": 890
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -170,9 +170,9 @@
             },
             "splitter": {
                 "size": [
-                    289,
-                    679,
-                    918
+                    332,
+                    470,
+                    635
                 ]
             },
             "progression_tree": {
@@ -189,8 +189,8 @@
                 }
             },
             "documents_tab": {
-                "vertical_splitter": 0,
-                "horizontal_splitter": 1529,
+                "vertical_splitter": 199,
+                "horizontal_splitter": 767,
                 "pdf_filters": {
                     "types": {
                         "all_selected": false,
