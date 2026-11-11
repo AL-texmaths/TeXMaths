@@ -204,7 +204,7 @@ class CatalogueService:
         return sorted(
             entries,
             key=lambda e: (
-                e.catalogue,
+                e.catalogue.key,
                 e.type,
                 e.code
             )
