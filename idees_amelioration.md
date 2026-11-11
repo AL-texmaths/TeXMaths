@@ -71,5 +71,6 @@
   - tableau de conversion
   - demi-droite graduée
   - 
+- Nouvelle modalité pour les questions flash: temps de vérification à la calculatrice
 - Dans les questions flash, laisser la question précédente en plus petit
 afin de permettre au éléves en retard de quand même répondre.

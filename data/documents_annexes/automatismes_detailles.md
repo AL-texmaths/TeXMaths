@@ -9,6 +9,11 @@
 - Comparer les deux nombres
 - Additions astucieuses, de fractions, de décimaux
 - Multiplication d'un nombre entier par 0,25 ou 0,5 / d'un entier par une fraction
+  - ✅ multiplication d'un entier par une fraction
+  - multiplication d'un entier par un nombre décimal
+  - ✅ multiplication d'un entier par 0,5 ou 0,25
+  - ✅ multiplication d'un entier par 0,1, 0,001, 0,0001
+  - multiplication d'un entier par une fraction
 ---
 ### C3A3aa
 - écrire le rang du chiffre souligné
