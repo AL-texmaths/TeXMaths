@@ -49,7 +49,7 @@
 ## Grandeurs et mesure
 ### C3B3aa
 - écrire la quantité : "trois dixièmes de mètres --> 3 dm"
-- conversions simples (uniquement des puissances de 10)
+- conversions simples d'unités de longueur (uniquement des puissances de 10)
 - conversions plus complexe
 ### C3B3ae
 - calculer le périmètre de la figure
@@ -58,3 +58,34 @@
 ### C3B3bc
 - calculer l'aire de la figure (quadrillée)
 ### C3B3bd
+- conversions simples d'unités d'aire
+### C3B3da
+- lecture de l'heure sur une horloge: lien avec les fractions
+### C3B3bb
+- calculer l'aire d'un rectangle
+### C3C2ac
+- nommer les polygones
+### C3C2ac
+- donner le nombre d'axes de symétrie de la figure
+### C3C2
+- vrai ou faux ? la droite rouge est la médiatrice du segment
+### C3C2ai
+- donner la nature des angles
+  - sans mesure
+  - avec mesure donnée
+  - avec codage
+  - avec utilisation des propriétés angulaire de triangles particuliers
+### C3C2ap
+- calculer l'angle manquant / vérifier si le triangle est constructible
+### C3C2ba
+- compter le nombre de cubes dans une figures
+### C3D3bb
+- calculer la probabilité d'événement simples, situations équiprobable
+### C3E3aa
+- compléter avec "double, triple, quadruple, moitié, tiers ou quart".
+### C3E3aa(obj)
+- compléter la multiplication avec la calculatrice
+### C3E3ab (obj)
+- vrai ou faux ? La situation suivante est une situation de proportionnalité.
+### C3E3ac
+- calculer le nombre manquant dans le tableau de proportionnalité donné
