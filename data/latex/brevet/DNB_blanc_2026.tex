@@ -1,11 +1,5 @@
 \PassOptionsToPackage{tikz}{mdframed}
 \documentclass[addpoints,format=DNB]{commun}
-% 700: que partie 1 enlever la rotation + ajouter trois questions
-%dans lesquelles on demande quelle transformation permet de passer de
-%... à ...
-% remplacer dans les automatismes la question de transformation par
-% une somme d'angle dans un triangle particulier 
-% figure codée, on demande un angle
 \usepackage{texmaths-tikz}%
 \usepackage{texmaths-boxes}
 \usepackage{texmaths-spacing}
@@ -39,15 +33,20 @@
 \usepackage{icomma}%
 
 \jour{Décembre 2026}
-\duree{2h}
-\csname totpoints\endcsname{20}
-\presentation{false}
+\duree{20 min}
+\totpoints{6}
 
 \def\degres{\textsuperscript{\textdegree}}%
 \setanswerspace{squares}
 \def\answerspacelg{40pt}
 
 \begin{document}
+    \showtablefalse
+    \presentationfalse
+    \sujetarendretrue
+    \subtitle{automatismes}
+    \consignes{La calculatrice n'est pas autorisée. Le sujet doit être rendu à la fin de l'épreuve.}
+    \showheadbox
 \begin{questions}
 \begingroup
 \renewcommand\partlabel{}
@@ -79,7 +78,7 @@
             \par Déterminer la médiane de cette série statistique.
             \answerspace\answerspacelg
             \part
-            \begin{minipage}[c]{0.4\linewidth}
+            \begin{minipage}[c]{0.6\linewidth}
                 Le triangle ci-contre n'est pas tracé en vraie grandeur.
                 \par\noindent Déterminer la valeur de l'angle $\widehat{\text{ABC}}$.
             \end{minipage}
@@ -97,7 +96,7 @@
             \part Développer et réduire l'expression : $3a-1-4(2a+3)$
             \answerspace\answerspacelg
             \part
-            \noindent\begin{minipage}[c]{0.4\linewidth}
+            \noindent\begin{minipage}[c]{0.5\linewidth}
                 Sur la figure ci-contre, dans le triangle $AED$,
                 le point B appartient au segment [AE], le point C
                 appartient au segment [AD], les droites (DE) et (CB) sont
@@ -124,8 +123,93 @@
         \endgroup
 % EXERCICE 1
 \newpage
-
+\showtabletrue
+\sujetarendrefalse
+\duree{1 heure 40 minutes}
+\totpoints{14}
+\subtitle{problèmes}
+\consignes{false}
+\showheadbox
 % EXERCICE 2
+
+\question[3]
+    On s'intéresse au motif dessiné ci-dessous que l'on retrouve dans un pavage
+    recouvrant un mur du palais de l'Alhambra en Espagne.\par\noindent
+    Ce motif est partagé en douze losanges superposables numérotés de 1 à 12. Dans
+    chaque losange, les côtés ont pour longueur 5 cm, les angles aigus mesurent
+    $60^\circ$ et les angles obtus mesurent $120^\circ$.
+    \begin{center}
+        Le motif\par\vskip7pt
+        \begin{tikzpicture}[line width=0.7pt, scale=2]
+            \coordinate[label=below:\mathspoint{A}](A)at(0,0);
+            \foreach\i in{0,...,5}{
+                \coordinate(A\i)at(\i*60:1);
+                \coordinate(B\i)at(\i*60+30:{sqrt(3)});
+                \coordinate(C\i)at(\i*60:2);
+            }
+            \fill[\currentcolor!50](A)--(A0)--(B0)--(C1)--(B1)--(A2)--cycle;
+            \foreach\i in{1,...,5}{
+                \path(A\i)--(C\i)coordinate[midway](E\i);
+                \draw(E\i)circle(3.5pt)node{\footnotesize\number\numexpr2*\i};
+            }
+            \path(A0)--(C0)coordinate[midway](E0);
+            \draw(E0)circle(3.5pt)node{\footnotesize 12};
+            \tkzMarkAngle[size=0.25](A0,A,A1)
+            \tkzLabelAngle[pos=0.5](A0,A,A1){$60^\circ$}
+            \tkzMarkAngle[size=0.2](B0,A0,A)
+            \tkzLabelAngle[pos=0.35](B0,A0,A){$120^\circ$}
+            \foreach\i in{0,...,4}{
+                \edef\j{\number\numexpr\i+1}
+                \draw(A)--(A\i)--(B\i)--(A\j);
+                \path(A)--(B\j)coordinate[midway](D\j);
+                \draw(D\j)circle(3.5pt)node{\footnotesize\number\numexpr2*\j+1};
+            }
+            \path(A)--(B0)coordinate[midway](D'0);
+            \coordinate(D0)at($(D'0)+(-0.15,0.15)$);
+            \draw(D0)circle(3.5pt)node{\footnotesize 1};
+            \draw(A)--(A5)--(B5)--(A0);
+            \draw[dotted,line width=1.5pt](C0)--(C1)--(C2)--(C3)--(C4)--(C5)--cycle;
+            \draw (A0) node[right] {\mathspoint{B}};
+            \draw (B0) node[above right] {\mathspoint{C}};
+            \draw (C1) node[above right] {\mathspoint{D}};
+            \draw (B1) node[above] {\mathspoint{E}};
+            \draw (A2) node[above left] {\mathspoint{F}};
+            \draw (B5) node[below right] {\mathspoint{G}};
+            \draw (B2) node[above left] {\mathspoint{H}};
+            \draw (A3) node[left] {\mathspoint{K}};
+            \path(A)--(A0)node[midway,below]{5 cm};
+        \end{tikzpicture}
+    \end{center}
+	\begin{parts}
+	\part \begin{flushleft}
+        \textbf{Partie 1}\par\medskip\noindent
+        Dans cette partie, aucune justification n'est demandée.
+    \end{flushleft}
+		\begin{subparts}
+		\subpart Quelle est l'image du losange \circled1 par la symétrie centrale
+        de centre A~?
+		\subpart Quelle est l'image du losange \circled3 par la symétrie axiale
+        d'axe \mathspoint{(AF)}~?
+        % \item Quelle est l'image du losange \circled7 par la roation
+        % de centre \mathspoint{A} que transforme le losange \circled3 en losange
+        % \circled{11}~?
+		\subpart Quelle est l'image du losange \circled8 par la translation qui
+        transforme \mathspoint{A} en \mathspoint{E}.
+		\end{subparts}
+	\part
+    \begin{flushleft}
+        \textbf{Partie 2}\par\medskip\noindent
+	\end{flushleft}
+	\begin{subparts}
+		\subpart Quelle transformation géométrique permet de transformer le losange \circled{10} en losange \circled{12}~?
+		\subpart Quelle transformation géométrique permet de transformer le losange \circled{3} en losange \circled{7}~?
+		\subpart Quelle transformation géométrique permet de transformer le losange \circled{5} en losange \circled{7}~?
+	\end{subparts}
+	\end{parts}
+
+
+% EXERCICE 3
+\newpage
 
 \definecolor{gris}{gray}{0.5}%
 \providecommand{\wideparen}[1]{\overset{\frown}{#1}}%
@@ -241,85 +325,6 @@
 		\subpart Calculer le volume du gobelet, en cm$^3$, arrondi à l'unité.
 	\end{subparts}
 \end{parts}
-
-\newpage
-
-% EXERCICE 3
-\question[3]
-    On s'intéresse au motif dessiné ci-dessous que l'on retrouve dans un pavage
-    recouvrant un mur du palais de l'Alhambra en Espagne.\par\noindent
-    Ce motif est partagé en douze losanges superposables numérotés de 1 à 12. Dans
-    chaque losange, les côtés ont pour longueur 5 cm, les angles aigus mesurent
-    $60^\circ$ et les angles obtus mesurent $120^\circ$.
-    \begin{center}
-        Le motif\par\vskip7pt
-        \begin{tikzpicture}[line width=0.7pt, scale=2]
-            \coordinate[label=below:\mathspoint{A}](A)at(0,0);
-            \foreach\i in{0,...,5}{
-                \coordinate(A\i)at(\i*60:1);
-                \coordinate(B\i)at(\i*60+30:{sqrt(3)});
-                \coordinate(C\i)at(\i*60:2);
-            }
-            \fill[\currentcolor!50](A)--(A0)--(B0)--(C1)--(B1)--(A2)--cycle;
-            \foreach\i in{1,...,5}{
-                \path(A\i)--(C\i)coordinate[midway](E\i);
-                \draw(E\i)circle(3.5pt)node{\footnotesize\number\numexpr2*\i};
-            }
-            \path(A0)--(C0)coordinate[midway](E0);
-            \draw(E0)circle(3.5pt)node{\footnotesize 12};
-            \tkzMarkAngle[size=0.25](A0,A,A1)
-            \tkzLabelAngle[pos=0.5](A0,A,A1){$60^\circ$}
-            \tkzMarkAngle[size=0.2](B0,A0,A)
-            \tkzLabelAngle[pos=0.35](B0,A0,A){$120^\circ$}
-            \foreach\i in{0,...,4}{
-                \edef\j{\number\numexpr\i+1}
-                \draw(A)--(A\i)--(B\i)--(A\j);
-                \path(A)--(B\j)coordinate[midway](D\j);
-                \draw(D\j)circle(3.5pt)node{\footnotesize\number\numexpr2*\j+1};
-            }
-            \path(A)--(B0)coordinate[midway](D'0);
-            \coordinate(D0)at($(D'0)+(-0.15,0.15)$);
-            \draw(D0)circle(3.5pt)node{\footnotesize 1};
-            \draw(A)--(A5)--(B5)--(A0);
-            \draw[dotted,line width=1.5pt](C0)--(C1)--(C2)--(C3)--(C4)--(C5)--cycle;
-            \draw (A0) node[right] {\mathspoint{B}};
-            \draw (B0) node[above right] {\mathspoint{C}};
-            \draw (C1) node[above right] {\mathspoint{D}};
-            \draw (B1) node[above] {\mathspoint{E}};
-            \draw (A2) node[above left] {\mathspoint{F}};
-            \draw (B5) node[below right] {\mathspoint{G}};
-            \draw (B2) node[above left] {\mathspoint{H}};
-            \draw (A3) node[left] {\mathspoint{K}};
-            \path(A)--(A0)node[midway,below]{5 cm};
-        \end{tikzpicture}
-    \end{center}
-	\begin{parts}
-	\part \begin{flushleft}
-        \textbf{Partie 1}\par\medskip\noindent
-        Dans cette partie, aucune justification n'est demandée.
-    \end{flushleft}
-		\begin{subparts}
-		\subpart Quelle est l'image du losange \circled1 par la symétrie centrale
-        de centre A~?
-		\subpart Quelle est l'image du losange \circled3 par la symétrie axiale
-        d'axe \mathspoint{(AF)}~?
-        % \item Quelle est l'image du losange \circled7 par la roation
-        % de centre \mathspoint{A} que transforme le losange \circled3 en losange
-        % \circled{11}~?
-		\subpart Quelle est l'image du losange \circled8 par la translation qui
-        transforme \mathspoint{A} en \mathspoint{E}.
-		\end{subparts}
-	\part
-    \begin{flushleft}
-        \textbf{Partie 2}\par\medskip\noindent
-	\end{flushleft}
-	\begin{subparts}
-		\subpart Quelle transformation géométrique permet de transformer le losange \circled{10} en losange \circled{12}~?
-		\subpart Quelle transformation géométrique permet de transformer le losange \circled{3} en losange \circled{7}~?
-		\subpart Quelle transformation géométrique permet de transformer le losange \circled{5} en losange \circled{7}~?
-	\end{subparts}
-	\end{parts}
-
 
 % EXERCICE 4
 \newpage

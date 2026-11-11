@@ -390,7 +390,6 @@ mots:
     niveau: "5e"
     definition_ecrite: |
       Effectuer les opérations du programme de calcul dans l'ordre indiqué et
-      
       avec le nombre donné.
     definition_orale: ""
     definition_rigoureuse: ""

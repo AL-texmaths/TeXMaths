@@ -67,3 +67,6 @@
 - Exercice de trigonométrie : démontrer que les angles aigus d'un triangle rectangle isocèle valent 45 degrés avec la tangente.
 - Réfléchir à des chapitres centrés sur une action plutôt que sur un thème (« calculer », « représenter les nombres », ...).
 - Chaque exercice travaille une compétence. Après correction, l'élève doit s'auto-évaluer. Au moment de réviser, il pourra s'appuyer sur ses autoévaluations.
+- Réfléchir a fournir des supports pour les questions flash. Trop de supports à coller font perdre du temps mais on peut imaginer une feuille a4 contenant *tout les supports nécessaires aux question flash* du chapitre. 
+- Dans les questions flash, laisser la question précédente en plus petit
+afin de permettre au éléves en retard de quand même répondre.

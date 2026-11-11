@@ -16,9 +16,8 @@
 \def\@duree{none}\newcommand{\duree}[1]{\def\@duree{#1}}
 \def\@totpoints{none}\newcommand{\totpoints}[1]{\def\@totpoints{#1}}
 \def\@presentationpoints{none}\newcommand{\presentationpoints}[1]{\def\@presentationpoints{#1}}
-\def\@presentation{true}\newcommand{\presentation}[1]{\def\@presentation{#1}}
 \def\@consignes{false}\newcommand{\consignes}[1]{\def\@consignes{#1}}
-\def\@sujetarendre{false}\newcommand{\sujetarendre}[1]{\def\@sujetarendre{#1}}
+\def\@subtitle{none}\newcommand{\subtitle}[1]{\def\@subtitle{#1}}
 \def\@false{false}
 \def\@true{true}
 
@@ -147,32 +146,45 @@
 \renewcommand\thepartno{\arabic{partno}}
 \renewcommand\thesubpart{\alph{subpart}}
 
-\def\addtopresentation{\relax}
-\def\presentationfont{}
-\AtBeginDocument{
-    \begin{mdframed}
-        \begin{center}
-            {\Huge \textbf{\@titre}} \\ \bigskip
-            {\Huge \textbf{Mathématiques}} \\ \bigskip
-            {\large Durée de l'épreuve : \@duree \ - \@totpoints \ points}
-        \end{center}
-    \end{mdframed}
-    \ifx\@presentation\@true\presentationfont L'orthographe, le soin, la qualité, la clarté et la précision des raisonnements seront pris en compte dans l'évaluation de la copie. \addtopresentation\hfill / \@presentationpoints \ points \\ \noindent \fi
-    \ifx\@consignes\@false\else\@consignes\fi
-    %\if\@consignes\@false\else\begingroup\it\@consignes\endgroup\fi
-    \par %\bigskip
+\newif\ifshowtable
+\newif\ifpresentation
+\newif\ifsujetarendre
+\newif\ifsubtitle
+\subtitletrue
+
+\def\thetable{\par
     \begin{center}
         \pointtable[h]
     \end{center}
+    }
+
+\def\showheadbox{
+    \begin{mdframed}
+        \begin{center}
+            {\Huge \textbf{\@titre}} \\ \bigskip
+            {\Huge \textbf{Mathématiques\ifsubtitle {\LARGE(\@subtitle)}\fi}} \\ \bigskip
+            {\large Durée de l'épreuve : \@duree \ - \@totpoints \ points}
+        \end{center}
+    \end{mdframed}
+        \ifpresentation\presentationfont L'orthographe, le soin, la qualité, la clarté et la précision des raisonnements seront pris en compte dans l'évaluation de la copie. \addtopresentation\hfill / \@presentationpoints \ points \\ \noindent \fi
+    \ifx\@consignes\@false\else\@consignes\fi
+    %\if\@consignes\@false\else\begingroup\it\@consignes\endgroup\fi
+    \ifshowtable\thetable\fi
     %  \par \bigskip
     %  \bonusgradetable[h]
     \begingroup\large
-    \ifx\@sujetarendre\@true
+    \ifsujetarendre
         \par\noindent
         \ifthenelse{\equal{\commun@format}{DNB}}
         {Numéro de candidat~:\par\noindent Date de naissance~:\par\noindent}
         {Nom~:\par\noindent Prénom~:\par\noindent Classe~:\par}
     \fi
     \endgroup\vskip10pt
+}
+
+\def\addtopresentation{\relax}
+\def\presentationfont{}
+\AtBeginDocument{
+
 }
 \endinput
