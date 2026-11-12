@@ -1,6 +1,2 @@
-6e-Ch4-A3;24x
-6e-Ch4-E2;24x
-5e-Ch3-A4;24x
-5e-Ch3-E4;24x
-5e-Ch3-E5;24x
-5e-Ch3-cours_exemple_1;24x
+6e-Ch3-DSA;11x
+6e-Ch3-DSB;11x
