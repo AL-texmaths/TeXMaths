@@ -170,9 +170,9 @@
             },
             "splitter": {
                 "size": [
-                    331,
+                    332,
                     271,
-                    322
+                    323
                 ]
             },
             "progression_tree": {
@@ -195,7 +195,7 @@
                     "types": {
                         "all_selected": false,
                         "selected": [
-                            "flash"
+                            "activite"
                         ]
                     },
                     "fields": {

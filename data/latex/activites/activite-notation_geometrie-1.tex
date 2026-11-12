@@ -6,7 +6,7 @@
 \BO{2026}
 \cycle{3}
 \competencesDuSocle{RE4,CO1}
-\objectifsApprentissage{}
+\automatismes{C3C2aa}
 \motsCles{droite, segment, demi-droite, notation}
 \enddatakeys
 \begin{document}
@@ -14,7 +14,7 @@
     \begin{tblr}{colspec={Q[m]*2{Q[c,m]}},row{1}={bg=\maintblrbgcolor,font=\bfseries},
         hlines,vlines,rows={ht=30pt}}
         Phrase en français&Phrase codée&Représentation\\
-        Tracer la droite passant par A et B&Tracer (AB)&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+        Tracer la droite passant par A et B&Tracer ($\mathspoint{AB}$)&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
             \coordinate[label=above left:A](A)at(0,0);
             \coordinate[label=above left:B](B)at(2,0);
             \coordinate(O)at(0,.5);
@@ -22,7 +22,7 @@
             \draw node at(B){$\times$};
             \tkzDrawLines[add=.3 and .3](A,B)
         \end{tikzpicture}\\
-        Tracer le segment d'extrémités A et B&Tracer [AB]&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+        Tracer le segment d'extrémités A et B&Tracer [$\mathspoint{AB}$]&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
             \coordinate[label=above left:A](A)at(0,0);
             \coordinate[label=above left:B](B)at(2,0);
             \coordinate(O)at(0,.5);
@@ -30,7 +30,7 @@
             \draw node at(B){$\times$};
             \tkzDrawLines[add=0 and 0](A,B)
         \end{tikzpicture}\\
-        Tracer la demi-droite d'origine A passant par B&Tracer $[AB)$&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
+        Tracer la demi-droite d'origine A passant par B&Tracer $[\mathspoint{AB})$&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
             \coordinate[label=above left:A](A)at(0,0);
             \coordinate[label=above left:B](B)at(2,0);
             \coordinate(O)at(0,.5);
@@ -38,7 +38,7 @@
             \draw node at(B){$\times$};
             \tkzDrawLines[add=0 and .4](A,B)
         \end{tikzpicture}\\
-        &Tracer [IT]&\\
+        Tracer le segment d'extrémités I et T&Tracer [$\mathspoint{IT}$]&\\
         &&\begin{tikzpicture}[rotate=20,scale=0.5,baseline=(O.base)]
             \coordinate[label=above left:R](A)at(0,0);
             \coordinate[label=above left:C](B)at(2,0);
@@ -57,7 +57,7 @@
             \tkzDrawLines[add=.4 and 0](A,B)
         \end{tikzpicture}\\
         Tracer le segment d'extrémités V et K.&&\\
-        &Tracer [LU]&\\
+        &Tracer [$\mathspoint{LU}$]&\\
         &&\begin{tikzpicture}[rotate=-10,scale=0.5,baseline=(O.base)]
             \coordinate[label=above right:M](A)at(0,0);
             \coordinate[label=above right:F](B)at(2,0);
@@ -67,6 +67,6 @@
             \tkzDrawLines[add=0 and 0](A,B)
         \end{tikzpicture}\\
         Tracer la demi-droite d'origine J passant par R.&&\\
-        &Tracer (AP)&\\
+        &Tracer [$\mathspoint{AP}$]&\\
     \end{tblr}
 \end{document}

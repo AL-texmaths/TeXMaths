@@ -16,8 +16,8 @@
   - multiplication d'un entier par une fraction
 ---
 ### C3A3aa
-- écrire le rang du chiffre souligné
-- écrire le nombre donnée en chiffre
+- ✅ écrire le rang du chiffre souligné
+- ✅ écrire le nombre donnée en chiffre
 - recomposer le nombre donné
 ---
 ### C3A3ae
