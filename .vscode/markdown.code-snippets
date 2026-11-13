@@ -1,0 +1,17 @@
+{
+  "Arbre branche": {
+    "prefix": "branche",
+    "body": ["├── "],
+    "description": "Branche d'arborescence"
+  },
+  "Arbre fin": {
+    "prefix": "finbranche",
+    "body": ["└── "],
+    "description": "Dernière branche"
+  },
+  "Arbre vertical": {
+    "prefix": "vertical",
+    "body": ["│   "],
+    "description": "Continuité verticale"
+  }
+}
