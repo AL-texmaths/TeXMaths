@@ -23,7 +23,7 @@
         "*.toml": true,
         "*.txt": false,
     },
-    "terminal.integrated.cwd": "${workspaceFolder}",
+    // "terminal.integrated.cwd": "${workspaceFolder}",
     "python.analysis.extraPaths": ["./src", "./src_ap"],
     "latex-workshop.latex.tools": [
       {
