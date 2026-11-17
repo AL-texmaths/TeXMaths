@@ -632,11 +632,12 @@
     \fi
 }
 
+\def\pyrascale{0.5}
 \def\Pyramide@A#1,#2,#3,#4,#5(#6,#7){%
     \def\briqueA{\brique\Longueur\Hauteur\Profondeur
         \CoefficientDePerspective\AngleDeFuite color=\color@Pyramide}
 
-    \begin{tikzpicture}[scale=0.5]
+    \begin{tikzpicture}[scale=\pyrascale]
         \briqueA(#6,#7);
         \briqueA(#6+\Longueur,#7);
         \briqueA(#6+\Longueur*2,#7);

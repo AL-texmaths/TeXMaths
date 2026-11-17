@@ -1,6 +1,9 @@
-\documentclass{article}
-\newif\ifshowtable
-\showtabletrue
+\documentclass{thedocument}
+\makeatletter
+\let\enonce\read@enonce@from@data
+\let\readexercice\read@exercice@from@data
+\makeatother
 \begin{document}
-\ifshowtable coucou
+    \readexercice{0944-c}
+    \readexercice{0945-c}
 \end{document}

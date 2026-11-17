@@ -160,8 +160,8 @@
         "gui": {
             "main_window": {
                 "title": "Assistant de progression",
-                "width": 1920,
-                "height": 1027
+                "width": 958,
+                "height": 828
             },
             "unused_items_dialog": {
                 "title": "Éléments inutilisés",
@@ -170,9 +170,9 @@
             },
             "splitter": {
                 "size": [
-                    590,
-                    641,
-                    655
+                    331,
+                    271,
+                    322
                 ]
             },
             "progression_tree": {
@@ -189,8 +189,8 @@
                 }
             },
             "documents_tab": {
-                "vertical_splitter": 0,
-                "horizontal_splitter": 1650,
+                "vertical_splitter": 199,
+                "horizontal_splitter": 660,
                 "pdf_filters": {
                     "types": {
                         "all_selected": false,
@@ -409,7 +409,7 @@
         },
         "current": {
             "theme": "VSCode Dark",
-            "catalogue": "Cycle 4 BO 2026",
+            "catalogue": "Cycle 3 BO 2026",
             "type": "Tous",
             "current_file_path": "D:\\Projects\\TeXMaths\\data\\progressions\\progression-6eme-26-27.json",
             "code_index_file_name": "code_index.json",
