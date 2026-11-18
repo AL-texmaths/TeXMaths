@@ -3,13 +3,14 @@
 \usepackage{texmaths-symbols}
 \usepackage{texmaths-picto}
 \usepackage[Verdana]{texmaths-fonts}
+\usepackage{lucide-icons}
 
 \long\def\writeword#1#2{%
     \noindent{\bfseries#1 :}\smallskip\par\noindent\begingroup
     \leftskip=20pt\rightskip=0pt plus 1fil\relax #2\par\endgroup
     \bigbreak
     }
-
+\let\warning\relax
 \begin{document}
     Ce glossaire a pour but de dresser la liste des verbes utilisés dans les consignes
     des exercices mathématiques. L'élève qui se sentira démuni face à une consigne
@@ -49,7 +50,7 @@
     \begin{center}\LARGE
         Glossaire des verbes de consignes de mathématiques
     \end{center}
-    \noindent\textit{Les verbes sont classés par ordre alphabétique.}
+    \noindent\textit{Les verbes sont classés par ordre alphabétique (\lucideicon{arrow-down-a-z})}
     \par\vskip10pt
     \input{glossaire-generated.tex}
 

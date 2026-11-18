@@ -42,6 +42,8 @@ def generer_latex(
     for numero, mot in enumerate(mots, start=1):
         if not isinstance(mot, dict):
             raise ValueError(f"L'entrée n° {numero} n'est pas un dictionnaire.")
+        if mot.get("statut") == "hidden":
+            continue
         nom = mot.get("nom")
         definition = mot.get("definition_ecrite")
         if not isinstance(nom, str) or not nom.strip():
@@ -54,12 +56,20 @@ def generer_latex(
                 raise ValueError(f"Niveau invalide pour l'entrée n° {numero} : {niveau!r}.")
             if NIVEAUX.index(niveau) > NIVEAUX.index(niveau_maximal):
                 continue
-        selection.append((nom, definition))
+        pictogramme = mot.get("pictogramme")
+        if pictogramme is not None and not isinstance(pictogramme, str):
+            raise ValueError(f"Pictogramme invalide pour l'entrée n° {numero}.")
+        selection.append((nom, definition, (pictogramme or "").strip()))
 
     selection.sort(key=lambda mot: cle_alphabetique(mot[0]))
     lignes = [
-        r"\writeword{" + sur_une_ligne(nom) + "}{" + sur_une_ligne(definition) + "}%"
-        for nom, definition in selection
+        r"\writeword{"
+        + sur_une_ligne(nom)
+        + (" " + pictogramme if pictogramme else "")
+        + "}{"
+        + sur_une_ligne(definition)
+        + "}%"
+        for nom, definition, pictogramme in selection
     ]
 
     destination.parent.mkdir(parents=True, exist_ok=True)

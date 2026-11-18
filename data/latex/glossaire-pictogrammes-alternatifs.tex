@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[a4paper,margin=1.5cm]{geometry}
+\usepackage{texmaths-symbols}
+\usepackage{texmaths-picto}
+\usepackage[Verdana]{texmaths-fonts}
+\usepackage{fontawesome7}
+\usepackage{twemojis}
+\usepackage{longtable}
+\usepackage{array}
+\newcommand{\code}[1]{{\small\texttt{\detokenize{#1}}}}
+\newcommand{\fa}[1]{\expandafter\csname #1\endcsname}
+\begin{document}
+\section*{Pictogrammes alternatifs (FontAwesome~7 et Twemoji)}
+Compiler avec \texttt{latexmk -lualatex}.
+\begin{longtable}{@{}p{5.2cm} c l c l@{}}
+\textit{Verbe} & \multicolumn{2}{l}{\textit{FontAwesome 7}} & \multicolumn{2}{l}{\textit{Twemoji}}\\\hline\endhead
+\textbf{Ajouter} & {\Large \faPlus} & \code{\faPlus} & \twemoji[height=1.5em]{plus} & \code{\twemoji{plus}}\\[6pt]
+\textbf{Appliquer (un programme de calcul)} & {\Large \faPlay} & \code{\faPlay} & \twemoji[height=1.5em]{play button} & \code{\twemoji{play button}}\\[6pt]
+\textbf{Arrondir (un nombre)} & {\Large \faCircle} & \code{\faCircle} & \twemoji[height=1.5em]{white circle} & \code{\twemoji{white circle}}\\[6pt]
+\textbf{Associer} & {\Large \faLink} & \code{\faLink} & \twemoji[height=1.5em]{link} & \code{\twemoji{link}}\\[6pt]
+\textbf{Calculer} & {\Large \faCalculator} & \code{\faCalculator} & \twemoji[height=1.5em]{abacus} & \code{\twemoji{abacus}}\\[6pt]
+\textbf{Classer} & {\Large \faSort} & \code{\faSort} & \twemoji[height=1.5em]{card index dividers} & \code{\twemoji{card index dividers}}\\[6pt]
+\textbf{Coder (une figure)} & {\Large \faPenNib} & \code{\faPenNib} & \twemoji[height=1.5em]{crayon} & \code{\twemoji{crayon}}\\[6pt]
+\textbf{Comparer (deux nombres)} & {\Large \faScaleBalanced} & \code{\faScaleBalanced} & \twemoji[height=1.5em]{balance scale} & \code{\twemoji{balance scale}}\\[6pt]
+\textbf{Construire} & {\Large \faCompassDrafting} & \code{\faCompassDrafting} & \twemoji[height=1.5em]{triangular ruler} & \code{\twemoji{triangular ruler}}\\[6pt]
+\textbf{Convertir} & {\Large \faRightLeft} & \code{\faRightLeft} & \twemoji[height=1.5em]{counterclockwise arrows button} & \code{\twemoji{counterclockwise arrows button}}\\[6pt]
+\textbf{Décomposer (un nombre)} & {\Large \faDiagramProject} & \code{\faDiagramProject} & \twemoji[height=1.5em]{puzzle piece} & \code{\twemoji{puzzle piece}}\\[6pt]
+\textbf{Décrire une figure} & {\Large \faShapes} & \code{\faShapes} & \twemoji[height=1.5em]{speaking head} & \code{\twemoji{speaking head}}\\[6pt]
+\textbf{Déduire} & {\Large \faArrowTurnDown} & \code{\faArrowTurnDown} & \twemoji[height=1.5em]{right arrow curving down} & \code{\twemoji{right arrow curving down}}\\[6pt]
+\textbf{Démontrer (par le calcul)} & {\Large \faSquareRootVariable} & \code{\faSquareRootVariable} & \twemoji[height=1.5em]{check mark button} & \code{\twemoji{check mark button}}\\[6pt]
+\textbf{Détailler} & {\Large \faListUl} & \code{\faListUl} & \twemoji[height=1.5em]{microscope} & \code{\twemoji{microscope}}\\[6pt]
+\textbf{Déterminer} & {\Large \faBullseye} & \code{\faBullseye} & \twemoji[height=1.5em]{bullseye} & \code{\twemoji{bullseye}}\\[6pt]
+\textbf{Développer un produit} & {\Large \faExpand} & \code{\faExpand} & \twemoji[height=1.5em]{left-right arrow} & \code{\twemoji{left-right arrow}}\\[6pt]
+\textbf{Diviser} & {\Large \faDivide} & \code{\faDivide} & \twemoji[height=1.5em]{divide} & \code{\twemoji{divide}}\\[6pt]
+\textbf{Donner} & {\Large \faHandHolding} & \code{\faHandHolding} & \twemoji[height=1.5em]{outbox tray} & \code{\twemoji{outbox tray}}\\[6pt]
+\textbf{Effectuer (une opération)} & {\Large \faGears} & \code{\faGears} & \twemoji[height=1.5em]{gear} & \code{\twemoji{gear}}\\[6pt]
+\textbf{Encadrer} & {\Large \faBorderAll} & \code{\faBorderAll} & \twemoji[height=1.5em]{blue square} & \code{\twemoji{blue square}}\\[6pt]
+\textbf{Expliquer} & {\Large \faCommentDots} & \code{\faCommentDots} & \twemoji[height=1.5em]{speech balloon} & \code{\twemoji{speech balloon}}\\[6pt]
+\textbf{Exprimer ($a$ en fonction de $x$)} & {\Large \faSquareRootVariable} & \code{\faSquareRootVariable} & \twemoji[height=1.5em]{input latin letters} & \code{\twemoji{input latin letters}}\\[6pt]
+\textbf{Exprimer (sous la forme d'une expression numérique)} & {\Large \faEquals} & \code{\faEquals} & \twemoji[height=1.5em]{input numbers} & \code{\twemoji{input numbers}}\\[6pt]
+\textbf{Évaluer} & {\Large \faGauge} & \code{\faGauge} & \twemoji[height=1.5em]{thermometer} & \code{\twemoji{thermometer}}\\[6pt]
+\textbf{Factoriser une somme} & {\Large \faLayerGroup} & \code{\faLayerGroup} & \twemoji[height=1.5em]{package} & \code{\twemoji{package}}\\[6pt]
+\textbf{Indiquer} & {\Large \faHandPointer} & \code{\faHandPointer} & \twemoji[height=1.5em]{index pointing up} & \code{\twemoji{index pointing up}}\\[6pt]
+\textbf{Intercaler} & {\Large \faArrowsLeftRightToLine} & \code{\faArrowsLeftRightToLine} & \twemoji[height=1.5em]{bookmark tabs} & \code{\twemoji{bookmark tabs}}\\[6pt]
+\textbf{Interpréter} & {\Large \faLightbulb} & \code{\faLightbulb} & \twemoji[height=1.5em]{light bulb} & \code{\twemoji{light bulb}}\\[6pt]
+\textbf{Justifier} & {\Large \faFileLines} & \code{\faFileLines} & \twemoji[height=1.5em]{notebook} & \code{\twemoji{notebook}}\\[6pt]
+\textbf{Mesurer} & {\Large \faRulerCombined} & \code{\faRulerCombined} & \twemoji[height=1.5em]{straight ruler} & \code{\twemoji{straight ruler}}\\[6pt]
+\textbf{Montrer} & {\Large \faEye} & \code{\faEye} & \twemoji[height=1.5em]{eyes} & \code{\twemoji{eyes}}\\[6pt]
+\textbf{Multiplier} & {\Large \faXmark} & \code{\faXmark} & \twemoji[height=1.5em]{multiply} & \code{\twemoji{multiply}}\\[6pt]
+\textbf{Nommer un objet géométrique} & {\Large \faTag} & \code{\faTag} & \twemoji[height=1.5em]{label} & \code{\twemoji{label}}\\[6pt]
+\textbf{Noter} & {\Large \faPencil} & \code{\faPencil} & \twemoji[height=1.5em]{pencil} & \code{\twemoji{pencil}}\\[6pt]
+\textbf{Ordonner} & {\Large \faListOl} & \code{\faListOl} & \twemoji[height=1.5em]{keycap: 1} & \code{\twemoji{keycap: 1}}\\[6pt]
+\textbf{Placer (un point)} & {\Large \faLocationDot} & \code{\faLocationDot} & \twemoji[height=1.5em]{round pushpin} & \code{\twemoji{round pushpin}}\\[6pt]
+\textbf{Préciser} & {\Large \faMagnifyingGlassPlus} & \code{\faMagnifyingGlassPlus} & \twemoji[height=1.5em]{eyeglasses} & \code{\twemoji{eyeglasses}}\\[6pt]
+\textbf{Prouver} & {\Large \faCheckDouble} & \code{\faCheckDouble} & \twemoji[height=1.5em]{check mark} & \code{\twemoji{check mark}}\\[6pt]
+\textbf{Remplir} & {\Large \faTableCells} & \code{\faTableCells} & \twemoji[height=1.5em]{clipboard} & \code{\twemoji{clipboard}}\\[6pt]
+\textbf{Reporter} & {\Large \faLocationCrosshairs} & \code{\faLocationCrosshairs} & \twemoji[height=1.5em]{pushpin} & \code{\twemoji{pushpin}}\\[6pt]
+\textbf{Représenter (des données)} & {\Large \faChartColumn} & \code{\faChartColumn} & \twemoji[height=1.5em]{bar chart} & \code{\twemoji{bar chart}}\\[6pt]
+\textbf{Représenter (graphiquement une fonction)} & {\Large \faChartLine} & \code{\faChartLine} & \twemoji[height=1.5em]{chart increasing} & \code{\twemoji{chart increasing}}\\[6pt]
+\textbf{Représenter (un objet géométrique)} & {\Large \faDrawPolygon} & \code{\faDrawPolygon} & \twemoji[height=1.5em]{red triangle pointed up} & \code{\twemoji{red triangle pointed up}}\\[6pt]
+\textbf{Réaliser (un programme)} & {\Large \faTerminal} & \code{\faTerminal} & \twemoji[height=1.5em]{computer} & \code{\twemoji{computer}}\\[6pt]
+\textbf{Rédiger (un programme)} & {\Large \faCode} & \code{\faCode} & \twemoji[height=1.5em]{keyboard} & \code{\twemoji{keyboard}}\\[6pt]
+\textbf{Réduire (une expression littérale)} & {\Large \faCompress} & \code{\faCompress} & \twemoji[height=1.5em]{scissors} & \code{\twemoji{scissors}}\\[6pt]
+\textbf{Résoudre (une équation)} & {\Large \faKey} & \code{\faKey} & \twemoji[height=1.5em]{trophy} & \code{\twemoji{trophy}}\\[6pt]
+\textbf{Simplifier une expression littérale} & {\Large \faEraser} & \code{\faEraser} & \twemoji[height=1.5em]{broom} & \code{\twemoji{broom}}\\[6pt]
+\textbf{Simplifier une fraction} & {\Large \faPercent} & \code{\faPercent} & \twemoji[height=1.5em]{scissors} & \code{\twemoji{scissors}}\\[6pt]
+\textbf{Soustraire} & {\Large \faMinus} & \code{\faMinus} & \twemoji[height=1.5em]{minus} & \code{\twemoji{minus}}\\[6pt]
+\textbf{Tester (une égalité)} & {\Large \faNotEqual} & \code{\faNotEqual} & \twemoji[height=1.5em]{white question mark} & \code{\twemoji{white question mark}}\\[6pt]
+\textbf{Tracer} & {\Large \faPen} & \code{\faPen} & \twemoji[height=1.5em]{pen} & \code{\twemoji{pen}}\\[6pt]
+\textbf{Tracer (à main levée)} & {\Large \faHighlighter} & \code{\faHighlighter} & \twemoji[height=1.5em]{writing hand} & \code{\twemoji{writing hand}}\\[6pt]
+\textbf{Traduire (en notation mathématiques)} & {\Large \faLanguage} & \code{\faLanguage} & \twemoji[height=1.5em]{input symbols} & \code{\twemoji{input symbols}}\\[6pt]
+\textbf{Traduire (un programme de calcul)} & {\Large \faSuperscript} & \code{\faSuperscript} & \twemoji[height=1.5em]{input latin lowercase} & \code{\twemoji{input latin lowercase}}\\[6pt]
+\textbf{Trouver} & {\Large \faMagnifyingGlass} & \code{\faMagnifyingGlass} & \twemoji[height=1.5em]{telescope} & \code{\twemoji{telescope}}\\[6pt]
+\end{longtable}
+\end{document}
