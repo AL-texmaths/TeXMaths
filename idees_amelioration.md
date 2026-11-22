@@ -74,3 +74,8 @@
 - Nouvelle modalité pour les questions flash: temps de vérification à la calculatrice
 - Dans les questions flash, laisser la question précédente en plus petit
 afin de permettre au éléves en retard de quand même répondre.
+
+- Créer un barème pour chaque contrôle, voir pour chaque exercice.
+Réfléchir à une manière de noter le barême et de l'intégrer dans le main
+comme un document. Ce barème doit être en lien étroit avec les compétences
+à développer dans le chapitre concerné.
