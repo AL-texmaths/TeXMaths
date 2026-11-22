@@ -10,6 +10,8 @@
 \RequirePackage{pifont}%                     \ding{210}
 \RequirePackage{bbding}%                     \Plane
 \RequirePackage{iftex}%                      \ifLuaTeX, \ifXeTeX
+\RequirePackage{fontawesome5}%                \faSmile, \faFrown, \faMeh, \faSmileBeam
+\RequirePackage{xcolor}%                     \textcolor{red}{...}
 \ifLuaTeX
   \RequirePackage{fontspec}%                 fontspec pour les polices OpenDyslexic
   % definition de la police OpenDyslexic
@@ -37,3 +39,15 @@
 
 \DeclareRobustCommand{\up}[1]{\ensuremath{^{\text{#1}}}}%
 \DeclareRobustCommand{\no}{\ensuremath{^{\text{o}}}}
+
+\newcommand{\smileyExcellent}{\textcolor{green!70!black}{\faSmileBeam}}
+\newcommand{\smileyBien}{\textcolor{green!50!black}{\faSmile}}
+\newcommand{\smileyDifficile}{\textcolor{orange}{\faMeh}}
+\newcommand{\smileyEchec}{\textcolor{red!75!black}{\faFrown}}
+
+\def\autoevaluation{%
+    \smileyExcellent\ 
+    \smileyBien\ 
+    \smileyDifficile\ 
+    \smileyEchec
+    }

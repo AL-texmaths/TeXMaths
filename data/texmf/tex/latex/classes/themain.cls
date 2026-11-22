@@ -988,7 +988,8 @@
             skipabove=0.5em,
             backgroundcolor=\maintblrbgcolor
         ]\fi\noindent
-        {\bfseries Exercice \the\sequence@exercice@count\ :\hfill\ifbareme/#2\fi}%
+        {\bfseries Exercice \the\sequence@exercice@count\ :%
+            \ifbareme\hfill/#2\else\ \autoevaluation\hfill\fi}%
         \ifexercicemdframed
             \end{mdframed}\vspace{-5pt}%
         \else
