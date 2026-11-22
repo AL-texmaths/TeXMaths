@@ -79,3 +79,30 @@ afin de permettre au éléves en retard de quand même répondre.
 Réfléchir à une manière de noter le barême et de l'intégrer dans le main
 comme un document. Ce barème doit être en lien étroit avec les compétences
 à développer dans le chapitre concerné.
+Le barème doit porter sur des compétences générales : ex.
+- L'élève sait mesurer un angle
+  - Le rapporteur est bien placé
+  - La graduation est correctement lue et choisie
+- L'élève sait nommer un angle
+- L'élève sait identifier le sommet d'un angle et ses côtés
+- ...
+- L'élève respecte les règles de réponses aux consignes (répond par des phrases,
+justifie si demandé, effectue l'action correcte du verbe de la consigne, l'élève
+écrit bien sur le sujet si demandé et sur la copie si non)
+
+- Au moment du rendu de la copie, l'élève doit remplir un tableau d'auto-évaluation
+concernant des compétences d'organisation :
+  - J'ai utilisé une feuille simple
+  - J'ai rempli l'en-tête du sujet avec mon nom, mon prénom et la date
+  - J'ai noté mon nom et mon prénom sur ma feuille
+  - J'ai laissé de la place à l'enseignant pour un commentaire
+  - J'ai écrit un titre sur l'évaluation
+Mieux encore, on peut organiser les tableaux par niveau, une fois qu'un niveau est passé,
+par exemple deux contrôles de suite avec tout ok, on passe au tableau de niveau 2, etc
+- Autre possiblité, ces tableaux sont choisi après la correction du contrôle 1 par
+l'enseignant puis donnés avec le contrôle numéro deux pour l'élève. 
+- Contrôles nominatifs ?? Par exemple génération automatique puis distribution selon
+le plan de classe ?? Paraît difficile à mettre en oeuvre.
+
+- Ecrire la correction pour chaque question des exercices puis générer une correction
+automatique d'un devoir surveillé.
