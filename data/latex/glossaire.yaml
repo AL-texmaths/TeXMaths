@@ -360,6 +360,7 @@ mots:
       Voir \textbf{Tracer}.
     definition_orale: ""
     definition_rigoureuse: ""
+    pictogramme: "\\twemoji{writing hand}"
 
   - nom: 'Décomposer (un nombre)'
     niveau: "6e"
