@@ -2,19 +2,22 @@
 \usepackage[a5paper,hmargin=1cm,vmargin=1.5cm]{geometry}
 \usepackage{texmaths-symbols}
 \usepackage{texmaths-picto}
-\usepackage[Verdana]{texmaths-fonts}
-% Packages pour pictogrammes
+\usepackage[New Century Schoolbook]{texmaths-fonts}
 \usepackage{lucide-icons}
 \usepackage{fontawesome7}
 \usepackage{twemojis}
 
 \long\def\writeword#1#2{%
-    \noindent{\bfseries#1 :}\smallskip\par\noindent\begingroup
+    \noindent{\bfseries#1}\smallskip\par\noindent\begingroup
     \leftskip=20pt\rightskip=0pt plus 1fil\relax #2\par\endgroup
-    \bigbreak
+    \bigbreak\vskip2pt plus 1fil\relax
     }
-\let\warning\relax
+
+\newif\ifshowintro
+\showintrofalse
+
 \begin{document}
+    \ifshowintro
     Ce glossaire a pour but de dresser la liste des verbes utilisés dans les consignes
     des exercices mathématiques. L'élève qui se sentira démuni face à une consigne
     devra avoir comme premier réflexe de rechercher dans ce glossaire, le verbe de
@@ -49,7 +52,7 @@
     On peut penser à éventuellement laisser une partie ou (l'entièreté selon les élèves)
     de ce document (le document élève) en évaluations pour les aider.
     
-    \newpage
+    \newpage\fi
     \begin{center}\LARGE
         Glossaire des verbes de consignes de mathématiques
     \end{center}

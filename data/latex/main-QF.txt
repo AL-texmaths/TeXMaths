@@ -4,3 +4,6 @@
 6e-4-Fractions-QF4/comparaison_fractions-1
 6e-4-Fractions-QF5/nature_des_angles-1
 6e-4-Fractions-QF6/vocabulaire_operations-2
+5e-4-Division_euclidienne-QF1/polygones_a_main_levee-1
+5e-4-Division_euclidienne-QF2/flash-multiplication_division_par_dix_cent_mille-1
+5e-4-Division_euclidienne-QF3/pourcentages-4

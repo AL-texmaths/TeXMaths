@@ -7,6 +7,7 @@
 > $(AB)$          : la droite passant par $A$ et $B$  
 > $[AB)$          : la demi-droite d'origine $A$ passant par $B$  
 > $ABC$           : le triangle reliant $A$, $B$ et $C$  
+> $ABCD$          : le polygone reliant $A$, $B$, $C$ et $D$  
 > $\widehat{ABC}$ : l'angle de sommet $B$ et côtes $[BA)$ et $[BC)$  
 ### Relations entre les objets
 > $\in$           : appartient à  
@@ -31,6 +32,6 @@
 > $\leq$ : inférieur ou égal à  
 > $\geq$ : supérieur ou égal à  
 > $\approx$ : environ égal à  
-###  fonctions
+###  Fonctions
 > $f(x)$ : la valeur de la fonction $f$ en $x$  
 > $f:x\mapsto y$ : la fonction $f$ qui à $x$ associe $y$  

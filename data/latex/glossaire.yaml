@@ -14,7 +14,7 @@ mots:
     niveau: "6e"
     definition_ecrite: |
       Tracer en utilisant uniquement le crayon, sans tenir compte des vraies
-      grandeurs. \par\warning Penser à bien \textbf{Coder} la figure.
+      grandeurs. \par\noindent\warning Penser à bien \textbf{Coder} la figure.
     definition_orale: |
       Sans les outils et avec le codage.
     definition_rigoureuse: ""
@@ -44,6 +44,7 @@ mots:
       les grandeurs égales (longueurs, angles).
     definition_orale: ""
     definition_rigoureuse: ""
+    pictogramme: "\\svg[scale=0.1]{glossaire-pictogramme-coder}"
 
   - nom: 'Déduire'
     niveau: "5e"
@@ -66,7 +67,7 @@ mots:
     definition_ecrite: |
       Réécrire l'expression en utilisant le moins d'opérations possibles
       (effectuer toutes les opérations numériques, calculer les termes contenant
-      la même lettre, enlever le symbole $\times$, ...).
+      la même lettre, enlever le symbole $\times$,~...).
     definition_orale: ""
     definition_rigoureuse: ""
 
@@ -74,7 +75,7 @@ mots:
     niveau: "6e"
     definition_ecrite: |
       Réécrire en utilisant des notations mathématiques comme des nombres, des symboles
-      ($=$, $+$, $-$, $\times$, $\div$, $\in$, $(\quad)$ ,$[\quad]$, ...) ou des lettres
+      ($=$, $+$, $-$, $\times$, $\div$, $\in$, $(\quad)$ ,$[\quad]$,~...) ou des lettres
       (\mathspoint{ABC}, $\widehat{\mathspoint{ABC}}$, $x$, $a$).
     definition_orale: ""
     definition_rigoureuse: ""
@@ -155,7 +156,7 @@ mots:
     niveau: "6e"
     definition_ecrite: |
       Effectuer des opérations pour obtenir la valeur numérique d'une expression
-      numérique ou d'une grandeur (aire, périmètre, volume, ...)
+      numérique ou d'une grandeur (aire, périmètre, volume,~...)
     definition_orale: ""
     definition_rigoureuse: ""
     pictogramme: "\\lucideicon{calculator}"
@@ -181,6 +182,7 @@ mots:
       Supprimer le symbole $\times$ devant une lettre ou devant des parenthèses.
     definition_orale: ""
     definition_rigoureuse: ""
+    pictogramme: "\\lucideicon{minimize-2}"
 
   - nom: 'Simplifier une fraction'
     niveau: "5e"
@@ -200,7 +202,7 @@ mots:
   - nom: 'Soustraire'
     niveau: "6e"
     definition_ecrite: |
-      Effectuer une soustraction ($-$).
+      Effectuer une soustraction.
     definition_orale: ""
     definition_rigoureuse: ""
     pictogramme: "\\lucideicon{circle-minus}"
@@ -208,7 +210,7 @@ mots:
   - nom: 'Multiplier'
     niveau: "6e"
     definition_ecrite: |
-      Effectuer une multiplication ($\times$).
+      Effectuer une multiplication.
     definition_orale: ""
     definition_rigoureuse: ""
     pictogramme: "\\lucideicon{circle-x}"
@@ -216,7 +218,7 @@ mots:
   - nom: 'Diviser'
     niveau: "6e"
     definition_ecrite: |
-      Effectuer une division ($\div$).
+      Effectuer une division.
     definition_orale: ""
     definition_rigoureuse: ""
     pictogramme: "\\lucideicon{circle-divide}"
@@ -239,7 +241,7 @@ mots:
     niveau: "6e"
     definition_ecrite: |
       Utiliser les outils de géométrie pour déterminer la valeur
-      d'une grandeur (longueur, angle, ...).\par\warning C'est une valeur approchée.
+      d'une grandeur (longueur, angle,~...).\par\noindent\warning C'est une valeur approchée.
     definition_orale: ""
     definition_rigoureuse: ""
     pictogramme: "\\lucideicon{ruler-dimension-line}"
@@ -247,18 +249,19 @@ mots:
   - nom: 'Nommer un objet géométrique'
     niveau: "6e"
     definition_ecrite: |
-      Écrire le nom de l'objet (exemple: \mathspoint{A},
-      \mathspoint{AB}, $\widehat{\mathspoint{ABC}}$, ...)
+      Utiliser les notations géométriques pour écrire le
+      nom d'un objet géométrique (exemple: \mathspoint{A},
+      [\mathspoint{AB}], $\widehat{\mathspoint{ABC}}$,~...).
     definition_orale: ""
     definition_rigoureuse: ""
-    pictogramme: "\\lucideicon{case-upper}"
 
   - nom: 'Convertir'
     niveau: "6e"
     definition_ecrite: |
-      Changer d'unité (cm en m, mL en L, ...).
+      Changer d'unité (cm en m, mL en L,~...).
     definition_orale: ""
     definition_rigoureuse: ""
+    pictogramme: "\\lucideicon{refresh-cw}"
 
   - nom: 'Justifier'
     niveau: "6e"
@@ -266,6 +269,7 @@ mots:
       Donner une raison qui explique la réponse.
     definition_orale: ""
     definition_rigoureuse: ""
+    pictogramme: "\\lucideicon{message-circle-question-mark}"
 
   - nom: 'Ordonner'
     niveau: "6e"
@@ -276,12 +280,10 @@ mots:
     definition_orale: ""
     definition_rigoureuse: ""
 
-  - nom: 'Noter'
+  - nom: 'Noter (sur une figure)'
     niveau: "6e"
     definition_ecrite: |
-      Utiliser les notations géométriques pour écrire le
-      nom d'un objet géométrique (exemple: \mathspoint{A},
-      [\mathspoint{AB}], $\widehat{\mathspoint{ABC}}$, ...).
+      \textbf{Nommer} l'objet sur la figure.
     definition_orale: ""
     definition_rigoureuse: ""
 
@@ -291,6 +293,7 @@ mots:
       Placer un nombre entre deux autres nombres.
     definition_orale: ""
     definition_rigoureuse: ""
+    pictogramme: "$...\\,<?<\\,...$"
 
   - nom: 'Montrer'
     niveau: "4e"
@@ -310,7 +313,7 @@ mots:
     niveau: "6e"
     definition_ecrite: |
       Écrire la réponse après avoir cherché.
-      \par\warning Laisser les traces de recherche.
+      \par\noindent\warning Laisser les traces de recherche.
     definition_orale: ""
     definition_rigoureuse: ""
     pictogramme: "\\lucideicon{search}"
@@ -390,7 +393,7 @@ mots:
       Donner une valeur appoximative d'un nombre en respectant les consignes.
     definition_orale: ""
     definition_rigoureuse: ""
-    pictogramme: \simeq
+    pictogramme: $\simeq$
 
   - nom: 'Évaluer'
     niveau: "5e"
@@ -440,16 +443,18 @@ mots:
   - nom: 'Remplir'
     niveau: "6e"
     definition_ecrite: |
-      Completer un tableau, un graphique ou un schéma avec les données fournies.
+      Compléter un tableau, un graphique ou un schéma avec les données fournies.
     definition_orale: ""
     definition_rigoureuse: ""
 
   - nom: 'Décrire une figure'
     niveau: "6e"
     definition_ecrite: |
-      Écrire un maximum d'informations sur la figure.
+      Écrire un maximum d'informations sur la figure (mesures
+      connues des longueurs, angles, signification du codage, etc.)
     definition_orale: ""
     definition_rigoureuse: ""
+    pictogramme: "\\lucideicon{text-align-start}"
 
   - nom: 'Classer'
     niveau: "6e"
@@ -462,8 +467,9 @@ mots:
   - nom: 'Encadrer'
     niveau: "6e"
     definition_ecrite: |
-      Donner un nombre plus petit et un nombre plus grand.\par
-      \warning Les nombres doivent respecter la consigne.
+      Donner un nombre plus petit et un nombre plus grand.\par\noindent
+      \warning Les nombres doivent respecter la consigne (entiers,
+      arrondi au dixième, etc.).
     definition_orale: ""
     definition_rigoureuse: ""
-    pictogramme: "$<\\,....\\,<$"
+    pictogramme: "$?<\\,....\\,<?$"

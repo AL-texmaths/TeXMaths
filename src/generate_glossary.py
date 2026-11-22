@@ -59,13 +59,13 @@ def generer_latex(
         pictogramme = mot.get("pictogramme")
         if pictogramme is not None and not isinstance(pictogramme, str):
             raise ValueError(f"Pictogramme invalide pour l'entrée n° {numero}.")
-        selection.append((nom, definition, (pictogramme or "").strip()))
+        selection.append((nom, definition, pictogramme))
 
     selection.sort(key=lambda mot: cle_alphabetique(mot[0]))
     lignes = [
         r"\writeword{"
         + sur_une_ligne(nom)
-        + (" " + pictogramme if pictogramme else "")
+        + (" " + f"{{\\Large {pictogramme}}}" if pictogramme else "")
         + "}{"
         + sur_une_ligne(definition)
         + "}%"
