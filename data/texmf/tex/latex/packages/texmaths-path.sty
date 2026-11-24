@@ -22,20 +22,23 @@
 %   end
 % }
 
-% Détection de l'exécutable Python dans .venv (Windows: Scripts, Linux: bin)
+% Détection de Python dans .venv, puis dans Programmes sur le même disque
 \directlua{
   local path = status.filename
   path = path:gsub("\\", "/")
   local root = path:match("(.*/Projects/)")
-  local project_root = root .. "TeXMaths/"
   if root then
+    local project_root = root .. "TeXMaths/"
     local base = root .. "TeXMaths/.venv/"
+    local programs_root = root:match("^(.*)/Projects/$")
     local candidates = {
       base .. "Scripts/python.exe",
       base .. "Scripts/python",
       base .. "bin/python",
       base .. "python.exe",
-      base .. "python"
+      base .. "python",
+      programs_root .. "/Programmes/Python/python.exe",
+      programs_root .. "/Programmes/Python-3.12/python.exe"
     }
     local found = nil
     for _, p in ipairs(candidates) do
@@ -54,7 +57,7 @@
       tex.sprint("\\gdef\\texmaths@python@exe{}")
       tex.sprint("\\gdef\\projects@path@root{}")
       tex.sprint("\\gdef\\texmaths@path@root{}")
-      tex.sprint("\\PackageWarning{texmaths-path}{Python executable not found in .venv (checked Scripts and bin)}")
+      tex.sprint("\\PackageWarning{texmaths-path}{Python executable not found in .venv, Programmes/Python or Programmes/Python-3.12}")
     end
   else
     tex.sprint("\\gdef\\texmaths@python@exe{}")

@@ -106,3 +106,7 @@ le plan de classe ?? Paraît difficile à mettre en oeuvre.
 
 - Ecrire la correction pour chaque question des exercices puis générer une correction
 automatique d'un devoir surveillé.
+
+- pictogrammes : expliquer bulle avec petites lignes
+- ordonner: carrés classé par ordre croissant
+- traduire: bulle --> symboles mathémtaiques
