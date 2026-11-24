@@ -1,6 +1,6 @@
 # DS Fractions 5eme
 ## Amélioration
-- Combiner exercices 1 et 2, l'exercice doit permettre de vérifier si l'élève est capable de produire des fractions égales. Penser à inverser l'ordre des questions.
+- Combiner exercices 1 et 2, l'exercice doivt permettre de vérifier si l'élève est capable de produire des fractions égales. Penser à inverser l'ordre des questions.
 - Avant de demander aux élève d'effectuer des calculs "à la chaîne", on peut proposer des questions préliminaires permettant à l'élève de tester ces connaissances.
 ## 
 - produire des fractions égales
