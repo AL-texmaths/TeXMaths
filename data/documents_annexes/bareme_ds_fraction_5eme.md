@@ -43,3 +43,10 @@ le même nombre au numérateur et au dénominateur.
   - l'élève ne modifie que le dénominateur de la fraction
   - l'élève ajoute aussi les dénominateurs
   - l'élève se trompe en ajoutant les numérateurs
+## Exercice 6 (prendre la fraction d'une quantité)
+1. 
+  - l'élève ne passe pas par un calcul fractionnaire :
+  $400\div8=50$ et $50\times3=150$
+
+## Exercice 7 (exprimer une quantité sous forme de fraction)
+
