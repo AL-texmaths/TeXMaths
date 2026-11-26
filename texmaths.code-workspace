@@ -21,6 +21,9 @@
         "markdown-pdf.printBackground": true,
         "markdown-pdf.displayHeaderFooter": true,
         "markdown-pdf.headerTemplate": "<div style='width:100%; margin:0 18mm; color:#AFCBE8; font-family:Segoe UI,Arial,sans-serif; font-size:10pt; font-weight:600; text-align:left;'><span class='title'></span></div>",
-        "markdown-pdf.footerTemplate": "<div style='width:100%; margin:0 18mm; color:#AFCBE8; font-family:Segoe UI,Arial,sans-serif; font-size:10pt; text-align:center;'><span class='pageNumber'></span> / <span class='totalPages'></span></div>"
+        "markdown-pdf.footerTemplate": "<div style='width:100%; margin:0 18mm; color:#AFCBE8; font-family:Segoe UI,Arial,sans-serif; font-size:10pt; text-align:center;'><span class='pageNumber'></span> / <span class='totalPages'></span></div>",
+        "terminal.integrated.env.windows": {
+            "TEXMFHOME": "${workspaceFolder}\\data\\texmf"
+        }
     }
 }

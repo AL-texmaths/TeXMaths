@@ -64,7 +64,8 @@
         "magick": [
             "magick",
             "\\Root\\Programmes\\Imagemagick\\magick.exe",
-            "C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.exe"
+            "C:\\Program Files\\ImageMagick-7.1.2-Q16-HDRI\\magick.exe",
+            "\\Programs\\Imagemagick\\magick.exe"
         ],
         "ghostscript": [
             "gs",
