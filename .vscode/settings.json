@@ -37,7 +37,10 @@
           "-shell-escape",
           "-recorder",
           "%DOCFILE%"
-        ]
+        ],
+        "env": {
+            "TEXMFHOME": "%DIR%/../../data/texmf"
+        }
       },
       {
         "name": "latexmk-portable",
@@ -50,7 +53,10 @@
           "-shell-escape",
           "-recorder",
           "%DOCFILE%"
-        ]
+        ],
+        "env": {
+            "TEXMFHOME": "%DIR%/../../data/texmf"
+        }
       },
       {
       "name": "lualatex-pc",
@@ -73,6 +79,20 @@
         "-shell-escape",
         "%DOCFILE%"
       ]
+    },
+    {
+        "name": "latexmk",
+        "command": "latexmk",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "-pdf",
+            "%DOC%"
+        ],
+        "env": {
+            "TEXMFHOME": "%DIR%/../../data/texmf"
+        }
     }
   ],
   "latex-workshop.latex.recipes": [
