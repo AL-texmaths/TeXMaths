@@ -110,3 +110,6 @@ automatique d'un devoir surveillé.
 - pictogrammes : expliquer bulle avec petites lignes
 - ordonner: carrés classé par ordre croissant
 - traduire: bulle --> symboles mathémtaiques
+
+# BUG
+- le log impress n'affiche pas la première ligne

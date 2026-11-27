@@ -1,6 +1,47 @@
 \documentclass{article}
-\usepackage{texmaths-gif}
+\usepackage[hmargin=30pt]{geometry}
+\usepackage{tabularray}
+\usepackage{texmaths-main}
+\usepackage[Comic Sans MS]{texmaths-fonts}
+\makeatletter
+\def\path@to@exercices{E:/Root/Projects/TeXMaths/data/latex/exercices/}
+\let\enonce\read@enonce
+\let\readexercice\read@exercice
+\makeatother
+\def\newexercice#1{\vskip20pt\par\noindent{\Large\textbf{Exercice #1: }}\vskip10pt\par\noindent}
 \begin{document}
+{\LARGE\textbf{Auto-Évaluation}}\par\vskip50pt\noindent
+    \begin{tblr}{%
+            colspec={Q[c,m]Q[l,m,wd=300pt]*4{Q[c,m]}},
+            hlines, vlines%
+            }
+        Thème&Compétences&A&B&C&D\\
+        Transversale&Je connais le vocabulaire numérateur/dénominateur&&&&\\
+        Transversale&Je connais le vocabulaire inférieur/supérieur&&&&\\
+        Transversale&Je connais le vocabulaire ordre croissant/décroissant&&&&\\
+        Représenter&Je connais le rang des chiffres dans l'écriture d'un nombre décimal&&&&\\
+        Représenter&Je sais passer d'une écriture décimale à l'écriture en fraction décimale&&&&\\
+        Représenter&Je sais décomposer un nombre décimal en une somme de fractions décimales&&&&\\
+        Représenter&Je sais placer une fraction sur une demi-droite graduée&&&&\\
+        Représenter&J'identifie les zéros inutiles dans l'écriture décimale d'un nombre&&&&\\
+        Représenter&Je sais encadrer un nommbre décimal entre deux nombres entiers&&&&\\
+    \end{tblr}
+    \newpage\large
+    \newexercice1
+    \readexercice{0979-c}
+    \newexercice2
+    \readexercice{0196-c}
+    \newexercice3
+    \readexercice{0198-c}
+    \newexercice4
+    \readexercice{0200-c}
+    \newexercice5
+    \readexercice{0194-c}
+    \newexercice6
+    \readexercice{0199-c}
+    \newpage
+    \newexercice7
+    \readexercice{0980-c}
 
-COUCOU
+
 \end{document}
