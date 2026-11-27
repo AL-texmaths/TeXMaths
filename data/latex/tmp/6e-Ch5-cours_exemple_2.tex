@@ -1,0 +1,8 @@
+\documentclass [varwidth]{standalone}
+%scale[1]
+%lmargin[30]
+%vmargins[30]
+\usepackage {texmaths-main}
+\begin {document}
+\setCompleteVersion {0} \begin {tikzpicture}[baseline=(I.base)] \coordinate (O)at(0,0); \coordinate [label=right:$\sf (d)$](X)at(2,5); \coordinate [label=above left:A](A)at(-1,3); \tkzDefPointsBy [reflection=over O--X](A){A'} \path (A)--(A')coordinate[pos=0.5](I); \toComplete { \draw node[below right]at(I){\sf I}; } \draw node[below right]at(A'){A'}; \draw [red](O)--(X); \draw node at(A){$\times $}; \draw node at(A'){$\times $}; \toComplete { \tkzMarkRightAngle (A',I,X) \draw (A)--(A'); \path (A)--(I)node[pos=0.5,sloped]{//}; \path (I)--(A')node[pos=0.5,sloped]{//}; } \end {tikzpicture} 
+\end {document}

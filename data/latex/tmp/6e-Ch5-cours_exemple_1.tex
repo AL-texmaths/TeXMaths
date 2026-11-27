@@ -1,0 +1,8 @@
+\documentclass [varwidth]{standalone}
+%scale[1]
+%lmargin[30]
+%vmargins[30]
+\usepackage {texmaths-main}
+\begin {document}
+\setCompleteVersion {0} \begin {tikzpicture}[scale=0.8] \coordinate (F0)at(-1,-2); \coordinate [label=above left:\color {red}$(d)$](F1)at(5,4); \coordinate [label=below:\sl A](A0)at(0,1); \coordinate [label=below right:\sl B](B0)at(0,2); \coordinate [label=above right:\sl C](C0)at(2.5,3); \coordinate [label=above right:\sl D](D0)at(0,4); \coordinate [label=left:\sl E](E0)at(-2,3); \tkzDefPointsBy [reflection = over F0--F1](A0,B0,C0,D0,E0){A',B',C',D',E'} \foreach \X /\Xlab in{A/left,B/above left,C/above,D/right,E/below}{\coordinate [label=\Xlab :{\sl \X '}](\X 1)at(\X '); } \foreach \j in{0,'}{\filldraw [fill=Rainbow1-vert](A\j )--(B\j )--(C\j )--(D\j )--(E\j )--cycle; } \draw [red](F0)--(F1); \end {tikzpicture} 
+\end {document}

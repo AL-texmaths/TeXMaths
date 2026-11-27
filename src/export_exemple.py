@@ -69,6 +69,7 @@ def export_a4_portrait(pdf_path, scale, lmargin, hmargins, outputPath):
         except PermissionError:
             input(f"PermissionError: close {outputPath} and press enter to continue")
 
+failed = False
 for texFileName in EXEMPLES_DIR.glob('*.tex'):
 
     try:
@@ -95,10 +96,16 @@ for texFileName in EXEMPLES_DIR.glob('*.tex'):
 
     result = compile_latex(
         EXEMPLES_DIR / texFileName,
-        cmd_args=['-interaction=nonstopmode', '-halt-on-error']
+        cmd_args=['-shell-escape', '-interaction=nonstopmode', '-halt-on-error']
         )
     if result.returncode != 0:
         print(f"! LaTeX error in {texFileName.name} (see {texFileName.with_suffix('.log').name})")
+        if result.stdout:
+            print(result.stdout)
+        if result.stderr:
+            print(result.stderr)
+        failed = True
+        continue
 
     pdf_path = ""
     try :
@@ -106,5 +113,8 @@ for texFileName in EXEMPLES_DIR.glob('*.tex'):
         export_a4_portrait(pdf_path, scale, lmargin, vmargins, output_path)
     except(FileNotFoundError):
         print(f"{pdf_path}\n! No pdf file exported !")
+        failed = True
 
+if failed:
+    raise SystemExit(1)
 update_last_run_date(__file__)

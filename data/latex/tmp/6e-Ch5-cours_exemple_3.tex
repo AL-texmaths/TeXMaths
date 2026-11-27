@@ -1,0 +1,8 @@
+\documentclass [varwidth]{standalone}
+%scale[1.2]
+%lmargin[30]
+%vmargins[30]
+\usepackage {texmaths-main}
+\begin {document}
+\setCompleteVersion {0} \begin {tikzpicture}[rotate=40,scale=0.95] \coordinate (d0)at(0,-4); \coordinate [label=right:$\sf (d_1)$](d1)at(0,4); \coordinate [label=below:A](A)at(1,-2); \coordinate [label=right:B](B)at(5,0); \coordinate [label=above:C](C)at(4,3); \coordinate [label=left:D](D)at(2,3); \tkzDefPointsBy [reflection=over d0--d1](A,B,C,D){A',B',C',D'} \draw [red](d0)--(d1); \draw (A)--(B)--(C)--(D)--cycle; \draw [white](A')--(B')--(C')--(D')--cycle; \end {tikzpicture} 
+\end {document}
